@@ -14,8 +14,8 @@ export default new Vuex.Store({
   state: {
     monster: {
       name: 'My New Monster',
-      size: 'medium',
-      type: 'Humanoid',
+      size: 'Medium',
+      type: 'humanoid',
       alignment: '',
       AC: 10,
       ACType: '',
