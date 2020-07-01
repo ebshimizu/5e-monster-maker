@@ -2,8 +2,9 @@
   <v-expansion-panels accordion hover multiple focusable>
     <CR />
     <basics />
-    <saves />
     <speeds />
+    <saves />
+    <skills />
   </v-expansion-panels>
 </template>
 
@@ -11,6 +12,7 @@
 import Basics from './input/Basics';
 import CR from './input/CR';
 import Saves from './input/Saves';
+import Skills from './input/Skills';
 import Speeds from './input/Speeds';
 
 export default {
@@ -20,6 +22,7 @@ export default {
     Basics,
     CR,
     Saves,
+    Skills,
     Speeds,
   },
 };

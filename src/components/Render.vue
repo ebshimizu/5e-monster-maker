@@ -23,6 +23,7 @@
     </v-row>
     <v-divider></v-divider>
     <div class="skill"><span class="name">Saving Throws</span> {{ saves }}</div>
+    <div class="skill"><span class="name">Skills</span> {{ skills }}</div>
   </v-sheet>
 </template>
 
@@ -74,6 +75,17 @@ export default {
 
       return saves.filter((s) => s !== '').join(', ');
     },
+    skills() {
+      const skills = this.monster.skills.map(s => {
+        if (s.override) {
+          return `${s.skill.key} ${renderBonus(s.overrideValue)}`;
+        } else {
+          return `${s.skill.key} ${renderBonus(this.$store.getters.defaultSkillBonus(s))}`;
+        }
+      });
+
+      return skills.join(', ');
+    }
   },
 };
 </script>

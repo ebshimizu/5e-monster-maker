@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panel>
     <v-expansion-panel-header>Basics</v-expansion-panel-header>
-    <v-expansion-panel-content>
+    <v-expansion-panel-content class="mt-2">
       <v-text-field label="Name" v-model="name"></v-text-field>
       <v-row align="center" no-gutters>
         <v-col cols="2" class="pr-2"><v-select label="Size"></v-select></v-col>
@@ -10,7 +10,7 @@
       </v-row>
       <v-row align="center" no-gutters>
         <v-col cols="1" class="pr-2"><v-text-field label="AC" type="number" v-model="AC" :rules="[rules.number]"></v-text-field></v-col>
-        <v-col cols="2" class="pr-2"><v-text-field label="AC Type" v-model="ACType" hint="Natural Armor, etc."></v-text-field></v-col>
+        <v-col cols="3" class="pr-2"><v-text-field label="AC Type" v-model="ACType" hint="Or AC Notes"></v-text-field></v-col>
         <v-col cols="2" class="pr-2"><v-text-field label="HD Count" type="number" v-model="HD" hint="Number of Dice" :rules="[rules.number]"></v-text-field></v-col>
         <v-col cols="2" class="pr-2"><v-select label="HD Type" :items="diceItems" v-model="HDType"></v-select></v-col>
         <v-col cols="2"><v-text-field label="HP Modifier" type="number" v-model="HPModifier"></v-text-field></v-col>

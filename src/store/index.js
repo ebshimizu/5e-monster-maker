@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { saveModifier } from '../components/util';
 import DICE from '../data/DICE';
 import MOVEMENT from '../data/MOVEMENT';
+import SKILL from '../data/SKILL';
 import { MUTATION } from '../data/ACTIONS';
 
 Vue.use(Vuex);
@@ -73,6 +74,14 @@ export default new Vuex.Store({
           overrideValue: 0,
         },
       },
+      skills: [
+        {
+          skill: SKILL.STEALTH,
+          proficient: false,
+          override: false,
+          overrideValue: 0,
+        },
+      ],
     },
   },
   getters: {
@@ -80,6 +89,14 @@ export default new Vuex.Store({
       const proficient = state.monster.saves[stat].proficient;
       return saveModifier(
         state.monster.stats[stat],
+        proficient ? state.monster.proficiency : 0
+      );
+    },
+    // this needs the full skill object
+    defaultSkillBonus: (state) => (skill) => {
+      const proficient = skill.proficient;
+      return saveModifier(
+        state.monster.stats[skill.skill.stat],
         proficient ? state.monster.proficiency : 0
       );
     },
@@ -107,6 +124,20 @@ export default new Vuex.Store({
     },
     [MUTATION.SET_SAVE](state, { key, proficient, override, overrideValue }) {
       state.monster.saves[key] = { proficient, override, overrideValue };
+    },
+    [MUTATION.SET_SKILL](state, { index, skill }) {
+      Vue.set(state.monster.skills, index, skill);
+    },
+    [MUTATION.ADD_SKILL](state, skill) {
+      state.monster.skills.push({
+        skill,
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      });
+    },
+    [MUTATION.DELETE_SKILL](state, index) {
+      state.monster.skills.splice(index, 1);
     },
   },
   actions: {},

@@ -7,5 +7,8 @@ export const MUTATION = {
   ADD_SPEED: 'Add Speed',
   EDIT_SPEED: 'Edit Speed',
   DELETE_SPEED: 'Delete Speed',
-  SET_SAVE: 'Set Save'
+  SET_SAVE: 'Set Save',
+  SET_SKILL: 'Set Skill',
+  ADD_SKILL: 'Add Skill',
+  DELETE_SKILL: 'Delete Skill',
 };
