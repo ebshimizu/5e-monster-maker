@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { avgHP, renderModifier, renderBonus, saveModifier } from './util';
+import { avgHP, renderModifier, renderBonus } from './util';
 import MOVEMENT from '../data/MOVEMENT';
 
 export default {
@@ -66,11 +66,7 @@ export default {
         if (save.override) {
           return `${k} ${renderBonus(save.overrideValue)}`;
         } else if (save.proficient) {
-          const bonus = saveModifier(
-            this.monster.stats[k],
-            this.monster.proficiency
-          );
-          return `${k} ${renderBonus(bonus)}`;
+          return `${k} ${renderBonus(this.$store.getters.defaultSaveBonus(k))}`;
         } else {
           return '';
         }

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 
+import { saveModifier } from '../components/util';
 import DICE from '../data/DICE';
 import MOVEMENT from '../data/MOVEMENT';
 import { MUTATION } from '../data/ACTIONS';
@@ -74,6 +75,15 @@ export default new Vuex.Store({
       },
     },
   },
+  getters: {
+    defaultSaveBonus: (state) => (stat) => {
+      const proficient = state.monster.saves[stat].proficient;
+      return saveModifier(
+        state.monster.stats[stat],
+        proficient ? state.monster.proficiency : 0
+      );
+    },
+  },
   mutations: {
     [MUTATION.SET_SIMPLE_PROP](state, payload) {
       state.monster[payload.key] = payload.value;
@@ -96,8 +106,8 @@ export default new Vuex.Store({
       state.monster.speeds.splice(index, 1);
     },
     [MUTATION.SET_SAVE](state, { key, proficient, override, overrideValue }) {
-      state.monster.saves[key] = { proficient, override, overrideValue }
-    }
+      state.monster.saves[key] = { proficient, override, overrideValue };
+    },
   },
   actions: {},
   modules: {},

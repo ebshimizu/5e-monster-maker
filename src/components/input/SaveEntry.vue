@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { saveModifier } from '../util';
 import { MUTATION } from '../../data/ACTIONS';
 
 export default {
@@ -34,10 +33,7 @@ export default {
       get() {
         if (!this.save.override) {
           // compute automatically
-          return saveModifier(
-            this.$store.state.monster.stats[this.save.key],
-            this.save.proficient ? this.$store.state.monster.proficiency : 0
-          );
+          return this.$store.getters.defaultSaveBonus(this.save.key);
         } else {
           return this.save.overrideValue;
         }
