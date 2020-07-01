@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-toolbar-title>5e Monster Maker</v-toolbar-title> 
+    </v-app-bar>
+
+    <v-main>
+      <v-container fluid>
+        <v-row no-gutters>
+          <v-col cols="8"><data-entry /></v-col>
+          <v-col cols="4" class="px-6 py-2"><render /></v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DataEntry from './components/DataEntry'
+import Render from './components/Render'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    DataEntry,
+    Render
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
