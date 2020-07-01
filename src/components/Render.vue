@@ -33,6 +33,13 @@
     <div class="skill" v-show="this.monster.vulnerabilities.length > 0">
       <span class="name">Damage Vulnerabilities</span> {{ vulnerabilities }}
     </div>
+    <div class="skill" v-show="this.monster.conditions.length > 0">
+      <span class="name">Condition Immunities</span> {{ conditions }}
+    </div>
+    <div class="skill"><span class="name">Senses</span> {{ senses }}</div>
+    <div class="skill">
+      <span class="name">Languages</span> {{ monster.languages }}
+    </div>
   </v-sheet>
 </template>
 
@@ -105,6 +112,32 @@ export default {
     },
     vulnerabilities() {
       return this.monster.vulnerabilities.join(', ');
+    },
+    conditions() {
+      return this.monster.conditions.join(', ');
+    },
+    senses() {
+      const nonZero = Object.keys(this.monster.senses)
+        .map((k) => {
+          return { name: k, value: this.monster.senses[k] };
+        })
+        .filter((s) => s.value > 0);
+
+      nonZero.push({
+        name: 'Passive Perception',
+        value: this.monster.passivePerception.override
+          ? this.monster.passivePerception.overrideValue
+          : this.$store.getters.passivePerception,
+      });
+
+      return nonZero
+        .map(
+          (s) =>
+            `${s.name} ${s.value} ${
+              s.name !== 'Passive Perception' ? 'ft.' : ''
+            }`
+        )
+        .join(', ');
     },
   },
 };

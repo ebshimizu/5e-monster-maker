@@ -1,6 +1,9 @@
 <template>
   <v-expansion-panel>
-    <v-expansion-panel-header>Damage Type Adjustments</v-expansion-panel-header>
+    <v-expansion-panel-header
+      >Damage Type Adjustments and Condition
+      Immunities</v-expansion-panel-header
+    >
     <v-expansion-panel-content class="mt-2">
       <v-row align="center">
         <v-col cols="12">
@@ -45,6 +48,20 @@
           >
           </v-select>
         </v-col>
+        <v-col cols="12">
+          <v-select
+            :items="conditionTypes"
+            v-model="conditions"
+            label="Condition Immunities"
+            multiple
+            chips
+            clearable
+            deletable-chips
+            hide-selected
+            :menu-props="menuOptions"
+          >
+          </v-select>
+        </v-col>
       </v-row>
     </v-expansion-panel-content>
   </v-expansion-panel>
@@ -52,6 +69,7 @@
 
 <script>
 import { DAMAGE_TYPE_SELECT } from '../../data/DAMAGE_TYPE';
+import { CONDITION_SELECT } from '../../data/CONDITION';
 import { MUTATION } from '../../data/ACTIONS';
 
 export default {
@@ -59,6 +77,7 @@ export default {
   data() {
     return {
       damageTypes: DAMAGE_TYPE_SELECT,
+      conditionTypes: CONDITION_SELECT,
       menuOptions: {
         closeOnClick: false,
         closeOnContentClick: false,
@@ -99,6 +118,17 @@ export default {
       set(value) {
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
           key: 'vulnerabilities',
+          value,
+        });
+      },
+    },
+    conditions: {
+      get() {
+        return this.$store.state.monster.conditions;
+      },
+      set(value) {
+        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
+          key: 'conditions',
           value,
         });
       },

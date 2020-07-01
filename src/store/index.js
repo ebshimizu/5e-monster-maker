@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 
-import { saveModifier } from '../components/util';
+import { saveModifier, statModifier } from '../components/util';
 import DICE from '../data/DICE';
 import MOVEMENT from '../data/MOVEMENT';
 import SKILL from '../data/SKILL';
@@ -76,7 +76,7 @@ export default new Vuex.Store({
       },
       skills: [
         {
-          skill: SKILL.STEALTH,
+          skill: SKILL.PERCEPTION,
           proficient: false,
           override: false,
           overrideValue: 0,
@@ -85,6 +85,18 @@ export default new Vuex.Store({
       resistances: [],
       immunities: [],
       vulnerabilities: [],
+      conditions: [],
+      senses: {
+        blindsight: 0,
+        darkvision: 0,
+        tremorsense: 0,
+        truesight: 0,
+      },
+      passivePerception: {
+        override: false,
+        overrideValue: 0,
+      },
+      languages: '',
     },
   },
   getters: {
@@ -103,6 +115,18 @@ export default new Vuex.Store({
         proficient ? state.monster.proficiency : 0
       );
     },
+    passivePerception: (state, getters) => {
+      // check if perception is in the skills
+      const perception = state.monster.skills.find(s => s.skill.key === SKILL.PERCEPTION.key);
+      let passive = 10;
+      if (perception) {
+        passive += perception.override ? perception.overrideValue : getters.defaultSkillBonus(perception);
+      } else {
+        passive += statModifier(state.monster.stats.WIS);
+      }
+
+      return passive;
+    }
   },
   mutations: {
     [MUTATION.SET_SIMPLE_PROP](state, payload) {
@@ -142,6 +166,9 @@ export default new Vuex.Store({
     [MUTATION.DELETE_SKILL](state, index) {
       state.monster.skills.splice(index, 1);
     },
+    [MUTATION.SET_SENSE](state, { sense, value }) {
+      state.monster.senses[sense] = value;
+    }
   },
   actions: {},
   modules: {},
