@@ -24,6 +24,15 @@
     <v-divider></v-divider>
     <div class="skill"><span class="name">Saving Throws</span> {{ saves }}</div>
     <div class="skill"><span class="name">Skills</span> {{ skills }}</div>
+    <div class="skill" v-show="this.monster.resistances.length > 0">
+      <span class="name">Damage Resistances</span> {{ resistances }}
+    </div>
+    <div class="skill" v-show="this.monster.immunities.length > 0">
+      <span class="name">Damage Immunities</span> {{ immunities }}
+    </div>
+    <div class="skill" v-show="this.monster.vulnerabilities.length > 0">
+      <span class="name">Damage Vulnerabilities</span> {{ vulnerabilities }}
+    </div>
   </v-sheet>
 </template>
 
@@ -76,16 +85,27 @@ export default {
       return saves.filter((s) => s !== '').join(', ');
     },
     skills() {
-      const skills = this.monster.skills.map(s => {
+      const skills = this.monster.skills.map((s) => {
         if (s.override) {
           return `${s.skill.key} ${renderBonus(s.overrideValue)}`;
         } else {
-          return `${s.skill.key} ${renderBonus(this.$store.getters.defaultSkillBonus(s))}`;
+          return `${s.skill.key} ${renderBonus(
+            this.$store.getters.defaultSkillBonus(s)
+          )}`;
         }
       });
 
       return skills.join(', ');
-    }
+    },
+    resistances() {
+      return this.monster.resistances.join(', ');
+    },
+    immunities() {
+      return this.monster.immunities.join(', ');
+    },
+    vulnerabilities() {
+      return this.monster.vulnerabilities.join(', ');
+    },
   },
 };
 </script>

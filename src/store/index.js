@@ -82,6 +82,9 @@ export default new Vuex.Store({
           overrideValue: 0,
         },
       ],
+      resistances: [],
+      immunities: [],
+      vulnerabilities: [],
     },
   },
   getters: {
