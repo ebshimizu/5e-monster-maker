@@ -22,12 +22,12 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <div class="skill"><span class="name">Saving Throws</span> </div>
+    <div class="skill"><span class="name">Saving Throws</span> {{ saves }}</div>
   </v-sheet>
 </template>
 
 <script>
-import { avgHP, renderModifier } from './util';
+import { avgHP, renderModifier, renderBonus, saveModifier } from './util';
 import MOVEMENT from '../data/MOVEMENT';
 
 export default {
@@ -52,14 +52,32 @@ export default {
       });
     },
     speed() {
-      const speeds = this.monster.speeds.map(s => {
-        const note = s.note === '' ? '' : ` (${s.note})`
-        const type = s.type === MOVEMENT.WALK ? '' : ` ${s.type}`
-        return `${s.speed} ft.${type}${note}`
+      const speeds = this.monster.speeds.map((s) => {
+        const note = s.note === '' ? '' : ` (${s.note})`;
+        const type = s.type === MOVEMENT.WALK ? '' : ` ${s.type}`;
+        return `${s.speed} ft.${type}${note}`;
       });
 
-      return speeds.join(', ')
-    }
+      return speeds.join(', ');
+    },
+    saves() {
+      const saves = Object.keys(this.monster.saves).map((k) => {
+        const save = this.monster.saves[k];
+        if (save.override) {
+          return `${k} ${renderBonus(save.overrideValue)}`;
+        } else if (save.proficient) {
+          const bonus = saveModifier(
+            this.monster.stats[k],
+            this.monster.proficiency
+          );
+          return `${k} ${renderBonus(bonus)}`;
+        } else {
+          return '';
+        }
+      });
+
+      return saves.filter((s) => s !== '').join(', ');
+    },
   },
 };
 </script>

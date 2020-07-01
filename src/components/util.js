@@ -7,10 +7,17 @@ export function statModifier(score) {
 }
 
 export function renderModifier(score) {
-  const mod = statModifier(score);
-  return `${mod >= 0 ? '+' : ''}${mod}`;
+  return renderBonus(statModifier(score));
 }
 
 export function isNumber(value) {
   return !isNaN(parseInt(value)) ? true : "Not a Number"
+}
+
+export function saveModifier(score, proficiency) {
+  return statModifier(score) + proficiency;
+}
+
+export function renderBonus(number) {
+  return `${number >= 0 ? '+' : ''}${number}`
 }

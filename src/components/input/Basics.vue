@@ -9,21 +9,21 @@
         <v-col cols="4"><v-text-field label="Alignment" v-model="alignment"></v-text-field></v-col>
       </v-row>
       <v-row align="center" no-gutters>
-        <v-col cols="1" class="pr-2"><v-text-field label="AC" v-model="AC" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="1" class="pr-2"><v-text-field label="AC" type="number" v-model="AC" :rules="[rules.number]"></v-text-field></v-col>
         <v-col cols="2" class="pr-2"><v-text-field label="AC Type" v-model="ACType" hint="Natural Armor, etc."></v-text-field></v-col>
-        <v-col cols="2" class="pr-2"><v-text-field label="HD Count" v-model="HD" hint="Number of Dice" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="2" class="pr-2"><v-text-field label="HD Count" type="number" v-model="HD" hint="Number of Dice" :rules="[rules.number]"></v-text-field></v-col>
         <v-col cols="2" class="pr-2"><v-select label="HD Type" :items="diceItems" v-model="HDType"></v-select></v-col>
-        <v-col cols="2"><v-text-field label="HP Modifier" v-model="HPModifier"></v-text-field></v-col>
+        <v-col cols="2"><v-text-field label="HP Modifier" type="number" v-model="HPModifier"></v-text-field></v-col>
         <v-spacer></v-spacer>
         <v-col cols="2"><v-btn block color="secondary">HP Tools</v-btn></v-col>
       </v-row>
       <v-row align="center" no-gutters>
-        <v-col cols="2" class="pr-2"><v-text-field label="STR" v-model="STR" hint="Strength Score" :rules="[rules.number]"></v-text-field></v-col>
-        <v-col cols="2" class="pr-2"><v-text-field label="DEX" v-model="DEX" hint="Dexterity Score" :rules="[rules.number]"></v-text-field></v-col>
-        <v-col cols="2" class="pr-2"><v-text-field label="CON" v-model="CON" hint="Constitution Score" :rules="[rules.number]"></v-text-field></v-col>
-        <v-col cols="2" class="pr-2"><v-text-field label="INT" v-model="INT" hint="Intelligence Score" :rules="[rules.number]"></v-text-field></v-col>
-        <v-col cols="2" class="pr-2"><v-text-field label="WIS" v-model="WIS" hint="Wisdom Score" :rules="[rules.number]"></v-text-field></v-col>
-        <v-col cols="2"><v-text-field label="CHA" v-model="CHA" hint="Charisma Score" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="2" class="pr-2"><v-text-field label="STR" type="number" v-model="STR" hint="Strength Score" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="2" class="pr-2"><v-text-field label="DEX" type="number" v-model="DEX" hint="Dexterity Score" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="2" class="pr-2"><v-text-field label="CON" type="number" v-model="CON" hint="Constitution Score" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="2" class="pr-2"><v-text-field label="INT" type="number" v-model="INT" hint="Intelligence Score" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="2" class="pr-2"><v-text-field label="WIS" type="number" v-model="WIS" hint="Wisdom Score" :rules="[rules.number]"></v-text-field></v-col>
+        <v-col cols="2"><v-text-field label="CHA" type="number" v-model="CHA" hint="Charisma Score" :rules="[rules.number]"></v-text-field></v-col>
       </v-row>
     </v-expansion-panel-content>
   </v-expansion-panel>
@@ -67,7 +67,7 @@ export default {
     },
     AC: {
       get() { return this.$store.state.monster.AC },
-      set(value) { this.$store.commit(MUTATION.SET_SIMPLE_PROP, { key: 'AC', value }) }
+      set(value) { this.$store.commit(MUTATION.SET_SIMPLE_PROP, { key: 'AC', value: parseInt(value) }) }
     },
     ACType: {
       get() { return this.$store.state.monster.ACType },
@@ -75,7 +75,7 @@ export default {
     },
     HD: {
       get() { return this.$store.state.monster.HP.HD },
-      set(value) { this.$store.commit(MUTATION.SET_HP_PROP, { key: 'HD', value }) }
+      set(value) { this.$store.commit(MUTATION.SET_HP_PROP, { key: 'HD', value: parseInt(value) }) }
     },
     HDType: {
       get() { return this.$store.state.monster.HP.type },
@@ -83,7 +83,7 @@ export default {
     },
     HPModifier: {
       get() { return this.$store.state.monster.HP.modifier },
-      set(value) { this.$store.commit(MUTATION.SET_HP_PROP, { key: 'modifier', value }) }
+      set(value) { this.$store.commit(MUTATION.SET_HP_PROP, { key: 'modifier', value: parseInt(value) }) }
     },
     STR: {
       get() { return this.$store.state.monster.stats.STR },

@@ -6,5 +6,6 @@ export const MUTATION = {
   // SET_STATS: 'Set Stats'
   ADD_SPEED: 'Add Speed',
   EDIT_SPEED: 'Edit Speed',
-  DELETE_SPEED: 'Delete Speed'
+  DELETE_SPEED: 'Delete Speed',
+  SET_SAVE: 'Set Save'
 };

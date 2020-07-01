@@ -10,6 +10,7 @@
     <v-col cols="2" class="pr-2"
       ><v-text-field
         label="Speed"
+        type="number"
         v-model="spd"
         :rules="[rules.number]"
       ></v-text-field
@@ -44,7 +45,7 @@ export default {
         return this.speed.speed;
       },
       set(value) {
-        this.speed.speed = value;
+        this.speed.speed = parseInt(value);
         this.update();
       },
     },
