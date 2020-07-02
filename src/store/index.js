@@ -2,13 +2,11 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 
-import { saveModifier, statModifier } from '../components/util';
+import { saveModifier, statModifier, newAttack } from '../components/util';
 import DICE from '../data/DICE';
 import MOVEMENT from '../data/MOVEMENT';
 import SKILL from '../data/SKILL';
-import { RANGE } from '../data/ATTACK';
 import { MUTATION } from '../data/ACTIONS';
-import DAMAGE_TYPE from '../data/DAMAGE_TYPE';
 
 Vue.use(Vuex);
 
@@ -99,63 +97,7 @@ export default new Vuex.Store({
         overrideValue: 0,
       },
       languages: '',
-      attacks: [
-        {
-          // templating out an attack, temporary code below
-          name: 'Bite',
-          id: uuidv4(),
-          distance: RANGE.MELEE,
-          kind: 'Weapon',
-          modifier: {
-            override: false,
-            overrideValue: 0,
-            stat: 'STR',
-            proficient: true,
-          },
-          range: {
-            standard: 0,
-            long: 0,
-            reach: 5,
-          },
-          targets: 1,
-          damage: {
-            dice: DICE.d8,
-            count: 2,
-            modifier: {
-              override: false,
-              overrideValue: 0,
-              stat: 'STR',
-            },
-            type: DAMAGE_TYPE.PIERCING,
-          },
-          alternateDamage: {
-            dice: DICE.d10,
-            count: 2,
-            modifier: {
-              override: false,
-              overrideValue: 0,
-              stat: 'STR',
-            },
-            type: DAMAGE_TYPE.PIERCING,
-            condition: 'when making an attack with two hands',
-            active: false,
-          },
-          additionalDamage: [
-            {
-              id: uuidv4(),
-              dice: DICE.d6,
-              count: 1,
-              type: DAMAGE_TYPE.RADIANT,
-              note: ''
-            },
-          ],
-          save: 18,
-          description: '',
-        },
-      ],
-      traits: [],
-      actions: [],
-      spellcasting: {},
+      attacks: [],
     },
   },
   getters: {
@@ -201,7 +143,7 @@ export default new Vuex.Store({
       } else {
         return getters.toHitBonus(modifier.stat, modifier.proficient);
       }
-    }
+    },
   },
   mutations: {
     [MUTATION.SET_SIMPLE_PROP](state, payload) {
@@ -247,6 +189,12 @@ export default new Vuex.Store({
     [MUTATION.SET_ATTACK](state, { index, attack }) {
       attack.id = state.monster.attacks[index].id;
       Vue.set(state.monster.attacks, index, attack);
+    },
+    [MUTATION.ADD_ATTACK](state) {
+      state.monster.attacks.push(newAttack());
+    },
+    [MUTATION.DELETE_ATTACK](state, index) {
+      state.monster.attacks.splice(index, 1);
     },
   },
   actions: {},

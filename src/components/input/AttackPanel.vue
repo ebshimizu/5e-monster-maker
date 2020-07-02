@@ -267,6 +267,7 @@
           ></v-textarea>
         </v-col>
       </v-row>
+      <v-btn block color="red" @click="deleteAttack">Delete</v-btn>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
@@ -600,6 +601,9 @@ export default {
         attack: this.attack,
         index: this.index,
       });
+    },
+    deleteAttack() {
+      this.$store.commit(MUTATION.DELETE_ATTACK, this.index);
     },
   },
 };

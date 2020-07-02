@@ -2,6 +2,7 @@
   <v-expansion-panel>
     <v-expansion-panel-header>Attacks</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
+      <v-btn block color="green" @click="addAttack" class="mb-2">Add Attack</v-btn>
       <v-expansion-panels>
         <attack-panel
           v-for="(item, index) in attacks"
@@ -16,6 +17,7 @@
 
 <script>
 import AttackPanel from './AttackPanel';
+import { MUTATION } from '../../data/ACTIONS';
 
 export default {
   name: 'Attacks',
@@ -27,5 +29,10 @@ export default {
       return this.$store.state.monster.attacks;
     },
   },
+  methods: {
+    addAttack() {
+      this.$store.commit(MUTATION.ADD_ATTACK);
+    }
+  }
 };
 </script>
