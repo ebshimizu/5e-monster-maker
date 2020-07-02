@@ -6,7 +6,9 @@ import { saveModifier, statModifier } from '../components/util';
 import DICE from '../data/DICE';
 import MOVEMENT from '../data/MOVEMENT';
 import SKILL from '../data/SKILL';
+import { RANGE } from '../data/ATTACK';
 import { MUTATION } from '../data/ACTIONS';
+import DAMAGE_TYPE from '../data/DAMAGE_TYPE';
 
 Vue.use(Vuex);
 
@@ -97,6 +99,63 @@ export default new Vuex.Store({
         overrideValue: 0,
       },
       languages: '',
+      attacks: [
+        {
+          // templating out an attack, temporary code below
+          name: 'Bite',
+          id: uuidv4(),
+          distance: RANGE.MELEE,
+          kind: 'Weapon',
+          modifier: {
+            override: false,
+            overrideValue: 0,
+            stat: 'STR',
+            proficient: true,
+          },
+          range: {
+            standard: 0,
+            long: 0,
+            reach: 5,
+          },
+          targets: 1,
+          damage: {
+            dice: DICE.d8,
+            count: 2,
+            modifier: {
+              override: false,
+              overrideValue: 0,
+              stat: 'STR',
+            },
+            type: DAMAGE_TYPE.PIERCING,
+          },
+          alternateDamage: {
+            dice: DICE.d10,
+            count: 2,
+            modifier: {
+              override: false,
+              overrideValue: 0,
+              stat: 'STR',
+            },
+            type: DAMAGE_TYPE.PIERCING,
+            condition: 'when making an attack with two hands',
+            active: false,
+          },
+          additionalDamage: [
+            {
+              id: uuidv4(),
+              dice: DICE.d6,
+              count: 1,
+              type: DAMAGE_TYPE.RADIANT,
+              note: ''
+            },
+          ],
+          save: 18,
+          description: '',
+        },
+      ],
+      traits: [],
+      actions: [],
+      spellcasting: {},
     },
   },
   getters: {
@@ -117,15 +176,31 @@ export default new Vuex.Store({
     },
     passivePerception: (state, getters) => {
       // check if perception is in the skills
-      const perception = state.monster.skills.find(s => s.skill.key === SKILL.PERCEPTION.key);
+      const perception = state.monster.skills.find(
+        (s) => s.skill.key === SKILL.PERCEPTION.key
+      );
       let passive = 10;
       if (perception) {
-        passive += perception.override ? perception.overrideValue : getters.defaultSkillBonus(perception);
+        passive += perception.override
+          ? perception.overrideValue
+          : getters.defaultSkillBonus(perception);
       } else {
         passive += statModifier(state.monster.stats.WIS);
       }
 
       return passive;
+    },
+    toHitBonus: (state) => (stat, proficient) => {
+      // get stat bonus
+      const bonus = statModifier(state.monster.stats[stat]);
+      return proficient ? bonus + state.monster.proficiency : bonus;
+    },
+    fullToHitBonus: (_, getters) => (modifier) => {
+      if (modifier.override) {
+        return modifier.overrideValue;
+      } else {
+        return getters.toHitBonus(modifier.stat, modifier.proficient);
+      }
     }
   },
   mutations: {
@@ -168,7 +243,11 @@ export default new Vuex.Store({
     },
     [MUTATION.SET_SENSE](state, { sense, value }) {
       state.monster.senses[sense] = value;
-    }
+    },
+    [MUTATION.SET_ATTACK](state, { index, attack }) {
+      attack.id = state.monster.attacks[index].id;
+      Vue.set(state.monster.attacks, index, attack);
+    },
   },
   actions: {},
   modules: {},

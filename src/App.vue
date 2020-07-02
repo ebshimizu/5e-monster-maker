@@ -36,10 +36,8 @@ export default {
 <style>
 ::-webkit-scrollbar {
   display: none;
-}
-
-::-webkit-scrollbar {
   width: 12px;
+  background-color: rgb(18, 18, 18);
 }
 
 ::-webkit-scrollbar-track {
@@ -57,6 +55,10 @@ export default {
 }
 
 .full-height::-webkit-scrollbar {
+  display: block;
+}
+
+.v-menu__content::-webkit-scrollbar {
   display: block;
 }
 

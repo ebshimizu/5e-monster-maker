@@ -33,6 +33,23 @@ export const DAMAGE_TYPE = {
   ALL_PHYSICAL_NM: 'non-magical slashing, piercing, and bludgeoning'
 };
 
+export const ATTACK_TYPE = {
+  ACID: 'acid',
+  BLUDGEONING: 'bludgeoning',
+  COLD: 'cold',
+  FIRE: 'fire',
+  FORCE: 'force',
+  LIGHTNING: 'lightning',
+  NECROTIC: 'necrotic',
+  PIERCING: 'piercing',
+  POISON: 'poison',
+  PSYCHIC: 'psychic',
+  RADIANT: 'radiant',
+  SLASHING: 'slashing',
+  THUNDER: 'thunder',
+};
+
 export const DAMAGE_TYPE_SELECT = Object.values(DAMAGE_TYPE).sort();
+export const ATTACK_TYPE_SELECT = Object.values(ATTACK_TYPE).sort();
 
 export default DAMAGE_TYPE;

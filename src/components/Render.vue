@@ -40,12 +40,43 @@
     <div class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
+    <h3 class="section mt-2">Actions</h3>
+    <v-divider></v-divider>
+    <div class="attack" v-for="attack in monster.attacks" :key="attack.id">
+      <span class="name">{{ attack.name }}. </span>
+      <span class="distance"
+        >{{ attack.distance }} {{ attack.kind }} Attack:
+      </span>
+      <span class="to-hit">{{ toHit(attack.modifier) }}</span> to hit,
+      <span
+        ><span class="reach">{{ attackReach(attack) }}, </span>
+        {{ targets(attack.targets) }}. <span class="hit">Hit: </span>
+        {{ baseDamage(attack.damage) }} {{ attack.damage.type }} damage</span
+      >
+      <span v-if="attack.alternateDamage.active"
+        >, or {{ baseDamage(attack.alternateDamage) }}
+        {{ attack.alternateDamage.type }} damage
+        {{ attack.alternateDamage.condition }}</span
+      >
+      <span v-if="attack.additionalDamage.length > 0">
+        plus {{ additionalDamage(attack.additionalDamage) }}</span
+      >.
+      <span class="description">{{ attack.description }}</span>
+    </div>
   </v-sheet>
 </template>
 
 <script>
-import { avgHP, renderModifier, renderBonus } from './util';
+import {
+  avgHP,
+  renderModifier,
+  renderBonus,
+  statModifier,
+  avgRoll,
+} from './util';
 import MOVEMENT from '../data/MOVEMENT';
+import { RANGE } from '../data/ATTACK';
+import N2W from 'number-to-words';
 
 export default {
   name: 'Render',
@@ -138,6 +169,54 @@ export default {
             }`
         )
         .join(', ');
+    },
+  },
+  methods: {
+    toHit(attackModifier) {
+      return renderBonus(this.$store.getters.fullToHitBonus(attackModifier));
+    },
+    attackReach(attack) {
+      // bleh
+      if (attack.distance === RANGE.RANGED) {
+        return `range ${attack.range.standard}/${attack.range.long} ft.`;
+      } else if (attack.distance === RANGE.BOTH) {
+        return `reach ${attack.range.reach} ft. or range ${attack.range.standard}/${attack.range.long} ft.`;
+      }
+
+      return `reach ${attack.range.reach} ft.`;
+    },
+    targets(t) {
+      return `${N2W.toWords(t)} target${t !== 1 ? 's' : ''}`;
+    },
+    baseDamage(damage) {
+      const bonus = damage.modifier.override
+        ? damage.modifier.overrideValue
+        : statModifier(this.monster.stats[damage.modifier.stat]);
+      const avg = avgRoll(damage.count, damage.dice);
+      const rb = renderBonus(bonus, true);
+
+      if (damage.dice === 1) {
+        return avg + bonus;
+      }
+
+      return `${avg + bonus} (${damage.count}d${damage.dice}${
+        bonus !== 0 ? rb : ''
+      })`;
+    },
+    additionalDamage(damage) {
+      const formatted = damage.map((d) => {
+        const avg = avgRoll(d.count, d.dice);
+        const dmgRender =
+          d.dice === 1 ? `${avg}` : `${avg} (${d.count}d${d.dice})`;
+
+        return `${dmgRender} ${d.type} damage${d.note ? ` ${d.note}` : ''}`;
+      });
+
+      if (formatted.length === 1) return formatted[0];
+      else {
+        let part1 = formatted.slice(0, formatted.length - 1).join(', ');
+        return `${part1}, and ${formatted[formatted.length - 1]}`;
+      }
     },
   },
 };

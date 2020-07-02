@@ -12,4 +12,5 @@ export const MUTATION = {
   ADD_SKILL: 'Add Skill',
   DELETE_SKILL: 'Delete Skill',
   SET_SENSE: 'Set Sense',
+  SET_ATTACK: 'Set Attack',
 };

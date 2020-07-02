@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "number-to-words": "^1.2.4",
     "uuid": "^8.2.0",
     "vue": "^2.6.11",
     "vuetify": "^2.2.11",

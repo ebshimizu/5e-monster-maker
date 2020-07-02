@@ -1,4 +1,6 @@
 export const DICE = {
+  // ok this one exists for adding flat damage to attacks, if anyone asks
+  d1: 1,
   d4: 4,
   d6: 6,
   d8: 8,
