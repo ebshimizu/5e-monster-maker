@@ -2,7 +2,12 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 
-import { saveModifier, statModifier, newAttack } from '../components/util';
+import {
+  saveModifier,
+  statModifier,
+  newAttack,
+  avgRoll,
+} from '../components/util';
 import DICE from '../data/DICE';
 import MOVEMENT from '../data/MOVEMENT';
 import SKILL from '../data/SKILL';
@@ -143,6 +148,25 @@ export default new Vuex.Store({
       } else {
         return getters.toHitBonus(modifier.stat, modifier.proficient);
       }
+    },
+    // this is kind of a helper but since some values are computed automatically
+    // based on the stats, it'll live in the state
+    expectedAttackDamage: (state) => (attack) => {
+      const primary =
+        avgRoll(attack.damage.count, attack.damage.dice) +
+        (attack.damage.modifier.override
+          ? attack.damage.modifier.overrideValue
+          : statModifier(state.monster.stats[attack.damage.modifier.stat]));
+
+      const secondary = avgRoll(attack.alternateDamage.count, attack.alternateDamage.dice) +
+        (attack.alternateDamage.modifier.override
+          ? attack.alternateDamage.modifier.overrideValue
+          : statModifier(state.monster.stats[attack.alternateDamage.modifier.stat]));
+
+      const base = attack.alternateDamage.active ? Math.max(primary, secondary) : primary;
+
+      const extra = attack.additionalDamage.map(a => avgRoll(a.count, a.dice)).reduce((acc, current) => acc + current, 0);
+      return base + extra;
     },
   },
   mutations: {

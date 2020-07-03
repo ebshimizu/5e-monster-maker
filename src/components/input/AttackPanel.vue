@@ -1,6 +1,11 @@
 <template>
   <v-expansion-panel>
-    <v-expansion-panel-header>{{ attack.name }} </v-expansion-panel-header>
+    <v-expansion-panel-header>
+      <v-row no-gutters>
+        <v-col cols="4">{{ attack.name }}</v-col>
+        <v-col cols="8" class="text--secondary d-flex justify-end pr-2">{{ summary }}</v-col>
+      </v-row>
+    </v-expansion-panel-header>
     <v-expansion-panel-content>
       <v-row>
         <v-col cols="4"
@@ -578,6 +583,9 @@ export default {
     conditionalButtonText() {
       return this.attack.alternateDamage.active ? 'Disable' : 'Enable';
     },
+    summary() {
+      return `${this.$store.getters.expectedAttackDamage(this.attack)} Avg. Damage per Hit`;
+    }
   },
   methods: {
     updateAdd(index, key, val) {
