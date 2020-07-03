@@ -103,6 +103,7 @@ export default new Vuex.Store({
       },
       languages: '',
       attacks: [],
+      multiattacks: [],
     },
   },
   getters: {
@@ -220,6 +221,9 @@ export default new Vuex.Store({
     [MUTATION.DELETE_ATTACK](state, index) {
       state.monster.attacks.splice(index, 1);
     },
+    [MUTATION.SET_MULTIATTACK](state, ma) {
+      state.monster.multiattacks = ma;
+    }
   },
   actions: {},
   modules: {},

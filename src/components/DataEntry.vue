@@ -8,6 +8,7 @@
     <damage-types />
     <senses />
     <attacks />
+    <multiattack />
     <traits />
     <spellcasting />
     <actions />
@@ -20,6 +21,7 @@ import Attacks from './input/Attacks';
 import Basics from './input/Basics';
 import CR from './input/CR';
 import DamageTypes from './input/DamageTypes';
+import Multiattack from './input/Multiattack';
 import Saves from './input/Saves';
 import Senses from './input/Senses';
 import Skills from './input/Skills';
@@ -36,6 +38,7 @@ export default {
     Basics,
     CR,
     DamageTypes,
+    Multiattack,
     Saves,
     Senses,
     Skills,

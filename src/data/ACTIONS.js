@@ -15,4 +15,5 @@ export const MUTATION = {
   SET_ATTACK: 'Set Attack',
   ADD_ATTACK: 'Add Attack',
   DELETE_ATTACK: 'Delete Attack',
+  SET_MULTIATTACK: 'Set Multiattacks',
 };
