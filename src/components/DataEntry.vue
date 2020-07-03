@@ -9,8 +9,8 @@
     <senses />
     <attacks />
     <multiattack />
-    <traits />
     <spellcasting />
+    <traits />
     <actions />
   </v-expansion-panels>
 </template>

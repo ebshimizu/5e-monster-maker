@@ -42,6 +42,9 @@
     </div>
     <h3 class="section mt-2">Actions</h3>
     <v-divider></v-divider>
+    <div class="multiattack" v-if="monster.multiattacks.length > 0">
+      <span class="name">Multiattack.</span> {{ renderMultiattacks(monster.multiattacks) }}
+    </div>
     <div class="attack" v-for="attack in monster.attacks" :key="attack.id">
       <span class="name">{{ attack.name }}. </span>
       <span class="distance"
@@ -217,6 +220,32 @@ export default {
         let part1 = formatted.slice(0, formatted.length - 1).join(', ');
         return `${part1}, and ${formatted[formatted.length - 1]}`;
       }
+    },
+    renderMultiattacks() {
+      const atkStrings = this.monster.multiattacks.map((ma) => {
+        const collected = {};
+        for (const attackId of ma.attacks) {
+          if (!(attackId in collected)) collected[attackId] = 0;
+
+          collected[attackId] += 1;
+        }
+
+        // resolve ids and render names
+        const formatted = Object.keys(collected).map((id) => {
+          const name = this.$store.getters.attackFromId(id).name;
+          return `${N2W.toWords(collected[id])} ${name} attack${
+            collected[id] === 1 ? '' : 's'
+          }`;
+        });
+
+        if (formatted.length === 1) return formatted[0];
+        else {
+          let part1 = formatted.slice(0, formatted.length - 1).join(', ');
+          return `${part1}, and ${formatted[formatted.length - 1]}`;
+        }
+      });
+
+      return `The ${this.monster.name} makes ${atkStrings.join(' or ')}.`;
     },
   },
 };

@@ -12,6 +12,7 @@ import DICE from '../data/DICE';
 import MOVEMENT from '../data/MOVEMENT';
 import SKILL from '../data/SKILL';
 import { MUTATION } from '../data/ACTIONS';
+import STAT from '../data/STAT';
 
 Vue.use(Vuex);
 
@@ -104,6 +105,26 @@ export default new Vuex.Store({
       languages: '',
       attacks: [],
       multiattacks: [],
+      spellcasting: {
+        stat: STAT.INT,
+        save: {
+          override: false,
+          overrideValue: 0,
+        },
+        modifier: {
+          override: false,
+          overrideValue: 0,
+        },
+        attack: {
+          override: false,
+          overrideValue: 0,
+        },
+        class: 'Wizard',
+        Level: 0,
+        slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        limited: [],
+        spells: [],
+      },
     },
   },
   getters: {
@@ -159,16 +180,26 @@ export default new Vuex.Store({
           ? attack.damage.modifier.overrideValue
           : statModifier(state.monster.stats[attack.damage.modifier.stat]));
 
-      const secondary = avgRoll(attack.alternateDamage.count, attack.alternateDamage.dice) +
+      const secondary =
+        avgRoll(attack.alternateDamage.count, attack.alternateDamage.dice) +
         (attack.alternateDamage.modifier.override
           ? attack.alternateDamage.modifier.overrideValue
-          : statModifier(state.monster.stats[attack.alternateDamage.modifier.stat]));
+          : statModifier(
+              state.monster.stats[attack.alternateDamage.modifier.stat]
+            ));
 
-      const base = attack.alternateDamage.active ? Math.max(primary, secondary) : primary;
+      const base = attack.alternateDamage.active
+        ? Math.max(primary, secondary)
+        : primary;
 
-      const extra = attack.additionalDamage.map(a => avgRoll(a.count, a.dice)).reduce((acc, current) => acc + current, 0);
+      const extra = attack.additionalDamage
+        .map((a) => avgRoll(a.count, a.dice))
+        .reduce((acc, current) => acc + current, 0);
       return base + extra;
     },
+    attackFromId: (state) => (id) => {
+      return state.monster.attacks.find(a => a.id === id);
+    }
   },
   mutations: {
     [MUTATION.SET_SIMPLE_PROP](state, payload) {
@@ -223,7 +254,7 @@ export default new Vuex.Store({
     },
     [MUTATION.SET_MULTIATTACK](state, ma) {
       state.monster.multiattacks = ma;
-    }
+    },
   },
   actions: {},
   modules: {},

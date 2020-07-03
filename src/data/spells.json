@@ -1,0 +1,5639 @@
+{
+  "Acid Splash": {
+    "name": "Acid Splash",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Aid": {
+    "name": "Aid",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Artificer"
+    ]
+  },
+  "Alarm": {
+    "name": "Alarm",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Ranger",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Alter Self": {
+    "name": "Alter Self",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Animal Friendship": {
+    "name": "Animal Friendship",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Animal Messenger": {
+    "name": "Animal Messenger",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Animal Shapes": {
+    "name": "Animal Shapes",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Animate Dead": {
+    "name": "Animate Dead",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Wizard"
+    ]
+  },
+  "Animate Objects": {
+    "name": "Animate Objects",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Antilife Shell": {
+    "name": "Antilife Shell",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Antimagic Field": {
+    "name": "Antimagic Field",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Wizard"
+    ]
+  },
+  "Antipathy/Sympathy": {
+    "name": "Antipathy/Sympathy",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Arcane Eye": {
+    "name": "Arcane Eye",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Arcane Lock": {
+    "name": "Arcane Lock",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Astral Projection": {
+    "name": "Astral Projection",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Augury": {
+    "name": "Augury",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Awaken": {
+    "name": "Awaken",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid"
+    ]
+  },
+  "Bane": {
+    "name": "Bane",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric"
+    ]
+  },
+  "Banishment": {
+    "name": "Banishment",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Barkskin": {
+    "name": "Barkskin",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Beacon of Hope": {
+    "name": "Beacon of Hope",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Bestow Curse": {
+    "name": "Bestow Curse",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Wizard"
+    ]
+  },
+  "Bigby's Hand": {
+    "name": "Bigby's Hand",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Blade Barrier": {
+    "name": "Blade Barrier",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Bless": {
+    "name": "Bless",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin"
+    ]
+  },
+  "Blight": {
+    "name": "Blight",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Blindness/Deafness": {
+    "name": "Blindness/Deafness",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Blink": {
+    "name": "Blink",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Blur": {
+    "name": "Blur",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Branding Smite": {
+    "name": "Branding Smite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Paladin"
+    ]
+  },
+  "Burning Hands": {
+    "name": "Burning Hands",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Call Lightning": {
+    "name": "Call Lightning",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Calm Emotions": {
+    "name": "Calm Emotions",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric"
+    ]
+  },
+  "Chain Lightning": {
+    "name": "Chain Lightning",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Charm Person": {
+    "name": "Charm Person",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Chill Touch": {
+    "name": "Chill Touch",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Circle of Death": {
+    "name": "Circle of Death",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Clairvoyance": {
+    "name": "Clairvoyance",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Clone": {
+    "name": "Clone",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Cloudkill": {
+    "name": "Cloudkill",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Color Spray": {
+    "name": "Color Spray",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Command": {
+    "name": "Command",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin"
+    ]
+  },
+  "Commune": {
+    "name": "Commune",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Commune with Nature": {
+    "name": "Commune with Nature",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Comprehend Languages": {
+    "name": "Comprehend Languages",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Compulsion": {
+    "name": "Compulsion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard"
+    ]
+  },
+  "Cone of Cold": {
+    "name": "Cone of Cold",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Confusion": {
+    "name": "Confusion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Conjure Animals": {
+    "name": "Conjure Animals",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Conjure Celestial": {
+    "name": "Conjure Celestial",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Conjure Elemental": {
+    "name": "Conjure Elemental",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Conjure Fey": {
+    "name": "Conjure Fey",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Warlock"
+    ]
+  },
+  "Conjure Minor Elementals": {
+    "name": "Conjure Minor Elementals",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Conjure Woodland Beings": {
+    "name": "Conjure Woodland Beings",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Contact Other Plane": {
+    "name": "Contact Other Plane",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Contagion": {
+    "name": "Contagion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Contingency": {
+    "name": "Contingency",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Continual Flame": {
+    "name": "Continual Flame",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Control Water": {
+    "name": "Control Water",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Control Weather": {
+    "name": "Control Weather",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Counterspell": {
+    "name": "Counterspell",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Create Food and Water": {
+    "name": "Create Food and Water",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Artificer"
+    ]
+  },
+  "Create or Destroy Water": {
+    "name": "Create or Destroy Water",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Create Undead": {
+    "name": "Create Undead",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Creation": {
+    "name": "Creation",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Cure Wounds": {
+    "name": "Cure Wounds",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger",
+      "Artificer"
+    ]
+  },
+  "Dancing Lights": {
+    "name": "Dancing Lights",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Darkness": {
+    "name": "Darkness",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Darkvision": {
+    "name": "Darkvision",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Daylight": {
+    "name": "Daylight",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger",
+      "Sorcerer"
+    ]
+  },
+  "Death Ward": {
+    "name": "Death Ward",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Artificer"
+    ]
+  },
+  "Delayed Blast Fireball": {
+    "name": "Delayed Blast Fireball",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Demiplane": {
+    "name": "Demiplane",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Detect Evil and Good": {
+    "name": "Detect Evil and Good",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin"
+    ]
+  },
+  "Detect Magic": {
+    "name": "Detect Magic",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Detect Poison and Disease": {
+    "name": "Detect Poison and Disease",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger"
+    ]
+  },
+  "Detect Thoughts": {
+    "name": "Detect Thoughts",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Dimension Door": {
+    "name": "Dimension Door",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Disguise Self": {
+    "name": "Disguise Self",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Disintegrate": {
+    "name": "Disintegrate",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Dispel Evil and Good": {
+    "name": "Dispel Evil and Good",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin"
+    ]
+  },
+  "Dispel Magic": {
+    "name": "Dispel Magic",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Divination": {
+    "name": "Divination",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Divine Favor": {
+    "name": "Divine Favor",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Paladin"
+    ]
+  },
+  "Divine Word": {
+    "name": "Divine Word",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Dominate Beast": {
+    "name": "Dominate Beast",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer"
+    ]
+  },
+  "Dominate Monster": {
+    "name": "Dominate Monster",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Dominate Person": {
+    "name": "Dominate Person",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Drawmij's Instant Summons": {
+    "name": "Drawmij's Instant Summons",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Dream": {
+    "name": "Dream",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Druidcraft": {
+    "name": "Druidcraft",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Earthquake": {
+    "name": "Earthquake",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Sorcerer"
+    ]
+  },
+  "Eldritch Blast": {
+    "name": "Eldritch Blast",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock"
+    ]
+  },
+  "Enhance Ability": {
+    "name": "Enhance Ability",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Sorcerer",
+      "Artificer"
+    ]
+  },
+  "Enlarge/Reduce": {
+    "name": "Enlarge/Reduce",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Entangle": {
+    "name": "Entangle",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Enthrall": {
+    "name": "Enthrall",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Warlock"
+    ]
+  },
+  "Etherealness": {
+    "name": "Etherealness",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Evard's Black Tentacles": {
+    "name": "Evard's Black Tentacles",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Expeditious Retreat": {
+    "name": "Expeditious Retreat",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Eyebite": {
+    "name": "Eyebite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Fabricate": {
+    "name": "Fabricate",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Faerie Fire": {
+    "name": "Faerie Fire",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Artificer"
+    ]
+  },
+  "False Life": {
+    "name": "False Life",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Fear": {
+    "name": "Fear",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Feather Fall": {
+    "name": "Feather Fall",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Feeblemind": {
+    "name": "Feeblemind",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Find Familiar": {
+    "name": "Find Familiar",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Find Steed": {
+    "name": "Find Steed",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Paladin"
+    ]
+  },
+  "Find the Path": {
+    "name": "Find the Path",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Find Traps": {
+    "name": "Find Traps",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Finger of Death": {
+    "name": "Finger of Death",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Fire Bolt": {
+    "name": "Fire Bolt",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Fire Shield": {
+    "name": "Fire Shield",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Fire Storm": {
+    "name": "Fire Storm",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Sorcerer"
+    ]
+  },
+  "Fireball": {
+    "name": "Fireball",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Flame Blade": {
+    "name": "Flame Blade",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Flame Strike": {
+    "name": "Flame Strike",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Flaming Sphere": {
+    "name": "Flaming Sphere",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Flesh to Stone": {
+    "name": "Flesh to Stone",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Fly": {
+    "name": "Fly",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Fog Cloud": {
+    "name": "Fog Cloud",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Forbiddance": {
+    "name": "Forbiddance",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Forcecage": {
+    "name": "Forcecage",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Foresight": {
+    "name": "Foresight",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Freedom of Movement": {
+    "name": "Freedom of Movement",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Ranger",
+      "Artificer"
+    ]
+  },
+  "Gaseous Form": {
+    "name": "Gaseous Form",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Gate": {
+    "name": "Gate",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Geas": {
+    "name": "Geas",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Wizard"
+    ]
+  },
+  "Gentle Repose": {
+    "name": "Gentle Repose",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Wizard"
+    ]
+  },
+  "Giant Insect": {
+    "name": "Giant Insect",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Glibness": {
+    "name": "Glibness",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Warlock"
+    ]
+  },
+  "Globe of Invulnerability": {
+    "name": "Globe of Invulnerability",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Glyph of Warding": {
+    "name": "Glyph of Warding",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Goodberry": {
+    "name": "Goodberry",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Grease": {
+    "name": "Grease",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Greater Invisibility": {
+    "name": "Greater Invisibility",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Greater Restoration": {
+    "name": "Greater Restoration",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Artificer"
+    ]
+  },
+  "Guardian of Faith": {
+    "name": "Guardian of Faith",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Guards and Wards": {
+    "name": "Guards and Wards",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Guidance": {
+    "name": "Guidance",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Artificer"
+    ]
+  },
+  "Guiding Bolt": {
+    "name": "Guiding Bolt",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Gust of Wind": {
+    "name": "Gust of Wind",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Hallow": {
+    "name": "Hallow",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Hallucinatory Terrain": {
+    "name": "Hallucinatory Terrain",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Harm": {
+    "name": "Harm",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Haste": {
+    "name": "Haste",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Heal": {
+    "name": "Heal",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Healing Word": {
+    "name": "Healing Word",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Heat Metal": {
+    "name": "Heat Metal",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Artificer"
+    ]
+  },
+  "Hellish Rebuke": {
+    "name": "Hellish Rebuke",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock"
+    ]
+  },
+  "Heroes' Feast": {
+    "name": "Heroes' Feast",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Heroism": {
+    "name": "Heroism",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Paladin"
+    ]
+  },
+  "Hold Monster": {
+    "name": "Hold Monster",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Hold Person": {
+    "name": "Hold Person",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Holy Aura": {
+    "name": "Holy Aura",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Hunter's Mark": {
+    "name": "Hunter's Mark",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Ranger"
+    ]
+  },
+  "Hypnotic Pattern": {
+    "name": "Hypnotic Pattern",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Ice Storm": {
+    "name": "Ice Storm",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Identify": {
+    "name": "Identify",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Illusory Script": {
+    "name": "Illusory Script",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Imprisonment": {
+    "name": "Imprisonment",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Incendiary Cloud": {
+    "name": "Incendiary Cloud",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Inflict Wounds": {
+    "name": "Inflict Wounds",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Insect Plague": {
+    "name": "Insect Plague",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Sorcerer"
+    ]
+  },
+  "Invisibility": {
+    "name": "Invisibility",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Jump": {
+    "name": "Jump",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Knock": {
+    "name": "Knock",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Legend Lore": {
+    "name": "Legend Lore",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Wizard"
+    ]
+  },
+  "Leomund's Secret Chest": {
+    "name": "Leomund's Secret Chest",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Leomund's Tiny Hut": {
+    "name": "Leomund's Tiny Hut",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Lesser Restoration": {
+    "name": "Lesser Restoration",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger",
+      "Artificer"
+    ]
+  },
+  "Levitate": {
+    "name": "Levitate",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Light": {
+    "name": "Light",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Lightning Bolt": {
+    "name": "Lightning Bolt",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Locate Animals or Plants": {
+    "name": "Locate Animals or Plants",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Locate Creature": {
+    "name": "Locate Creature",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger",
+      "Wizard"
+    ]
+  },
+  "Locate Object": {
+    "name": "Locate Object",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger",
+      "Wizard"
+    ]
+  },
+  "Longstrider": {
+    "name": "Longstrider",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Ranger",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Mage Armor": {
+    "name": "Mage Armor",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Mage Hand": {
+    "name": "Mage Hand",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Magic Circle": {
+    "name": "Magic Circle",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Magic Jar": {
+    "name": "Magic Jar",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Magic Missile": {
+    "name": "Magic Missile",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Magic Mouth": {
+    "name": "Magic Mouth",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Magic Weapon": {
+    "name": "Magic Weapon",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Paladin",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Major Image": {
+    "name": "Major Image",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Mass Cure Wounds": {
+    "name": "Mass Cure Wounds",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Mass Heal": {
+    "name": "Mass Heal",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Mass Healing Word": {
+    "name": "Mass Healing Word",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Mass Suggestion": {
+    "name": "Mass Suggestion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Maze": {
+    "name": "Maze",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Meld into Stone": {
+    "name": "Meld into Stone",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Melf's Acid Arrow": {
+    "name": "Melf's Acid Arrow",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Mending": {
+    "name": "Mending",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Message": {
+    "name": "Message",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Meteor Swarm": {
+    "name": "Meteor Swarm",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Mind Blank": {
+    "name": "Mind Blank",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Minor Illusion": {
+    "name": "Minor Illusion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Mirage Arcane": {
+    "name": "Mirage Arcane",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Mirror Image": {
+    "name": "Mirror Image",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Mislead": {
+    "name": "Mislead",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Misty Step": {
+    "name": "Misty Step",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Modify Memory": {
+    "name": "Modify Memory",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Moonbeam": {
+    "name": "Moonbeam",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Mordenkainen's Faithful Hound": {
+    "name": "Mordenkainen's Faithful Hound",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Mordenkainen's Magnificent Mansion": {
+    "name": "Mordenkainen's Magnificent Mansion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Mordenkainen's Private Sanctum": {
+    "name": "Mordenkainen's Private Sanctum",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Mordenkainen's Sword": {
+    "name": "Mordenkainen's Sword",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Move Earth": {
+    "name": "Move Earth",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Nondetection": {
+    "name": "Nondetection",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Ranger",
+      "Wizard"
+    ]
+  },
+  "Nystul's Magic Aura": {
+    "name": "Nystul's Magic Aura",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Otiluke's Freezing Sphere": {
+    "name": "Otiluke's Freezing Sphere",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Otiluke's Resilient Sphere": {
+    "name": "Otiluke's Resilient Sphere",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Otto's Irresistible Dance": {
+    "name": "Otto's Irresistible Dance",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Pass without Trace": {
+    "name": "Pass without Trace",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Passwall": {
+    "name": "Passwall",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Phantasmal Killer": {
+    "name": "Phantasmal Killer",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Phantom Steed": {
+    "name": "Phantom Steed",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Planar Ally": {
+    "name": "Planar Ally",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Planar Binding": {
+    "name": "Planar Binding",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Plane Shift": {
+    "name": "Plane Shift",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Plant Growth": {
+    "name": "Plant Growth",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Poison Spray": {
+    "name": "Poison Spray",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Polymorph": {
+    "name": "Polymorph",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Power Word Kill": {
+    "name": "Power Word Kill",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Power Word Stun": {
+    "name": "Power Word Stun",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Prayer of Healing": {
+    "name": "Prayer of Healing",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Prestidigitation": {
+    "name": "Prestidigitation",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Prismatic Spray": {
+    "name": "Prismatic Spray",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Prismatic Wall": {
+    "name": "Prismatic Wall",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Produce Flame": {
+    "name": "Produce Flame",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Programmed Illusion": {
+    "name": "Programmed Illusion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Project Image": {
+    "name": "Project Image",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Protection from Energy": {
+    "name": "Protection from Energy",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Ranger",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Protection from Evil and Good": {
+    "name": "Protection from Evil and Good",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Protection from Poison": {
+    "name": "Protection from Poison",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Ranger",
+      "Artificer"
+    ]
+  },
+  "Purify Food and Drink": {
+    "name": "Purify Food and Drink",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Paladin",
+      "Artificer"
+    ]
+  },
+  "Raise Dead": {
+    "name": "Raise Dead",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Paladin"
+    ]
+  },
+  "Rary's Telepathic Bond": {
+    "name": "Rary's Telepathic Bond",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Ray of Enfeeblement": {
+    "name": "Ray of Enfeeblement",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Ray of Frost": {
+    "name": "Ray of Frost",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Regenerate": {
+    "name": "Regenerate",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "Reincarnate": {
+    "name": "Reincarnate",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Remove Curse": {
+    "name": "Remove Curse",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Resistance": {
+    "name": "Resistance",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Artificer"
+    ]
+  },
+  "Resurrection": {
+    "name": "Resurrection",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric"
+    ]
+  },
+  "Reverse Gravity": {
+    "name": "Reverse Gravity",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Revivify": {
+    "name": "Revivify",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Artificer"
+    ]
+  },
+  "Rope Trick": {
+    "name": "Rope Trick",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Sacred Flame": {
+    "name": "Sacred Flame",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Sanctuary": {
+    "name": "Sanctuary",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Artificer"
+    ]
+  },
+  "Scorching Ray": {
+    "name": "Scorching Ray",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Scrying": {
+    "name": "Scrying",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "See Invisibility": {
+    "name": "See Invisibility",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Seeming": {
+    "name": "Seeming",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Sending": {
+    "name": "Sending",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Wizard"
+    ]
+  },
+  "Sequester": {
+    "name": "Sequester",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Shapechange": {
+    "name": "Shapechange",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Wizard"
+    ]
+  },
+  "Shatter": {
+    "name": "Shatter",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Shield": {
+    "name": "Shield",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Shield of Faith": {
+    "name": "Shield of Faith",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Paladin",
+      "Artificer"
+    ]
+  },
+  "Shillelagh": {
+    "name": "Shillelagh",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Shocking Grasp": {
+    "name": "Shocking Grasp",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Silence": {
+    "name": "Silence",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Ranger"
+    ]
+  },
+  "Silent Image": {
+    "name": "Silent Image",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Simulacrum": {
+    "name": "Simulacrum",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Sleep": {
+    "name": "Sleep",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Sleet Storm": {
+    "name": "Sleet Storm",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Slow": {
+    "name": "Slow",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Spare the Dying": {
+    "name": "Spare the Dying",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Artificer"
+    ]
+  },
+  "Speak with Animals": {
+    "name": "Speak with Animals",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Speak with Dead": {
+    "name": "Speak with Dead",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric"
+    ]
+  },
+  "Speak with Plants": {
+    "name": "Speak with Plants",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Spider Climb": {
+    "name": "Spider Climb",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Spike Growth": {
+    "name": "Spike Growth",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Spirit Guardians": {
+    "name": "Spirit Guardians",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Spiritual Weapon": {
+    "name": "Spiritual Weapon",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Stinking Cloud": {
+    "name": "Stinking Cloud",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Stone Shape": {
+    "name": "Stone Shape",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Stoneskin": {
+    "name": "Stoneskin",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Storm of Vengeance": {
+    "name": "Storm of Vengeance",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Suggestion": {
+    "name": "Suggestion",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Sunbeam": {
+    "name": "Sunbeam",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Sunburst": {
+    "name": "Sunburst",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Symbol": {
+    "name": "Symbol",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Wizard"
+    ]
+  },
+  "Tasha's Hideous Laughter": {
+    "name": "Tasha's Hideous Laughter",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Wizard"
+    ]
+  },
+  "Telekinesis": {
+    "name": "Telekinesis",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Teleport": {
+    "name": "Teleport",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 7,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Teleportation Circle": {
+    "name": "Teleportation Circle",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Tenser's Floating Disk": {
+    "name": "Tenser's Floating Disk",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Thaumaturgy": {
+    "name": "Thaumaturgy",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Thunderwave": {
+    "name": "Thunderwave",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Time Stop": {
+    "name": "Time Stop",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Tongues": {
+    "name": "Tongues",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Transport via Plants": {
+    "name": "Transport via Plants",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Tree Stride": {
+    "name": "Tree Stride",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "True Polymorph": {
+    "name": "True Polymorph",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "True Resurrection": {
+    "name": "True Resurrection",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid"
+    ]
+  },
+  "True Seeing": {
+    "name": "True Seeing",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "True Strike": {
+    "name": "True Strike",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Unseen Servant": {
+    "name": "Unseen Servant",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Vampiric Touch": {
+    "name": "Vampiric Touch",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Vicious Mockery": {
+    "name": "Vicious Mockery",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard"
+    ]
+  },
+  "Wall of Fire": {
+    "name": "Wall of Fire",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Wall of Force": {
+    "name": "Wall of Force",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Wall of Ice": {
+    "name": "Wall of Ice",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Wall of Stone": {
+    "name": "Wall of Stone",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Wall of Thorns": {
+    "name": "Wall of Thorns",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Warding Bond": {
+    "name": "Warding Bond",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Water Breathing": {
+    "name": "Water Breathing",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger",
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Water Walk": {
+    "name": "Water Walk",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric",
+      "Druid",
+      "Ranger",
+      "Sorcerer",
+      "Artificer"
+    ]
+  },
+  "Web": {
+    "name": "Web",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard",
+      "Artificer"
+    ]
+  },
+  "Weird": {
+    "name": "Weird",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Wizard"
+    ]
+  },
+  "Wind Walk": {
+    "name": "Wind Walk",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid"
+    ]
+  },
+  "Wind Wall": {
+    "name": "Wind Wall",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Wish": {
+    "name": "Wish",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Word of Recall": {
+    "name": "Word of Recall",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Cleric"
+    ]
+  },
+  "Zone of Truth": {
+    "name": "Zone of Truth",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "scaling": {
+      "count": 0,
+      "dice": 0,
+      "rate": 1
+    },
+    "class": [
+      "Bard",
+      "Cleric",
+      "Paladin"
+    ]
+  }
+}
