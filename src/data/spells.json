@@ -6,15 +6,10 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Aid": {
@@ -24,15 +19,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric",
-      "Paladin",
-      "Artificer"
+      "Paladin"
     ]
   },
   "Alarm": {
@@ -42,15 +32,10 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Ranger",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Alter Self": {
@@ -60,15 +45,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Animal Friendship": {
@@ -78,11 +58,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Druid",
@@ -96,11 +72,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Druid",
@@ -114,11 +86,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Druid"
     ]
@@ -130,11 +98,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
       "Wizard"
@@ -147,16 +111,11 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Antilife Shell": {
@@ -166,11 +125,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Druid"
     ]
@@ -182,11 +137,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Cleric",
       "Wizard"
@@ -199,11 +150,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Druid",
       "Wizard"
@@ -216,14 +163,23 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
+    ]
+  },
+  "Arcane Gate": {
+    "name": "Arcane Gate",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 6,
+    "levelDisplay": "6th level",
+    "class": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
     ]
   },
   "Arcane Lock": {
@@ -233,14 +189,33 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
+    ]
+  },
+  "Armor of Agathys": {
+    "name": "Armor of Agathys",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Warlock"
+    ]
+  },
+  "Arms of Hadar": {
+    "name": "Arms of Hadar",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Warlock"
     ]
   },
   "Astral Projection": {
@@ -250,11 +225,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Cleric",
       "Warlock",
@@ -268,13 +239,45 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric"
+    ]
+  },
+  "Aura of Life": {
+    "name": "Aura of Life",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "levelDisplay": "4th level",
+    "class": [
+      "Paladin"
+    ]
+  },
+  "Aura of Purity": {
+    "name": "Aura of Purity",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "levelDisplay": "4th level",
+    "class": [
+      "Paladin"
+    ]
+  },
+  "Aura of Vitality": {
+    "name": "Aura of Vitality",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
+      "Paladin"
     ]
   },
   "Awaken": {
@@ -284,11 +287,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Druid"
@@ -301,14 +300,22 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Cleric"
+    ]
+  },
+  "Banishing Smite": {
+    "name": "Banishing Smite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "levelDisplay": "5th level",
+    "class": [
+      "Paladin"
     ]
   },
   "Banishment": {
@@ -318,11 +325,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Cleric",
       "Paladin",
@@ -338,11 +341,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid",
       "Ranger"
@@ -355,13 +354,22 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric"
+    ]
+  },
+  "Beast Sense": {
+    "name": "Beast Sense",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "levelDisplay": "2nd level",
+    "class": [
+      "Druid",
+      "Ranger"
     ]
   },
   "Bestow Curse": {
@@ -371,11 +379,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Cleric",
@@ -389,14 +393,9 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Blade Barrier": {
@@ -406,13 +405,24 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric"
+    ]
+  },
+  "Blade Ward": {
+    "name": "Blade Ward",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "levelDisplay": "Cantrip",
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
     ]
   },
   "Bless": {
@@ -422,11 +432,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
       "Paladin"
@@ -439,16 +445,24 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Sorcerer",
       "Warlock",
       "Wizard"
+    ]
+  },
+  "Blinding Smite": {
+    "name": "Blinding Smite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
+      "Paladin"
     ]
   },
   "Blindness/Deafness": {
@@ -458,11 +472,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric",
@@ -477,15 +487,10 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Blur": {
@@ -495,15 +500,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Branding Smite": {
@@ -513,11 +513,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Paladin"
     ]
@@ -529,11 +525,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -546,11 +538,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Druid"
     ]
@@ -562,11 +550,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric"
@@ -579,11 +563,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -596,11 +576,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Druid",
@@ -616,14 +592,23 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Sorcerer",
       "Warlock",
+      "Wizard"
+    ]
+  },
+  "Chromatic Orb": {
+    "name": "Chromatic Orb",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Sorcerer",
       "Wizard"
     ]
   },
@@ -634,15 +619,23 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Sorcerer",
       "Warlock",
       "Wizard"
+    ]
+  },
+  "Circle of Power": {
+    "name": "Circle of Power",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "levelDisplay": "5th level",
+    "class": [
+      "Paladin"
     ]
   },
   "Clairvoyance": {
@@ -652,11 +645,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Cleric",
@@ -671,12 +660,23 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
+      "Wizard"
+    ]
+  },
+  "Cloud of Daggers": {
+    "name": "Cloud of Daggers",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "levelDisplay": "2nd level",
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
       "Wizard"
     ]
   },
@@ -687,11 +687,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -704,11 +700,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -721,11 +713,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
       "Paladin"
@@ -738,11 +726,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Cleric"
     ]
@@ -754,14 +738,22 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Druid",
       "Ranger"
+    ]
+  },
+  "Compelled Duel": {
+    "name": "Compelled Duel",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Paladin"
     ]
   },
   "Comprehend Languages": {
@@ -771,11 +763,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -790,11 +778,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard"
     ]
@@ -806,11 +790,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -823,11 +803,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard",
       "Druid",
@@ -842,13 +818,21 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Druid",
+      "Ranger"
+    ]
+  },
+  "Conjure Barrage": {
+    "name": "Conjure Barrage",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
       "Ranger"
     ]
   },
@@ -859,11 +843,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Cleric"
     ]
@@ -875,11 +855,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Druid",
       "Wizard"
@@ -892,11 +868,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Druid",
       "Warlock"
@@ -909,14 +881,22 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Wizard"
+    ]
+  },
+  "Conjure Volley": {
+    "name": "Conjure Volley",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "levelDisplay": "5th level",
+    "class": [
+      "Ranger"
     ]
   },
   "Conjure Woodland Beings": {
@@ -926,11 +906,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Ranger"
@@ -943,11 +919,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Warlock",
       "Wizard"
@@ -960,11 +932,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Cleric",
       "Druid"
@@ -977,11 +945,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Wizard"
     ]
@@ -993,15 +957,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Control Water": {
@@ -1011,11 +970,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Cleric",
       "Druid",
@@ -1029,15 +984,23 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Cleric",
       "Druid",
       "Wizard"
+    ]
+  },
+  "Cordon of Arrows": {
+    "name": "Cordon of Arrows",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "levelDisplay": "2nd level",
+    "class": [
+      "Ranger"
     ]
   },
   "Counterspell": {
@@ -1047,11 +1010,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
       "Warlock",
@@ -1065,15 +1024,10 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
-      "Paladin",
-      "Artificer"
+      "Paladin"
     ]
   },
   "Create or Destroy Water": {
@@ -1083,11 +1037,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
       "Druid"
@@ -1100,11 +1050,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric",
       "Warlock",
@@ -1118,15 +1064,37 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
+    ]
+  },
+  "Crown of Madness": {
+    "name": "Crown of Madness",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "levelDisplay": "2nd level",
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ]
+  },
+  "Crusader's Mantle": {
+    "name": "Crusader's Mantle",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
+      "Paladin"
     ]
   },
   "Cure Wounds": {
@@ -1136,18 +1104,13 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Cleric",
       "Druid",
       "Paladin",
-      "Ranger",
-      "Artificer"
+      "Ranger"
     ]
   },
   "Dancing Lights": {
@@ -1157,16 +1120,11 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Darkness": {
@@ -1176,11 +1134,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
       "Warlock",
@@ -1194,17 +1148,12 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid",
       "Ranger",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Daylight": {
@@ -1214,11 +1163,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
       "Druid",
@@ -1234,15 +1179,10 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Cleric",
-      "Paladin",
-      "Artificer"
+      "Paladin"
     ]
   },
   "Delayed Blast Fireball": {
@@ -1252,11 +1192,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -1269,14 +1205,22 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Warlock",
       "Wizard"
+    ]
+  },
+  "Destructive Wave": {
+    "name": "Destructive Wave",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "levelDisplay": "5th level",
+    "class": [
+      "Paladin"
     ]
   },
   "Detect Evil and Good": {
@@ -1286,11 +1230,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
       "Paladin"
@@ -1303,11 +1243,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Cleric",
@@ -1315,8 +1251,7 @@
       "Paladin",
       "Ranger",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Detect Poison and Disease": {
@@ -1326,11 +1261,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
       "Druid",
@@ -1345,11 +1276,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -1363,11 +1290,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -1382,16 +1305,11 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Disintegrate": {
@@ -1401,11 +1319,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -1418,11 +1332,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Cleric",
       "Paladin"
@@ -1435,11 +1345,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Cleric",
@@ -1447,8 +1353,19 @@
       "Paladin",
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
+    ]
+  },
+  "Dissonant Whispers": {
+    "name": "Dissonant Whispers",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Bard"
     ]
   },
   "Divination": {
@@ -1458,11 +1375,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Cleric"
     ]
@@ -1474,11 +1387,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Paladin"
     ]
@@ -1490,11 +1399,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Cleric"
     ]
@@ -1506,11 +1411,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Sorcerer"
@@ -1523,11 +1424,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -1542,11 +1439,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -1560,11 +1453,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Wizard"
     ]
@@ -1576,11 +1465,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Warlock",
@@ -1594,11 +1479,7 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Druid"
     ]
@@ -1610,11 +1491,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Cleric",
       "Druid",
@@ -1628,13 +1505,21 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Warlock"
+    ]
+  },
+  "Elemental Weapon": {
+    "name": "Elemental Weapon",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
+      "Paladin"
     ]
   },
   "Enhance Ability": {
@@ -1644,17 +1529,12 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric",
       "Druid",
-      "Sorcerer",
-      "Artificer"
+      "Sorcerer"
     ]
   },
   "Enlarge/Reduce": {
@@ -1664,15 +1544,22 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
+    ]
+  },
+  "Ensnaring Strike": {
+    "name": "Ensnaring Strike",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Ranger"
     ]
   },
   "Entangle": {
@@ -1682,11 +1569,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Druid"
     ]
@@ -1698,11 +1581,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Warlock"
@@ -1715,11 +1594,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Cleric",
@@ -1735,11 +1610,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Wizard"
     ]
@@ -1751,16 +1622,11 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Eyebite": {
@@ -1770,11 +1636,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -1789,14 +1651,9 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Faerie Fire": {
@@ -1806,15 +1663,10 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
-      "Druid",
-      "Artificer"
+      "Druid"
     ]
   },
   "False Life": {
@@ -1824,15 +1676,10 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Fear": {
@@ -1842,11 +1689,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -1861,16 +1704,11 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Feeblemind": {
@@ -1880,15 +1718,26 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Bard",
       "Druid",
       "Warlock",
+      "Wizard"
+    ]
+  },
+  "Feign Death": {
+    "name": "Feign Death",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
+      "Bard",
+      "Cleric",
+      "Druid",
       "Wizard"
     ]
   },
@@ -1899,11 +1748,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Wizard"
     ]
@@ -1915,11 +1760,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Paladin"
     ]
@@ -1931,11 +1772,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Bard",
       "Cleric",
@@ -1949,11 +1786,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric",
       "Druid",
@@ -1967,11 +1800,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Sorcerer",
       "Warlock",
@@ -1985,15 +1814,10 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Fire Shield": {
@@ -2003,11 +1827,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Wizard"
     ]
@@ -2019,11 +1839,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Cleric",
       "Druid",
@@ -2037,11 +1853,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -2054,11 +1866,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid"
     ]
@@ -2070,11 +1878,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Cleric"
     ]
@@ -2086,11 +1890,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid",
       "Wizard"
@@ -2103,11 +1903,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Warlock",
       "Wizard"
@@ -2120,16 +1916,11 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Fog Cloud": {
@@ -2139,11 +1930,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Druid",
       "Ranger",
@@ -2158,11 +1945,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric"
     ]
@@ -2174,11 +1957,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Warlock",
@@ -2192,11 +1971,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Bard",
       "Druid",
@@ -2211,17 +1986,27 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard",
       "Cleric",
       "Druid",
-      "Ranger",
-      "Artificer"
+      "Ranger"
+    ]
+  },
+  "Friends": {
+    "name": "Friends",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "levelDisplay": "Cantrip",
+    "class": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
     ]
   },
   "Gaseous Form": {
@@ -2231,16 +2016,11 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Gate": {
@@ -2250,11 +2030,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Cleric",
       "Sorcerer",
@@ -2268,11 +2044,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Cleric",
@@ -2288,11 +2060,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric",
       "Wizard"
@@ -2305,11 +2073,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid"
     ]
@@ -2321,11 +2085,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Bard",
       "Warlock"
@@ -2338,11 +2098,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -2355,16 +2111,11 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Cleric",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Goodberry": {
@@ -2374,11 +2125,20 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
+    "levelDisplay": "1st level",
+    "class": [
+      "Druid",
+      "Ranger"
+    ]
+  },
+  "Grasping Vine": {
+    "name": "Grasping Vine",
+    "damage": {
       "count": 0,
-      "dice": 0,
-      "rate": 1
+      "dice": 0
     },
+    "level": 4,
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Ranger"
@@ -2391,14 +2151,9 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Greater Invisibility": {
@@ -2408,11 +2163,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -2426,16 +2177,11 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Cleric",
-      "Druid",
-      "Artificer"
+      "Druid"
     ]
   },
   "Guardian of Faith": {
@@ -2445,11 +2191,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Cleric"
     ]
@@ -2461,11 +2203,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Bard",
       "Wizard"
@@ -2478,15 +2216,10 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Cleric",
-      "Druid",
-      "Artificer"
+      "Druid"
     ]
   },
   "Guiding Bolt": {
@@ -2496,11 +2229,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric"
     ]
@@ -2512,15 +2241,23 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid",
       "Sorcerer",
       "Wizard"
+    ]
+  },
+  "Hail of Thorns": {
+    "name": "Hail of Thorns",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Ranger"
     ]
   },
   "Hallow": {
@@ -2530,11 +2267,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Cleric"
     ]
@@ -2546,11 +2279,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard",
       "Druid",
@@ -2565,11 +2294,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric"
     ]
@@ -2581,15 +2306,10 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Heal": {
@@ -2599,11 +2319,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric",
       "Druid"
@@ -2616,11 +2332,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Cleric",
@@ -2634,15 +2346,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
-      "Druid",
-      "Artificer"
+      "Druid"
     ]
   },
   "Hellish Rebuke": {
@@ -2652,11 +2359,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Warlock"
     ]
@@ -2668,11 +2371,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric",
       "Druid"
@@ -2685,14 +2384,22 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Paladin"
+    ]
+  },
+  "Hex": {
+    "name": "Hex",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Warlock"
     ]
   },
   "Hold Monster": {
@@ -2702,11 +2409,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -2721,11 +2424,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric",
@@ -2742,13 +2441,21 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Cleric"
+    ]
+  },
+  "Hunger of Hadar": {
+    "name": "Hunger of Hadar",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
+      "Warlock"
     ]
   },
   "Hunter's Mark": {
@@ -2758,11 +2465,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Ranger"
     ]
@@ -2774,11 +2477,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -2793,11 +2492,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Sorcerer",
@@ -2811,15 +2506,10 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Illusory Script": {
@@ -2829,11 +2519,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Warlock",
@@ -2847,11 +2533,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Warlock",
       "Wizard"
@@ -2864,11 +2546,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -2881,11 +2559,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric"
     ]
@@ -2897,11 +2571,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Cleric",
       "Druid",
@@ -2915,17 +2585,12 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Jump": {
@@ -2935,17 +2600,12 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Druid",
       "Ranger",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Knock": {
@@ -2955,11 +2615,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -2973,11 +2629,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Cleric",
@@ -2991,14 +2643,9 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Leomund's Tiny Hut": {
@@ -3008,11 +2655,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Wizard"
@@ -3025,18 +2668,13 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric",
       "Druid",
       "Paladin",
-      "Ranger",
-      "Artificer"
+      "Ranger"
     ]
   },
   "Levitate": {
@@ -3046,15 +2684,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Light": {
@@ -3064,17 +2697,24 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Cleric",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
+    ]
+  },
+  "Lightning Arrow": {
+    "name": "Lightning Arrow",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 3,
+    "levelDisplay": "3rd level",
+    "class": [
+      "Ranger"
     ]
   },
   "Lightning Bolt": {
@@ -3084,11 +2724,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -3101,11 +2737,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Druid",
@@ -3119,11 +2751,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard",
       "Cleric",
@@ -3140,11 +2768,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric",
@@ -3161,17 +2785,12 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Druid",
       "Ranger",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Mage Armor": {
@@ -3181,11 +2800,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -3198,17 +2813,12 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Magic Circle": {
@@ -3218,11 +2828,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
       "Paladin",
@@ -3237,11 +2843,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Wizard"
     ]
@@ -3253,11 +2855,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -3270,15 +2868,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Magic Weapon": {
@@ -3288,15 +2881,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Paladin",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Major Image": {
@@ -3306,11 +2894,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -3325,11 +2909,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Cleric",
@@ -3343,11 +2923,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Cleric"
     ]
@@ -3359,11 +2935,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric"
     ]
@@ -3375,11 +2947,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -3394,11 +2962,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Wizard"
     ]
@@ -3410,11 +2974,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
       "Druid"
@@ -3427,11 +2987,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Wizard"
     ]
@@ -3443,18 +2999,13 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Cleric",
       "Druid",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Message": {
@@ -3464,16 +3015,11 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Meteor Swarm": {
@@ -3483,11 +3029,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -3500,11 +3042,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Bard",
       "Wizard"
@@ -3517,11 +3055,7 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Sorcerer",
@@ -3536,11 +3070,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Druid",
@@ -3554,11 +3084,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
       "Warlock",
@@ -3572,11 +3098,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Wizard"
@@ -3589,11 +3111,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
       "Warlock",
@@ -3607,11 +3125,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Wizard"
@@ -3624,11 +3138,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid"
     ]
@@ -3640,14 +3150,9 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Mordenkainen's Magnificent Mansion": {
@@ -3657,11 +3162,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Wizard"
@@ -3674,14 +3175,9 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Mordenkainen's Sword": {
@@ -3691,11 +3187,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Wizard"
@@ -3708,11 +3200,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Druid",
       "Sorcerer",
@@ -3726,11 +3214,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Ranger",
@@ -3744,11 +3228,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Wizard"
     ]
@@ -3760,11 +3240,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Wizard"
     ]
@@ -3776,14 +3252,9 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Otto's Irresistible Dance": {
@@ -3793,11 +3264,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Bard",
       "Wizard"
@@ -3810,11 +3277,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid",
       "Ranger"
@@ -3827,12 +3290,22 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
+      "Wizard"
+    ]
+  },
+  "Phantasmal Force": {
+    "name": "Phantasmal Force",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 2,
+    "levelDisplay": "2nd level",
+    "class": [
+      "Bard",
+      "Sorcerer",
       "Wizard"
     ]
   },
@@ -3843,11 +3316,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Wizard"
     ]
@@ -3859,11 +3328,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Wizard"
     ]
@@ -3875,11 +3340,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric"
     ]
@@ -3891,11 +3352,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Cleric",
@@ -3910,11 +3367,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Cleric",
       "Druid",
@@ -3930,11 +3383,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Druid",
@@ -3948,17 +3397,12 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Druid",
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Polymorph": {
@@ -3968,16 +3412,24 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Bard",
       "Druid",
       "Sorcerer",
       "Wizard"
+    ]
+  },
+  "Power Word Heal": {
+    "name": "Power Word Heal",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 9,
+    "levelDisplay": "9th level",
+    "class": [
+      "Bard"
     ]
   },
   "Power Word Kill": {
@@ -3987,11 +3439,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -4006,11 +3454,7 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -4025,11 +3469,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric"
     ]
@@ -4041,17 +3481,12 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Prismatic Spray": {
@@ -4061,11 +3496,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -4078,11 +3509,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Wizard"
     ]
@@ -4094,11 +3521,7 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Druid"
     ]
@@ -4110,11 +3533,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Bard",
       "Wizard"
@@ -4127,11 +3546,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Wizard"
@@ -4144,18 +3559,13 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
       "Druid",
       "Ranger",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Protection from Evil and Good": {
@@ -4165,11 +3575,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
       "Paladin",
@@ -4184,17 +3590,12 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric",
       "Druid",
       "Paladin",
-      "Ranger",
-      "Artificer"
+      "Ranger"
     ]
   },
   "Purify Food and Drink": {
@@ -4204,16 +3605,11 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
       "Druid",
-      "Paladin",
-      "Artificer"
+      "Paladin"
     ]
   },
   "Raise Dead": {
@@ -4223,11 +3619,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Cleric",
@@ -4241,11 +3633,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Wizard"
     ]
@@ -4257,11 +3645,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Warlock",
       "Wizard"
@@ -4274,15 +3658,23 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
+    ]
+  },
+  "Ray of Sickness": {
+    "name": "Ray of Sickness",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Sorcerer",
+      "Wizard"
     ]
   },
   "Regenerate": {
@@ -4292,11 +3684,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Cleric",
@@ -4310,11 +3698,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Druid"
     ]
@@ -4326,11 +3710,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
       "Paladin",
@@ -4345,15 +3725,10 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Cleric",
-      "Druid",
-      "Artificer"
+      "Druid"
     ]
   },
   "Resurrection": {
@@ -4363,11 +3738,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Cleric"
@@ -4380,11 +3751,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Druid",
       "Sorcerer",
@@ -4398,15 +3765,10 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
-      "Paladin",
-      "Artificer"
+      "Paladin"
     ]
   },
   "Rope Trick": {
@@ -4416,14 +3778,9 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Sacred Flame": {
@@ -4433,11 +3790,7 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Cleric"
     ]
@@ -4449,14 +3802,9 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
-      "Cleric",
-      "Artificer"
+      "Cleric"
     ]
   },
   "Scorching Ray": {
@@ -4466,11 +3814,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -4483,17 +3827,25 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Cleric",
       "Druid",
       "Warlock",
       "Wizard"
+    ]
+  },
+  "Searing Smite": {
+    "name": "Searing Smite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Paladin"
     ]
   },
   "See Invisibility": {
@@ -4503,16 +3855,11 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Seeming": {
@@ -4522,11 +3869,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -4540,11 +3883,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Cleric",
@@ -4558,11 +3897,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Wizard"
     ]
@@ -4574,11 +3909,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Druid",
       "Wizard"
@@ -4591,11 +3922,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -4610,11 +3937,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -4627,15 +3950,10 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Cleric",
-      "Paladin",
-      "Artificer"
+      "Paladin"
     ]
   },
   "Shillelagh": {
@@ -4645,11 +3963,7 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Druid"
     ]
@@ -4661,15 +3975,10 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Silence": {
@@ -4679,11 +3988,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric",
@@ -4697,11 +4002,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -4715,11 +4016,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Wizard"
     ]
@@ -4731,11 +4028,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -4749,11 +4042,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Druid",
       "Sorcerer",
@@ -4767,11 +4056,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -4784,14 +4069,9 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
-      "Cleric",
-      "Artificer"
+      "Cleric"
     ]
   },
   "Speak with Animals": {
@@ -4801,11 +4081,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Druid",
@@ -4819,11 +4095,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Cleric"
@@ -4836,11 +4108,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Druid",
@@ -4854,16 +4122,11 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
       "Warlock",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Spike Growth": {
@@ -4873,11 +4136,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Druid",
       "Ranger"
@@ -4890,11 +4149,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric"
     ]
@@ -4906,13 +4161,21 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric"
+    ]
+  },
+  "Staggering Smite": {
+    "name": "Staggering Smite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 4,
+    "levelDisplay": "4th level",
+    "class": [
+      "Paladin"
     ]
   },
   "Stinking Cloud": {
@@ -4922,11 +4185,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -4940,16 +4199,11 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Cleric",
       "Druid",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Stoneskin": {
@@ -4959,17 +4213,12 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Ranger",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Storm of Vengeance": {
@@ -4979,11 +4228,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Druid"
     ]
@@ -4995,11 +4240,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -5014,11 +4255,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Druid",
       "Sorcerer",
@@ -5032,15 +4269,23 @@
       "dice": 0
     },
     "level": 8,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "8th level",
     "class": [
       "Druid",
       "Sorcerer",
       "Wizard"
+    ]
+  },
+  "Swift Quiver": {
+    "name": "Swift Quiver",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 5,
+    "levelDisplay": "5th level",
+    "class": [
+      "Ranger"
     ]
   },
   "Symbol": {
@@ -5050,11 +4295,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Cleric",
@@ -5068,11 +4309,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Wizard"
@@ -5085,13 +4322,21 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Telepathy": {
+    "name": "Telepathy",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "levelDisplay": "8th level",
+    "class": [
       "Wizard"
     ]
   },
@@ -5102,11 +4347,7 @@
       "dice": 0
     },
     "level": 7,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "7th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -5120,11 +4361,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Bard",
       "Sorcerer",
@@ -5138,11 +4375,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Wizard"
     ]
@@ -5154,13 +4387,33 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Cleric"
+    ]
+  },
+  "Thorn Whip": {
+    "name": "Thorn Whip",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 0,
+    "levelDisplay": "Cantrip",
+    "class": [
+      "Druid"
+    ]
+  },
+  "Thunderous Smite": {
+    "name": "Thunderous Smite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Paladin"
     ]
   },
   "Thunderwave": {
@@ -5170,11 +4423,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Druid",
@@ -5189,11 +4438,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Sorcerer",
       "Wizard"
@@ -5206,11 +4451,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Bard",
       "Cleric",
@@ -5226,11 +4467,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Druid"
     ]
@@ -5242,11 +4479,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Druid",
       "Ranger"
@@ -5259,11 +4492,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Bard",
       "Warlock",
@@ -5277,11 +4506,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Cleric",
       "Druid"
@@ -5294,11 +4519,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Bard",
       "Cleric",
@@ -5314,16 +4535,24 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard",
       "Sorcerer",
       "Warlock",
       "Wizard"
+    ]
+  },
+  "Tsunami": {
+    "name": "Tsunami",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 8,
+    "levelDisplay": "8th level",
+    "class": [
+      "Druid"
     ]
   },
   "Unseen Servant": {
@@ -5333,11 +4562,7 @@
       "dice": 0
     },
     "level": 1,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "1st level",
     "class": [
       "Bard",
       "Warlock",
@@ -5351,11 +4576,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Warlock",
       "Wizard"
@@ -5368,11 +4589,7 @@
       "dice": 0
     },
     "level": 0,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "Cantrip",
     "class": [
       "Bard"
     ]
@@ -5384,11 +4601,7 @@
       "dice": 0
     },
     "level": 4,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "4th level",
     "class": [
       "Druid",
       "Sorcerer",
@@ -5402,11 +4615,7 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Wizard"
     ]
@@ -5418,11 +4627,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Wizard"
     ]
@@ -5434,16 +4639,11 @@
       "dice": 0
     },
     "level": 5,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "5th level",
     "class": [
       "Druid",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Wall of Thorns": {
@@ -5453,11 +4653,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Druid"
     ]
@@ -5469,11 +4665,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Cleric"
     ]
@@ -5485,17 +4677,12 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Druid",
       "Ranger",
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Water Walk": {
@@ -5505,17 +4692,12 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Cleric",
       "Druid",
       "Ranger",
-      "Sorcerer",
-      "Artificer"
+      "Sorcerer"
     ]
   },
   "Web": {
@@ -5525,15 +4707,10 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Sorcerer",
-      "Wizard",
-      "Artificer"
+      "Wizard"
     ]
   },
   "Weird": {
@@ -5543,11 +4720,7 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Wizard"
     ]
@@ -5559,11 +4732,7 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Druid"
     ]
@@ -5575,11 +4744,7 @@
       "dice": 0
     },
     "level": 3,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "3rd level",
     "class": [
       "Druid",
       "Ranger"
@@ -5592,13 +4757,23 @@
       "dice": 0
     },
     "level": 9,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "9th level",
     "class": [
       "Sorcerer",
+      "Wizard"
+    ]
+  },
+  "Witch Bolt": {
+    "name": "Witch Bolt",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Sorcerer",
+      "Warlock",
       "Wizard"
     ]
   },
@@ -5609,13 +4784,21 @@
       "dice": 0
     },
     "level": 6,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "6th level",
     "class": [
       "Cleric"
+    ]
+  },
+  "Wrathful Smite": {
+    "name": "Wrathful Smite",
+    "damage": {
+      "count": 0,
+      "dice": 0
+    },
+    "level": 1,
+    "levelDisplay": "1st level",
+    "class": [
+      "Paladin"
     ]
   },
   "Zone of Truth": {
@@ -5625,11 +4808,7 @@
       "dice": 0
     },
     "level": 2,
-    "scaling": {
-      "count": 0,
-      "dice": 0,
-      "rate": 1
-    },
+    "levelDisplay": "2nd level",
     "class": [
       "Bard",
       "Cleric",

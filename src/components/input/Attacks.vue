@@ -3,7 +3,7 @@
     <v-expansion-panel-header>Attacks</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
       <v-btn block color="green" @click="addAttack" class="mb-2">Add Attack</v-btn>
-      <v-expansion-panels>
+      <v-expansion-panels accordion hover multiple focusable>
         <attack-panel
           v-for="(item, index) in attacks"
           :key="item.id"

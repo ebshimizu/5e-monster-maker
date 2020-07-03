@@ -1,14 +1,22 @@
 <template>
   <v-expansion-panel>
     <v-expansion-panel-header>Basics</v-expansion-panel-header>
-    <v-expansion-panel-content class="mt-2">
-      <v-text-field label="Name" v-model="name"></v-text-field>
-      <v-row align="center" no-gutters>
-        <v-col cols="2" class="pr-2"
-          ><v-select label="Size" :items="sizeItems" v-model="size"></v-select
+    <v-expansion-panel-content class="mt-4">
+      <v-row align="center">
+        <v-col cols="12"
+          ><v-text-field dense label="Name" v-model="name"></v-text-field
         ></v-col>
-        <v-col cols="6" class="pr-2"
+        <v-col cols="2"
+          ><v-select
+            dense
+            label="Size"
+            :items="sizeItems"
+            v-model="size"
+          ></v-select
+        ></v-col>
+        <v-col cols="6"
           ><v-combobox
+            dense
             label="Type"
             :items="creatureItems"
             v-model="type"
@@ -16,30 +24,32 @@
         ></v-col>
         <v-col cols="4"
           ><v-combobox
+            dense
             label="Alignment"
             :items="alignmentItems"
             v-model="alignment"
           ></v-combobox
         ></v-col>
-      </v-row>
-      <v-row align="center" no-gutters>
-        <v-col cols="1" class="pr-2"
+        <v-col cols="1"
           ><v-text-field
+            dense
             label="AC"
             type="number"
             v-model="AC"
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="3" class="pr-2"
+        <v-col cols="3"
           ><v-text-field
+            dense
             label="AC Type"
             v-model="ACType"
             hint="Or AC Notes"
           ></v-text-field
         ></v-col>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-text-field
+            dense
             label="HD Count"
             type="number"
             v-model="HD"
@@ -47,15 +57,17 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-select
+            dense
             label="HD Type"
             :items="diceItems"
             v-model="HDType"
           ></v-select
         ></v-col>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-text-field
+            dense
             label="HP Modifier"
             type="number"
             v-model="HPModifier"
@@ -63,10 +75,9 @@
         ></v-col>
         <v-spacer></v-spacer>
         <v-col cols="2"><v-btn block color="blue">HP Tools</v-btn></v-col>
-      </v-row>
-      <v-row align="center" no-gutters>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-text-field
+            dense
             label="STR"
             type="number"
             v-model="STR"
@@ -74,8 +85,9 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-text-field
+            dense
             label="DEX"
             type="number"
             v-model="DEX"
@@ -83,8 +95,9 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-text-field
+            dense
             label="CON"
             type="number"
             v-model="CON"
@@ -92,8 +105,9 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-text-field
+            dense
             label="INT"
             type="number"
             v-model="INT"
@@ -101,8 +115,9 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2" class="pr-2"
+        <v-col cols="2"
           ><v-text-field
+            dense
             label="WIS"
             type="number"
             v-model="WIS"
@@ -112,6 +127,7 @@
         ></v-col>
         <v-col cols="2"
           ><v-text-field
+            dense
             label="CHA"
             type="number"
             v-model="CHA"

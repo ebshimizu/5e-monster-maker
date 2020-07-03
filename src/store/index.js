@@ -13,6 +13,7 @@ import MOVEMENT from '../data/MOVEMENT';
 import SKILL from '../data/SKILL';
 import { MUTATION } from '../data/ACTIONS';
 import STAT from '../data/STAT';
+import SPELLS from '../data/SPELLS';
 
 Vue.use(Vuex);
 
@@ -26,7 +27,7 @@ export default new Vuex.Store({
       AC: 10,
       ACType: '',
       CR: 0,
-      proficiency: 0,
+      proficiency: 4,
       HP: {
         HD: 1,
         type: DICE.d6,
@@ -44,7 +45,7 @@ export default new Vuex.Store({
         STR: 10,
         DEX: 10,
         CON: 10,
-        INT: 10,
+        INT: 12,
         WIS: 10,
         CHA: 10,
       },
@@ -120,12 +121,15 @@ export default new Vuex.Store({
           overrideValue: 0,
         },
         class: 'Wizard',
-        Level: 0,
+        level: 1,
         slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        limited: [],
-        spells: [],
+        atWill: [],
+        standard: [],
+        notes: '',
+        atWillNotes: '',
       },
     },
+    spells: SPELLS,
   },
   getters: {
     defaultSaveBonus: (state) => (stat) => {
@@ -198,8 +202,34 @@ export default new Vuex.Store({
       return base + extra;
     },
     attackFromId: (state) => (id) => {
-      return state.monster.attacks.find(a => a.id === id);
-    }
+      return state.monster.attacks.find((a) => a.id === id);
+    },
+    defaultSpellSave: (state) => (stat) => {
+      return (
+        8 + state.monster.proficiency + statModifier(state.monster.stats[stat])
+      );
+    },
+    defaultSpellAttackModifier: (state) => (stat) => {
+      return (
+        state.monster.proficiency + statModifier(state.monster.stats[stat])
+      );
+    },
+    defaultSpellModifier: (state) => (stat) => {
+      return statModifier(state.monster.stats[stat]);
+    },
+    spellSave: (state, getters) => {
+      if (state.monster.spellcasting.save.override)
+        return state.monster.spellcasting.save.overrideValue;
+      else return getters.defaultSpellSave(state.monster.spellcasting.stat);
+    },
+    spellAttackModifier: (state, getters) => {
+      if (state.monster.spellcasting.attack.override)
+        return state.monster.spellcasting.attack.overrideValue;
+      else
+        return getters.defaultSpellAttackModifier(
+          state.monster.spellcasting.stat
+        );
+    },
   },
   mutations: {
     [MUTATION.SET_SIMPLE_PROP](state, payload) {
@@ -254,6 +284,9 @@ export default new Vuex.Store({
     },
     [MUTATION.SET_MULTIATTACK](state, ma) {
       state.monster.multiattacks = ma;
+    },
+    [MUTATION.SET_SPELLCASTING](state, spellcasting) {
+      state.monster.spellcasting = spellcasting;
     },
   },
   actions: {},

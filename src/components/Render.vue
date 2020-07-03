@@ -40,10 +40,63 @@
     <div class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
+    <v-divider></v-divider>
+    <div
+      v-if="monster.spellcasting.atWill.length > 0"
+      class="innate-spellcasting"
+    >
+      <span class="name">Innate Spellcasting.</span> The {{ monster.name }}'s
+      innate spellcasting ability is {{ statFull(monster.spellcasting.stat) }}
+      {{ spellStats() }}
+      {{ monster.spellcasting.atWillNotes }}
+      It can innately cast the following spells, requiring no material
+      components:
+      <div class="spell-list">
+        <div
+          class="spell-row"
+          v-for="innate in monster.spellcasting.atWill"
+          :key="innate.id"
+        >
+          <span class="spell-label">{{ formatInnateSpellLabel(innate) }} </span>
+          <span class="spell-list-entries">{{ innate.spells.join(', ') }}</span>
+        </div>
+      </div>
+    </div>
+    <div v-if="monster.spellcasting.standard.length > 0" class="spellcasting">
+      <span class="name">Spellcasting.</span> The {{ monster.name }} is a
+      {{ casterLevel }} spellcaster. Its spellcasting ability is
+      {{ statFull(monster.spellcasting.stat) }} {{ spellStats() }}.
+      {{ monster.spellcasting.notes }}
+      The {{ monster.name }} has the following{{
+        monster.spellcasting.class ? ` ${monster.spellcasting.class}` : ''
+      }}
+      spells prepared:
+      <div class="spell-list">
+        <div class="spell-row" v-if="cantrips.length > 0">
+          <span class="spell-label">Cantrips (at will): </span>
+          <span class="spell-list-entries">{{ cantrips }}</span>
+        </div>
+        <div v-if="monster.spellcasting.class === 'Warlock'">
+          <div class="spell-row">
+            <span class="spell-label">{{ warlockLabel }}: </span>
+            <span class="spell-list-entries">{{
+              monster.spellcasting.standard.join(', ')
+            }}</span>
+          </div>
+        </div>
+        <template v-else>
+          <div class="spell-row" v-for="slot in spellsBySlot" :key="slot.level">
+            <span class="spell-label">{{ slot.levelRender }} </span>
+            <span class="spell-list-entries">{{ slot.spells }}</span>
+          </div>
+        </template>
+      </div>
+    </div>
     <h3 class="section mt-2">Actions</h3>
     <v-divider></v-divider>
     <div class="multiattack" v-if="monster.multiattacks.length > 0">
-      <span class="name">Multiattack.</span> {{ renderMultiattacks(monster.multiattacks) }}
+      <span class="name">Multiattack.</span>
+      {{ renderMultiattacks(monster.multiattacks) }}
     </div>
     <div class="attack" v-for="attack in monster.attacks" :key="attack.id">
       <span class="name">{{ attack.name }}. </span>
@@ -79,7 +132,10 @@ import {
 } from './util';
 import MOVEMENT from '../data/MOVEMENT';
 import { RANGE } from '../data/ATTACK';
+import { STAT_FULL } from '../data/STAT';
+
 import N2W from 'number-to-words';
+import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
 
 export default {
   name: 'Render',
@@ -173,6 +229,51 @@ export default {
         )
         .join(', ');
     },
+    casterLevel() {
+      return `${N2W.toOrdinal(this.monster.spellcasting.level)}-level`;
+    },
+    allSpells() {
+      return this.$store.state.spells.ALL;
+    },
+    cantrips() {
+      return this.monster.spellcasting.standard
+        .filter((id) => {
+          return this.allSpells[id].level === 0;
+        })
+        .join(', ');
+    },
+    spellsBySlot() {
+      const slots = this.monster.spellcasting.slots;
+      const ret = [];
+      for (const idx in slots) {
+        if (slots[idx] > 0) {
+          const spells = this.spellsByLevel(parseInt(idx) + 1);
+          if (spells === '') continue;
+
+          const level = parseInt(idx) + 1;
+
+          ret.push({
+            levelRender: `${N2W.toOrdinal(level)} level (${slots[idx]} slots):`,
+            spells,
+          });
+        }
+      }
+
+      return ret;
+    },
+    warlockLabel() {
+      // find the highest level slot and note the quantity
+      const slots = this.monster.spellcasting.slots;
+      for (let idx = 8; idx >= 0; idx--) {
+        if (slots[idx] > 0) {
+          return `${N2W.toOrdinal(1)}-${N2W.toOrdinal(idx + 1)} level (${
+            slots[idx]
+          } ${N2W.toOrdinal(idx + 1)} level slots)`;
+        }
+      }
+
+      return '';
+    },
   },
   methods: {
     toHit(attackModifier) {
@@ -246,6 +347,28 @@ export default {
       });
 
       return `The ${this.monster.name} makes ${atkStrings.join(' or ')}.`;
+    },
+    statFull(stat) {
+      return STAT_FULL[stat];
+    },
+    spellStats() {
+      return `(spell save DC ${
+        this.$store.getters.spellSave
+      }, spell attack ${renderBonus(this.$store.getters.spellAttackModifier)})`;
+    },
+    formatInnateSpellLabel(atWill) {
+      if (atWill.rate === AT_WILL_DEFAULT_RATES.AT_WILL) {
+        return 'At will';
+      } else {
+        return `${atWill.count}/${atWill.rate}:`;
+      }
+    },
+    spellsByLevel(level) {
+      return this.monster.spellcasting.standard
+        .filter((id) => {
+          return this.allSpells[id].level === level;
+        })
+        .join(', ');
     },
   },
 };
