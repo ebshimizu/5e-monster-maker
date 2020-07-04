@@ -41,6 +41,12 @@
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
     <v-divider></v-divider>
+    <div class="traits">
+      <div class="trait" v-for="trait in monster.traits" :key="trait.id">
+        <span class="name">{{ trait.name }}{{ limitedUse(trait) }}.</span>
+        {{ processTokens(trait.description) }}
+      </div>
+    </div>
     <div
       v-if="monster.spellcasting.atWill.length > 0"
       class="innate-spellcasting"
@@ -132,7 +138,7 @@ import {
 } from './util';
 import MOVEMENT from '../data/MOVEMENT';
 import { RANGE } from '../data/ATTACK';
-import { STAT_FULL } from '../data/STAT';
+import STAT, { STAT_FULL } from '../data/STAT';
 
 import N2W from 'number-to-words';
 import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
@@ -352,9 +358,9 @@ export default {
       return STAT_FULL[stat];
     },
     spellStats() {
-      return `(spell save DC ${
-        this.$store.getters.spellSave
-      }, spell attack ${renderBonus(this.$store.getters.spellAttackModifier)})`;
+      return `(spell save DC ${this.$store.getters.spellSave}, ${renderBonus(
+        this.$store.getters.spellAttackModifier
+      )} to hit with spell attacks)`;
     },
     formatInnateSpellLabel(atWill) {
       if (atWill.rate === AT_WILL_DEFAULT_RATES.AT_WILL) {
@@ -369,6 +375,44 @@ export default {
           return this.allSpells[id].level === level;
         })
         .join(', ');
+    },
+    limitedUse(trait) {
+      if (trait.limitedUse.count > 0) {
+        return ` (${trait.limitedUse.count}/${trait.limitedUse.rate})`;
+      }
+
+      return '';
+    },
+    processTokens(text) {
+      // some replacement fun times
+      const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)\}/gi);
+      text = text.replace(dice, (match, count, dice, modifier) => {
+        const cleanModifier = parseInt(modifier.replace(' ', ''));
+        const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier;
+        return `${avg} (${count}d${dice}${renderBonus(cleanModifier)})`;
+      });
+
+      // saves
+      const save = RegExp(/\{DC:(\w{3})\}/gi);
+      text = text.replace(save, (match, stat) => {
+        if (stat in STAT) {
+          return `DC ${this.$store.getters.defaultSpellSave(stat)} ${
+            STAT_FULL[stat]
+          }`;
+        } else return match;
+      });
+
+      // attack modifier
+      const attack = RegExp(/\{A:(\w{3})\}/gi);
+      text = text.replace(attack, (match, stat) => {
+        if (stat in STAT) {
+          return renderBonus(
+            this.$store.getters.defaultSpellAttackModifier(stat)
+          );
+        } else return match;
+      });
+
+      return text;
     },
   },
 };

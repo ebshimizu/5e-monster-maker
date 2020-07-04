@@ -10,7 +10,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Aid": {
     "name": "Aid",
@@ -23,7 +25,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Alarm": {
     "name": "Alarm",
@@ -36,7 +40,9 @@
     "class": [
       "Ranger",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Alter Self": {
     "name": "Alter Self",
@@ -49,7 +55,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Animal Friendship": {
     "name": "Animal Friendship",
@@ -63,7 +71,9 @@
       "Bard",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Animal Messenger": {
     "name": "Animal Messenger",
@@ -77,7 +87,9 @@
       "Bard",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Animal Shapes": {
     "name": "Animal Shapes",
@@ -89,7 +101,9 @@
     "levelDisplay": "8th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Animate Dead": {
     "name": "Animate Dead",
@@ -102,7 +116,9 @@
     "class": [
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Animate Objects": {
     "name": "Animate Objects",
@@ -116,7 +132,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Antilife Shell": {
     "name": "Antilife Shell",
@@ -128,7 +146,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Antimagic Field": {
     "name": "Antimagic Field",
@@ -141,7 +161,9 @@
     "class": [
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Antipathy/Sympathy": {
     "name": "Antipathy/Sympathy",
@@ -154,7 +176,9 @@
     "class": [
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Arcane Eye": {
     "name": "Arcane Eye",
@@ -166,7 +190,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Arcane Gate": {
     "name": "Arcane Gate",
@@ -180,7 +206,8 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Arcane Lock": {
     "name": "Arcane Lock",
@@ -192,7 +219,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Armor of Agathys": {
     "name": "Armor of Agathys",
@@ -204,7 +233,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Warlock"
-    ]
+    ],
+    "custom": false
   },
   "Arms of Hadar": {
     "name": "Arms of Hadar",
@@ -216,7 +246,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Warlock"
-    ]
+    ],
+    "custom": false
   },
   "Astral Projection": {
     "name": "Astral Projection",
@@ -230,7 +261,9 @@
       "Cleric",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Augury": {
     "name": "Augury",
@@ -242,7 +275,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Aura of Life": {
     "name": "Aura of Life",
@@ -254,7 +289,8 @@
     "levelDisplay": "4th level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Aura of Purity": {
     "name": "Aura of Purity",
@@ -266,7 +302,8 @@
     "levelDisplay": "4th level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Aura of Vitality": {
     "name": "Aura of Vitality",
@@ -278,7 +315,8 @@
     "levelDisplay": "3rd level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Awaken": {
     "name": "Awaken",
@@ -291,7 +329,9 @@
     "class": [
       "Bard",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Bane": {
     "name": "Bane",
@@ -304,7 +344,9 @@
     "class": [
       "Bard",
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Banishing Smite": {
     "name": "Banishing Smite",
@@ -316,7 +358,8 @@
     "levelDisplay": "5th level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Banishment": {
     "name": "Banishment",
@@ -332,7 +375,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Barkskin": {
     "name": "Barkskin",
@@ -345,7 +390,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Beacon of Hope": {
     "name": "Beacon of Hope",
@@ -357,7 +404,9 @@
     "levelDisplay": "3rd level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Beast Sense": {
     "name": "Beast Sense",
@@ -370,7 +419,8 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Bestow Curse": {
     "name": "Bestow Curse",
@@ -384,7 +434,9 @@
       "Bard",
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Bigby's Hand": {
     "name": "Bigby's Hand",
@@ -396,7 +448,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Arcane Hand",
+    "custom": false
   },
   "Blade Barrier": {
     "name": "Blade Barrier",
@@ -408,7 +462,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Blade Ward": {
     "name": "Blade Ward",
@@ -423,7 +479,8 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Bless": {
     "name": "Bless",
@@ -436,7 +493,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Blight": {
     "name": "Blight",
@@ -451,7 +510,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Blinding Smite": {
     "name": "Blinding Smite",
@@ -463,7 +524,8 @@
     "levelDisplay": "3rd level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Blindness/Deafness": {
     "name": "Blindness/Deafness",
@@ -478,7 +540,9 @@
       "Cleric",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Blink": {
     "name": "Blink",
@@ -491,7 +555,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Blur": {
     "name": "Blur",
@@ -504,7 +570,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Branding Smite": {
     "name": "Branding Smite",
@@ -516,7 +584,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Burning Hands": {
     "name": "Burning Hands",
@@ -529,7 +599,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Call Lightning": {
     "name": "Call Lightning",
@@ -541,7 +613,9 @@
     "levelDisplay": "3rd level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Calm Emotions": {
     "name": "Calm Emotions",
@@ -554,7 +628,9 @@
     "class": [
       "Bard",
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Chain Lightning": {
     "name": "Chain Lightning",
@@ -567,7 +643,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Charm Person": {
     "name": "Charm Person",
@@ -583,7 +661,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Chill Touch": {
     "name": "Chill Touch",
@@ -597,7 +677,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Chromatic Orb": {
     "name": "Chromatic Orb",
@@ -610,7 +692,8 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Circle of Death": {
     "name": "Circle of Death",
@@ -624,7 +707,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Circle of Power": {
     "name": "Circle of Power",
@@ -636,7 +721,8 @@
     "levelDisplay": "5th level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Clairvoyance": {
     "name": "Clairvoyance",
@@ -651,7 +737,9 @@
       "Cleric",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Clone": {
     "name": "Clone",
@@ -663,7 +751,9 @@
     "levelDisplay": "8th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Cloud of Daggers": {
     "name": "Cloud of Daggers",
@@ -678,7 +768,8 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Cloudkill": {
     "name": "Cloudkill",
@@ -691,7 +782,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Color Spray": {
     "name": "Color Spray",
@@ -704,7 +797,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Command": {
     "name": "Command",
@@ -717,7 +812,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Commune": {
     "name": "Commune",
@@ -729,7 +826,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Commune with Nature": {
     "name": "Commune with Nature",
@@ -742,7 +841,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Compelled Duel": {
     "name": "Compelled Duel",
@@ -754,7 +855,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Comprehend Languages": {
     "name": "Comprehend Languages",
@@ -769,7 +871,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Compulsion": {
     "name": "Compulsion",
@@ -781,7 +885,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Bard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Cone of Cold": {
     "name": "Cone of Cold",
@@ -794,7 +900,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Confusion": {
     "name": "Confusion",
@@ -809,7 +917,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Conjure Animals": {
     "name": "Conjure Animals",
@@ -822,7 +932,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Conjure Barrage": {
     "name": "Conjure Barrage",
@@ -834,7 +946,8 @@
     "levelDisplay": "3rd level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Conjure Celestial": {
     "name": "Conjure Celestial",
@@ -846,7 +959,9 @@
     "levelDisplay": "7th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Conjure Elemental": {
     "name": "Conjure Elemental",
@@ -859,7 +974,9 @@
     "class": [
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Conjure Fey": {
     "name": "Conjure Fey",
@@ -872,7 +989,9 @@
     "class": [
       "Druid",
       "Warlock"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Conjure Minor Elementals": {
     "name": "Conjure Minor Elementals",
@@ -885,7 +1004,9 @@
     "class": [
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Conjure Volley": {
     "name": "Conjure Volley",
@@ -897,7 +1018,8 @@
     "levelDisplay": "5th level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Conjure Woodland Beings": {
     "name": "Conjure Woodland Beings",
@@ -910,7 +1032,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Contact Other Plane": {
     "name": "Contact Other Plane",
@@ -923,7 +1047,9 @@
     "class": [
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Contagion": {
     "name": "Contagion",
@@ -936,7 +1062,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Contingency": {
     "name": "Contingency",
@@ -948,7 +1076,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Continual Flame": {
     "name": "Continual Flame",
@@ -961,7 +1091,9 @@
     "class": [
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Control Water": {
     "name": "Control Water",
@@ -975,7 +1107,9 @@
       "Cleric",
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Control Weather": {
     "name": "Control Weather",
@@ -989,7 +1123,9 @@
       "Cleric",
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Cordon of Arrows": {
     "name": "Cordon of Arrows",
@@ -1001,7 +1137,8 @@
     "levelDisplay": "2nd level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Counterspell": {
     "name": "Counterspell",
@@ -1015,7 +1152,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Create Food and Water": {
     "name": "Create Food and Water",
@@ -1028,7 +1167,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Create or Destroy Water": {
     "name": "Create or Destroy Water",
@@ -1041,7 +1182,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Create Undead": {
     "name": "Create Undead",
@@ -1055,7 +1198,9 @@
       "Cleric",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Creation": {
     "name": "Creation",
@@ -1068,7 +1213,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Crown of Madness": {
     "name": "Crown of Madness",
@@ -1083,7 +1230,8 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Crusader's Mantle": {
     "name": "Crusader's Mantle",
@@ -1095,7 +1243,8 @@
     "levelDisplay": "3rd level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Cure Wounds": {
     "name": "Cure Wounds",
@@ -1111,7 +1260,9 @@
       "Druid",
       "Paladin",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dancing Lights": {
     "name": "Dancing Lights",
@@ -1125,7 +1276,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Darkness": {
     "name": "Darkness",
@@ -1139,7 +1292,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Darkvision": {
     "name": "Darkvision",
@@ -1154,7 +1309,9 @@
       "Ranger",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Daylight": {
     "name": "Daylight",
@@ -1170,7 +1327,9 @@
       "Paladin",
       "Ranger",
       "Sorcerer"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Death Ward": {
     "name": "Death Ward",
@@ -1183,7 +1342,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Delayed Blast Fireball": {
     "name": "Delayed Blast Fireball",
@@ -1196,7 +1357,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Demiplane": {
     "name": "Demiplane",
@@ -1209,7 +1372,9 @@
     "class": [
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Destructive Wave": {
     "name": "Destructive Wave",
@@ -1221,7 +1386,8 @@
     "levelDisplay": "5th level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Detect Evil and Good": {
     "name": "Detect Evil and Good",
@@ -1234,7 +1400,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Detect Magic": {
     "name": "Detect Magic",
@@ -1252,7 +1420,9 @@
       "Ranger",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Detect Poison and Disease": {
     "name": "Detect Poison and Disease",
@@ -1267,7 +1437,9 @@
       "Druid",
       "Paladin",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Detect Thoughts": {
     "name": "Detect Thoughts",
@@ -1281,7 +1453,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dimension Door": {
     "name": "Dimension Door",
@@ -1296,7 +1470,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Disguise Self": {
     "name": "Disguise Self",
@@ -1310,7 +1486,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Disintegrate": {
     "name": "Disintegrate",
@@ -1323,7 +1501,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dispel Evil and Good": {
     "name": "Dispel Evil and Good",
@@ -1336,7 +1516,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dispel Magic": {
     "name": "Dispel Magic",
@@ -1354,7 +1536,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dissonant Whispers": {
     "name": "Dissonant Whispers",
@@ -1366,7 +1550,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Bard"
-    ]
+    ],
+    "custom": false
   },
   "Divination": {
     "name": "Divination",
@@ -1378,7 +1563,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Divine Favor": {
     "name": "Divine Favor",
@@ -1390,7 +1577,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Divine Word": {
     "name": "Divine Word",
@@ -1402,7 +1591,9 @@
     "levelDisplay": "7th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dominate Beast": {
     "name": "Dominate Beast",
@@ -1415,7 +1606,9 @@
     "class": [
       "Druid",
       "Sorcerer"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dominate Monster": {
     "name": "Dominate Monster",
@@ -1430,7 +1623,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Dominate Person": {
     "name": "Dominate Person",
@@ -1444,7 +1639,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Drawmij's Instant Summons": {
     "name": "Drawmij's Instant Summons",
@@ -1456,7 +1653,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Instant Summons",
+    "custom": false
   },
   "Dream": {
     "name": "Dream",
@@ -1470,7 +1669,9 @@
       "Bard",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Druidcraft": {
     "name": "Druidcraft",
@@ -1482,7 +1683,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Earthquake": {
     "name": "Earthquake",
@@ -1496,7 +1699,9 @@
       "Cleric",
       "Druid",
       "Sorcerer"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Eldritch Blast": {
     "name": "Eldritch Blast",
@@ -1508,7 +1713,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Warlock"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Elemental Weapon": {
     "name": "Elemental Weapon",
@@ -1520,7 +1727,8 @@
     "levelDisplay": "3rd level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Enhance Ability": {
     "name": "Enhance Ability",
@@ -1535,7 +1743,9 @@
       "Cleric",
       "Druid",
       "Sorcerer"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Enlarge/Reduce": {
     "name": "Enlarge/Reduce",
@@ -1548,7 +1758,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Ensnaring Strike": {
     "name": "Ensnaring Strike",
@@ -1560,7 +1772,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Entangle": {
     "name": "Entangle",
@@ -1572,7 +1785,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Enthrall": {
     "name": "Enthrall",
@@ -1585,7 +1800,9 @@
     "class": [
       "Bard",
       "Warlock"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Etherealness": {
     "name": "Etherealness",
@@ -1601,7 +1818,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Evard's Black Tentacles": {
     "name": "Evard's Black Tentacles",
@@ -1613,7 +1832,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Black Tentacles",
+    "custom": false
   },
   "Expeditious Retreat": {
     "name": "Expeditious Retreat",
@@ -1627,7 +1848,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Eyebite": {
     "name": "Eyebite",
@@ -1642,7 +1865,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fabricate": {
     "name": "Fabricate",
@@ -1654,7 +1879,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Faerie Fire": {
     "name": "Faerie Fire",
@@ -1667,7 +1894,9 @@
     "class": [
       "Bard",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "False Life": {
     "name": "False Life",
@@ -1680,7 +1909,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fear": {
     "name": "Fear",
@@ -1695,7 +1926,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Feather Fall": {
     "name": "Feather Fall",
@@ -1709,7 +1942,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Feeblemind": {
     "name": "Feeblemind",
@@ -1724,7 +1959,9 @@
       "Druid",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Feign Death": {
     "name": "Feign Death",
@@ -1739,7 +1976,8 @@
       "Cleric",
       "Druid",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Find Familiar": {
     "name": "Find Familiar",
@@ -1751,7 +1989,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Find Steed": {
     "name": "Find Steed",
@@ -1763,7 +2003,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Find the Path": {
     "name": "Find the Path",
@@ -1777,7 +2019,9 @@
       "Bard",
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Find Traps": {
     "name": "Find Traps",
@@ -1791,7 +2035,9 @@
       "Cleric",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Finger of Death": {
     "name": "Finger of Death",
@@ -1805,7 +2051,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fire Bolt": {
     "name": "Fire Bolt",
@@ -1818,7 +2066,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fire Shield": {
     "name": "Fire Shield",
@@ -1830,7 +2080,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fire Storm": {
     "name": "Fire Storm",
@@ -1844,7 +2096,9 @@
       "Cleric",
       "Druid",
       "Sorcerer"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fireball": {
     "name": "Fireball",
@@ -1857,7 +2111,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Flame Blade": {
     "name": "Flame Blade",
@@ -1869,7 +2125,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Flame Strike": {
     "name": "Flame Strike",
@@ -1881,7 +2139,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Flaming Sphere": {
     "name": "Flaming Sphere",
@@ -1894,7 +2154,9 @@
     "class": [
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Flesh to Stone": {
     "name": "Flesh to Stone",
@@ -1907,7 +2169,9 @@
     "class": [
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fly": {
     "name": "Fly",
@@ -1921,7 +2185,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Fog Cloud": {
     "name": "Fog Cloud",
@@ -1936,7 +2202,9 @@
       "Ranger",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Forbiddance": {
     "name": "Forbiddance",
@@ -1948,7 +2216,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Forcecage": {
     "name": "Forcecage",
@@ -1962,7 +2232,9 @@
       "Bard",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Foresight": {
     "name": "Foresight",
@@ -1977,7 +2249,9 @@
       "Druid",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Freedom of Movement": {
     "name": "Freedom of Movement",
@@ -1992,7 +2266,9 @@
       "Cleric",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Friends": {
     "name": "Friends",
@@ -2007,7 +2283,8 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Gaseous Form": {
     "name": "Gaseous Form",
@@ -2021,7 +2298,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Gate": {
     "name": "Gate",
@@ -2035,7 +2314,9 @@
       "Cleric",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Geas": {
     "name": "Geas",
@@ -2051,7 +2332,9 @@
       "Druid",
       "Paladin",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Gentle Repose": {
     "name": "Gentle Repose",
@@ -2064,7 +2347,9 @@
     "class": [
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Giant Insect": {
     "name": "Giant Insect",
@@ -2076,7 +2361,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Glibness": {
     "name": "Glibness",
@@ -2089,7 +2376,9 @@
     "class": [
       "Bard",
       "Warlock"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Globe of Invulnerability": {
     "name": "Globe of Invulnerability",
@@ -2102,7 +2391,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Glyph of Warding": {
     "name": "Glyph of Warding",
@@ -2116,7 +2407,9 @@
       "Bard",
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Goodberry": {
     "name": "Goodberry",
@@ -2129,7 +2422,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Grasping Vine": {
     "name": "Grasping Vine",
@@ -2142,7 +2437,8 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Grease": {
     "name": "Grease",
@@ -2154,7 +2450,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Greater Invisibility": {
     "name": "Greater Invisibility",
@@ -2168,7 +2466,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Greater Restoration": {
     "name": "Greater Restoration",
@@ -2182,7 +2482,9 @@
       "Bard",
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Guardian of Faith": {
     "name": "Guardian of Faith",
@@ -2194,7 +2496,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Guards and Wards": {
     "name": "Guards and Wards",
@@ -2207,7 +2511,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Guidance": {
     "name": "Guidance",
@@ -2220,7 +2526,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Guiding Bolt": {
     "name": "Guiding Bolt",
@@ -2232,7 +2540,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Gust of Wind": {
     "name": "Gust of Wind",
@@ -2246,7 +2556,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Hail of Thorns": {
     "name": "Hail of Thorns",
@@ -2258,7 +2570,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Hallow": {
     "name": "Hallow",
@@ -2270,7 +2583,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Hallucinatory Terrain": {
     "name": "Hallucinatory Terrain",
@@ -2285,7 +2600,9 @@
       "Druid",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Harm": {
     "name": "Harm",
@@ -2297,7 +2614,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Haste": {
     "name": "Haste",
@@ -2310,7 +2629,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Heal": {
     "name": "Heal",
@@ -2323,7 +2644,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Healing Word": {
     "name": "Healing Word",
@@ -2337,7 +2660,9 @@
       "Bard",
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Heat Metal": {
     "name": "Heat Metal",
@@ -2350,7 +2675,9 @@
     "class": [
       "Bard",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Hellish Rebuke": {
     "name": "Hellish Rebuke",
@@ -2362,7 +2689,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Warlock"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Heroes' Feast": {
     "name": "Heroes' Feast",
@@ -2375,7 +2704,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Heroism": {
     "name": "Heroism",
@@ -2388,7 +2719,9 @@
     "class": [
       "Bard",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Hex": {
     "name": "Hex",
@@ -2400,7 +2733,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Warlock"
-    ]
+    ],
+    "custom": false
   },
   "Hold Monster": {
     "name": "Hold Monster",
@@ -2415,7 +2749,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Hold Person": {
     "name": "Hold Person",
@@ -2432,7 +2768,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Holy Aura": {
     "name": "Holy Aura",
@@ -2444,7 +2782,9 @@
     "levelDisplay": "8th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Hunger of Hadar": {
     "name": "Hunger of Hadar",
@@ -2456,7 +2796,8 @@
     "levelDisplay": "3rd level",
     "class": [
       "Warlock"
-    ]
+    ],
+    "custom": false
   },
   "Hunter's Mark": {
     "name": "Hunter's Mark",
@@ -2468,7 +2809,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Hypnotic Pattern": {
     "name": "Hypnotic Pattern",
@@ -2483,7 +2826,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Ice Storm": {
     "name": "Ice Storm",
@@ -2497,7 +2842,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Identify": {
     "name": "Identify",
@@ -2510,7 +2857,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Illusory Script": {
     "name": "Illusory Script",
@@ -2524,7 +2873,9 @@
       "Bard",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Imprisonment": {
     "name": "Imprisonment",
@@ -2537,7 +2888,9 @@
     "class": [
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Incendiary Cloud": {
     "name": "Incendiary Cloud",
@@ -2550,7 +2903,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Inflict Wounds": {
     "name": "Inflict Wounds",
@@ -2562,7 +2917,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Insect Plague": {
     "name": "Insect Plague",
@@ -2576,7 +2933,9 @@
       "Cleric",
       "Druid",
       "Sorcerer"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Invisibility": {
     "name": "Invisibility",
@@ -2591,7 +2950,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Jump": {
     "name": "Jump",
@@ -2606,7 +2967,9 @@
       "Ranger",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Knock": {
     "name": "Knock",
@@ -2620,7 +2983,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Legend Lore": {
     "name": "Legend Lore",
@@ -2634,7 +2999,9 @@
       "Bard",
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Leomund's Secret Chest": {
     "name": "Leomund's Secret Chest",
@@ -2646,7 +3013,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Secret Chest",
+    "custom": false
   },
   "Leomund's Tiny Hut": {
     "name": "Leomund's Tiny Hut",
@@ -2659,7 +3028,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": "Tiny Hut",
+    "custom": false
   },
   "Lesser Restoration": {
     "name": "Lesser Restoration",
@@ -2675,7 +3046,9 @@
       "Druid",
       "Paladin",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Levitate": {
     "name": "Levitate",
@@ -2688,7 +3061,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Light": {
     "name": "Light",
@@ -2703,7 +3078,9 @@
       "Cleric",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Lightning Arrow": {
     "name": "Lightning Arrow",
@@ -2715,7 +3092,8 @@
     "levelDisplay": "3rd level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Lightning Bolt": {
     "name": "Lightning Bolt",
@@ -2728,7 +3106,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Locate Animals or Plants": {
     "name": "Locate Animals or Plants",
@@ -2742,7 +3122,9 @@
       "Bard",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Locate Creature": {
     "name": "Locate Creature",
@@ -2759,7 +3141,9 @@
       "Paladin",
       "Ranger",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Locate Object": {
     "name": "Locate Object",
@@ -2776,7 +3160,9 @@
       "Paladin",
       "Ranger",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Longstrider": {
     "name": "Longstrider",
@@ -2791,7 +3177,9 @@
       "Druid",
       "Ranger",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mage Armor": {
     "name": "Mage Armor",
@@ -2804,7 +3192,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mage Hand": {
     "name": "Mage Hand",
@@ -2819,7 +3209,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Magic Circle": {
     "name": "Magic Circle",
@@ -2834,7 +3226,9 @@
       "Paladin",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Magic Jar": {
     "name": "Magic Jar",
@@ -2846,7 +3240,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Magic Missile": {
     "name": "Magic Missile",
@@ -2859,7 +3255,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Magic Mouth": {
     "name": "Magic Mouth",
@@ -2872,7 +3270,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Magic Weapon": {
     "name": "Magic Weapon",
@@ -2885,7 +3285,9 @@
     "class": [
       "Paladin",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Major Image": {
     "name": "Major Image",
@@ -2900,7 +3302,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mass Cure Wounds": {
     "name": "Mass Cure Wounds",
@@ -2914,7 +3318,9 @@
       "Bard",
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mass Heal": {
     "name": "Mass Heal",
@@ -2926,7 +3332,9 @@
     "levelDisplay": "9th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mass Healing Word": {
     "name": "Mass Healing Word",
@@ -2938,7 +3346,9 @@
     "levelDisplay": "3rd level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mass Suggestion": {
     "name": "Mass Suggestion",
@@ -2953,7 +3363,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Maze": {
     "name": "Maze",
@@ -2965,7 +3377,9 @@
     "levelDisplay": "8th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Meld into Stone": {
     "name": "Meld into Stone",
@@ -2978,7 +3392,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Melf's Acid Arrow": {
     "name": "Melf's Acid Arrow",
@@ -2990,7 +3406,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Acid Arrow",
+    "custom": false
   },
   "Mending": {
     "name": "Mending",
@@ -3006,7 +3424,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Message": {
     "name": "Message",
@@ -3020,7 +3440,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Meteor Swarm": {
     "name": "Meteor Swarm",
@@ -3033,7 +3455,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mind Blank": {
     "name": "Mind Blank",
@@ -3046,7 +3470,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Minor Illusion": {
     "name": "Minor Illusion",
@@ -3061,7 +3487,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mirage Arcane": {
     "name": "Mirage Arcane",
@@ -3075,7 +3503,9 @@
       "Bard",
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mirror Image": {
     "name": "Mirror Image",
@@ -3089,7 +3519,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mislead": {
     "name": "Mislead",
@@ -3102,7 +3534,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Misty Step": {
     "name": "Misty Step",
@@ -3116,7 +3550,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Modify Memory": {
     "name": "Modify Memory",
@@ -3129,7 +3565,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Moonbeam": {
     "name": "Moonbeam",
@@ -3141,7 +3579,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Mordenkainen's Faithful Hound": {
     "name": "Mordenkainen's Faithful Hound",
@@ -3153,7 +3593,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Faithful Hound",
+    "custom": false
   },
   "Mordenkainen's Magnificent Mansion": {
     "name": "Mordenkainen's Magnificent Mansion",
@@ -3166,7 +3608,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": "Magnificent Mansion",
+    "custom": false
   },
   "Mordenkainen's Private Sanctum": {
     "name": "Mordenkainen's Private Sanctum",
@@ -3178,7 +3622,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Private Sanctum",
+    "custom": false
   },
   "Mordenkainen's Sword": {
     "name": "Mordenkainen's Sword",
@@ -3191,7 +3637,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": "Arcane Sword",
+    "custom": false
   },
   "Move Earth": {
     "name": "Move Earth",
@@ -3205,7 +3653,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Nondetection": {
     "name": "Nondetection",
@@ -3219,7 +3669,9 @@
       "Bard",
       "Ranger",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Nystul's Magic Aura": {
     "name": "Nystul's Magic Aura",
@@ -3231,7 +3683,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Arcanist's Magic Aura",
+    "custom": false
   },
   "Otiluke's Freezing Sphere": {
     "name": "Otiluke's Freezing Sphere",
@@ -3243,7 +3697,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Freezing Sphere",
+    "custom": false
   },
   "Otiluke's Resilient Sphere": {
     "name": "Otiluke's Resilient Sphere",
@@ -3255,7 +3711,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Resilient Sphere",
+    "custom": false
   },
   "Otto's Irresistible Dance": {
     "name": "Otto's Irresistible Dance",
@@ -3268,7 +3726,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": "Irresistible Dance",
+    "custom": false
   },
   "Pass without Trace": {
     "name": "Pass without Trace",
@@ -3281,7 +3741,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Passwall": {
     "name": "Passwall",
@@ -3293,7 +3755,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Phantasmal Force": {
     "name": "Phantasmal Force",
@@ -3307,7 +3771,8 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Phantasmal Killer": {
     "name": "Phantasmal Killer",
@@ -3319,7 +3784,9 @@
     "levelDisplay": "4th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Phantom Steed": {
     "name": "Phantom Steed",
@@ -3331,7 +3798,9 @@
     "levelDisplay": "3rd level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Planar Ally": {
     "name": "Planar Ally",
@@ -3343,7 +3812,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Planar Binding": {
     "name": "Planar Binding",
@@ -3358,7 +3829,9 @@
       "Cleric",
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Plane Shift": {
     "name": "Plane Shift",
@@ -3374,7 +3847,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Plant Growth": {
     "name": "Plant Growth",
@@ -3388,7 +3863,9 @@
       "Bard",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Poison Spray": {
     "name": "Poison Spray",
@@ -3403,7 +3880,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Polymorph": {
     "name": "Polymorph",
@@ -3418,7 +3897,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Power Word Heal": {
     "name": "Power Word Heal",
@@ -3430,7 +3911,8 @@
     "levelDisplay": "9th level",
     "class": [
       "Bard"
-    ]
+    ],
+    "custom": false
   },
   "Power Word Kill": {
     "name": "Power Word Kill",
@@ -3445,7 +3927,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Power Word Stun": {
     "name": "Power Word Stun",
@@ -3460,7 +3944,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Prayer of Healing": {
     "name": "Prayer of Healing",
@@ -3472,7 +3958,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Prestidigitation": {
     "name": "Prestidigitation",
@@ -3487,7 +3975,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Prismatic Spray": {
     "name": "Prismatic Spray",
@@ -3500,7 +3990,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Prismatic Wall": {
     "name": "Prismatic Wall",
@@ -3512,7 +4004,9 @@
     "levelDisplay": "9th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Produce Flame": {
     "name": "Produce Flame",
@@ -3524,7 +4018,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Programmed Illusion": {
     "name": "Programmed Illusion",
@@ -3537,7 +4033,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Project Image": {
     "name": "Project Image",
@@ -3550,7 +4048,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Protection from Energy": {
     "name": "Protection from Energy",
@@ -3566,7 +4066,9 @@
       "Ranger",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Protection from Evil and Good": {
     "name": "Protection from Evil and Good",
@@ -3581,7 +4083,9 @@
       "Paladin",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Protection from Poison": {
     "name": "Protection from Poison",
@@ -3596,7 +4100,9 @@
       "Druid",
       "Paladin",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Purify Food and Drink": {
     "name": "Purify Food and Drink",
@@ -3610,7 +4116,9 @@
       "Cleric",
       "Druid",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Raise Dead": {
     "name": "Raise Dead",
@@ -3624,7 +4132,9 @@
       "Bard",
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Rary's Telepathic Bond": {
     "name": "Rary's Telepathic Bond",
@@ -3636,7 +4146,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Telepathic Bond",
+    "custom": false
   },
   "Ray of Enfeeblement": {
     "name": "Ray of Enfeeblement",
@@ -3649,7 +4161,9 @@
     "class": [
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Ray of Frost": {
     "name": "Ray of Frost",
@@ -3662,7 +4176,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Ray of Sickness": {
     "name": "Ray of Sickness",
@@ -3675,7 +4191,8 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Regenerate": {
     "name": "Regenerate",
@@ -3689,7 +4206,9 @@
       "Bard",
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Reincarnate": {
     "name": "Reincarnate",
@@ -3701,7 +4220,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Remove Curse": {
     "name": "Remove Curse",
@@ -3716,7 +4237,9 @@
       "Paladin",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Resistance": {
     "name": "Resistance",
@@ -3729,7 +4252,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Resurrection": {
     "name": "Resurrection",
@@ -3742,7 +4267,9 @@
     "class": [
       "Bard",
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Reverse Gravity": {
     "name": "Reverse Gravity",
@@ -3756,7 +4283,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Revivify": {
     "name": "Revivify",
@@ -3769,7 +4298,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Rope Trick": {
     "name": "Rope Trick",
@@ -3781,7 +4312,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sacred Flame": {
     "name": "Sacred Flame",
@@ -3793,7 +4326,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sanctuary": {
     "name": "Sanctuary",
@@ -3805,7 +4340,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Scorching Ray": {
     "name": "Scorching Ray",
@@ -3818,7 +4355,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Scrying": {
     "name": "Scrying",
@@ -3834,7 +4373,9 @@
       "Druid",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Searing Smite": {
     "name": "Searing Smite",
@@ -3846,7 +4387,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "See Invisibility": {
     "name": "See Invisibility",
@@ -3860,7 +4402,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Seeming": {
     "name": "Seeming",
@@ -3874,7 +4418,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sending": {
     "name": "Sending",
@@ -3888,7 +4434,9 @@
       "Bard",
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sequester": {
     "name": "Sequester",
@@ -3900,7 +4448,9 @@
     "levelDisplay": "7th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Shapechange": {
     "name": "Shapechange",
@@ -3913,7 +4463,9 @@
     "class": [
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Shatter": {
     "name": "Shatter",
@@ -3928,7 +4480,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Shield": {
     "name": "Shield",
@@ -3941,7 +4495,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Shield of Faith": {
     "name": "Shield of Faith",
@@ -3954,7 +4510,9 @@
     "class": [
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Shillelagh": {
     "name": "Shillelagh",
@@ -3966,7 +4524,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Shocking Grasp": {
     "name": "Shocking Grasp",
@@ -3979,7 +4539,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Silence": {
     "name": "Silence",
@@ -3993,7 +4555,9 @@
       "Bard",
       "Cleric",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Silent Image": {
     "name": "Silent Image",
@@ -4007,7 +4571,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Simulacrum": {
     "name": "Simulacrum",
@@ -4019,7 +4585,9 @@
     "levelDisplay": "7th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sleep": {
     "name": "Sleep",
@@ -4033,7 +4601,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sleet Storm": {
     "name": "Sleet Storm",
@@ -4047,7 +4617,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Slow": {
     "name": "Slow",
@@ -4060,7 +4632,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Spare the Dying": {
     "name": "Spare the Dying",
@@ -4072,7 +4646,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Speak with Animals": {
     "name": "Speak with Animals",
@@ -4086,7 +4662,9 @@
       "Bard",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Speak with Dead": {
     "name": "Speak with Dead",
@@ -4099,7 +4677,9 @@
     "class": [
       "Bard",
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Speak with Plants": {
     "name": "Speak with Plants",
@@ -4113,7 +4693,9 @@
       "Bard",
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Spider Climb": {
     "name": "Spider Climb",
@@ -4127,7 +4709,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Spike Growth": {
     "name": "Spike Growth",
@@ -4140,7 +4724,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Spirit Guardians": {
     "name": "Spirit Guardians",
@@ -4152,7 +4738,9 @@
     "levelDisplay": "3rd level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Spiritual Weapon": {
     "name": "Spiritual Weapon",
@@ -4164,7 +4752,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Staggering Smite": {
     "name": "Staggering Smite",
@@ -4176,7 +4766,8 @@
     "levelDisplay": "4th level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Stinking Cloud": {
     "name": "Stinking Cloud",
@@ -4190,7 +4781,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Stone Shape": {
     "name": "Stone Shape",
@@ -4204,7 +4797,9 @@
       "Cleric",
       "Druid",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Stoneskin": {
     "name": "Stoneskin",
@@ -4219,7 +4814,9 @@
       "Ranger",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Storm of Vengeance": {
     "name": "Storm of Vengeance",
@@ -4231,7 +4828,9 @@
     "levelDisplay": "9th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Suggestion": {
     "name": "Suggestion",
@@ -4246,7 +4845,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sunbeam": {
     "name": "Sunbeam",
@@ -4260,7 +4861,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Sunburst": {
     "name": "Sunburst",
@@ -4274,7 +4877,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Swift Quiver": {
     "name": "Swift Quiver",
@@ -4286,7 +4891,8 @@
     "levelDisplay": "5th level",
     "class": [
       "Ranger"
-    ]
+    ],
+    "custom": false
   },
   "Symbol": {
     "name": "Symbol",
@@ -4300,7 +4906,9 @@
       "Bard",
       "Cleric",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Tasha's Hideous Laughter": {
     "name": "Tasha's Hideous Laughter",
@@ -4313,7 +4921,9 @@
     "class": [
       "Bard",
       "Wizard"
-    ]
+    ],
+    "srd": "Hideous Laughter",
+    "custom": false
   },
   "Telekinesis": {
     "name": "Telekinesis",
@@ -4326,7 +4936,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Telepathy": {
     "name": "Telepathy",
@@ -4338,7 +4950,8 @@
     "levelDisplay": "8th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Teleport": {
     "name": "Teleport",
@@ -4352,7 +4965,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Teleportation Circle": {
     "name": "Teleportation Circle",
@@ -4366,7 +4981,9 @@
       "Bard",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Tenser's Floating Disk": {
     "name": "Tenser's Floating Disk",
@@ -4378,7 +4995,9 @@
     "levelDisplay": "1st level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": "Floating Disk",
+    "custom": false
   },
   "Thaumaturgy": {
     "name": "Thaumaturgy",
@@ -4390,7 +5009,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Thorn Whip": {
     "name": "Thorn Whip",
@@ -4402,7 +5023,8 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Druid"
-    ]
+    ],
+    "custom": false
   },
   "Thunderous Smite": {
     "name": "Thunderous Smite",
@@ -4414,7 +5036,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Thunderwave": {
     "name": "Thunderwave",
@@ -4429,7 +5052,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Time Stop": {
     "name": "Time Stop",
@@ -4442,7 +5067,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Tongues": {
     "name": "Tongues",
@@ -4458,7 +5085,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Transport via Plants": {
     "name": "Transport via Plants",
@@ -4470,7 +5099,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Tree Stride": {
     "name": "Tree Stride",
@@ -4483,7 +5114,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "True Polymorph": {
     "name": "True Polymorph",
@@ -4497,7 +5130,9 @@
       "Bard",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "True Resurrection": {
     "name": "True Resurrection",
@@ -4510,7 +5145,9 @@
     "class": [
       "Cleric",
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "True Seeing": {
     "name": "True Seeing",
@@ -4526,7 +5163,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "True Strike": {
     "name": "True Strike",
@@ -4541,7 +5180,9 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Tsunami": {
     "name": "Tsunami",
@@ -4553,7 +5194,8 @@
     "levelDisplay": "8th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "custom": false
   },
   "Unseen Servant": {
     "name": "Unseen Servant",
@@ -4567,7 +5209,9 @@
       "Bard",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Vampiric Touch": {
     "name": "Vampiric Touch",
@@ -4580,7 +5224,9 @@
     "class": [
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Vicious Mockery": {
     "name": "Vicious Mockery",
@@ -4592,7 +5238,9 @@
     "levelDisplay": "Cantrip",
     "class": [
       "Bard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wall of Fire": {
     "name": "Wall of Fire",
@@ -4606,7 +5254,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wall of Force": {
     "name": "Wall of Force",
@@ -4618,7 +5268,9 @@
     "levelDisplay": "5th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wall of Ice": {
     "name": "Wall of Ice",
@@ -4630,7 +5282,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wall of Stone": {
     "name": "Wall of Stone",
@@ -4644,7 +5298,9 @@
       "Druid",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wall of Thorns": {
     "name": "Wall of Thorns",
@@ -4656,7 +5312,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Warding Bond": {
     "name": "Warding Bond",
@@ -4668,7 +5326,9 @@
     "levelDisplay": "2nd level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Water Breathing": {
     "name": "Water Breathing",
@@ -4683,7 +5343,9 @@
       "Ranger",
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Water Walk": {
     "name": "Water Walk",
@@ -4698,7 +5360,9 @@
       "Druid",
       "Ranger",
       "Sorcerer"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Web": {
     "name": "Web",
@@ -4711,7 +5375,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Weird": {
     "name": "Weird",
@@ -4723,7 +5389,9 @@
     "levelDisplay": "9th level",
     "class": [
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wind Walk": {
     "name": "Wind Walk",
@@ -4735,7 +5403,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Druid"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wind Wall": {
     "name": "Wind Wall",
@@ -4748,7 +5418,9 @@
     "class": [
       "Druid",
       "Ranger"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wish": {
     "name": "Wish",
@@ -4761,7 +5433,9 @@
     "class": [
       "Sorcerer",
       "Wizard"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Witch Bolt": {
     "name": "Witch Bolt",
@@ -4775,7 +5449,8 @@
       "Sorcerer",
       "Warlock",
       "Wizard"
-    ]
+    ],
+    "custom": false
   },
   "Word of Recall": {
     "name": "Word of Recall",
@@ -4787,7 +5462,9 @@
     "levelDisplay": "6th level",
     "class": [
       "Cleric"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   },
   "Wrathful Smite": {
     "name": "Wrathful Smite",
@@ -4799,7 +5476,8 @@
     "levelDisplay": "1st level",
     "class": [
       "Paladin"
-    ]
+    ],
+    "custom": false
   },
   "Zone of Truth": {
     "name": "Zone of Truth",
@@ -4813,6 +5491,8 @@
       "Bard",
       "Cleric",
       "Paladin"
-    ]
+    ],
+    "srd": true,
+    "custom": false
   }
 }

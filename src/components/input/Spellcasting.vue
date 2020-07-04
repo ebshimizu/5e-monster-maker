@@ -296,7 +296,7 @@
                 v-model="spellcasting.atWillNotes"
                 @input="update()"
               ></v-text-field>
-              <v-btn block color="green" @click="addNewAtWill"
+              <v-btn block small color="green" @click="addNewAtWill"
                 >Add New At Will Spell List</v-btn
               >
               <v-row

@@ -4,7 +4,7 @@
     <v-expansion-panel-content class="mt-2">
       <v-menu offset-y max-height="300px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn block color="green" v-bind="attrs" v-on="on">Add Skill</v-btn>
+          <v-btn block small color="green" v-bind="attrs" v-on="on">Add Skill</v-btn>
         </template>
         <v-list>
           <v-list-item

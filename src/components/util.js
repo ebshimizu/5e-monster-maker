@@ -2,6 +2,7 @@ import DICE from '../data/DICE';
 import DAMAGE_TYPE from '../data/DAMAGE_TYPE';
 import { RANGE } from '../data/ATTACK';
 import { v4 as uuidv4 } from 'uuid';
+import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
 
 export function avgHP(HP) {
   return Math.floor(HP.HD * ((HP.type + 1) / 2) + HP.modifier);
@@ -88,5 +89,52 @@ export function newAttack() {
     additionalDamage: [],
     save: 0,
     description: '',
+  };
+}
+
+export function newTrait() {
+  return {
+    name: 'New Trait',
+    id: uuidv4(),
+    description: '',
+    limitedUse: {
+      count: 0,
+      rate: AT_WILL_DEFAULT_RATES.DAY
+    },
+    crAnnotation: {
+      recurringDamage: 0,
+      maxDamage: 0,
+      maxSave: 10,
+      maxModifier: 0,
+      multitarget: false,
+      ehpMultiplier: 0,
+      ehpModifier: 0,
+      acModifier: 0,
+      include: false,
+    },
+  };
+}
+
+export function newAction() {
+  return {
+    name: 'New Trait',
+    id: uuidv4(),
+    description: '',
+    recharge: '',
+    limitedUse: {
+      count: 0,
+      rate: AT_WILL_DEFAULT_RATES.DAY
+    },
+    crAnnotation: {
+      recurringDamage: 0,
+      maxDamage: 0,
+      maxSave: 10,
+      maxModifier: 0,
+      multitarget: false,
+      ehpMultiplier: 0,
+      ehpModifier: 0,
+      acModifier: 0,
+      include: false,
+    },
   };
 }

@@ -2,7 +2,7 @@
   <v-expansion-panel>
     <v-expansion-panel-header>Multiattack</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
-      <v-btn block color="green" @click="addMulti" class="mb-2"
+      <v-btn block small color="green" @click="addMulti" class="mb-2"
         >Add Multiattack Group</v-btn
       >
       <v-row>
@@ -104,13 +104,13 @@ export default {
       return this.attacks.find((a) => a.id === id);
     },
     damagePerRound(ma) {
-      const attackDamage = ma.attacks.map(id => {
+      const attackDamage = ma.attacks.map((id) => {
         const attack = this.resolveId(id);
         return this.$store.getters.expectedAttackDamage(attack);
       });
 
       return attackDamage.reduce((acc, current) => acc + current, 0);
-    }
+    },
   },
 };
 </script>
