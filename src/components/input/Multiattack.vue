@@ -2,9 +2,6 @@
   <v-expansion-panel>
     <v-expansion-panel-header>Multiattack</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
-      <v-btn block small color="green" @click="addMulti" class="mb-2"
-        >Add Multiattack Group</v-btn
-      >
       <v-row>
         <v-col cols="12" v-for="(item, index) in multiattacks" :key="item.id">
           <v-card outlined>
@@ -54,6 +51,9 @@
             </v-row>
           </v-card>
         </v-col>
+        <v-btn block small color="green" @click="addMulti" class="mb-2"
+          >Add Multiattack Group</v-btn
+        >
       </v-row>
     </v-expansion-panel-content>
   </v-expansion-panel>

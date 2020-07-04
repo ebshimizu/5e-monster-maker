@@ -272,7 +272,7 @@
           ></v-textarea>
         </v-col>
       </v-row>
-      <v-btn block color="red" @click="deleteAttack">Delete</v-btn>
+      <v-btn block small color="red" @click="deleteAttack">Delete</v-btn>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>

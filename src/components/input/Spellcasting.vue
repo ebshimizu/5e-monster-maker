@@ -296,9 +296,6 @@
                 v-model="spellcasting.atWillNotes"
                 @input="update()"
               ></v-text-field>
-              <v-btn block small color="green" @click="addNewAtWill"
-                >Add New At Will Spell List</v-btn
-              >
               <v-row
                 align="center"
                 v-for="(list, index) of this.spellcasting.atWill"
@@ -359,6 +356,11 @@
                   >
                 </v-col>
               </v-row>
+              <v-row>
+                <v-btn block small color="green" @click="addNewAtWill"
+                  >Add New At Will Spell List</v-btn
+                ></v-row
+              >
             </v-card-text>
           </v-card>
         </v-col>

@@ -22,22 +22,7 @@
                       @input="update"
                     ></v-text-field
                   ></v-col>
-                  <v-col cols="1">
-                    <v-tooltip bottom>
-                      <template v-slot:activator="{ on }">
-                        <v-btn
-                          fab
-                          x-small
-                          :color="
-                            actions[index].legendaryOnly ? 'blue' : 'grey'
-                          "
-                          v-on="on"
-                          @click="toggleLegendary(index)"
-                          ><v-icon>mdi-alpha-l-box</v-icon></v-btn
-                        ></template
-                      >Legendary Only</v-tooltip
-                    >
-                  </v-col>
+
                   <v-col cols="2">
                     <v-text-field
                       label="Recharge"
@@ -63,8 +48,19 @@
                     ></v-combobox>
                   </v-col>
                   <v-col cols="1">
-                    <v-btn fab x-small color="red" @click="removeAction"
-                      ><v-icon>mdi-close</v-icon></v-btn
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          fab
+                          x-small
+                          :color="
+                            actions[index].legendaryOnly ? 'blue' : 'grey'
+                          "
+                          v-on="on"
+                          @click="toggleLegendary(index)"
+                          ><v-icon>mdi-alpha-l-box</v-icon></v-btn
+                        ></template
+                      >Legendary Only</v-tooltip
                     >
                   </v-col>
                   <v-col cols="12">
@@ -176,6 +172,11 @@
                               @change="update"
                             ></v-switch
                           ></v-col>
+                          <v-col cols="12">
+                            <v-btn small block color="red" @click="removeAction"
+                              >Delete Action</v-btn
+                            >
+                          </v-col>
                         </v-row>
                       </v-card-text>
                     </v-card>
