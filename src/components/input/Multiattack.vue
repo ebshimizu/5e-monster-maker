@@ -58,7 +58,7 @@
                   close
                   v-for="(actionId, i) in item.actions"
                   @click:close="removeAction(index, i)"
-                  :key="i"
+                  :key="i + item.attacks.length"
                   class="ma-1"
                 >
                   {{ resolveActionIdToName(actionId) }}
@@ -142,19 +142,7 @@ export default {
       return this.actions.find((a) => a.id === id);
     },
     damagePerRound(ma) {
-      const attackDamage = ma.attacks.map((id) => {
-        const attack = this.resolveId(id);
-        return this.$store.getters.expectedAttackDamage(attack);
-      });
-
-      const actionDamage = ma.actions.map((id) => {
-        const action = this.resolveActionId(id);
-        return action.crAnnotation.include ? action.crAnnotation.maxDamage : 0;
-      });
-
-      return attackDamage
-        .concat(actionDamage)
-        .reduce((acc, current) => acc + current, 0);
+      return this.$store.getters.multiattackDamage(ma);
     },
   },
 };

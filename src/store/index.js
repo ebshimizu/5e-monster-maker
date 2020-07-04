@@ -206,7 +206,22 @@ export default new Vuex.Store({
       const extra = attack.additionalDamage
         .map((a) => avgRoll(a.count, a.dice))
         .reduce((acc, current) => acc + current, 0);
-      return base + extra;
+      return (base + extra) * attack.targets;
+    },
+    multiattackDamage: (_, getters) => (ma) => {
+      const attackDamage = ma.attacks.map((id) => {
+        const attack = getters.attackFromId(id);
+        return getters.expectedAttackDamage(attack);
+      });
+
+      const actionDamage = ma.actions.map((id) => {
+        const action = getters.actionFromId(id);
+        return action.crAnnotation.include ? action.crAnnotation.maxDamage : 0;
+      });
+
+      return attackDamage
+        .concat(actionDamage)
+        .reduce((acc, current) => acc + current, 0);
     },
     attackFromId: (state) => (id) => {
       return state.monster.attacks.find((a) => a.id === id);
@@ -245,6 +260,141 @@ export default new Vuex.Store({
         return getters.defaultSpellAttackModifier(
           state.monster.spellcasting.stat
         );
+    },
+    attackInfo: (state, getters) => {
+      // returns an object containing all you need to know for calculating CR
+      const data = {
+        attacks: [],
+        actions: [],
+        legendary: [],
+        traits: [],
+      };
+
+      // first, get the attacks and sort them by damage. We assume attacks are always available.
+      // this includes multiattacks
+      // attacks
+      for (const attack of state.monster.attacks) {
+        // collect modifiers and DC while we're here
+        data.attacks.push({
+          name: attack.name,
+          damage: getters.expectedAttackDamage(attack),
+          toHit: getters.fullToHitBonus(attack.modifier),
+          DC: attack.save,
+        });
+      }
+
+      // multi
+      for (const idx in state.monster.multiattacks) {
+        // multiattacks have no modifiers
+        data.attacks.push({
+          name: `Multiattack Group ${idx + 1}`,
+          damage: getters.multiattackDamage(state.monster.multiattacks[idx]),
+        });
+      }
+
+      // sort descending damage
+      data.attacks.sort((a, b) => {
+        return b.damage - a.damage;
+      });
+
+      // ok actions next
+      for (const action of state.monster.actions) {
+        // check if we should even include this action
+        // skip legendary only for now
+        if (action.crAnnotation.include && !action.legendaryOnly) {
+          // now, actions might be limited use, which we'll need to track
+          data.actions.push({
+            name: action.name,
+            damage:
+              action.crAnnotation.maxDamage *
+              (action.crAnnotation.multitarget ? 2 : 1),
+            limited:
+              action.limitedUse.count > 0 ||
+              (action.recharge && action.recharge !== ''),
+            uses:
+              action.recharge && action.recharge !== ''
+                ? 1
+                : action.limitedUse.count,
+            save: action.crAnnotation.maxSave,
+            toHit: action.crAnnotation.maxModifier,
+          });
+        }
+      }
+
+      // sort damage descending
+      data.actions.sort((a, b) => {
+        return b.damage - a.damage;
+      });
+
+      // traits
+      for (const trait of state.monster.traits) {
+        // really similar to actions
+        if (trait.crAnnotation.include) {
+          data.traits.push({
+            name: trait.name,
+            damage:
+              trait.crAnnotation.maxDamage *
+              (trait.crAnnotation.multitarget ? 2 : 1),
+            limited: trait.limitedUse.count > 0,
+            uses: trait.limitedUse.count,
+            save: trait.crAnnotation.maxSave,
+            toHit: trait.crAnnotation.maxModifier,
+          });
+        }
+      }
+
+      data.traits.sort((a, b) => {
+        return b.damage - a.damage;
+      });
+
+      // legendary actions
+      for (const la of state.monster.legendaryActions.actions) {
+        // resolve the action or attack
+        const actionOrAttack = getters.attackOrActionFromId(la.actionId);
+        if ('crAnnotation' in actionOrAttack) {
+          // that's an actions
+          const action = actionOrAttack;
+          // do the action processing
+          if (action.crAnnotation.include) {
+            data.legendary.push({
+              name: action.name,
+              damage:
+                action.crAnnotation.maxDamage *
+                (action.crAnnotation.multitarget ? 2 : 1),
+              limited:
+                action.limitedUse.count > 0 ||
+                (action.recharge && action.recharge !== ''),
+              uses: action.limitedUse.count,
+              save: action.crAnnotation.maxSave,
+              toHit: action.crAnnotation.maxModifier,
+              cost: la.cost,
+            });
+          }
+        } else {
+          // no annotation = attack
+          const attack = actionOrAttack;
+          data.legendary.push({
+            name: attack.name,
+            damage: getters.expectedAttackDamage(attack),
+            toHit: getters.fullToHitBonus(attack.modifier),
+            DC: attack.save,
+            cost: la.cost,
+          });
+        }
+      }
+      data.legendaryCount = state.monster.legendaryActions.count;
+
+      // spells
+      // todo: need spell damage data. for simplicity, we're going to assume spells can be cast once
+      // and that spells won't be upcasted (yeah yeah I know about upcasted fireball but you'll just have to)
+      // figure that out yourself
+
+      // sort
+      data.legendary.sort((a, b) => {
+        return b.damage - a.damage;
+      });
+
+      return data;
     },
   },
   mutations: {

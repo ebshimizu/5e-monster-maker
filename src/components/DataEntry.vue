@@ -1,6 +1,6 @@
 <template>
   <v-expansion-panels accordion hover multiple focusable>
-    <CR />
+    <dnd-cr />
     <basics />
     <speeds />
     <saves />
@@ -20,8 +20,8 @@
 <script>
 import Attacks from './input/Attacks';
 import Basics from './input/Basics';
-import CR from './input/CR';
 import DamageTypes from './input/DamageTypes';
+import DndCr from './input/DndCr';
 import DndReactions from './input/DndReactions';
 import LegendaryActions from './input/LegendaryActions';
 import Multiattack from './input/Multiattack';
@@ -39,7 +39,7 @@ export default {
   components: {
     Attacks,
     Basics,
-    CR,
+    DndCr,
     DamageTypes,
     DndReactions,
     LegendaryActions,

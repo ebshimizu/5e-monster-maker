@@ -79,9 +79,7 @@
                         >CR Annotations</v-card-title
                       >
                       <v-card-subtitle class="indigo darken-4 px-2 pb-2"
-                        >Optional. If you want this action to affect the CR,
-                        flip the switch and enter action
-                        information.</v-card-subtitle
+                        >Optional. Action damage is expected to apply when this action is used.</v-card-subtitle
                       >
                       <v-card-text>
                         <v-row>
@@ -100,17 +98,6 @@
                               "
                               hint="Damage in One Use"
                               label="Expected Damage"
-                              @input="update"
-                            ></v-text-field>
-                          </v-col>
-                          <v-col cols="3">
-                            <v-text-field
-                              type="number"
-                              v-model.number="
-                                actions[index].crAnnotation.recurringDamage
-                              "
-                              label="Recurring Damage"
-                              hint="e.g. Heat Aura"
                               @input="update"
                             ></v-text-field>
                           </v-col>

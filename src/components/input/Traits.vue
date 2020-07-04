@@ -61,8 +61,7 @@
                         >CR Annotations</v-card-title
                       >
                       <v-card-subtitle class="indigo darken-4 px-2 pb-2"
-                        >Optional. If you want this trait to affect the CR, flip
-                        the switch and enter trait information.</v-card-subtitle
+                        >Optional. If a trait does damage, that damage is applied on top of actions taken each round (e.g., a Fire Elemental's Fire Form trait).</v-card-subtitle
                       >
                       <v-card-text>
                         <v-row>
@@ -79,19 +78,8 @@
                               v-model.number="
                                 traits[index].crAnnotation.maxDamage
                               "
-                              hint="Damage in One Use"
+                              hint="Damage per Use"
                               label="Expected Damage"
-                              @input="update"
-                            ></v-text-field>
-                          </v-col>
-                          <v-col cols="3">
-                            <v-text-field
-                              type="number"
-                              v-model.number="
-                                traits[index].crAnnotation.recurringDamage
-                              "
-                              label="Recurring Damage"
-                              hint="e.g. Heat Aura"
                               @input="update"
                             ></v-text-field>
                           </v-col>

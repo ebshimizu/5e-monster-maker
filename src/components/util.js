@@ -103,15 +103,14 @@ export function newTrait() {
       rate: AT_WILL_DEFAULT_RATES.DAY,
     },
     crAnnotation: {
-      recurringDamage: 0,
       maxDamage: 0,
-      maxSave: 10,
+      maxSave: 0,
       maxModifier: 0,
       multitarget: false,
-      ehpMultiplier: 0,
+      ehpMultiplier: 1,
       ehpModifier: 0,
       acModifier: 0,
-      include: false,
+      include: true,
     },
   };
 }
@@ -128,15 +127,14 @@ export function newAction() {
       rate: AT_WILL_DEFAULT_RATES.DAY,
     },
     crAnnotation: {
-      recurringDamage: 0,
       maxDamage: 0,
-      maxSave: 10,
+      maxSave: 0,
       maxModifier: 0,
       multitarget: false,
-      ehpMultiplier: 0,
+      ehpMultiplier: 1,
       ehpModifier: 0,
       acModifier: 0,
-      include: false,
+      include: true,
     },
   };
 }
