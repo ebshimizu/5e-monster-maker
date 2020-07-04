@@ -123,7 +123,19 @@
       <span v-if="attack.additionalDamage.length > 0">
         plus {{ additionalDamage(attack.additionalDamage) }}</span
       >.
-      <span class="description">{{ attack.description }}</span>
+      <span class="description">{{ processTokens(attack.description) }}</span>
+    </div>
+    <div class="other-actions">
+      <div
+        class="action"
+        v-for="action in nonLegendaryOnlyActions"
+        :key="action.id"
+      >
+        <span class="name"
+          >{{ action.name }}{{ rechargeOrLimited(action) }}.</span
+        >
+        {{ processTokens(action.description) }}
+      </div>
     </div>
   </v-sheet>
 </template>
@@ -280,6 +292,9 @@ export default {
 
       return '';
     },
+    nonLegendaryOnlyActions() {
+      return this.monster.actions.filter((a) => !a.legendaryOnly);
+    },
   },
   methods: {
     toHit(attackModifier) {
@@ -383,13 +398,23 @@ export default {
 
       return '';
     },
+    rechargeOrLimited(action) {
+      if (action.recharge && action.recharge !== '') {
+        return ` (Recharge ${action.recharge})`;
+      } else if (action.limitedUse.count > 0) {
+        return ` (${action.limitedUse.count}/${action.limitedUse.rate})`;
+      }
+
+      return '';
+    },
     processTokens(text) {
       // some replacement fun times
-      const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)\}/gi);
+      const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi);
       text = text.replace(dice, (match, count, dice, modifier) => {
-        const cleanModifier = parseInt(modifier.replace(' ', ''));
+        const cleanModifier =
+          (modifier && modifier !== '') ? parseInt(modifier.replace(' ', '')) : 0;
         const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier;
-        return `${avg} (${count}d${dice}${renderBonus(cleanModifier)})`;
+        return `${avg} (${count}d${dice}${modifier ? renderBonus(cleanModifier) : ''})`;
       });
 
       // saves

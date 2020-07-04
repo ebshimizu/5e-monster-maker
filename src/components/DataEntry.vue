@@ -8,20 +8,20 @@
     <damage-types />
     <senses />
     <attacks />
+    <other-actions />
     <multiattack />
     <spellcasting />
     <traits />
-    <actions />
   </v-expansion-panels>
 </template>
 
 <script>
-import Actions from './input/Actions';
 import Attacks from './input/Attacks';
 import Basics from './input/Basics';
 import CR from './input/CR';
 import DamageTypes from './input/DamageTypes';
 import Multiattack from './input/Multiattack';
+import OtherActions from './input/OtherActions';
 import Saves from './input/Saves';
 import Senses from './input/Senses';
 import Skills from './input/Skills';
@@ -33,12 +33,12 @@ export default {
   name: 'DataEntry',
 
   components: {
-    Actions,
     Attacks,
     Basics,
     CR,
     DamageTypes,
     Multiattack,
+    OtherActions,
     Saves,
     Senses,
     Skills,

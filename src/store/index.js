@@ -128,7 +128,8 @@ export default new Vuex.Store({
         notes: '',
         atWillNotes: '',
       },
-      traits: []
+      traits: [],
+      actions: [],
     },
     spells: SPELLS,
   },

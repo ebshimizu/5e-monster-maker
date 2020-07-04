@@ -99,7 +99,7 @@ export function newTrait() {
     description: '',
     limitedUse: {
       count: 0,
-      rate: AT_WILL_DEFAULT_RATES.DAY
+      rate: AT_WILL_DEFAULT_RATES.DAY,
     },
     crAnnotation: {
       recurringDamage: 0,
@@ -117,13 +117,14 @@ export function newTrait() {
 
 export function newAction() {
   return {
-    name: 'New Trait',
+    name: 'New Action',
     id: uuidv4(),
     description: '',
     recharge: '',
+    legendaryOnly: false,
     limitedUse: {
       count: 0,
-      rate: AT_WILL_DEFAULT_RATES.DAY
+      rate: AT_WILL_DEFAULT_RATES.DAY,
     },
     crAnnotation: {
       recurringDamage: 0,
@@ -136,5 +137,13 @@ export function newAction() {
       acModifier: 0,
       include: false,
     },
+  };
+}
+
+export function newReaction() {
+  return {
+    name: 'New Reaction',
+    id: uuidv4(),
+    description: '',
   };
 }

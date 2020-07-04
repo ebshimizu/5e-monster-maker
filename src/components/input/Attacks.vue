@@ -2,15 +2,21 @@
   <v-expansion-panel>
     <v-expansion-panel-header>Attacks</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
-      <v-btn block small color="green" @click="addAttack" class="mb-2">Add Attack</v-btn>
-      <v-expansion-panels accordion hover multiple focusable>
-        <attack-panel
-          v-for="(item, index) in attacks"
-          :key="item.id"
-          :attack="item"
-          :index="index"
-        ></attack-panel>
-      </v-expansion-panels>
+      <v-row
+        ><v-col cols="12">
+          <v-expansion-panels accordion hover multiple focusable>
+            <attack-panel
+              v-for="(item, index) in attacks"
+              :key="item.id"
+              :attack="item"
+              :index="index"
+            ></attack-panel> </v-expansion-panels></v-col
+        ><v-col cols="12">
+          <v-btn block small color="green" @click="addAttack" class="mb-2"
+            >Add Attack</v-btn
+          ></v-col
+        ></v-row
+      >
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
@@ -32,7 +38,7 @@ export default {
   methods: {
     addAttack() {
       this.$store.commit(MUTATION.ADD_ATTACK);
-    }
-  }
+    },
+  },
 };
 </script>
