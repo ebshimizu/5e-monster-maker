@@ -139,6 +139,9 @@ export default new Vuex.Store({
     spells: SPELLS,
   },
   getters: {
+    avgHp: (state) => {
+      return avgRoll(state.monster.HP.HD, state.monster.HP.type) + state.monster.HP.modifier;
+    },
     defaultSaveBonus: (state) => (stat) => {
       const proficient = state.monster.saves[stat].proficient;
       return saveModifier(
@@ -248,6 +251,9 @@ export default new Vuex.Store({
     defaultSpellModifier: (state) => (stat) => {
       return statModifier(state.monster.stats[stat]);
     },
+    isSpellcaster: (state) => {
+      return state.monster.spellcasting.standard.length > 0 || state.monster.spellcasting.atWill.length > 0;
+    },
     spellSave: (state, getters) => {
       if (state.monster.spellcasting.save.override)
         return state.monster.spellcasting.save.overrideValue;
@@ -279,7 +285,7 @@ export default new Vuex.Store({
           name: attack.name,
           damage: getters.expectedAttackDamage(attack),
           toHit: getters.fullToHitBonus(attack.modifier),
-          DC: attack.save,
+          save: attack.save,
         });
       }
 
@@ -289,6 +295,8 @@ export default new Vuex.Store({
         data.attacks.push({
           name: `Multiattack Group ${idx + 1}`,
           damage: getters.multiattackDamage(state.monster.multiattacks[idx]),
+          save: 0,
+          toHit: 0
         });
       }
 
@@ -377,7 +385,7 @@ export default new Vuex.Store({
             name: attack.name,
             damage: getters.expectedAttackDamage(attack),
             toHit: getters.fullToHitBonus(attack.modifier),
-            DC: attack.save,
+            save: attack.save,
             cost: la.cost,
           });
         }

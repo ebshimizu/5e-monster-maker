@@ -79,7 +79,8 @@
                         >CR Annotations</v-card-title
                       >
                       <v-card-subtitle class="indigo darken-4 px-2 pb-2"
-                        >Optional. Action damage is expected to apply when this action is used.</v-card-subtitle
+                        >Optional. Action damage is expected to apply when this
+                        action is used.</v-card-subtitle
                       >
                       <v-card-text>
                         <v-row>
@@ -148,7 +149,18 @@
                               v-model.number="
                                 actions[index].crAnnotation.acModifier
                               "
+                              @input="update"
                               label="AC Modifier"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col cols="2">
+                            <v-text-field
+                              type="number"
+                              v-model.number="
+                                actions[index].crAnnotation.bonusModifier
+                              "
+                              @input="update"
+                              label="Attack Bonus Modifier"
                             ></v-text-field>
                           </v-col>
                           <v-col cols="3"

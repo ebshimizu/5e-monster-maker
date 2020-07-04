@@ -61,7 +61,9 @@
                         >CR Annotations</v-card-title
                       >
                       <v-card-subtitle class="indigo darken-4 px-2 pb-2"
-                        >Optional. If a trait does damage, that damage is applied on top of actions taken each round (e.g., a Fire Elemental's Fire Form trait).</v-card-subtitle
+                        >Optional. If a trait does damage, that damage is
+                        applied on top of actions taken each round (e.g., a Fire
+                        Elemental's Fire Form trait).</v-card-subtitle
                       >
                       <v-card-text>
                         <v-row>
@@ -130,7 +132,18 @@
                               v-model.number="
                                 traits[index].crAnnotation.acModifier
                               "
+                              @input="update"
                               label="AC Modifier"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col cols="2">
+                            <v-text-field
+                              type="number"
+                              v-model.number="
+                                traits[index].crAnnotation.bonusModifier
+                              "
+                              label="Attack Bonus Modifier"
+                              @input="update"
                             ></v-text-field>
                           </v-col>
                           <v-col cols="3"
