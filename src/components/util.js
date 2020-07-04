@@ -148,3 +148,11 @@ export function newReaction() {
     description: '',
   };
 }
+
+export function listJoin(list, sep) {
+  if (list.length === 1)
+    return list;
+  
+  const part1 = list.slice(0, list.length - 1).join(sep);
+  return `${part1}, and ${list[list.length - 1]}`;
+}

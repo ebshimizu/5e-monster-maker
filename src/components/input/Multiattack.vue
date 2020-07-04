@@ -27,7 +27,19 @@
                       :key="atk.id"
                       @click="addAttack(index, atk)"
                     >
-                      <v-list-item-title>{{ atk.name }}</v-list-item-title>
+                      <v-list-item-content>
+                        <v-list-item-title>{{ atk.name }}</v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                    <v-subheader>Actions</v-subheader>
+                    <v-list-item
+                      v-for="act in actions"
+                      :key="act.id"
+                      @click="addAction(index, act)"
+                    >
+                      <v-list-item-content>
+                        <v-list-item-title>{{ act.name }}</v-list-item-title>
+                      </v-list-item-content>
                     </v-list-item>
                   </v-list>
                 </v-menu>
@@ -41,6 +53,15 @@
                   class="ma-1"
                 >
                   {{ resolveIdToName(attackId) }}
+                </v-chip>
+                <v-chip
+                  close
+                  v-for="(actionId, i) in item.actions"
+                  @click:close="removeAction(index, i)"
+                  :key="i"
+                  class="ma-1"
+                >
+                  {{ resolveActionIdToName(actionId) }}
                 </v-chip>
               </v-col>
               <v-col cols="1">
@@ -70,6 +91,9 @@ export default {
     attacks() {
       return this.$store.state.monster.attacks;
     },
+    actions() {
+      return this.$store.state.monster.actions;
+    },
     multiattacks() {
       return this.$store.state.monster.multiattacks;
     },
@@ -79,6 +103,7 @@ export default {
       this.multiattacks.push({
         id: uuidv4(),
         attacks: [],
+        actions: [],
       });
       this.update();
     },
@@ -86,9 +111,16 @@ export default {
       this.multiattacks[index].attacks.push(attack.id);
       this.update();
     },
+    addAction(index, action) {
+      this.multiattacks[index].actions.push(action.id);
+      this.update();
+    },
     removeAttack(maIndex, attackIndex) {
       this.multiattacks[maIndex].attacks.splice(attackIndex, 1);
       this.update();
+    },
+    removeAction(maIndex, actionIndex) {
+      this.multiattacks[maIndex].actions.splice(actionIndex, 1);
     },
     removeMulti(index) {
       this.multiattacks.splice(index, 1);
@@ -103,13 +135,26 @@ export default {
     resolveId(id) {
       return this.attacks.find((a) => a.id === id);
     },
+    resolveActionIdToName(id) {
+      return this.resolveActionId(id).name;
+    },
+    resolveActionId(id) {
+      return this.actions.find((a) => a.id === id);
+    },
     damagePerRound(ma) {
       const attackDamage = ma.attacks.map((id) => {
         const attack = this.resolveId(id);
         return this.$store.getters.expectedAttackDamage(attack);
       });
 
-      return attackDamage.reduce((acc, current) => acc + current, 0);
+      const actionDamage = ma.actions.map((id) => {
+        const action = this.resolveActionId(id);
+        return action.crAnnotation.include ? action.crAnnotation.maxDamage : 0;
+      });
+
+      return attackDamage
+        .concat(actionDamage)
+        .reduce((acc, current) => acc + current, 0);
     },
   },
 };

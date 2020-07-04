@@ -187,6 +187,7 @@ import {
   renderBonus,
   statModifier,
   avgRoll,
+  listJoin,
 } from './util';
 import MOVEMENT from '../data/MOVEMENT';
 import { RANGE } from '../data/ATTACK';
@@ -400,6 +401,13 @@ export default {
           collected[attackId] += 1;
         }
 
+        const collectedActions = {};
+        for (const actionId of ma.actions) {
+          if (!(actionId in collectedActions)) collectedActions[actionId] = 0;
+
+          collectedActions[actionId] += 1;
+        }
+
         // resolve ids and render names
         const formatted = Object.keys(collected).map((id) => {
           const name = this.$store.getters.attackFromId(id).name;
@@ -408,14 +416,25 @@ export default {
           }`;
         });
 
-        if (formatted.length === 1) return formatted[0];
-        else {
-          let part1 = formatted.slice(0, formatted.length - 1).join(', ');
-          return `${part1}, and ${formatted[formatted.length - 1]}`;
+        const actionFormatted = Object.keys(collectedActions).map((id) => {
+          const name = this.$store.getters.actionFromId(id).name;
+          return `the ${name} action ${N2W.toWords(collectedActions[id])} time${
+            collectedActions[id] === 1 ? '' : 's'
+          }`;
+        });
+
+        if (actionFormatted.length > 0) {
+          return `uses ${listJoin(actionFormatted, ', ')}${
+            formatted.length > 0
+              ? ` followed by ${listJoin(formatted, ', ')}`
+              : ''
+          }`;
+        } else {
+          return `makes ${listJoin(formatted, ', ')}`;
         }
       });
 
-      return `The ${this.monster.name} makes ${atkStrings.join(' or ')}.`;
+      return `The ${this.monster.name} ${atkStrings.join(' or ')}.`;
     },
     statFull(stat) {
       return STAT_FULL[stat];
