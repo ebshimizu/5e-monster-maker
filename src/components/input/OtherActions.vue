@@ -226,6 +226,7 @@ export default {
     removeAction(index) {
       this.actions.splice(index, 1);
       this.update();
+      this.$store.commit(MUTATION.VALIDATE_ACTIONS);
     },
     toggleLegendary(index) {
       this.actions[index].legendaryOnly = !this.actions[index].legendaryOnly;

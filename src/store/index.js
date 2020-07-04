@@ -297,12 +297,35 @@ export default new Vuex.Store({
     },
     [MUTATION.DELETE_ATTACK](state, index) {
       state.monster.attacks.splice(index, 1);
+
+      // check that the actions in multiattack still exist, remove the ones that don't
+      for (const ma of state.monster.multiattacks) {
+        const valid = [];
+
+        for (const id of ma.attacks) {
+          if (state.monster.attacks.find((a) => a.id === id)) valid.push(id);
+        }
+
+        ma.attacks = valid;
+      }
     },
     [MUTATION.SET_MULTIATTACK](state, ma) {
       state.monster.multiattacks = ma;
     },
     [MUTATION.SET_SPELLCASTING](state, spellcasting) {
       state.monster.spellcasting = spellcasting;
+    },
+    [MUTATION.VALIDATE_ACTIONS](state) {
+      // check that the actions in multiattack still exist, remove the ones that don't
+      for (const ma of state.monster.multiattacks) {
+        const valid = [];
+
+        for (const id of ma.actions) {
+          if (state.monster.actions.find((a) => a.id === id)) valid.push(id);
+        }
+
+        ma.actions = valid;
+      }
     },
   },
   actions: {},
