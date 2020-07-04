@@ -1,44 +1,91 @@
 <template>
-  <v-expansion-panel>
-    <v-expansion-panel-header>CR</v-expansion-panel-header>
-    <v-expansion-panel-content>
-      <v-row align="center">
-        <v-col cols="2"
-          ><v-select label="Expected CR" :items="crOptions"></v-select
-        ></v-col>
-        <v-col cols="10" class="pr-2"
-          ><v-text-field
-            label="Proficiency Bonus"
-            type="number"
-            v-model="proficiency"
-          ></v-text-field
-        ></v-col>
-        <v-col cols="3">Offensive CR: {{ offensiveCR.cr }}</v-col>
-        <v-col cols="3"
-          >Max Effective Attack Modifier: {{ maxAttackRender }} (CR
-          {{ attackCR.cr }})</v-col
-        >
-        <v-col cols="3">Max Save DC: {{ maxDC }} (CR {{ dcCR.cr }})</v-col>
-        <v-col cols="3"
-          >Est. Damage Per Round: {{ Math.round(damagePerRound) }} (CR
-          {{ damageCR.cr }})</v-col
-        >
-        <v-col cols="3">Defensive CR: {{ defensiveCR.cr }}</v-col>
-        <v-col cols="3"
-          >Effective HP: {{ Math.round(ehp) }} (CR {{ hpCR.cr }})</v-col
-        >
-        <v-col cols="3">Effective AC: {{ Math.round(eac) }} (CR {{ acCR.cr }})</v-col>
-        <v-col cols="3"></v-col>
-        <v-col cols="3">Overall CR: {{ estimatedCR.cr }}</v-col>
-      </v-row>
-    </v-expansion-panel-content>
-  </v-expansion-panel>
+  <v-footer app padless>
+    <v-card flat tile width="100%">
+      <v-card-title class="blue-grey darken-1 pa-2">
+        <span class="big overline">ESTIMATED CR</span>
+        <span class="text-h3 ml-2">{{ estimatedCR.cr }}</span>
+        <v-divider class="mx-2" vertical></v-divider>
+        <div class="split">
+          <div class="top">
+            <span class="small overline">Offensive CR</span>
+            <span class="text-h5 ml-2 cr">{{ offensiveCR.cr }}</span>
+          </div>
+          <v-divider></v-divider>
+          <div class="bot">
+            <span class="overline">Defensive CR</span>
+            <span class="text-h5 ml-2 cr">{{ defensiveCR.cr }}</span>
+          </div>
+        </div>
+        <v-divider class="mx-2" vertical></v-divider>
+        <div class="split chips">
+          <div class="top">
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-chip small v-on="on" class="ma-2" color="red darken-4">
+                  <v-avatar left
+                    ><v-icon size="18">mdi-sword-cross</v-icon></v-avatar
+                  >
+                  {{ Math.round(damagePerRound) }} (CR {{ damageCR.cr }})
+                </v-chip>
+              </template>
+              Avg. Damage over Three Rounds
+            </v-tooltip>
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-chip small v-on="on" class="ma-2" color="red darken-4">
+                  <v-avatar left
+                    ><v-icon size="18">mdi-bullseye-arrow</v-icon></v-avatar
+                  >
+                  {{ maxAttackRender }} (CR {{ attackCR.cr }})
+                </v-chip>
+              </template>
+              Max. Attack Bonus
+            </v-tooltip>
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-chip small v-on="on" class="ma-2" color="red darken-4">
+                  <v-avatar left
+                    ><v-icon size="18">mdi-auto-fix</v-icon></v-avatar
+                  >
+                  {{ maxDC }} (CR {{ dcCR.cr }})
+                </v-chip>
+              </template>
+              Max. Save DC
+            </v-tooltip>
+          </div>
+          <div class="bot">
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-chip small v-on="on" class="ma-2" color="green darken-2">
+                  <v-avatar left
+                    ><v-icon size="18">mdi-hospital</v-icon></v-avatar
+                  >
+                  {{ Math.round(ehp) }} (CR {{ hpCR.cr }})
+                </v-chip>
+              </template>
+              Effective HP
+            </v-tooltip>
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-chip small v-on="on" class="ma-2" color="green darken-2">
+                  <v-avatar left
+                    ><v-icon size="18">mdi-shield</v-icon></v-avatar
+                  >
+                  {{ Math.round(eac) }} (CR {{ acCR.cr }})
+                </v-chip>
+              </template>
+              Effective AC
+            </v-tooltip>
+          </div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-footer>
 </template>
 
 <script>
 import { MUTATION } from '../../data/ACTIONS';
 import {
-  CR_SELECT,
   getCRByDamage,
   getCRByAttack,
   getCRByDC,
@@ -55,11 +102,6 @@ import { renderBonus } from '../util';
 // the estimated CR will be output in this panel as well
 export default {
   name: 'DndCr',
-  data() {
-    return {
-      crOptions: CR_SELECT,
-    };
-  },
   computed: {
     proficiency: {
       get() {
@@ -79,7 +121,9 @@ export default {
       return this.$store.getters.attackInfo;
     },
     estimatedCR() {
-      return getCRByNumber((this.offensiveCR.numeric + this.defensiveCR.numeric) / 2);
+      return getCRByNumber(
+        (this.offensiveCR.numeric + this.defensiveCR.numeric) / 2
+      );
     },
     // an array of the highest damage actions/traits per round for up to 5 rounds
     actionSequence() {
@@ -324,7 +368,7 @@ export default {
     defensiveCR() {
       // average the other crs
       return getCRByNumber((this.hpCR.numeric + this.acCR.numeric) / 2);
-    }
+    },
   },
   methods: {
     highestDamage(data) {
@@ -415,3 +459,35 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.big.overline {
+  font-size: 1rem !important;
+}
+
+.small.overline {
+  line-height: 25px;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.split.chips {
+  align-items: flex-start;
+}
+
+.cr {
+  width: 40px;
+  text-align: right;
+}
+
+.split .top,
+.split .bot {
+  display: flex;
+  align-items: center;
+  height: 28px;
+}
+</style>

@@ -3,9 +3,42 @@
     <v-expansion-panel-header>Basics</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-4">
       <v-row align="center">
-        <v-col cols="12"
+        <v-col cols="8"
           ><v-text-field dense label="Name" v-model="name"></v-text-field
         ></v-col>
+        <v-col cols="2">
+          <v-row no-gutters>
+            <v-col>
+              <v-text-field
+                dense
+                label="Proficiency Bonus"
+                v-model.number="proficiency"
+                :disabled="linkToCR"
+                type="number"
+              ></v-text-field
+            ></v-col>
+            <v-col md="auto">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    fab
+                    x-small
+                    :color="overrideColor(linkToCR)"
+                    v-on="on"
+                    @click="toggleLinkToCR"
+                    class="ml-1"
+                    ><v-icon>mdi-link-variant</v-icon></v-btn
+                  >
+                </template>
+                Link Proficiency to CR
+              </v-tooltip>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="2">
+          <v-select dense :items="crOptions" v-model="cr" label="CR">
+          </v-select>
+        </v-col>
         <v-col cols="2"
           ><v-select
             dense
@@ -58,21 +91,63 @@
           ></v-text-field
         ></v-col>
         <v-col cols="2"
-          ><v-select
-            dense
-            label="HD Type"
-            :items="diceItems"
-            v-model="HDType"
-          ></v-select
-        ></v-col>
+          ><v-row>
+            <v-col
+              ><v-select
+                dense
+                label="HD Type"
+                :items="diceItems"
+                :disabled="linkHdToSize"
+                v-model="HDType"
+              ></v-select
+            ></v-col>
+            <v-col md="auto">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    fab
+                    x-small
+                    :color="overrideColor(linkHdToSize)"
+                    v-on="on"
+                    @click="toggleLinkHdToSize"
+                    class="ml-1"
+                    ><v-icon>mdi-link-variant</v-icon></v-btn
+                  >
+                </template>
+                Link HD Type to Size
+              </v-tooltip>
+            </v-col>
+          </v-row></v-col
+        >
         <v-col cols="2"
-          ><v-text-field
-            dense
-            label="HP Modifier"
-            type="number"
-            v-model="HPModifier"
-          ></v-text-field
-        ></v-col>
+          ><v-row no-gutters>
+            <v-col>
+              <v-text-field
+                dense
+                label="HP Modifier"
+                type="number"
+                v-model.number="HPModifier"
+                :disabled="linkHpToHd"
+              ></v-text-field
+            ></v-col>
+            <v-col md="auto">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    fab
+                    x-small
+                    :color="overrideColor(linkHpToHd)"
+                    v-on="on"
+                    @click="toggleLinkHpToHd"
+                    class="ml-1"
+                    ><v-icon>mdi-link-variant</v-icon></v-btn
+                  >
+                </template>
+                Link HP Modifier to HD and CON
+              </v-tooltip>
+            </v-col>
+          </v-row>
+        </v-col>
         <v-spacer></v-spacer>
         <v-col cols="2"><v-btn block color="blue">HP Tools</v-btn></v-col>
         <v-col cols="2"
@@ -80,7 +155,8 @@
             dense
             label="STR"
             type="number"
-            v-model="STR"
+            min="0"
+            v-model.number="STR"
             hint="Strength Score"
             :rules="[rules.number]"
           ></v-text-field
@@ -90,7 +166,8 @@
             dense
             label="DEX"
             type="number"
-            v-model="DEX"
+            min="0"
+            v-model.number="DEX"
             hint="Dexterity Score"
             :rules="[rules.number]"
           ></v-text-field
@@ -100,7 +177,8 @@
             dense
             label="CON"
             type="number"
-            v-model="CON"
+            min="0"
+            v-model.number="CON"
             hint="Constitution Score"
             :rules="[rules.number]"
           ></v-text-field
@@ -110,7 +188,8 @@
             dense
             label="INT"
             type="number"
-            v-model="INT"
+            min="0"
+            v-model.number="INT"
             hint="Intelligence Score"
             :rules="[rules.number]"
           ></v-text-field
@@ -120,7 +199,8 @@
             dense
             label="WIS"
             type="number"
-            v-model="WIS"
+            min="0"
+            v-model.number="WIS"
             hint="Wisdom Score"
             :rules="[rules.number]"
           ></v-text-field
@@ -130,7 +210,8 @@
             dense
             label="CHA"
             type="number"
-            v-model="CHA"
+            min="0"
+            v-model.number="CHA"
             hint="Charisma Score"
             :rules="[rules.number]"
           ></v-text-field
@@ -143,10 +224,11 @@
 <script>
 import { MUTATION } from '../../data/ACTIONS';
 import { DICE_SELECT } from '../../data/DICE';
-import SIZE from '../../data/SIZE';
+import SIZE, { HD_FOR_SIZE } from '../../data/SIZE';
 import TYPE from '../../data/TYPE';
 import ALIGNMENT from '../../data/ALIGNMENT';
-import { isNumber } from '../util';
+import { isNumber, statModifier } from '../util';
+import { CR, CR_SELECT } from '../../data/CR';
 
 export default {
   name: 'Basics',
@@ -159,6 +241,10 @@ export default {
       sizeItems: SIZE,
       creatureItems: TYPE,
       alignmentItems: ALIGNMENT,
+      crOptions: CR_SELECT,
+      linkToCR: true,
+      linkHpToHd: true,
+      linkHdToSize: true,
     };
   },
   computed: {
@@ -168,6 +254,29 @@ export default {
       },
       set(value) {
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, { key: 'name', value });
+      },
+    },
+    cr: {
+      get() {
+        return this.$store.state.monster.CR;
+      },
+      set(value) {
+        this.$store.commit(MUTATION.SET_SIMPLE_PROP, { key: 'CR', value });
+
+        if (this.linkToCR) {
+          this.proficiency = CR[value].proficiency;
+        }
+      },
+    },
+    proficiency: {
+      get() {
+        return this.$store.state.monster.proficiency;
+      },
+      set(value) {
+        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
+          key: 'proficiency',
+          value,
+        });
       },
     },
     type: {
@@ -184,6 +293,8 @@ export default {
       },
       set(value) {
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, { key: 'size', value });
+
+        if (this.linkHdToSize) this.updateHd();
       },
     },
     alignment: {
@@ -225,6 +336,10 @@ export default {
           key: 'HD',
           value: parseInt(value),
         });
+
+        if (this.linkHpToHd) {
+          this.updateHPModifier();
+        }
       },
     },
     HDType: {
@@ -268,6 +383,10 @@ export default {
       },
       set(value) {
         this.$store.commit(MUTATION.SET_STAT, { key: 'CON', value });
+
+        if (this.linkHpToHd) {
+          this.updateHPModifier();
+        }
       },
     },
     INT: {
@@ -293,6 +412,34 @@ export default {
       set(value) {
         this.$store.commit(MUTATION.SET_STAT, { key: 'CHA', value });
       },
+    },
+  },
+  methods: {
+    overrideColor(status) {
+      return status ? 'blue' : 'gray';
+    },
+    toggleLinkToCR() {
+      this.linkToCR = !this.linkToCR;
+
+      if (this.linkToCR) {
+        this.proficiency = CR[this.cr].proficiency;
+      }
+    },
+    updateHPModifier() {
+      this.HPModifier = statModifier(this.CON) * this.HD;
+    },
+    toggleLinkHpToHd() {
+      this.linkHpToHd = !this.linkHpToHd;
+
+      if (this.linkHpToHd) this.updateHPModifier();
+    },
+    updateHd() {
+      this.HDType = HD_FOR_SIZE[this.size];
+    },
+    toggleLinkHdToSize() {
+      this.linkHdToSize = !this.linkHdToSize;
+
+      if (this.linkHdToSize) this.updateHd();
     },
   },
 };

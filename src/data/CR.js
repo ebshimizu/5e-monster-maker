@@ -468,7 +468,7 @@ export function getCRByHP(hp) {
   if (hp >= 850) return CR[CR.length - 1];
 
   for (const cr of CR) {
-    if (cr.hpMin <= hp && hp < cr.hpMax)
+    if (cr.hpMin <= hp && hp <= cr.hpMax)
       return cr;
   }
 

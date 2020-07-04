@@ -7,16 +7,20 @@
     <v-main>
       <v-container fluid>
         <v-row no-gutters>
-          <v-col cols="8" class="full-height pa-1"><data-entry /></v-col>
+          <v-col cols="8" class="full-height pa-1"
+            ><data-entry></data-entry
+          ></v-col>
           <v-col cols="4" class="full-height px-6 py-2"><render /></v-col>
         </v-row>
       </v-container>
     </v-main>
+    <dnd-cr></dnd-cr>
   </v-app>
 </template>
 
 <script>
 import DataEntry from './components/DataEntry';
+import DndCr from './components/input/DndCr';
 import Render from './components/Render';
 
 export default {
@@ -24,6 +28,7 @@ export default {
 
   components: {
     DataEntry,
+    DndCr,
     Render,
   },
 
@@ -63,7 +68,7 @@ export default {
 }
 
 .full-height {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 166px);
   overflow: auto;
 }
 

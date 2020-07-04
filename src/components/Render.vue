@@ -40,6 +40,9 @@
     <div class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
+    <div class="cr">
+      <span class="name">Challenge</span> {{ cr }}
+    </div>
     <v-divider></v-divider>
     <div class="traits">
       <div class="trait" v-for="trait in monster.traits" :key="trait.id">
@@ -192,6 +195,7 @@ import {
 import MOVEMENT from '../data/MOVEMENT';
 import { RANGE } from '../data/ATTACK';
 import STAT, { STAT_FULL } from '../data/STAT';
+import { CR } from '../data/CR';
 
 import N2W from 'number-to-words';
 import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
@@ -203,6 +207,9 @@ export default {
       get() {
         return this.$store.state.monster;
       },
+    },
+    cr() {
+      return CR[this.monster.CR].cr;
     },
     hp() {
       const estimated = avgHP(this.monster.HP);
