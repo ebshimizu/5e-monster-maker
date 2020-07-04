@@ -134,6 +134,7 @@ export default new Vuex.Store({
         count: 0,
         actions: [],
       },
+      reactions: [],
     },
     spells: SPELLS,
   },

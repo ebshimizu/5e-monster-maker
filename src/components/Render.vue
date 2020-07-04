@@ -166,6 +166,17 @@
         }}
       </div>
     </div>
+    <div class="reactions" v-if="monster.reactions.length > 0">
+      <h3 class="section mt-2">Reactions</h3>
+      <div
+        class="action"
+        v-for="reaction in monster.reactions"
+        :key="reaction.id"
+      >
+        <span class="name">{{ reaction.name }}. </span
+        >{{ processTokens(reaction.description) }}
+      </div>
+    </div>
   </v-sheet>
 </template>
 

@@ -8,7 +8,6 @@
             <v-expansion-panel
               v-for="(action, index) in actions"
               :key="action.id"
-              cols="12"
             >
               <v-expansion-panel-header>{{
                 action.name

@@ -49,6 +49,7 @@
                 min="1"
                 label="Cost"
                 v-model.number="legendaryActions.actions[index].cost"
+                @input="update"
               ></v-text-field>
             </v-col>
             <v-col cols="1" class="pa-2">

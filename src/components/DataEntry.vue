@@ -13,6 +13,7 @@
     <spellcasting />
     <traits />
     <legendary-actions />
+    <dnd-reactions />
   </v-expansion-panels>
 </template>
 
@@ -21,6 +22,7 @@ import Attacks from './input/Attacks';
 import Basics from './input/Basics';
 import CR from './input/CR';
 import DamageTypes from './input/DamageTypes';
+import DndReactions from './input/DndReactions';
 import LegendaryActions from './input/LegendaryActions';
 import Multiattack from './input/Multiattack';
 import OtherActions from './input/OtherActions';
@@ -39,6 +41,7 @@ export default {
     Basics,
     CR,
     DamageTypes,
+    DndReactions,
     LegendaryActions,
     Multiattack,
     OtherActions,
