@@ -130,6 +130,10 @@ export default new Vuex.Store({
       },
       traits: [],
       actions: [],
+      legendaryActions: {
+        count: 0,
+        actions: [],
+      },
     },
     spells: SPELLS,
   },
@@ -205,6 +209,15 @@ export default new Vuex.Store({
     },
     attackFromId: (state) => (id) => {
       return state.monster.attacks.find((a) => a.id === id);
+    },
+    actionFromId: (state) => (id) => {
+      return state.monster.actions.find((a) => a.id === id);
+    },
+    attackOrActionFromId: (_, getters) => (id) => {
+      const attack = getters.attackFromId(id);
+      if (attack) return attack;
+
+      return getters.actionFromId(id);
     },
     defaultSpellSave: (state) => (stat) => {
       return (

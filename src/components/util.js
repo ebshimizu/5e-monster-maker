@@ -89,6 +89,7 @@ export function newAttack() {
     additionalDamage: [],
     save: 0,
     description: '',
+    legendaryOnly: false
   };
 }
 

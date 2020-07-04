@@ -137,6 +137,35 @@
         {{ processTokens(action.description) }}
       </div>
     </div>
+    <div class="legendary-actions" v-if="monster.legendaryActions.count > 0">
+      <h3 class="section mt-2">Legendary Actions</h3>
+      <div class="preamble">
+        The {{ monster.name }} can take
+        {{ monster.legendaryActions.count }} legendary action{{
+          monster.legendaryActions.count === 1 ? '' : 's'
+        }}, choosing from the options below. Only one legendary action option
+        can be used at a time and only at the end of another creature's turn.
+        The {{ monster.name }} regains spent legendary actions at the start of
+        its turn.
+      </div>
+      <div
+        class="action"
+        v-for="action in resolvedLegendaryActions"
+        :key="action.id"
+      >
+        <span class="name"
+          >{{ action.name
+          }}{{
+            action.cost > 1 ? ` (Costs ${action.cost} Actions)` : ''
+          }}.</span
+        >
+        {{
+          action.legendaryOnly
+            ? processTokens(action.description)
+            : duplicateLegendary(action)
+        }}
+      </div>
+    </div>
   </v-sheet>
 </template>
 
@@ -295,6 +324,14 @@ export default {
     nonLegendaryOnlyActions() {
       return this.monster.actions.filter((a) => !a.legendaryOnly);
     },
+    resolvedLegendaryActions() {
+      return this.monster.legendaryActions.actions.map((la) => {
+        return {
+          cost: la.cost,
+          ...this.$store.getters.attackOrActionFromId(la.actionId),
+        };
+      });
+    },
   },
   methods: {
     toHit(attackModifier) {
@@ -407,14 +444,24 @@ export default {
 
       return '';
     },
+    duplicateLegendary(action) {
+      const isAttack = this.$store.getters.attackFromId(action.id);
+      if (isAttack) {
+        return `The ${this.monster.name} makes a ${action.name} attack.`;
+      }
+
+      return `The ${this.monster.name} uses the ${action.name} action.`;
+    },
     processTokens(text) {
       // some replacement fun times
       const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi);
       text = text.replace(dice, (match, count, dice, modifier) => {
         const cleanModifier =
-          (modifier && modifier !== '') ? parseInt(modifier.replace(' ', '')) : 0;
+          modifier && modifier !== '' ? parseInt(modifier.replace(' ', '')) : 0;
         const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier;
-        return `${avg} (${count}d${dice}${modifier ? renderBonus(cleanModifier) : ''})`;
+        return `${avg} (${count}d${dice}${
+          modifier ? renderBonus(cleanModifier) : ''
+        })`;
       });
 
       // saves

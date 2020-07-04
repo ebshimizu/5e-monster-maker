@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panel>
     <v-expansion-panel-header>Traits</v-expansion-panel-header>
-    <v-expansion-panel-content class="mt-2">
+    <v-expansion-panel-content>
       <v-row>
         <v-col cols="12">
           <v-expansion-panels accordion hover multiple focusable>
