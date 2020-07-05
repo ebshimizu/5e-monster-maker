@@ -21,7 +21,7 @@
     {
       "templateName": "Superior Invisibility",
       "name": "Superior Invisibility",
-      "description": "As a bonus action, the {NAME} can magically turn invisible until its concentration ends (as if concentrating on a spell). Any equipment the dragon wears or carries is invisible with it.",
+      "description": "As a bonus action, the {NAME} can magically turn invisible until its concentration ends (as if concentrating on a spell). Any equipment the {NAME} wears or carries is invisible with it.",
       "limitedUse": { "count": 0, "rate": "day" },
       "crAnnotation": {
         "maxDamage": 0,
