@@ -1,5 +1,17 @@
 <template>
   <v-app-bar app color="primary" dark>
+    <v-menu>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn v-bind="attrs" v-on="on" icon class="mr-1">
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item @click="resetDialog = true">
+          <v-list-item-title>Reset</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-toolbar-title>5e Monster Maker</v-toolbar-title>
     <v-autocomplete
       flat
@@ -8,6 +20,7 @@
       solo-inverted
       clearable
       v-model="templateBar"
+      prepend-inner-icon="mdi-magnify"
       :items="templates"
       item-text="templateName"
       item-value="order"
@@ -18,12 +31,15 @@
         <v-list-item-avatar
           ><v-icon>{{ iconOrDefault(data.item) }}</v-icon></v-list-item-avatar
         >
-        <v-list-item-content
+        <v-list-item-content class="app-search-item"
           ><v-list-item-title>{{ data.item.templateName }}</v-list-item-title
           ><v-list-item-subtitle>{{
             data.item.subtitle
           }}</v-list-item-subtitle></v-list-item-content
         >
+        <v-list-item-action>
+          <v-chip>{{ data.item.type }}</v-chip>
+        </v-list-item-action>
       </template>
     </v-autocomplete>
     <v-dialog v-model="loadFromFileDialog" persistent max-width="300px">
@@ -59,6 +75,18 @@
     <v-btn icon @click="saveToJson" class="mr-1"
       ><v-icon>mdi-download</v-icon></v-btn
     >
+    <v-dialog v-model="resetDialog" max-width="300px">
+      <v-card
+        ><v-card-title class="headline">Confirm Reset</v-card-title>
+        <v-card-text
+          >Are you sure you want to reset all monster data?</v-card-text
+        >
+        <v-card-actions>
+          <v-btn color="green darken-1" text @click="reset">Yes</v-btn>
+          <v-btn color="blue darken-1" text @click="resetDialog = false">No</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-snackbar
       v-model="messageBar"
       :color="messageBarColor"
@@ -94,6 +122,7 @@ export default {
       messageText: '',
       templateBar: null,
       templateBarText: '',
+      resetDialog: false,
     };
   },
   computed: {
@@ -103,8 +132,7 @@ export default {
   },
   methods: {
     applyTemplate(selected) {
-      if (selected === undefined || selected === null)
-        return;
+      if (selected === undefined || selected === null) return;
 
       const template = this.templates[selected];
       console.log(`Adding ${template.templateName} to current monster...`);
@@ -144,6 +172,11 @@ export default {
       }
 
       return DEFAULT_TEMPLATE_ICON[template.type];
+    },
+    reset() {
+      this.$store.commit(MUTATION.RESET);
+      this.resetDialog = false;
+      this.message('Monster Reset', 'blue');
     },
     saveToJson() {
       saveJSON(
@@ -210,3 +243,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.app-search-item {
+  width: 2px; /* this fixes the sizing issue with long subtitles an an action??????? */
+}
+</style>

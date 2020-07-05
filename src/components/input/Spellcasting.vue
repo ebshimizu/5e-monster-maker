@@ -157,7 +157,7 @@
                     :items="spells"
                     v-model="spellcasting.standard"
                     @input="update"
-                    color="deep-purple darken-4"
+                    color="deep-purple lighten-2"
                     label="All Known Spells"
                     hint="Type to search"
                     clearable
@@ -166,7 +166,7 @@
                   >
                     <template v-slot:selection="{ index }">
                       <v-chip
-                        color="deep-purple darken-3"
+                        color="deep-purple lighten-2"
                         v-if="index === 0"
                         class="mr-4"
                         >{{ spellcasting.standard.length }} Spells Known</v-chip

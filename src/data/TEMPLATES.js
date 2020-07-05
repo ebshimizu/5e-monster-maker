@@ -1,7 +1,11 @@
 import actions from './templates/actions';
 import attacks from './templates/attacks';
 import traits from './templates/traits';
-import { attackTemplateSubtitle } from '../components/util';
+import {
+  attackTemplateSubtitle,
+  actionTemplateSubtitle,
+  traitTemplateSubtitle,
+} from '../components/util';
 
 export const TEMPLATE_TYPE = {
   ATTACK: 'Attack',
@@ -18,13 +22,25 @@ export const DEFAULT_TEMPLATE_ICON = {
 // map types to these
 export const TEMPLATES = {
   actions: actions.actions.map((a) => {
-    return { type: TEMPLATE_TYPE.ACTION, subtitle: '', ...a };
+    return {
+      type: TEMPLATE_TYPE.ACTION,
+      subtitle: actionTemplateSubtitle(a),
+      ...a,
+    };
   }),
   attacks: attacks.attacks.map((a) => {
-    return { type: TEMPLATE_TYPE.ATTACK, subtitle: attackTemplateSubtitle(a), ...a };
+    return {
+      type: TEMPLATE_TYPE.ATTACK,
+      subtitle: attackTemplateSubtitle(a),
+      ...a,
+    };
   }),
   traits: traits.traits.map((t) => {
-    return { type: TEMPLATE_TYPE.TRAIT, subtitle: '', ...t };
+    return {
+      type: TEMPLATE_TYPE.TRAIT,
+      subtitle: traitTemplateSubtitle(t),
+      ...t,
+    };
   }),
 };
 

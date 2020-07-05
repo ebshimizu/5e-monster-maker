@@ -10,6 +10,7 @@ export const CR = [
     dprMax: 1,
     saveDc: 13,
     numeric: 0,
+    xp: 0,
   },
   {
     cr: '1/8',
@@ -22,6 +23,7 @@ export const CR = [
     dprMax: 3,
     saveDc: 13,
     numeric: 0.125,
+    xp: 25,
   },
   {
     cr: '1/4',
@@ -34,6 +36,7 @@ export const CR = [
     dprMax: 5,
     saveDc: 13,
     numeric: 0.25,
+    xp: 50,
   },
   {
     cr: '1/2',
@@ -46,6 +49,7 @@ export const CR = [
     dprMax: 8,
     saveDc: 13,
     numeric: 0.5,
+    xp: 100,
   },
   {
     cr: '1',
@@ -58,6 +62,7 @@ export const CR = [
     dprMax: 14,
     saveDc: 13,
     numeric: 1,
+    xp: 200,
   },
   {
     cr: '2',
@@ -70,6 +75,7 @@ export const CR = [
     dprMax: 20,
     saveDc: 13,
     numeric: 2,
+    xp: 450,
   },
   {
     cr: '3',
@@ -82,6 +88,7 @@ export const CR = [
     dprMax: 26,
     saveDc: 13,
     numeric: 3,
+    xp: 700,
   },
   {
     cr: '4',
@@ -94,6 +101,7 @@ export const CR = [
     dprMax: 32,
     saveDc: 14,
     numeric: 4,
+    xp: 1100,
   },
   {
     cr: '5',
@@ -106,6 +114,7 @@ export const CR = [
     dprMax: 38,
     saveDc: 15,
     numeric: 5,
+    xp: 1800,
   },
   {
     cr: '6',
@@ -118,6 +127,7 @@ export const CR = [
     dprMax: 44,
     saveDc: 15,
     numeric: 6,
+    xp: 2300,
   },
   {
     cr: '7',
@@ -130,6 +140,7 @@ export const CR = [
     dprMax: 50,
     saveDc: 15,
     numeric: 7,
+    xp: 2900,
   },
   {
     cr: '8',
@@ -142,6 +153,7 @@ export const CR = [
     dprMax: 56,
     saveDc: 16,
     numeric: 8,
+    xp: 3900,
   },
   {
     cr: '9',
@@ -154,6 +166,7 @@ export const CR = [
     dprMax: 62,
     saveDc: 16,
     numeric: 9,
+    xp: 5000,
   },
   {
     cr: '10',
@@ -166,6 +179,7 @@ export const CR = [
     dprMax: 68,
     saveDc: 16,
     numeric: 10,
+    xp: 5900,
   },
   {
     cr: '11',
@@ -178,6 +192,7 @@ export const CR = [
     dprMax: 74,
     saveDc: 17,
     numeric: 11,
+    xp: 7200,
   },
   {
     cr: '12',
@@ -190,6 +205,7 @@ export const CR = [
     dprMax: 80,
     saveDc: 18,
     numeric: 12,
+    xp: 8400,
   },
   {
     cr: '13',
@@ -202,6 +218,7 @@ export const CR = [
     dprMax: 86,
     saveDc: 18,
     numeric: 13,
+    xp: 10000,
   },
   {
     cr: '14',
@@ -214,6 +231,7 @@ export const CR = [
     dprMax: 92,
     saveDc: 18,
     numeric: 14,
+    xp: 11500,
   },
   {
     cr: '15',
@@ -226,6 +244,7 @@ export const CR = [
     dprMax: 98,
     saveDc: 18,
     numeric: 15,
+    xp: 13000,
   },
   {
     cr: '16',
@@ -238,6 +257,7 @@ export const CR = [
     dprMax: 104,
     saveDc: 18,
     numeric: 16,
+    xp: 15000,
   },
   {
     cr: '17',
@@ -250,6 +270,7 @@ export const CR = [
     dprMax: 110,
     saveDc: 19,
     numeric: 17,
+    xp: 18000,
   },
   {
     cr: '18',
@@ -262,6 +283,7 @@ export const CR = [
     dprMax: 116,
     saveDc: 19,
     numeric: 18,
+    xp: 20000,
   },
   {
     cr: '19',
@@ -274,6 +296,7 @@ export const CR = [
     dprMax: 122,
     saveDc: 19,
     numeric: 18,
+    xp: 22000,
   },
   {
     cr: '20',
@@ -286,6 +309,7 @@ export const CR = [
     dprMax: 140,
     saveDc: 19,
     numeric: 20,
+    xp: 25000,
   },
   {
     cr: '21',
@@ -298,6 +322,7 @@ export const CR = [
     dprMax: 158,
     saveDc: 20,
     numeric: 21,
+    xp: 33000,
   },
   {
     cr: '22',
@@ -310,6 +335,7 @@ export const CR = [
     dprMax: 176,
     saveDc: 20,
     numeric: 22,
+    xp: 41000,
   },
   {
     cr: '23',
@@ -322,6 +348,7 @@ export const CR = [
     dprMax: 194,
     saveDc: 20,
     numeric: 23,
+    xp: 50000,
   },
   {
     cr: '24',
@@ -334,6 +361,7 @@ export const CR = [
     dprMax: 212,
     saveDc: 21,
     numeric: 24,
+    xp: 62000,
   },
   {
     cr: '25',
@@ -346,6 +374,7 @@ export const CR = [
     dprMax: 230,
     saveDc: 21,
     numeric: 25,
+    xp: 75000,
   },
   {
     cr: '26',
@@ -358,6 +387,7 @@ export const CR = [
     dprMax: 248,
     saveDc: 21,
     numeric: 26,
+    xp: 90000,
   },
   {
     cr: '27',
@@ -370,6 +400,7 @@ export const CR = [
     dprMax: 266,
     saveDc: 22,
     numeric: 27,
+    xp: 105000,
   },
   {
     cr: '28',
@@ -382,6 +413,7 @@ export const CR = [
     dprMax: 284,
     saveDc: 22,
     numeric: 28,
+    xp: 120000,
   },
   {
     cr: '29',
@@ -394,6 +426,7 @@ export const CR = [
     dprMax: 302,
     saveDc: 22,
     numeric: 29,
+    xp: 135000,
   },
   {
     cr: '30',
@@ -406,6 +439,7 @@ export const CR = [
     dprMax: 320,
     saveDc: 23,
     numeric: 30,
+    xp: 155000,
   },
 ];
 
@@ -420,8 +454,7 @@ export function getCRByDamage(damage) {
   if (damage >= 320) return CR[CR.length - 1];
 
   for (const cr of CR) {
-    if (cr.dprMin <= damage && damage <= cr.dprMax)
-      return cr;
+    if (cr.dprMin <= damage && damage <= cr.dprMax) return cr;
   }
 
   // just in case
@@ -434,8 +467,7 @@ export function getCRByDC(dc) {
 
   for (const cr of CR) {
     // ascending, trigger on first
-    if (dc <= cr.saveDc)
-      return cr
+    if (dc <= cr.saveDc) return cr;
   }
 
   return CR[0];
@@ -446,8 +478,7 @@ export function getCRByAttack(attack) {
   if (attack >= 14) return CR[CR.length - 1];
 
   for (const cr of CR) {
-    if (attack <= cr.attack)
-      return cr;
+    if (attack <= cr.attack) return cr;
   }
 
   return CR[0];
@@ -457,8 +488,7 @@ export function getCRByNumber(number) {
   if (number >= 30) return CR[CR.length - 1];
 
   for (const cr of CR) {
-    if (number <= cr.numeric)
-      return cr;
+    if (number <= cr.numeric) return cr;
   }
 
   return CR[0];
@@ -469,8 +499,7 @@ export function getCRByHP(hp) {
   if (hp >= 850) return CR[CR.length - 1];
 
   for (const cr of CR) {
-    if (cr.hpMin <= hp && hp <= cr.hpMax)
-      return cr;
+    if (cr.hpMin <= hp && hp <= cr.hpMax) return cr;
   }
 
   return CR[0];
@@ -481,8 +510,7 @@ export function getCRByAC(ac) {
   if (ac > 19) return CR[CR.length - 1];
 
   for (const cr of CR) {
-    if (ac <= cr.ac)
-      return cr;
+    if (ac <= cr.ac) return cr;
   }
 
   return CR[0];

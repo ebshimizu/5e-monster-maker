@@ -40,9 +40,7 @@
     <div class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
-    <div class="cr">
-      <span class="name">Challenge</span> {{ cr }}
-    </div>
+    <div class="cr"><span class="name">Challenge</span> {{ cr }}</div>
     <v-divider></v-divider>
     <div class="traits">
       <div class="trait" v-for="trait in monster.traits" :key="trait.id">
@@ -209,7 +207,9 @@ export default {
       },
     },
     cr() {
-      return CR[this.monster.CR].cr;
+      return `${CR[this.monster.CR].cr} (${CR[
+        this.monster.CR
+      ].xp.toLocaleString('en-US')} XP)`;
     },
     hp() {
       const estimated = avgHP(this.monster.HP);

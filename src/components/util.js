@@ -308,14 +308,34 @@ export function attackTemplateSubtitle(template) {
   }${template.additionalDamage.length > 0 ? ` plus ${plusDamage}` : ''}.`;
 }
 
+export function actionTemplateSubtitle(template) {
+  // limited use
+  const lu =
+    template.recharge !== ''
+      ? `Recharge ${template.recharge}`
+      : `${template.limitedUse.count}/${template.limitedUse.rate}`;
+  const showLu = template.limitedUse.count > 0 || template.recharge !== '';
+
+  return `${template.legendaryOnly ? 'Legendary Action. ' : ''}${
+    showLu ? `${lu}. ` : ''
+  }${template.description}`;
+}
+
+export function traitTemplateSubtitle(template) {
+  const lu = `${template.limitedUse.count}/${template.limitedUse.rate}`;
+  return `${template.legendaryOnly ? 'Legendary Action. ' : ''}${
+    template.limitedUse.count > 0 ? `${lu}. ` : ''
+  }${template.description}`;
+}
+
 export function cloneFromTemplate(template) {
   const obj = _.cloneDeep(template);
-  
+
   // delete template stuff
   delete obj.templateName;
   delete obj.icon;
   delete obj.subtitle;
-  
+
   // add id
   obj.id = uuidv4();
 
