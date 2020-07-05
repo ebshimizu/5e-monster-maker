@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
+import { Persistence } from './persistence';
 
 import {
   saveModifier,
@@ -18,6 +19,7 @@ import SPELLS from '../data/SPELLS';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  plugins: [Persistence],
   state: {
     monster: {
       name: 'My New Monster',
@@ -485,6 +487,13 @@ export default new Vuex.Store({
         ma.actions = valid;
       }
     },
+    [MUTATION.LOAD_LAST_STATE](state) {
+      // load from local storage
+      const monster = localStorage.getItem('app.monster');
+      if (monster) {
+        Vue.set(state, 'monster', JSON.parse(monster));
+      }
+    }
   },
   actions: {},
   modules: {},

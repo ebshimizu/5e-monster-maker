@@ -19,4 +19,5 @@ export const MUTATION = {
   SET_SPELLCASTING: 'Set Spellcasting',
   SET_TRAITS: 'Set Traits',
   VALIDATE_ACTIONS: 'Validate Actions',
+  LOAD_LAST_STATE: 'Load Last State',
 };
