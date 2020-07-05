@@ -20,6 +20,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   plugins: [Persistence],
   state: {
+    appVersion: process.env.PACKAGE_VERSION || '0',
+    buildNumber: process.env.BUILD_NUMBER || '0',
     monster: newMonster(),
     spells: SPELLS,
     templates: TEMPLATES,

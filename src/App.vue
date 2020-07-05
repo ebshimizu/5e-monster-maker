@@ -63,7 +63,7 @@ export default {
 }
 
 .full-height {
-  height: calc(100vh - 166px);
+  height: calc(100vh - 215px);
   overflow: auto;
 }
 

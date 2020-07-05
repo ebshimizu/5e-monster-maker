@@ -79,6 +79,23 @@
           </div>
         </div>
       </v-card-title>
+      <v-card-text class="py-1 white--text text-center">
+        App Version {{ $store.state.appVersion }} r{{
+          $store.state.buildNumber
+        }}
+        | Created by <strong>Falindrith</strong> |
+        <v-btn
+          icon
+          class="mx-1"
+          @click="openLink('https://twitter.com/falindrith')"
+          ><v-icon>mdi-twitter</v-icon></v-btn
+        >
+        <v-btn
+          icon
+          @click="openLink('https://github.com/ebshimizu/5e-monster-maker')"
+          ><v-icon size="24px">mdi-github</v-icon></v-btn
+        >
+      </v-card-text>
     </v-card>
   </v-footer>
 </template>
@@ -371,6 +388,9 @@ export default {
     },
   },
   methods: {
+    openLink(url) {
+      window.open(url);
+    },
     highestDamage(data) {
       // check first element of actions and attacks, return highest damage
       // but first validate that we have data to get
