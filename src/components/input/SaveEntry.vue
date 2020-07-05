@@ -1,10 +1,10 @@
 <template>
-  <v-col cols="6">
+  <v-col cols="4">
     <v-row align="center" no-gutters>
-      <v-col cols="2" class="pr-2">
+      <v-col cols="3" class="pr-2">
         <v-subheader>{{ save.key }}</v-subheader>
       </v-col>
-      <v-col cols="2" class="pr-2"
+      <v-col class="pr-2"
         ><v-text-field
           label="Modifier"
           type="number"
@@ -12,11 +12,38 @@
           :disabled="!save.override"
         ></v-text-field
       ></v-col>
-      <v-col cols="4" class="pr-2">
-        <v-switch v-model="proficient" label="Proficient"></v-switch>
+      <v-col md="auto">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              fab
+              x-small
+              :color="activeColor(proficient)"
+              v-on="on"
+              @click="proficient = !proficient"
+              class="ml-1"
+              :disabled="override"
+              ><v-icon>mdi-wizard-hat</v-icon></v-btn
+            >
+          </template>
+          Proficient
+        </v-tooltip>
       </v-col>
-      <v-col cols="4">
-        <v-switch v-model="override" label="Override"></v-switch>
+      <v-col md="auto">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              fab
+              x-small
+              :color="activeColor(override)"
+              v-on="on"
+              @click="override = !override"
+              class="ml-1"
+              ><v-icon>mdi-hammer-wrench</v-icon></v-btn
+            >
+          </template>
+          Override
+        </v-tooltip>
       </v-col>
     </v-row>
   </v-col>
@@ -67,6 +94,9 @@ export default {
   methods: {
     update() {
       this.$store.commit(MUTATION.SET_SAVE, this.save);
+    },
+    activeColor(status) {
+      return status ? 'blue' : 'grey';
     },
   },
 };

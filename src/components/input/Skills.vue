@@ -2,9 +2,18 @@
   <v-expansion-panel>
     <v-expansion-panel-header>Skills</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
-      <v-menu offset-y max-height="300px">
+      <v-row>
+        <skill-entry
+          v-for="(item, index) in skills"
+          :skill="item"
+          :index="index"
+          :key="item.skill.key"
+        ></skill-entry> </v-row
+      ><v-menu offset-y max-height="300px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn block small color="green" v-bind="attrs" v-on="on">Add Skill</v-btn>
+          <v-btn block small color="green" v-bind="attrs" v-on="on"
+            >Add Skill</v-btn
+          >
         </template>
         <v-list>
           <v-list-item
@@ -16,14 +25,6 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-row>
-        <skill-entry
-          v-for="(item, index) in skills"
-          :skill="item"
-          :index="index"
-          :key="item.skill.key"
-        ></skill-entry>
-      </v-row>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>

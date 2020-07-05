@@ -63,15 +63,41 @@
             v-model="alignment"
           ></v-combobox
         ></v-col>
-        <v-col cols="1"
-          ><v-text-field
-            dense
-            label="AC"
-            type="number"
-            v-model="AC"
-            :rules="[rules.number]"
-          ></v-text-field
-        ></v-col>
+        <v-col cols="2">
+          <v-row>
+            <v-col>
+              <v-text-field
+                dense
+                label="AC"
+                type="number"
+                v-model="AC"
+                :rules="[rules.number]"
+              ></v-text-field
+            ></v-col>
+            <v-col md="auto">
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    fab
+                    x-small
+                    color="blue"
+                    v-bind="attrs"
+                    v-on="on"
+                    class="ml-1"
+                    ><v-icon>mdi-menu-open</v-icon></v-btn
+                  >
+                </template>
+                <v-list>
+                  <v-list-item @click="setAcFromCr"
+                    ><v-list-item-title
+                      >Set AC Based on CR</v-list-item-title
+                    ></v-list-item
+                  >
+                </v-list>
+              </v-menu>
+            </v-col>
+          </v-row>
+        </v-col>
         <v-col cols="3"
           ><v-text-field
             dense
@@ -80,16 +106,42 @@
             hint="Or AC Notes"
           ></v-text-field
         ></v-col>
-        <v-col cols="2"
-          ><v-text-field
-            dense
-            label="HD Count"
-            type="number"
-            v-model="HD"
-            hint="Number of Dice"
-            :rules="[rules.number]"
-          ></v-text-field
-        ></v-col>
+        <v-col cols="3">
+          <v-row>
+            <v-col>
+              <v-text-field
+                dense
+                label="HD Count"
+                type="number"
+                v-model="HD"
+                hint="Number of Dice"
+                :rules="[rules.number]"
+              ></v-text-field
+            ></v-col>
+            <v-col md="auto">
+              <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    fab
+                    x-small
+                    color="blue"
+                    v-bind="attrs"
+                    v-on="on"
+                    class="ml-1"
+                    ><v-icon>mdi-menu-open</v-icon></v-btn
+                  >
+                </template>
+                <v-list>
+                  <v-list-item @click="setHpFromCR"
+                    ><v-list-item-title
+                      >Set HP Based on CR</v-list-item-title
+                    ></v-list-item
+                  >
+                </v-list>
+              </v-menu>
+            </v-col>
+          </v-row>
+        </v-col>
         <v-col cols="2"
           ><v-row>
             <v-col
@@ -148,8 +200,6 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-spacer></v-spacer>
-        <v-col cols="2"><v-btn block color="blue">HP Tools</v-btn></v-col>
         <v-col cols="2"
           ><v-text-field
             dense
@@ -441,6 +491,20 @@ export default {
 
       if (this.linkHdToSize) this.updateHd();
     },
+    setHpFromCR() {
+      const crObj = CR[this.cr];
+      const hpMax = crObj.hpMax;
+      const gainPerHd = (this.HDType + 1) / 2 + statModifier(this.CON);
+
+      const hd = Math.max(Math.floor(hpMax / gainPerHd), 1);
+      const modifier = hd * statModifier(this.CON);
+
+      this.HD = hd;
+      this.HPModifier = modifier;
+    },
+    setAcFromCr() {
+      this.AC = CR[this.cr].ac;
+    }
   },
 };
 </script>

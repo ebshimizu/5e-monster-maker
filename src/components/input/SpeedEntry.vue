@@ -15,11 +15,11 @@
         :rules="[rules.number]"
       ></v-text-field
     ></v-col>
-    <v-col cols="6" class="pr-2"
+    <v-col class="pr-2"
       ><v-text-field label="Note" v-model="note"></v-text-field
     ></v-col>
-    <v-col cols="1"
-      ><v-btn fab small color="red" @click="remove"><v-icon>mdi-close</v-icon></v-btn></v-col
+    <v-col md="auto"
+      ><v-btn fab x-small color="red" @click="remove"><v-icon>mdi-close</v-icon></v-btn></v-col
     >
   </v-row>
 </template>

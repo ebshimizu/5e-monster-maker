@@ -2,13 +2,13 @@
   <v-expansion-panel>
     <v-expansion-panel-header>Speeds</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
-      <v-btn small block color="green" @click="add">Add Speed</v-btn>
       <speed-entry
         v-for="(item, index) in speeds"
         :key="item.id"
         :index="index"
         :speed="item"
       ></speed-entry>
+      <v-btn small block color="green" @click="add">Add Speed</v-btn>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
