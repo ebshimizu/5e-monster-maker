@@ -415,6 +415,7 @@ export const CR_SELECT = CR.map((cr, idx) => {
 
 export function getCRByDamage(damage) {
   // iterate from low to high, return first CR s.t. damage is within min/max
+  damage = Math.round(damage);
   if (damage <= 0) return CR[0];
   if (damage >= 320) return CR[CR.length - 1];
 

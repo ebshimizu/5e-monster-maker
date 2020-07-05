@@ -6,9 +6,26 @@
       label="Search for an Attack, Action, Trait, or Other Template"
       hide-details
       solo-inverted
+      clearable
       v-model="templateBar"
+      :items="templates"
+      item-text="templateName"
+      item-value="order"
       class="mx-4"
-    ></v-autocomplete>
+      @input="applyTemplate"
+    >
+      <template v-slot:item="data">
+        <v-list-item-avatar
+          ><v-icon>{{ iconOrDefault(data.item) }}</v-icon></v-list-item-avatar
+        >
+        <v-list-item-content
+          ><v-list-item-title>{{ data.item.templateName }}</v-list-item-title
+          ><v-list-item-subtitle>{{
+            data.item.subtitle
+          }}</v-list-item-subtitle></v-list-item-content
+        >
+      </template>
+    </v-autocomplete>
     <v-dialog v-model="loadFromFileDialog" persistent max-width="300px">
       <template v-slot:activator="{ on, attrs }">
         <v-btn icon v-bind="attrs" v-on="on"
@@ -59,8 +76,9 @@
 </template>
 
 <script>
-import { saveJSON } from './util';
+import { saveJSON, cloneFromTemplate } from './util';
 import { MUTATION } from '../data/ACTIONS';
+import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
 import { validate } from 'jsonschema';
 import SCHEMA from '../data/SCHEMA';
 
@@ -75,9 +93,58 @@ export default {
       messageBarColor: 'green',
       messageText: '',
       templateBar: null,
+      templateBarText: '',
     };
   },
+  computed: {
+    templates() {
+      return this.$store.getters.allTemplates;
+    },
+  },
   methods: {
+    applyTemplate(selected) {
+      if (selected === undefined || selected === null)
+        return;
+
+      const template = this.templates[selected];
+      console.log(`Adding ${template.templateName} to current monster...`);
+
+      // depends on type
+      if (template.type === TEMPLATE_TYPE.ATTACK) {
+        // process attack
+        const attacks = this.$store.state.monster.attacks;
+        attacks.push(cloneFromTemplate(template));
+        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
+          key: 'attacks',
+          value: attacks,
+        });
+      } else if (template.type === TEMPLATE_TYPE.ACTION) {
+        // process action
+        const actions = this.$store.state.monster.actions;
+        actions.push(cloneFromTemplate(template));
+        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
+          key: 'actions',
+          value: actions,
+        });
+      } else if (template.type === TEMPLATE_TYPE.TRAIT) {
+        // process trait
+        const traits = this.$store.state.monster.traits;
+        traits.push(cloneFromTemplate(template));
+        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
+          key: 'actions',
+          value: traits,
+        });
+      }
+
+      this.message(`Added Template: ${template.templateName}`, 'green');
+    },
+    iconOrDefault(template) {
+      if (template.icon && template.icon !== '') {
+        return template.icon;
+      }
+
+      return DEFAULT_TEMPLATE_ICON[template.type];
+    },
     saveToJson() {
       saveJSON(
         this.$store.state.monster,
@@ -107,7 +174,10 @@ export default {
               this.$store.commit(MUTATION.LOAD_MONSTER, monster);
               this.message('Load Successful', 'green');
             } else {
-              this.message(`Load Failed: version ${monster.saveVersion} did not validate.`, 'red');
+              this.message(
+                `Load Failed: version ${monster.saveVersion} did not validate.`,
+                'red'
+              );
             }
           }
 

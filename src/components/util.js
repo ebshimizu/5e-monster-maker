@@ -6,6 +6,7 @@ import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
 import SKILL from '../data/SKILL';
 import MOVEMENT from '../data/MOVEMENT';
 import STAT from '../data/STAT';
+import _ from 'lodash';
 
 export const SAVE_VERSION = 1;
 
@@ -292,4 +293,32 @@ function download(content, fileName, contentType) {
 
 export function saveJSON(data, filename) {
   download(JSON.stringify(data), filename, 'text/json');
+}
+
+export function attackTemplateSubtitle(template) {
+  // displays a quick damage summary
+  const altDamage = `${template.alternateDamage.count}d${template.alternateDamage.dice} + ${template.alternateDamage.modifier.stat} ${template.alternateDamage.type}`;
+  const plusDamage = template.additionalDamage
+    .map((ad) => `${ad.count}d${ad.dice} ${ad.type}`)
+    .join(', ');
+  return `${template.distance} ${template.kind}. ${template.damage.count}d${
+    template.damage.dice
+  } + ${template.damage.modifier.stat} ${template.damage.type}${
+    template.alternateDamage.active ? ` / ${altDamage}` : ''
+  }${template.additionalDamage.length > 0 ? ` plus ${plusDamage}` : ''}.`;
+}
+
+export function cloneFromTemplate(template) {
+  const obj = _.cloneDeep(template);
+  
+  // delete template stuff
+  delete obj.templateName;
+  delete obj.icon;
+  delete obj.subtitle;
+  
+  // add id
+  obj.id = uuidv4();
+
+  // return instance
+  return obj;
 }

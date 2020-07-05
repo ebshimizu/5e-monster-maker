@@ -521,6 +521,9 @@ export default {
         } else return match;
       });
 
+      // mosnter name
+      text = text.replace(/\{NAME\}/gi, this.monster.name);
+
       return text;
     },
   },

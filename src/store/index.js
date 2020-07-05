@@ -8,11 +8,12 @@ import {
   statModifier,
   newAttack,
   avgRoll,
-  newMonster
+  newMonster,
 } from '../components/util';
 import SKILL from '../data/SKILL';
 import { MUTATION } from '../data/ACTIONS';
 import SPELLS from '../data/SPELLS';
+import TEMPLATES from '../data/TEMPLATES';
 
 Vue.use(Vuex);
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
   state: {
     monster: newMonster(),
     spells: SPELLS,
+    templates: TEMPLATES,
   },
   getters: {
     avgHp: (state) => {
@@ -294,6 +296,23 @@ export default new Vuex.Store({
 
       return data;
     },
+    allTemplates: (state) => {
+      // concats all templates to a list
+      return []
+        .concat(...Object.values(state.templates))
+        .sort((a, b) => {
+          const na = a.templateName.toLowerCase();
+          const nb = b.templateName.toLowerCase();
+
+          if (na < nb) return -1;
+          if (na > nb) return 1;
+
+          return 0;
+        })
+        .map((t, idx) => {
+          return { order: idx, ...t };
+        });
+    },
   },
   mutations: {
     [MUTATION.SET_SIMPLE_PROP](state, payload) {
@@ -388,7 +407,7 @@ export default new Vuex.Store({
     },
     [MUTATION.RESET](state) {
       Vue.set(state, 'monster', newMonster());
-    }
+    },
   },
   actions: {},
   modules: {},

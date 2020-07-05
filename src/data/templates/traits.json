@@ -1,0 +1,40 @@
+{
+  "traits": [
+    {
+      "templateName": "Heated Body",
+      "name": "Heated Body",
+      "description": "A creature that touches the {NAME} or hits it with a melee attack while within 5 feet of it takes {1d10} fire damage.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 5,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-fire"
+    },
+    {
+      "templateName": "Superior Invisibility",
+      "name": "Superior Invisibility",
+      "description": "As a bonus action, the {NAME} can magically turn invisible until its concentration ends (as if concentrating on a spell). Any equipment the dragon wears or carries is invisible with it.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 2,
+        "include": true
+      },
+      "icon": "mdi-ghost"
+    }
+  ]
+}

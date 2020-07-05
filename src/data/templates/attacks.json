@@ -1,0 +1,209 @@
+{
+  "attacks": [
+    {
+      "templateName": "Claw",
+      "name": "Claw",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 6,
+        "count": 2,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "icon": ""
+    },
+    {
+      "templateName": "Acid Bite",
+      "name": "Bite",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": { "standard": 0, "long": 0, "reach": 10 },
+      "targets": 1,
+      "damage": {
+        "dice": 10,
+        "count": 2,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "piercing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [
+        {
+          "dice": 8,
+          "count": 1,
+          "type": "acid",
+          "note": ""
+        }
+      ],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "icon": ""
+    },
+    {
+      "templateName": "Bite",
+      "name": "Bite",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": { "standard": 0, "long": 0, "reach": 10 },
+      "targets": 1,
+      "damage": {
+        "dice": 10,
+        "count": 2,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "piercing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "icon": ""
+    },
+    {
+      "templateName": "Javelin",
+      "name": "Javelin",
+      "distance": "Melee or Ranged",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": { "standard": 30, "long": 120, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 6,
+        "count": 2,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "piercing"
+      },
+      "alternateDamage": {
+        "dice": 6,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "at range",
+        "active": true
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "icon": ""
+    },
+    {
+      "templateName": "Poison Shortbow",
+      "name": "Shortbow",
+      "distance": "Ranged",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "DEX",
+        "proficient": true
+      },
+      "range": { "standard": 80, "long": 320, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 6,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
+        "type": "piercing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 12,
+      "description": "The target must succeed on a {DC:CON} saving throw or take {2d4} poison damage.",
+      "legendaryOnly": false,
+      "icon": "mdi-bullseye-arrow"
+    },
+    {
+      "templateName": "Shortbow",
+      "name": "Shortbow",
+      "distance": "Ranged",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "DEX",
+        "proficient": true
+      },
+      "range": { "standard": 80, "long": 320, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 6,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
+        "type": "piercing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "icon": "mdi-bullseye-arrow"
+    }
+  ]
+}
