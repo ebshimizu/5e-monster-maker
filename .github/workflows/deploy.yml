@@ -29,17 +29,12 @@ jobs:
     - name: Build Number Generator
       uses: einaregilsson/build-number@v2
       with:
-        token: ${{secrets.github_token}}        
-    - name: Print new build number for reference
-      run: echo "Build number is $BUILD_NUMBER"
+        token: ${{secrets.github_token}}
 
     - name: Write build number to file
       run: |
         rm build.json
         echo {\"build\":$BUILD_NUMBER} >> build.json
-        
-    - name: DEBUG validate build file
-      run: cat build.json
     
     # install packages
     - run: yarn install
