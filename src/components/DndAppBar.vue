@@ -6,6 +6,7 @@
       label="Search for an Attack, Action, Trait, or Other Template"
       hide-details
       solo-inverted
+      v-model="templateBar"
       class="mx-4"
     ></v-autocomplete>
     <v-dialog v-model="loadFromFileDialog" persistent max-width="300px">
@@ -60,6 +61,9 @@
 <script>
 import { saveJSON } from './util';
 import { MUTATION } from '../data/ACTIONS';
+import { validate } from 'jsonschema';
+import SCHEMA from '../data/SCHEMA';
+
 export default {
   name: 'DndAppBar',
   data() {
@@ -70,6 +74,7 @@ export default {
       messageBar: false,
       messageBarColor: 'green',
       messageText: '',
+      templateBar: null,
     };
   },
   methods: {
@@ -91,10 +96,22 @@ export default {
       reader.addEventListener('load', (e) => {
         try {
           const monster = JSON.parse(e.target.result);
-          this.$store.commit(MUTATION.LOAD_MONSTER, monster);
-          this.loadFromFileDialog = false;
 
-          this.message('Load Successful', 'green');
+          // validate
+          if (!monster.saveVersion) {
+            this.message('Load Failed: No Version Detected', 'red');
+          } else {
+            const valid = validate(monster, SCHEMA[monster.saveVersion]);
+
+            if (valid.valid) {
+              this.$store.commit(MUTATION.LOAD_MONSTER, monster);
+              this.message('Load Successful', 'green');
+            } else {
+              this.message(`Load Failed: version ${monster.saveVersion} did not validate.`, 'red');
+            }
+          }
+
+          this.loadFromFileDialog = false;
           this.loadCleanup();
         } catch (e) {
           console.log(e);
