@@ -10,6 +10,7 @@ import {
   renderSkills,
   renderSenses,
   renderMultiattacks,
+  duplicateLegendary,
 } from './util';
 
 import { CR } from '../data/CR';
@@ -174,15 +175,6 @@ function renderLatexActions(store) {
     `;
     })
     .join('\n  ');
-}
-
-export function duplicateLegendary(action, store) {
-  const isAttack = store.getters.attackFromId(action.id);
-  if (isAttack) {
-    return `The ${store.state.monster.name} makes a ${action.name} attack.`;
-  }
-
-  return `The ${store.state.monster.name} uses the ${action.name} action.`;
 }
 
 function renderLatexLengendary(store) {

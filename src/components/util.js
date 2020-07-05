@@ -498,3 +498,12 @@ export function rechargeOrLimited(action) {
 
   return '';
 }
+
+export function duplicateLegendary(action, store) {
+  const isAttack = store.getters.attackFromId(action.id);
+  if (isAttack) {
+    return `The ${store.state.monster.name} makes a ${action.name} attack.`;
+  }
+
+  return `The ${store.state.monster.name} uses the ${action.name} action.`;
+}
