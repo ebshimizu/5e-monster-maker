@@ -45,7 +45,7 @@ jobs:
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v2.1.0
       with:
-        repo: git@github.com:ebshimizu/5emm.git
+        repo: ebshimizu/5emm
         target_branch: master
         build_dir:  dist
       env:
