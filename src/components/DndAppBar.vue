@@ -72,9 +72,24 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-btn icon @click="saveToJson" class="mr-1"
-      ><v-icon>mdi-download</v-icon></v-btn
-    >
+    <v-menu>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn v-bind="attrs" v-on="on" icon class="mr-1">
+          <v-icon>mdi-download</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item @click="saveToJson">
+          <v-list-item-title>Export JSON (5emm format)</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="saveToLatex(false)">
+          <v-list-item-title>Export LaTeX (rpgtex, 1 col)</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="saveToLatex(true)">
+          <v-list-item-title>Export LaTeX (rpgtex, 2 col)</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-dialog v-model="resetDialog" max-width="300px">
       <v-card
         ><v-card-title class="headline">Confirm Reset</v-card-title>
@@ -83,7 +98,9 @@
         >
         <v-card-actions>
           <v-btn color="green darken-1" text @click="reset">Yes</v-btn>
-          <v-btn color="blue darken-1" text @click="resetDialog = false">No</v-btn>
+          <v-btn color="blue darken-1" text @click="resetDialog = false"
+            >No</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -104,6 +121,7 @@
 </template>
 
 <script>
+import { saveToLatex } from './latexExporter';
 import { saveJSON, cloneFromTemplate } from './util';
 import { MUTATION } from '../data/ACTIONS';
 import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
@@ -159,7 +177,7 @@ export default {
         const traits = this.$store.state.monster.traits;
         traits.push(cloneFromTemplate(template));
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
-          key: 'actions',
+          key: 'traits',
           value: traits,
         });
       }
@@ -183,6 +201,9 @@ export default {
         this.$store.state.monster,
         `${this.$store.state.monster.name}.5emm.json`
       );
+    },
+    saveToLatex(twoCol) {
+      saveToLatex(this.$store, `${this.$store.state.monster.name}.tex`, twoCol)
     },
     loadCleanup() {
       this.fileLoading = false;

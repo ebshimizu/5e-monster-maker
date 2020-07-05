@@ -54,10 +54,9 @@
     >
       <span class="name">Innate Spellcasting.</span> The {{ monster.name }}'s
       innate spellcasting ability is {{ statFull(monster.spellcasting.stat) }}
-      {{ spellStats() }}
+      {{ spellStats() }}.
       {{ monster.spellcasting.atWillNotes }}
-      It can innately cast the following spells, requiring no material
-      components:
+      It can cast the following spells, requiring no material components:
       <div class="spell-list">
         <div
           class="spell-row"
@@ -103,7 +102,7 @@
     <v-divider></v-divider>
     <div class="multiattack" v-if="monster.multiattacks.length > 0">
       <span class="name">Multiattack.</span>
-      {{ renderMultiattacks(monster.multiattacks) }}
+      {{ renderMultiattacks() }}
     </div>
     <div class="attack" v-for="attack in monster.attacks" :key="attack.id">
       <span class="name">{{ attack.name }}. </span>
@@ -188,11 +187,18 @@ import {
   renderBonus,
   statModifier,
   avgRoll,
-  listJoin,
+  processTokens,
+  renderSaves,
+  renderSkills,
+  renderSenses,
+  renderTraitLimitedUse,
+  renderMultiattacks,
+  rechargeOrLimited,
+  duplicateLegendary,
 } from './util';
 import MOVEMENT from '../data/MOVEMENT';
 import { RANGE } from '../data/ATTACK';
-import STAT, { STAT_FULL } from '../data/STAT';
+import { STAT_FULL } from '../data/STAT';
 import { CR } from '../data/CR';
 
 import N2W from 'number-to-words';
@@ -234,31 +240,10 @@ export default {
       return speeds.join(', ');
     },
     saves() {
-      const saves = Object.keys(this.monster.saves).map((k) => {
-        const save = this.monster.saves[k];
-        if (save.override) {
-          return `${k} ${renderBonus(save.overrideValue)}`;
-        } else if (save.proficient) {
-          return `${k} ${renderBonus(this.$store.getters.defaultSaveBonus(k))}`;
-        } else {
-          return '';
-        }
-      });
-
-      return saves.filter((s) => s !== '').join(', ');
+      return renderSaves(this.$store);
     },
     skills() {
-      const skills = this.monster.skills.map((s) => {
-        if (s.override) {
-          return `${s.skill.key} ${renderBonus(s.overrideValue)}`;
-        } else {
-          return `${s.skill.key} ${renderBonus(
-            this.$store.getters.defaultSkillBonus(s)
-          )}`;
-        }
-      });
-
-      return skills.join(', ');
+      return renderSkills(this.$store);
     },
     resistances() {
       return this.monster.resistances.join(', ');
@@ -273,27 +258,7 @@ export default {
       return this.monster.conditions.join(', ');
     },
     senses() {
-      const nonZero = Object.keys(this.monster.senses)
-        .map((k) => {
-          return { name: k, value: this.monster.senses[k] };
-        })
-        .filter((s) => s.value > 0);
-
-      nonZero.push({
-        name: 'Passive Perception',
-        value: this.monster.passivePerception.override
-          ? this.monster.passivePerception.overrideValue
-          : this.$store.getters.passivePerception,
-      });
-
-      return nonZero
-        .map(
-          (s) =>
-            `${s.name} ${s.value} ${
-              s.name !== 'Passive Perception' ? 'ft.' : ''
-            }`
-        )
-        .join(', ');
+      return renderSenses(this.$store);
     },
     casterLevel() {
       return `${N2W.toOrdinal(this.monster.spellcasting.level)}-level`;
@@ -400,48 +365,7 @@ export default {
       }
     },
     renderMultiattacks() {
-      const atkStrings = this.monster.multiattacks.map((ma) => {
-        const collected = {};
-        for (const attackId of ma.attacks) {
-          if (!(attackId in collected)) collected[attackId] = 0;
-
-          collected[attackId] += 1;
-        }
-
-        const collectedActions = {};
-        for (const actionId of ma.actions) {
-          if (!(actionId in collectedActions)) collectedActions[actionId] = 0;
-
-          collectedActions[actionId] += 1;
-        }
-
-        // resolve ids and render names
-        const formatted = Object.keys(collected).map((id) => {
-          const name = this.$store.getters.attackFromId(id).name;
-          return `${N2W.toWords(collected[id])} ${name} attack${
-            collected[id] === 1 ? '' : 's'
-          }`;
-        });
-
-        const actionFormatted = Object.keys(collectedActions).map((id) => {
-          const name = this.$store.getters.actionFromId(id).name;
-          return `the ${name} action ${N2W.toWords(collectedActions[id])} time${
-            collectedActions[id] === 1 ? '' : 's'
-          }`;
-        });
-
-        if (actionFormatted.length > 0) {
-          return `uses ${listJoin(actionFormatted, ', ')}${
-            formatted.length > 0
-              ? ` followed by ${listJoin(formatted, ', ')}`
-              : ''
-          }`;
-        } else {
-          return `makes ${listJoin(formatted, ', ')}`;
-        }
-      });
-
-      return `The ${this.monster.name} ${atkStrings.join(' or ')}.`;
+      return renderMultiattacks(this.$store);
     },
     statFull(stat) {
       return STAT_FULL[stat];
@@ -453,7 +377,7 @@ export default {
     },
     formatInnateSpellLabel(atWill) {
       if (atWill.rate === AT_WILL_DEFAULT_RATES.AT_WILL) {
-        return 'At will';
+        return 'At will:';
       } else {
         return `${atWill.count}/${atWill.rate}:`;
       }
@@ -466,65 +390,16 @@ export default {
         .join(', ');
     },
     limitedUse(trait) {
-      if (trait.limitedUse.count > 0) {
-        return ` (${trait.limitedUse.count}/${trait.limitedUse.rate})`;
-      }
-
-      return '';
+      return renderTraitLimitedUse(trait);
     },
     rechargeOrLimited(action) {
-      if (action.recharge && action.recharge !== '') {
-        return ` (Recharge ${action.recharge})`;
-      } else if (action.limitedUse.count > 0) {
-        return ` (${action.limitedUse.count}/${action.limitedUse.rate})`;
-      }
-
-      return '';
+      return rechargeOrLimited(action);
     },
     duplicateLegendary(action) {
-      const isAttack = this.$store.getters.attackFromId(action.id);
-      if (isAttack) {
-        return `The ${this.monster.name} makes a ${action.name} attack.`;
-      }
-
-      return `The ${this.monster.name} uses the ${action.name} action.`;
+      return duplicateLegendary(action, this.$store);
     },
     processTokens(text) {
-      // some replacement fun times
-      const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi);
-      text = text.replace(dice, (match, count, dice, modifier) => {
-        const cleanModifier =
-          modifier && modifier !== '' ? parseInt(modifier.replace(' ', '')) : 0;
-        const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier;
-        return `${avg} (${count}d${dice}${
-          modifier ? renderBonus(cleanModifier) : ''
-        })`;
-      });
-
-      // saves
-      const save = RegExp(/\{DC:(\w{3})\}/gi);
-      text = text.replace(save, (match, stat) => {
-        if (stat in STAT) {
-          return `DC ${this.$store.getters.defaultSpellSave(stat)} ${
-            STAT_FULL[stat]
-          }`;
-        } else return match;
-      });
-
-      // attack modifier
-      const attack = RegExp(/\{A:(\w{3})\}/gi);
-      text = text.replace(attack, (match, stat) => {
-        if (stat in STAT) {
-          return renderBonus(
-            this.$store.getters.defaultSpellAttackModifier(stat)
-          );
-        } else return match;
-      });
-
-      // mosnter name
-      text = text.replace(/\{NAME\}/gi, this.monster.name);
-
-      return text;
+      return processTokens(text, this.$store);
     },
   },
 };

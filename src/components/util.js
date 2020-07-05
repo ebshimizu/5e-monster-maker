@@ -5,8 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
 import SKILL from '../data/SKILL';
 import MOVEMENT from '../data/MOVEMENT';
-import STAT from '../data/STAT';
+import { STAT, STAT_FULL } from '../data/STAT';
 import _ from 'lodash';
+import N2W from 'number-to-words';
 
 export const SAVE_VERSION = 1;
 
@@ -283,7 +284,7 @@ export function listJoin(list, sep) {
   return `${part1}, and ${list[list.length - 1]}`;
 }
 
-function download(content, fileName, contentType) {
+export function download(content, fileName, contentType) {
   var a = document.createElement('a');
   var file = new Blob([content], { type: contentType });
   a.href = URL.createObjectURL(file);
@@ -292,7 +293,7 @@ function download(content, fileName, contentType) {
 }
 
 export function saveJSON(data, filename) {
-  download(JSON.stringify(data), filename, 'text/json');
+  download(JSON.stringify(data), filename, 'application/json');
 }
 
 export function attackTemplateSubtitle(template) {
@@ -341,4 +342,159 @@ export function cloneFromTemplate(template) {
 
   // return instance
   return obj;
+}
+
+export function processSharedTokens(text, store) {
+  // saves
+  const save = RegExp(/\{DC:(\w{3})\}/gi);
+  text = text.replace(save, (match, stat) => {
+    if (stat in STAT) {
+      return `DC ${store.getters.defaultSpellSave(stat)} ${STAT_FULL[stat]}`;
+    } else return match;
+  });
+
+  // attack modifier
+  const attack = RegExp(/\{A:(\w{3})\}/gi);
+  text = text.replace(attack, (match, stat) => {
+    if (stat in STAT) {
+      return renderBonus(store.getters.defaultSpellAttackModifier(stat));
+    } else return match;
+  });
+
+  // monster name
+  text = text.replace(/\{NAME\}/gi, store.state.monster.name);
+
+  return text;
+}
+
+// store required for access to mosnter state
+export function processTokens(text, store) {
+  // some replacement fun times
+  const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi);
+  text = text.replace(dice, (match, count, dice, modifier) => {
+    const cleanModifier =
+      modifier && modifier !== '' ? parseInt(modifier.replace(' ', '')) : 0;
+    const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier;
+    return `${avg} (${count}d${dice}${
+      modifier ? renderBonus(cleanModifier) : ''
+    })`;
+  });
+
+  return processSharedTokens(text, store);
+}
+
+export function renderSaves(store) {
+  const monster = store.state.monster;
+  const saves = Object.keys(monster.saves).map((k) => {
+    const save = monster.saves[k];
+    if (save.override) {
+      return `${k} ${renderBonus(save.overrideValue)}`;
+    } else if (save.proficient) {
+      return `${k} ${renderBonus(store.getters.defaultSaveBonus(k))}`;
+    } else {
+      return '';
+    }
+  });
+
+  return saves.filter((s) => s !== '').join(', ');
+}
+
+export function renderSkills(store) {
+  const skills = store.state.monster.skills.map((s) => {
+    if (s.override) {
+      return `${s.skill.key} ${renderBonus(s.overrideValue)}`;
+    } else {
+      return `${s.skill.key} ${renderBonus(
+        store.getters.defaultSkillBonus(s)
+      )}`;
+    }
+  });
+
+  return skills.join(', ');
+}
+
+export function renderSenses(store) {
+  const monster = store.state.monster;
+  const nonZero = Object.keys(monster.senses)
+    .map((k) => {
+      return { name: k, value: monster.senses[k] };
+    })
+    .filter((s) => s.value > 0);
+
+  nonZero.push({
+    name: 'Passive Perception',
+    value: monster.passivePerception.override
+      ? monster.passivePerception.overrideValue
+      : store.getters.passivePerception,
+  });
+
+  return nonZero
+    .map(
+      (s) =>
+        `${s.name} ${s.value} ${s.name !== 'Passive Perception' ? 'ft.' : ''}`
+    )
+    .join(', ');
+}
+
+export function renderTraitLimitedUse(trait) {
+  if (trait.limitedUse.count > 0) {
+    return ` (${trait.limitedUse.count}/${trait.limitedUse.rate})`;
+  }
+
+  return '';
+}
+
+export function renderMultiattacks(store) {
+  const monster = store.state.monster;
+
+  const atkStrings = monster.multiattacks.map((ma) => {
+    const collected = {};
+    for (const attackId of ma.attacks) {
+      if (!(attackId in collected)) collected[attackId] = 0;
+
+      collected[attackId] += 1;
+    }
+
+    const collectedActions = {};
+    for (const actionId of ma.actions) {
+      if (!(actionId in collectedActions)) collectedActions[actionId] = 0;
+
+      collectedActions[actionId] += 1;
+    }
+
+    // resolve ids and render names
+    const formatted = Object.keys(collected).map((id) => {
+      const name = store.getters.attackFromId(id).name;
+      return `${N2W.toWords(collected[id])} ${name} attack${
+        collected[id] === 1 ? '' : 's'
+      }`;
+    });
+
+    const actionFormatted = Object.keys(collectedActions).map((id) => {
+      const name = store.getters.actionFromId(id).name;
+      return `the ${name} action ${N2W.toWords(collectedActions[id])} time${
+        collectedActions[id] === 1 ? '' : 's'
+      }`;
+    });
+
+    if (actionFormatted.length > 0) {
+      return `uses ${listJoin(actionFormatted, ', ')}${
+        formatted.length > 0 ? ` followed by ${listJoin(formatted, ', ')}` : ''
+      }`;
+    } else {
+      return `makes ${listJoin(formatted, ', ')}`;
+    }
+  });
+
+  return `The ${monster.name} ${atkStrings.join(' or ')}.`;
+}
+
+export function rechargeOrLimited(action) {
+  if (action.recharge && action.recharge !== '') {
+    return ` (Recharge ${action.recharge})`;
+  } else if (action.limitedUse.count > 0) {
+    return ` (${action.limitedUse.count}/${action.limitedUse.rate})`;
+  }
+
+  return '';
 }

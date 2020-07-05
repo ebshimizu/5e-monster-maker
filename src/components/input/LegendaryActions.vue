@@ -9,6 +9,7 @@
             v-model.number="legendaryActions.count"
             min="0"
             label="Actions"
+            @input="update"
           ></v-text-field>
         </v-col>
         <v-col>
