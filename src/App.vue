@@ -1,8 +1,6 @@
 <template>
   <v-app class="app">
-    <v-app-bar app color="primary" dark>
-      <v-toolbar-title>5e Monster Maker</v-toolbar-title>
-    </v-app-bar>
+    <dnd-app-bar></dnd-app-bar>
 
     <v-main>
       <v-container fluid>
@@ -20,21 +18,18 @@
 
 <script>
 import DataEntry from './components/DataEntry';
+import DndAppBar from './components/DndAppBar';
 import DndCr from './components/input/DndCr';
 import Render from './components/Render';
 
 export default {
   name: 'App',
-
   components: {
     DataEntry,
+    DndAppBar,
     DndCr,
     Render,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
 

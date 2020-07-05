@@ -3,6 +3,11 @@ import DAMAGE_TYPE from '../data/DAMAGE_TYPE';
 import { RANGE } from '../data/ATTACK';
 import { v4 as uuidv4 } from 'uuid';
 import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
+import SKILL from '../data/SKILL';
+import MOVEMENT from '../data/MOVEMENT';
+import STAT from '../data/STAT';
+
+export const SAVE_VERSION = 1;
 
 export function avgHP(HP) {
   return Math.floor(HP.HD * ((HP.type + 1) / 2) + HP.modifier);
@@ -43,6 +48,127 @@ export function newAttackAdditionalDamage() {
     count: 1,
     type: DAMAGE_TYPE.FIRE,
     note: '',
+  };
+}
+
+export function newMonster() {
+  return {
+    name: 'My New Monster',
+    saveVersion: SAVE_VERSION,
+    size: 'Medium',
+    type: 'humanoid',
+    alignment: '',
+    AC: 10,
+    ACType: '',
+    CR: 0,
+    proficiency: 4,
+    HP: {
+      HD: 1,
+      type: DICE.d6,
+      modifier: 0,
+    },
+    speeds: [
+      {
+        id: uuidv4(),
+        type: MOVEMENT.WALK,
+        speed: 30,
+        note: '',
+      },
+    ],
+    stats: {
+      STR: 10,
+      DEX: 10,
+      CON: 10,
+      INT: 12,
+      WIS: 10,
+      CHA: 10,
+    },
+    saves: {
+      STR: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      DEX: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      CON: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      INT: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      WIS: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      CHA: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+    },
+    skills: [
+      {
+        skill: SKILL.PERCEPTION,
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+    ],
+    resistances: [],
+    immunities: [],
+    vulnerabilities: [],
+    conditions: [],
+    senses: {
+      blindsight: 0,
+      darkvision: 0,
+      tremorsense: 0,
+      truesight: 0,
+    },
+    passivePerception: {
+      override: false,
+      overrideValue: 0,
+    },
+    languages: '',
+    attacks: [],
+    multiattacks: [],
+    spellcasting: {
+      stat: STAT.INT,
+      save: {
+        override: false,
+        overrideValue: 0,
+      },
+      modifier: {
+        override: false,
+        overrideValue: 0,
+      },
+      attack: {
+        override: false,
+        overrideValue: 0,
+      },
+      class: '',
+      level: 1,
+      slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      atWill: [],
+      standard: [],
+      notes: '',
+      atWillNotes: '',
+    },
+    traits: [],
+    actions: [],
+    legendaryActions: {
+      count: 0,
+      actions: [],
+    },
+    reactions: [],
   };
 }
 
@@ -89,7 +215,7 @@ export function newAttack() {
     additionalDamage: [],
     save: 0,
     description: '',
-    legendaryOnly: false
+    legendaryOnly: false,
   };
 }
 
@@ -150,9 +276,20 @@ export function newReaction() {
 }
 
 export function listJoin(list, sep) {
-  if (list.length === 1)
-    return list;
-  
+  if (list.length === 1) return list;
+
   const part1 = list.slice(0, list.length - 1).join(sep);
   return `${part1}, and ${list[list.length - 1]}`;
+}
+
+function download(content, fileName, contentType) {
+  var a = document.createElement('a');
+  var file = new Blob([content], { type: contentType });
+  a.href = URL.createObjectURL(file);
+  a.download = fileName;
+  a.click();
+}
+
+export function saveJSON(data, filename) {
+  download(JSON.stringify(data), filename, 'text/json');
 }

@@ -8,12 +8,10 @@ import {
   statModifier,
   newAttack,
   avgRoll,
+  newMonster
 } from '../components/util';
-import DICE from '../data/DICE';
-import MOVEMENT from '../data/MOVEMENT';
 import SKILL from '../data/SKILL';
 import { MUTATION } from '../data/ACTIONS';
-import STAT from '../data/STAT';
 import SPELLS from '../data/SPELLS';
 
 Vue.use(Vuex);
@@ -21,128 +19,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   plugins: [Persistence],
   state: {
-    monster: {
-      name: 'My New Monster',
-      size: 'Medium',
-      type: 'humanoid',
-      alignment: '',
-      AC: 10,
-      ACType: '',
-      CR: 0,
-      proficiency: 4,
-      HP: {
-        HD: 1,
-        type: DICE.d6,
-        modifier: 0,
-      },
-      speeds: [
-        {
-          id: uuidv4(),
-          type: MOVEMENT.WALK,
-          speed: 30,
-          note: '',
-        },
-      ],
-      stats: {
-        STR: 10,
-        DEX: 10,
-        CON: 10,
-        INT: 12,
-        WIS: 10,
-        CHA: 10,
-      },
-      saves: {
-        STR: {
-          proficient: false,
-          override: false,
-          overrideValue: 0,
-        },
-        DEX: {
-          proficient: false,
-          override: false,
-          overrideValue: 0,
-        },
-        CON: {
-          proficient: false,
-          override: false,
-          overrideValue: 0,
-        },
-        INT: {
-          proficient: false,
-          override: false,
-          overrideValue: 0,
-        },
-        WIS: {
-          proficient: false,
-          override: false,
-          overrideValue: 0,
-        },
-        CHA: {
-          proficient: false,
-          override: false,
-          overrideValue: 0,
-        },
-      },
-      skills: [
-        {
-          skill: SKILL.PERCEPTION,
-          proficient: false,
-          override: false,
-          overrideValue: 0,
-        },
-      ],
-      resistances: [],
-      immunities: [],
-      vulnerabilities: [],
-      conditions: [],
-      senses: {
-        blindsight: 0,
-        darkvision: 0,
-        tremorsense: 0,
-        truesight: 0,
-      },
-      passivePerception: {
-        override: false,
-        overrideValue: 0,
-      },
-      languages: '',
-      attacks: [],
-      multiattacks: [],
-      spellcasting: {
-        stat: STAT.INT,
-        save: {
-          override: false,
-          overrideValue: 0,
-        },
-        modifier: {
-          override: false,
-          overrideValue: 0,
-        },
-        attack: {
-          override: false,
-          overrideValue: 0,
-        },
-        class: 'Wizard',
-        level: 1,
-        slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        atWill: [],
-        standard: [],
-        notes: '',
-        atWillNotes: '',
-      },
-      traits: [],
-      actions: [],
-      legendaryActions: {
-        count: 0,
-        actions: [],
-      },
-      reactions: [],
-    },
+    monster: newMonster(),
     spells: SPELLS,
   },
   getters: {
     avgHp: (state) => {
-      return avgRoll(state.monster.HP.HD, state.monster.HP.type) + state.monster.HP.modifier;
+      return (
+        avgRoll(state.monster.HP.HD, state.monster.HP.type) +
+        state.monster.HP.modifier
+      );
     },
     defaultSaveBonus: (state) => (stat) => {
       const proficient = state.monster.saves[stat].proficient;
@@ -254,7 +139,10 @@ export default new Vuex.Store({
       return statModifier(state.monster.stats[stat]);
     },
     isSpellcaster: (state) => {
-      return state.monster.spellcasting.standard.length > 0 || state.monster.spellcasting.atWill.length > 0;
+      return (
+        state.monster.spellcasting.standard.length > 0 ||
+        state.monster.spellcasting.atWill.length > 0
+      );
     },
     spellSave: (state, getters) => {
       if (state.monster.spellcasting.save.override)
@@ -298,7 +186,7 @@ export default new Vuex.Store({
           name: `Multiattack Group ${idx + 1}`,
           damage: getters.multiattackDamage(state.monster.multiattacks[idx]),
           save: 0,
-          toHit: 0
+          toHit: 0,
         });
       }
 
@@ -493,6 +381,13 @@ export default new Vuex.Store({
       if (monster) {
         Vue.set(state, 'monster', JSON.parse(monster));
       }
+    },
+    [MUTATION.LOAD_MONSTER](state, monster) {
+      // just replaces the entire thing, assumes input is valid
+      Vue.set(state, 'monster', monster);
+    },
+    [MUTATION.RESET](state) {
+      Vue.set(state, 'monster', newMonster());
     }
   },
   actions: {},
