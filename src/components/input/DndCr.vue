@@ -98,7 +98,7 @@
         <v-tooltip top>
           <template v-slot:activator="{ on }">
             <v-btn v-on="on" icon @click="openLink('https://ko-fi.com/E1E2KHZ3')"
-              ><v-avatar size="36px"><img src="/ko-fi-icon.png"/></v-avatar
+              ><v-avatar size="36px"><img src="../../assets/ko-fi-icon.png"/></v-avatar
             ></v-btn>
           </template>
           Tip Jar
