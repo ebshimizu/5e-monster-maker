@@ -30,6 +30,11 @@ export default new Vuex.Store({
     majorVersion: (state) => {
       return state.appVersion.split('.')[0];
     },
+    minorVersion: (state) => {
+      const ver = state.appVersion.split('.');
+      if (ver.length === 1) return 'DEV';
+      return ver[1];
+    },
     avgHp: (state) => {
       return (
         avgRoll(state.monster.HP.HD, state.monster.HP.type) +

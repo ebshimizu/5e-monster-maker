@@ -53,6 +53,7 @@
           ><span class="headline">Load From File</span></v-card-title
         >
         <v-card-text>
+          Select a .5emm.json file.
           <v-row>
             <v-col>
               <v-file-input

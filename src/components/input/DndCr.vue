@@ -91,9 +91,18 @@
         >
         <v-btn
           icon
+          class="mr-1"
           @click="openLink('https://github.com/ebshimizu/5e-monster-maker')"
           ><v-icon size="24px">mdi-github</v-icon></v-btn
         >
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn v-on="on" icon @click="openLink('https://ko-fi.com/E1E2KHZ3')"
+              ><v-avatar size="36px"><img src="/ko-fi-icon.png"/></v-avatar
+            ></v-btn>
+          </template>
+          Tip Jar
+        </v-tooltip>
       </v-card-text>
     </v-card>
   </v-footer>
