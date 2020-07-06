@@ -273,7 +273,12 @@ export default {
       this.messageBar = true;
     },
     copyMarkdown() {
-      copy(renderMarkdown(this.$store));
+      try {
+        copy(renderMarkdown(this.$store));
+        this.message('Copied Markdown (Homebrewery Format) to Clipboard', 'green');
+      } catch (e) {
+        this.message('Markdown export failed, check console', 'red');
+      }
     },
   },
 };

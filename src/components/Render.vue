@@ -184,8 +184,6 @@ import {
   avgHP,
   renderModifier,
   renderBonus,
-  statModifier,
-  avgRoll,
   processTokens,
   renderSaves,
   renderSkills,
@@ -194,14 +192,16 @@ import {
   renderMultiattacks,
   rechargeOrLimited,
   duplicateLegendary,
+  formatInnateSpellLabel,
+  renderAttackReach,
+  renderAttackDamage,
+  renderAdditionalDamage,
 } from './util';
 import MOVEMENT from '../data/MOVEMENT';
-import { RANGE } from '../data/ATTACK';
 import { STAT_FULL } from '../data/STAT';
 import { CR } from '../data/CR';
 
 import N2W from 'number-to-words';
-import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
 
 export default {
   name: 'Render',
@@ -321,47 +321,16 @@ export default {
       return renderBonus(this.$store.getters.fullToHitBonus(attackModifier));
     },
     attackReach(attack) {
-      // bleh
-      if (attack.distance === RANGE.RANGED) {
-        return `range ${attack.range.standard}/${attack.range.long} ft.`;
-      } else if (attack.distance === RANGE.BOTH) {
-        return `reach ${attack.range.reach} ft. or range ${attack.range.standard}/${attack.range.long} ft.`;
-      }
-
-      return `reach ${attack.range.reach} ft.`;
+      return renderAttackReach(attack);
     },
     targets(t) {
       return `${N2W.toWords(t)} target${t !== 1 ? 's' : ''}`;
     },
     baseDamage(damage) {
-      const bonus = damage.modifier.override
-        ? damage.modifier.overrideValue
-        : statModifier(this.monster.stats[damage.modifier.stat]);
-      const avg = avgRoll(damage.count, damage.dice);
-      const rb = renderBonus(bonus, true);
-
-      if (damage.dice === 1) {
-        return avg + bonus;
-      }
-
-      return `${avg + bonus} (${damage.count}d${damage.dice}${
-        bonus !== 0 ? rb : ''
-      })`;
+      return renderAttackDamage(damage, this.$store);
     },
     additionalDamage(damage) {
-      const formatted = damage.map((d) => {
-        const avg = avgRoll(d.count, d.dice);
-        const dmgRender =
-          d.dice === 1 ? `${avg}` : `${avg} (${d.count}d${d.dice})`;
-
-        return `${dmgRender} ${d.type} damage${d.note ? ` ${d.note}` : ''}`;
-      });
-
-      if (formatted.length === 1) return formatted[0];
-      else {
-        let part1 = formatted.slice(0, formatted.length - 1).join(', ');
-        return `${part1}, and ${formatted[formatted.length - 1]}`;
-      }
+      return renderAdditionalDamage(damage);
     },
     renderMultiattacks() {
       return renderMultiattacks(this.$store);
@@ -375,11 +344,7 @@ export default {
       )} to hit with spell attacks)`;
     },
     formatInnateSpellLabel(atWill) {
-      if (atWill.rate === AT_WILL_DEFAULT_RATES.AT_WILL) {
-        return 'At will:';
-      } else {
-        return `${atWill.count}/${atWill.rate}:`;
-      }
+      return formatInnateSpellLabel(atWill);
     },
     spellsByLevel(level) {
       return this.monster.spellcasting.standard

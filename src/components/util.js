@@ -279,7 +279,7 @@ export function newReaction() {
 }
 
 export function listJoin(list, sep) {
-  if (list.length === 1) return list;
+  if (list.length === 1) return list[0];
 
   const part1 = list.slice(0, list.length - 1).join(sep);
   return `${part1}, and ${list[list.length - 1]}`;
@@ -300,7 +300,7 @@ export function saveJSON(data, filename) {
 export function saveToPng(filename) {
   const node = document.getElementById('render');
 
-  DomToImage.toBlob(node).then(function (blob) {
+  DomToImage.toBlob(node).then(function(blob) {
     download(blob, filename, 'image/png');
   });
 }
@@ -515,4 +515,49 @@ export function duplicateLegendary(action, store) {
   }
 
   return `The ${store.state.monster.name} uses the ${action.name} action.`;
+}
+
+export function formatInnateSpellLabel(atWill) {
+  if (atWill.rate === AT_WILL_DEFAULT_RATES.AT_WILL) {
+    return 'At will:';
+  } else {
+    return `${atWill.count}/${atWill.rate}:`;
+  }
+}
+
+export function renderAttackReach(attack) {
+  if (attack.distance === RANGE.RANGED) {
+    return `range ${attack.range.standard}/${attack.range.long} ft.`;
+  } else if (attack.distance === RANGE.BOTH) {
+    return `reach ${attack.range.reach} ft. or range ${attack.range.standard}/${attack.range.long} ft.`;
+  }
+
+  return `reach ${attack.range.reach} ft.`;
+}
+
+export function renderAttackDamage(damage, store) {
+  const bonus = damage.modifier.override
+    ? damage.modifier.overrideValue
+    : statModifier(store.state.monster.stats[damage.modifier.stat]);
+  const avg = avgRoll(damage.count, damage.dice);
+  const rb = renderBonus(bonus, true);
+
+  if (damage.dice === 1) {
+    return avg + bonus;
+  }
+
+  return `${avg + bonus} (${damage.count}d${damage.dice}${
+    bonus !== 0 ? rb : ''
+  })`;
+}
+
+export function renderAdditionalDamage(damage) {
+  const formatted = damage.map((d) => {
+    const avg = avgRoll(d.count, d.dice);
+    const dmgRender = d.dice === 1 ? `${avg}` : `${avg} (${d.count}d${d.dice})`;
+
+    return `${dmgRender} ${d.type} damage${d.note ? ` ${d.note}` : ''}`;
+  });
+
+  return listJoin(formatted, ', ');
 }
