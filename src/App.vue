@@ -1,18 +1,20 @@
 <template>
   <v-app class="app">
-    <dnd-app-bar></dnd-app-bar>
+    <dnd-app-bar id="main-nav"></dnd-app-bar>
 
     <v-main>
       <v-container fluid>
         <v-row no-gutters>
-          <v-col cols="8" class="full-height pa-1"
+          <v-col cols="8" class="full-height pa-1" id="editor"
             ><data-entry></data-entry
           ></v-col>
-          <v-col cols="4" class="full-height px-6 py-2"><render /></v-col>
+          <v-col cols="4" class="full-height px-6 py-2" id="renderer"
+            ><render
+          /></v-col>
         </v-row>
       </v-container>
     </v-main>
-    <dnd-cr></dnd-cr>
+    <dnd-cr id="footer"></dnd-cr>
   </v-app>
 </template>
 
@@ -33,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 ::-webkit-scrollbar {
   display: none;
   width: 12px;
@@ -70,5 +72,24 @@ export default {
 .app {
   height: 100%;
   overflow: hidden;
+}
+
+@media print {
+  #main-nav,
+  #editor,
+  #footer {
+    display: none;
+  }
+
+  #renderer {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .v-main {
+    padding: 0 !important;
+  }
 }
 </style>
