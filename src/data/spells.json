@@ -1,7 +1,8 @@
 {
   "Acid Splash": {
     "name": "Acid Splash",
-    "damage": 0,
+    "damage": 3,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -14,6 +15,7 @@
   "Aid": {
     "name": "Aid",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -26,6 +28,7 @@
   "Alarm": {
     "name": "Alarm",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -38,6 +41,7 @@
   "Alter Self": {
     "name": "Alter Self",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -50,6 +54,7 @@
   "Animal Friendship": {
     "name": "Animal Friendship",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -63,6 +68,7 @@
   "Animal Messenger": {
     "name": "Animal Messenger",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -76,6 +82,7 @@
   "Animal Shapes": {
     "name": "Animal Shapes",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -87,6 +94,7 @@
   "Animate Dead": {
     "name": "Animate Dead",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -98,7 +106,8 @@
   },
   "Animate Objects": {
     "name": "Animate Objects",
-    "damage": 0,
+    "damage": 65,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -112,6 +121,7 @@
   "Antilife Shell": {
     "name": "Antilife Shell",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -123,6 +133,7 @@
   "Antimagic Field": {
     "name": "Antimagic Field",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -135,6 +146,7 @@
   "Antipathy/Sympathy": {
     "name": "Antipathy/Sympathy",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -147,6 +159,7 @@
   "Arcane Eye": {
     "name": "Arcane Eye",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -158,6 +171,7 @@
   "Arcane Lock": {
     "name": "Arcane Lock",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -169,6 +183,7 @@
   "Astral Projection": {
     "name": "Astral Projection",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -182,6 +197,7 @@
   "Augury": {
     "name": "Augury",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -193,6 +209,7 @@
   "Awaken": {
     "name": "Awaken",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -205,6 +222,7 @@
   "Bane": {
     "name": "Bane",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -217,6 +235,7 @@
   "Banishment": {
     "name": "Banishment",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -232,6 +251,7 @@
   "Barkskin": {
     "name": "Barkskin",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -244,6 +264,7 @@
   "Beacon of Hope": {
     "name": "Beacon of Hope",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -255,6 +276,7 @@
   "Bestow Curse": {
     "name": "Bestow Curse",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -265,9 +287,10 @@
     "srd": true,
     "custom": false
   },
-  "Bigby's Hand": {
-    "name": "Bigby's Hand",
-    "damage": 0,
+  "Arcane Hand": {
+    "name": "Arcane Hand",
+    "damage": 18,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -278,7 +301,8 @@
   },
   "Blade Barrier": {
     "name": "Blade Barrier",
-    "damage": 0,
+    "damage": 33,
+    "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -290,6 +314,7 @@
   "Bless": {
     "name": "Bless",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -301,7 +326,8 @@
   },
   "Blight": {
     "name": "Blight",
-    "damage": 0,
+    "damage": 36,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -316,6 +342,7 @@
   "Blindness/Deafness": {
     "name": "Blindness/Deafness",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -330,6 +357,7 @@
   "Blink": {
     "name": "Blink",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -342,6 +370,7 @@
   "Blur": {
     "name": "Blur",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -353,7 +382,8 @@
   },
   "Branding Smite": {
     "name": "Branding Smite",
-    "damage": 0,
+    "damage": 12,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -364,7 +394,8 @@
   },
   "Burning Hands": {
     "name": "Burning Hands",
-    "damage": 0,
+    "damage": 10,
+    "multitarget": true,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -376,7 +407,8 @@
   },
   "Call Lightning": {
     "name": "Call Lightning",
-    "damage": 0,
+    "damage": 16.5,
+    "multitarget": true,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -388,6 +420,7 @@
   "Calm Emotions": {
     "name": "Calm Emotions",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -399,7 +432,8 @@
   },
   "Chain Lightning": {
     "name": "Chain Lightning",
-    "damage": 0,
+    "damage": 45,
+    "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -412,6 +446,7 @@
   "Charm Person": {
     "name": "Charm Person",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -426,7 +461,8 @@
   },
   "Chill Touch": {
     "name": "Chill Touch",
-    "damage": 0,
+    "damage": 4,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -439,7 +475,8 @@
   },
   "Circle of Death": {
     "name": "Circle of Death",
-    "damage": 0,
+    "damage": 28,
+    "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -453,6 +490,7 @@
   "Clairvoyance": {
     "name": "Clairvoyance",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -467,6 +505,7 @@
   "Clone": {
     "name": "Clone",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -477,7 +516,8 @@
   },
   "Cloudkill": {
     "name": "Cloudkill",
-    "damage": 0,
+    "damage": 22,
+    "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -490,6 +530,7 @@
   "Color Spray": {
     "name": "Color Spray",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -502,6 +543,7 @@
   "Command": {
     "name": "Command",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -514,6 +556,7 @@
   "Commune": {
     "name": "Commune",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -525,6 +568,7 @@
   "Commune with Nature": {
     "name": "Commune with Nature",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -537,6 +581,7 @@
   "Comprehend Languages": {
     "name": "Comprehend Languages",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -551,6 +596,7 @@
   "Compulsion": {
     "name": "Compulsion",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -561,7 +607,8 @@
   },
   "Cone of Cold": {
     "name": "Cone of Cold",
-    "damage": 0,
+    "damage": 36,
+    "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -574,6 +621,7 @@
   "Confusion": {
     "name": "Confusion",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -588,6 +636,7 @@
   "Conjure Animals": {
     "name": "Conjure Animals",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -600,6 +649,7 @@
   "Conjure Celestial": {
     "name": "Conjure Celestial",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -611,6 +661,7 @@
   "Conjure Elemental": {
     "name": "Conjure Elemental",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -623,6 +674,7 @@
   "Conjure Fey": {
     "name": "Conjure Fey",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -635,6 +687,7 @@
   "Conjure Minor Elementals": {
     "name": "Conjure Minor Elementals",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -647,6 +700,7 @@
   "Conjure Woodland Beings": {
     "name": "Conjure Woodland Beings",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -659,6 +713,7 @@
   "Contact Other Plane": {
     "name": "Contact Other Plane",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -671,6 +726,7 @@
   "Contagion": {
     "name": "Contagion",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -683,6 +739,7 @@
   "Contingency": {
     "name": "Contingency",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -694,6 +751,7 @@
   "Continual Flame": {
     "name": "Continual Flame",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -705,7 +763,8 @@
   },
   "Control Water": {
     "name": "Control Water",
-    "damage": 0,
+    "damage": 9,
+    "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -719,6 +778,7 @@
   "Control Weather": {
     "name": "Control Weather",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -732,6 +792,7 @@
   "Counterspell": {
     "name": "Counterspell",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -745,6 +806,7 @@
   "Create Food and Water": {
     "name": "Create Food and Water",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -757,6 +819,7 @@
   "Create or Destroy Water": {
     "name": "Create or Destroy Water",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -769,6 +832,7 @@
   "Create Undead": {
     "name": "Create Undead",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -782,6 +846,7 @@
   "Creation": {
     "name": "Creation",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -794,6 +859,7 @@
   "Cure Wounds": {
     "name": "Cure Wounds",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -809,6 +875,7 @@
   "Dancing Lights": {
     "name": "Dancing Lights",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -822,6 +889,7 @@
   "Darkness": {
     "name": "Darkness",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -835,6 +903,7 @@
   "Darkvision": {
     "name": "Darkvision",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -849,6 +918,7 @@
   "Daylight": {
     "name": "Daylight",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -864,6 +934,7 @@
   "Death Ward": {
     "name": "Death Ward",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -875,7 +946,8 @@
   },
   "Delayed Blast Fireball": {
     "name": "Delayed Blast Fireball",
-    "damage": 0,
+    "damage": 42,
+    "multitarget": true,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -888,6 +960,7 @@
   "Demiplane": {
     "name": "Demiplane",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -900,6 +973,7 @@
   "Detect Evil and Good": {
     "name": "Detect Evil and Good",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -912,6 +986,7 @@
   "Detect Magic": {
     "name": "Detect Magic",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -929,6 +1004,7 @@
   "Detect Poison and Disease": {
     "name": "Detect Poison and Disease",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -943,6 +1019,7 @@
   "Detect Thoughts": {
     "name": "Detect Thoughts",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -956,6 +1033,7 @@
   "Dimension Door": {
     "name": "Dimension Door",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -970,6 +1048,7 @@
   "Disguise Self": {
     "name": "Disguise Self",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -982,7 +1061,8 @@
   },
   "Disintegrate": {
     "name": "Disintegrate",
-    "damage": 0,
+    "damage": 75,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -995,6 +1075,7 @@
   "Dispel Evil and Good": {
     "name": "Dispel Evil and Good",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1007,6 +1088,7 @@
   "Dispel Magic": {
     "name": "Dispel Magic",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1024,6 +1106,7 @@
   "Divination": {
     "name": "Divination",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1035,6 +1118,7 @@
   "Divine Favor": {
     "name": "Divine Favor",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1046,6 +1130,7 @@
   "Divine Word": {
     "name": "Divine Word",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -1057,6 +1142,7 @@
   "Dominate Beast": {
     "name": "Dominate Beast",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1069,6 +1155,7 @@
   "Dominate Monster": {
     "name": "Dominate Monster",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -1083,6 +1170,7 @@
   "Dominate Person": {
     "name": "Dominate Person",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1093,9 +1181,10 @@
     "srd": true,
     "custom": false
   },
-  "Drawmij's Instant Summons": {
-    "name": "Drawmij's Instant Summons",
+  "Instant Summons": {
+    "name": "Instant Summons",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1107,6 +1196,7 @@
   "Dream": {
     "name": "Dream",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1120,6 +1210,7 @@
   "Druidcraft": {
     "name": "Druidcraft",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -1130,7 +1221,8 @@
   },
   "Earthquake": {
     "name": "Earthquake",
-    "damage": 0,
+    "damage": 17,
+    "multitarget": true,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -1143,7 +1235,8 @@
   },
   "Eldritch Blast": {
     "name": "Eldritch Blast",
-    "damage": 0,
+    "damage": 5,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -1155,6 +1248,7 @@
   "Enhance Ability": {
     "name": "Enhance Ability",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1169,6 +1263,7 @@
   "Enlarge/Reduce": {
     "name": "Enlarge/Reduce",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1181,6 +1276,7 @@
   "Entangle": {
     "name": "Entangle",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1192,6 +1288,7 @@
   "Enthrall": {
     "name": "Enthrall",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1204,6 +1301,7 @@
   "Etherealness": {
     "name": "Etherealness",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -1216,9 +1314,10 @@
     "srd": true,
     "custom": false
   },
-  "Evard's Black Tentacles": {
-    "name": "Evard's Black Tentacles",
-    "damage": 0,
+  "Black Tentacles": {
+    "name": "Black Tentacles",
+    "damage": 10,
+    "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1230,6 +1329,7 @@
   "Expeditious Retreat": {
     "name": "Expeditious Retreat",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1243,6 +1343,7 @@
   "Eyebite": {
     "name": "Eyebite",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1257,6 +1358,7 @@
   "Fabricate": {
     "name": "Fabricate",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1268,6 +1370,7 @@
   "Faerie Fire": {
     "name": "Faerie Fire",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1280,6 +1383,7 @@
   "False Life": {
     "name": "False Life",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1292,6 +1396,7 @@
   "Fear": {
     "name": "Fear",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1306,6 +1411,7 @@
   "Feather Fall": {
     "name": "Feather Fall",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1318,7 +1424,8 @@
   },
   "Feeblemind": {
     "name": "Feeblemind",
-    "damage": 0,
+    "damage": 14,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -1333,6 +1440,7 @@
   "Find Familiar": {
     "name": "Find Familiar",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1344,6 +1452,7 @@
   "Find Steed": {
     "name": "Find Steed",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1355,6 +1464,7 @@
   "Find the Path": {
     "name": "Find the Path",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1368,6 +1478,7 @@
   "Find Traps": {
     "name": "Find Traps",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1380,7 +1491,8 @@
   },
   "Finger of Death": {
     "name": "Finger of Death",
-    "damage": 0,
+    "damage": 54,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -1393,7 +1505,8 @@
   },
   "Fire Bolt": {
     "name": "Fire Bolt",
-    "damage": 0,
+    "damage": 5,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -1405,7 +1518,8 @@
   },
   "Fire Shield": {
     "name": "Fire Shield",
-    "damage": 0,
+    "damage": 9,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1416,7 +1530,8 @@
   },
   "Fire Storm": {
     "name": "Fire Storm",
-    "damage": 0,
+    "damage": 38,
+    "multitarget": true,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -1429,7 +1544,8 @@
   },
   "Fireball": {
     "name": "Fireball",
-    "damage": 0,
+    "damage": 28,
+    "multitarget": true,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1441,7 +1557,8 @@
   },
   "Flame Blade": {
     "name": "Flame Blade",
-    "damage": 0,
+    "damage": 10,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1452,7 +1569,8 @@
   },
   "Flame Strike": {
     "name": "Flame Strike",
-    "damage": 0,
+    "damage": 28,
+    "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1463,7 +1581,8 @@
   },
   "Flaming Sphere": {
     "name": "Flaming Sphere",
-    "damage": 0,
+    "damage": 7,
+    "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1476,6 +1595,7 @@
   "Flesh to Stone": {
     "name": "Flesh to Stone",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1488,6 +1608,7 @@
   "Fly": {
     "name": "Fly",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1501,6 +1622,7 @@
   "Fog Cloud": {
     "name": "Fog Cloud",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1515,6 +1637,7 @@
   "Forbiddance": {
     "name": "Forbiddance",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1526,6 +1649,7 @@
   "Forcecage": {
     "name": "Forcecage",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -1539,6 +1663,7 @@
   "Foresight": {
     "name": "Foresight",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -1553,6 +1678,7 @@
   "Freedom of Movement": {
     "name": "Freedom of Movement",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1567,6 +1693,7 @@
   "Gaseous Form": {
     "name": "Gaseous Form",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1580,6 +1707,7 @@
   "Gate": {
     "name": "Gate",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -1593,6 +1721,7 @@
   "Geas": {
     "name": "Geas",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1608,6 +1737,7 @@
   "Gentle Repose": {
     "name": "Gentle Repose",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1620,6 +1750,7 @@
   "Giant Insect": {
     "name": "Giant Insect",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1631,6 +1762,7 @@
   "Glibness": {
     "name": "Glibness",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -1643,6 +1775,7 @@
   "Globe of Invulnerability": {
     "name": "Globe of Invulnerability",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1655,6 +1788,7 @@
   "Glyph of Warding": {
     "name": "Glyph of Warding",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1668,6 +1802,7 @@
   "Goodberry": {
     "name": "Goodberry",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1680,6 +1815,7 @@
   "Grease": {
     "name": "Grease",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1691,6 +1827,7 @@
   "Greater Invisibility": {
     "name": "Greater Invisibility",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1704,6 +1841,7 @@
   "Greater Restoration": {
     "name": "Greater Restoration",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1716,7 +1854,8 @@
   },
   "Guardian of Faith": {
     "name": "Guardian of Faith",
-    "damage": 0,
+    "damage": 20,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1728,6 +1867,7 @@
   "Guards and Wards": {
     "name": "Guards and Wards",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1740,6 +1880,7 @@
   "Guidance": {
     "name": "Guidance",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -1751,7 +1892,8 @@
   },
   "Guiding Bolt": {
     "name": "Guiding Bolt",
-    "damage": 0,
+    "damage": 14,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1763,6 +1905,7 @@
   "Gust of Wind": {
     "name": "Gust of Wind",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1776,6 +1919,7 @@
   "Hallow": {
     "name": "Hallow",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1787,6 +1931,7 @@
   "Hallucinatory Terrain": {
     "name": "Hallucinatory Terrain",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1800,7 +1945,8 @@
   },
   "Harm": {
     "name": "Harm",
-    "damage": 0,
+    "damage": 49,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1812,6 +1958,7 @@
   "Haste": {
     "name": "Haste",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1824,6 +1971,7 @@
   "Heal": {
     "name": "Heal",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1836,6 +1984,7 @@
   "Healing Word": {
     "name": "Healing Word",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1848,7 +1997,8 @@
   },
   "Heat Metal": {
     "name": "Heat Metal",
-    "damage": 0,
+    "damage": 9,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1860,7 +2010,8 @@
   },
   "Hellish Rebuke": {
     "name": "Hellish Rebuke",
-    "damage": 0,
+    "damage": 11,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1872,6 +2023,7 @@
   "Heroes' Feast": {
     "name": "Heroes' Feast",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -1884,6 +2036,7 @@
   "Heroism": {
     "name": "Heroism",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1896,6 +2049,7 @@
   "Hold Monster": {
     "name": "Hold Monster",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -1910,6 +2064,7 @@
   "Hold Person": {
     "name": "Hold Person",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -1926,6 +2081,7 @@
   "Holy Aura": {
     "name": "Holy Aura",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -1936,7 +2092,8 @@
   },
   "Hunter's Mark": {
     "name": "Hunter's Mark",
-    "damage": 0,
+    "damage": 3,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1948,6 +2105,7 @@
   "Hypnotic Pattern": {
     "name": "Hypnotic Pattern",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -1961,7 +2119,8 @@
   },
   "Ice Storm": {
     "name": "Ice Storm",
-    "damage": 0,
+    "damage": 23,
+    "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -1975,6 +2134,7 @@
   "Identify": {
     "name": "Identify",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -1987,6 +2147,7 @@
   "Illusory Script": {
     "name": "Illusory Script",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2000,6 +2161,7 @@
   "Imprisonment": {
     "name": "Imprisonment",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -2011,7 +2173,8 @@
   },
   "Incendiary Cloud": {
     "name": "Incendiary Cloud",
-    "damage": 0,
+    "damage": 45,
+    "multitarget": true,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -2023,7 +2186,8 @@
   },
   "Inflict Wounds": {
     "name": "Inflict Wounds",
-    "damage": 0,
+    "damage": 16,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2034,7 +2198,8 @@
   },
   "Insect Plague": {
     "name": "Insect Plague",
-    "damage": 0,
+    "damage": 22,
+    "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2048,6 +2213,7 @@
   "Invisibility": {
     "name": "Invisibility",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2062,6 +2228,7 @@
   "Jump": {
     "name": "Jump",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2076,6 +2243,7 @@
   "Knock": {
     "name": "Knock",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2089,6 +2257,7 @@
   "Legend Lore": {
     "name": "Legend Lore",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2099,9 +2268,10 @@
     "srd": true,
     "custom": false
   },
-  "Leomund's Secret Chest": {
-    "name": "Leomund's Secret Chest",
+  "Secret Chest": {
+    "name": "Secret Chest",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -2110,9 +2280,10 @@
     "srd": "Secret Chest",
     "custom": false
   },
-  "Leomund's Tiny Hut": {
-    "name": "Leomund's Tiny Hut",
+  "Tiny Hut": {
+    "name": "Tiny Hut",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2125,6 +2296,7 @@
   "Lesser Restoration": {
     "name": "Lesser Restoration",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2140,6 +2312,7 @@
   "Levitate": {
     "name": "Levitate",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2152,6 +2325,7 @@
   "Light": {
     "name": "Light",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2165,7 +2339,8 @@
   },
   "Lightning Bolt": {
     "name": "Lightning Bolt",
-    "damage": 0,
+    "damage": 28,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2178,6 +2353,7 @@
   "Locate Animals or Plants": {
     "name": "Locate Animals or Plants",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2191,6 +2367,7 @@
   "Locate Creature": {
     "name": "Locate Creature",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -2207,6 +2384,7 @@
   "Locate Object": {
     "name": "Locate Object",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2223,6 +2401,7 @@
   "Longstrider": {
     "name": "Longstrider",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2237,6 +2416,7 @@
   "Mage Armor": {
     "name": "Mage Armor",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2249,6 +2429,7 @@
   "Mage Hand": {
     "name": "Mage Hand",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2263,6 +2444,7 @@
   "Magic Circle": {
     "name": "Magic Circle",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2277,6 +2459,7 @@
   "Magic Jar": {
     "name": "Magic Jar",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -2287,7 +2470,8 @@
   },
   "Magic Missile": {
     "name": "Magic Missile",
-    "damage": 0,
+    "damage": 10,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2300,6 +2484,7 @@
   "Magic Mouth": {
     "name": "Magic Mouth",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2312,6 +2497,7 @@
   "Magic Weapon": {
     "name": "Magic Weapon",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2324,6 +2510,7 @@
   "Major Image": {
     "name": "Major Image",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2338,6 +2525,7 @@
   "Mass Cure Wounds": {
     "name": "Mass Cure Wounds",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2351,6 +2539,7 @@
   "Mass Heal": {
     "name": "Mass Heal",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -2362,6 +2551,7 @@
   "Mass Healing Word": {
     "name": "Mass Healing Word",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2373,6 +2563,7 @@
   "Mass Suggestion": {
     "name": "Mass Suggestion",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -2387,6 +2578,7 @@
   "Maze": {
     "name": "Maze",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -2398,6 +2590,7 @@
   "Meld into Stone": {
     "name": "Meld into Stone",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2407,9 +2600,10 @@
     "srd": true,
     "custom": false
   },
-  "Melf's Acid Arrow": {
-    "name": "Melf's Acid Arrow",
-    "damage": 0,
+  "Acid Arrow": {
+    "name": "Acid Arrow",
+    "damage": 15,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2421,6 +2615,7 @@
   "Mending": {
     "name": "Mending",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2436,6 +2631,7 @@
   "Message": {
     "name": "Message",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2448,7 +2644,8 @@
   },
   "Meteor Swarm": {
     "name": "Meteor Swarm",
-    "damage": 0,
+    "damage": 140,
+    "multitarget": true,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -2461,6 +2658,7 @@
   "Mind Blank": {
     "name": "Mind Blank",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -2473,6 +2671,7 @@
   "Minor Illusion": {
     "name": "Minor Illusion",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2487,6 +2686,7 @@
   "Mirage Arcane": {
     "name": "Mirage Arcane",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -2500,6 +2700,7 @@
   "Mirror Image": {
     "name": "Mirror Image",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2513,6 +2714,7 @@
   "Mislead": {
     "name": "Mislead",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2525,6 +2727,7 @@
   "Misty Step": {
     "name": "Misty Step",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2538,6 +2741,7 @@
   "Modify Memory": {
     "name": "Modify Memory",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2549,7 +2753,8 @@
   },
   "Moonbeam": {
     "name": "Moonbeam",
-    "damage": 0,
+    "damage": 11,
+    "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2558,9 +2763,10 @@
     "srd": true,
     "custom": false
   },
-  "Mordenkainen's Faithful Hound": {
-    "name": "Mordenkainen's Faithful Hound",
-    "damage": 0,
+  "Faithful Hound": {
+    "name": "Faithful Hound",
+    "damage": 18,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -2569,9 +2775,10 @@
     "srd": "Faithful Hound",
     "custom": false
   },
-  "Mordenkainen's Magnificent Mansion": {
-    "name": "Mordenkainen's Magnificent Mansion",
+  "Magnificent Mansion": {
+    "name": "Magnificent Mansion",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -2581,9 +2788,10 @@
     "srd": "Magnificent Mansion",
     "custom": false
   },
-  "Mordenkainen's Private Sanctum": {
-    "name": "Mordenkainen's Private Sanctum",
+  "Private Sanctum": {
+    "name": "Private Sanctum",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -2592,9 +2800,10 @@
     "srd": "Private Sanctum",
     "custom": false
   },
-  "Mordenkainen's Sword": {
-    "name": "Mordenkainen's Sword",
-    "damage": 0,
+  "Arcane Sword": {
+    "name": "Arcane Sword",
+    "damage": 16,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -2607,6 +2816,7 @@
   "Move Earth": {
     "name": "Move Earth",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -2620,6 +2830,7 @@
   "Nondetection": {
     "name": "Nondetection",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2630,9 +2841,10 @@
     "srd": true,
     "custom": false
   },
-  "Nystul's Magic Aura": {
-    "name": "Nystul's Magic Aura",
+  "Arcanist's Magic Aura": {
+    "name": "Arcanist's Magic Aura",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2641,9 +2853,10 @@
     "srd": "Arcanist's Magic Aura",
     "custom": false
   },
-  "Otiluke's Freezing Sphere": {
-    "name": "Otiluke's Freezing Sphere",
-    "damage": 0,
+  "Freezing Sphere": {
+    "name": "Freezing Sphere",
+    "damage": 35,
+    "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -2652,9 +2865,10 @@
     "srd": "Freezing Sphere",
     "custom": false
   },
-  "Otiluke's Resilient Sphere": {
-    "name": "Otiluke's Resilient Sphere",
+  "Resilient Sphere": {
+    "name": "Resilient Sphere",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -2663,9 +2877,10 @@
     "srd": "Resilient Sphere",
     "custom": false
   },
-  "Otto's Irresistible Dance": {
-    "name": "Otto's Irresistible Dance",
+  "Irresistible Dance": {
+    "name": "Irresistible Dance",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -2678,6 +2893,7 @@
   "Pass without Trace": {
     "name": "Pass without Trace",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2690,6 +2906,7 @@
   "Passwall": {
     "name": "Passwall",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2700,7 +2917,8 @@
   },
   "Phantasmal Killer": {
     "name": "Phantasmal Killer",
-    "damage": 0,
+    "damage": 22,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -2712,6 +2930,7 @@
   "Phantom Steed": {
     "name": "Phantom Steed",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2723,6 +2942,7 @@
   "Planar Ally": {
     "name": "Planar Ally",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -2734,6 +2954,7 @@
   "Planar Binding": {
     "name": "Planar Binding",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2748,6 +2969,7 @@
   "Plane Shift": {
     "name": "Plane Shift",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -2763,6 +2985,7 @@
   "Plant Growth": {
     "name": "Plant Growth",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2775,7 +2998,8 @@
   },
   "Poison Spray": {
     "name": "Poison Spray",
-    "damage": 0,
+    "damage": 6,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2790,6 +3014,7 @@
   "Polymorph": {
     "name": "Polymorph",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -2804,6 +3029,7 @@
   "Power Word Kill": {
     "name": "Power Word Kill",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -2818,6 +3044,7 @@
   "Power Word Stun": {
     "name": "Power Word Stun",
     "damage": 0,
+    "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -2832,6 +3059,7 @@
   "Prayer of Healing": {
     "name": "Prayer of Healing",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2843,6 +3071,7 @@
   "Prestidigitation": {
     "name": "Prestidigitation",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2856,7 +3085,8 @@
   },
   "Prismatic Spray": {
     "name": "Prismatic Spray",
-    "damage": 0,
+    "damage": 35,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -2868,7 +3098,8 @@
   },
   "Prismatic Wall": {
     "name": "Prismatic Wall",
-    "damage": 0,
+    "damage": 35,
+    "multitarget": true,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -2879,7 +3110,8 @@
   },
   "Produce Flame": {
     "name": "Produce Flame",
-    "damage": 0,
+    "damage": 4,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -2891,6 +3123,7 @@
   "Programmed Illusion": {
     "name": "Programmed Illusion",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -2903,6 +3136,7 @@
   "Project Image": {
     "name": "Project Image",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -2915,6 +3149,7 @@
   "Protection from Energy": {
     "name": "Protection from Energy",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -2930,6 +3165,7 @@
   "Protection from Evil and Good": {
     "name": "Protection from Evil and Good",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2944,6 +3180,7 @@
   "Protection from Poison": {
     "name": "Protection from Poison",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -2958,6 +3195,7 @@
   "Purify Food and Drink": {
     "name": "Purify Food and Drink",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -2971,6 +3209,7 @@
   "Raise Dead": {
     "name": "Raise Dead",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2981,9 +3220,10 @@
     "srd": true,
     "custom": false
   },
-  "Rary's Telepathic Bond": {
-    "name": "Rary's Telepathic Bond",
+  "Telepathic Bond": {
+    "name": "Telepathic Bond",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -2995,6 +3235,7 @@
   "Ray of Enfeeblement": {
     "name": "Ray of Enfeeblement",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3006,7 +3247,8 @@
   },
   "Ray of Frost": {
     "name": "Ray of Frost",
-    "damage": 0,
+    "damage": 4,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3019,6 +3261,7 @@
   "Regenerate": {
     "name": "Regenerate",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -3032,6 +3275,7 @@
   "Reincarnate": {
     "name": "Reincarnate",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3043,6 +3287,7 @@
   "Remove Curse": {
     "name": "Remove Curse",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3057,6 +3302,7 @@
   "Resistance": {
     "name": "Resistance",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3069,6 +3315,7 @@
   "Resurrection": {
     "name": "Resurrection",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -3081,6 +3328,7 @@
   "Reverse Gravity": {
     "name": "Reverse Gravity",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -3094,6 +3342,7 @@
   "Revivify": {
     "name": "Revivify",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3106,6 +3355,7 @@
   "Rope Trick": {
     "name": "Rope Trick",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3116,7 +3366,8 @@
   },
   "Sacred Flame": {
     "name": "Sacred Flame",
-    "damage": 0,
+    "damage": 4,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3128,6 +3379,7 @@
   "Sanctuary": {
     "name": "Sanctuary",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3138,7 +3390,8 @@
   },
   "Scorching Ray": {
     "name": "Scorching Ray",
-    "damage": 0,
+    "damage": 21,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3151,6 +3404,7 @@
   "Scrying": {
     "name": "Scrying",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3166,6 +3420,7 @@
   "See Invisibility": {
     "name": "See Invisibility",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3179,6 +3434,7 @@
   "Seeming": {
     "name": "Seeming",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3192,6 +3448,7 @@
   "Sending": {
     "name": "Sending",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3205,6 +3462,7 @@
   "Sequester": {
     "name": "Sequester",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -3216,6 +3474,7 @@
   "Shapechange": {
     "name": "Shapechange",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -3227,7 +3486,8 @@
   },
   "Shatter": {
     "name": "Shatter",
-    "damage": 0,
+    "damage": 13,
+    "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3242,6 +3502,7 @@
   "Shield": {
     "name": "Shield",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3254,6 +3515,7 @@
   "Shield of Faith": {
     "name": "Shield of Faith",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3266,6 +3528,7 @@
   "Shillelagh": {
     "name": "Shillelagh",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3276,7 +3539,8 @@
   },
   "Shocking Grasp": {
     "name": "Shocking Grasp",
-    "damage": 0,
+    "damage": 4,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3289,6 +3553,7 @@
   "Silence": {
     "name": "Silence",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3302,6 +3567,7 @@
   "Silent Image": {
     "name": "Silent Image",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3315,6 +3581,7 @@
   "Simulacrum": {
     "name": "Simulacrum",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -3326,6 +3593,7 @@
   "Sleep": {
     "name": "Sleep",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3339,6 +3607,7 @@
   "Sleet Storm": {
     "name": "Sleet Storm",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3352,6 +3621,7 @@
   "Slow": {
     "name": "Slow",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3364,6 +3634,7 @@
   "Spare the Dying": {
     "name": "Spare the Dying",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3375,6 +3646,7 @@
   "Speak with Animals": {
     "name": "Speak with Animals",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3388,6 +3660,7 @@
   "Speak with Dead": {
     "name": "Speak with Dead",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3400,6 +3673,7 @@
   "Speak with Plants": {
     "name": "Speak with Plants",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3413,6 +3687,7 @@
   "Spider Climb": {
     "name": "Spider Climb",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3425,7 +3700,8 @@
   },
   "Spike Growth": {
     "name": "Spike Growth",
-    "damage": 0,
+    "damage": 5,
+    "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3437,7 +3713,8 @@
   },
   "Spirit Guardians": {
     "name": "Spirit Guardians",
-    "damage": 0,
+    "damage": 13,
+    "multitarget": true,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3448,7 +3725,8 @@
   },
   "Spiritual Weapon": {
     "name": "Spiritual Weapon",
-    "damage": 0,
+    "damage": 4,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3460,6 +3738,7 @@
   "Stinking Cloud": {
     "name": "Stinking Cloud",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3473,6 +3752,7 @@
   "Stone Shape": {
     "name": "Stone Shape",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -3486,6 +3766,7 @@
   "Stoneskin": {
     "name": "Stoneskin",
     "damage": 0,
+    "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -3499,7 +3780,8 @@
   },
   "Storm of Vengeance": {
     "name": "Storm of Vengeance",
-    "damage": 0,
+    "damage": 7,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -3511,6 +3793,7 @@
   "Suggestion": {
     "name": "Suggestion",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3525,6 +3808,7 @@
   "Sunbeam": {
     "name": "Sunbeam",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -3537,7 +3821,8 @@
   },
   "Sunburst": {
     "name": "Sunburst",
-    "damage": 0,
+    "damage": 27,
+    "multitarget": true,
     "level": 8,
     "levelDisplay": "8th level",
     "class": [
@@ -3551,6 +3836,7 @@
   "Symbol": {
     "name": "Symbol",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -3561,9 +3847,10 @@
     "srd": true,
     "custom": false
   },
-  "Tasha's Hideous Laughter": {
-    "name": "Tasha's Hideous Laughter",
+  "Hideous Laughter": {
+    "name": "Hideous Laughter",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3576,6 +3863,7 @@
   "Telekinesis": {
     "name": "Telekinesis",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3588,6 +3876,7 @@
   "Teleport": {
     "name": "Teleport",
     "damage": 0,
+    "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
     "class": [
@@ -3601,6 +3890,7 @@
   "Teleportation Circle": {
     "name": "Teleportation Circle",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3611,9 +3901,10 @@
     "srd": true,
     "custom": false
   },
-  "Tenser's Floating Disk": {
-    "name": "Tenser's Floating Disk",
+  "Floating Disk": {
+    "name": "Floating Disk",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3625,6 +3916,7 @@
   "Thaumaturgy": {
     "name": "Thaumaturgy",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3635,7 +3927,8 @@
   },
   "Thunderwave": {
     "name": "Thunderwave",
-    "damage": 0,
+    "damage": 9,
+    "multitarget": true,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3650,6 +3943,7 @@
   "Time Stop": {
     "name": "Time Stop",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -3662,6 +3956,7 @@
   "Tongues": {
     "name": "Tongues",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3677,6 +3972,7 @@
   "Transport via Plants": {
     "name": "Transport via Plants",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -3688,6 +3984,7 @@
   "Tree Stride": {
     "name": "Tree Stride",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3700,6 +3997,7 @@
   "True Polymorph": {
     "name": "True Polymorph",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -3713,6 +4011,7 @@
   "True Resurrection": {
     "name": "True Resurrection",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -3725,6 +4024,7 @@
   "True Seeing": {
     "name": "True Seeing",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -3740,6 +4040,7 @@
   "True Strike": {
     "name": "True Strike",
     "damage": 0,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3754,6 +4055,7 @@
   "Unseen Servant": {
     "name": "Unseen Servant",
     "damage": 0,
+    "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
     "class": [
@@ -3766,7 +4068,8 @@
   },
   "Vampiric Touch": {
     "name": "Vampiric Touch",
-    "damage": 0,
+    "damage": 10,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3778,7 +4081,8 @@
   },
   "Vicious Mockery": {
     "name": "Vicious Mockery",
-    "damage": 0,
+    "damage": 2,
+    "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
     "class": [
@@ -3789,7 +4093,8 @@
   },
   "Wall of Fire": {
     "name": "Wall of Fire",
-    "damage": 0,
+    "damage": 22,
+    "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
     "class": [
@@ -3803,6 +4108,7 @@
   "Wall of Force": {
     "name": "Wall of Force",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3813,7 +4119,8 @@
   },
   "Wall of Ice": {
     "name": "Wall of Ice",
-    "damage": 0,
+    "damage": 35,
+    "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -3825,6 +4132,7 @@
   "Wall of Stone": {
     "name": "Wall of Stone",
     "damage": 0,
+    "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
     "class": [
@@ -3837,7 +4145,8 @@
   },
   "Wall of Thorns": {
     "name": "Wall of Thorns",
-    "damage": 0,
+    "damage": 31,
+    "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -3849,6 +4158,7 @@
   "Warding Bond": {
     "name": "Warding Bond",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3860,6 +4170,7 @@
   "Water Breathing": {
     "name": "Water Breathing",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3874,6 +4185,7 @@
   "Water Walk": {
     "name": "Water Walk",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3888,6 +4200,7 @@
   "Web": {
     "name": "Web",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
@@ -3900,6 +4213,7 @@
   "Weird": {
     "name": "Weird",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -3911,6 +4225,7 @@
   "Wind Walk": {
     "name": "Wind Walk",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -3922,6 +4237,7 @@
   "Wind Wall": {
     "name": "Wind Wall",
     "damage": 0,
+    "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
     "class": [
@@ -3934,6 +4250,7 @@
   "Wish": {
     "name": "Wish",
     "damage": 0,
+    "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
     "class": [
@@ -3946,6 +4263,7 @@
   "Word of Recall": {
     "name": "Word of Recall",
     "damage": 0,
+    "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
     "class": [
@@ -3957,6 +4275,7 @@
   "Zone of Truth": {
     "name": "Zone of Truth",
     "damage": 0,
+    "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
     "class": [
