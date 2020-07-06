@@ -194,21 +194,6 @@
     "srd": true,
     "custom": false
   },
-  "Arcane Gate": {
-    "name": "Arcane Gate",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 6,
-    "levelDisplay": "6th level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
-    "custom": false
-  },
   "Arcane Lock": {
     "name": "Arcane Lock",
     "damage": {
@@ -221,32 +206,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Armor of Agathys": {
-    "name": "Armor of Agathys",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Warlock"
-    ],
-    "custom": false
-  },
-  "Arms of Hadar": {
-    "name": "Arms of Hadar",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Warlock"
-    ],
     "custom": false
   },
   "Astral Projection": {
@@ -279,45 +238,6 @@
     "srd": true,
     "custom": false
   },
-  "Aura of Life": {
-    "name": "Aura of Life",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 4,
-    "levelDisplay": "4th level",
-    "class": [
-      "Paladin"
-    ],
-    "custom": false
-  },
-  "Aura of Purity": {
-    "name": "Aura of Purity",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 4,
-    "levelDisplay": "4th level",
-    "class": [
-      "Paladin"
-    ],
-    "custom": false
-  },
-  "Aura of Vitality": {
-    "name": "Aura of Vitality",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Paladin"
-    ],
-    "custom": false
-  },
   "Awaken": {
     "name": "Awaken",
     "damage": {
@@ -346,19 +266,6 @@
       "Cleric"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Banishing Smite": {
-    "name": "Banishing Smite",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 5,
-    "levelDisplay": "5th level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Banishment": {
@@ -408,20 +315,6 @@
     "srd": true,
     "custom": false
   },
-  "Beast Sense": {
-    "name": "Beast Sense",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 2,
-    "levelDisplay": "2nd level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
-    "custom": false
-  },
   "Bestow Curse": {
     "name": "Bestow Curse",
     "damage": {
@@ -466,22 +359,6 @@
     "srd": true,
     "custom": false
   },
-  "Blade Ward": {
-    "name": "Blade Ward",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 0,
-    "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
-    "custom": false
-  },
   "Bless": {
     "name": "Bless",
     "damage": {
@@ -512,19 +389,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Blinding Smite": {
-    "name": "Blinding Smite",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Blindness/Deafness": {
@@ -681,20 +545,6 @@
     "srd": true,
     "custom": false
   },
-  "Chromatic Orb": {
-    "name": "Chromatic Orb",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
-    "custom": false
-  },
   "Circle of Death": {
     "name": "Circle of Death",
     "damage": {
@@ -709,19 +559,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Circle of Power": {
-    "name": "Circle of Power",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 5,
-    "levelDisplay": "5th level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Clairvoyance": {
@@ -753,22 +590,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Cloud of Daggers": {
-    "name": "Cloud of Daggers",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 2,
-    "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
     "custom": false
   },
   "Cloudkill": {
@@ -843,19 +664,6 @@
       "Ranger"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Compelled Duel": {
-    "name": "Compelled Duel",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Comprehend Languages": {
@@ -936,19 +744,6 @@
     "srd": true,
     "custom": false
   },
-  "Conjure Barrage": {
-    "name": "Conjure Barrage",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Ranger"
-    ],
-    "custom": false
-  },
   "Conjure Celestial": {
     "name": "Conjure Celestial",
     "damage": {
@@ -1006,19 +801,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Conjure Volley": {
-    "name": "Conjure Volley",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 5,
-    "levelDisplay": "5th level",
-    "class": [
-      "Ranger"
-    ],
     "custom": false
   },
   "Conjure Woodland Beings": {
@@ -1127,19 +909,6 @@
     "srd": true,
     "custom": false
   },
-  "Cordon of Arrows": {
-    "name": "Cordon of Arrows",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 2,
-    "levelDisplay": "2nd level",
-    "class": [
-      "Ranger"
-    ],
-    "custom": false
-  },
   "Counterspell": {
     "name": "Counterspell",
     "damage": {
@@ -1215,35 +984,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Crown of Madness": {
-    "name": "Crown of Madness",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 2,
-    "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
-    "custom": false
-  },
-  "Crusader's Mantle": {
-    "name": "Crusader's Mantle",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Cure Wounds": {
@@ -1374,19 +1114,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Destructive Wave": {
-    "name": "Destructive Wave",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 5,
-    "levelDisplay": "5th level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Detect Evil and Good": {
@@ -1538,19 +1265,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Dissonant Whispers": {
-    "name": "Dissonant Whispers",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Bard"
-    ],
     "custom": false
   },
   "Divination": {
@@ -1717,19 +1431,6 @@
     "srd": true,
     "custom": false
   },
-  "Elemental Weapon": {
-    "name": "Elemental Weapon",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Paladin"
-    ],
-    "custom": false
-  },
   "Enhance Ability": {
     "name": "Enhance Ability",
     "damage": {
@@ -1760,19 +1461,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Ensnaring Strike": {
-    "name": "Ensnaring Strike",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Ranger"
-    ],
     "custom": false
   },
   "Entangle": {
@@ -1961,22 +1649,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Feign Death": {
-    "name": "Feign Death",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Wizard"
-    ],
     "custom": false
   },
   "Find Familiar": {
@@ -2270,22 +1942,6 @@
     "srd": true,
     "custom": false
   },
-  "Friends": {
-    "name": "Friends",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 0,
-    "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
-    "custom": false
-  },
   "Gaseous Form": {
     "name": "Gaseous Form",
     "damage": {
@@ -2426,20 +2082,6 @@
     "srd": true,
     "custom": false
   },
-  "Grasping Vine": {
-    "name": "Grasping Vine",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 4,
-    "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
-    "custom": false
-  },
   "Grease": {
     "name": "Grease",
     "damage": {
@@ -2558,19 +2200,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Hail of Thorns": {
-    "name": "Hail of Thorns",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Ranger"
-    ],
     "custom": false
   },
   "Hallow": {
@@ -2723,19 +2352,6 @@
     "srd": true,
     "custom": false
   },
-  "Hex": {
-    "name": "Hex",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Warlock"
-    ],
-    "custom": false
-  },
   "Hold Monster": {
     "name": "Hold Monster",
     "damage": {
@@ -2784,19 +2400,6 @@
       "Cleric"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Hunger of Hadar": {
-    "name": "Hunger of Hadar",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Warlock"
-    ],
     "custom": false
   },
   "Hunter's Mark": {
@@ -3080,19 +2683,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Lightning Arrow": {
-    "name": "Lightning Arrow",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 3,
-    "levelDisplay": "3rd level",
-    "class": [
-      "Ranger"
-    ],
     "custom": false
   },
   "Lightning Bolt": {
@@ -3759,21 +3349,6 @@
     "srd": true,
     "custom": false
   },
-  "Phantasmal Force": {
-    "name": "Phantasmal Force",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 2,
-    "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
-    "custom": false
-  },
   "Phantasmal Killer": {
     "name": "Phantasmal Killer",
     "damage": {
@@ -3899,19 +3474,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Power Word Heal": {
-    "name": "Power Word Heal",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 9,
-    "levelDisplay": "9th level",
-    "class": [
-      "Bard"
-    ],
     "custom": false
   },
   "Power Word Kill": {
@@ -4180,20 +3742,6 @@
     "srd": true,
     "custom": false
   },
-  "Ray of Sickness": {
-    "name": "Ray of Sickness",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
-    "custom": false
-  },
   "Regenerate": {
     "name": "Regenerate",
     "damage": {
@@ -4375,19 +3923,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Searing Smite": {
-    "name": "Searing Smite",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "See Invisibility": {
@@ -4756,19 +4291,6 @@
     "srd": true,
     "custom": false
   },
-  "Staggering Smite": {
-    "name": "Staggering Smite",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 4,
-    "levelDisplay": "4th level",
-    "class": [
-      "Paladin"
-    ],
-    "custom": false
-  },
   "Stinking Cloud": {
     "name": "Stinking Cloud",
     "damage": {
@@ -4881,19 +4403,6 @@
     "srd": true,
     "custom": false
   },
-  "Swift Quiver": {
-    "name": "Swift Quiver",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 5,
-    "levelDisplay": "5th level",
-    "class": [
-      "Ranger"
-    ],
-    "custom": false
-  },
   "Symbol": {
     "name": "Symbol",
     "damage": {
@@ -4938,19 +4447,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Telepathy": {
-    "name": "Telepathy",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 8,
-    "levelDisplay": "8th level",
-    "class": [
-      "Wizard"
-    ],
     "custom": false
   },
   "Teleport": {
@@ -5011,32 +4507,6 @@
       "Cleric"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Thorn Whip": {
-    "name": "Thorn Whip",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 0,
-    "levelDisplay": "Cantrip",
-    "class": [
-      "Druid"
-    ],
-    "custom": false
-  },
-  "Thunderous Smite": {
-    "name": "Thunderous Smite",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Thunderwave": {
@@ -5182,19 +4652,6 @@
       "Wizard"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Tsunami": {
-    "name": "Tsunami",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 8,
-    "levelDisplay": "8th level",
-    "class": [
-      "Druid"
-    ],
     "custom": false
   },
   "Unseen Servant": {
@@ -5437,21 +4894,6 @@
     "srd": true,
     "custom": false
   },
-  "Witch Bolt": {
-    "name": "Witch Bolt",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
-    "custom": false
-  },
   "Word of Recall": {
     "name": "Word of Recall",
     "damage": {
@@ -5464,19 +4906,6 @@
       "Cleric"
     ],
     "srd": true,
-    "custom": false
-  },
-  "Wrathful Smite": {
-    "name": "Wrathful Smite",
-    "damage": {
-      "count": 0,
-      "dice": 0
-    },
-    "level": 1,
-    "levelDisplay": "1st level",
-    "class": [
-      "Paladin"
-    ],
     "custom": false
   },
   "Zone of Truth": {
