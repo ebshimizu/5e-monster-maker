@@ -8,6 +8,7 @@ import MOVEMENT from '../data/MOVEMENT';
 import { STAT, STAT_FULL } from '../data/STAT';
 import _ from 'lodash';
 import N2W from 'number-to-words';
+import DomToImage from 'dom-to-image';
 
 export const SAVE_VERSION = 1;
 
@@ -294,6 +295,14 @@ export function download(content, fileName, contentType) {
 
 export function saveJSON(data, filename) {
   download(JSON.stringify(data), filename, 'application/json');
+}
+
+export function saveToPng(filename) {
+  const node = document.getElementById('render');
+
+  DomToImage.toBlob(node).then(function (blob) {
+    download(blob, filename, 'image/png');
+  });
 }
 
 export function attackTemplateSubtitle(template) {

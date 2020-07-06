@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "dom-to-image": "^2.6.0",
     "file-loader": "^6.0.0",
     "jsonschema": "^1.2.6",
     "lodash": "^4.17.15",

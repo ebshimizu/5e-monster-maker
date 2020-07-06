@@ -88,6 +88,9 @@
         <v-list-item @click="saveToLatex(true)">
           <v-list-item-title>Export LaTeX (rpgtex, 2 col)</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="saveToPng">
+          <v-list-item-title>Save as PNG</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
     <v-dialog v-model="resetDialog" max-width="300px">
@@ -122,7 +125,7 @@
 
 <script>
 import { saveToLatex } from './latexExporter';
-import { saveJSON, cloneFromTemplate } from './util';
+import { saveJSON, cloneFromTemplate, saveToPng } from './util';
 import { MUTATION } from '../data/ACTIONS';
 import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
 import { validate } from 'jsonschema';
@@ -204,6 +207,9 @@ export default {
     },
     saveToLatex(twoCol) {
       saveToLatex(this.$store, `${this.$store.state.monster.name}.tex`, twoCol)
+    },
+    saveToPng() {
+      saveToPng(`${this.$store.state.monster.name}.png`);
     },
     loadCleanup() {
       this.fileLoading = false;

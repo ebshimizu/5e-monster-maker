@@ -1,5 +1,5 @@
 <template>
-  <v-sheet width="100%" elevation="6" class="statblock pa-2">
+  <v-sheet width="100%" elevation="6" class="statblock pa-2" id="render">
     <h2 class="monster-name">{{ monster.name }}</h2>
     <div class="type">
       {{ monster.size }} {{ monster.type }}, {{ monster.alignment }}
