@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "file-loader": "^6.0.0",
     "jsonschema": "^1.2.6",
     "lodash": "^4.17.15",
     "number-to-words": "^1.2.4",

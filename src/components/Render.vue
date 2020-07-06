@@ -1,6 +1,6 @@
 <template>
-  <v-sheet width="100%" elevation="6" color="gray darken-2" class="pa-2">
-    <h2>{{ monster.name }}</h2>
+  <v-sheet width="100%" elevation="6" class="statblock pa-2">
+    <h2 class="monster-name">{{ monster.name }}</h2>
     <div class="type">
       {{ monster.size }} {{ monster.type }}, {{ monster.alignment }}
     </div>
@@ -13,7 +13,7 @@
     <div class="skill"><span class="name">Speed</span> {{ speed }}</div>
     <v-divider></v-divider>
     <v-row>
-      <v-col v-for="stat in stats" :key="stat.stat">
+      <v-col v-for="stat in stats" :key="stat.stat" class="stat-container pa-1">
         <div class="stat-name">{{ stat.stat }}</div>
         <div class="stat">
           <div class="score">{{ stat.score }}</div>
@@ -40,7 +40,7 @@
     <div class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
-    <div class="cr"><span class="name">Challenge</span> {{ cr }}</div>
+    <div class="skill"><span class="name">Challenge</span> {{ cr }}</div>
     <v-divider></v-divider>
     <div class="traits">
       <div class="trait" v-for="trait in monster.traits" :key="trait.id">
@@ -98,8 +98,7 @@
         </template>
       </div>
     </div>
-    <h3 class="section mt-2">Actions</h3>
-    <v-divider></v-divider>
+    <h3 class="section">Actions</h3>
     <div class="multiattack" v-if="monster.multiattacks.length > 0">
       <span class="name">Multiattack.</span>
       {{ renderMultiattacks() }}
@@ -138,7 +137,7 @@
       </div>
     </div>
     <div class="legendary-actions" v-if="monster.legendaryActions.count > 0">
-      <h3 class="section mt-2">Legendary Actions</h3>
+      <h3 class="section">Legendary Actions</h3>
       <div class="preamble">
         The {{ monster.name }} can take
         {{ monster.legendaryActions.count }} legendary action{{
@@ -167,7 +166,7 @@
       </div>
     </div>
     <div class="reactions" v-if="monster.reactions.length > 0">
-      <h3 class="section mt-2">Reactions</h3>
+      <h3 class="section">Reactions</h3>
       <div
         class="action"
         v-for="reaction in monster.reactions"
@@ -404,3 +403,94 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.statblock {
+  background-color: #fdf1dc;
+  color: #000;
+  font-family: ScalySans;
+  font-size: 1rem;
+
+  .monster-name {
+    font-family: MrEaves;
+    color: #58180d;
+    font-weight: 800;
+    font-size: 2.2em;
+  }
+
+  .type,
+  .attack .distance,
+  .attack .hit {
+    font-family: ScalySansItalic;
+  }
+
+  hr {
+    border: 1px solid #9c2b1b;
+    margin: 2px 0;
+  }
+
+  .skill {
+    line-height: 1.3rem;
+
+    .name {
+      font-family: ScalySansBold;
+    }
+  }
+
+  .stat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #58180d;
+
+    .stat-name {
+      font-family: ScalySansBold;
+    }
+
+    .stat {
+      display: flex;
+      font-size: 0.95rem;
+      .score {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .spell-list {
+    margin-top: 0.8rem;
+
+    .spell-row {
+      margin-left: 20px;
+      text-indent: -20px;
+
+      .spell-list-entries {
+        font-family: ScalySansItalic;
+      }
+    }
+  }
+
+  .trait,
+  .attack,
+  .action,
+  .innate-spellcasting,
+  .spellcasting,
+  .legendary-actions .preamble,
+  .multiattack {
+    line-height: 1.15rem;
+    margin-bottom: 0.8rem;
+
+    .name {
+      font-family: ScalySansBoldItalic;
+    }
+  }
+
+  h3.section {
+    font-size: 1.3rem;
+    font-weight: 200;
+    color: #58180d;
+    border-bottom: 1px solid #58180d;
+    margin-bottom: 4px;
+  }
+}
+</style>
