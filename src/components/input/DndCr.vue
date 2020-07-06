@@ -80,10 +80,9 @@
         </div>
       </v-card-title>
       <v-card-text class="py-1 white--text text-center">
-        v{{ $store.getters.majorVersion }} build {{
-          $store.state.buildNumber
-        }}
-        | Created by <strong>Falindrith</strong> |
+        v{{ $store.getters.majorVersion }} build
+        {{ $store.state.buildNumber }} | Created by
+        <strong>Falindrith</strong> |
         <v-btn
           icon
           class="mx-1"
@@ -164,21 +163,21 @@ export default {
         // check highest damage actions and attacks
         const action = this.highestDamage(data);
 
-        // if action is null, we don't have anything to do so just abort rq
-        if (!action) break;
+        // if action is null, we don't have anything to do here, but traits might still work
+        if (action) {
+          // update the round
+          round.actions.push({ type: 'action', ...action });
+          round.totalDamage += action.damage;
 
-        // update the round
-        round.actions.push({ type: 'action', ...action });
-        round.totalDamage += action.damage;
+          // if the action is limited use or rechargeable, adjust the limited use and remove if 0
+          // recharge abilities just get removed straight up since it's a bit random.
+          if (action.limited) {
+            action.uses -= 1;
 
-        // if the action is limited use or rechargeable, adjust the limited use and remove if 0
-        // recharge abilities just get removed straight up since it's a bit random.
-        if (action.limited) {
-          action.uses -= 1;
-
-          if (action.uses <= 0) {
-            // we pulled action 0 (sorted, guaranteed from highestDamage function)
-            data.actions.splice(0, 1);
+            if (action.uses <= 0) {
+              // we pulled action 0 (sorted, guaranteed from highestDamage function)
+              data.actions.splice(0, 1);
+            }
           }
         }
 
@@ -292,7 +291,9 @@ export default {
     offensiveCR() {
       // average it, but pull the max of attack or DC CR (you can use one or the other)
       const avgCR =
-        (Math.max(this.dcCR.numeric, this.attackCR.numeric) + this.damageCR.numeric) / 2;
+        (Math.max(this.dcCR.numeric, this.attackCR.numeric) +
+          this.damageCR.numeric) /
+        2;
 
       return getCRByNumber(avgCR);
     },

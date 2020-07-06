@@ -35,6 +35,114 @@
         "include": true
       },
       "icon": "mdi-ghost"
+    },
+    {
+      "templateName": "Improved Critical",
+      "name": "Improved Critical",
+      "description": "The {NAME}'s attacks score a critical hit on a roll of 19 or 20.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-dice-d20"
+    },
+    {
+      "templateName": "Superior Critical",
+      "name": "Superior Critical",
+      "description": "The {NAME}'s attacks score a critical hit on a roll of 18-20.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-dice-d20"
+    },
+    {
+      "templateName": "Fighting Style: Great Weapon Fighting",
+      "name": "Great Weapon Fighting",
+      "description": "When the {NAME} rolls a 1 or 2 on a damage die for an attack made with a melee weapon wielded with two hands, it can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for the {NAME} to gain this benefit.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 2,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-sword-cross"
+    },
+    {
+      "templateName": "Fighting Style: Protection",
+      "name": "Protection",
+      "description": "When a creature the {NAME} can see attacks a target other than the {NAME} that is within 5 feet of it, the {NAME} can use its reaction to impose disadvantage on the attack roll. The {NAME} must be wielding a shield to use this trait.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-shield"
+    },
+    {
+      "templateName": "Survivor",
+      "name": "Survivor",
+      "description": "At the start of each of the {NAME}'s turns, it regain hit points equal to 5 + its Constitution modifier if it has no more than half of its hit points left. The {NAME} doesn’t gain this benefit if it has 0 hit points.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 10,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-shield"
+    },
+    {
+      "templateName": "Regeneration",
+      "name": "Regeneration",
+      "description": "The {NAME} regains 10 hit points at the start of its turn. If the {NAME} takes acid or fire damage, this trait doesn't function at the start of the {NAME}'s next turn. The {NAME} dies only if it starts its turn with 0 hit points and doesn't regenerate.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "bonusModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 30,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-shield"
     }
   ]
 }
