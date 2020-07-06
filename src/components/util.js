@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
 import SKILL from '../data/SKILL';
 import MOVEMENT from '../data/MOVEMENT';
-import { STAT, STAT_FULL } from '../data/STAT';
+import { STAT } from '../data/STAT';
 import _ from 'lodash';
 import N2W from 'number-to-words';
 import DomToImage from 'dom-to-image';
@@ -358,7 +358,7 @@ export function processSharedTokens(text, store) {
   const save = RegExp(/\{DC:(\w{3})\}/gi);
   text = text.replace(save, (match, stat) => {
     if (stat in STAT) {
-      return `DC ${store.getters.defaultSpellSave(stat)} ${STAT_FULL[stat]}`;
+      return `DC ${store.getters.defaultSpellSave(stat)}`;
     } else return match;
   });
 

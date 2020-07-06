@@ -3,7 +3,7 @@
     {
       "templateName": "Acid Breath",
       "name": "Acid Breath",
-      "description": "The {NAME} exhales acid in a 60-­foot line that is 5 feet wide. Each creature in that line must make a {DC:DEX} saving throw, taking {12d8} acid damage on a failed save, or half as much damage on a successful one.",
+      "description": "The {NAME} exhales acid in a 60-­foot line that is 5 feet wide. Each creature in that line must make a {DC:DEX} Dexterity saving throw, taking {12d8} acid damage on a failed save, or half as much damage on a successful one.",
       "recharge": "5-6",
       "legendaryOnly": false,
       "limitedUse": { "count": 0, "rate": "day" },
@@ -24,7 +24,7 @@
     {
       "templateName": "Frightful Presence",
       "name": "Frightful Presence",
-      "description": "Each creature of the {NAME}'s choice that is within 120 feet of the {NAME} and aware of it must succeed on a {DC:WIS} saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the {NAME}'s Frightful Presence for the next 24 hours.",
+      "description": "Each creature of the {NAME}'s choice that is within 120 feet of the {NAME} and aware of it must succeed on a {DC:WIS} Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the {NAME}'s Frightful Presence for the next 24 hours.",
       "recharge": "",
       "legendaryOnly": false,
       "limitedUse": { "count": 3, "rate": "day" },
@@ -45,7 +45,7 @@
     {
       "templateName": "Wing Attack",
       "name": "Wing Attack",
-      "description": "The {NAME} beats its wings. Each creature within 10 feet of the {NAME} must succeed on a DC 19 Dexterity saving throw or take {2d6+6} bludgeoning damage and be knocked prone. The {NAME} can then fly up to half its flying speed.",
+      "description": "The {NAME} beats its wings. Each creature within 10 feet of the {NAME} must succeed on a {DC:STR} Dexterity saving throw or take {2d6+6} bludgeoning damage and be knocked prone. The {NAME} can then fly up to half its flying speed.",
       "recharge": "",
       "legendaryOnly": true,
       "limitedUse": { "count": 0, "rate": "day" },

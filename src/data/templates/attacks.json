@@ -168,7 +168,7 @@
       },
       "additionalDamage": [],
       "save": 12,
-      "description": "The target must succeed on a {DC:CON} saving throw or take {2d4} poison damage.",
+      "description": "The target must succeed on a {DC:CON} Constitution saving throw or take {2d4} poison damage.",
       "legendaryOnly": false,
       "icon": "mdi-bullseye-arrow"
     },
