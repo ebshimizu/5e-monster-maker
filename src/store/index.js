@@ -20,7 +20,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   plugins: [Persistence],
   state: {
-    appVersion: process.env.PACKAGE_VERSION || '0',
+    appVersion: process.env.PACKAGE_VERSION || '0.0.0',
     buildNumber: process.env.BUILD_NUMBER || '0',
     monster: newMonster(),
     spells: SPELLS,
@@ -31,9 +31,7 @@ export default new Vuex.Store({
       return state.appVersion.split('.')[0];
     },
     minorVersion: (state) => {
-      const ver = state.appVersion.split('.');
-      if (ver.length === 1) return 'DEV';
-      return ver[1];
+      return state.appVersion.split('.')[1];
     },
     avgHp: (state) => {
       return (

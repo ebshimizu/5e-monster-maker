@@ -80,7 +80,7 @@
         </div>
       </v-card-title>
       <v-card-text class="py-1 white--text text-center">
-        v{{ $store.getters.majorVersion }} build
+        v{{ $store.getters.majorVersion }}.{{ $store.getters.minorVersion }} build
         {{ $store.state.buildNumber }} | Created by
         <strong>Falindrith</strong> |
         <v-btn
