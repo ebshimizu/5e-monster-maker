@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "copy-to-clipboard": "^3.3.1",
     "core-js": "^3.6.5",
     "dom-to-image": "^2.6.0",
     "file-loader": "^6.0.0",

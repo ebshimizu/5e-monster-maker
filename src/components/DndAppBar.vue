@@ -91,6 +91,9 @@
         <v-list-item @click="saveToPng">
           <v-list-item-title>Save as PNG</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="copyMarkdown">
+          <v-list-item-title>Copy as Markdown (Homebrewery)</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
     <v-dialog v-model="resetDialog" max-width="300px">
@@ -125,11 +128,13 @@
 
 <script>
 import { saveToLatex } from './latexExporter';
+import { renderMarkdown } from './markdownExporter';
 import { saveJSON, cloneFromTemplate, saveToPng } from './util';
 import { MUTATION } from '../data/ACTIONS';
 import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
 import { validate } from 'jsonschema';
 import SCHEMA from '../data/SCHEMA';
+import copy from 'copy-to-clipboard';
 
 export default {
   name: 'DndAppBar',
@@ -206,7 +211,7 @@ export default {
       );
     },
     saveToLatex(twoCol) {
-      saveToLatex(this.$store, `${this.$store.state.monster.name}.tex`, twoCol)
+      saveToLatex(this.$store, `${this.$store.state.monster.name}.tex`, twoCol);
     },
     saveToPng() {
       saveToPng(`${this.$store.state.monster.name}.png`);
@@ -266,6 +271,9 @@ export default {
       this.messageBarColor = color;
       this.messageText = message;
       this.messageBar = true;
+    },
+    copyMarkdown() {
+      copy(renderMarkdown(this.$store));
     },
   },
 };
