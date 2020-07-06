@@ -82,17 +82,20 @@
         <v-list-item @click="saveToJson">
           <v-list-item-title>Export JSON (5emm format)</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="downloadMarkdown">
+          <v-list-item-title>Export Markdown (Homebrewery)</v-list-item-title>
+        </v-list-item>
         <v-list-item @click="saveToLatex(false)">
           <v-list-item-title>Export LaTeX (rpgtex, 1 col)</v-list-item-title>
         </v-list-item>
         <v-list-item @click="saveToLatex(true)">
           <v-list-item-title>Export LaTeX (rpgtex, 2 col)</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="copyMarkdown">
+          <v-list-item-title>Copy Markdown to Clipboard (Homebrewery)</v-list-item-title>
+        </v-list-item>
         <v-list-item @click="saveToPng">
           <v-list-item-title>Save as PNG</v-list-item-title>
-        </v-list-item>
-        <v-list-item @click="copyMarkdown">
-          <v-list-item-title>Copy as Markdown (Homebrewery)</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -129,7 +132,7 @@
 <script>
 import { saveToLatex } from './latexExporter';
 import { renderMarkdown } from './markdownExporter';
-import { saveJSON, cloneFromTemplate, saveToPng } from './util';
+import { saveJSON, cloneFromTemplate, saveToPng, download } from './util';
 import { MUTATION } from '../data/ACTIONS';
 import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
 import { validate } from 'jsonschema';
@@ -272,10 +275,24 @@ export default {
       this.messageText = message;
       this.messageBar = true;
     },
+    downloadMarkdown() {
+      try {
+        download(
+          renderMarkdown(this.$store),
+          `${this.$store.state.monster.name}.md`,
+          'text/markdown'
+        );
+      } catch (e) {
+        this.message('Markdown export failed, check console', 'red');
+      }
+    },
     copyMarkdown() {
       try {
         copy(renderMarkdown(this.$store));
-        this.message('Copied Markdown (Homebrewery Format) to Clipboard', 'green');
+        this.message(
+          'Copied Markdown (Homebrewery Format) to Clipboard',
+          'green'
+        );
       } catch (e) {
         this.message('Markdown export failed, check console', 'red');
       }
