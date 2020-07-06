@@ -27,6 +27,9 @@ export default new Vuex.Store({
     templates: TEMPLATES,
   },
   getters: {
+    majorVersion: (state) => {
+      return state.appVersion.split('.')[0];
+    },
     avgHp: (state) => {
       return (
         avgRoll(state.monster.HP.HD, state.monster.HP.type) +

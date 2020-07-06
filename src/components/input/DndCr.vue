@@ -80,7 +80,7 @@
         </div>
       </v-card-title>
       <v-card-text class="py-1 white--text text-center">
-        App Version {{ $store.state.appVersion }} r{{
+        v{{ $store.getters.majorVersion }} build {{
           $store.state.buildNumber
         }}
         | Created by <strong>Falindrith</strong> |
@@ -290,9 +290,9 @@ export default {
       return renderBonus(this.maxAttack);
     },
     offensiveCR() {
-      // average it
+      // average it, but pull the max of attack or DC CR (you can use one or the other)
       const avgCR =
-        (this.dcCR.numeric + this.attackCR.numeric + this.damageCR.numeric) / 3;
+        (Math.max(this.dcCR.numeric, this.attackCR.numeric) + this.damageCR.numeric) / 2;
 
       return getCRByNumber(avgCR);
     },
