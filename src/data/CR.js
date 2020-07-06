@@ -485,6 +485,7 @@ export function getCRByAttack(attack) {
 }
 
 export function getCRByNumber(number) {
+  if (number > 1) number = Math.round(number);
   if (number >= 30) return CR[CR.length - 1];
 
   for (const cr of CR) {

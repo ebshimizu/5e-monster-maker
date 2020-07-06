@@ -1,4 +1,13 @@
-import { avgRoll, renderBonus, renderModifier, renderSaves, renderSkills, renderSenses, renderTraitLimitedUse, processTokens } from './util';
+import {
+  avgRoll,
+  renderBonus,
+  renderModifier,
+  renderSaves,
+  renderSkills,
+  renderSenses,
+  renderTraitLimitedUse,
+  processTokens
+} from './util';
 import { CR } from '../data/CR';
 import N2W from 'number-to-words';
 import { STAT_FULL } from '../data/STAT';

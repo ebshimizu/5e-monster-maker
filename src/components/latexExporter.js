@@ -242,9 +242,9 @@ export function renderLatex(store, twoCol = false) {
     hit-points = {\\DndDice{${monster.HP.HD}d${monster.HP.type}${renderBonus(
     monster.HP.modifier
   )}}},
-    speed = ${monster.speeds
+    speed = {${monster.speeds
       .map((s) => `${s.speed} ft. ${s.type}${s.note === '' ? '' : s.note}`)
-      .join(', ')}
+      .join(', ')}}
   ]
 
   \\DndMonsterAbilityScores[
