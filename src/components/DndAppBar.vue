@@ -109,7 +109,7 @@
       :color="messageBarColor"
       app
       timeout="6000"
-      top
+      bottom
       >{{ messageText }}
       <template v-slot:action="{ attrs }">
         <v-btn text v-bind="attrs" @click="messageBar = false">
