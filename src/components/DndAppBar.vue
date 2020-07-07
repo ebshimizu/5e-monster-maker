@@ -7,6 +7,9 @@
         </v-btn>
       </template>
       <v-list>
+        <v-list-item @click.stop="crTableDialog = true">
+          <v-list-item-title>Show CR Table</v-list-item-title>
+        </v-list-item>
         <v-list-item @click="resetDialog = true">
           <v-list-item-title>Reset</v-list-item-title>
         </v-list-item>
@@ -93,7 +96,9 @@
           <v-list-item-title>Export LaTeX (rpgtex, 2 col)</v-list-item-title>
         </v-list-item>
         <v-list-item @click="copyMarkdown">
-          <v-list-item-title>Copy Markdown to Clipboard (Homebrewery)</v-list-item-title>
+          <v-list-item-title
+            >Copy Markdown to Clipboard (Homebrewery)</v-list-item-title
+          >
         </v-list-item>
         <v-list-item @click="saveToPng">
           <v-list-item-title>Save as PNG</v-list-item-title>
@@ -127,18 +132,46 @@
         </v-btn></template
       ></v-snackbar
     >
+    <v-dialog max-width="800px" v-model="crTableDialog">
+      <v-card>
+        <v-card-title>
+          <span class="headline">CR Table</span>
+        </v-card-title>
+        <v-card-text>
+          <v-data-table
+            dense
+            hide-default-footer
+            disable-pagination
+            fixed-header
+            :headers="crHeaders"
+            :items="crData"
+            item-key="cr"
+          ></v-data-table>
+          <v-card-actions>
+            <v-btn color="blue" text @click="crTableDialog = false">Close</v-btn>
+          </v-card-actions>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-app-bar>
 </template>
 
 <script>
 import { saveToLatex } from './latexExporter';
 import { renderMarkdown } from './markdownExporter';
-import { saveJSON, cloneFromTemplate, saveToPng, download } from './util';
+import {
+  saveJSON,
+  cloneFromTemplate,
+  saveToPng,
+  download,
+  renderBonus,
+} from './util';
 import { MUTATION } from '../data/ACTIONS';
 import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
 import { validate } from 'jsonschema';
 import SCHEMA from '../data/SCHEMA';
 import copy from 'copy-to-clipboard';
+import { CR } from '../data/CR';
 
 export default {
   name: 'DndAppBar',
@@ -153,11 +186,40 @@ export default {
       templateBar: null,
       templateBarText: '',
       resetDialog: false,
+      crTableDialog: false,
     };
   },
   computed: {
     templates() {
       return this.$store.getters.allTemplates;
+    },
+    crData() {
+      const formatted = CR.map((cr) => {
+        return {
+          ...cr,
+          hp: `${cr.hpMin} - ${cr.hpMax}`,
+          damage: `${cr.dprMin} - ${cr.dprMax}`,
+          profBonus: renderBonus(cr.proficiency),
+          bonus: renderBonus(cr.attack),
+        };
+      });
+
+      formatted[0].ac = '<= 13';
+      formatted[0].saveDc = '<= 13';
+      formatted[0].bonus = '<= +3';
+
+      return formatted;
+    },
+    crHeaders() {
+      return [
+        { text: 'CR', value: 'cr', sortable: false },
+        { text: 'Prof. Bonus', value: 'profBonus', sortable: false },
+        { text: 'Armor Class', value: 'ac', sortable: false },
+        { text: 'Hit Points', value: 'hp', sortable: false },
+        { text: 'Attack Bonus', value: 'bonus', sortable: false },
+        { text: 'Damage/Round', value: 'damage', sortable: false },
+        { text: 'Save DC', value: 'saveDc', sortable: false },
+      ];
     },
   },
   methods: {

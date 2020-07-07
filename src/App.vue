@@ -56,7 +56,8 @@ export default {
   background: #b6b6b6;
 }
 
-.full-height::-webkit-scrollbar {
+.full-height::-webkit-scrollbar,
+.v-dialog::-webkit-scrollbar {
   display: block;
 }
 
