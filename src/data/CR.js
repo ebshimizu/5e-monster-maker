@@ -443,79 +443,51 @@ const rawCR = [
   },
 ];
 
-export const CR = rawCR.map((cr, index) => { return { index, ...cr } });
+export const CR = rawCR.map((cr, index) => {
+  return { index, ...cr };
+});
 
 export const CR_SELECT = CR.map((cr, idx) => {
   return { text: cr.cr, value: idx };
 });
 
-export function getCRByDamage(damage) {
-  // iterate from low to high, return first CR s.t. damage is within min/max
-  damage = Math.round(damage);
-  if (damage <= 0) return CR[0];
-  if (damage >= 320) return CR[CR.length - 1];
+// the cr retrieval functions are a disaster let's fix that
+function getCRByRange(value, field) {
+  // first, we floor the value to ensure integers
+  value = Math.floor(value);
 
-  for (const cr of CR) {
-    if (cr.dprMin <= damage && damage <= cr.dprMax) return cr;
+  // and then we need to check if the value is between index.field and index + 1.field
+  for (let i = 0; i < CR.length - 1; i++) {
+    if (CR[i][field] <= value && value <  CR[i + 1][field]) {
+      return CR[i];
+    }
   }
 
-  // just in case
-  return CR[0];
+  // if it wasn't like in a range, then it can only be min or max so...
+  if (value <= CR[0][field]) return CR[0];
+  else return CR[CR.length - 1];
+}
+
+export function getCRByDamage(damage) {
+  return getCRByRange(damage, 'dprMin');
 }
 
 export function getCRByDC(dc) {
-  if (dc < 13) return CR[0];
-  if (dc >= 23) return CR[CR.length - 1];
-
-  for (const cr of CR) {
-    // ascending, trigger on first
-    if (dc <= cr.saveDc) return cr;
-  }
-
-  return CR[0];
+  return getCRByRange(dc, 'saveDc');
 }
 
 export function getCRByAttack(attack) {
-  if (attack < 3) return CR[0];
-  if (attack >= 14) return CR[CR.length - 1];
-
-  for (const cr of CR) {
-    if (attack <= cr.attack) return cr;
-  }
-
-  return CR[0];
+  return getCRByRange(attack, 'attack');
 }
 
 export function getCRByNumber(number) {
-  if (number > 1) number = Math.floor(number);
-  if (number >= 30) return CR[CR.length - 1];
-
-  for (const cr of CR) {
-    if (number <= cr.numeric) return cr;
-  }
-
-  return CR[0];
+  return getCRByRange(number, 'numeric');
 }
 
 export function getCRByHP(hp) {
-  hp = Math.floor(hp);
-  if (hp <= 1) return CR[0];
-  if (hp >= 850) return CR[CR.length - 1];
-
-  for (const cr of CR) {
-    if (cr.hpMin <= hp && hp <= cr.hpMax) return cr;
-  }
-
-  return CR[0];
+  return getCRByRange(hp, 'hpMin');
 }
 
 export function getCRByAC(ac) {
-  if (ac <= 13) return CR[0];
-  if (ac > 19) return CR[CR.length - 1];
-
-  for (const cr of CR) {
-    if (ac <= cr.ac) return cr;
-  }
-
-  return CR[0];
+  return getCRByRange(ac, 'ac');
 }

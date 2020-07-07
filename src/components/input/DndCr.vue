@@ -399,8 +399,12 @@ export default {
         stepDelta = this.maxAttack - this.damageCR.attack;
       }
 
+      stepDelta /= 2;
+
       // final cr is then
-      const offensiveStep = damageCRStep + Math.floor(stepDelta / 2);
+      // really need a "towards 0" function
+      const offensiveStep = damageCRStep + (stepDelta < 0 ? Math.ceil(stepDelta) : Math.floor(stepDelta))
+
       return CR[Math.max(0, Math.min(CR.length, offensiveStep))];
     },
     dcCR() {
@@ -510,10 +514,10 @@ export default {
       const ehpStep = this.hpCR.index;
 
       // then, get the delta between ehp's CR AC and the effective AC
-      const acDelta = this.eac - this.hpCR.ac;
+      const acDelta = (this.eac - this.hpCR.ac) / 2;
 
       // adjust the cr step
-      const defensiveStep = ehpStep + Math.floor(acDelta / 2);
+      const defensiveStep = ehpStep + (acDelta < 0 ? Math.ceil(acDelta) : Math.floor(acDelta))
 
       // return the proper cr object, clamping to 0/CR max length
       return CR[Math.max(0, Math.min(CR.length - 1, defensiveStep))];
