@@ -26,7 +26,7 @@
               top
               eager
               offset-y
-              nudge-top="5px"
+              :nudge-top="crMenuTopOffset"
               :max-height="crMenuMaxHeight"
             >
               <template v-slot:activator="{ on, attrs }">
@@ -40,12 +40,12 @@
                   <v-avatar left
                     ><v-icon size="18">mdi-sword-cross</v-icon></v-avatar
                   >
-                  {{ Math.round(damagePerRound) }} (CR {{ damageCR.cr }})
+                  {{ Math.floor(damagePerRound) }} (CR {{ damageCR.cr }})
                 </v-chip>
               </template>
               <v-card width="350px" class="mx-auto" outlined>
                 <v-card-title
-                  >{{ Math.round(damagePerRound) }} Average Damage (3
+                  >{{ Math.floor(damagePerRound) }} Average Damage (3
                   Rounds)</v-card-title
                 >
                 <v-card-subtitle
@@ -105,7 +105,7 @@
               top
               eager
               offset-y
-              nudge-top="5px"
+              :nudge-top="crMenuTopOffset"
               :max-height="crMenuMaxHeight"
             >
               <template v-slot:activator="{ on, attrs }">
@@ -161,7 +161,7 @@
               top
               eager
               offset-y
-              nudge-top="5px"
+              :nudge-top="crMenuTopOffset"
               :max-height="crMenuMaxHeight"
             >
               <template v-slot:activator="{ on, attrs }">
@@ -208,28 +208,123 @@
             </v-menu>
           </div>
           <div class="bot">
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-chip small v-on="on" class="ma-2" color="green darken-2">
+            <v-menu
+              :close-on-content-click="false"
+              open-on-hover
+              :close-delay="crMenuCloseDelay"
+              top
+              eager
+              offset-y
+              :nudge-top="crMenuTopOffset"
+              :max-height="crMenuMaxHeight"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  small
+                  v-on="on"
+                  v-bind="attrs"
+                  class="ma-2"
+                  color="green darken-2"
+                >
                   <v-avatar left
                     ><v-icon size="18">mdi-hospital</v-icon></v-avatar
                   >
-                  {{ Math.round(ehp) }} (CR {{ hpCR.cr }})
+                  {{ Math.floor(ehp) }} (CR {{ hpCR.cr }})
                 </v-chip>
               </template>
-              Effective HP
-            </v-tooltip>
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-chip small v-on="on" class="ma-2" color="green darken-2">
+              <v-card width="350px" class="mx-auto" outlined>
+                <v-card-title
+                  >{{ Math.floor(ehp) }} Effective Hit Points</v-card-title
+                >
+                <v-card-subtitle
+                  >CR {{ hpCR.cr }}: {{ hpCR.hpMin }} -
+                  {{ hpCR.hpMax }}</v-card-subtitle
+                >
+                <v-divider></v-divider>
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-avatar color="green darken-2">{{
+                      Math.floor($store.getters.avgHp)
+                    }}</v-list-item-avatar
+                    ><v-list-item-content>
+                      <v-list-item-title>Base Hit Points</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-list-item
+                    v-for="(mod, idx) in ehpModifierList"
+                    :key="`${mod.title}-${mod.type}-${idx}`"
+                  >
+                    <v-list-item-avatar
+                      class="ehp-mod"
+                      :color="actionTypeColor(mod.type)"
+                      >{{ mod.value }}</v-list-item-avatar
+                    >
+                    <v-list-item-content>
+                      <v-list-item-title>{{ mod.title }}</v-list-item-title>
+                      <v-list-item-subtitle>{{
+                        mod.subtitle
+                      }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-menu>
+            <v-menu
+              :close-on-content-click="false"
+              open-on-hover
+              :close-delay="crMenuCloseDelay"
+              top
+              eager
+              offset-y
+              :nudge-top="crMenuTopOffset"
+              :max-height="crMenuMaxHeight"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  small
+                  v-on="on"
+                  v-bind="attrs"
+                  class="ma-2"
+                  color="green darken-2"
+                >
                   <v-avatar left
                     ><v-icon size="18">mdi-shield</v-icon></v-avatar
                   >
-                  {{ Math.round(eac) }} ({{ acCRDelta }} CR)
+                  {{ Math.floor(eac) }} ({{ acCRDelta }} CR)
                 </v-chip>
               </template>
-              Effective AC
-            </v-tooltip>
+              <v-card width="350px" class="mx-auto" outlined>
+                <v-card-title
+                  >{{ Math.floor(eac) }} Effective Armor Class</v-card-title
+                >
+                <v-card-subtitle>{{ acCrExplain }}</v-card-subtitle>
+                <v-divider></v-divider>
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-avatar color="green darken-2">{{
+                      Math.floor(monster.AC)
+                    }}</v-list-item-avatar
+                    ><v-list-item-content>
+                      <v-list-item-title>Base Armor Class</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-list-item
+                    v-for="(mod, idx) in eacModifierList"
+                    :key="`${mod.title}-${mod.type}-${idx}`"
+                  >
+                    <v-list-item-avatar :color="actionTypeColor(mod.type)">{{
+                      mod.value
+                    }}</v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ mod.title }}</v-list-item-title>
+                      <v-list-item-subtitle>{{
+                        mod.subtitle
+                      }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-menu>
           </div>
         </div>
       </v-card-title>
@@ -269,7 +364,6 @@
 </template>
 
 <script>
-import { MUTATION } from '../../data/ACTIONS';
 import {
   getCRByDamage,
   getCRByAttack,
@@ -284,6 +378,7 @@ import _ from 'lodash';
 
 // unsure if i'll move this into util at some point
 const ACTION_COLOR = {
+  HP: 'green darken-2',
   Attack: 'red darken-4',
   Multiattack: 'red darken-4',
   Action: 'amber darken-4',
@@ -301,23 +396,13 @@ export default {
   name: 'DndCr',
   data() {
     return {
-      dprTab: null,
+      dprTab: 0,
       crMenuCloseDelay: 100,
       crMenuMaxHeight: '550px',
+      crMenuTopOffset: '4px',
     };
   },
   computed: {
-    proficiency: {
-      get() {
-        return this.$store.state.monster.proficiency;
-      },
-      set(value) {
-        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
-          key: 'proficiency',
-          value: parseInt(value),
-        });
-      },
-    },
     monster() {
       return this.$store.state.monster;
     },
@@ -532,6 +617,10 @@ export default {
       return `Offensive CR ${this.attackCRDelta} (Save DC Delta: ${this.dcCR
         .saveDc - this.offensiveCR.saveDc})`;
     },
+    acCrExplain() {
+      return `Defensive CR ${this.acCRDelta} (AC Delta: ${this.acCR
+        .ac - this.defensiveCR.ac})`;
+    },
     damageCR() {
       return getCRByDamage(this.damagePerRound);
     },
@@ -540,6 +629,112 @@ export default {
     },
     dcChipColor() {
       return this.useDC ? 'red darken-4' : 'gray darken-1';
+    },
+    ehpModifierList() {
+      // renders out modifiers and multipliers to a list for display
+      const mods = [];
+
+      const resMult = this.resMultiplier(this.offensiveCR.numeric);
+      const immuneMult = this.immuneMultiplier(this.offensiveCR.numeric);
+      const vulnMult = this.vulnMultiplier();
+
+      // multipliers
+      if (resMult > 1) {
+        mods.push({
+          title: 'Resistances',
+          subtitle: `${this.monster.resistances.length} Resistance${
+            this.monster.resistances.length === 1 ? '' : 's'
+          } at CR ${this.offensiveCR.cr}`,
+          value: `x${resMult}`,
+          type: 'HP',
+        });
+      }
+
+      if (immuneMult > 1) {
+        mods.push({
+          title: 'Immunities',
+          subtitle: `${this.monster.immunities.length} Immunit${
+            this.monster.immunities.length === 1 ? 'y' : 'ies'
+          } at CR ${this.offensiveCR.cr}`,
+          value: `x${immuneMult}`,
+          type: 'HP',
+        });
+      }
+
+      if (vulnMult < 1) {
+        mods.push({
+          title: 'Vulnerabilities',
+          subtitle: `${this.monster.vulnerabilities.length} Vulnerabilit${
+            this.monster.vulnerabilities.length === 1 ? 'y' : 'ies'
+          } at CR ${this.offensiveCR.cr}`,
+          value: `x${immuneMult}`,
+          type: 'HP',
+        });
+      }
+
+      // action and trait mults
+      for (const action of this.monster.actions) {
+        if (
+          action.crAnnotation.include &&
+          action.crAnnotation.ehpMultiplier !== 1
+        ) {
+          mods.push({
+            title: action.name,
+            subtitle: 'Action',
+            type: 'Action',
+            value: `x${action.crAnnotation.ehpMultiplier.toLocaleString(1)}`,
+          });
+        }
+      }
+
+      for (const trait of this.monster.traits) {
+        if (
+          trait.crAnnotation.include &&
+          trait.crAnnotation.ehpMultiplier !== 1
+        ) {
+          mods.push({
+            title: trait.name,
+            subtitle: 'Trait',
+            type: 'Trait',
+            value: `x${trait.crAnnotation.ehpMultiplier.toLocaleString(1)}`,
+          });
+        }
+      }
+
+      // action and trait additions
+      for (const action of this.monster.actions) {
+        if (
+          action.crAnnotation.include &&
+          action.crAnnotation.ehpModifier !== 0
+        ) {
+          mods.push({
+            title: action.name,
+            subtitle: 'Action',
+            type: 'Action',
+            value: renderBonus(
+              action.crAnnotation.ehpModifier.toLocaleString(1)
+            ),
+          });
+        }
+      }
+
+      for (const trait of this.monster.traits) {
+        if (
+          trait.crAnnotation.include &&
+          trait.crAnnotation.ehpModifier !== 0
+        ) {
+          mods.push({
+            title: trait.name,
+            subtitle: 'Trait',
+            type: 'Trait',
+            value: renderBonus(
+              trait.crAnnotation.ehpModifier.toLocaleString(1)
+            ),
+          });
+        }
+      }
+
+      return mods;
     },
     ehp() {
       // ehp actually kinda needs a CR estimate first, so assuming we don't have that, we will base expected CR on attacks
@@ -585,18 +780,62 @@ export default {
 
       return ehp;
     },
-    eac() {
-      // the beginning of this is at least easy
-      const baseAC = this.monster.AC;
-
-      // save modifiers
-      // check for proficient or overridden
-      const saveCount = Object.keys(this.monster.saves).filter((k) => {
+    saveCount() {
+      return Object.keys(this.monster.saves).filter((k) => {
         const save = this.monster.saves[k];
         return save.proficient || (save.override && save.overrideValue > 0);
       }).length;
+    },
+    saveAcBonus() {
+      if (this.saveCount < 3) return 0;
+      if (this.saveCount < 5) return 2;
 
-      let eac = baseAC + this.saveACBonus(saveCount);
+      return 4;
+    },
+    eacModifierList() {
+      const mods = [];
+
+      if (this.saveAcBonus > 0) {
+        mods.push({
+          title: 'Saving Throws',
+          subtitle: `${this.saveCount} Proficient or Modified Saves`,
+          type: 'HP',
+          value: `+${this.saveAcBonus}`,
+        });
+      }
+
+      // action and trait modifiers
+      for (const action of this.monster.actions) {
+        if (
+          action.crAnnotation.include &&
+          action.crAnnotation.acModifier !== 0
+        ) {
+          mods.push({
+            title: action.name,
+            subtitle: 'Action',
+            type: 'Action',
+            value: renderBonus(action.crAnnotation.acModifier),
+          });
+        }
+      }
+
+      for (const trait of this.monster.traits) {
+        if (trait.crAnnotation.include && trait.crAnnotation.acModifier !== 0) {
+          mods.push({
+            title: trait.name,
+            subtitle: 'Trait',
+            type: 'Trait',
+            value: renderBonus(trait.crAnnotation.acModifier),
+          });
+        }
+      }
+
+      return mods;
+    },
+    eac() {
+      // the beginning of this is at least easy
+      // save modifiers
+      let eac = this.monster.AC + this.saveAcBonus;
 
       // action and trait modifiers
       for (const action of this.monster.actions) {
@@ -728,14 +967,8 @@ export default {
 
       return 1;
     },
-    saveACBonus(count) {
-      if (count < 3) return 0;
-      if (count < 5) return 2;
-
-      return 4;
-    },
     actionTypeColor(type) {
-      // i kinda should make this an enum...
+      // i kinda should make type an enum...
       return ACTION_COLOR[type];
     },
   },
@@ -771,5 +1004,9 @@ export default {
   display: flex;
   align-items: center;
   height: 28px;
+}
+
+.ehp-mod {
+  font-size: 14px;
 }
 </style>
