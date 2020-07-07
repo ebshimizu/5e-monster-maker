@@ -666,7 +666,7 @@ export default {
           subtitle: `${this.monster.vulnerabilities.length} Vulnerabilit${
             this.monster.vulnerabilities.length === 1 ? 'y' : 'ies'
           } at CR ${this.offensiveCr.cr}`,
-          value: `x${immuneMult}`,
+          value: `x${vulnMult}`,
           type: 'HP',
         });
       }
