@@ -16,8 +16,7 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true,
-        "bonusModifier": 0
+        "include": true
       },
       "icon": "mdi-weather-windy"
     },
@@ -37,8 +36,7 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true,
-        "bonusModifier": 0
+        "include": true
       },
       "icon": "mdi-skull-crossbones"
     },
@@ -58,8 +56,7 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true,
-        "bonusModifier": 0
+        "include": true
       },
       "icon": "mdi-sword"
     }

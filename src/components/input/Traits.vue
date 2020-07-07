@@ -136,16 +136,6 @@
                               label="AC Modifier"
                             ></v-text-field>
                           </v-col>
-                          <v-col cols="2">
-                            <v-text-field
-                              type="number"
-                              v-model.number="
-                                traits[index].crAnnotation.bonusModifier
-                              "
-                              label="Attack Bonus Modifier"
-                              @input="update"
-                            ></v-text-field>
-                          </v-col>
                           <v-col cols="3"
                             ><v-switch
                               v-model="traits[index].crAnnotation.multitarget"

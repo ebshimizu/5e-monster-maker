@@ -22,11 +22,12 @@
             <v-menu
               :close-on-content-click="false"
               open-on-hover
-              close-delay="500"
-              right
+              :close-delay="crMenuCloseDelay"
+              top
               eager
-              nudge-right="10px"
-              offset-x
+              offset-y
+              nudge-top="5px"
+              :max-height="crMenuMaxHeight"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-chip
@@ -100,11 +101,12 @@
             <v-menu
               :close-on-content-click="false"
               open-on-hover
-              close-delay="500"
-              right
+              :close-delay="crMenuCloseDelay"
+              top
               eager
-              nudge-right="10px"
-              offset-x
+              offset-y
+              nudge-top="5px"
+              :max-height="crMenuMaxHeight"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-chip
@@ -152,17 +154,58 @@
                 </v-list>
               </v-card>
             </v-menu>
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-chip small v-on="on" class="ma-2" :color="dcChipColor">
+            <v-menu
+              :close-on-content-click="false"
+              open-on-hover
+              :close-delay="crMenuCloseDelay"
+              top
+              eager
+              offset-y
+              nudge-top="5px"
+              :max-height="crMenuMaxHeight"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  small
+                  v-on="on"
+                  v-bind="attrs"
+                  class="ma-2"
+                  :color="dcChipColor"
+                >
                   <v-avatar left
                     ><v-icon size="18">mdi-auto-fix</v-icon></v-avatar
                   >
                   {{ maxDC }} ({{ attackCRDelta }} CR)
                 </v-chip>
               </template>
-              Max. Save DC
-            </v-tooltip>
+              <v-card width="350px" class="mx-auto" outlined>
+                <v-card-title>DC {{ maxDC }} Max. Save</v-card-title>
+                <v-card-subtitle>{{ dcExplain }}</v-card-subtitle>
+                <v-divider></v-divider>
+                <v-list>
+                  <v-list-item
+                    v-for="(action, idx) in filteredDcActions"
+                    :key="`${action.name}-${action.type}-${idx}`"
+                  >
+                    <v-list-item-avatar :color="actionTypeColor(action.type)">{{
+                      action.save
+                    }}</v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ action.name }}</v-list-item-title>
+                      <v-list-item-subtitle>{{
+                        action.type
+                      }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-content class="subtitle-2"
+                      >{{ dcActions.length - filteredDcActions.length }} Actions
+                      with DC 0 or less</v-list-item-content
+                    >
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-menu>
           </div>
           <div class="bot">
             <v-tooltip top>
@@ -259,6 +302,8 @@ export default {
   data() {
     return {
       dprTab: null,
+      crMenuCloseDelay: 100,
+      crMenuMaxHeight: '550px',
     };
   },
   computed: {
@@ -364,29 +409,38 @@ export default {
 
       return sum / 3;
     },
-    maxDC() {
-      // check actions, traits, legendary actions, spellcasting, everything
-      const spellDC = this.$store.getters.isSpellcaster
-        ? this.$store.getters.spellSave
-        : 0;
-      const attackDC = this.attackInfo.attacks.reduce(
-        (current, next) => Math.max(next.save, current),
-        0
-      );
-      const actionDC = this.attackInfo.actions.reduce(
-        (current, next) => Math.max(next.save, current),
-        0
-      );
-      const traitDC = this.attackInfo.traits.reduce(
-        (current, next) => Math.max(next.save, current),
-        0
-      );
-      const legendaryDC = this.attackInfo.legendary.reduce(
-        (current, next) => Math.max(next.save, current),
-        0
+    dcActions() {
+      // return a sorted all actions list
+      const allActions = [].concat(
+        this.attackInfo.attacks,
+        this.attackInfo.actions,
+        this.attackInfo.traits,
+        this.attackInfo.legendary
       );
 
-      return Math.max(spellDC, attackDC, actionDC, traitDC, legendaryDC);
+      // inject the spellcasting mod if it exists
+      if (this.$store.getters.isSpellcaster) {
+        allActions.push({
+          name: 'Spell Save DC',
+          type: 'Spell',
+          save: this.$store.getters.spellSave,
+        });
+      }
+
+      allActions.sort((a, b) => {
+        return b.save - a.save;
+      });
+
+      // filter to positive to hits?
+      return allActions;
+    },
+    filteredDcActions() {
+      return this.dcActions.filter((a) => a.save > 0);
+    },
+    maxDC() {
+      if (this.dcActions.length === 0) return 0;
+
+      return this.dcActions[0].save;
     },
     toHitActions() {
       // return a sorted all actions list
@@ -401,7 +455,7 @@ export default {
       if (this.$store.getters.isSpellcaster) {
         allActions.push({
           name: 'Spell Attack Modifier',
-          type: 'Spellcasting',
+          type: 'Spell',
           toHit: this.$store.getters.spellAttackModifier,
         });
       }
@@ -422,22 +476,9 @@ export default {
     },
     maxAttack() {
       // this is already sorted
-      let standardModifier = this.toHitActions[0].toHit;
+      if (this.toHitActions.length === 0) return 0;
 
-      // some traits/actions have an attack modifier property
-      for (const action of this.monster.actions) {
-        if (action.crAnnotation.include) {
-          standardModifier += action.crAnnotation.bonusModifier;
-        }
-      }
-
-      for (const trait of this.monster.traits) {
-        if (trait.crAnnotation.include) {
-          standardModifier += trait.crAnnotation.bonusModifier;
-        }
-      }
-
-      return standardModifier;
+      return this.toHitActions[0].toHit;
     },
     maxAttackRender() {
       return renderBonus(this.maxAttack);
@@ -484,6 +525,12 @@ export default {
 
       return `Offensive CR ${this.attackCRDelta} (Attack Bonus Delta: ${this
         .attackCR.attack - this.offensiveCR.attack})`;
+    },
+    dcExplain() {
+      if (!this.useDC) return 'Inactive. Attack Bonus has a higher expected CR';
+
+      return `Offensive CR ${this.attackCRDelta} (Save DC Delta: ${this.dcCR
+        .saveDc - this.offensiveCR.saveDc})`;
     },
     damageCR() {
       return getCRByDamage(this.damagePerRound);
