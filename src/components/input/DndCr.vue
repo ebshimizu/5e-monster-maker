@@ -80,8 +80,10 @@
         </div>
       </v-card-title>
       <v-card-text class="py-1 white--text text-center">
-        v{{ $store.getters.majorVersion }}.{{ $store.getters.minorVersion }} build
-        {{ $store.state.buildNumber }} | Created by
+        v{{ $store.getters.majorVersion }}.{{
+          $store.getters.minorVersion
+        }}
+        build {{ $store.state.buildNumber }} | Created by
         <strong>Falindrith</strong> |
         <v-btn
           icon
@@ -97,8 +99,12 @@
         >
         <v-tooltip top>
           <template v-slot:activator="{ on }">
-            <v-btn v-on="on" icon @click="openLink('https://ko-fi.com/E1E2KHZ3')"
-              ><v-avatar size="36px"><img src="../../assets/ko-fi-icon.png"/></v-avatar
+            <v-btn
+              v-on="on"
+              icon
+              @click="openLink('https://ko-fi.com/E1E2KHZ3')"
+              ><v-avatar size="36px"
+                ><img src="../../assets/ko-fi-icon.png"/></v-avatar
             ></v-btn>
           </template>
           Tip Jar
@@ -160,9 +166,6 @@ export default {
         data.legendary,
         data.legendaryCount
       );
-      legendaryRound.actions = legendaryRound.actions.map((a) => {
-        return { type: 'legendary', ...a };
-      });
 
       // for 5 rounds
       const sequence = [];
@@ -175,18 +178,22 @@ export default {
         // if action is null, we don't have anything to do here, but traits might still work
         if (action) {
           // update the round
-          round.actions.push({ type: 'action', ...action });
+          round.actions.push(action);
           round.totalDamage += action.damage;
 
           // if the action is limited use or rechargeable, adjust the limited use and remove if 0
           // recharge abilities just get removed straight up since it's a bit random.
-          if (action.limited) {
+          if ('limited' in action && action.limited) {
             action.uses -= 1;
 
             if (action.uses <= 0) {
               // we pulled action 0 (sorted, guaranteed from highestDamage function)
+              // attacks can't be limited use so this has to be an action if limited exists
               data.actions.splice(0, 1);
             }
+          } else if (action.type === 'spell') {
+            // spells just get deleted byeeeeee
+            data.spells.splice(0, 1);
           }
         }
 
@@ -196,7 +203,7 @@ export default {
         for (const trait of data.traits) {
           // don't need to check inclusion, handled by attackInfo
           trait.remove = false;
-          round.actions.push({ type: 'trait', ...trait });
+          round.actions.push(trait);
           round.totalDamage += trait.damage;
 
           if (trait.limited && trait.uses > 0) {
@@ -402,19 +409,17 @@ export default {
       window.open(url);
     },
     highestDamage(data) {
-      // check first element of actions and attacks, return highest damage
+      // check first element of actions, attacks, and spells return highest damage
       // but first validate that we have data to get
-      if (data.actions.length > 0 && data.attacks.length > 0) {
-        return data.actions[0].damage > data.attacks[0].damage
-          ? data.actions[0]
-          : data.attacks[0];
-      } else if (data.actions.length === 0 && data.attacks.length > 0) {
-        return data.attacks[0];
-      } else if (data.actions.length > 0 && data.attacks.length === 0) {
-        return data.actions[0];
-      }
+      const allActions = [].concat(data.attacks, data.actions, data.spells);
 
-      return null;
+      if (allActions.length === 0) return null;
+
+      allActions.sort((a, b) => {
+        return b.damage - a.damage;
+      });
+
+      return allActions[0];
     },
     legendaryCombo(la, count) {
       // returns the highest damage per round combo of actions

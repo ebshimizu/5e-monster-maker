@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
+import _ from 'lodash';
 import { Persistence } from './persistence';
 
 import {
@@ -167,6 +168,10 @@ export default new Vuex.Store({
           state.monster.spellcasting.stat
         );
     },
+    allSpells: (state) => {
+      // future planning
+      return state.spells.ALL;
+    },
     attackInfo: (state, getters) => {
       // returns an object containing all you need to know for calculating CR
       const data = {
@@ -174,6 +179,7 @@ export default new Vuex.Store({
         actions: [],
         legendary: [],
         traits: [],
+        spells: [],
       };
 
       // first, get the attacks and sort them by damage. We assume attacks are always available.
@@ -186,6 +192,7 @@ export default new Vuex.Store({
           damage: getters.expectedAttackDamage(attack),
           toHit: getters.fullToHitBonus(attack.modifier),
           save: attack.save,
+          type: 'attack',
         });
       }
 
@@ -197,6 +204,7 @@ export default new Vuex.Store({
           damage: getters.multiattackDamage(state.monster.multiattacks[idx]),
           save: 0,
           toHit: 0,
+          type: 'multiattack',
         });
       }
 
@@ -225,6 +233,7 @@ export default new Vuex.Store({
                 : action.limitedUse.count,
             save: action.crAnnotation.maxSave,
             toHit: action.crAnnotation.maxModifier,
+            type: 'action',
           });
         }
       }
@@ -247,6 +256,7 @@ export default new Vuex.Store({
             uses: trait.limitedUse.count,
             save: trait.crAnnotation.maxSave,
             toHit: trait.crAnnotation.maxModifier,
+            type: 'trait',
           });
         }
       }
@@ -276,6 +286,7 @@ export default new Vuex.Store({
               save: action.crAnnotation.maxSave,
               toHit: action.crAnnotation.maxModifier,
               cost: la.cost,
+              type: 'legendary',
             });
           }
         } else {
@@ -287,18 +298,46 @@ export default new Vuex.Store({
             toHit: getters.fullToHitBonus(attack.modifier),
             save: attack.save,
             cost: la.cost,
+            type: 'legendary',
           });
         }
       }
       data.legendaryCount = state.monster.legendaryActions.count;
 
-      // spells
-      // todo: need spell damage data. for simplicity, we're going to assume spells can be cast once
-      // and that spells won't be upcasted (yeah yeah I know about upcasted fireball but you'll just have to)
-      // figure that out yourself
-
       // sort
       data.legendary.sort((a, b) => {
+        return b.damage - a.damage;
+      });
+
+      // spells
+      // for simplicity, we're going to assume spells can be cast once (disregard concentration)
+      // and that spells won't be upcasted (yeah yeah I know about upcasted fireball but you'll just have to
+      // figure that out yourself)
+      // there's a few spellcasting lists... let's combine them
+      const spells = _.union(
+        state.monster.spellcasting.standard,
+        state.monster.spellcasting.atWill.map((a) => a.spells)
+      );
+
+      // got all the ids, get the dataaaaa
+      for (const id of spells) {
+        const spell = getters.allSpells[id];
+
+        // cantrip scaling based on caster level
+        const damage =
+          spell.damage *
+          (spell.level === 0
+            ? Math.max(1, 1 + Math.floor(state.monster.spellcasting.level + 1) / 6)
+            : 1);
+
+        data.spells.push({
+          name: spell.name,
+          damage: spell.multitarget ? damage * 2 : damage,
+          type: 'spell',
+        });
+      }
+
+      data.spells.sort((a, b) => {
         return b.damage - a.damage;
       });
 
