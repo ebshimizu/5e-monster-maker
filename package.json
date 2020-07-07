@@ -15,6 +15,7 @@
     "jsonschema": "^1.2.6",
     "lodash": "^4.17.15",
     "number-to-words": "^1.2.4",
+    "raw-loader": "^4.0.1",
     "uuid": "^8.2.0",
     "vue": "^2.6.11",
     "vuetify": "^2.2.11",

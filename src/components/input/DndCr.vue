@@ -329,7 +329,10 @@
         </div>
       </v-card-title>
       <v-card-text class="py-1 white--text text-center">
-        v{{ $store.getters.majorVersion }}.{{
+        <span @click.stop="oglDialog = true" class="ogl-link"
+          >Open Gaming Licence</span
+        >
+        | v{{ $store.getters.majorVersion }}.{{
           $store.getters.minorVersion
         }}
         build {{ $store.state.buildNumber }} | Created by
@@ -360,6 +363,15 @@
         </v-tooltip>
       </v-card-text>
     </v-card>
+    <v-dialog v-model="oglDialog" max-width="800px">
+      <v-card>
+        <v-card-title>Open Gaming Licence Content</v-card-title>
+        <v-card-subtitle
+          >Some content used under the following license:</v-card-subtitle
+        >
+        <v-card-text v-html="oglText"></v-card-text>
+      </v-card>
+    </v-dialog>
   </v-footer>
 </template>
 
@@ -374,6 +386,7 @@ import {
   CR,
 } from '../../data/CR';
 import { renderBonus } from '../util';
+import ogl from '../../data/OGL.txt';
 import _ from 'lodash';
 
 // unsure if i'll move this into util at some point
@@ -400,6 +413,8 @@ export default {
       crMenuCloseDelay: 100,
       crMenuMaxHeight: '550px',
       crMenuTopOffset: '4px',
+      oglDialog: false,
+      oglText: ogl.replace(/\n/g, '<br />'),
     };
   },
   computed: {
@@ -617,8 +632,8 @@ export default {
         .saveDc - this.offensiveCr.saveDc})`;
     },
     acCrExplain() {
-      return `Defensive CR ${this.acCrDelta} (AC Delta: ${this.acCr
-        .ac - this.defensiveCr.ac})`;
+      return `Defensive CR ${this.acCrDelta} (AC Delta: ${this.acCr.ac -
+        this.defensiveCr.ac})`;
     },
     damageCr() {
       return getCrByDamage(this.damagePerRound);
@@ -1007,5 +1022,10 @@ export default {
 
 .ehp-mod {
   font-size: 14px;
+}
+
+.ogl-link {
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
