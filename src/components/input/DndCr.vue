@@ -8,12 +8,12 @@
         <div class="split">
           <div class="top">
             <span class="small overline">Offensive CR</span>
-            <span class="text-h5 ml-2 cr">{{ offensiveCR.cr }}</span>
+            <span class="text-h5 ml-2 cr">{{ offensiveCr.cr }}</span>
           </div>
           <v-divider></v-divider>
           <div class="bot">
             <span class="overline">Defensive CR</span>
-            <span class="text-h5 ml-2 cr">{{ defensiveCR.cr }}</span>
+            <span class="text-h5 ml-2 cr">{{ defensiveCr.cr }}</span>
           </div>
         </div>
         <v-divider class="mx-2" vertical></v-divider>
@@ -40,7 +40,7 @@
                   <v-avatar left
                     ><v-icon size="18">mdi-sword-cross</v-icon></v-avatar
                   >
-                  {{ Math.floor(damagePerRound) }} (CR {{ damageCR.cr }})
+                  {{ Math.floor(damagePerRound) }} (CR {{ damageCr.cr }})
                 </v-chip>
               </template>
               <v-card width="350px" class="mx-auto" outlined>
@@ -49,8 +49,8 @@
                   Rounds)</v-card-title
                 >
                 <v-card-subtitle
-                  >CR {{ damageCR.cr }}: {{ damageCR.dprMin }} -
-                  {{ damageCR.dprMax }}</v-card-subtitle
+                  >CR {{ damageCr.cr }}: {{ damageCr.dprMin }} -
+                  {{ damageCr.dprMax }}</v-card-subtitle
                 >
                 <v-tabs
                   v-model="dprTab"
@@ -119,14 +119,14 @@
                   <v-avatar left
                     ><v-icon size="18">mdi-bullseye-arrow</v-icon></v-avatar
                   >
-                  {{ maxAttackRender }} ({{ attackCRDelta }} CR)
+                  {{ maxAttackRender }} ({{ attackCrDelta }} CR)
                 </v-chip>
               </template>
               <v-card width="350px" class="mx-auto" outlined>
                 <v-card-title
                   >{{ maxAttackRender }} Max. Attack Bonus</v-card-title
                 >
-                <v-card-subtitle>{{ attackCRExplain }}</v-card-subtitle>
+                <v-card-subtitle>{{ attackCrExplain }}</v-card-subtitle>
                 <v-divider></v-divider>
                 <v-list>
                   <v-list-item
@@ -175,12 +175,12 @@
                   <v-avatar left
                     ><v-icon size="18">mdi-auto-fix</v-icon></v-avatar
                   >
-                  {{ maxDC }} ({{ attackCRDelta }} CR)
+                  {{ maxDc }} ({{ attackCrDelta }} CR)
                 </v-chip>
               </template>
               <v-card width="350px" class="mx-auto" outlined>
-                <v-card-title>DC {{ maxDC }} Max. Save</v-card-title>
-                <v-card-subtitle>{{ dcExplain }}</v-card-subtitle>
+                <v-card-title>DC {{ maxDc }} Max. Save</v-card-title>
+                <v-card-subtitle>{{ dcCrExplain }}</v-card-subtitle>
                 <v-divider></v-divider>
                 <v-list>
                   <v-list-item
@@ -229,7 +229,7 @@
                   <v-avatar left
                     ><v-icon size="18">mdi-hospital</v-icon></v-avatar
                   >
-                  {{ Math.floor(ehp) }} (CR {{ hpCR.cr }})
+                  {{ Math.floor(ehp) }} (CR {{ hpCr.cr }})
                 </v-chip>
               </template>
               <v-card width="350px" class="mx-auto" outlined>
@@ -237,8 +237,8 @@
                   >{{ Math.floor(ehp) }} Effective Hit Points</v-card-title
                 >
                 <v-card-subtitle
-                  >CR {{ hpCR.cr }}: {{ hpCR.hpMin }} -
-                  {{ hpCR.hpMax }}</v-card-subtitle
+                  >CR {{ hpCr.cr }}: {{ hpCr.hpMin }} -
+                  {{ hpCr.hpMax }}</v-card-subtitle
                 >
                 <v-divider></v-divider>
                 <v-list>
@@ -290,7 +290,7 @@
                   <v-avatar left
                     ><v-icon size="18">mdi-shield</v-icon></v-avatar
                   >
-                  {{ Math.floor(eac) }} ({{ acCRDelta }} CR)
+                  {{ Math.floor(eac) }} ({{ acCrDelta }} CR)
                 </v-chip>
               </template>
               <v-card width="350px" class="mx-auto" outlined>
@@ -365,12 +365,12 @@
 
 <script>
 import {
-  getCRByDamage,
-  getCRByAttack,
-  getCRByDC,
-  getCRByNumber,
-  getCRByHP,
-  getCRByAC,
+  getCrByDamage,
+  getCrByAttack,
+  getCrByDc,
+  getCrByNumber,
+  getCrByHp,
+  getCrByAc,
   CR,
 } from '../../data/CR';
 import { renderBonus } from '../util';
@@ -410,8 +410,8 @@ export default {
       return this.$store.getters.attackInfo;
     },
     estimatedCR() {
-      return getCRByNumber(
-        (this.offensiveCR.numeric + this.defensiveCR.numeric) / 2
+      return getCrByNumber(
+        (this.offensiveCr.numeric + this.defensiveCr.numeric) / 2
       );
     },
     // an array of the highest damage actions/traits per round for up to 5 rounds
@@ -522,7 +522,7 @@ export default {
     filteredDcActions() {
       return this.dcActions.filter((a) => a.save > 0);
     },
-    maxDC() {
+    maxDc() {
       if (this.dcActions.length === 0) return 0;
 
       return this.dcActions[0].save;
@@ -568,18 +568,18 @@ export default {
     maxAttackRender() {
       return renderBonus(this.maxAttack);
     },
-    offensiveCR() {
-      const damageCRStep = this.damageCR.index;
+    offensiveCr() {
+      const damageCRStep = this.damageCr.index;
 
       // branching cases based on higher dc or attack mod
       let stepDelta = 0;
-      if (this.useDC) {
+      if (this.useDc) {
         // DC
         // get the delta between the DC suggested by damage output and the max DC for this creature
-        stepDelta = this.maxDC - this.damageCR.saveDc;
+        stepDelta = this.maxDc - this.damageCr.saveDc;
       } else {
         // get delta between the attack mod suggested by damage output and the max bonus for this creature
-        stepDelta = this.maxAttack - this.damageCR.attack;
+        stepDelta = this.maxAttack - this.damageCr.attack;
       }
 
       stepDelta /= 2;
@@ -592,50 +592,50 @@ export default {
 
       return CR[Math.max(0, Math.min(CR.length, offensiveStep))];
     },
-    useDC() {
-      return this.dcCR.numeric >= this.attackCR.numeric;
+    useDc() {
+      return this.dcCr.numeric >= this.attackCr.numeric;
     },
-    dcCR() {
-      return getCRByDC(this.maxDC);
+    dcCr() {
+      return getCrByDc(this.maxDc);
     },
-    attackCR() {
-      return getCRByAttack(this.maxAttack);
+    attackCr() {
+      return getCrByAttack(this.maxAttack);
     },
-    attackCRDelta() {
-      const delta = this.offensiveCR.numeric - this.damageCR.numeric;
+    attackCrDelta() {
+      const delta = this.offensiveCr.numeric - this.damageCr.numeric;
       return renderBonus(delta.toLocaleString());
     },
-    attackCRExplain() {
-      if (this.useDC) return `Inactive. Save DC has a higher expected CR.`;
+    attackCrExplain() {
+      if (this.useDc) return `Inactive. Save DC has a higher expected CR.`;
 
-      return `Offensive CR ${this.attackCRDelta} (Attack Bonus Delta: ${this
-        .attackCR.attack - this.offensiveCR.attack})`;
+      return `Offensive CR ${this.attackCrDelta} (Attack Bonus Delta: ${this
+        .attackCr.attack - this.offensiveCr.attack})`;
     },
-    dcExplain() {
-      if (!this.useDC) return 'Inactive. Attack Bonus has a higher expected CR';
+    dcCrExplain() {
+      if (!this.useDc) return 'Inactive. Attack Bonus has a higher expected CR';
 
-      return `Offensive CR ${this.attackCRDelta} (Save DC Delta: ${this.dcCR
-        .saveDc - this.offensiveCR.saveDc})`;
+      return `Offensive CR ${this.attackCrDelta} (Save DC Delta: ${this.dcCr
+        .saveDc - this.offensiveCr.saveDc})`;
     },
     acCrExplain() {
-      return `Defensive CR ${this.acCRDelta} (AC Delta: ${this.acCR
-        .ac - this.defensiveCR.ac})`;
+      return `Defensive CR ${this.acCrDelta} (AC Delta: ${this.acCr
+        .ac - this.defensiveCr.ac})`;
     },
-    damageCR() {
-      return getCRByDamage(this.damagePerRound);
+    damageCr() {
+      return getCrByDamage(this.damagePerRound);
     },
     attackChipColor() {
-      return !this.useDC ? 'red darken-4' : 'gray darken-1';
+      return !this.useDc ? 'red darken-4' : 'gray darken-1';
     },
     dcChipColor() {
-      return this.useDC ? 'red darken-4' : 'gray darken-1';
+      return this.useDc ? 'red darken-4' : 'gray darken-1';
     },
     ehpModifierList() {
       // renders out modifiers and multipliers to a list for display
       const mods = [];
 
-      const resMult = this.resMultiplier(this.offensiveCR.numeric);
-      const immuneMult = this.immuneMultiplier(this.offensiveCR.numeric);
+      const resMult = this.resMultiplier(this.offensiveCr.numeric);
+      const immuneMult = this.immuneMultiplier(this.offensiveCr.numeric);
       const vulnMult = this.vulnMultiplier();
 
       // multipliers
@@ -644,7 +644,7 @@ export default {
           title: 'Resistances',
           subtitle: `${this.monster.resistances.length} Resistance${
             this.monster.resistances.length === 1 ? '' : 's'
-          } at CR ${this.offensiveCR.cr}`,
+          } at CR ${this.offensiveCr.cr}`,
           value: `x${resMult}`,
           type: 'HP',
         });
@@ -655,7 +655,7 @@ export default {
           title: 'Immunities',
           subtitle: `${this.monster.immunities.length} Immunit${
             this.monster.immunities.length === 1 ? 'y' : 'ies'
-          } at CR ${this.offensiveCR.cr}`,
+          } at CR ${this.offensiveCr.cr}`,
           value: `x${immuneMult}`,
           type: 'HP',
         });
@@ -666,7 +666,7 @@ export default {
           title: 'Vulnerabilities',
           subtitle: `${this.monster.vulnerabilities.length} Vulnerabilit${
             this.monster.vulnerabilities.length === 1 ? 'y' : 'ies'
-          } at CR ${this.offensiveCR.cr}`,
+          } at CR ${this.offensiveCr.cr}`,
           value: `x${immuneMult}`,
           type: 'HP',
         });
@@ -746,8 +746,8 @@ export default {
       // resistances and immunities
       // combine the multipliers
       const resMult =
-        this.resMultiplier(this.offensiveCR.numeric) *
-        this.immuneMultiplier(this.offensiveCR.numeric) *
+        this.resMultiplier(this.offensiveCr.numeric) *
+        this.immuneMultiplier(this.offensiveCr.numeric) *
         this.vulnMultiplier();
       ehp *= resMult;
 
@@ -852,23 +852,23 @@ export default {
 
       return eac;
     },
-    hpCR() {
-      return getCRByHP(this.ehp);
+    hpCr() {
+      return getCrByHp(this.ehp);
     },
-    acCR() {
-      return getCRByAC(this.eac);
+    acCr() {
+      return getCrByAc(this.eac);
     },
-    acCRDelta() {
-      const delta = this.defensiveCR.numeric - this.hpCR.numeric;
+    acCrDelta() {
+      const delta = this.defensiveCr.numeric - this.hpCr.numeric;
       return renderBonus(delta.toLocaleString());
     },
-    defensiveCR() {
+    defensiveCr() {
       // so the actual cr is a lil funky here
       // first get the CR step suggested by ehp
-      const ehpStep = this.hpCR.index;
+      const ehpStep = this.hpCr.index;
 
       // then, get the delta between ehp's CR AC and the effective AC
-      const acDelta = (this.eac - this.hpCR.ac) / 2;
+      const acDelta = (this.eac - this.hpCr.ac) / 2;
 
       // adjust the cr step
       const defensiveStep =

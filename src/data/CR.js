@@ -452,7 +452,7 @@ export const CR_SELECT = CR.map((cr, idx) => {
 });
 
 // the cr retrieval functions are a disaster let's fix that
-function getCRByRange(value, field) {
+function getCrByRange(value, field) {
   // first, we floor the value to ensure integers
   value = Math.floor(value);
 
@@ -468,26 +468,26 @@ function getCRByRange(value, field) {
   else return CR[CR.length - 1];
 }
 
-export function getCRByDamage(damage) {
-  return getCRByRange(damage, 'dprMin');
+export function getCrByDamage(damage) {
+  return getCrByRange(damage, 'dprMin');
 }
 
-export function getCRByDC(dc) {
-  return getCRByRange(dc, 'saveDc');
+export function getCrByDc(dc) {
+  return getCrByRange(dc, 'saveDc');
 }
 
-export function getCRByAttack(attack) {
-  return getCRByRange(attack, 'attack');
+export function getCrByAttack(attack) {
+  return getCrByRange(attack, 'attack');
 }
 
-export function getCRByNumber(number) {
-  return getCRByRange(number, 'numeric');
+export function getCrByNumber(number) {
+  return getCrByRange(number, 'numeric');
 }
 
-export function getCRByHP(hp) {
-  return getCRByRange(hp, 'hpMin');
+export function getCrByHp(hp) {
+  return getCrByRange(hp, 'hpMin');
 }
 
-export function getCRByAC(ac) {
-  return getCRByRange(ac, 'ac');
+export function getCrByAc(ac) {
+  return getCrByRange(ac, 'ac');
 }
