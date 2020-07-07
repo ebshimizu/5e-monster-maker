@@ -3,7 +3,9 @@
     <v-expansion-panel-header>
       <v-row no-gutters>
         <v-col cols="4">{{ attack.name }}</v-col>
-        <v-col cols="8" class="text--secondary d-flex justify-end pr-2">{{ summary }}</v-col>
+        <v-col cols="8" class="text--secondary d-flex justify-end pr-2">{{
+          summary
+        }}</v-col>
       </v-row>
     </v-expansion-panel-header>
     <v-expansion-panel-content>
@@ -18,14 +20,50 @@
             v-model="targets"
           ></v-text-field
         ></v-col>
-        <v-col cols="1"
-          ><v-text-field
-            label="To Hit"
-            v-model="modifier"
-            type="number"
-            :disabled="!attack.modifier.override"
-          ></v-text-field
-        ></v-col>
+        <v-col cols="3">
+          <v-row no-gutters align="center">
+            <v-col>
+              <v-text-field
+                label="To Hit"
+                v-model="modifier"
+                type="number"
+                :disabled="!modifierOverride"
+              ></v-text-field
+            ></v-col>
+            <v-col md="auto">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    fab
+                    x-small
+                    :color="activeColor(modifierProf)"
+                    v-on="on"
+                    @click="modifierProf = !modifierProf"
+                    class="ml-1"
+                    ><v-icon>mdi-wizard-hat</v-icon></v-btn
+                  >
+                </template>
+                Proficient
+              </v-tooltip>
+            </v-col>
+            <v-col md="auto">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    fab
+                    x-small
+                    :color="activeColor(modifierOverride)"
+                    v-on="on"
+                    @click="modifierOverride = !modifierOverride"
+                    class="ml-1"
+                    ><v-icon>mdi-hammer-wrench</v-icon></v-btn
+                  >
+                </template>
+                Override Attack Modifier
+              </v-tooltip>
+            </v-col>
+          </v-row>
+        </v-col>
         <v-col cols="2"
           ><v-select
             label="Stat"
@@ -34,12 +72,14 @@
           ></v-select
         ></v-col>
         <v-col cols="2"
-          ><v-switch label="Proficient" v-model="modifierProf"></v-switch
+          ><v-text-field
+            label="Effect DC"
+            type="number"
+            hint="Helps Estimate CR"
+            v-model="save"
+          ></v-text-field
         ></v-col>
-        <v-col cols="2"
-          ><v-switch label="Override" v-model="modifierOverride"></v-switch
-        ></v-col>
-        <v-col cols="2"
+        <v-col cols="4"
           ><v-select
             label="Range"
             :items="rangeTypes"
@@ -77,22 +117,13 @@
             v-model="long"
           ></v-text-field
         ></v-col>
-        <v-spacer></v-spacer>
-        <v-col cols="2"
-          ><v-text-field
-            label="Effect DC"
-            type="number"
-            hint="Helps Estimate CR"
-            v-model="save"
-          ></v-text-field
-        ></v-col>
         <v-col cols="12">
           <v-card outlined>
             <v-card-title class="overline pt-2 px-2 pb-0 mb-n4"
               >Primary Damage</v-card-title
             >
             <v-row class="px-2">
-              <v-col cols="1"
+              <v-col cols="2"
                 ><v-text-field
                   label="Dice"
                   type="number"
@@ -107,33 +138,47 @@
                   v-model="primaryDice"
                 ></v-select
               ></v-col>
-              <v-col cols="2"
+              <v-col cols="3"
                 ><v-combobox
                   label="Damage"
                   :items="damageTypes"
                   v-model="primaryType"
                 ></v-combobox
               ></v-col>
-              <v-col cols="2"
-                ><v-text-field
-                  label="Damage Bonus"
-                  v-model="primaryBonus"
-                  :disabled="!attack.damage.modifier.override"
-                  type="number"
-                ></v-text-field
-              ></v-col>
+              <v-col cols="3">
+                <v-row no-gutters align="center">
+                  <v-col>
+                    <v-text-field
+                      label="Damage Bonus"
+                      v-model="primaryBonus"
+                      :disabled="!primaryOverride"
+                      type="number"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col md="auto">
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          fab
+                          x-small
+                          :color="activeColor(primaryOverride)"
+                          v-on="on"
+                          @click="primaryOverride = !primaryOverride"
+                          class="ml-1"
+                          ><v-icon>mdi-hammer-wrench</v-icon></v-btn
+                        >
+                      </template>
+                      Override Damage Bonus
+                    </v-tooltip>
+                  </v-col>
+                </v-row>
+              </v-col>
               <v-col cols="2"
                 ><v-select
                   label="Stat"
                   :items="statTypes"
                   v-model="primaryStat"
                 ></v-select
-              ></v-col>
-              <v-col cols="3"
-                ><v-switch
-                  label="Manual Bonus"
-                  v-model="primaryOverride"
-                ></v-switch
               ></v-col>
             </v-row>
           </v-card>
@@ -213,7 +258,7 @@
                   v-model="alternateCondition"
                 ></v-text-field
               ></v-col>
-              <v-col cols="1"
+              <v-col cols="2"
                 ><v-text-field
                   label="Dice"
                   type="number"
@@ -221,7 +266,7 @@
                   v-model="alternateCount"
                 ></v-text-field
               ></v-col>
-              <v-col cols="2"
+              <v-col cols="3"
                 ><v-select
                   label="Type"
                   :items="diceTypes"
@@ -235,26 +280,40 @@
                   v-model="alternateType"
                 ></v-combobox
               ></v-col>
-              <v-col cols="2"
-                ><v-text-field
-                  label="Damage Bonus"
-                  v-model="alternateBonus"
-                  :disabled="!attack.alternateDamage.modifier.override"
-                  type="number"
-                ></v-text-field
-              ></v-col>
+              <v-col cols="3">
+                <v-row no-gutters align="center">
+                  <v-col>
+                    <v-text-field
+                      label="Damage Bonus"
+                      v-model="alternateBonus"
+                      :disabled="!alternateOverride"
+                      type="number"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col md="auto">
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          fab
+                          x-small
+                          :color="activeColor(alternateOverride)"
+                          v-on="on"
+                          @click="alternateOverride = !alternateOverride"
+                          class="ml-1"
+                          ><v-icon>mdi-hammer-wrench</v-icon></v-btn
+                        >
+                      </template>
+                      Override Damage Bonus
+                    </v-tooltip>
+                  </v-col>
+                </v-row>
+              </v-col>
               <v-col cols="2"
                 ><v-select
                   label="Stat"
                   :items="statTypes"
                   v-model="alternateStat"
                 ></v-select
-              ></v-col>
-              <v-col cols="3"
-                ><v-switch
-                  label="Manual Bonus"
-                  v-model="alternateOverride"
-                ></v-switch
               ></v-col>
             </v-row>
             <v-card-actions>
@@ -585,8 +644,10 @@ export default {
       return this.attack.alternateDamage.active ? 'Disable' : 'Enable';
     },
     summary() {
-      return `${this.$store.getters.expectedAttackDamage(this.attack)} Avg. Damage per Hit`;
-    }
+      return `${this.$store.getters.expectedAttackDamage(
+        this.attack
+      )} Avg. Damage per Hit`;
+    },
   },
   created() {
     this.update = _.debounce(this.debouncedUpdate, 250);
@@ -616,6 +677,12 @@ export default {
     },
     deleteAttack() {
       this.$store.commit(MUTATION.DELETE_ATTACK, this.index);
+    },
+    activeColor(status) {
+      return status ? 'blue' : 'grey';
+    },
+    toggleAttackOverride() {
+      this.modifierOverride = !this.modifierOverride;
     },
   },
 };

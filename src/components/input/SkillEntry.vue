@@ -1,7 +1,7 @@
 <template>
-  <v-col cols="6">
+  <v-col xs="12" sm="12" md="12" lg="6">
     <v-row align="center" no-gutters>
-      <v-col cols="3" class="pr-2">
+      <v-col cols="4" class="pr-2">
         <v-subheader>{{ skill.skill.key }}</v-subheader>
       </v-col>
       <v-col class="pr-2"
