@@ -284,6 +284,7 @@ import { DICE_SELECT } from '../../data/DICE';
 import { STAT_SELECT } from '../../data/STAT';
 import { MUTATION } from '../../data/ACTIONS';
 import { statModifier, newAttackAdditionalDamage } from '../util';
+import _ from 'lodash';
 
 export default {
   name: 'AttackPanel',
@@ -587,6 +588,9 @@ export default {
       return `${this.$store.getters.expectedAttackDamage(this.attack)} Avg. Damage per Hit`;
     }
   },
+  created() {
+    this.update = _.debounce(this.debouncedUpdate, 250);
+  },
   methods: {
     updateAdd(index, key, val) {
       this.attack.additionalDamage[index][key] = val;
@@ -604,7 +608,7 @@ export default {
       this.attack.alternateDamage.active = !this.attack.alternateDamage.active;
       this.update();
     },
-    update() {
+    debouncedUpdate() {
       this.$store.commit(MUTATION.SET_ATTACK, {
         attack: this.attack,
         index: this.index,

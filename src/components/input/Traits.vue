@@ -166,6 +166,7 @@
 import { MUTATION } from '../../data/ACTIONS';
 import { newTrait } from '../util';
 import { AT_WILL_DEFAULT_RATES } from '../../data/SPELLS';
+import _ from 'lodash';
 
 export default {
   name: 'Traits',
@@ -179,8 +180,11 @@ export default {
       return this.$store.state.monster.traits;
     },
   },
+  created() {
+    this.update = _.debounce(this.debouncedUpdate, 250);
+  },
   methods: {
-    update() {
+    debouncedUpdate() {
       this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
         key: 'traits',
         value: this.traits,

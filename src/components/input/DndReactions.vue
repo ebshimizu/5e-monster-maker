@@ -58,6 +58,7 @@
 <script>
 import { MUTATION } from '../../data/ACTIONS';
 import { newReaction } from '../util';
+import _ from 'lodash';
 
 export default {
   name: 'DndReactions',
@@ -66,8 +67,11 @@ export default {
       return this.$store.state.monster.reactions;
     },
   },
+  created() {
+    this.update = _.debounce(this.debouncedUpdate, 250);
+  },
   methods: {
-    update() {
+    debouncedUpdate() {
       this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
         key: 'reactions',
         value: this.reactions,
