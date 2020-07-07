@@ -6,11 +6,11 @@
     <skills />
     <damage-types />
     <senses />
+    <traits />
+    <spellcasting />
     <attacks />
     <other-actions />
     <multiattack />
-    <spellcasting />
-    <traits />
     <legendary-actions />
     <dnd-reactions />
   </v-expansion-panels>

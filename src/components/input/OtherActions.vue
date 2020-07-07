@@ -1,6 +1,6 @@
 <template>
   <v-expansion-panel>
-    <v-expansion-panel-header>Other Actions</v-expansion-panel-header>
+    <v-expansion-panel-header>Actions</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-2">
       <v-row>
         <v-col cols="12">
