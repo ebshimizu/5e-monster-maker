@@ -410,9 +410,8 @@ export default {
       return this.$store.getters.attackInfo;
     },
     estimatedCR() {
-      return getCrByNumber(
-        (this.offensiveCr.numeric + this.defensiveCr.numeric) / 2
-      );
+      const avgCr = (this.offensiveCr.numeric + this.defensiveCr.numeric) / 2;
+      return getCrByNumber(avgCr);
     },
     // an array of the highest damage actions/traits per round for up to 5 rounds
     actionSequence() {

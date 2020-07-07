@@ -295,7 +295,7 @@ const rawCR = [
     dprMin: 117,
     dprMax: 122,
     saveDc: 19,
-    numeric: 18,
+    numeric: 19,
     xp: 22000,
   },
   {
