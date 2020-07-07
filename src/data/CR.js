@@ -485,7 +485,7 @@ export function getCRByAttack(attack) {
 }
 
 export function getCRByNumber(number) {
-  if (number > 1) number = Math.round(number);
+  if (number > 1) number = Math.floor(number);
   if (number >= 30) return CR[CR.length - 1];
 
   for (const cr of CR) {
@@ -515,4 +515,8 @@ export function getCRByAC(ac) {
   }
 
   return CR[0];
+}
+
+export function getCRStep(cr) {
+  return CR.findIndex(c => c.cr === cr.cr);
 }

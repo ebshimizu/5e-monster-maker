@@ -96,22 +96,22 @@
             </v-menu>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-chip small v-on="on" class="ma-2" color="red darken-4">
+                <v-chip small v-on="on" class="ma-2" :color="attackChipColor">
                   <v-avatar left
                     ><v-icon size="18">mdi-bullseye-arrow</v-icon></v-avatar
                   >
-                  {{ maxAttackRender }} (CR {{ attackCR.cr }})
+                  {{ maxAttackRender }} ({{ attackCRDelta }} CR)
                 </v-chip>
               </template>
               Max. Attack Bonus
             </v-tooltip>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-chip small v-on="on" class="ma-2" color="red darken-4">
+                <v-chip small v-on="on" class="ma-2" :color="dcChipColor">
                   <v-avatar left
                     ><v-icon size="18">mdi-auto-fix</v-icon></v-avatar
                   >
-                  {{ maxDC }} (CR {{ dcCR.cr }})
+                  {{ maxDC }} ({{ attackCRDelta }} CR)
                 </v-chip>
               </template>
               Max. Save DC
@@ -135,7 +135,7 @@
                   <v-avatar left
                     ><v-icon size="18">mdi-shield</v-icon></v-avatar
                   >
-                  {{ Math.round(eac) }} (CR {{ acCR.cr }})
+                  {{ Math.round(eac) }} ({{ acCRDelta }} CR)
                 </v-chip>
               </template>
               Effective AC
@@ -187,6 +187,8 @@ import {
   getCRByNumber,
   getCRByHP,
   getCRByAC,
+  getCRStep,
+  CR,
 } from '../../data/CR';
 import { renderBonus } from '../util';
 
@@ -385,13 +387,22 @@ export default {
       return renderBonus(this.maxAttack);
     },
     offensiveCR() {
-      // average it, but pull the max of attack or DC CR (you can use one or the other)
-      const avgCR =
-        (Math.max(this.dcCR.numeric, this.attackCR.numeric) +
-          this.damageCR.numeric) /
-        2;
+      const damageCRStep = getCRStep(this.damageCR);
 
-      return getCRByNumber(avgCR);
+      // branching cases based on higher dc or attack mod
+      let stepDelta = 0;
+      if (this.dcCR.numeric > this.attackCR.numeric) {
+        // DC
+        // get the delta between the DC suggested by damage output and the max DC for this creature
+        stepDelta = this.maxDC - this.damageCR.saveDc;
+      } else {
+        // get delta between the attack mod suggested by damage output and the max bonus for this creature
+        stepDelta = this.maxAttack - this.damageCR.attack;
+      }
+
+      // final cr is then
+      const offensiveStep = damageCRStep + Math.floor(stepDelta / 2);
+      return CR[Math.max(0, Math.min(CR.length, offensiveStep))];
     },
     dcCR() {
       return getCRByDC(this.maxDC);
@@ -399,8 +410,18 @@ export default {
     attackCR() {
       return getCRByAttack(this.maxAttack);
     },
+    attackCRDelta() {
+      const delta = this.offensiveCR.numeric - this.damageCR.numeric;
+      return renderBonus(delta.toLocaleString());
+    },
     damageCR() {
       return getCRByDamage(this.damagePerRound);
+    },
+    attackChipColor() {
+      return this.attackCR.numeric >= this.dcCR.numeric ? 'red darken-4' : 'gray darken-1';
+    },
+    dcChipColor() {
+      return this.dcCR.numeric >= this.attackCR.numeric ? 'red darken-4' : 'gray darken-1';
     },
     ehp() {
       // ehp actually kinda needs a CR estimate first, so assuming we don't have that, we will base expected CR on attacks
@@ -480,9 +501,23 @@ export default {
     acCR() {
       return getCRByAC(this.eac);
     },
+    acCRDelta() {
+      const delta = this.defensiveCR.numeric - this.hpCR.numeric;
+      return renderBonus(delta.toLocaleString());
+    },
     defensiveCR() {
-      // average the other crs
-      return getCRByNumber((this.hpCR.numeric + this.acCR.numeric) / 2);
+      // so the actual cr is a lil funky here
+      // first get the CR step suggested by ehp
+      const ehpStep = getCRStep(this.hpCR);
+
+      // then, get the delta between ehp's CR AC and the effective AC
+      const acDelta = this.eac - this.hpCR.ac;
+
+      // adjust the cr step
+      const defensiveStep = ehpStep + Math.floor(acDelta / 2);
+
+      // return the proper cr object, clamping to 0/CR max length
+      return CR[Math.max(0, Math.min(CR.length - 1, defensiveStep))];
     },
   },
   methods: {
