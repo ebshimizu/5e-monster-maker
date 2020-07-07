@@ -22,8 +22,12 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <div class="skill"><span class="name">Saving Throws</span> {{ saves }}</div>
-    <div class="skill"><span class="name">Skills</span> {{ skills }}</div>
+    <div class="skill" v-show="saves !== ''">
+      <span class="name">Saving Throws</span> {{ saves }}
+    </div>
+    <div class="skill" v-show="monster.skills.length > 0">
+      <span class="name">Skills</span> {{ skills }}
+    </div>
     <div class="skill" v-show="this.monster.resistances.length > 0">
       <span class="name">Damage Resistances</span> {{ resistances }}
     </div>
@@ -37,7 +41,7 @@
       <span class="name">Condition Immunities</span> {{ conditions }}
     </div>
     <div class="skill"><span class="name">Senses</span> {{ senses }}</div>
-    <div class="skill">
+    <div class="skill" v-show="monster.languages !== ''">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
     <div class="skill"><span class="name">Challenge</span> {{ cr }}</div>
