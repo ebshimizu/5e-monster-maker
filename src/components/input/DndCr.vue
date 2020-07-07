@@ -19,17 +19,81 @@
         <v-divider class="mx-2" vertical></v-divider>
         <div class="split chips">
           <div class="top">
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-chip small v-on="on" class="ma-2" color="red darken-4">
+            <v-menu
+              :close-on-content-click="false"
+              open-on-hover
+              close-delay="500"
+              right
+              eager
+              nudge-right="10px"
+              offset-x
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  small
+                  v-on="on"
+                  v-bind="attrs"
+                  class="ma-2"
+                  color="red darken-4"
+                >
                   <v-avatar left
                     ><v-icon size="18">mdi-sword-cross</v-icon></v-avatar
                   >
                   {{ Math.round(damagePerRound) }} (CR {{ damageCR.cr }})
                 </v-chip>
               </template>
-              Avg. Damage over Three Rounds
-            </v-tooltip>
+              <v-card width="350px" class="mx-auto" outlined>
+                <v-card-title>{{ Math.round(damagePerRound) }} Average Damage (3 Rounds)</v-card-title>
+                <v-card-subtitle
+                  >CR {{ damageCR.cr }}: {{ damageCR.dprMin }} -
+                  {{ damageCR.dprMax }}</v-card-subtitle
+                >
+                <v-tabs
+                  v-model="dprTab"
+                  background-color="red darken-4"
+                  color="white"
+                  class="elevation-2"
+                  fixed-tabs
+                >
+                  <v-tab v-for="(round, idx) in actionSequence" :key="idx">
+                    Round {{ idx + 1 }}
+                  </v-tab>
+                </v-tabs>
+
+                <v-tabs-items v-model="dprTab">
+                  <v-tab-item v-for="(round, idx) in actionSequence" :key="idx">
+                    <v-list>
+                      <v-list-item
+                        ><v-list-item-content
+                          ><v-list-item-title class="overline"
+                            >{{ round.totalDamage }} Total
+                            Damage</v-list-item-title
+                          ></v-list-item-content
+                        ></v-list-item
+                      >
+                      <v-divider></v-divider>
+                      <v-list-item
+                        v-for="(action, idx) in round.actions"
+                        :key="`${action.name}-${action.type}-${idx}`"
+                      >
+                        <v-list-item-avatar
+                          :color="actionTypeColor(action.type)"
+                          >{{ action.damage }}</v-list-item-avatar
+                        >
+                        <v-list-item-content
+                          ><v-list-item-title>{{
+                            action.name
+                          }}</v-list-item-title
+                          ><v-list-item-subtitle>{{
+                            action.type
+                          }}</v-list-item-subtitle></v-list-item-content
+                        >
+                      </v-list-item>
+                    </v-list>
+                  </v-tab-item>
+                </v-tabs-items>
+              </v-card>
+            </v-menu>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
                 <v-chip small v-on="on" class="ma-2" color="red darken-4">
@@ -126,6 +190,16 @@ import {
 } from '../../data/CR';
 import { renderBonus } from '../util';
 
+// unsure if i'll move this into util at some point
+const ACTION_COLOR = {
+  Attack: 'red darken-4',
+  Multiattack: 'red darken-4',
+  Action: 'amber darken-4',
+  Trait: 'teal darken-4',
+  Legendary: 'cyan darken-4',
+  Spell: 'deep-purple darken-4',
+};
+
 // CR's kinda complicated. The app will be able to work in multiple modes:
 // - manual CR input
 // - automatic CR estimation (manual proficiency modifier)
@@ -133,6 +207,11 @@ import { renderBonus } from '../util';
 // the estimated CR will be output in this panel as well
 export default {
   name: 'DndCr',
+  data() {
+    return {
+      dprTab: null,
+    };
+  },
   computed: {
     proficiency: {
       get() {
@@ -167,9 +246,9 @@ export default {
         data.legendaryCount
       );
 
-      // for 5 rounds
+      // for 3 rounds
       const sequence = [];
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 3; i++) {
         const round = { totalDamage: 0, actions: [] };
 
         // check highest damage actions and attacks
@@ -191,7 +270,7 @@ export default {
               // attacks can't be limited use so this has to be an action if limited exists
               data.actions.splice(0, 1);
             }
-          } else if (action.type === 'spell') {
+          } else if (action.type === 'Spell') {
             // spells just get deleted byeeeeee
             data.spells.splice(0, 1);
           }
@@ -201,14 +280,15 @@ export default {
         // assume stuff that adds bonus damage (like a smite) applies once per round (which might low-ball this estimate),
         // but is much simpler to handle than doing once per attack or somethin
         for (const trait of data.traits) {
-          // don't need to check inclusion, handled by attackInfo
-          trait.remove = false;
-          round.actions.push(trait);
-          round.totalDamage += trait.damage;
+          if (trait.damage > 0) {
+            // don't need to check inclusion, handled by attackInfo
+            round.actions.push(trait);
+            round.totalDamage += trait.damage;
 
-          if (trait.limited && trait.uses > 0) {
-            trait.uses -= 1;
-            trait.remove = trait.uses <= 0;
+            if (trait.limited && trait.uses > 0) {
+              trait.uses -= 1;
+              trait.remove = trait.uses <= 0;
+            }
           }
         }
         data.traits = data.traits.filter((t) => !t.remove);
@@ -422,13 +502,17 @@ export default {
       return allActions[0];
     },
     legendaryCombo(la, count) {
+      const returnData = { totalDamage: 0, actions: [] };
+
+      if (la.length === 0)
+        return returnData;
+
       // returns the highest damage per round combo of actions
       // assuming everything can be used multiple times per round right now, ignoring limited use data (?)
       // find the highest cost item and associated damage
       // repeat until we run out of actions to take
       let currentActions = Array.from(la);
-      const returnData = { totalDamage: 0, actions: [] };
-      while (count > 0) {
+      while (count > 0 && currentActions.length > 0) {
         let highestCost = 1;
         let highestCostDamage = 0;
 
@@ -490,6 +574,10 @@ export default {
       if (count < 5) return 2;
 
       return 4;
+    },
+    actionTypeColor(type) {
+      // i kinda should make this an enum...
+      return ACTION_COLOR[type];
     },
   },
 };

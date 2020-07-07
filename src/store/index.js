@@ -192,19 +192,31 @@ export default new Vuex.Store({
           damage: getters.expectedAttackDamage(attack),
           toHit: getters.fullToHitBonus(attack.modifier),
           save: attack.save,
-          type: 'attack',
+          type: 'Attack',
         });
       }
 
       // multi
       for (const idx in state.monster.multiattacks) {
         // multiattacks have no modifiers
+        // get attack/action names
+        const ma = state.monster.multiattacks[idx];
+
+        const attackNames =
+          ma.attacks.length > 0
+            ? ma.attacks.map((id) => getters.attackFromId(id).name).join(', ')
+            : [];
+        const actionNames =
+          ma.actions.length > 0
+            ? ma.actions.map((id) => getters.actionFromId(id).name).join(', ')
+            : [];
+
         data.attacks.push({
-          name: `Multiattack Group ${idx + 1}`,
+          name: `Multiattack: ${[].concat(attackNames, actionNames).join(', ')}`,
           damage: getters.multiattackDamage(state.monster.multiattacks[idx]),
           save: 0,
           toHit: 0,
-          type: 'multiattack',
+          type: 'Multiattack',
         });
       }
 
@@ -233,7 +245,7 @@ export default new Vuex.Store({
                 : action.limitedUse.count,
             save: action.crAnnotation.maxSave,
             toHit: action.crAnnotation.maxModifier,
-            type: 'action',
+            type: 'Action',
           });
         }
       }
@@ -256,7 +268,8 @@ export default new Vuex.Store({
             uses: trait.limitedUse.count,
             save: trait.crAnnotation.maxSave,
             toHit: trait.crAnnotation.maxModifier,
-            type: 'trait',
+            remove: false,
+            type: 'Trait',
           });
         }
       }
@@ -286,7 +299,7 @@ export default new Vuex.Store({
               save: action.crAnnotation.maxSave,
               toHit: action.crAnnotation.maxModifier,
               cost: la.cost,
-              type: 'legendary',
+              type: 'Legendary',
             });
           }
         } else {
@@ -298,7 +311,7 @@ export default new Vuex.Store({
             toHit: getters.fullToHitBonus(attack.modifier),
             save: attack.save,
             cost: la.cost,
-            type: 'legendary',
+            type: 'Legendary',
           });
         }
       }
@@ -327,13 +340,16 @@ export default new Vuex.Store({
         const damage =
           spell.damage *
           (spell.level === 0
-            ? Math.max(1, 1 + Math.floor(state.monster.spellcasting.level + 1) / 6)
+            ? Math.max(
+                1,
+                1 + Math.floor(state.monster.spellcasting.level + 1) / 6
+              )
             : 1);
 
         data.spells.push({
           name: spell.name,
           damage: spell.multitarget ? damage * 2 : damage,
-          type: 'spell',
+          type: 'Spell',
         });
       }
 
