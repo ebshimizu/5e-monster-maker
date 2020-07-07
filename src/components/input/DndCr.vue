@@ -43,7 +43,10 @@
                 </v-chip>
               </template>
               <v-card width="350px" class="mx-auto" outlined>
-                <v-card-title>{{ Math.round(damagePerRound) }} Average Damage (3 Rounds)</v-card-title>
+                <v-card-title
+                  >{{ Math.round(damagePerRound) }} Average Damage (3
+                  Rounds)</v-card-title
+                >
                 <v-card-subtitle
                   >CR {{ damageCR.cr }}: {{ damageCR.dprMin }} -
                   {{ damageCR.dprMax }}</v-card-subtitle
@@ -94,17 +97,61 @@
                 </v-tabs-items>
               </v-card>
             </v-menu>
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-chip small v-on="on" class="ma-2" :color="attackChipColor">
+            <v-menu
+              :close-on-content-click="false"
+              open-on-hover
+              close-delay="500"
+              right
+              eager
+              nudge-right="10px"
+              offset-x
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-chip
+                  small
+                  v-on="on"
+                  v-bind="attrs"
+                  class="ma-2"
+                  :color="attackChipColor"
+                >
                   <v-avatar left
                     ><v-icon size="18">mdi-bullseye-arrow</v-icon></v-avatar
                   >
                   {{ maxAttackRender }} ({{ attackCRDelta }} CR)
                 </v-chip>
               </template>
-              Max. Attack Bonus
-            </v-tooltip>
+              <v-card width="350px" class="mx-auto" outlined>
+                <v-card-title
+                  >{{ maxAttackRender }} Max. Attack Bonus</v-card-title
+                >
+                <v-card-subtitle>{{ attackCRExplain }}</v-card-subtitle>
+                <v-divider></v-divider>
+                <v-list>
+                  <v-list-item
+                    v-for="(action, idx) in filteredToHitActions"
+                    :key="`${action.name}-${action.type}-${idx}`"
+                  >
+                    <v-list-item-avatar :color="actionTypeColor(action.type)">{{
+                      action.toHitRender
+                    }}</v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ action.name }}</v-list-item-title>
+                      <v-list-item-subtitle>{{
+                        action.type
+                      }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-content class="subtitle-2"
+                      >{{
+                        toHitActions.length - filteredToHitActions.length
+                      }}
+                      Actions with +0 or less</v-list-item-content
+                    >
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-menu>
             <v-tooltip top>
               <template v-slot:activator="{ on }">
                 <v-chip small v-on="on" class="ma-2" :color="dcChipColor">
@@ -190,6 +237,7 @@ import {
   CR,
 } from '../../data/CR';
 import { renderBonus } from '../util';
+import _ from 'lodash';
 
 // unsure if i'll move this into util at some point
 const ACTION_COLOR = {
@@ -238,7 +286,9 @@ export default {
     },
     // an array of the highest damage actions/traits per round for up to 5 rounds
     actionSequence() {
-      const data = this.attackInfo;
+      // the operations done here are actually destructive. to avoid changing
+      // the info object, we're gonna clone it for this calculation.
+      const data = _.cloneDeep(this.attackInfo);
 
       // we can actually pre-compute legendary action damage since it's basically the same each round under most circumstances
       // and if not, well, this tool might not be complex enough to handle you my dude
@@ -327,7 +377,7 @@ export default {
         (current, next) => Math.max(next.save, current),
         0
       );
-      const traitDC = this.attackInfo.actions.reduce(
+      const traitDC = this.attackInfo.traits.reduce(
         (current, next) => Math.max(next.save, current),
         0
       );
@@ -338,34 +388,41 @@ export default {
 
       return Math.max(spellDC, attackDC, actionDC, traitDC, legendaryDC);
     },
-    maxAttack() {
-      const spellModifier = this.$store.getters.isSpellcaster
-        ? this.$store.getters.spellAttackModifier
-        : 0;
-      const attackModifier = this.attackInfo.attacks.reduce(
-        (current, next) => Math.max(next.toHit, current),
-        0
-      );
-      const actionModifier = this.attackInfo.actions.reduce(
-        (current, next) => Math.max(next.toHit, current),
-        0
-      );
-      const traitModifier = this.attackInfo.actions.reduce(
-        (current, next) => Math.max(next.toHit, current),
-        0
-      );
-      const legendaryModifier = this.attackInfo.legendary.reduce(
-        (current, next) => Math.max(next.toHit, current),
-        0
+    toHitActions() {
+      // return a sorted all actions list
+      const allActions = [].concat(
+        this.attackInfo.attacks,
+        this.attackInfo.actions,
+        this.attackInfo.traits,
+        this.attackInfo.legendary
       );
 
-      let standardModifier = Math.max(
-        spellModifier,
-        attackModifier,
-        actionModifier,
-        traitModifier,
-        legendaryModifier
-      );
+      // inject the spellcasting mod if it exists
+      if (this.$store.getters.isSpellcaster) {
+        allActions.push({
+          name: 'Spell Attack Modifier',
+          type: 'Spellcasting',
+          toHit: this.$store.getters.spellAttackModifier,
+        });
+      }
+
+      allActions.sort((a, b) => {
+        return b.toHit - a.toHit;
+      });
+
+      // filter to positive to hits?
+      return allActions;
+    },
+    filteredToHitActions() {
+      return this.toHitActions
+        .map((a) => {
+          return { toHitRender: renderBonus(a.toHit), ...a };
+        })
+        .filter((a) => a.toHit > 0);
+    },
+    maxAttack() {
+      // this is already sorted
+      let standardModifier = this.toHitActions[0].toHit;
 
       // some traits/actions have an attack modifier property
       for (const action of this.monster.actions) {
@@ -390,7 +447,7 @@ export default {
 
       // branching cases based on higher dc or attack mod
       let stepDelta = 0;
-      if (this.dcCR.numeric > this.attackCR.numeric) {
+      if (this.useDC) {
         // DC
         // get the delta between the DC suggested by damage output and the max DC for this creature
         stepDelta = this.maxDC - this.damageCR.saveDc;
@@ -403,9 +460,14 @@ export default {
 
       // final cr is then
       // really need a "towards 0" function
-      const offensiveStep = damageCRStep + (stepDelta < 0 ? Math.ceil(stepDelta) : Math.floor(stepDelta))
+      const offensiveStep =
+        damageCRStep +
+        (stepDelta < 0 ? Math.ceil(stepDelta) : Math.floor(stepDelta));
 
       return CR[Math.max(0, Math.min(CR.length, offensiveStep))];
+    },
+    useDC() {
+      return this.dcCR.numeric >= this.attackCR.numeric;
     },
     dcCR() {
       return getCRByDC(this.maxDC);
@@ -417,14 +479,20 @@ export default {
       const delta = this.offensiveCR.numeric - this.damageCR.numeric;
       return renderBonus(delta.toLocaleString());
     },
+    attackCRExplain() {
+      if (this.useDC) return `Inactive. Save DC has a higher expected CR.`;
+
+      return `Offensive CR ${this.attackCRDelta} (Attack Bonus Delta: ${this
+        .attackCR.attack - this.offensiveCR.attack})`;
+    },
     damageCR() {
       return getCRByDamage(this.damagePerRound);
     },
     attackChipColor() {
-      return this.attackCR.numeric >= this.dcCR.numeric ? 'red darken-4' : 'gray darken-1';
+      return !this.useDC ? 'red darken-4' : 'gray darken-1';
     },
     dcChipColor() {
-      return this.dcCR.numeric >= this.attackCR.numeric ? 'red darken-4' : 'gray darken-1';
+      return this.useDC ? 'red darken-4' : 'gray darken-1';
     },
     ehp() {
       // ehp actually kinda needs a CR estimate first, so assuming we don't have that, we will base expected CR on attacks
@@ -517,7 +585,8 @@ export default {
       const acDelta = (this.eac - this.hpCR.ac) / 2;
 
       // adjust the cr step
-      const defensiveStep = ehpStep + (acDelta < 0 ? Math.ceil(acDelta) : Math.floor(acDelta))
+      const defensiveStep =
+        ehpStep + (acDelta < 0 ? Math.ceil(acDelta) : Math.floor(acDelta));
 
       // return the proper cr object, clamping to 0/CR max length
       return CR[Math.max(0, Math.min(CR.length - 1, defensiveStep))];
@@ -543,8 +612,7 @@ export default {
     legendaryCombo(la, count) {
       const returnData = { totalDamage: 0, actions: [] };
 
-      if (la.length === 0)
-        return returnData;
+      if (la.length === 0) return returnData;
 
       // returns the highest damage per round combo of actions
       // assuming everything can be used multiple times per round right now, ignoring limited use data (?)
@@ -609,8 +677,7 @@ export default {
       return 1.25;
     },
     vulnMultiplier() {
-      if (this.monster.vulnerabilities.length > 0)
-        return 0.5;
+      if (this.monster.vulnerabilities.length > 0) return 0.5;
 
       return 1;
     },
