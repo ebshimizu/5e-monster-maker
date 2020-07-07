@@ -187,7 +187,6 @@ import {
   getCRByNumber,
   getCRByHP,
   getCRByAC,
-  getCRStep,
   CR,
 } from '../../data/CR';
 import { renderBonus } from '../util';
@@ -387,7 +386,7 @@ export default {
       return renderBonus(this.maxAttack);
     },
     offensiveCR() {
-      const damageCRStep = getCRStep(this.damageCR);
+      const damageCRStep = this.damageCR.index;
 
       // branching cases based on higher dc or attack mod
       let stepDelta = 0;
@@ -508,7 +507,7 @@ export default {
     defensiveCR() {
       // so the actual cr is a lil funky here
       // first get the CR step suggested by ehp
-      const ehpStep = getCRStep(this.hpCR);
+      const ehpStep = this.hpCR.index;
 
       // then, get the delta between ehp's CR AC and the effective AC
       const acDelta = this.eac - this.hpCR.ac;

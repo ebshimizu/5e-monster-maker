@@ -1,4 +1,4 @@
-export const CR = [
+const rawCR = [
   {
     cr: '0',
     proficiency: 2,
@@ -443,6 +443,8 @@ export const CR = [
   },
 ];
 
+export const CR = rawCR.map((cr, index) => { return { index, ...cr } });
+
 export const CR_SELECT = CR.map((cr, idx) => {
   return { text: cr.cr, value: idx };
 });
@@ -496,6 +498,7 @@ export function getCRByNumber(number) {
 }
 
 export function getCRByHP(hp) {
+  hp = Math.floor(hp);
   if (hp <= 1) return CR[0];
   if (hp >= 850) return CR[CR.length - 1];
 
@@ -515,8 +518,4 @@ export function getCRByAC(ac) {
   }
 
   return CR[0];
-}
-
-export function getCRStep(cr) {
-  return CR.findIndex(c => c.cr === cr.cr);
 }

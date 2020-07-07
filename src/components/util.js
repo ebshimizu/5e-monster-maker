@@ -82,7 +82,7 @@ export function newMonster() {
       STR: 10,
       DEX: 10,
       CON: 10,
-      INT: 12,
+      INT: 10,
       WIS: 10,
       CHA: 10,
     },
