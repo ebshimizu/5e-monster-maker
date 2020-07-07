@@ -160,14 +160,14 @@
                               @change="update"
                             ></v-switch
                           ></v-col>
-                          <v-col cols="12">
-                            <v-btn small block color="red" @click="removeAction"
-                              >Delete Action</v-btn
-                            >
-                          </v-col>
                         </v-row>
                       </v-card-text>
                     </v-card>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-btn small block color="red" @click="removeAction"
+                      >Delete Action</v-btn
+                    >
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>

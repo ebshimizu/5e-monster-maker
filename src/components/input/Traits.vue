@@ -39,11 +39,7 @@
                       @input="update"
                     ></v-combobox>
                   </v-col>
-                  <v-col cols="1">
-                    <v-btn fab x-small color="red" @click="removeTrait"
-                      ><v-icon>mdi-close</v-icon></v-btn
-                    >
-                  </v-col>
+
                   <v-col cols="12">
                     <v-textarea
                       outlined
@@ -146,6 +142,11 @@
                         </v-row>
                       </v-card-text>
                     </v-card>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-btn small block color="red" @click="removeTrait"
+                      >Delete Trait</v-btn
+                    >
                   </v-col>
                 </v-row>
               </v-expansion-panel-content>
