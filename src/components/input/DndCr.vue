@@ -413,7 +413,8 @@ export default {
       // combine the multipliers
       const resMult =
         this.resMultiplier(this.offensiveCR.numeric) *
-        this.immuneMultiplier(this.offensiveCR.numeric);
+        this.immuneMultiplier(this.offensiveCR.numeric) *
+        this.vulnMultiplier();
       ehp *= resMult;
 
       // get the trait and action adjustments. These will happen iteratively after conditions
@@ -568,6 +569,12 @@ export default {
       if (cr <= 16) return 1.5;
 
       return 1.25;
+    },
+    vulnMultiplier() {
+      if (this.monster.vulnerabilities.length > 0)
+        return 0.5;
+
+      return 1;
     },
     saveACBonus(count) {
       if (count < 3) return 0;
