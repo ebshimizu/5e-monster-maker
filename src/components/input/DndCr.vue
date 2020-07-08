@@ -70,7 +70,7 @@
                       <v-list-item
                         ><v-list-item-content
                           ><v-list-item-title class="overline"
-                            >{{ round.totalDamage }} Total
+                            >{{ Math.floor(round.totalDamage) }} Total
                             Damage</v-list-item-title
                           ></v-list-item-content
                         ></v-list-item
@@ -82,7 +82,7 @@
                       >
                         <v-list-item-avatar
                           :color="actionTypeColor(action.type)"
-                          >{{ action.damage }}</v-list-item-avatar
+                          >{{ Math.floor(action.damage) }}</v-list-item-avatar
                         >
                         <v-list-item-content
                           ><v-list-item-title>{{
@@ -467,7 +467,8 @@ export default {
             }
           } else if (action.type === 'Spell') {
             // spells just get deleted byeeeeee
-            data.spells.splice(0, 1);
+            if (this.$store.state.spells[action.name].level > 0)
+              data.spells.splice(0, 1);
           }
         }
 

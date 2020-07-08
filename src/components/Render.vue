@@ -152,7 +152,7 @@
         its turn.
       </div>
       <div
-        class="action"
+        class="action legendary"
         v-for="action in resolvedLegendaryActions"
         :key="action.id"
       >
@@ -172,7 +172,7 @@
     <div class="reactions" v-if="monster.reactions.length > 0">
       <h3 class="section">Reactions</h3>
       <div
-        class="action"
+        class="action reaction"
         v-for="reaction in monster.reactions"
         :key="reaction.id"
       >
@@ -437,6 +437,12 @@ export default {
         font-family: ScalySansItalic;
       }
     }
+  }
+
+  .legendary.action {
+    margin-bottom: 0.1rem;
+    margin-left: 20px;
+    text-indent: -20px;
   }
 
   .trait,

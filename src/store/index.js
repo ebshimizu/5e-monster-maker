@@ -353,7 +353,7 @@ export default new Vuex.Store({
           (spell.level === 0
             ? Math.max(
                 1,
-                1 + Math.floor(state.monster.spellcasting.level + 1) / 6
+                1 + Math.floor((state.monster.spellcasting.level + 1) / 6)
               )
             : 1);
 
