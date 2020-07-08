@@ -15,6 +15,7 @@ A monster stat block builder for the 5th edition of Dungeons and Dragons.
   - Markdown: For use with the [Homebrewery](https://homebrewery.naturalcrit.com/) system or other editors that accept that Markdown format
   - LaTeX: For use with the [rpgtex](https://github.com/rpgtex/DND-5e-LaTeX-Template) system
   - PNG: For when you just want an image
+  - PDF: Use the standard print button on your browser to save the stat block to PDF
 - Spellcasting: Create class-based lists or innate spellcasting lists. Add any spell available in the SRD.
   - Custom spells can be added, imported, and exported if you need a homebrew spell
 - Templates: Quickly apply attacks, traits, or other actions to a creature from a preset library
