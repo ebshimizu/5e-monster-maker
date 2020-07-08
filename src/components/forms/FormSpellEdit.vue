@@ -81,9 +81,36 @@
     </v-card-text>
     <v-card-actions>
       <v-btn color="blue" text @click="close">Done</v-btn>
-      <v-btn text @click="importSpells">Import List</v-btn>
+      <v-btn text @click.stop="importSpells">Import List</v-btn>
       <v-btn text @click="exportSpells">Export List</v-btn>
     </v-card-actions>
+    <v-dialog persistent max-width="400px" v-model="showImportDialog">
+      <v-card>
+        <v-card-title
+          ><span class="headline">Import Custom Spell List</span></v-card-title
+        >
+        <v-card-text>
+          Select a .5emms.json file.
+          <v-row>
+            <v-col>
+              <v-file-input
+                v-model="file"
+                accept=".5emms.json"
+                label="Load File"
+                :error="showFileError"
+                :error-messages="fileError"
+              ></v-file-input>
+            </v-col>
+          </v-row>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="blue darken-1" text @click="showImportDialog = false"
+            >Cancel</v-btn
+          >
+          <v-btn color="green darken-1" text @click="loadFile">Load</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-card>
 </template>
 
@@ -92,6 +119,8 @@ import N2W from 'number-to-words';
 import { CLASS_SPELL_SLOTS } from '../../data/CLASS';
 import { ACTION } from '../../data/ACTIONS';
 import { download } from '../util';
+import { SPELL_SCHEMA } from '../../data/SCHEMA';
+import { validate } from 'jsonschema';
 
 export default {
   name: 'FormSpellNew',
@@ -107,6 +136,10 @@ export default {
       originalName: '',
       selectedSpell: null,
       updateText: 'Update',
+      showImportDialog: false,
+      file: undefined,
+      fileError: '',
+      showFileError: false,
     };
   },
   computed: {
@@ -179,7 +212,7 @@ export default {
         this.name = spell.name;
         this.originalName = spell.name;
         this.damage = spell.damage;
-        this.multitarget = spell.damage;
+        this.multitarget = spell.multitarget;
         this.level = spell.level;
         this.classList = spell.class;
         this.nameError = false;
@@ -190,6 +223,8 @@ export default {
     },
     deleteSpell() {
       this.$store.dispatch(ACTION.DELETE_SPELL_AND_VALIDATE, this.originalName);
+
+      this.selectedSpell = undefined;
       this.reset();
     },
     updateSpell() {
@@ -212,14 +247,58 @@ export default {
     updateButtonMessage(text) {
       this.updateText = text;
 
-      setTimeout(() => this.updateText = 'Update', 2000);
+      setTimeout(() => (this.updateText = 'Update'), 2000);
     },
     exportSpells() {
-      download(JSON.stringify(this.customSpells), 'custom-5emm-spells.json', 'application/json');
+      download(
+        JSON.stringify(this.customSpells, null, 2),
+        'custom-spells.5emms.json',
+        'application/json'
+      );
     },
     importSpells() {
       // show the dialog... i guess?
-    }
+      this.file = undefined;
+      this.showFileError = false;
+      this.fileError = '';
+
+      this.showImportDialog = true;
+    },
+    loadFile() {
+      // do the load
+      if (this.file) {
+        const reader = new FileReader();
+        reader.addEventListener('load', (e) => {
+          try {
+            const spells = JSON.parse(e.target.result);
+
+            // validate
+            const valid = validate(spells, SPELL_SCHEMA);
+            if (valid.valid) {
+              this.$store.dispatch(ACTION.LOAD_CUSTOM_SPELLS, spells);
+              this.showImportDialog = false;
+              this.file = undefined;
+            } else {
+              this.fileError = 'Upload failed: spell list is invalid.';
+              this.showFileError = true;
+            }
+          } catch (e) {
+            this.fileError = 'Error reading spell list';
+            this.showFileError = true;
+          }
+        });
+
+        reader.addEventListener('error', () => {
+          this.fileError = 'File upload error';
+          this.showFileError = true;
+        });
+
+        reader.readAsText(this.file);
+      } else {
+        this.fileError = 'Select a file to upload';
+        this.showFileError = true;
+      }
+    },
   },
 };
 </script>

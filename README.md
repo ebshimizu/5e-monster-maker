@@ -1,5 +1,9 @@
 # 5e Monster Maker
+Live site: https://ebshimizu.github.io/5emm/
+
 A monster stat block builder for the 5th edition of Dungeons and Dragons.
+
+![5e Monster Maker Screenshot](https://ebshimizu.github.io/5emm/readme-image.png)
 
 ## Features
 - Quickly create stat blocks by filling in a form, rather than typesetting everything by hand
@@ -11,6 +15,8 @@ A monster stat block builder for the 5th edition of Dungeons and Dragons.
   - Markdown: For use with the [Homebrewery](https://homebrewery.naturalcrit.com/) system or other editors that accept that Markdown format
   - LaTeX: For use with the [rpgtex](https://github.com/rpgtex/DND-5e-LaTeX-Template) system
   - PNG: For when you just want an image
+- Spellcasting: Create class-based lists or innate spellcasting lists. Add any spell available in the SRD.
+  - Custom spells can be added, imported, and exported if you need a homebrew spell
 - Templates: Quickly apply attacks, traits, or other actions to a creature from a preset library
   - More templates (along with the ability to add custom templates) coming soon!
 

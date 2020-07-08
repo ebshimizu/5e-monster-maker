@@ -526,6 +526,15 @@ export default new Vuex.Store({
     [ACTION.LOAD_MONSTER]({ commit }, monster) {
       commit(MUTATION.LOAD_MONSTER, monster);
       commit(MUTATION.VALIDATE_SPELLS);
+    },
+    [ACTION.LOAD_CUSTOM_SPELLS]({ commit }, spellList) {
+      // overwrites existing spells
+      for (const spell of spellList) {
+        commit(MUTATION.DELETE_CUSTOM_SPELL, spell.name);
+        commit(MUTATION.ADD_CUSTOM_SPELL, spell);
+      }
+
+      commit(MUTATION.VALIDATE_SPELLS);
     }
   },
   modules: {},

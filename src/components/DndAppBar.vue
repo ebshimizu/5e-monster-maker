@@ -76,7 +76,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn color="blue darken-1" text @click="loadFromFileDialog = false"
-            >Close</v-btn
+            >Cancel</v-btn
           >
           <v-btn color="green darken-1" text @click="loadFile">Load</v-btn>
         </v-card-actions>
