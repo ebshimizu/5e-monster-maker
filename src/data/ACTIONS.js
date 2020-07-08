@@ -29,6 +29,7 @@ export const MUTATION = {
 
 export const ACTION = {
   DELETE_SPELL_AND_VALIDATE: 'Delete spell, then validate spell list',
+  UPDATE_SPELL_AND_VALIDATE: 'Update existing spell',
   LOAD_CUSTOM_SPELLS: 'Load Custom Spells',
   LOAD_LAST_STATE: 'Load Last State',
   LOAD_MONSTER: 'Load Monster'

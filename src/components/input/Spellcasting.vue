@@ -210,7 +210,7 @@
                   </v-col>
                   <v-col>
                     <v-select
-                      :items="spellsByLevel(0)"
+                      :items="spellsByLevel[0]"
                       dense
                       multiple
                       chips
@@ -253,7 +253,7 @@
                   </v-col>
                   <v-col>
                     <v-select
-                      :items="spellsByLevel(index + 1)"
+                      :items="spellsByLevel[index + 1]"
                       dense
                       multiple
                       chips
@@ -455,6 +455,14 @@ export default {
         }
       },
     },
+    spellsByLevel() {
+      const spells = [];
+      for (let i = 0; i < 10; i++) {
+        spells.push(this.$store.getters.spellsByLevel(i));
+      }
+
+      return spells;
+    }
   },
   methods: {
     updateSlots() {
@@ -481,9 +489,6 @@ export default {
     },
     slotLevel(level) {
       return level === 0 ? 'Cantrip' : `${N2W.toOrdinal(level)} level`;
-    },
-    spellsByLevel(level) {
-      return this.store.getters.spellsByLevel(level);
     },
     knownSpellsAtLevel(level) {
       const spells = this.$store.state.spells;

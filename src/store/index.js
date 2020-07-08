@@ -514,6 +514,11 @@ export default new Vuex.Store({
       commit(MUTATION.DELETE_CUSTOM_SPELL, spellName);
       commit(MUTATION.VALIDATE_SPELLS);
     },
+    [ACTION.UPDATE_SPELL_AND_VALIDATE]({ commit }, { spell, originalName }) {
+      commit(MUTATION.DELETE_CUSTOM_SPELL, originalName);
+      commit(MUTATION.ADD_CUSTOM_SPELL, spell)
+      commit(MUTATION.VALIDATE_SPELLS);
+    },
     [ACTION.LOAD_LAST_STATE]({ commit }) {
       commit(MUTATION.LOAD_LAST_STATE);
       commit(MUTATION.VALIDATE_SPELLS);

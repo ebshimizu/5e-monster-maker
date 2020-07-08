@@ -10,6 +10,9 @@
         <v-list-item @click.stop="newSpellDialog = true">
           <v-list-item-title>Add Custom Spell</v-list-item-title>
         </v-list-item>
+        <v-list-item @click.stop="editSpellDialog = true">
+          <v-list-item-title>Manage Custom Spells</v-list-item-title>
+        </v-list-item>
         <v-list-item @click.stop="resetDialog = true">
           <v-list-item-title>Reset Monster</v-list-item-title>
         </v-list-item>
@@ -161,6 +164,9 @@
     <v-dialog persistent max-width="600px" v-model="newSpellDialog">
       <form-spell-new @close="newSpellDialog = false" />
     </v-dialog>
+    <v-dialog persistent max-width="600px" v-model="editSpellDialog">
+      <form-spell-edit @close="editSpellDialog = false" />
+    </v-dialog>
   </v-app-bar>
 </template>
 
@@ -182,11 +188,13 @@ import copy from 'copy-to-clipboard';
 import { CR } from '../data/CR';
 
 import FormSpellNew from './forms/FormSpellNew';
+import FormSpellEdit from './forms/FormSpellEdit';
 
 export default {
   name: 'DndAppBar',
   components: {
     FormSpellNew,
+    FormSpellEdit,
   },
   data() {
     return {
@@ -201,6 +209,7 @@ export default {
       resetDialog: false,
       crTableDialog: false,
       newSpellDialog: false,
+      editSpellDialog: false,
     };
   },
   computed: {
