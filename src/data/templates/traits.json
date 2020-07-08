@@ -100,7 +100,7 @@
         "acModifier": 0,
         "include": true
       },
-      "icon": "mdi-shield"
+      "icon": "mdi-ambulance"
     },
     {
       "templateName": "Pack Tactics",
@@ -220,6 +220,23 @@
         "include": true
       },
       "icon": "mdi-eye"
+    },
+    {
+      "templateName": "Brave",
+      "name": "Brave",
+      "description": "The {NAME} has advantage on saving throws against being frightened.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-ghost-off"
     }
   ]
 }

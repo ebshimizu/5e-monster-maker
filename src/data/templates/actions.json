@@ -136,6 +136,25 @@
         "include": true
       },
       "icon": "mdi-weather-windy"
+    },
+    {
+      "templateName": "Leadership",
+      "name": "Leadership",
+      "description": "For 1 minute, the {NAME} can utter a special command or warning whenever a nonhostile creature that it can see within 30 feet of it makes an attack roll or a saving throw. The creature can add a d4 to its roll provided it can hear and understand the {NAME}. A creature can benefit from only one Leadership die at a time. This effect ends if the {NAME} is incapacitated.",
+      "recharge": "",
+      "legendaryOnly": false,
+      "limitedUse": { "count": 1, "rate": "long or short rest" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 1,
+        "include": true
+      },
+      "icon": "mdi-flag-plus-outline"
     }
   ]
 }

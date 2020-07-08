@@ -370,6 +370,72 @@
       "description": "",
       "legendaryOnly": false,
       "icon": ""
+    },
+    {
+      "templateName": "Greatsword",
+      "name": "Greatsword",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 6,
+        "count": 2,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "icon": ""
+    },
+    {
+      "templateName": "Heavy Crossbow",
+      "name": "Heavy Crossbow",
+      "distance": "Ranged",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "DEX",
+        "proficient": true
+      },
+      "range": { "standard": 100, "long": 400, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
+        "type": "piercing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "icon": "mdi-bullseye-arrow"
     }
   ]
 }
