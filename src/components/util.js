@@ -3,7 +3,6 @@ import DAMAGE_TYPE from '../data/DAMAGE_TYPE';
 import { RANGE } from '../data/ATTACK';
 import { v4 as uuidv4 } from 'uuid';
 import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
-import SKILL from '../data/SKILL';
 import MOVEMENT from '../data/MOVEMENT';
 import { STAT } from '../data/STAT';
 import _ from 'lodash';
@@ -118,14 +117,7 @@ export function newMonster() {
         overrideValue: 0,
       },
     },
-    skills: [
-      {
-        skill: SKILL.PERCEPTION,
-        proficient: false,
-        override: false,
-        overrideValue: 0,
-      },
-    ],
+    skills: [],
     resistances: [],
     immunities: [],
     vulnerabilities: [],
