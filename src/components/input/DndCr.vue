@@ -306,6 +306,7 @@
                     }}</v-list-item-avatar
                     ><v-list-item-content>
                       <v-list-item-title>Base Armor Class</v-list-item-title>
+                      <v-list-item-subtitle v-if="monster.AC < 12">AC below minimum of 12</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item
@@ -643,8 +644,8 @@ export default {
       return `Offensive CR ${this.attackCrDelta} (Save DC Delta: ${this.dcStepDeltaRender})`;
     },
     acCrExplain() {
-      return `Defensive CR ${this.acCrDelta} (AC Delta: ${this.acCr.ac -
-        this.defensiveCr.ac})`;
+      return `Defensive CR ${this.acCrDelta} (AC Delta: ${renderBonus(this.acCr.ac -
+        this.defensiveCr.ac)})`;
     },
     damageCr() {
       return getCrByDamage(this.damagePerRound);
@@ -875,7 +876,8 @@ export default {
         }
       }
 
-      return eac;
+      // the effective AC doesn't affect CR if it's lower than 12, so floor it
+      return Math.max(12, eac);
     },
     hpCr() {
       return getCrByHp(this.ehp);
