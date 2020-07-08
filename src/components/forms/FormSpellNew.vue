@@ -110,7 +110,7 @@ export default {
             this.level === 0
               ? 'Cantrip'
               : `${N2W.toOrdinal(this.level)} level`,
-          class: this.classList,
+          class: this.classList ? this.classList : [],
           custom: true,
         });
 
