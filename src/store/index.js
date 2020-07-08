@@ -340,7 +340,7 @@ export default new Vuex.Store({
       // there's a few spellcasting lists... let's combine them
       const spells = _.union(
         state.monster.spellcasting.standard,
-        state.monster.spellcasting.atWill.map((a) => a.spells)
+        ...state.monster.spellcasting.atWill.map((a) => a.spells)
       );
 
       // got all the ids, get the dataaaaa
