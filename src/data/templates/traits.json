@@ -18,23 +18,6 @@
       "icon": "mdi-fire"
     },
     {
-      "templateName": "Superior Invisibility",
-      "name": "Superior Invisibility",
-      "description": "As a bonus action, the {NAME} can magically turn invisible until its concentration ends (as if concentrating on a spell). Any equipment the {NAME} wears or carries is invisible with it.",
-      "limitedUse": { "count": 0, "rate": "day" },
-      "crAnnotation": {
-        "maxDamage": 0,
-        "maxSave": 0,
-        "maxModifier": 0,
-        "multitarget": false,
-        "ehpMultiplier": 1,
-        "ehpModifier": 0,
-        "acModifier": 2,
-        "include": true
-      },
-      "icon": "mdi-ghost"
-    },
-    {
       "templateName": "Improved Critical",
       "name": "Improved Critical",
       "description": "The {NAME}'s attacks score a critical hit on a roll of 19 or 20.",
@@ -97,23 +80,6 @@
         "multitarget": false,
         "ehpMultiplier": 1,
         "ehpModifier": 0,
-        "acModifier": 0,
-        "include": true
-      },
-      "icon": "mdi-shield"
-    },
-    {
-      "templateName": "Survivor",
-      "name": "Survivor",
-      "description": "At the start of each of the {NAME}'s turns, it regain hit points equal to 5 + its Constitution modifier if it has no more than half of its hit points left. The {NAME} doesn’t gain this benefit if it has 0 hit points.",
-      "limitedUse": { "count": 0, "rate": "day" },
-      "crAnnotation": {
-        "maxDamage": 0,
-        "maxSave": 0,
-        "maxModifier": 0,
-        "multitarget": false,
-        "ehpMultiplier": 1,
-        "ehpModifier": 10,
         "acModifier": 0,
         "include": true
       },
