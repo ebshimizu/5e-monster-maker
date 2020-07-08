@@ -67,7 +67,7 @@ export function newMonster() {
     proficiency: 4,
     HP: {
       HD: 1,
-      type: DICE.d6,
+      type: DICE.d8,
       modifier: 0,
     },
     speeds: [
