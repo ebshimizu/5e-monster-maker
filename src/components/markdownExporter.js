@@ -82,7 +82,10 @@ function renderMarkdownAttacks(store) {
 function renderMarkdownActions(store) {
   const actions = store.state.monster.actions.filter((a) => !a.legendaryOnly);
 
-  const renderedActions = actions.map(a => `> ***${a.name}${rechargeOrLimited(a)}.*** ${processTokens(a.description, store)}`);
+  const renderedActions = actions.map(a => {
+    const mdDesc = a.description.replace(/\n/g, '\n> ');
+    return `> ***${a.name}${rechargeOrLimited(a)}.*** ${processTokens(mdDesc, store)}`;
+  });
   return renderedActions.join('\n>\n');
 }
 
