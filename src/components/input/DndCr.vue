@@ -582,6 +582,18 @@ export default {
     maxAttackRender() {
       return renderBonus(this.maxAttack);
     },
+    dcStepDelta() {
+      return this.maxDc - this.damageCr.saveDc;
+    },
+    attackStepDelta() {
+      return this.maxAttack - this.damageCr.attack;
+    },
+    dcStepDeltaRender() {
+      return renderBonus(this.dcStepDelta < 0 ? Math.ceil(this.dcStepDelta / 2) : Math.floor(this.dcStepDelta));
+    },
+    attackStepDeltaRender() {
+      return renderBonus(this.attackStepDelta < 0 ? Math.ceil(this.attackStepDelta / 2) : Math.floor(this.attackStepDelta / 2));
+    },
     offensiveCr() {
       const damageCRStep = this.damageCr.index;
 
@@ -590,10 +602,10 @@ export default {
       if (this.useDc) {
         // DC
         // get the delta between the DC suggested by damage output and the max DC for this creature
-        stepDelta = this.maxDc - this.damageCr.saveDc;
+        stepDelta = this.dcStepDelta;
       } else {
         // get delta between the attack mod suggested by damage output and the max bonus for this creature
-        stepDelta = this.maxAttack - this.damageCr.attack;
+        stepDelta = this.attackStepDelta;
       }
 
       stepDelta /= 2;
@@ -622,14 +634,12 @@ export default {
     attackCrExplain() {
       if (this.useDc) return `Inactive. Save DC has a higher expected CR.`;
 
-      return `Offensive CR ${this.attackCrDelta} (Attack Bonus Delta: ${this
-        .attackCr.attack - this.offensiveCr.attack})`;
+      return `Offensive CR ${this.attackCrDelta} (Attack Bonus Delta: ${this.attackStepDeltaRender})`;
     },
     dcCrExplain() {
       if (!this.useDc) return 'Inactive. Attack Bonus has a higher expected CR';
 
-      return `Offensive CR ${this.attackCrDelta} (Save DC Delta: ${this.dcCr
-        .saveDc - this.offensiveCr.saveDc})`;
+      return `Offensive CR ${this.attackCrDelta} (Save DC Delta: ${this.dcStepDeltaRender})`;
     },
     acCrExplain() {
       return `Defensive CR ${this.acCrDelta} (AC Delta: ${this.acCr.ac -
