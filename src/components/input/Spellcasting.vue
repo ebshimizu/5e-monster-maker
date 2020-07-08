@@ -396,11 +396,11 @@ export default {
     },
     spells() {
       if (this.classOnly && this.spellcasting.class in CLASS_SPELL_SLOTS) {
-        return this.$store.state.spells.ALL_ARRAY.filter(
+        return this.$store.getters.spellArray.filter(
           (s) => s.class.indexOf(this.spellcasting.class) >= 0
         );
       } else {
-        return this.$store.state.spells.ALL_ARRAY;
+        return this.$store.getters.spellArray;
       }
     },
     save: {
@@ -483,16 +483,16 @@ export default {
       return level === 0 ? 'Cantrip' : `${N2W.toOrdinal(level)} level`;
     },
     spellsByLevel(level) {
-      return this.spells.filter((s) => s.level === level);
+      return this.store.getters.spellsByLevel(level);
     },
     knownSpellsAtLevel(level) {
-      const spells = this.$store.state.spells.ALL;
+      const spells = this.$store.state.spells;
       return this.spellcasting.standard.filter(
         (id) => spells[id].level === level
       );
     },
     updateSpells(val, level) {
-      const spells = this.$store.state.spells.ALL;
+      const spells = this.$store.state.spells;
 
       for (const id of val) {
         if (this.spellcasting.standard.indexOf(id) === -1) {

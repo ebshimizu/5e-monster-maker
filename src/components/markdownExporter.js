@@ -37,7 +37,7 @@ ${spellcasting.atWill.map((s) => { return `> ${formatInnateSpellLabel(s)} *${s.s
 
 function renderMarkdownSpellcasting(store) {
   const spellcasting = store.state.monster.spellcasting;
-  const allSpells = store.state.spells.ALL;
+  const allSpells = store.state.spells;
 
   const renderedRows = [];
   const cantrips = spellcasting.standard.filter((id) => {

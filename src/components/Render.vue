@@ -267,7 +267,7 @@ export default {
       return `${N2W.toOrdinal(this.monster.spellcasting.level)}-level`;
     },
     allSpells() {
-      return this.$store.state.spells.ALL;
+      return this.$store.state.spells;
     },
     cantrips() {
       return this.monster.spellcasting.standard

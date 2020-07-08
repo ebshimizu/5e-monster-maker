@@ -12,7 +12,7 @@ import {
   newMonster,
 } from '../components/util';
 import SKILL from '../data/SKILL';
-import { MUTATION } from '../data/ACTIONS';
+import { MUTATION, ACTION } from '../data/ACTIONS';
 import SPELLS from '../data/SPELLS';
 import TEMPLATES from '../data/TEMPLATES';
 
@@ -168,9 +168,18 @@ export default new Vuex.Store({
           state.monster.spellcasting.stat
         );
     },
-    allSpells: (state) => {
-      // future planning
-      return state.spells.ALL;
+    spellArray: (state) => {
+      return Object.values(state.spells).map((spell) => {
+        return { text: spell.name, value: spell.value, ...spell };
+      });
+    },
+    customSpellArray: (state, getters) => {
+      // returns in the vuetify select format
+      // the name of the spell is the key (if it's not, rip dude)
+      return getters.spellArray.filter((spell) => spell.custom);
+    },
+    spellsByLevel: (state, getters) => (level) => {
+      return getters.spellArray.filter((spell) => spell.level === level);
     },
     attackInfo: (state, getters) => {
       // returns an object containing all you need to know for calculating CR
@@ -212,7 +221,9 @@ export default new Vuex.Store({
             : [];
 
         data.attacks.push({
-          name: `Multiattack: ${[].concat(attackNames, actionNames).join(', ')}`,
+          name: `Multiattack: ${[]
+            .concat(attackNames, actionNames)
+            .join(', ')}`,
           damage: getters.multiattackDamage(state.monster.multiattacks[idx]),
           save: 0,
           toHit: 0,
@@ -334,7 +345,7 @@ export default new Vuex.Store({
 
       // got all the ids, get the dataaaaa
       for (const id of spells) {
-        const spell = getters.allSpells[id];
+        const spell = state.spells[id];
 
         // cantrip scaling based on caster level
         const damage =
@@ -463,6 +474,15 @@ export default new Vuex.Store({
       if (monster) {
         Vue.set(state, 'monster', JSON.parse(monster));
       }
+
+      const spellStr = localStorage.getItem('app.customSpells');
+      if (spellStr) {
+        const spells = JSON.parse(spellStr);
+
+        for (const spell of spells) {
+          state.spells[spell.name] = spell;
+        }
+      }
     },
     [MUTATION.LOAD_MONSTER](state, monster) {
       // just replaces the entire thing, assumes input is valid
@@ -471,7 +491,37 @@ export default new Vuex.Store({
     [MUTATION.RESET](state) {
       Vue.set(state, 'monster', newMonster());
     },
+    [MUTATION.ADD_CUSTOM_SPELL](state, spell) {
+      // this will overwrite the spell if it exists in the custom spells
+      Vue.set(state.spells, spell.name, spell);
+    },
+    [MUTATION.DELETE_CUSTOM_SPELL](state, name) {
+      Vue.delete(state.spells, name);
+    },
+    [MUTATION.VALIDATE_SPELLS](state) {
+      // checks that the given keys exist in the spell list
+      state.monster.spellcasting.standard = state.monster.spellcasting.standard.filter(
+        (id) => id in state.spells
+      );
+
+      for (const atWill of state.monster.spellcasting.atWill) {
+        atWill.spells = atWill.spells.filter((id) => id in state.spells);
+      }
+    },
   },
-  actions: {},
+  actions: {
+    [ACTION.DELETE_SPELL_AND_VALIDATE]({ commit }, spellName) {
+      commit(MUTATION.DELETE_CUSTOM_SPELL, spellName);
+      commit(MUTATION.VALIDATE_SPELLS);
+    },
+    [ACTION.LOAD_LAST_STATE]({ commit }) {
+      commit(MUTATION.LOAD_LAST_STATE);
+      commit(MUTATION.VALIDATE_SPELLS);
+    },
+    [ACTION.LOAD_MONSTER]({ commit }, monster) {
+      commit(MUTATION.LOAD_MONSTER, monster);
+      commit(MUTATION.VALIDATE_SPELLS);
+    }
+  },
   modules: {},
 });

@@ -7,11 +7,14 @@
         </v-btn>
       </template>
       <v-list>
+        <v-list-item @click.stop="newSpellDialog = true">
+          <v-list-item-title>Add Custom Spell</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click.stop="resetDialog = true">
+          <v-list-item-title>Reset Monster</v-list-item-title>
+        </v-list-item>
         <v-list-item @click.stop="crTableDialog = true">
           <v-list-item-title>Show CR Table</v-list-item-title>
-        </v-list-item>
-        <v-list-item @click="resetDialog = true">
-          <v-list-item-title>Reset</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -148,10 +151,15 @@
             item-key="cr"
           ></v-data-table>
           <v-card-actions>
-            <v-btn color="blue" text @click="crTableDialog = false">Close</v-btn>
+            <v-btn color="blue" text @click="crTableDialog = false"
+              >Close</v-btn
+            >
           </v-card-actions>
         </v-card-text>
       </v-card>
+    </v-dialog>
+    <v-dialog persistent max-width="600px" v-model="newSpellDialog">
+      <form-spell-new @close="newSpellDialog = false" />
     </v-dialog>
   </v-app-bar>
 </template>
@@ -173,8 +181,13 @@ import SCHEMA from '../data/SCHEMA';
 import copy from 'copy-to-clipboard';
 import { CR } from '../data/CR';
 
+import FormSpellNew from './forms/FormSpellNew';
+
 export default {
   name: 'DndAppBar',
+  components: {
+    FormSpellNew,
+  },
   data() {
     return {
       loadFromFileDialog: false,
@@ -187,6 +200,7 @@ export default {
       templateBarText: '',
       resetDialog: false,
       crTableDialog: false,
+      newSpellDialog: false,
     };
   },
   computed: {

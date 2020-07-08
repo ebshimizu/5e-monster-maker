@@ -66,7 +66,7 @@ function renderLatexAtWill(monster, store) {
 
 function renderLatexStandard(monster, store) {
   const spellcasting = monster.spellcasting;
-  const allSpells = store.state.spells.ALL;
+  const allSpells = store.state.spells;
 
   const renderedRows = [];
   const cantrips = spellcasting.standard.filter((id) => {

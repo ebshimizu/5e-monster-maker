@@ -19,7 +19,17 @@ export const MUTATION = {
   SET_SPELLCASTING: 'Set Spellcasting',
   SET_TRAITS: 'Set Traits',
   VALIDATE_ACTIONS: 'Validate Actions',
-  LOAD_LAST_STATE: 'Load Last State',
+  LOAD_LAST_STATE: 'Load Last State (Mutation)',
   LOAD_MONSTER: 'Load Monster',
-  RESET: 'Reset'
+  RESET: 'Reset',
+  ADD_CUSTOM_SPELL: 'Add Custom Spell',
+  DELETE_CUSTOM_SPELL: 'Delete Custom Spell',
+  VALIDATE_SPELLS: 'Validate Spells',
 };
+
+export const ACTION = {
+  DELETE_SPELL_AND_VALIDATE: 'Delete spell, then validate spell list',
+  LOAD_CUSTOM_SPELLS: 'Load Custom Spells',
+  LOAD_LAST_STATE: 'Load Last State',
+  LOAD_MONSTER: 'Load Monster'
+}
