@@ -453,10 +453,7 @@ export const CR_SELECT = CR.map((cr, idx) => {
 
 // the cr retrieval functions are a disaster let's fix that
 function getCrByRange(value, field) {
-  // first, we floor the value to ensure integers
-  value = Math.floor(value);
-
-  // and then we need to check if the value is between index.field and index + 1.field
+  // check if the value is between index.field and index + 1.field
   for (let i = 0; i < CR.length - 1; i++) {
     if (CR[i][field] <= value && value <  CR[i + 1][field]) {
       return CR[i];

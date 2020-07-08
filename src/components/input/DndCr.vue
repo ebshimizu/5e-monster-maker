@@ -590,10 +590,10 @@ export default {
       return this.maxAttack - this.damageCr.attack;
     },
     dcStepDeltaRender() {
-      return renderBonus(this.dcStepDelta < 0 ? Math.ceil(this.dcStepDelta / 2) : Math.floor(this.dcStepDelta));
+      return renderBonus(this.dcStepDelta);
     },
     attackStepDeltaRender() {
-      return renderBonus(this.attackStepDelta < 0 ? Math.ceil(this.attackStepDelta / 2) : Math.floor(this.attackStepDelta / 2));
+      return renderBonus(this.attackStepDelta);
     },
     offensiveCr() {
       const damageCRStep = this.damageCr.index;
