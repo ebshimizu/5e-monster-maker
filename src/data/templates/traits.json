@@ -101,6 +101,125 @@
         "include": true
       },
       "icon": "mdi-shield"
+    },
+    {
+      "templateName": "Pack Tactics",
+      "name": "Pack Tactics",
+      "description": "The {NAME} has advantage on an attack roll against a creature if at least one of the {NAME}'s allies is within 5 feet of the creature and the ally isn't incapacitated.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 5,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-account-group"
+    },
+    {
+      "templateName": "Sunlight Sensitivity",
+      "name": "Sunlight Sensitivity",
+      "description": "While in sunlight, the {NAME} has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": false
+      },
+      "icon": "mdi-sunglasses"
+    },
+    {
+      "templateName": "Amphibious",
+      "name": "Amphibious",
+      "description": "The {NAME} can breathe air and water.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": false
+      },
+      "icon": "mdi-fish"
+    },
+    {
+      "templateName": "Mucous Cloud",
+      "name": "Mucous Cloud",
+      "description": "While underwater, the {NAME} is surrounded by transformative mucus. A creature that touches the {NAME} or that hits it with a melee attack while within 5 feet of it must make a {DC:CON} Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 14,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-cloud-alert"
+    },
+    {
+      "templateName": "Probing Telepathy",
+      "name": "Probing Telepathy",
+      "description": "If a creature communicates telepathically with the {NAME}, the {NAME} learns the creature's greatest desires if the {NAME} can see the creature.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": false
+      },
+      "icon": "mdi-head-snowflake-outline"
+    },
+    {
+      "templateName": "Legendary Resistance",
+      "name": "Legendary Resistance",
+      "description": "If the {NAME} fails a saving throw, it can choose to succeed instead.",
+      "limitedUse": { "count": 3, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 30,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-shield"
+    },
+    {
+      "templateName": "Petrifying Gaze",
+      "name": "Petrifying Gaze",
+      "description": "If a creature starts its turn within 30 feet of the {NAME} and the two of them can see each other, the {NAME} can force the creature to make a {DC:CON} Constitution saving throw if the {NAME} isn't incapacitated. On a failed save, the creature magically begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified until freed by the greater restoration spell or other magic.\nA creature that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the {NAME} until the start of its next turn, when it can avert its eyes again. If it looks at the {NAME} in the meantime, it must immediately make the save. If the {NAME} sees its reflection within 30 feet of it in bright light, it mistakes itself for a rival and targets itself with its gaze.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 12,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-eye"
     }
   ]
 }
