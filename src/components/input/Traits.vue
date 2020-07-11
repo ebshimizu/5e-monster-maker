@@ -39,7 +39,21 @@
                       @input="update"
                     ></v-combobox>
                   </v-col>
-
+                  <v-col cols="1">
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          fab
+                          x-small
+                          color="blue"
+                          v-on="on"
+                          @click.stop="showSaveTemplateDialog(index)"
+                          ><v-icon>mdi-content-save</v-icon></v-btn
+                        >
+                      </template>
+                      Save as Template
+                    </v-tooltip>
+                  </v-col>
                   <v-col cols="12">
                     <v-textarea
                       outlined
@@ -160,13 +174,34 @@
         >
       </v-row>
     </v-expansion-panel-content>
+    <v-dialog v-model="showTemplateDialog" max-width="300px" persistent>
+      <v-card>
+        <v-card-title class="headline">Save Trait as Template</v-card-title>
+        <v-card-subtitle>Template names must be unique</v-card-subtitle>
+        <v-card-text>
+          <v-text-field
+            v-model="templateSaveName"
+            :error="showTemplateSaveError"
+            :error-messages="templateSaveError"
+            label="Template Name"
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn text color="green" @click="saveTemplate">Save</v-btn>
+          <v-btn text color="blue" @click="showTemplateDialog = false"
+            >Cancel</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-expansion-panel>
 </template>
 
 <script>
 import { MUTATION } from '../../data/ACTIONS';
-import { newTrait } from '../util';
+import { newTrait, traitTemplateSubtitle } from '../util';
 import { AT_WILL_DEFAULT_RATES } from '../../data/SPELLS';
+import { TEMPLATE_TYPE } from '../../data/TEMPLATES';
 import _ from 'lodash';
 
 export default {
@@ -174,6 +209,11 @@ export default {
   data() {
     return {
       rateTypes: Object.values(AT_WILL_DEFAULT_RATES),
+      showTemplateDialog: false,
+      templateSaveName: '',
+      templateSaveError: '',
+      showTemplateSaveError: false,
+      templateSaveIndex: -1,
     };
   },
   computed: {
@@ -198,6 +238,34 @@ export default {
     removeTrait(index) {
       this.traits.splice(index, 1);
       this.update();
+    },
+    showSaveTemplateDialog(index) {
+      this.showTemplateDialog = true;
+      this.templateSaveName = this.traits[index].name;
+      this.templateSaveIndex = index;
+    },
+    saveTemplate() {
+      // check names
+      if (this.templateSaveName in this.$store.state.customTemplates) {
+        this.templateSaveError =
+          'A custom template with this name already exists.';
+        this.showTemplateSaveError = true;
+      } else {
+        this.$store.commit(MUTATION.ADD_CUSTOM_TEMPLATE, {
+          id: this.templateSaveName,
+          template: {
+            ...this.traits[this.templateSaveIndex],
+            templateName: this.templateSaveName,
+            type: TEMPLATE_TYPE.TRAIT,
+            subtitle: traitTemplateSubtitle(
+              this.traits[this.templateSaveIndex]
+            ),
+            icon: "",
+          },
+        });
+
+        this.showTemplateDialog = false;
+      }
     },
   },
 };

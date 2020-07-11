@@ -25,6 +25,8 @@ export const MUTATION = {
   ADD_CUSTOM_SPELL: 'Add Custom Spell',
   DELETE_CUSTOM_SPELL: 'Delete Custom Spell',
   VALIDATE_SPELLS: 'Validate Spells',
+  ADD_CUSTOM_TEMPLATE: 'Add Custom Template',
+  DELETE_CUSTOM_TEMPLATE: 'Delete Custom Template',
 };
 
 export const ACTION = {

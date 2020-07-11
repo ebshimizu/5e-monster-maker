@@ -26,6 +26,7 @@ export default new Vuex.Store({
     monster: newMonster(),
     spells: SPELLS,
     templates: TEMPLATES,
+    customTemplates: {},
   },
   getters: {
     majorVersion: (state) => {
@@ -373,7 +374,10 @@ export default new Vuex.Store({
     allTemplates: (state) => {
       // concats all templates to a list
       return []
-        .concat(...Object.values(state.templates))
+        .concat(
+          ...Object.values(state.templates),
+          Object.values(state.customTemplates)
+        )
         .sort((a, b) => {
           const na = a.templateName.toLowerCase();
           const nb = b.templateName.toLowerCase();
@@ -480,8 +484,13 @@ export default new Vuex.Store({
         const spells = JSON.parse(spellStr);
 
         for (const spell of spells) {
-          state.spells[spell.name] = spell;
+          Vue.set(state.spells, spell.name, spell);
         }
+      }
+
+      const templateStr = localStorage.getItem('app.customTemplates');
+      if (templateStr) {
+        Vue.set(state, 'customTemplates', JSON.parse(templateStr));
       }
     },
     [MUTATION.LOAD_MONSTER](state, monster) {
@@ -508,6 +517,23 @@ export default new Vuex.Store({
         atWill.spells = atWill.spells.filter((id) => id in state.spells);
       }
     },
+    [MUTATION.ADD_CUSTOM_TEMPLATE](state, { id, template }) {
+      // strip out the id from template if it exists
+      if ('id' in template) {
+        delete template.id;
+      }
+
+      if (id in state.customTemplates) {
+        Vue.delete(state.customTemplates, id);
+      }
+
+      Vue.set(state.customTemplates, id, template);
+    },
+    [MUTATION.DELETE_CUSTOM_TEMPLATE](state, id) {
+      if (id in state.customTemplates) {
+        Vue.delete(state.customTemplates, id);
+      }
+    },
   },
   actions: {
     [ACTION.DELETE_SPELL_AND_VALIDATE]({ commit }, spellName) {
@@ -516,7 +542,7 @@ export default new Vuex.Store({
     },
     [ACTION.UPDATE_SPELL_AND_VALIDATE]({ commit }, { spell, originalName }) {
       commit(MUTATION.DELETE_CUSTOM_SPELL, originalName);
-      commit(MUTATION.ADD_CUSTOM_SPELL, spell)
+      commit(MUTATION.ADD_CUSTOM_SPELL, spell);
       commit(MUTATION.VALIDATE_SPELLS);
     },
     [ACTION.LOAD_LAST_STATE]({ commit }) {
@@ -535,7 +561,7 @@ export default new Vuex.Store({
       }
 
       commit(MUTATION.VALIDATE_SPELLS);
-    }
+    },
   },
   modules: {},
 });

@@ -13,6 +13,9 @@
         <v-list-item @click.stop="editSpellDialog = true">
           <v-list-item-title>Manage Custom Spells</v-list-item-title>
         </v-list-item>
+        <v-list-item @click.stop="manageTemplateDialog = true">
+          <v-list-item-title>Manage Custom Templates</v-list-item-title>
+        </v-list-item>
         <v-list-item @click.stop="resetDialog = true">
           <v-list-item-title>Reset Monster</v-list-item-title>
         </v-list-item>
@@ -167,6 +170,9 @@
     <v-dialog persistent max-width="600px" v-model="editSpellDialog">
       <form-spell-edit @close="editSpellDialog = false" />
     </v-dialog>
+    <v-dialog persistent max-width="600px" v-model="manageTemplateDialog">
+      <form-template-edit @close="manageTemplateDialog = false" />
+    </v-dialog>
   </v-app-bar>
 </template>
 
@@ -189,12 +195,14 @@ import { CR } from '../data/CR';
 
 import FormSpellNew from './forms/FormSpellNew';
 import FormSpellEdit from './forms/FormSpellEdit';
+import FormTemplateEdit from './forms/FormTemplateEdit';
 
 export default {
   name: 'DndAppBar',
   components: {
     FormSpellNew,
     FormSpellEdit,
+    FormTemplateEdit,
   },
   data() {
     return {
@@ -210,6 +218,7 @@ export default {
       crTableDialog: false,
       newSpellDialog: false,
       editSpellDialog: false,
+      manageTemplateDialog: false,
     };
   },
   computed: {
@@ -369,6 +378,7 @@ export default {
           'text/markdown'
         );
       } catch (e) {
+        console.log(e);
         this.message('Markdown export failed, check console', 'red');
       }
     },
@@ -380,6 +390,7 @@ export default {
           'green'
         );
       } catch (e) {
+        console.log(e);
         this.message('Markdown export failed, check console', 'red');
       }
     },
