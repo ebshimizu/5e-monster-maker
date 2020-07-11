@@ -9,11 +9,11 @@
       </v-row>
     </v-expansion-panel-header>
     <v-expansion-panel-content>
-      <v-row>
+      <v-row align="center">
         <v-col cols="4"
           ><v-text-field label="Name" v-model="name"></v-text-field
         ></v-col>
-        <v-col cols="1"
+        <v-col cols="2"
           ><v-text-field
             label="Targets"
             type="number"
@@ -71,14 +71,21 @@
             v-model="modifierStat"
           ></v-select
         ></v-col>
-        <v-col cols="2"
-          ><v-text-field
-            label="Effect DC"
-            type="number"
-            hint="Helps Estimate CR"
-            v-model="save"
-          ></v-text-field
-        ></v-col>
+        <v-col cols="1">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                fab
+                x-small
+                color="blue"
+                v-on="on"
+                @click.stop="$emit('save-template', index)"
+                ><v-icon>mdi-content-save</v-icon></v-btn
+              >
+            </template>
+            Save as Template
+          </v-tooltip>
+        </v-col>
         <v-col cols="4"
           ><v-select
             label="Range"
@@ -115,6 +122,14 @@
             suffix="ft."
             type="number"
             v-model="long"
+          ></v-text-field
+        ></v-col>
+        <v-col cols="2"
+          ><v-text-field
+            label="Effect DC"
+            type="number"
+            hint="Helps Estimate CR"
+            v-model="save"
           ></v-text-field
         ></v-col>
         <v-col cols="12">
