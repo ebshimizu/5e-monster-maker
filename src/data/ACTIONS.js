@@ -34,5 +34,6 @@ export const ACTION = {
   UPDATE_SPELL_AND_VALIDATE: 'Update existing spell',
   LOAD_CUSTOM_SPELLS: 'Load Custom Spells',
   LOAD_LAST_STATE: 'Load Last State',
-  LOAD_MONSTER: 'Load Monster'
-}
+  LOAD_MONSTER: 'Load Monster',
+  LOAD_CUSTOM_TEMPLATES: 'Load Custom Templates',
+};

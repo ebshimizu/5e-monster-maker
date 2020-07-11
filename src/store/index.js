@@ -562,6 +562,11 @@ export default new Vuex.Store({
 
       commit(MUTATION.VALIDATE_SPELLS);
     },
+    [ACTION.LOAD_CUSTOM_TEMPLATES]({ commit }, templates) {
+      for (const id in templates) {
+        commit(MUTATION.ADD_CUSTOM_TEMPLATE, { id, template: templates[id] });
+      }
+    },
   },
   modules: {},
 });
