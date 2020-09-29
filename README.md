@@ -36,10 +36,10 @@ There's a little bit of support in the app for using text replacement tokens. Cu
 ### Calculating CR
 First of all, the CR calculation displayed at the bottom of the page is just a *suggestion* and can be ignored entirely if you want. The app tries to compute CR as described in the 5e Dungeon Master's Guide:
 
-1. The damage per round is averaged over three rounds, assuming the monster uses its most damaging attacks every round. Limited use, recharge, and spellcasting abilities are used only once in these three rounds (so if you do decide to cas, say, *fireball* three times in a row, this will not capture that). Trait damage is applied every round. Multitarget actions are assumed to do 2x damage. All attacks and actions are assumed to hit/do full damage.
+1. The damage per round is averaged over three rounds, assuming the monster uses its most damaging attacks every round. Limited use, recharge, and spellcasting abilities are used only once in these three rounds (so if you do decide to cast, say, *fireball* three times in a row, this will not capture that). Trait damage is applied every round. Multitarget actions are assumed to do 2x damage. All attacks and actions are assumed to hit/do full damage.
 2. An offensive CR is computed from the average damage per round.
 3. The offensive CR is adjusted based on the attack bonus or save DC of the monster, prioritizing whichever has a higher expected CR
-4. The effective HP of the monster is calculated baed on the offensive CR. The offensive CR is needed to set the proper multipliers for immunities and resistances.
+4. The effective HP of the monster is calculated based on the offensive CR. The offensive CR is needed to set the proper multipliers for immunities and resistances.
 5. A defensive CR is computed from the effective HP
 6. The defensive CR is adjusted based on the effective AC of the monster
 7. Offensive CR and defensive CR are averaged to create the final estimate
