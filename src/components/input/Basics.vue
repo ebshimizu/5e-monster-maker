@@ -3,10 +3,10 @@
     <v-expansion-panel-header>Basics</v-expansion-panel-header>
     <v-expansion-panel-content class="mt-4">
       <v-row align="center">
-        <v-col cols="8"
+        <v-col cols="8" lg="8" md="12" sm="12"
           ><v-text-field dense label="Name" v-model="name"></v-text-field
         ></v-col>
-        <v-col cols="2">
+        <v-col cols="2" lg="2" md="4" sm="6">
           <v-row no-gutters>
             <v-col>
               <v-text-field
@@ -35,11 +35,11 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="2">
+        <v-col cols="2" lg="2" md="4" sm="6">
           <v-select dense :items="crOptions" v-model="cr" label="CR">
           </v-select>
         </v-col>
-        <v-col cols="2"
+        <v-col cols="2" lg="2" md="4" sm="6"
           ><v-select
             dense
             label="Size"
@@ -47,7 +47,7 @@
             v-model="size"
           ></v-select
         ></v-col>
-        <v-col cols="6"
+        <v-col cols="6" lg="6" md="6" sm="6"
           ><v-combobox
             dense
             label="Type"
@@ -55,7 +55,7 @@
             v-model="type"
           ></v-combobox
         ></v-col>
-        <v-col cols="4"
+        <v-col cols="4" lg="4" md="6" sm="6"
           ><v-combobox
             dense
             label="Alignment"
@@ -63,7 +63,7 @@
             v-model="alignment"
           ></v-combobox
         ></v-col>
-        <v-col cols="2">
+        <v-col cols="2" lg="2" md="4" sm="6">
           <v-row>
             <v-col>
               <v-text-field
@@ -98,7 +98,7 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="3"
+        <v-col cols="3" lg="3" md="8" sm="6"
           ><v-text-field
             dense
             label="AC Type"
@@ -106,7 +106,7 @@
             hint="Or AC Notes"
           ></v-text-field
         ></v-col>
-        <v-col cols="3">
+        <v-col cols="3" lg="3" md="4" sm="6">
           <v-row>
             <v-col>
               <v-text-field
@@ -142,7 +142,7 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="2"
+        <v-col cols="2" lg="2" md="4" sm="6"
           ><v-row>
             <v-col
               ><v-select
@@ -171,7 +171,7 @@
             </v-col>
           </v-row></v-col
         >
-        <v-col cols="2"
+        <v-col cols="2" lg="2" md="4" sm="6"
           ><v-row no-gutters>
             <v-col>
               <v-text-field
@@ -200,7 +200,7 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="2"
+        <v-col cols="2" md="2" sm="4"
           ><v-text-field
             dense
             label="STR"
@@ -211,7 +211,7 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2"
+        <v-col cols="2" md="2" sm="4"
           ><v-text-field
             dense
             label="DEX"
@@ -222,7 +222,7 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2"
+        <v-col cols="2" md="2" sm="4"
           ><v-text-field
             dense
             label="CON"
@@ -233,7 +233,7 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2"
+        <v-col cols="2" md="2" sm="4"
           ><v-text-field
             dense
             label="INT"
@@ -244,7 +244,7 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2"
+        <v-col cols="2" md="2" sm="4"
           ><v-text-field
             dense
             label="WIS"
@@ -255,7 +255,7 @@
             :rules="[rules.number]"
           ></v-text-field
         ></v-col>
-        <v-col cols="2"
+        <v-col cols="2" md="2" sm="4"
           ><v-text-field
             dense
             label="CHA"

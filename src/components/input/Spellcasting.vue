@@ -94,7 +94,7 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="2">
+        <v-col cols="2" lg="2" md="4">
           <v-row no-gutters>
             <v-col>
               <v-text-field
@@ -125,7 +125,7 @@
           </v-row>
         </v-col>
         <v-spacer></v-spacer>
-        <v-col cols="4">
+        <v-col cols="4" lg="4" md="5">
           <v-btn
             :color="classOnly ? 'green' : 'grey'"
             block
