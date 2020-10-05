@@ -821,6 +821,14 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
+"@babel/runtime-corejs2@^7.0.0":
+  version "7.11.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.11.2.tgz#700a03945ebad0d31ba6690fc8a6bcc9040faa47"
+  integrity sha512-AC/ciV28adSSpEkBglONBWq4/Lvm6GAZuxIoyVtsnUpZMl0bxLtoChEnYAkP+47KyOCayZanojtflUEUJtR/6Q==
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.11.0", "@babel/runtime@^7.8.4":
   version "7.11.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
@@ -1911,7 +1919,15 @@ bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-bluebird@^3.1.1, bluebird@^3.5.5:
+bl@^2.0.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/bl/-/bl-2.2.1.tgz#8c11a7b730655c5d56898cdc871224f40fd901d5"
+  integrity sha512-6Pesp1w0DEX1N550i/uGV/TqucVL4AM/pgThFSN/Qq9si1/DF9aIHs1BxD8V/QU0HoeHO6cQRTAuYnLPKq1e4g==
+  dependencies:
+    readable-stream "^2.3.5"
+    safe-buffer "^5.1.1"
+
+bluebird@^3.0.6, bluebird@^3.1.1, bluebird@^3.5.5:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
@@ -2687,6 +2703,11 @@ core-js-compat@^3.6.2, core-js-compat@^3.6.5:
   dependencies:
     browserslist "^4.8.5"
     semver "7.0.0"
+
+core-js@^2.6.5:
+  version "2.6.11"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
+  integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
 core-js@^3.6.5:
   version "3.6.5"
@@ -5011,6 +5032,19 @@ json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
+json-url@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/json-url/-/json-url-2.6.0.tgz#e0f12b254a38234dd9ddcc881b3baef925d885e2"
+  integrity sha512-uMiw/WX8DJUhs/adMJey72Z68Fw1Y4IcfCPTCD4c3uPhynB4ENlYVzDDLNjcmsRmLat+JVNSkNvQrg/ITAXxxQ==
+  dependencies:
+    "@babel/runtime-corejs2" "^7.0.0"
+    bluebird "^3.0.6"
+    lz-string "^1.4.4"
+    lzma "^2.3.2"
+    msgpack5 "^4.2.1"
+    node-lzw "^0.3.1"
+    urlsafe-base64 "^1.0.0"
+
 json3@^3.3.2:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.3.tgz#7fc10e375fc5ae42c4705a5cc0aa6f62be305b81"
@@ -5255,6 +5289,16 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lz-string@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
+  integrity sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY=
+
+lzma@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/lzma/-/lzma-2.3.2.tgz#3783b24858b9c0e747a0df3cbf1fb5fcaa92c441"
+  integrity sha1-N4OySFi5wOdHoN88vx+1/KqSxEE=
 
 make-dir@^2.0.0:
   version "2.1.0"
@@ -5532,6 +5576,16 @@ ms@2.1.2, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+msgpack5@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/msgpack5/-/msgpack5-4.2.1.tgz#007233691af34c4168cea9477cb3236aae854f03"
+  integrity sha512-Xo7nE9ZfBVonQi1rSopNAqPdts/QHyuSEUwIEzAkB+V2FtmkkLUbP6MyVqVVQxsZYI65FpvW3Bb8Z9ZWEjbgHQ==
+  dependencies:
+    bl "^2.0.1"
+    inherits "^2.0.3"
+    readable-stream "^2.3.6"
+    safe-buffer "^5.1.2"
+
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
@@ -5650,6 +5704,11 @@ node-libs-browser@^2.2.1:
     url "^0.11.0"
     util "^0.11.0"
     vm-browserify "^1.0.1"
+
+node-lzw@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/node-lzw/-/node-lzw-0.3.1.tgz#f50e37968976aca83320028b91f101df4a436b2d"
+  integrity sha1-9Q43lol2rKgzIAKLkfEB30pDay0=
 
 node-releases@^1.1.61:
   version "1.1.61"
@@ -6752,7 +6811,7 @@ read-pkg@^5.1.1:
     parse-json "^5.0.0"
     type-fest "^0.6.0"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.7"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
   integrity sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==
@@ -8103,6 +8162,11 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+urlsafe-base64@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/urlsafe-base64/-/urlsafe-base64-1.0.0.tgz#23f89069a6c62f46cf3a1d3b00169cefb90be0c6"
+  integrity sha1-I/iQaabGL0bPOh07ABac77kL4MY=
 
 use@^3.1.0:
   version "3.1.1"

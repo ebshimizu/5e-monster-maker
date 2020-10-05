@@ -3,6 +3,9 @@ import Vuex from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 import _ from 'lodash';
 import { Persistence } from './persistence';
+import jsonurl from 'json-url';
+
+const codec = jsonurl('lzma');
 
 import {
   saveModifier,
@@ -549,7 +552,7 @@ export default new Vuex.Store({
       commit(MUTATION.ADD_CUSTOM_SPELL, spell);
       commit(MUTATION.VALIDATE_SPELLS);
     },
-    [ACTION.LOAD_LAST_STATE]({ commit }) {
+    async [ACTION.LOAD_LAST_STATE]({ commit }) {
       commit(MUTATION.LOAD_LAST_STATE);
       commit(MUTATION.VALIDATE_SPELLS);
 
@@ -558,7 +561,7 @@ export default new Vuex.Store({
 
       if (params.has('data')) {
         try {
-          const state = atob(params.get('data'));
+          const state = await codec.decompress(params.get('data'));
           const stateJson = JSON.parse(state);
           commit(MUTATION.SET_DATA_PARAM, stateJson);
         } catch (e) {

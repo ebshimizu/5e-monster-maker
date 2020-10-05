@@ -135,13 +135,15 @@
       <v-card
         ><v-card-title class="headline">Load From URL</v-card-title>
         <v-card-text
-          >You are about to load the <strong>{{ paramMonsterName }}</strong> monster. This will overwrite your current monster. Proceed?</v-card-text
+          >You are about to load the
+          <strong>{{ paramMonsterName }}</strong> monster. This will overwrite
+          your current monster. Proceed?</v-card-text
         >
         <v-card-actions>
-          <v-btn color="green darken-1" text @click="loadFromDataParam">Yes</v-btn>
-          <v-btn color="blue darken-1" text @click="cancelParamLoad"
-            >No</v-btn
+          <v-btn color="green darken-1" text @click="loadFromDataParam"
+            >Yes</v-btn
           >
+          <v-btn color="blue darken-1" text @click="cancelParamLoad">No</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -209,6 +211,9 @@ import { validate } from 'jsonschema';
 import SCHEMA from '../data/SCHEMA';
 import copy from 'copy-to-clipboard';
 import { CR } from '../data/CR';
+import jsonurl from 'json-url';
+
+const codec = jsonurl('lzma');
 
 import FormSpellNew from './forms/FormSpellNew';
 import FormSpellEdit from './forms/FormSpellEdit';
@@ -274,8 +279,10 @@ export default {
       return this.$store.state.dataParam !== null;
     },
     paramMonsterName() {
-      return this.$store.state.dataParam ? this.$store.state.dataParam.name : '[No Name Found]';
-    }
+      return this.$store.state.dataParam
+        ? this.$store.state.dataParam.name
+        : '[No Name Found]';
+    },
   },
   methods: {
     applyTemplate(selected) {
@@ -337,14 +344,20 @@ export default {
     saveToPng() {
       saveToPng(`${this.$store.state.monster.name}.png`);
     },
-    copyLink() {
+    async copyLink() {
       // encode json string as base64
-      const b64 = btoa(JSON.stringify(this.$store.state.monster));
-      copy(`${window.location.origin}${window.location.pathname}?data=${b64}`);
-      this.message(
-        'Copied Sharable Link to Clipboard',
-        'green'
-      );
+      try {
+        const b64 = await codec.compress(
+          JSON.stringify(this.$store.state.monster)
+        );
+        copy(
+          `${window.location.origin}${window.location.pathname}?data=${b64}`
+        );
+        this.message('Copied Sharable Link to Clipboard', 'green');
+      } catch (e) {
+        this.message('Error encoding url. Check console for details.', 'red');
+        console.log(e);
+      }
     },
     loadCleanup() {
       this.fileLoading = false;
