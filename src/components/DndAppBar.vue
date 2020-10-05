@@ -113,7 +113,7 @@
           <v-list-item-title>Save as PNG</v-list-item-title>
         </v-list-item>
         <v-list-item @click="copyLink">
-          <v-list-item-title>Copy 5emm Link</v-list-item-title>
+          <v-list-item-title>Copy 5emm Link (tinyurl)</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -211,6 +211,7 @@ import { validate } from 'jsonschema';
 import SCHEMA from '../data/SCHEMA';
 import copy from 'copy-to-clipboard';
 import { CR } from '../data/CR';
+import TinyURL from 'tinyurl';
 import jsonurl from 'json-url';
 
 const codec = jsonurl('lzma');
@@ -350,10 +351,20 @@ export default {
         const b64 = await codec.compress(
           JSON.stringify(this.$store.state.monster)
         );
-        copy(
-          `${window.location.origin}${window.location.pathname}?data=${b64}`
-        );
-        this.message('Copied Sharable Link to Clipboard', 'green');
+        const url = `${window.location.origin}${window.location.pathname}?data=${b64}`;
+
+        try {
+          const short = await TinyURL.shorten(url);
+          copy(short);
+          this.message('Copied Sharable Link to Clipboard', 'green');
+        }
+        catch (e) {
+          this.message('Copied long link to Clipboard (unable to shorten)', 'green');
+          console.log(e);
+
+          copy(url);
+        }
+
       } catch (e) {
         this.message('Error encoding url. Check console for details.', 'red');
         console.log(e);
