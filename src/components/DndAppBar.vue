@@ -112,6 +112,9 @@
         <v-list-item @click="saveToPng">
           <v-list-item-title>Save as PNG</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="copyLink">
+          <v-list-item-title>Copy 5emm Link</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
     <v-dialog v-model="resetDialog" max-width="300px">
@@ -123,6 +126,20 @@
         <v-card-actions>
           <v-btn color="green darken-1" text @click="reset">Yes</v-btn>
           <v-btn color="blue darken-1" text @click="resetDialog = false"
+            >No</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="loadFromParamDialog" max-width="400px">
+      <v-card
+        ><v-card-title class="headline">Load From URL</v-card-title>
+        <v-card-text
+          >You are about to load the <strong>{{ paramMonsterName }}</strong> monster. This will overwrite your current monster. Proceed?</v-card-text
+        >
+        <v-card-actions>
+          <v-btn color="green darken-1" text @click="loadFromDataParam">Yes</v-btn>
+          <v-btn color="blue darken-1" text @click="cancelParamLoad"
             >No</v-btn
           >
         </v-card-actions>
@@ -253,6 +270,12 @@ export default {
         { text: 'Save DC', value: 'saveDc', sortable: false },
       ];
     },
+    loadFromParamDialog() {
+      return this.$store.state.dataParam !== null;
+    },
+    paramMonsterName() {
+      return this.$store.state.dataParam ? this.$store.state.dataParam.name : '[No Name Found]';
+    }
   },
   methods: {
     applyTemplate(selected) {
@@ -314,9 +337,54 @@ export default {
     saveToPng() {
       saveToPng(`${this.$store.state.monster.name}.png`);
     },
+    copyLink() {
+      // encode json string as base64
+      const b64 = btoa(JSON.stringify(this.$store.state.monster));
+      copy(`${window.location.origin}?data=${b64}`);
+      this.message(
+        'Copied Sharable Link to Clipboard',
+        'green'
+      );
+    },
     loadCleanup() {
       this.fileLoading = false;
       this.file = null;
+    },
+    loadFromDataParam() {
+      // we have a valid json object here, but need to check against our schema
+      const monster = this.$store.state.dataParam;
+
+      try {
+        // validate
+        if (!monster.saveVersion) {
+          this.message('Load Failed: No Version Detected', 'red');
+        } else {
+          const valid = validate(monster, SCHEMA[monster.saveVersion]);
+
+          if (valid.valid) {
+            this.$store.commit(MUTATION.LOAD_MONSTER, monster);
+            this.message('Load Successful', 'green');
+            this.$store.commit(MUTATION.SET_DATA_PARAM, null);
+          } else {
+            this.message(
+              `Load Failed: version ${monster.saveVersion} did not validate.`,
+              'red'
+            );
+          }
+        }
+      } catch (e) {
+        console.log(e);
+        this.$store.commit(MUTATION.SET_DATA_PARAM, null);
+
+        this.message('Load Failed. See console for details.', 'red');
+      }
+
+      window.location.href = window.location.origin;
+    },
+    cancelParamLoad() {
+      // delete data param
+      this.$store.commit(MUTATION.SET_DATA_PARAM, null);
+      window.location.href = window.location.origin;
     },
     loadFile() {
       this.fileLoading = true;

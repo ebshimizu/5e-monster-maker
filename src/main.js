@@ -12,5 +12,5 @@ new Vue({
   render: h => h(App),
   beforeMount() {
     this.$store.dispatch(ACTION.LOAD_LAST_STATE);
-  }
+  },
 }).$mount('#app')

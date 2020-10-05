@@ -27,6 +27,7 @@ export default new Vuex.Store({
     spells: SPELLS,
     templates: TEMPLATES,
     customTemplates: {},
+    dataParam: null,
   },
   getters: {
     majorVersion: (state) => {
@@ -534,6 +535,9 @@ export default new Vuex.Store({
         Vue.delete(state.customTemplates, id);
       }
     },
+    [MUTATION.SET_DATA_PARAM](state, data) {
+      state.dataParam = data;
+    },
   },
   actions: {
     [ACTION.DELETE_SPELL_AND_VALIDATE]({ commit }, spellName) {
@@ -548,6 +552,19 @@ export default new Vuex.Store({
     [ACTION.LOAD_LAST_STATE]({ commit }) {
       commit(MUTATION.LOAD_LAST_STATE);
       commit(MUTATION.VALIDATE_SPELLS);
+
+      let uri = window.location.search.substring(1);
+      let params = new URLSearchParams(uri);
+
+      if (params.has('data')) {
+        try {
+          const state = atob(params.get('data'));
+          const stateJson = JSON.parse(state);
+          commit(MUTATION.SET_DATA_PARAM, stateJson);
+        } catch (e) {
+          console.log(e);
+        }
+      }
     },
     [ACTION.LOAD_MONSTER]({ commit }, monster) {
       commit(MUTATION.LOAD_MONSTER, monster);

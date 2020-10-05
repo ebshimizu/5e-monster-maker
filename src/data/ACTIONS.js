@@ -27,6 +27,7 @@ export const MUTATION = {
   VALIDATE_SPELLS: 'Validate Spells',
   ADD_CUSTOM_TEMPLATE: 'Add Custom Template',
   DELETE_CUSTOM_TEMPLATE: 'Delete Custom Template',
+  SET_DATA_PARAM: 'Set Decoded Data Parameter Value'
 };
 
 export const ACTION = {
