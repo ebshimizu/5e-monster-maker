@@ -340,7 +340,7 @@ export default {
     copyLink() {
       // encode json string as base64
       const b64 = btoa(JSON.stringify(this.$store.state.monster));
-      copy(`${window.location.origin}?data=${b64}`);
+      copy(`${window.location.origin}${window.location.pathname}?data=${b64}`);
       this.message(
         'Copied Sharable Link to Clipboard',
         'green'
@@ -379,12 +379,12 @@ export default {
         this.message('Load Failed. See console for details.', 'red');
       }
 
-      window.location.replace(`${window.location.origin}${window.location.pathname}`);
+      window.location.href = `${window.location.origin}${window.location.pathname}`;
     },
     cancelParamLoad() {
       // delete data param
       this.$store.commit(MUTATION.SET_DATA_PARAM, null);
-      window.location.replace(`${window.location.origin}${window.location.pathname}`);
+      window.location.href = `${window.location.origin}${window.location.pathname}`;
     },
     loadFile() {
       this.fileLoading = true;
