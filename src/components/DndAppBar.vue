@@ -379,12 +379,12 @@ export default {
         this.message('Load Failed. See console for details.', 'red');
       }
 
-      window.location.href = window.location.origin;
+      window.location.replace(`${window.location.origin}${window.location.pathname}`);
     },
     cancelParamLoad() {
       // delete data param
       this.$store.commit(MUTATION.SET_DATA_PARAM, null);
-      window.location.href = window.location.origin;
+      window.location.replace(`${window.location.origin}${window.location.pathname}`);
     },
     loadFile() {
       this.fileLoading = true;
