@@ -458,11 +458,19 @@ export default {
     spellsByLevel() {
       const spells = [];
       for (let i = 0; i < 10; i++) {
-        spells.push(this.$store.getters.spellsByLevel(i));
+        spells.push(
+          this.$store.getters.spellsByLevel(i).filter((s) => {
+            if (
+              this.classOnly &&
+              this.spellcasting.class in CLASS_SPELL_SLOTS
+            ) {
+              return s.class.indexOf(this.spellcasting.class) >= 0;
+            }
+          })
+        );
       }
-
       return spells;
-    }
+    },
   },
   methods: {
     updateSlots() {
