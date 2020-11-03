@@ -12,7 +12,7 @@ A monster stat block builder for the 5th edition of Dungeons and Dragons.
   - Displays an explanation of each component when hovered
 - Export Formats
   - JSON: For later editing with the 5e Monster Maker
-  - Markdown: For use with the [Homebrewery](https://homebrewery.naturalcrit.com/) system or other editors that accept that Markdown format
+  - Markdown: For use with [Homebrewery](https://homebrewery.naturalcrit.com/), [GMBinder](https://www.gmbinder.com/), or other editors that accept that Markdown format
   - LaTeX: For use with the [rpgtex](https://github.com/rpgtex/DND-5e-LaTeX-Template) system
   - PNG: For when you just want an image
   - PDF: Use the standard print button on your browser to save the stat block to PDF
