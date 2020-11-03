@@ -158,7 +158,7 @@
                     </v-card>
                   </v-col>
                   <v-col cols="12">
-                    <v-btn small block color="red" @click="removeTrait"
+                    <v-btn small block color="red" @click="removeTrait(index)"
                       >Delete Trait</v-btn
                     >
                   </v-col>

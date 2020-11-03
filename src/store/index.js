@@ -186,6 +186,19 @@ export default new Vuex.Store({
     spellsByLevel: (state, getters) => (level) => {
       return getters.spellArray.filter((spell) => spell.level === level);
     },
+    validLegendaryActions: (state, getters) => {
+      const valid = [];
+
+      for (const la of state.monster.legendaryActions.actions) {
+        // resolve the action or attack
+        const actionOrAttack = getters.attackOrActionFromId(la.actionId);
+        if (actionOrAttack) {
+          valid.push(la);
+        }
+      }
+
+      return valid;
+    },
     attackInfo: (state, getters) => {
       // returns an object containing all you need to know for calculating CR
       const data = {
@@ -298,7 +311,7 @@ export default new Vuex.Store({
       for (const la of state.monster.legendaryActions.actions) {
         // resolve the action or attack
         const actionOrAttack = getters.attackOrActionFromId(la.actionId);
-        if ('crAnnotation' in actionOrAttack) {
+        if (actionOrAttack && 'crAnnotation' in actionOrAttack) {
           // that's an actions
           const action = actionOrAttack;
           // do the action processing
@@ -457,6 +470,17 @@ export default new Vuex.Store({
 
         ma.attacks = valid;
       }
+
+      // also check that legendary attacks still exist
+      const validLa = [];
+      for (const la of state.monster.legendaryActions.actions) {
+        if (state.monster.actions.find((a) => a.id === la.actionId))
+          validLa.push(la);
+        if (state.monster.attacks.find((a) => a.id === la.actionId))
+          validLa.push(la);
+      }
+
+      state.monster.legendaryActions.actions = validLa;
     },
     [MUTATION.SET_MULTIATTACK](state, ma) {
       state.monster.multiattacks = ma;
@@ -466,15 +490,28 @@ export default new Vuex.Store({
     },
     [MUTATION.VALIDATE_ACTIONS](state) {
       // check that the actions in multiattack still exist, remove the ones that don't
-      for (const ma of state.monster.multiattacks) {
-        const valid = [];
+      if (state.monster.multiattacks.length > 0) {
+        for (const ma of state.monster.multiattacks) {
+          const valid = [];
 
-        for (const id of ma.actions) {
-          if (state.monster.actions.find((a) => a.id === id)) valid.push(id);
+          for (const id of ma.actions) {
+            if (state.monster.actions.find((a) => a.id === id)) valid.push(id);
+          }
+
+          ma.actions = valid;
         }
-
-        ma.actions = valid;
       }
+
+      // also check that legendary attacks still exist
+      const validLa = [];
+      for (const la of state.monster.legendaryActions.actions) {
+        if (state.monster.actions.find((a) => a.id === la.actionId))
+          validLa.push(la);
+        if (state.monster.attacks.find((a) => a.id === la.actionId))
+          validLa.push(la);
+      }
+
+      state.monster.legendaryActions.actions = validLa;
     },
     [MUTATION.LOAD_LAST_STATE](state) {
       // load from local storage

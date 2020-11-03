@@ -6,7 +6,7 @@
         <v-col cols="2">
           <v-text-field
             type="number"
-            v-model.number="legendaryActions.count"
+            v-model.number="count"
             min="0"
             label="Actions"
             @input="update"
@@ -35,7 +35,7 @@
         </v-col>
         <v-col
           cols="12"
-          v-for="(action, index) in legendaryActions.actions"
+          v-for="(action, index) in legendaryActions"
           :key="action.id"
         >
           <v-row no-gutters align="center">
@@ -49,7 +49,7 @@
                 type="number"
                 min="1"
                 label="Cost"
-                v-model.number="legendaryActions.actions[index].cost"
+                v-model.number="legendaryActions[index].cost"
                 @input="update"
               ></v-text-field>
             </v-col>
@@ -78,13 +78,23 @@ export default {
   name: 'LegendaryActions',
   computed: {
     legendaryActions() {
-      return this.$store.state.monster.legendaryActions;
+      return this.$store.getters.validLegendaryActions;
+    },
+    count: {
+      get() {
+        return this.$store.state.monster.legendaryActions.count;
+      },
+      set(val) {
+        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
+          key: 'legendaryActions',
+          value: { count: val, actions: this.legendaryActions },
+        });
+      },
     },
     availableActions() {
       return this.$store.state.monster.actions
         .filter(
-          (a) =>
-            !this.legendaryActions.actions.find((la) => la.actionId === a.id)
+          (a) => !this.legendaryActions.find((la) => la.actionId === a.id)
         )
         .map((a) => {
           return { type: 'action', ...a };
@@ -92,10 +102,7 @@ export default {
         .concat(
           this.$store.state.monster.attacks
             .filter(
-              (a) =>
-                !this.legendaryActions.actions.find(
-                  (la) => la.actionId === a.id
-                )
+              (a) => !this.legendaryActions.find((la) => la.actionId === a.id)
             )
             .map((a) => {
               return { type: 'attack', ...a };
@@ -107,11 +114,11 @@ export default {
     update() {
       this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
         key: 'legendaryActions',
-        value: this.legendaryActions,
+        value: { count: this.count, actions: this.legendaryActions },
       });
     },
     addAction(id) {
-      this.legendaryActions.actions.push({
+      this.legendaryActions.push({
         id: uuidv4(),
         actionId: id,
         cost: 1,
@@ -123,7 +130,7 @@ export default {
       return action.name;
     },
     removeAction(index) {
-      this.legendaryActions.actions.splice(index, 1);
+      this.legendaryActions.splice(index, 1);
       this.update();
     },
   },
