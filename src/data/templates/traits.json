@@ -237,6 +237,46 @@
         "include": true
       },
       "icon": "mdi-ghost-off"
+    },
+    {
+      "templateName": "Magic Resistance",
+      "name": "Magic Resistance",
+      "description": "The {NAME} has advantage on saving throws against spells and other magical effects.",
+      "limitedUse": {
+        "count": 0,
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-resistor"
+    },
+    {
+      "templateName": "Evasion",
+      "name": "Evasion",
+      "description": "When the {NAME} is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
+      "limitedUse": {
+        "count": "",
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "icon": "mdi-run-fast"
     }
   ]
 }
