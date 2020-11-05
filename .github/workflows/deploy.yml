@@ -27,7 +27,7 @@ jobs:
         node-version: 14.x
     
     - name: Build Number Generator
-      uses: einaregilsson/build-number@v2
+      uses: einaregilsson/build-number@v3
       with:
         token: ${{secrets.github_token}}
 
