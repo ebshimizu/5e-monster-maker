@@ -14,6 +14,7 @@ export const CONDITION = {
   STUNNED: 'stunned',
   UNCONSCIOUS: 'unconscious',
   SLEEP: 'sleep',
+  EXHAUSTION: 'exhaustion'
 }
 
 export const CONDITION_SELECT = Object.values(CONDITION).sort();
