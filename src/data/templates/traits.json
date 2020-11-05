@@ -277,6 +277,27 @@
         "include": true
       },
       "icon": "mdi-run-fast"
+    },
+    {
+      "name": "Flurry of Blows",
+      "description": "Immediately after the {NAME} takes the attack action on its turn, it can use this ability to make two unarmed strikes as a bonus action.",
+      "limitedUse": {
+        "count": 3,
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "templateName": "Flurry of Blows",
+      "type": "Trait",
+      "icon": "mdi-karate"
     }
   ]
 }
