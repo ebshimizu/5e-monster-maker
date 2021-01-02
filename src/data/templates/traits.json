@@ -298,6 +298,48 @@
       "templateName": "Flurry of Blows",
       "type": "Trait",
       "icon": "mdi-karate"
+    },
+    {
+      "name": "Assassinate",
+      "description": "During its first turn, the {NAME} has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the {NAME} scores against a surprised creature is a critical hit.",
+      "limitedUse": {
+        "count": 0,
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "templateName": "Assassinate",
+      "type": "Trait",
+      "icon": "mdi-knife-military"
+    },
+    {
+      "name": "Sneak Attack",
+      "description": "Once per turn, the {NAME} deals an extra {4d6} damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the {NAME} that isn't incapacitated and the {NAME} doesn't have disadvantage on the attack roll.",
+      "limitedUse": {
+        "count": 0,
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 14,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "templateName": "Sneak Attack",
+      "type": "Trait",
+      "icon": "mdi-incognito"
     }
   ]
 }
