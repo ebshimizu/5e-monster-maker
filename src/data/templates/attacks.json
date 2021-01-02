@@ -633,6 +633,198 @@
       "templateName": "Scimitar",
       "type": "Attack",
       "icon": ""
+    },
+    {
+      "name": "Slam",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "DEX",
+        "proficient": true
+      },
+      "range": {
+        "standard": 0,
+        "long": 0,
+        "reach": 5
+      },
+      "targets": 1,
+      "damage": {
+        "dice": 8,
+        "count": 2,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "DEX"
+        },
+        "type": "bludgeoning"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "STR"
+        },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "templateName": "Slam (DEX)",
+      "type": "Attack",
+      "icon": ""
+    },
+    {
+      "name": "Slam",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": {
+        "standard": 0,
+        "long": 0,
+        "reach": 5
+      },
+      "targets": 1,
+      "damage": {
+        "dice": 8,
+        "count": 2,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "STR"
+        },
+        "type": "bludgeoning"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "STR"
+        },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "templateName": "Slam (STR)",
+      "type": "Attack",
+      "icon": ""
+    },
+    {
+      "name": "Warhammer",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": {
+        "standard": 0,
+        "long": 0,
+        "reach": 5
+      },
+      "targets": 1,
+      "damage": {
+        "dice": 8,
+        "count": 1,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "STR"
+        },
+        "type": "bludgeoning"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "STR"
+        },
+        "type": "bludgeoning",
+        "condition": "if used with two hands to make a melee attack",
+        "active": true
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "templateName": "Warhammer",
+      "type": "Attack",
+      "icon": "mdi-hammer"
+    },
+    {
+      "name": "Warhammer",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "STR",
+        "proficient": true
+      },
+      "range": {
+        "standard": 0,
+        "long": 0,
+        "reach": 5
+      },
+      "targets": 1,
+      "damage": {
+        "dice": 8,
+        "count": 1,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "STR"
+        },
+        "type": "bludgeoning"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": {
+          "override": false,
+          "overrideValue": 0,
+          "stat": "STR"
+        },
+        "type": "bludgeoning",
+        "condition": "if used with two hands to make a melee attack",
+        "active": true
+      },
+      "additionalDamage": [
+        {
+          "dice": 6,
+          "count": 1,
+          "type": "fire",
+          "note": ""
+        }
+      ],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false,
+      "templateName": "Heated Warhammer",
+      "type": "Attack",
+      "subtitle": "Melee Weapon. 1d8 + STR bludgeoning / 1d10 + STR bludgeoning plus 1d6 fire.",
+      "icon": "mdi-hammer"
     }
   ]
 }

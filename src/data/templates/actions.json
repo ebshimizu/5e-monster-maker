@@ -155,6 +155,29 @@
         "include": true
       },
       "icon": "mdi-flag-plus-outline"
+    },
+    {
+      "name": "Whirlwind",
+      "description": "Each creature in the {NAME}'s space must make a {DC:STR} Strength saving throw. On a failure, a target takes {3d8 + 2} bludgeoning damage and is flung up 20 feet away from the elemental in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes {1d6} bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a {DC:STR} dexterity saving throw or take the same damage and be knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.",
+      "recharge": "4-6",
+      "legendaryOnly": false,
+      "limitedUse": {
+        "count": 0,
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 15,
+        "maxSave": 13,
+        "maxModifier": 0,
+        "multitarget": true,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "templateName": "Whirlwind",
+      "type": "Action",
+      "icon": "mdi-weather-tornado"
     }
   ]
 }

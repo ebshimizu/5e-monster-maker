@@ -340,6 +340,48 @@
       "templateName": "Sneak Attack",
       "type": "Trait",
       "icon": "mdi-incognito"
+    },
+    {
+      "name": "Air Form",
+      "description": "The {NAME} can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.",
+      "limitedUse": {
+        "count": 0,
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "templateName": "Air Form",
+      "type": "Trait",
+      "icon": "mdi-weather-windy-variant"
+    },
+    {
+      "name": "Heated Weapons",
+      "description": "When the {NAME} hits wit a metal melee weapon, it deals an extra {1d6} fire damage (included in the attack).",
+      "limitedUse": {
+        "count": 0,
+        "rate": "day"
+      },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      },
+      "templateName": "Heated Weapons",
+      "type": "Trait",
+      "icon": "mdi-fire"
     }
   ]
 }
