@@ -465,6 +465,8 @@ export default {
               this.spellcasting.class in CLASS_SPELL_SLOTS
             ) {
               return s.class.indexOf(this.spellcasting.class) >= 0;
+            } else if (!this.classOnly) {
+              return true;
             }
           })
         );

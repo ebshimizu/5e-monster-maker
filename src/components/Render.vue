@@ -12,7 +12,7 @@
     <div class="skill"><span class="name">Hit Points</span> {{ hp }}</div>
     <div class="skill"><span class="name">Speed</span> {{ speed }}</div>
     <v-divider></v-divider>
-    <v-row>
+    <v-row class="ma-0">
       <v-col v-for="stat in stats" :key="stat.stat" class="stat-container pa-1">
         <div class="stat-name">{{ stat.stat }}</div>
         <div class="stat">
