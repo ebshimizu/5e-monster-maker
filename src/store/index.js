@@ -55,9 +55,13 @@ export default new Vuex.Store({
     // this needs the full skill object
     defaultSkillBonus: (state) => (skill) => {
       const proficient = skill.proficient;
+      
+      // back compat safety
+      const expertise = skill.expertise ? skill.expertise : false;
+
       return saveModifier(
         state.monster.stats[skill.skill.stat],
-        proficient ? state.monster.proficiency : 0
+        expertise ? state.monster.proficiency * 2 : (proficient ? state.monster.proficiency : 0)
       );
     },
     passivePerception: (state, getters) => {
@@ -440,6 +444,7 @@ export default new Vuex.Store({
       state.monster.skills.push({
         skill,
         proficient: false,
+        expertise: false,
         override: false,
         overrideValue: 0,
       });
@@ -514,12 +519,6 @@ export default new Vuex.Store({
       state.monster.legendaryActions.actions = validLa;
     },
     [MUTATION.LOAD_LAST_STATE](state) {
-      // load from local storage
-      const monster = localStorage.getItem('app.monster');
-      if (monster) {
-        Vue.set(state, 'monster', JSON.parse(monster));
-      }
-
       const spellStr = localStorage.getItem('app.customSpells');
       if (spellStr) {
         const spells = JSON.parse(spellStr);
@@ -535,6 +534,17 @@ export default new Vuex.Store({
       }
     },
     [MUTATION.LOAD_MONSTER](state, monster) {
+      // versioning
+      if (monster.saveVersion < 2) {
+        // expertise was added to skills
+        for (const skill of monster.skills) {
+          skill.expertise = false;
+        }
+
+        // upgrade complete
+        monster.saveVersion = 2;
+      }
+
       // just replaces the entire thing, assumes input is valid
       Vue.set(state, 'monster', monster);
     },
@@ -590,6 +600,12 @@ export default new Vuex.Store({
       commit(MUTATION.VALIDATE_SPELLS);
     },
     async [ACTION.LOAD_LAST_STATE]({ commit }) {
+      // load monster from local storage
+      const monster = localStorage.getItem('app.monster');
+      if (monster) {
+        commit(MUTATION.LOAD_MONSTER, JSON.parse(monster));
+      }
+
       commit(MUTATION.LOAD_LAST_STATE);
       commit(MUTATION.VALIDATE_SPELLS);
 

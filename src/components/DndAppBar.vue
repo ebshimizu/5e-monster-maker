@@ -205,7 +205,7 @@ import {
   download,
   renderBonus,
 } from './util';
-import { MUTATION } from '../data/ACTIONS';
+import { MUTATION, ACTION } from '../data/ACTIONS';
 import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
 import { validate } from 'jsonschema';
 import SCHEMA from '../data/SCHEMA';
@@ -386,7 +386,7 @@ export default {
           const valid = validate(monster, SCHEMA[monster.saveVersion]);
 
           if (valid.valid) {
-            this.$store.commit(MUTATION.LOAD_MONSTER, monster);
+            this.$store.dispatch(ACTION.LOAD_MONSTER, monster);
             this.message('Load Successful', 'green');
             this.$store.commit(MUTATION.SET_DATA_PARAM, null);
           } else {
@@ -426,7 +426,7 @@ export default {
             const valid = validate(monster, SCHEMA[monster.saveVersion]);
 
             if (valid.valid) {
-              this.$store.commit(MUTATION.LOAD_MONSTER, monster);
+              this.$store.dispatch(ACTION.LOAD_MONSTER, monster);
               this.message('Load Successful', 'green');
             } else {
               this.message(

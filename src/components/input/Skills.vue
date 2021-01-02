@@ -11,7 +11,7 @@
         ></skill-entry> </v-row
       ><v-menu offset-y max-height="300px">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn block small color="green" v-bind="attrs" v-on="on"
+          <v-btn block small style="margin-top: 20px;" color="green" v-bind="attrs" v-on="on"
             >Add Skill</v-btn
           >
         </template>

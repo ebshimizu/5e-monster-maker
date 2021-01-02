@@ -9,7 +9,7 @@ import _ from 'lodash';
 import N2W from 'number-to-words';
 import DomToImage from 'dom-to-image';
 
-export const SAVE_VERSION = 1;
+export const SAVE_VERSION = 2;
 
 export function avgHP(HP) {
   return Math.floor(HP.HD * ((HP.type + 1) / 2) + HP.modifier);

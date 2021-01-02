@@ -28,6 +28,21 @@
           </template>
           Proficient
         </v-tooltip>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              fab
+              x-small
+              :color="activeColor(expertise)"
+              v-on="on"
+              @click="expertise = !expertise"
+              class="ml-1"
+              :disabled="override"
+              ><v-icon>mdi-brain</v-icon></v-btn
+            >
+          </template>
+          Expertise
+        </v-tooltip>
       </v-col>
       <v-col md="auto">
         <v-tooltip bottom>
@@ -96,6 +111,15 @@ export default {
         this.skill.proficient = value;
         this.update();
       },
+    },
+    expertise: {
+      get() { 
+        return this.skill.expertise ? this.skill.expertise : false;
+      },
+      set(value) {
+        this.skill.expertise = value;
+        this.update()
+      }
     },
     override: {
       get() {
