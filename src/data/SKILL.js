@@ -31,6 +31,10 @@ export const SKILL = {
     stat: 'CHA',
     key: 'Intimidation',
   },
+  INVESTIGATION: {
+    stat: 'INT',
+    key: 'Investigation',
+  },
   MEDICINE: {
     stat: 'WIS',
     key: 'Medicine',
