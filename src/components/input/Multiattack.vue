@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panel>
     <v-expansion-panel-header>Multiattack</v-expansion-panel-header>
-    <v-expansion-panel-content class="mt-2">
+    <v-expansion-panel-content class="pt-6">
       <v-row>
         <v-col cols="12" v-for="(item, index) in multiattacks" :key="item.id">
           <v-card outlined>
@@ -11,7 +11,7 @@
             <v-card-subtitle class="px-2 mb-n4">
               {{ damagePerRound(item) }} Damage per Round</v-card-subtitle
             >
-            <v-row class="px-2" align="center">
+            <v-row class="px-2 pb-2" align="center">
               <v-col cols="1">
                 <v-menu>
                   <template v-slot:activator="{ on, attrs }">

@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panel>
     <v-expansion-panel-header>Spellcasting</v-expansion-panel-header>
-    <v-expansion-panel-content class="mt-2">
+    <v-expansion-panel-content class="pt-4">
       <v-row>
         <v-col cols="4">
           <v-combobox

@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panel>
     <v-expansion-panel-header>Attacks</v-expansion-panel-header>
-    <v-expansion-panel-content>
+    <v-expansion-panel-content class="pt-4">
       <v-row
         ><v-col cols="12">
           <v-expansion-panels accordion hover multiple focusable>
