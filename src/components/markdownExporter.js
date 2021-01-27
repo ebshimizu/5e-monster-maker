@@ -152,7 +152,7 @@ export function renderMarkdown(store, twoCol = false) {
   const multi = monster.multiattacks.length === 0 ? '' : `\n> ***Multiattack.*** ${renderMultiattacks(store)}\n>`;
   const attacks = monster.attacks.lenght === 0 ? '' : `\n${renderMarkdownAttacks(store)}\n>`;
   const actions = !hasNonLegendaryActions ? '' : `\n${renderMarkdownActions(store)}\n>`;
-  const legendary = monster.legendaryActions.length === 0 ? '' : `\n${renderMarkdownLegendary(store)}\n>`;
+  const legendary = monster.legendaryActions.actions.length === 0 ? '' : `\n${renderMarkdownLegendary(store)}\n>`;
   const reactions = monster.reactions.length === 0 ? '' : `\n${renderMarkdownReactions(store)}\n`;
 
   return `___${twoCol ? '___' : ''}
@@ -160,7 +160,7 @@ export function renderMarkdown(store, twoCol = false) {
 >*${monster.size} ${monster.type}, ${monster.alignment}*
 > ___
 > - **Armor Class** ${monster.AC} ${monster.ACType === '' ? '' : `(${monster.ACType})`}
-> - **Hit Points** ${avgRoll(monster.HP.HD, monster.HP.type)} (${monster.HP.HD}d${monster.HP.type}${renderBonus(monster.HP.modifier)})
+> - **Hit Points** ${avgRoll(monster.HP.HD, monster.HP.type) + monster.HP.modifier} (${monster.HP.HD}d${monster.HP.type}${renderBonus(monster.HP.modifier)})
 > - **Speed** ${monster.speeds.map((s) => `${s.speed} ft. ${s.type}${s.note === '' ? '' : s.note}`).join(', ')}
 >___
 >|STR|DEX|CON|INT|WIS|CHA|
