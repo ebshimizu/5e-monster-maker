@@ -98,19 +98,24 @@
         <v-list-item @click="downloadMarkdown">
           <v-list-item-title>Export Markdown (Homebrewery)</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="saveToTioJson">
+          <v-list-item-title
+            >Export JSON (Tarrasque.io format)</v-list-item-title
+          >
+        </v-list-item>
         <v-list-item @click="saveToLatex(false)">
           <v-list-item-title>Export LaTeX (rpgtex, 1 col)</v-list-item-title>
         </v-list-item>
         <v-list-item @click="saveToLatex(true)">
           <v-list-item-title>Export LaTeX (rpgtex, 2 col)</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="saveToPng">
+          <v-list-item-title>Save as PNG</v-list-item-title>
+        </v-list-item>
         <v-list-item @click="copyMarkdown">
           <v-list-item-title
             >Copy Markdown to Clipboard (Homebrewery)</v-list-item-title
           >
-        </v-list-item>
-        <v-list-item @click="saveToPng">
-          <v-list-item-title>Save as PNG</v-list-item-title>
         </v-list-item>
         <v-list-item @click="copyLink">
           <v-list-item-title>Copy 5emm Link (tinyurl)</v-list-item-title>
@@ -198,6 +203,7 @@
 <script>
 import { saveToLatex } from './latexExporter';
 import { renderMarkdown } from './markdownExporter';
+import { saveTioJson } from './tarrasqueioExporter';
 import {
   saveJSON,
   cloneFromTemplate,
@@ -339,6 +345,13 @@ export default {
         `${this.$store.state.monster.name}.5emm.json`
       );
     },
+    saveToTioJson() {
+      saveTioJson(
+        this.$store.state.monster,
+        `${this.$store.state.monster.name}.tio.json`,
+        this.$store
+      );
+    },
     saveToLatex(twoCol) {
       saveToLatex(this.$store, `${this.$store.state.monster.name}.tex`, twoCol);
     },
@@ -357,14 +370,15 @@ export default {
           const short = await TinyURL.shorten(url);
           copy(short);
           this.message('Copied Sharable Link to Clipboard', 'green');
-        }
-        catch (e) {
-          this.message('Copied long link to Clipboard (unable to shorten)', 'green');
+        } catch (e) {
+          this.message(
+            'Copied long link to Clipboard (unable to shorten)',
+            'green'
+          );
           console.log(e);
 
           copy(url);
         }
-
       } catch (e) {
         this.message('Error encoding url. Check console for details.', 'red');
         console.log(e);

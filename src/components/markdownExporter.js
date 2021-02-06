@@ -30,7 +30,7 @@ function renderMarkdownInnate(store) {
   const monster = store.state.monster;
   const spellcasting = store.state.monster.spellcasting;
 
-  return `> ***Innate Spellcasting.*** The ${monster.name}'s spellcasting ability is ${STAT_FULL[spellcasting.stat]} (spell save DC ${store.getters.spellSave}, ${renderBonus(store.getters.spellAttackModifier)}). ${spellcasting.atWillNotes} It can cast the following spells, requiring no material components:
+  return `> ***Innate Spellcasting.*** The ${monster.name}'s spellcasting ability is ${STAT_FULL[spellcasting.stat]} (spell save DC ${store.getters.spellSave}, ${renderBonus(store.getters.spellAttackModifier)} to hit with spell attacks). ${spellcasting.atWillNotes} It can cast the following spells, requiring no material components:
 > 
 ${spellcasting.atWill.map((s) => { return `> ${formatInnateSpellLabel(s)} *${s.spells.join(', ')}*  `}).join('\n')}`;
 }
@@ -92,7 +92,7 @@ function renderMarkdownActions(store) {
 function renderMarkdownLegendary(store) {
   const monster = store.state.monster;
   const preamble = `> ### Legendary Actions
-> The ${monster.name} can take ${monster.legendaryActions.count} legendary action${monster.legendaryActions.count === 1 ? '' : 's'}, choosing from the options below. Only one legendary action option can be used at a time and only at the end of a nother creature's turn. The ${monster.name} regains spent legendary actions at the start of its turn.`;
+> The ${monster.name} can take ${monster.legendaryActions.count} legendary action${monster.legendaryActions.count === 1 ? '' : 's'}, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The ${monster.name} regains spent legendary actions at the start of its turn.`;
 
   const actions = monster.legendaryActions.actions.map((la) => {
     return {
@@ -102,7 +102,7 @@ function renderMarkdownLegendary(store) {
   });
 
   const formattedActions = actions.map((a) => {
-    const cost = a.cost > 1 ? ` Costs ${a.cost} Actions)` : '';
+    const cost = a.cost > 1 ? ` (Costs ${a.cost} Actions)` : '';
 
     const description = a.legendaryOnly
       ? processTokens(a.description, store)
