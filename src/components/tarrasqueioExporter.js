@@ -297,6 +297,18 @@ function format(monster, store) {
 
   if (spellList.length > 0) tio.spellList = spellList;
 
+  // hold up reaction time
+  if (monster.reactions.length > 0) {
+    tio.reactions = [];
+    for (const reaction of monster.reactions) {
+      tio.reactions.push({
+        name: reaction.name,
+        desc: processTokens(reaction.description, store),
+        attack_bonus: 0,
+      });
+    }
+  }
+
   tio.group = 'Custom (5e Monster Maker)';
   return tio;
 }
