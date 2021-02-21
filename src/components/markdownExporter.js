@@ -123,7 +123,7 @@ function renderMarkdownReactions(store) {
     return `> ***${r.name}.*** ${processTokens(r.description, store)}`;
   });
 
-  return `> ### Reactions\n${formattedReactions.join('\n')}`;
+  return `> ### Reactions\n${formattedReactions.join('\n>\n')}`;
 }
 
 function renderMarkdownLairActions(store) {
