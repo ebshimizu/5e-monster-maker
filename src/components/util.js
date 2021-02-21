@@ -9,7 +9,7 @@ import _ from 'lodash';
 import N2W from 'number-to-words';
 import DomToImage from 'dom-to-image';
 
-export const SAVE_VERSION = 2;
+export const SAVE_VERSION = 3;
 
 export function avgHP(HP) {
   return Math.floor(HP.HD * ((HP.type + 1) / 2) + HP.modifier);
@@ -164,6 +164,7 @@ export function newMonster() {
       actions: [],
     },
     reactions: [],
+    lairActions: [],
   };
 }
 
@@ -265,6 +266,24 @@ export function newReaction() {
     name: 'New Reaction',
     id: uuidv4(),
     description: '',
+  };
+}
+
+export function newLairAction() {
+  return {
+    name: 'New Lair Action',
+    id: uuidv4(),
+    description: '',
+    crAnnotation: {
+      maxDamage: 0,
+      maxSave: 0,
+      maxModifier: 0,
+      multitarget: false,
+      ehpMultiplier: 1,
+      ehpModifier: 0,
+      acModifier: 0,
+      include: true,
+    },
   };
 }
 

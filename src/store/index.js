@@ -55,13 +55,17 @@ export default new Vuex.Store({
     // this needs the full skill object
     defaultSkillBonus: (state) => (skill) => {
       const proficient = skill.proficient;
-      
+
       // back compat safety
       const expertise = skill.expertise ? skill.expertise : false;
 
       return saveModifier(
         state.monster.stats[skill.skill.stat],
-        expertise ? state.monster.proficiency * 2 : (proficient ? state.monster.proficiency : 0)
+        expertise
+          ? state.monster.proficiency * 2
+          : proficient
+          ? state.monster.proficiency
+          : 0
       );
     },
     passivePerception: (state, getters) => {
@@ -211,6 +215,7 @@ export default new Vuex.Store({
         legendary: [],
         traits: [],
         spells: [],
+        lairActions: [],
       };
 
       // first, get the attacks and sort them by damage. We assume attacks are always available.
@@ -308,6 +313,26 @@ export default new Vuex.Store({
       }
 
       data.traits.sort((a, b) => {
+        return b.damage - a.damage;
+      });
+
+      // lair actions
+      // basically traits but they use the action annotation data
+      for (const lairAction of state.monster.lairActions) {
+        if (lairAction.crAnnotation.include) {
+          data.lairActions.push({
+            name: lairAction.name,
+            damage:
+              lairAction.crAnnotation.maxDamage *
+              (lairAction.crAnnotation.multitarget ? 2 : 1),
+            save: lairAction.crAnnotation.maxSave,
+            toHit: lairAction.crAnnotation.maxModifier,
+            type: 'Lair Action',
+          });
+        }
+      }
+
+      data.lairActions.sort((a, b) => {
         return b.damage - a.damage;
       });
 
@@ -543,6 +568,13 @@ export default new Vuex.Store({
 
         // upgrade complete
         monster.saveVersion = 2;
+      }
+
+      // lair actions were added in v3
+      if (monster.saveVersion < 3) {
+        monster.lairActions = [];
+
+        monster.saveVersion = 3;
       }
 
       // just replaces the entire thing, assumes input is valid

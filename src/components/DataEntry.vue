@@ -13,6 +13,7 @@
     <multiattack />
     <legendary-actions />
     <dnd-reactions />
+    <lair-actions />
   </v-expansion-panels>
 </template>
 
@@ -22,6 +23,7 @@ import Basics from './input/Basics';
 import DamageTypes from './input/DamageTypes';
 // import DndCr from './input/DndCr';
 import DndReactions from './input/DndReactions';
+import LairActions from './input/LairActions.vue';
 import LegendaryActions from './input/LegendaryActions';
 import Multiattack from './input/Multiattack';
 import OtherActions from './input/OtherActions';
@@ -50,6 +52,7 @@ export default {
     Speeds,
     Spellcasting,
     Traits,
+    LairActions,
   },
 };
 </script>

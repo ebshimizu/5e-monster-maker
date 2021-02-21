@@ -306,7 +306,9 @@
                     }}</v-list-item-avatar
                     ><v-list-item-content>
                       <v-list-item-title>Base Armor Class</v-list-item-title>
-                      <v-list-item-subtitle v-if="monster.AC < 12">AC below minimum of 12</v-list-item-subtitle>
+                      <v-list-item-subtitle v-if="monster.AC < 12"
+                        >AC below minimum of 12</v-list-item-subtitle
+                      >
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item
@@ -399,6 +401,7 @@ const ACTION_COLOR = {
   Trait: 'teal darken-4',
   Legendary: 'cyan darken-4',
   Spell: 'deep-purple darken-4',
+  'Lair Action': 'blue darken-4',
 };
 
 // CR's kinda complicated. The app will be able to work in multiple modes:
@@ -444,6 +447,8 @@ export default {
 
       // for 3 rounds
       const sequence = [];
+      let heldLairAction = null;
+
       for (let i = 0; i < 3; i++) {
         const round = { totalDamage: 0, actions: [] };
 
@@ -490,6 +495,28 @@ export default {
         }
         data.traits = data.traits.filter((t) => !t.remove);
 
+        // lair actions
+        // many of the lair actions assume that you can't use them twice in a row so let's enforce that.
+        if (data.lairActions.length > 0) {
+          const la = data.lairActions[0];
+
+          // apply damage, if it's non-zero
+          if (la.damage > 0) {
+            round.actions.push(la);
+            round.totalDamage += la.damage;
+          }
+
+          // adjust held action
+          if (heldLairAction) {
+            data.lairActions.push(heldLairAction);
+          }
+
+          heldLairAction = la;
+
+          // remove, held action is at the end
+          data.lairActions = data.lairActions.slice(1);
+        }
+
         // legendary actions
         // this gets put on top of everything in a round, assumes the most damaging combination of abilities is used each round
         round.totalDamage += legendaryRound.totalDamage;
@@ -516,7 +543,8 @@ export default {
         this.attackInfo.attacks,
         this.attackInfo.actions,
         this.attackInfo.traits,
-        this.attackInfo.legendary
+        this.attackInfo.legendary,
+        this.attackInfo.lairActions
       );
 
       // inject the spellcasting mod if it exists
@@ -644,8 +672,9 @@ export default {
       return `Offensive CR ${this.attackCrDelta} (Save DC Delta: ${this.dcStepDeltaRender})`;
     },
     acCrExplain() {
-      return `Defensive CR ${this.acCrDelta} (AC Delta: ${renderBonus(this.acCr.ac -
-        this.defensiveCr.ac)})`;
+      return `Defensive CR ${this.acCrDelta} (AC Delta: ${renderBonus(
+        this.acCr.ac - this.defensiveCr.ac
+      )})`;
     },
     damageCr() {
       return getCrByDamage(this.damagePerRound);
@@ -727,6 +756,20 @@ export default {
         }
       }
 
+      for (const action of this.monster.lairActions) {
+        if (
+          action.crAnnotation.include &&
+          action.crAnnotation.ehpMultiplier !== 1
+        ) {
+          mods.push({
+            title: action.name,
+            subtitle: 'Lair Action',
+            type: 'Lair Action',
+            value: `x${action.crAnnotation.ehpMultiplier.toLocaleString(1)}`,
+          });
+        }
+      }
+
       // action and trait additions
       for (const action of this.monster.actions) {
         if (
@@ -760,6 +803,22 @@ export default {
         }
       }
 
+      for (const action of this.monster.lairActions) {
+        if (
+          action.crAnnotation.include &&
+          action.crAnnotation.ehpModifier !== 0
+        ) {
+          mods.push({
+            title: action.name,
+            subtitle: 'Lair Action',
+            type: 'Lair Action',
+            value: renderBonus(
+              action.crAnnotation.ehpModifier.toLocaleString(1)
+            ),
+          });
+        }
+      }
+
       return mods;
     },
     ehp() {
@@ -785,6 +844,12 @@ export default {
         }
       }
 
+      for (const action of this.monster.lairActions) {
+        if (action.crAnnotation.include) {
+          ehp *= action.crAnnotation.ehpMultiplier;
+        }
+      }
+
       for (const trait of this.monster.traits) {
         if (trait.crAnnotation.include) {
           ehp *= trait.crAnnotation.ehpMultiplier;
@@ -793,6 +858,12 @@ export default {
 
       // ok now add
       for (const action of this.monster.actions) {
+        if (action.crAnnotation.include) {
+          ehp += action.crAnnotation.ehpModifier;
+        }
+      }
+
+      for (const action of this.monster.lairActions) {
         if (action.crAnnotation.include) {
           ehp += action.crAnnotation.ehpModifier;
         }
@@ -845,6 +916,20 @@ export default {
         }
       }
 
+      for (const action of this.monster.lairActions) {
+        if (
+          action.crAnnotation.include &&
+          action.crAnnotation.acModifier !== 0
+        ) {
+          mods.push({
+            title: action.name,
+            subtitle: 'Lair Action',
+            type: 'Lair Action',
+            value: renderBonus(action.crAnnotation.acModifier),
+          });
+        }
+      }
+
       for (const trait of this.monster.traits) {
         if (trait.crAnnotation.include && trait.crAnnotation.acModifier !== 0) {
           mods.push({
@@ -865,6 +950,12 @@ export default {
 
       // action and trait modifiers
       for (const action of this.monster.actions) {
+        if (action.crAnnotation.include) {
+          eac += action.crAnnotation.acModifier;
+        }
+      }
+
+      for (const action of this.monster.lairActions) {
         if (action.crAnnotation.include) {
           eac += action.crAnnotation.acModifier;
         }

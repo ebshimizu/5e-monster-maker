@@ -180,6 +180,24 @@
         >{{ processTokens(reaction.description) }}
       </div>
     </div>
+    <div class="lair-actions" v-if="monster.lairActions.length > 0">
+      <h3 class="section">Lair Actions</h3>
+      <div class="preamble">
+        When fighting inside its lair, the {{ monster.name }} can take lair
+        actions. On initiative count 20 (losing initiative ties), the
+        {{ monster.name }} takes a lair action to cause one of the following
+        effects:
+      </div>
+      <ul>
+        <li
+          class="action lair"
+          v-for="action in monster.lairActions"
+          :key="action.id"
+        >
+          {{ processTokens(action.description) }}
+        </li>
+      </ul>
+    </div>
   </v-sheet>
 </template>
 
@@ -451,12 +469,19 @@ export default {
   .innate-spellcasting,
   .spellcasting,
   .legendary-actions .preamble,
+  .lair-actions .preamble,
   .multiattack {
     line-height: 1.15rem;
     margin-bottom: 0.8rem;
 
     .name {
       font-family: ScalySansBoldItalic;
+    }
+  }
+
+  .lair-actions {
+    li {
+      margin-bottom: 0;
     }
   }
 
