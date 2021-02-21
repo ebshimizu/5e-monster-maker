@@ -515,6 +515,9 @@ export default {
 
           // remove, held action is at the end
           data.lairActions = data.lairActions.slice(1);
+          data.lairActions.sort((a, b) => {
+            return b.damage - a.damage;
+          });
         }
 
         // legendary actions
