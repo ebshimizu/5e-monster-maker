@@ -224,6 +224,22 @@ function renderLatexReactions(store) {
   `;
 }
 
+function renderLatexLairActions(store) {
+  const lairActions = store.state.monster.lairActions;
+  const name = store.state.monster.name;
+  const preamble = `\\DndMonsterSection{Lair Actions}
+    When fighting inside its lair, the ${name} can take lair actions. On initiative count 20 (losing initiative ties), the ${name} takes a lair action to cause one of the following effects:`;
+
+  const formattedLairActions = lairActions.map((a) => {
+    return `\\item ${processLatexTokens(a.description, store)}`;
+  });
+
+  return `${preamble}
+    \\begin{itemize}
+      ${formattedLairActions.join('\n')}
+    \\end{itemize}`;
+}
+
 // exporter for the rpgtex template
 // https://github.com/rpgtex/DND-5e-LaTeX-Template
 export function renderLatex(store, twoCol = false) {
@@ -311,6 +327,8 @@ export function renderLatex(store, twoCol = false) {
   ${monster.legendaryActions.count > 0 ? renderLatexLengendary(store) : ''}
 
   ${monster.reactions.length > 0 ? renderLatexReactions(store) : ''}
+
+  ${monster.lairActions.length > 0 ? renderLatexLairActions(store) : ''}
 
   ${twoCol ? '\\end{multicols}' : ''}
 \\end{DndMonster}`;

@@ -123,7 +123,20 @@ function renderMarkdownReactions(store) {
     return `> ***${r.name}.*** ${processTokens(r.description, store)}`;
   });
 
-  return `> ### Reactions\n${formattedReactions.join('\n>\n')}`;
+  return `> ### Reactions\n${formattedReactions.join('\n')}`;
+}
+
+function renderMarkdownLairActions(store) {
+  const lairActions = store.state.monster.lairActions;
+  const name = store.state.monster.name;
+  const preamble = `> ### Lair Actions
+> When fighting inside its lair, the ${name} can take lair actions. On initiative count 20 (losing initiative ties), the ${name} takes a lair action to cause one of the following effects:`;
+
+  const formattedLair = lairActions.map((r) => {
+    return `> - ${processTokens(r.description, store)}`
+  });
+
+  return `${preamble}\n${formattedLair.join('\n')}`
 }
 
 // formatted for the Homebrewery system
@@ -153,7 +166,8 @@ export function renderMarkdown(store, twoCol = false) {
   const attacks = monster.attacks.lenght === 0 ? '' : `\n${renderMarkdownAttacks(store)}\n>`;
   const actions = !hasNonLegendaryActions ? '' : `\n${renderMarkdownActions(store)}\n>`;
   const legendary = monster.legendaryActions.actions.length === 0 ? '' : `\n${renderMarkdownLegendary(store)}\n>`;
-  const reactions = monster.reactions.length === 0 ? '' : `\n${renderMarkdownReactions(store)}\n`;
+  const reactions = monster.reactions.length === 0 ? '' : `\n${renderMarkdownReactions(store)}\n>`;
+  const lair = monster.lairActions.length === 0 ? '' : `\n${renderMarkdownLairActions(store)}\n`
 
   return `___${twoCol ? '___' : ''}
 > ## ${monster.name}
@@ -172,5 +186,5 @@ export function renderMarkdown(store, twoCol = false) {
 > - **Challenge** ${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString()})
 >___
 ${traits}${monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>\n`}${monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>\n`}>
-> ### Actions${multi}${attacks}${actions}${legendary}${reactions}`;
+> ### Actions${multi}${attacks}${actions}${legendary}${reactions}${lair}`;
 }
