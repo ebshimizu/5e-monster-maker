@@ -573,6 +573,8 @@ export default new Vuex.Store({
       // lair actions were added in v3
       if (monster.saveVersion < 3) {
         monster.lairActions = [];
+        monster.regionalEffects = [];
+        monster.regionalEffectDescription = '';
 
         monster.saveVersion = 3;
       }

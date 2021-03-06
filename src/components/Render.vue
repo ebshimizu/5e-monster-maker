@@ -198,6 +198,21 @@
         </li>
       </ul>
     </div>
+    <div class="regional-effects" v-if="monster.regionalEffects.length > 0">
+      <h3 class="section">Regional Effects</h3>
+      <div class="preamble">
+        {{ processTokens(monster.regionalEffectDescription) }}
+      </div>
+      <ul>
+        <li
+          class="action regional"
+          v-for="effect in monster.regionalEffects"
+          :key="effect.id"
+        >
+          {{ processTokens(effect.description) }}
+        </li>
+      </ul>
+    </div>
   </v-sheet>
 </template>
 

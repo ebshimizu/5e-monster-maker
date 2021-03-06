@@ -240,6 +240,21 @@ function renderLatexLairActions(store) {
     \\end{itemize}`;
 }
 
+function renderLatexRegionalEffects(store) {
+  const effects = store.state.monster.regionalEffects;
+  const preamble = `\\DndMonsterSection{Regional Effects}
+  ${store.state.monster.regionalEffectDescription}`
+
+  const formattedEffects = effects.map((a) => {
+    return `\\item ${processLatexTokens(a.description, store)}`;
+  });
+
+  return `${preamble}
+    \\begin{itemize}
+      ${formattedEffects.join('\n')}
+    \\end{itemize}`;
+}
+
 // exporter for the rpgtex template
 // https://github.com/rpgtex/DND-5e-LaTeX-Template
 export function renderLatex(store, twoCol = false) {
@@ -329,6 +344,8 @@ export function renderLatex(store, twoCol = false) {
   ${monster.reactions.length > 0 ? renderLatexReactions(store) : ''}
 
   ${monster.lairActions.length > 0 ? renderLatexLairActions(store) : ''}
+
+  ${monster.regionalEffects.length > 0 ? renderLatexRegionalEffects(store) : ''}
 
   ${twoCol ? '\\end{multicols}' : ''}
 \\end{DndMonster}`;

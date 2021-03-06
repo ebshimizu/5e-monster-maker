@@ -14,6 +14,7 @@
     <legendary-actions />
     <dnd-reactions />
     <lair-actions />
+    <regional-effects />
   </v-expansion-panels>
 </template>
 
@@ -27,6 +28,7 @@ import LairActions from './input/LairActions.vue';
 import LegendaryActions from './input/LegendaryActions';
 import Multiattack from './input/Multiattack';
 import OtherActions from './input/OtherActions';
+import RegionalEffects from './input/RegionalEffects.vue';
 import Saves from './input/Saves';
 import Senses from './input/Senses';
 import Skills from './input/Skills';
@@ -53,6 +55,9 @@ export default {
     Spellcasting,
     Traits,
     LairActions,
+    RegionalEffects,
   },
 };
 </script>
+
+RegionalEffects

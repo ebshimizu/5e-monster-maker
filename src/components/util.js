@@ -165,6 +165,9 @@ export function newMonster() {
     },
     reactions: [],
     lairActions: [],
+    regionalEffects: [],
+    regionalEffectDescription:
+      "The region containing the {NAME}'s lair is warped by the {NAME}'s magic. When the {NAME} dies, the effects fade after {1d10} days.",
   };
 }
 

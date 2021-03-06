@@ -139,6 +139,18 @@ function renderMarkdownLairActions(store) {
   return `${preamble}\n${formattedLair.join('\n')}`
 }
 
+function renderMarkdownRegionalEffects(store) {
+  const effects = store.state.monster.regionalEffects;
+  const preamble = `> ### Regional Effects
+> ${processTokens(store.state.monster.regionalEffectDescription, store)}`
+
+  const formattedEffects = effects.map((e) => {
+    return `> - ${processTokens(e.description, store)}`
+  })
+
+  return `${preamble}\n${formattedEffects.join('\n')}`
+}
+
 // formatted for the Homebrewery system
 // https://homebrewery.naturalcrit.com/
 export function renderMarkdown(store, twoCol = false) {
@@ -168,6 +180,7 @@ export function renderMarkdown(store, twoCol = false) {
   const legendary = monster.legendaryActions.actions.length === 0 ? '' : `\n${renderMarkdownLegendary(store)}\n>`;
   const reactions = monster.reactions.length === 0 ? '' : `\n${renderMarkdownReactions(store)}\n>`;
   const lair = monster.lairActions.length === 0 ? '' : `\n${renderMarkdownLairActions(store)}\n`
+  const regional = monster.regionalEffects.length === 0 ? '' : `\n${renderMarkdownRegionalEffects(store)}`
 
   return `___${twoCol ? '___' : ''}
 > ## ${monster.name}
@@ -186,5 +199,5 @@ export function renderMarkdown(store, twoCol = false) {
 > - **Challenge** ${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString()})
 >___
 ${traits}${monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>\n`}${monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>\n`}>
-> ### Actions${multi}${attacks}${actions}${legendary}${reactions}${lair}`;
+> ### Actions${multi}${attacks}${actions}${legendary}${reactions}${lair}${regional}`;
 }

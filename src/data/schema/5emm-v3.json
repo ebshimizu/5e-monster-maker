@@ -410,6 +410,20 @@
             }
           }
         }
+      },
+      "regionalEffects": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "id": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      },
+      "regionalEffectDescription": {
+        "type": "string"
       }
     }
   },
@@ -442,6 +456,8 @@
     "actions",
     "legendaryActions",
     "reactions",
-    "lairActions"
+    "lairActions",
+    "regionalEffects",
+    "regionalEffectDescription"
   ]
 }
