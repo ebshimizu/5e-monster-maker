@@ -485,6 +485,7 @@ export default {
   .spellcasting,
   .legendary-actions .preamble,
   .lair-actions .preamble,
+  .regional-effects .preamble,
   .multiattack {
     line-height: 1.15rem;
     margin-bottom: 0.8rem;
@@ -494,7 +495,8 @@ export default {
     }
   }
 
-  .lair-actions {
+  .lair-actions,
+  .regional-effects {
     li {
       margin-bottom: 0;
     }
