@@ -155,9 +155,11 @@
     <v-snackbar
       v-model="messageBar"
       :color="messageBarColor"
-      app
       timeout="6000"
       bottom
+      absolute
+      multi-line
+      style="top: 50px"
       >{{ messageText }}
       <template v-slot:action="{ attrs }">
         <v-btn text v-bind="attrs" @click="messageBar = false">
@@ -201,30 +203,30 @@
 </template>
 
 <script>
-import { saveToLatex } from './latexExporter';
-import { renderMarkdown } from './markdownExporter';
-import { saveTioJson } from './tarrasqueioExporter';
+import { saveToLatex } from './latexExporter'
+import { renderMarkdown } from './markdownExporter'
+import { saveTioJson } from './tarrasqueioExporter'
 import {
   saveJSON,
   cloneFromTemplate,
   saveToPng,
   download,
   renderBonus,
-} from './util';
-import { MUTATION, ACTION } from '../data/ACTIONS';
-import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES';
-import { validate } from 'jsonschema';
-import SCHEMA from '../data/SCHEMA';
-import copy from 'copy-to-clipboard';
-import { CR } from '../data/CR';
-import TinyURL from 'tinyurl';
-import jsonurl from 'json-url';
+} from './util'
+import { MUTATION, ACTION } from '../data/ACTIONS'
+import { DEFAULT_TEMPLATE_ICON, TEMPLATE_TYPE } from '../data/TEMPLATES'
+import { validate } from 'jsonschema'
+import SCHEMA from '../data/SCHEMA'
+import copy from 'copy-to-clipboard'
+import { CR } from '../data/CR'
+import TinyURL from 'tinyurl'
+import jsonurl from 'json-url'
 
-const codec = jsonurl('lzma');
+const codec = jsonurl('lzma')
 
-import FormSpellNew from './forms/FormSpellNew';
-import FormSpellEdit from './forms/FormSpellEdit';
-import FormTemplateEdit from './forms/FormTemplateEdit';
+import FormSpellNew from './forms/FormSpellNew'
+import FormSpellEdit from './forms/FormSpellEdit'
+import FormTemplateEdit from './forms/FormTemplateEdit'
 
 export default {
   name: 'DndAppBar',
@@ -248,11 +250,11 @@ export default {
       newSpellDialog: false,
       editSpellDialog: false,
       manageTemplateDialog: false,
-    };
+    }
   },
   computed: {
     templates() {
-      return this.$store.getters.allTemplates;
+      return this.$store.getters.allTemplates
     },
     crData() {
       const formatted = CR.map((cr) => {
@@ -262,14 +264,14 @@ export default {
           damage: `${cr.dprMin} - ${cr.dprMax}`,
           profBonus: renderBonus(cr.proficiency),
           bonus: renderBonus(cr.attack),
-        };
-      });
+        }
+      })
 
-      formatted[0].ac = '<= 13';
-      formatted[0].saveDc = '<= 13';
-      formatted[0].bonus = '<= +3';
+      formatted[0].ac = '<= 13'
+      formatted[0].saveDc = '<= 13'
+      formatted[0].bonus = '<= +3'
 
-      return formatted;
+      return formatted
     },
     crHeaders() {
       return [
@@ -280,201 +282,206 @@ export default {
         { text: 'Attack Bonus', value: 'bonus', sortable: false },
         { text: 'Damage/Round', value: 'damage', sortable: false },
         { text: 'Save DC', value: 'saveDc', sortable: false },
-      ];
+      ]
     },
     loadFromParamDialog() {
-      return this.$store.state.dataParam !== null;
+      return this.$store.state.dataParam !== null
     },
     paramMonsterName() {
       return this.$store.state.dataParam
         ? this.$store.state.dataParam.name
-        : '[No Name Found]';
+        : '[No Name Found]'
     },
   },
   methods: {
     applyTemplate(selected) {
-      if (selected === undefined || selected === null) return;
+      if (selected === undefined || selected === null) return
 
-      const template = this.templates[selected];
-      console.log(`Adding ${template.templateName} to current monster...`);
+      const template = this.templates[selected]
+      console.log(`Adding ${template.templateName} to current monster...`)
 
       // depends on type
       if (template.type === TEMPLATE_TYPE.ATTACK) {
         // process attack
-        const attacks = this.$store.state.monster.attacks;
-        attacks.push(cloneFromTemplate(template));
+        const attacks = this.$store.state.monster.attacks
+        attacks.push(cloneFromTemplate(template))
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
           key: 'attacks',
           value: attacks,
-        });
+        })
       } else if (template.type === TEMPLATE_TYPE.ACTION) {
         // process action
-        const actions = this.$store.state.monster.actions;
-        actions.push(cloneFromTemplate(template));
+        const actions = this.$store.state.monster.actions
+        actions.push(cloneFromTemplate(template))
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
           key: 'actions',
           value: actions,
-        });
+        })
       } else if (template.type === TEMPLATE_TYPE.TRAIT) {
         // process trait
-        const traits = this.$store.state.monster.traits;
-        traits.push(cloneFromTemplate(template));
+        const traits = this.$store.state.monster.traits
+        traits.push(cloneFromTemplate(template))
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
           key: 'traits',
           value: traits,
-        });
+        })
       }
 
-      this.message(`Added Template: ${template.templateName}`, 'green');
+      this.message(`Added Template: ${template.templateName}`, 'green')
     },
     iconOrDefault(template) {
       if (template.icon && template.icon !== '') {
-        return template.icon;
+        return template.icon
       }
 
-      return DEFAULT_TEMPLATE_ICON[template.type];
+      return DEFAULT_TEMPLATE_ICON[template.type]
     },
     reset() {
-      this.$store.commit(MUTATION.RESET);
-      this.resetDialog = false;
-      this.message('Monster Reset', 'blue');
+      this.$store.commit(MUTATION.RESET)
+      this.resetDialog = false
+      this.message('Monster Reset', 'blue')
     },
     saveToJson() {
       saveJSON(
         this.$store.state.monster,
         `${this.$store.state.monster.name}.5emm.json`
-      );
+      )
     },
     saveToTioJson() {
       saveTioJson(
         this.$store.state.monster,
         `${this.$store.state.monster.name}.tio.json`,
         this.$store
-      );
+      )
     },
     saveToLatex(twoCol) {
-      saveToLatex(this.$store, `${this.$store.state.monster.name}.tex`, twoCol);
+      saveToLatex(this.$store, `${this.$store.state.monster.name}.tex`, twoCol)
     },
     saveToPng() {
-      saveToPng(`${this.$store.state.monster.name}.png`);
+      saveToPng(`${this.$store.state.monster.name}.png`)
     },
     async copyLink() {
       // encode json string as base64
       try {
         const b64 = await codec.compress(
           JSON.stringify(this.$store.state.monster)
-        );
-        const url = `${window.location.origin}${window.location.pathname}?data=${b64}`;
+        )
+        const url = `${window.location.origin}${window.location.pathname}?data=${b64}`
 
         try {
-          const short = await TinyURL.shorten(url);
-          copy(short);
-          this.message('Copied Sharable Link to Clipboard', 'green');
+          const short = await TinyURL.shorten(url)
+          copy(short)
+          this.message('Copied Sharable Link to Clipboard', 'green')
         } catch (e) {
           this.message(
             'Copied long link to Clipboard (unable to shorten)',
             'green'
-          );
-          console.log(e);
+          )
+          console.log(e)
 
-          copy(url);
+          copy(url)
         }
       } catch (e) {
-        this.message('Error encoding url. Check console for details.', 'red');
-        console.log(e);
+        this.message('Error encoding url. Check console for details.', 'red')
+        console.log(e)
       }
     },
     loadCleanup() {
-      this.fileLoading = false;
-      this.file = null;
+      this.fileLoading = false
+      this.file = null
     },
     loadFromDataParam() {
       // we have a valid json object here, but need to check against our schema
-      const monster = this.$store.state.dataParam;
+      const monster = this.$store.state.dataParam
 
       try {
         // validate
         if (!monster.saveVersion) {
-          this.message('Load Failed: No Version Detected', 'red');
+          this.message('Load Failed: No Version Detected', 'red')
         } else {
-          const valid = validate(monster, SCHEMA[monster.saveVersion]);
+          const valid = validate(monster, SCHEMA[monster.saveVersion])
 
           if (valid.valid) {
-            this.$store.dispatch(ACTION.LOAD_MONSTER, monster);
-            this.message('Load Successful', 'green');
-            this.$store.commit(MUTATION.SET_DATA_PARAM, null);
+            this.$store.dispatch(ACTION.LOAD_MONSTER, monster)
+            this.message('Load Successful', 'green')
+            this.$store.commit(MUTATION.SET_DATA_PARAM, null)
           } else {
             this.message(
               `Load Failed: version ${monster.saveVersion} did not validate.`,
               'red'
-            );
+            )
           }
         }
       } catch (e) {
-        console.log(e);
-        this.$store.commit(MUTATION.SET_DATA_PARAM, null);
+        console.log(e)
+        this.$store.commit(MUTATION.SET_DATA_PARAM, null)
 
-        this.message('Load Failed. See console for details.', 'red');
+        this.message('Load Failed. See console for details.', 'red')
       }
 
-      window.location.href = `${window.location.origin}${window.location.pathname}`;
+      window.location.href = `${window.location.origin}${window.location.pathname}`
     },
     cancelParamLoad() {
       // delete data param
-      this.$store.commit(MUTATION.SET_DATA_PARAM, null);
-      window.location.href = `${window.location.origin}${window.location.pathname}`;
+      this.$store.commit(MUTATION.SET_DATA_PARAM, null)
+      window.location.href = `${window.location.origin}${window.location.pathname}`
     },
     loadFile() {
-      this.fileLoading = true;
+      this.fileLoading = true
 
       // we'll want to validate the loaded json against a schema eventually
-      const reader = new FileReader();
+      const reader = new FileReader()
       reader.addEventListener('load', (e) => {
         try {
-          const monster = JSON.parse(e.target.result);
+          const monster = JSON.parse(e.target.result)
 
           // validate
           if (!monster.saveVersion) {
-            this.message('Load Failed: No Version Detected', 'red');
+            this.message('Load Failed: No Version Detected', 'red')
           } else {
-            const valid = validate(monster, SCHEMA[monster.saveVersion]);
+            const valid = validate(monster, SCHEMA[monster.saveVersion])
 
             if (valid.valid) {
-              this.$store.dispatch(ACTION.LOAD_MONSTER, monster);
-              this.message('Load Successful', 'green');
+              this.$store.dispatch(ACTION.LOAD_MONSTER, monster)
+              this.message('Load Successful', 'green')
             } else {
               this.message(
-                `Load Failed: version ${monster.saveVersion} did not validate.`,
+                `Load Failed: version ${
+                  monster.saveVersion
+                } did not validate. Reasons: ${valid.errors
+                  .map((e) => e.stack)
+                  .join(', ')}`,
                 'red'
-              );
+              )
             }
           }
 
-          this.loadFromFileDialog = false;
-          this.loadCleanup();
+          this.loadFromFileDialog = false
+          this.loadCleanup()
         } catch (e) {
-          console.log(e);
-          this.loadFromFileDialog = false;
+          console.log(e)
+          this.loadFromFileDialog = false
 
-          this.message('Load Failed', 'red');
-          this.loadCleanup();
+          this.message('Load Failed', 'red')
+          this.loadCleanup()
         }
-      });
+      })
 
       reader.addEventListener('error', () => {
-        console.log('Upload error');
-        this.loadFromFileDialog = false;
+        console.log('Upload error')
+        this.loadFromFileDialog = false
 
-        this.message('Load Failed', 'red');
-        this.loadCleanup();
-      });
+        this.message('Load Failed', 'red')
+        this.loadCleanup()
+      })
 
-      reader.readAsText(this.file);
+      reader.readAsText(this.file)
     },
     message(message, color) {
-      this.messageBarColor = color;
-      this.messageText = message;
-      this.messageBar = true;
+      this.messageBarColor = color
+      this.messageText = message
+      this.messageBar = true
+      console.log(message)
     },
     downloadMarkdown() {
       try {
@@ -482,26 +489,26 @@ export default {
           renderMarkdown(this.$store),
           `${this.$store.state.monster.name}.md`,
           'text/markdown'
-        );
+        )
       } catch (e) {
-        console.log(e);
-        this.message('Markdown export failed, check console', 'red');
+        console.log(e)
+        this.message('Markdown export failed, check console', 'red')
       }
     },
     copyMarkdown() {
       try {
-        copy(renderMarkdown(this.$store));
+        copy(renderMarkdown(this.$store))
         this.message(
           'Copied Markdown (Homebrewery Format) to Clipboard',
           'green'
-        );
+        )
       } catch (e) {
-        console.log(e);
-        this.message('Markdown export failed, check console', 'red');
+        console.log(e)
+        this.message('Markdown export failed, check console', 'red')
       }
     },
   },
-};
+}
 </script>
 
 <style scoped>

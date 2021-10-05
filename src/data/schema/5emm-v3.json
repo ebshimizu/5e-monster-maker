@@ -229,7 +229,7 @@
               }
             }
           },
-          "save": { "type": "integer" },
+          "save": { "type": ["integer", "null"] },
           "description": { "type": "string" },
           "legendaryOnly": { "type": "boolean" }
         }
