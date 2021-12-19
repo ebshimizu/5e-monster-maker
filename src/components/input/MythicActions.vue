@@ -36,15 +36,6 @@
         </v-col>
       </v-row>
       <v-row align="center">
-        <v-col cols="2">
-          <v-text-field
-            type="number"
-            v-model.number="count"
-            min="0"
-            label="Actions"
-            @input="update"
-          ></v-text-field>
-        </v-col>
         <v-col>
           <v-menu offset-y max-height="300px">
             <template v-slot:activator="{ on, attrs }">
