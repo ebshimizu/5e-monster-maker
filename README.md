@@ -55,8 +55,10 @@ Innate spellcasting groups can be added by clicking the big green `Add New At Wi
 
 Only SRD spells are available by default, but you can add new spells by going to the top left menu and adding a new custom spell. You'll need to provide a name, level, class list, single target damage (optional) and whether or not the spell is a multitarget spell (like fireball). Your spells are automatically saved in the app, and can be exported and imported at will.
 
-### Legendary Actions
+### Legendary and Mythic Actions
 Legendary actions are available in the corresponding panel. In order to specify a legendary action, the action must first exist as either an Attack or Action in the builder. You can then designate any of the monsters attacks or actions as legendary. The legendary action text will not render unless the monster has at least one legendary action. If an action can only be used as a legendary action, click the "L" button in the Action's editor.
+
+Mythic actions function similarly to Legendary actions. Designating an action as "Legendary Only" still allows it to be selected for Mythic actions. The mythic trait and preamble for the mythic actions will show up in the stat block once an action is added.
 
 ### What's the difference between Traits and Actions?
 Traits are assumed to be "always active" while actions must be specifically used on a monster's turn. Traits that do damage, according to the CR annotations, are assumed to apply that damage at the start of every round (no action required). Actions must be used and will not automatically apply their damage at the start of every round.
