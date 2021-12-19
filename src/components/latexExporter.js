@@ -211,6 +211,38 @@ function renderLatexLengendary(store) {
   \\end{DndMonsterLegendaryActions}`;
 }
 
+function renderLatexMythicTrait(store) {
+    return `\\DndMonsterAction{${store.state.monster.mythicActions.triggerName} (${store.state.monster.mythicActions.triggerRecharge})}\n  ${processLatexTokens(store.state.monster.mythicActions.triggerDescription, store)}`;
+}
+
+function renderLatexMythic(store) {
+  const monster = store.state.monster;
+  const preamble = processLatexTokens(monster.mythicActions.preamble, store);
+
+  const actions = monster.mythicActions.actions.map((la) => {
+    return {
+      cost: la.cost,
+      ...store.getters.attackOrActionFromId(la.actionId),
+    };
+  });
+
+  const formattedActions = actions.map((a) => {
+    const cost = a.cost > 1 ? ` Costs ${a.cost} Actions)` : '';
+
+    const description = a.legendaryOnly
+      ? processLatexTokens(a.description, store)
+      : duplicateLegendary(a, store);
+
+    return `\\DndMonsterLegendaryAction{${a.name}${cost}}{${description}}`;
+  });
+
+  return `\\DndMonsterSection{Mythic Actions}
+  ${preamble}
+  \\begin{DndMonsterLegendaryActions}
+    ${formattedActions.join('\n  ')}
+  \\end{DndMonsterLegendaryActions}`;
+}
+
 function renderLatexReactions(store) {
   const reactions = store.state.monster.reactions;
 
@@ -314,6 +346,8 @@ export function renderLatex(store, twoCol = false) {
     })
     .join('\n')}
 
+  ${monster.mythicActions.actions.length > 0 ? renderLatexMythicTrait(store) : ''}
+
   % Spellcasting
   ${
     monster.spellcasting.atWill.length > 0
@@ -340,6 +374,8 @@ export function renderLatex(store, twoCol = false) {
   ${renderLatexActions(store)}
 
   ${monster.legendaryActions.count > 0 ? renderLatexLengendary(store) : ''}
+
+  ${monster.mythicActions.actions.length > 0 ? renderLatexMythic(store) : ''}
 
   ${monster.reactions.length > 0 ? renderLatexReactions(store) : ''}
 

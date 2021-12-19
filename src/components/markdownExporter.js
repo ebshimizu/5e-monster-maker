@@ -123,7 +123,7 @@ function renderMythicTrait(store) {
 function renderMarkdownMythic(store) {
   const monster = store.state.monster;
   const preamble = `> ### Mythic Actions
-> ${monster.mythicActions.preamble}`;
+> ${processTokens(monster.mythicActions.preamble, store)}`;
 
   const actions = monster.mythicActions.actions.map((la) => {
     return {
