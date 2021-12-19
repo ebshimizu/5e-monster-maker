@@ -116,6 +116,37 @@ function renderMarkdownLegendary(store) {
 ${formattedActions.join('\n>\n')}`;
 }
 
+function renderMythicTrait(store) {
+  return `> ***${store.state.monster.mythicActions.triggerName} (${store.state.monster.mythicActions.triggerRecharge}).*** ${processTokens(store.state.monster.mythicActions.triggerDescription, store)}`;
+}
+
+function renderMarkdownMythic(store) {
+  const monster = store.state.monster;
+  const preamble = `> ### Mythic Actions
+> ${monster.mythicActions.preamble}`;
+
+  const actions = monster.mythicActions.actions.map((la) => {
+    return {
+      cost: la.cost,
+      ...store.getters.attackOrActionFromId(la.actionId),
+    };
+  });
+
+  const formattedActions = actions.map((a) => {
+    const cost = a.cost > 1 ? ` (Costs ${a.cost} Actions)` : '';
+
+    const description = a.legendaryOnly
+      ? processTokens(a.description, store)
+      : duplicateLegendary(a, store);
+
+    return `> ***${a.name}${cost}.*** ${description}`;
+  });
+
+  return `${preamble}
+>
+${formattedActions.join('\n>\n')}`;
+}
+
 function renderMarkdownReactions(store) {
   const reactions = store.state.monster.reactions;
 
@@ -172,12 +203,14 @@ export function renderMarkdown(store, twoCol = false) {
   const immune = monster.immunities.length === 0 ? '' : `\n> - **Damage Immunities** ${monster.immunities.join(', ')}`;
   const condition = monster.conditions.length === 0 ? '' : `\n> - **Condition Immunities** ${monster.conditions.join(', ')}`;
   const traits = monster.traits.length === 0 ? '' : `${monster.traits.map(t => renderMarkdownTrait(t, store)).join('\n>\n')}\n>\n`;
+  const mythicTrait = monster.mythicActions.actions.length === 0 ? '' : `${renderMythicTrait(store)}\n>\n`
   const spellcasting = renderMarkdownSpellcasting(store);
   const innate = renderMarkdownInnate(store);
   const multi = monster.multiattacks.length === 0 ? '' : `\n> ***Multiattack.*** ${renderMultiattacks(store)}\n>`;
   const attacks = monster.attacks.lenght === 0 ? '' : `\n${renderMarkdownAttacks(store)}\n>`;
   const actions = !hasNonLegendaryActions ? '' : `\n${renderMarkdownActions(store)}\n>`;
   const legendary = monster.legendaryActions.actions.length === 0 ? '' : `\n${renderMarkdownLegendary(store)}\n>`;
+  const mythic = monster.mythicActions.actions.length === 0 ? '' : `\n${renderMarkdownMythic(store)}\n>`;
   const reactions = monster.reactions.length === 0 ? '' : `\n${renderMarkdownReactions(store)}\n>`;
   const lair = monster.lairActions.length === 0 ? '' : `\n${renderMarkdownLairActions(store)}\n`
   const regional = monster.regionalEffects.length === 0 ? '' : `\n${renderMarkdownRegionalEffects(store)}`
@@ -198,6 +231,6 @@ export function renderMarkdown(store, twoCol = false) {
 > - **Languages** ${monster.languages}
 > - **Challenge** ${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString()})
 >___
-${traits}${monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>\n`}${monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>\n`}>
-> ### Actions${multi}${attacks}${actions}${legendary}${reactions}${lair}${regional}`;
+${traits}${mythicTrait}${monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>\n`}${monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>\n`}>
+> ### Actions${multi}${attacks}${actions}${legendary}${mythic}${reactions}${lair}${regional}`;
 }
