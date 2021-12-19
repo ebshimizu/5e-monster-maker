@@ -160,21 +160,6 @@ export default {
         })
       },
     },
-    count: {
-      get() {
-        return this.$store.state.monster.mythicActions.count
-      },
-      set(val) {
-        this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
-          key: 'mythicActions',
-          value: {
-            ...this.$store.state.monster.mythicActions,
-            count: val,
-            actions: this.mythicActions,
-          },
-        })
-      },
-    },
     availableActions() {
       return this.$store.state.monster.actions
         .filter((a) => !this.mythicActions.find((la) => la.actionId === a.id))

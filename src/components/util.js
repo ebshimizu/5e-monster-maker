@@ -164,7 +164,6 @@ export function newMonster() {
       actions: [],
     },
     mythicActions: {
-      count: 0,
       triggerName: '[Mythic Trigger Condition]',
       triggerRecharge: 'Recharges after a Short or Long Rest',
       triggerDescription:

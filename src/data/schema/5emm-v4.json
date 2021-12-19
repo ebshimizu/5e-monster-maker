@@ -379,7 +379,6 @@
       "mythicActions": {
         "type": "object",
         "properties": {
-          "count": { "type": "integer" },
           "triggerName": { "type": "string" },
           "triggerRecharge": { "type": "string" },
           "triggerDescription": { "type": "string" },
