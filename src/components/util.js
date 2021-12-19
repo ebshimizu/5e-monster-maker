@@ -1,46 +1,46 @@
-import DICE from '../data/DICE';
-import DAMAGE_TYPE from '../data/DAMAGE_TYPE';
-import { RANGE } from '../data/ATTACK';
-import { v4 as uuidv4 } from 'uuid';
-import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS';
-import MOVEMENT from '../data/MOVEMENT';
-import { STAT } from '../data/STAT';
-import _ from 'lodash';
-import N2W from 'number-to-words';
-import DomToImage from 'dom-to-image';
+import DICE from '../data/DICE'
+import DAMAGE_TYPE from '../data/DAMAGE_TYPE'
+import { RANGE } from '../data/ATTACK'
+import { v4 as uuidv4 } from 'uuid'
+import { AT_WILL_DEFAULT_RATES } from '../data/SPELLS'
+import MOVEMENT from '../data/MOVEMENT'
+import { STAT } from '../data/STAT'
+import _ from 'lodash'
+import N2W from 'number-to-words'
+import DomToImage from 'dom-to-image'
 
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4
 
 export function avgHP(HP) {
-  return Math.floor(HP.HD * ((HP.type + 1) / 2) + HP.modifier);
+  return Math.floor(HP.HD * ((HP.type + 1) / 2) + HP.modifier)
 }
 
 export function avgRoll(count, dice) {
-  if (dice === 1) return count;
+  if (dice === 1) return count
 
-  return Math.floor(count * ((dice + 1) / 2));
+  return Math.floor(count * ((dice + 1) / 2))
 }
 
 export function statModifier(score) {
-  return Math.floor((score - 10) / 2);
+  return Math.floor((score - 10) / 2)
 }
 
 export function renderModifier(score) {
-  return renderBonus(statModifier(score));
+  return renderBonus(statModifier(score))
 }
 
 export function isNumber(value) {
-  return !isNaN(parseInt(value)) ? true : 'Not a Number';
+  return !isNaN(parseInt(value)) ? true : 'Not a Number'
 }
 
 export function saveModifier(score, proficiency) {
-  return statModifier(score) + proficiency;
+  return statModifier(score) + proficiency
 }
 
 export function renderBonus(number, spaces = false) {
   return `${spaces ? ' ' : ''}${number >= 0 ? '+' : ''}${
     spaces ? ' ' : ''
-  }${number}`;
+  }${number}`
 }
 
 export function newAttackAdditionalDamage() {
@@ -50,7 +50,7 @@ export function newAttackAdditionalDamage() {
     count: 1,
     type: DAMAGE_TYPE.FIRE,
     note: '',
-  };
+  }
 }
 
 export function newMonster() {
@@ -163,12 +163,22 @@ export function newMonster() {
       count: 0,
       actions: [],
     },
+    mythicActions: {
+      count: 0,
+      triggerName: '[Mythic Trigger Condition]',
+      triggerRecharge: 'Recharges after a Short or Long Rest',
+      triggerDescription:
+        'If the {NAME} would be reduced to 0 hit points, its current hit point total instead resets to [X] hit points. Additionally, the {NAME} can now use the options in the “Mythic Actions” section for 1 hour. Award a party an additional [x]XP ([x] XP total) for defeating the {NAME} after this trait activates.',
+      preamble:
+        "If the {NAME}'s mythic trait is active, it can use the options below as legendary actions.",
+      actions: [],
+    },
     reactions: [],
     lairActions: [],
     regionalEffects: [],
     regionalEffectDescription:
       "The region containing the {NAME}'s lair is warped by the {NAME}'s magic. When the {NAME} dies, the effects fade after {1d10} days.",
-  };
+  }
 }
 
 export function newAttack() {
@@ -215,7 +225,7 @@ export function newAttack() {
     save: 0,
     description: '',
     legendaryOnly: false,
-  };
+  }
 }
 
 export function newTrait() {
@@ -237,7 +247,7 @@ export function newTrait() {
       acModifier: 0,
       include: true,
     },
-  };
+  }
 }
 
 export function newAction() {
@@ -261,7 +271,7 @@ export function newAction() {
       acModifier: 0,
       include: true,
     },
-  };
+  }
 }
 
 export function newReaction() {
@@ -269,7 +279,7 @@ export function newReaction() {
     name: 'New Reaction',
     id: uuidv4(),
     description: '',
-  };
+  }
 }
 
 export function newLairAction() {
@@ -287,47 +297,47 @@ export function newLairAction() {
       acModifier: 0,
       include: true,
     },
-  };
+  }
 }
 
 export function listJoin(list, sep) {
-  if (list.length === 1) return list[0];
+  if (list.length === 1) return list[0]
 
-  const part1 = list.slice(0, list.length - 1).join(sep);
-  return `${part1}, and ${list[list.length - 1]}`;
+  const part1 = list.slice(0, list.length - 1).join(sep)
+  return `${part1}, and ${list[list.length - 1]}`
 }
 
 export function download(content, fileName, contentType) {
-  var a = document.createElement('a');
-  var file = new Blob([content], { type: contentType });
-  a.href = URL.createObjectURL(file);
-  a.download = fileName;
-  a.click();
+  var a = document.createElement('a')
+  var file = new Blob([content], { type: contentType })
+  a.href = URL.createObjectURL(file)
+  a.download = fileName
+  a.click()
 }
 
 export function saveJSON(data, filename) {
-  download(JSON.stringify(data), filename, 'application/json');
+  download(JSON.stringify(data), filename, 'application/json')
 }
 
 export function saveToPng(filename) {
-  const node = document.getElementById('render');
+  const node = document.getElementById('render')
 
-  DomToImage.toBlob(node).then(function(blob) {
-    download(blob, filename, 'image/png');
-  });
+  DomToImage.toBlob(node).then(function (blob) {
+    download(blob, filename, 'image/png')
+  })
 }
 
 export function attackTemplateSubtitle(template) {
   // displays a quick damage summary
-  const altDamage = `${template.alternateDamage.count}d${template.alternateDamage.dice} + ${template.alternateDamage.modifier.stat} ${template.alternateDamage.type}`;
+  const altDamage = `${template.alternateDamage.count}d${template.alternateDamage.dice} + ${template.alternateDamage.modifier.stat} ${template.alternateDamage.type}`
   const plusDamage = template.additionalDamage
     .map((ad) => `${ad.count}d${ad.dice} ${ad.type}`)
-    .join(', ');
+    .join(', ')
   return `${template.distance} ${template.kind}. ${template.damage.count}d${
     template.damage.dice
   } + ${template.damage.modifier.stat} ${template.damage.type}${
     template.alternateDamage.active ? ` / ${altDamage}` : ''
-  }${template.additionalDamage.length > 0 ? ` plus ${plusDamage}` : ''}.`;
+  }${template.additionalDamage.length > 0 ? ` plus ${plusDamage}` : ''}.`
 }
 
 export function actionTemplateSubtitle(template) {
@@ -335,241 +345,239 @@ export function actionTemplateSubtitle(template) {
   const lu =
     template.recharge !== ''
       ? `Recharge ${template.recharge}`
-      : `${template.limitedUse.count}/${template.limitedUse.rate}`;
-  const showLu = template.limitedUse.count > 0 || template.recharge !== '';
+      : `${template.limitedUse.count}/${template.limitedUse.rate}`
+  const showLu = template.limitedUse.count > 0 || template.recharge !== ''
 
   return `${template.legendaryOnly ? 'Legendary Action. ' : ''}${
     showLu ? `${lu}. ` : ''
-  }${template.description}`;
+  }${template.description}`
 }
 
 export function traitTemplateSubtitle(template) {
-  const lu = `${template.limitedUse.count}/${template.limitedUse.rate}`;
+  const lu = `${template.limitedUse.count}/${template.limitedUse.rate}`
   return `${template.legendaryOnly ? 'Legendary Action. ' : ''}${
     template.limitedUse.count > 0 ? `${lu}. ` : ''
-  }${template.description}`;
+  }${template.description}`
 }
 
 export function cloneFromTemplate(template) {
-  const obj = _.cloneDeep(template);
+  const obj = _.cloneDeep(template)
 
   // delete template stuff
-  delete obj.templateName;
-  delete obj.icon;
-  delete obj.subtitle;
+  delete obj.templateName
+  delete obj.icon
+  delete obj.subtitle
 
   // add id
-  obj.id = uuidv4();
+  obj.id = uuidv4()
 
   // return instance
-  return obj;
+  return obj
 }
 
 export function processSharedTokens(text, store) {
   // saves
-  const save = RegExp(/\{DC:(\w{3})\}/gi);
+  const save = RegExp(/\{DC:(\w{3})\}/gi)
   text = text.replace(save, (match, stat) => {
     if (stat in STAT) {
-      return `DC ${store.getters.defaultSpellSave(stat)}`;
-    } else return match;
-  });
+      return `DC ${store.getters.defaultSpellSave(stat)}`
+    } else return match
+  })
 
   // attack modifier
-  const attack = RegExp(/\{A:(\w{3})\}/gi);
+  const attack = RegExp(/\{A:(\w{3})\}/gi)
   text = text.replace(attack, (match, stat) => {
     if (stat in STAT) {
-      return renderBonus(store.getters.defaultSpellAttackModifier(stat));
-    } else return match;
-  });
+      return renderBonus(store.getters.defaultSpellAttackModifier(stat))
+    } else return match
+  })
 
   // monster name
-  text = text.replace(/\{NAME\}/gi, store.state.monster.name);
+  text = text.replace(/\{NAME\}/gi, store.state.monster.name)
 
-  return text;
+  return text
 }
 
 // store required for access to mosnter state
 export function processTokens(text, store) {
   // some replacement fun times
-  const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi);
+  const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi)
   text = text.replace(dice, (match, count, dice, modifier) => {
     const cleanModifier =
-      modifier && modifier !== '' ? parseInt(modifier.replace(' ', '')) : 0;
-    const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier;
+      modifier && modifier !== '' ? parseInt(modifier.replace(' ', '')) : 0
+    const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier
     return `${avg} (${count}d${dice}${
       modifier ? renderBonus(cleanModifier) : ''
-    })`;
-  });
+    })`
+  })
 
-  return processSharedTokens(text, store);
+  return processSharedTokens(text, store)
 }
 
 export function renderSaves(store) {
-  const monster = store.state.monster;
+  const monster = store.state.monster
   const saves = Object.keys(monster.saves).map((k) => {
-    const save = monster.saves[k];
+    const save = monster.saves[k]
     if (save.override) {
-      return `${k} ${renderBonus(save.overrideValue)}`;
+      return `${k} ${renderBonus(save.overrideValue)}`
     } else if (save.proficient) {
-      return `${k} ${renderBonus(store.getters.defaultSaveBonus(k))}`;
+      return `${k} ${renderBonus(store.getters.defaultSaveBonus(k))}`
     } else {
-      return '';
+      return ''
     }
-  });
+  })
 
-  return saves.filter((s) => s !== '').join(', ');
+  return saves.filter((s) => s !== '').join(', ')
 }
 
 export function renderSkills(store) {
   const skills = store.state.monster.skills.map((s) => {
     if (s.override) {
-      return `${s.skill.key} ${renderBonus(s.overrideValue)}`;
+      return `${s.skill.key} ${renderBonus(s.overrideValue)}`
     } else {
-      return `${s.skill.key} ${renderBonus(
-        store.getters.defaultSkillBonus(s)
-      )}`;
+      return `${s.skill.key} ${renderBonus(store.getters.defaultSkillBonus(s))}`
     }
-  });
+  })
 
-  return skills.join(', ');
+  return skills.join(', ')
 }
 
 export function renderSenses(store) {
-  const monster = store.state.monster;
+  const monster = store.state.monster
   const nonZero = Object.keys(monster.senses)
     .map((k) => {
-      return { name: k, value: monster.senses[k] };
+      return { name: k, value: monster.senses[k] }
     })
-    .filter((s) => s.value > 0);
+    .filter((s) => s.value > 0)
 
   nonZero.push({
     name: 'Passive Perception',
     value: monster.passivePerception.override
       ? monster.passivePerception.overrideValue
       : store.getters.passivePerception,
-  });
+  })
 
   return nonZero
     .map(
       (s) =>
         `${s.name} ${s.value} ${s.name !== 'Passive Perception' ? 'ft.' : ''}`
     )
-    .join(', ');
+    .join(', ')
 }
 
 export function renderTraitLimitedUse(trait) {
   if (trait.limitedUse.count > 0) {
-    return ` (${trait.limitedUse.count}/${trait.limitedUse.rate})`;
+    return ` (${trait.limitedUse.count}/${trait.limitedUse.rate})`
   }
 
-  return '';
+  return ''
 }
 
 export function renderMultiattacks(store) {
-  const monster = store.state.monster;
+  const monster = store.state.monster
 
   const atkStrings = monster.multiattacks.map((ma) => {
-    const collected = {};
+    const collected = {}
     for (const attackId of ma.attacks) {
-      if (!(attackId in collected)) collected[attackId] = 0;
+      if (!(attackId in collected)) collected[attackId] = 0
 
-      collected[attackId] += 1;
+      collected[attackId] += 1
     }
 
-    const collectedActions = {};
+    const collectedActions = {}
     for (const actionId of ma.actions) {
-      if (!(actionId in collectedActions)) collectedActions[actionId] = 0;
+      if (!(actionId in collectedActions)) collectedActions[actionId] = 0
 
-      collectedActions[actionId] += 1;
+      collectedActions[actionId] += 1
     }
 
     // resolve ids and render names
     const formatted = Object.keys(collected).map((id) => {
-      const name = store.getters.attackFromId(id).name;
+      const name = store.getters.attackFromId(id).name
       return `${N2W.toWords(collected[id])} ${name} attack${
         collected[id] === 1 ? '' : 's'
-      }`;
-    });
+      }`
+    })
 
     const actionFormatted = Object.keys(collectedActions).map((id) => {
-      const name = store.getters.actionFromId(id).name;
+      const name = store.getters.actionFromId(id).name
       return `the ${name} action ${N2W.toWords(collectedActions[id])} time${
         collectedActions[id] === 1 ? '' : 's'
-      }`;
-    });
+      }`
+    })
 
     if (actionFormatted.length > 0) {
       return `uses ${listJoin(actionFormatted, ', ')}${
         formatted.length > 0 ? ` followed by ${listJoin(formatted, ', ')}` : ''
-      }`;
+      }`
     } else {
-      return `makes ${listJoin(formatted, ', ')}`;
+      return `makes ${listJoin(formatted, ', ')}`
     }
-  });
+  })
 
-  return `The ${monster.name} ${atkStrings.join(' or ')}.`;
+  return `The ${monster.name} ${atkStrings.join(' or ')}.`
 }
 
 export function rechargeOrLimited(action) {
   if (action.recharge && action.recharge !== '') {
-    return ` (Recharge ${action.recharge})`;
+    return ` (Recharge ${action.recharge})`
   } else if (action.limitedUse.count > 0) {
-    return ` (${action.limitedUse.count}/${action.limitedUse.rate})`;
+    return ` (${action.limitedUse.count}/${action.limitedUse.rate})`
   }
 
-  return '';
+  return ''
 }
 
 export function duplicateLegendary(action, store) {
-  const isAttack = store.getters.attackFromId(action.id);
+  const isAttack = store.getters.attackFromId(action.id)
   if (isAttack) {
-    return `The ${store.state.monster.name} makes a ${action.name} attack.`;
+    return `The ${store.state.monster.name} makes a ${action.name} attack.`
   }
 
-  return `The ${store.state.monster.name} uses the ${action.name} action.`;
+  return `The ${store.state.monster.name} uses the ${action.name} action.`
 }
 
 export function formatInnateSpellLabel(atWill) {
   if (atWill.rate === AT_WILL_DEFAULT_RATES.AT_WILL) {
-    return 'At will:';
+    return 'At will:'
   } else {
-    return `${atWill.count}/${atWill.rate}:`;
+    return `${atWill.count}/${atWill.rate}:`
   }
 }
 
 export function renderAttackReach(attack) {
   if (attack.distance === RANGE.RANGED) {
-    return `range ${attack.range.standard}/${attack.range.long} ft.`;
+    return `range ${attack.range.standard}/${attack.range.long} ft.`
   } else if (attack.distance === RANGE.BOTH) {
-    return `reach ${attack.range.reach} ft. or range ${attack.range.standard}/${attack.range.long} ft.`;
+    return `reach ${attack.range.reach} ft. or range ${attack.range.standard}/${attack.range.long} ft.`
   }
 
-  return `reach ${attack.range.reach} ft.`;
+  return `reach ${attack.range.reach} ft.`
 }
 
 export function renderAttackDamage(damage, store) {
   const bonus = damage.modifier.override
     ? damage.modifier.overrideValue
-    : statModifier(store.state.monster.stats[damage.modifier.stat]);
-  const avg = avgRoll(damage.count, damage.dice);
-  const rb = renderBonus(bonus, true);
+    : statModifier(store.state.monster.stats[damage.modifier.stat])
+  const avg = avgRoll(damage.count, damage.dice)
+  const rb = renderBonus(bonus, true)
 
   if (damage.dice === 1) {
-    return avg + bonus;
+    return avg + bonus
   }
 
   return `${avg + bonus} (${damage.count}d${damage.dice}${
     bonus !== 0 ? rb : ''
-  })`;
+  })`
 }
 
 export function renderAdditionalDamage(damage) {
   const formatted = damage.map((d) => {
-    const avg = avgRoll(d.count, d.dice);
-    const dmgRender = d.dice === 1 ? `${avg}` : `${avg} (${d.count}d${d.dice})`;
+    const avg = avgRoll(d.count, d.dice)
+    const dmgRender = d.dice === 1 ? `${avg}` : `${avg} (${d.count}d${d.dice})`
 
-    return `${dmgRender} ${d.type} damage${d.note ? ` ${d.note}` : ''}`;
-  });
+    return `${dmgRender} ${d.type} damage${d.note ? ` ${d.note}` : ''}`
+  })
 
-  return listJoin(formatted, ', ');
+  return listJoin(formatted, ', ')
 }

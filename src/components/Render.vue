@@ -51,6 +51,14 @@
         <span class="name">{{ trait.name }}{{ limitedUse(trait) }}.</span>
         {{ processTokens(trait.description) }}
       </div>
+      <div class="trait" v-if="monster.mythicActions.actions.length > 0">
+        <span class="name"
+          >{{ monster.mythicActions.triggerName }} ({{
+            monster.mythicActions.triggerRecharge
+          }}.</span
+        >
+        {{ processTokens(monster.mythicActions.triggerDescription) }}
+      </div>
     </div>
     <div
       v-if="monster.spellcasting.atWill.length > 0"
@@ -169,6 +177,29 @@
         }}
       </div>
     </div>
+    <div class="mythic-actions" v-if="monster.mythicActions.actions.length > 0">
+      <h3 class="section">Mythic Actions</h3>
+      <div class="preamble">
+        {{ processTokens(monster.mythicActions.preamble) }}
+      </div>
+      <div
+        class="action legendary"
+        v-for="action in resolvedMythicActions"
+        :key="action.id"
+      >
+        <span class="name"
+          >{{ action.name
+          }}{{
+            action.cost > 1 ? ` (Costs ${action.cost} Actions)` : ''
+          }}.</span
+        >
+        {{
+          action.legendaryOnly
+            ? processTokens(action.description)
+            : duplicateLegendary(action)
+        }}
+      </div>
+    </div>
     <div class="reactions" v-if="monster.reactions.length > 0">
       <h3 class="section">Reactions</h3>
       <div
@@ -233,29 +264,29 @@ import {
   renderAttackReach,
   renderAttackDamage,
   renderAdditionalDamage,
-} from './util';
-import MOVEMENT from '../data/MOVEMENT';
-import { STAT_FULL } from '../data/STAT';
-import { CR } from '../data/CR';
+} from './util'
+import MOVEMENT from '../data/MOVEMENT'
+import { STAT_FULL } from '../data/STAT'
+import { CR } from '../data/CR'
 
-import N2W from 'number-to-words';
+import N2W from 'number-to-words'
 
 export default {
   name: 'Render',
   computed: {
     monster: {
       get() {
-        return this.$store.state.monster;
+        return this.$store.state.monster
       },
     },
     cr() {
       return `${CR[this.monster.CR].cr} (${CR[
         this.monster.CR
-      ].xp.toLocaleString('en-US')} XP)`;
+      ].xp.toLocaleString('en-US')} XP)`
     },
     hp() {
-      const estimated = avgHP(this.monster.HP);
-      return `${estimated} (${this.monster.HP.HD}d${this.monster.HP.type}+${this.monster.HP.modifier})`;
+      const estimated = avgHP(this.monster.HP)
+      return `${estimated} (${this.monster.HP.HD}d${this.monster.HP.type}+${this.monster.HP.modifier})`
     },
     stats() {
       return Object.keys(this.monster.stats).map((k) => {
@@ -263,147 +294,155 @@ export default {
           stat: k,
           score: this.monster.stats[k],
           modifier: renderModifier(this.monster.stats[k]),
-        };
-      });
+        }
+      })
     },
     speed() {
       const speeds = this.monster.speeds.map((s) => {
-        const note = s.note === '' ? '' : ` (${s.note})`;
-        const type = s.type === MOVEMENT.WALK ? '' : ` ${s.type}`;
-        return `${s.speed} ft.${type}${note}`;
-      });
+        const note = s.note === '' ? '' : ` (${s.note})`
+        const type = s.type === MOVEMENT.WALK ? '' : ` ${s.type}`
+        return `${s.speed} ft.${type}${note}`
+      })
 
-      return speeds.join(', ');
+      return speeds.join(', ')
     },
     saves() {
-      return renderSaves(this.$store);
+      return renderSaves(this.$store)
     },
     skills() {
-      return renderSkills(this.$store);
+      return renderSkills(this.$store)
     },
     resistances() {
-      return this.monster.resistances.join(', ');
+      return this.monster.resistances.join(', ')
     },
     immunities() {
-      return this.monster.immunities.join(', ');
+      return this.monster.immunities.join(', ')
     },
     vulnerabilities() {
-      return this.monster.vulnerabilities.join(', ');
+      return this.monster.vulnerabilities.join(', ')
     },
     conditions() {
-      return this.monster.conditions.join(', ');
+      return this.monster.conditions.join(', ')
     },
     senses() {
-      return renderSenses(this.$store);
+      return renderSenses(this.$store)
     },
     casterLevel() {
-      return `${N2W.toOrdinal(this.monster.spellcasting.level)}-level`;
+      return `${N2W.toOrdinal(this.monster.spellcasting.level)}-level`
     },
     allSpells() {
-      return this.$store.state.spells;
+      return this.$store.state.spells
     },
     cantrips() {
       return this.monster.spellcasting.standard
         .filter((id) => {
-          return this.allSpells[id].level === 0;
+          return this.allSpells[id].level === 0
         })
-        .join(', ');
+        .join(', ')
     },
     spellsBySlot() {
-      const slots = this.monster.spellcasting.slots;
-      const ret = [];
+      const slots = this.monster.spellcasting.slots
+      const ret = []
       for (const idx in slots) {
         if (slots[idx] > 0) {
-          const spells = this.spellsByLevel(parseInt(idx) + 1);
-          if (spells === '') continue;
+          const spells = this.spellsByLevel(parseInt(idx) + 1)
+          if (spells === '') continue
 
-          const level = parseInt(idx) + 1;
+          const level = parseInt(idx) + 1
 
           ret.push({
             levelRender: `${N2W.toOrdinal(level)} level (${slots[idx]} slots):`,
             spells,
-          });
+          })
         }
       }
 
-      return ret;
+      return ret
     },
     warlockLabel() {
       // find the highest level slot and note the quantity
-      const slots = this.monster.spellcasting.slots;
+      const slots = this.monster.spellcasting.slots
       for (let idx = 8; idx >= 0; idx--) {
         if (slots[idx] > 0) {
           return `${N2W.toOrdinal(1)}-${N2W.toOrdinal(idx + 1)} level (${
             slots[idx]
-          } ${N2W.toOrdinal(idx + 1)} level slots)`;
+          } ${N2W.toOrdinal(idx + 1)} level slots)`
         }
       }
 
-      return '';
+      return ''
     },
     nonLegendaryOnlyActions() {
-      return this.monster.actions.filter((a) => !a.legendaryOnly);
+      return this.monster.actions.filter((a) => !a.legendaryOnly)
     },
     resolvedLegendaryActions() {
       return this.monster.legendaryActions.actions.map((la) => {
         return {
           cost: la.cost,
           ...this.$store.getters.attackOrActionFromId(la.actionId),
-        };
-      });
+        }
+      })
+    },
+    resolvedMythicActions() {
+      return this.monster.mythicActions.actions.map((la) => {
+        return {
+          cost: la.cost,
+          ...this.$store.getters.attackOrActionFromId(la.actionId),
+        }
+      })
     },
   },
   methods: {
     toHit(attackModifier) {
-      return renderBonus(this.$store.getters.fullToHitBonus(attackModifier));
+      return renderBonus(this.$store.getters.fullToHitBonus(attackModifier))
     },
     attackReach(attack) {
-      return renderAttackReach(attack);
+      return renderAttackReach(attack)
     },
     targets(t) {
-      return `${N2W.toWords(t)} target${t !== 1 ? 's' : ''}`;
+      return `${N2W.toWords(t)} target${t !== 1 ? 's' : ''}`
     },
     baseDamage(damage) {
-      return renderAttackDamage(damage, this.$store);
+      return renderAttackDamage(damage, this.$store)
     },
     additionalDamage(damage) {
-      return renderAdditionalDamage(damage);
+      return renderAdditionalDamage(damage)
     },
     renderMultiattacks() {
-      return renderMultiattacks(this.$store);
+      return renderMultiattacks(this.$store)
     },
     statFull(stat) {
-      return STAT_FULL[stat];
+      return STAT_FULL[stat]
     },
     spellStats() {
       return `(spell save DC ${this.$store.getters.spellSave}, ${renderBonus(
         this.$store.getters.spellAttackModifier
-      )} to hit with spell attacks)`;
+      )} to hit with spell attacks)`
     },
     formatInnateSpellLabel(atWill) {
-      return formatInnateSpellLabel(atWill);
+      return formatInnateSpellLabel(atWill)
     },
     spellsByLevel(level) {
       return this.monster.spellcasting.standard
         .filter((id) => {
-          return this.allSpells[id].level === level;
+          return this.allSpells[id].level === level
         })
-        .join(', ');
+        .join(', ')
     },
     limitedUse(trait) {
-      return renderTraitLimitedUse(trait);
+      return renderTraitLimitedUse(trait)
     },
     rechargeOrLimited(action) {
-      return rechargeOrLimited(action);
+      return rechargeOrLimited(action)
     },
     duplicateLegendary(action) {
-      return duplicateLegendary(action, this.$store);
+      return duplicateLegendary(action, this.$store)
     },
     processTokens(text) {
-      return processTokens(text, this.$store);
+      return processTokens(text, this.$store)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -484,6 +523,7 @@ export default {
   .innate-spellcasting,
   .spellcasting,
   .legendary-actions .preamble,
+  .mythic-actions .preamble,
   .lair-actions .preamble,
   .regional-effects .preamble,
   .multiattack {

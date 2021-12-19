@@ -205,6 +205,19 @@ export default new Vuex.Store({
 
       return valid
     },
+    validMythicActions: (state, getters) => {
+      const valid = []
+
+      for (const la of state.monster.mythicActions.actions) {
+        // resolve the action or attack
+        const actionOrAttack = getters.attackOrActionFromId(la.actionId)
+        if (actionOrAttack) {
+          valid.push(la)
+        }
+      }
+
+      return valid
+    },
     attackInfo: (state, getters) => {
       // returns an object containing all you need to know for calculating CR
       const data = {
@@ -577,6 +590,12 @@ export default new Vuex.Store({
         monster.saveVersion = 3
       }
 
+      // mythic action update
+      if (monster.saveVersion < 4) {
+        monster.mythicActions = newMonster().mythicActions
+        monster.saveVersion = 4
+      }
+
       // adjust saves in the attack field. null is ok but let's make it 0
       for (const attack of monster.attacks) {
         if (attack.save === null) attack.save = 0
@@ -597,9 +616,8 @@ export default new Vuex.Store({
     },
     [MUTATION.VALIDATE_SPELLS](state) {
       // checks that the given keys exist in the spell list
-      state.monster.spellcasting.standard = state.monster.spellcasting.standard.filter(
-        (id) => id in state.spells
-      )
+      state.monster.spellcasting.standard =
+        state.monster.spellcasting.standard.filter((id) => id in state.spells)
 
       for (const atWill of state.monster.spellcasting.atWill) {
         atWill.spells = atWill.spells.filter((id) => id in state.spells)
