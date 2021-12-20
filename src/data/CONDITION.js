@@ -2,6 +2,7 @@ export const CONDITION = {
   BLINDED: 'blinded',
   CHARMED: 'charmed',
   DEAFENED: 'deafened',
+  DISEASED: 'diseased',
   FRIGHTENED: 'frightened',
   GRAPPLED: 'grappled',
   INCAPACITATED: 'incapacitated',
