@@ -61,7 +61,7 @@ export const SKILL = {
   },
   SLIGHT_OF_HAND: {
     stat: 'DEX',
-    key: 'Slight of Hand',
+    key: 'Sleight of Hand',
   },
   STEALTH: {
     stat: 'DEX',
