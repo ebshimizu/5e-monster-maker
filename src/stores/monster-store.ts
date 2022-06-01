@@ -30,5 +30,9 @@ export const useMonsterStore = defineStore('monster', {
     },
   }),
   actions: {},
-  persist: true,
+  persist: {
+    // this should be changed to app.monster after parity reached, as it will then read all of the
+    // existing data correctly
+    key: 'dev.monster',
+  },
 });

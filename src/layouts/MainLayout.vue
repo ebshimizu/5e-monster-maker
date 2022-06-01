@@ -24,10 +24,9 @@
 
         <q-input
           class="template-search"
-          outlined
           dense
+          standout
           v-model="search"
-          color="bg-grey-7 shadow-1"
           placeholder="Search for Actions, Traits, and Attacks"
         >
           <template v-slot:prepend>
