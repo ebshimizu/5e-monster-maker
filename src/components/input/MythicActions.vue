@@ -39,8 +39,18 @@
         <v-col>
           <v-menu offset-y max-height="300px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="green" small block v-on="on" v-bind="attrs"
-                >Add Mythic Action</v-btn
+              <v-btn
+                color="green"
+                small
+                block
+                v-on="on"
+                v-bind="attrs"
+                :disabled="availableActions.length === 0"
+                >{{
+                  availableActions.length === 0
+                    ? 'No Actions Available'
+                    : 'Add Mythic Action'
+                }}</v-btn
               >
             </template>
             <v-list>

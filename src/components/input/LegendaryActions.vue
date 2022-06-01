@@ -15,8 +15,18 @@
         <v-col>
           <v-menu offset-y max-height="300px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="green" small block v-on="on" v-bind="attrs"
-                >Add Legendary Action</v-btn
+              <v-btn
+                color="green"
+                small
+                block
+                v-on="on"
+                v-bind="attrs"
+                :disabled="availableActions.length === 0"
+                >{{
+                  availableActions.length === 0
+                    ? 'No Actions Available'
+                    : 'Add Legendary Action'
+                }}</v-btn
               >
             </template>
             <v-list>
@@ -71,24 +81,24 @@
 </template>
 
 <script>
-import { MUTATION } from '../../data/ACTIONS';
-import { v4 as uuidv4 } from 'uuid';
+import { MUTATION } from '../../data/ACTIONS'
+import { v4 as uuidv4 } from 'uuid'
 
 export default {
   name: 'LegendaryActions',
   computed: {
     legendaryActions() {
-      return this.$store.getters.validLegendaryActions;
+      return this.$store.getters.validLegendaryActions
     },
     count: {
       get() {
-        return this.$store.state.monster.legendaryActions.count;
+        return this.$store.state.monster.legendaryActions.count
       },
       set(val) {
         this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
           key: 'legendaryActions',
           value: { count: val, actions: this.legendaryActions },
-        });
+        })
       },
     },
     availableActions() {
@@ -97,7 +107,7 @@ export default {
           (a) => !this.legendaryActions.find((la) => la.actionId === a.id)
         )
         .map((a) => {
-          return { type: 'action', ...a };
+          return { type: 'action', ...a }
         })
         .concat(
           this.$store.state.monster.attacks
@@ -105,9 +115,9 @@ export default {
               (a) => !this.legendaryActions.find((la) => la.actionId === a.id)
             )
             .map((a) => {
-              return { type: 'attack', ...a };
+              return { type: 'attack', ...a }
             })
-        );
+        )
     },
   },
   methods: {
@@ -115,24 +125,24 @@ export default {
       this.$store.commit(MUTATION.SET_SIMPLE_PROP, {
         key: 'legendaryActions',
         value: { count: this.count, actions: this.legendaryActions },
-      });
+      })
     },
     addAction(id) {
       this.legendaryActions.push({
         id: uuidv4(),
         actionId: id,
         cost: 1,
-      });
-      this.update();
+      })
+      this.update()
     },
     actionName(actionId) {
-      const action = this.$store.getters.attackOrActionFromId(actionId);
-      return action.name;
+      const action = this.$store.getters.attackOrActionFromId(actionId)
+      return action.name
     },
     removeAction(index) {
-      this.legendaryActions.splice(index, 1);
-      this.update();
+      this.legendaryActions.splice(index, 1)
+      this.update()
     },
   },
-};
+}
 </script>
