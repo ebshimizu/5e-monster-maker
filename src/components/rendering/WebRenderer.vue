@@ -41,9 +41,11 @@
       <span class="name">Condition Immunities</span> {{ conditions }}
     </div>
     <div class="skill"><span class="name">Senses</span> {{ senses }}</div>
-    <div class="skill" v-show="monster.languages !== ''">
+    -->
+    <div v-show="monster.languages !== ''" class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
+    <!--
     <div class="skill"><span class="name">Challenge</span> {{ cr }}</div>
     <v-divider></v-divider>
     <div class="traits">
@@ -251,7 +253,7 @@
 import { computed, defineComponent } from 'vue'
 import N2W from 'number-to-words'
 import { useMonsterStore } from 'src/stores/monster-store'
-import { renderBonus } from './mathRendering'
+import { renderBonus, statModifier } from './mathRendering'
 
 export default defineComponent({
   name: 'WebRenderer',
@@ -261,7 +263,7 @@ export default defineComponent({
       return monster.statsWithModifiers.map((s) => {
         return {
           ...s,
-          renderedModifier: renderBonus(s.score),
+          renderedModifier: renderBonus(statModifier(s.score)),
         }
       })
     })

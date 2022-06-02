@@ -19,6 +19,7 @@ export interface Monster {
   proficiencyOverride: boolean
   HP: DndDice
   hpModifierOverride: boolean
+  hpDieTypeOverride: boolean
   stats: {
     STR: number
     DEX: number

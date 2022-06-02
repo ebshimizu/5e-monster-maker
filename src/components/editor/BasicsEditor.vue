@@ -2,7 +2,7 @@
   <q-expansion-item
     expand-separator
     default-opened
-    icon="perm_identity"
+    icon="info"
     label="Basics"
     caption="Essential Monster Stats"
   >
@@ -10,36 +10,48 @@
       <div class="row">
         <q-input
           v-model="monster.name"
-          label="Name"
-          class="q-pa-sm col-8"
+          :label="$t('monster.name')"
+          class="q-pa-sm col-7"
           debounce="500"
+        />
+        <q-select
+          :model-value="monster.CR"
+          :options="crValues"
+          :display-value="crValues[monster.CR].label"
+          emit-value
+          :label="$t('monster.cr')"
+          class="col-2 q-pa-sm"
+          @update:model-value="monster.setCR"
         />
         <q-input
           v-model.number="monster.proficiency"
           type="number"
-          label="Proficiency Bonus"
-          class="col-2 q-pa-sm"
-        />
+          :label="$t('monster.proficiencyBonus')"
+          class="col-3 q-pa-sm"
+          :disable="!monster.proficiencyOverride"
+        >
+          <template #after>
+            <lock-toggle-button
+              :locked="!monster.proficiencyOverride"
+              :lock-tooltip="$t('monster.proficiency.unlockFromCr')"
+              :unlock-tooltip="$t('monster.proficiency.lockToCr')"
+              @click="monster.toggleProficiencyOverride"
+            />
+          </template>
+        </q-input>
         <q-select
-          v-model="monster.CR"
-          :options="crValues"
-          :display-value="crValues[monster.CR].label"
-          emit-value
-          label="CR"
-          class="col-2 q-pa-sm"
-        />
-        <q-select
-          v-model="monster.size"
+          :model-value="monster.size"
           :options="sizeValues"
-          label="Size"
+          :label="$t('monster.size')"
           class="col-2 q-pa-sm"
+          @update:model-value="monster.setSize"
         />
         <q-select
           v-model="monster.type"
           :options="typeOptions"
           use-input
           input-debounce="0"
-          label="Type"
+          :label="$t('monster.type')"
           class="col-6 q-pa-sm"
           new-value-mode="add-unique"
           @filter="typeFilter"
@@ -49,7 +61,7 @@
           :options="alignmentOptions"
           input-debounce="0"
           use-input
-          label="Alignment"
+          :label="$t('monster.alignment')"
           class="col-4 q-pa-sm"
           new-value-mode="add-unique"
           @filter="alignmentFilter"
@@ -57,47 +69,99 @@
         <q-input
           v-model.number="monster.AC"
           type="number"
-          label="AC"
+          :label="$t('monster.ac')"
           min="0"
           class="col-2 q-pa-sm"
-        />
+        >
+          <template #after>
+            <q-btn
+              round
+              color="primary"
+              size="md"
+              icon="auto_fix_high"
+              @click="monster.setAcByCr"
+            >
+              <q-tooltip class="text-body2">{{
+                $t('monster.setAcByCr')
+              }}</q-tooltip>
+            </q-btn>
+          </template>
+        </q-input>
         <q-input
           v-model="monster.ACType"
-          label="AC Type"
+          :label="$t('monster.acType')"
           class="col-4 q-pa-sm"
         />
         <q-input
-          v-model.number="monster.HP.HD"
+          :model-value="monster.HP.HD"
           type="number"
-          label="HD Count"
+          :label="$t('monster.hp.hd')"
           min="0"
           class="col-2 q-pa-sm"
-        />
+          @update:model-value="
+            (value) => monster.setHpModifier(value, monster.stats.CON)
+          "
+        >
+          <template #after>
+            <q-btn
+              round
+              color="primary"
+              size="md"
+              icon="auto_fix_high"
+              @click="monster.setHdByCr"
+            >
+              <q-tooltip class="text-body2">{{
+                $t('monster.setHdByCr')
+              }}</q-tooltip>
+            </q-btn>
+          </template>
+        </q-input>
         <q-select
           v-model.number="monster.HP.type"
           :options="diceOptions"
           emit-value
           :display-value="diceLookup[monster.HP.type]"
-          label="HD Type"
+          :label="$t('monster.hp.type')"
           class="col-2 q-pa-sm"
-        />
+          :disable="!monster.hpDieTypeOverride"
+        >
+          <template #after>
+            <lock-toggle-button
+              :locked="!monster.hpDieTypeOverride"
+              :lock-tooltip="$t('monster.hp.unlockFromSize')"
+              :unlock-tooltip="$t('monster.hp.lockToSize')"
+              @click="monster.toggleDieTypeOverride"
+            />
+          </template>
+        </q-select>
         <q-input
           v-model.number="monster.HP.modifier"
+          :disable="!monster.hpModifierOverride"
           type="number"
-          label="HP Modifier"
+          :label="$t('monster.hp.modifier')"
           class="col-2 q-pa-sm"
-        />
+        >
+          <template #after>
+            <lock-toggle-button
+              :locked="!monster.hpModifierOverride"
+              :lock-tooltip="$t('monster.hp.unlockModifier')"
+              :unlock-tooltip="$t('monster.hp.lockModifier')"
+              @click="monster.toggleHpModifierOverride"
+            />
+          </template>
+        </q-input>
         <q-input
           v-for="stat in statKeys"
           :key="stat"
-          v-model.number="monster.stats[stat]"
+          :model-value="monster.stats[stat]"
           type="number"
-          :label="stat"
+          :label="$t(`monster.stat.${stat}`)"
           class="col-2 q-pa-sm"
+          @update:model-value="(value) => updateStat(stat, value)"
         />
         <q-input
           v-model="monster.languages"
-          label="Languages"
+          :label="$t('monster.languages')"
           class="col-12 q-pa-sm"
         />
       </div>
@@ -113,9 +177,12 @@ import { CREATURE_SIZE } from 'src/data/SIZE'
 import { STANDARD_CREATURE_TYPE } from 'src/data/TYPE'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
+import { basicArrayFilter } from '../filters'
+import LockToggleButton from '../LockToggleButton.vue'
 
 export default defineComponent({
   name: 'BasicsEditor',
+  components: { LockToggleButton },
   setup() {
     const monster = useMonsterStore()
     const typeOptions = ref(STANDARD_CREATURE_TYPE)
@@ -126,32 +193,21 @@ export default defineComponent({
       monster.stats
     ) as (keyof typeof monster.stats)[]
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const typeFilter = function (val: string, update: any) {
-      update(() => {
-        if (val === '') {
-          typeOptions.value = STANDARD_CREATURE_TYPE
-        } else {
-          const needle = val.toLowerCase()
-          typeOptions.value = STANDARD_CREATURE_TYPE.filter(
-            (v) => v.toLowerCase().indexOf(needle) > -1
-          )
-        }
-      })
-    }
+    const typeFilter = basicArrayFilter(STANDARD_CREATURE_TYPE, typeOptions)
+    const alignmentFilter = basicArrayFilter(
+      STANDARD_ALIGNMENT,
+      alignmentOptions
+    )
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const alignmentFilter = function (val: string, update: any) {
-      update(() => {
-        if (val === '') {
-          alignmentOptions.value = STANDARD_ALIGNMENT
-        } else {
-          const needle = val.toLowerCase()
-          alignmentOptions.value = STANDARD_ALIGNMENT.filter(
-            (v) => v.toLowerCase().indexOf(needle) > -1
-          )
-        }
-      })
+    const updateStat = function (
+      stat: keyof typeof monster.stats,
+      value: number | string | null
+    ) {
+      if (stat === 'CON') {
+        monster.setHpModifier(monster.HP.HD, value)
+      } else {
+        monster.stats[stat] = parseInt(`${value}`)
+      }
     }
 
     return {
@@ -165,6 +221,7 @@ export default defineComponent({
       diceOptions,
       diceLookup,
       statKeys,
+      updateStat,
     }
   },
 })
