@@ -37,4 +37,18 @@ export default {
     acType: 'AC Type',
     languages: 'Languages',
   },
+  editor: {
+    basics: {
+      label: 'Basics',
+      caption: 'Essential Monster Stats',
+    },
+    saves: {
+      label: 'Saving Throws',
+      caption: 'Monster Defenses',
+    },
+    speeds: {
+      label: 'Speeds',
+      caption: 'Move Your Monster',
+    },
+  },
 }

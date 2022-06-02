@@ -3,8 +3,8 @@
     expand-separator
     default-opened
     icon="info"
-    label="Basics"
-    caption="Essential Monster Stats"
+    :label="$t('editor.basics.label')"
+    :caption="$t('editor.basics.caption')"
   >
     <q-card>
       <div class="row">
