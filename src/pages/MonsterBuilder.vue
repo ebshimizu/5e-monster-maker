@@ -4,7 +4,7 @@
       v-model="splitterModel"
       style="height: calc(100vh - 50px); width: 100%"
     >
-      <template v-slot:before>
+      <template #before>
         <!-- todo: editing panels go here -->
         <div class="q-pa-md" style="width: 100%">
           <q-list bordered class="rounded-borders">
@@ -13,7 +13,7 @@
         </div>
       </template>
 
-      <template v-slot:after>
+      <template #after>
         <!-- todo: stat block renderer goes here -->
         <div class="q-pa-md">
           <div class="text-h4 q-mb-md">Renderer</div>
@@ -24,20 +24,20 @@
 </template>
 
 <script lang="ts">
-import { useMonsterStore } from 'src/stores/monster-store';
-import { defineComponent, ref } from 'vue';
-import BasicsEditor from 'src/components/editor/BasicsEditor.vue';
+import { useMonsterStore } from 'src/stores/monster-store'
+import { defineComponent, ref } from 'vue'
+import BasicsEditor from 'src/components/editor/BasicsEditor.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
+  components: { BasicsEditor },
   setup() {
-    const splitterModel = ref(66);
-    const monster = useMonsterStore();
+    const splitterModel = ref(66)
+    const monster = useMonsterStore()
     return {
       splitterModel,
       monster,
-    };
+    }
   },
-  components: { BasicsEditor },
-});
+})
 </script>

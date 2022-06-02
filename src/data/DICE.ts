@@ -7,10 +7,13 @@ export const DICE = {
   d10: 10,
   d12: 12,
   d20: 20,
-};
+}
 
 export const DICE_SELECT = Object.entries(DICE).map(([k, v]) => {
-  return { text: k, value: v };
-});
+  return { label: k, value: v }
+})
 
-export default DICE;
+export const DIE_LOOKUP: Record<number, string> = {}
+Object.entries(DICE).forEach(([k, v]) => {
+  DIE_LOOKUP[v] = k
+})

@@ -6,10 +6,10 @@
           flat
           dense
           round
-          @click="toggleLeftDrawer"
           aria-label="Menu"
           icon="menu"
           class="q-mr-sm"
+          @click="toggleLeftDrawer"
         />
 
         <q-toolbar-title
@@ -23,13 +23,13 @@
         <q-space />
 
         <q-input
+          v-model="search"
           class="template-search"
           dense
           standout
-          v-model="search"
           placeholder="Search for Actions, Traits, and Attacks"
         >
-          <template v-slot:prepend>
+          <template #prepend>
             <q-icon v-if="search === ''" name="search" />
             <q-icon
               v-else
@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -69,20 +69,20 @@ export default defineComponent({
   components: {},
 
   setup() {
-    const leftDrawerOpen = ref(false);
+    const leftDrawerOpen = ref(false)
 
     // TODO: link this to the template search
-    const search = ref('');
+    const search = ref('')
 
     return {
       leftDrawerOpen,
       search,
       toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
+        leftDrawerOpen.value = !leftDrawerOpen.value
       },
-    };
+    }
   },
-});
+})
 </script>
 
 <style lang="scss">

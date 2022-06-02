@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia';
-import { Monster } from 'src/components/models';
-import DICE from 'src/data/DICE';
+import { defineStore } from 'pinia'
+import { Monster } from 'src/components/models'
+import { DICE } from 'src/data/DICE'
 
-export const MONSTER_VERSION = 4;
+export const MONSTER_VERSION = 5
 
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => ({
@@ -15,11 +15,13 @@ export const useMonsterStore = defineStore('monster', {
     ACType: '',
     CR: 0,
     proficiency: 4,
+    proficiencyOverride: false,
     HP: {
       HD: 1,
       type: DICE.d8,
       modifier: 0,
     },
+    hpModifierOverride: false,
     stats: {
       STR: 10,
       DEX: 10,
@@ -28,6 +30,7 @@ export const useMonsterStore = defineStore('monster', {
       WIS: 10,
       CHA: 10,
     },
+    languages: '',
   }),
   actions: {},
   persist: {
@@ -35,4 +38,4 @@ export const useMonsterStore = defineStore('monster', {
     // existing data correctly
     key: 'dev.monster',
   },
-});
+})
