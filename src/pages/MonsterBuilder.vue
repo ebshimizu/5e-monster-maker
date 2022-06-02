@@ -16,7 +16,7 @@
       <template #after>
         <!-- todo: stat block renderer goes here -->
         <div class="q-pa-md">
-          <div class="text-h4 q-mb-md">Renderer</div>
+          <web-renderer />
         </div>
       </template>
     </q-splitter>
@@ -27,10 +27,11 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
 import BasicsEditor from 'src/components/editor/BasicsEditor.vue'
+import WebRenderer from 'src/components/rendering/WebRenderer.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
-  components: { BasicsEditor },
+  components: { BasicsEditor, WebRenderer },
   setup() {
     const splitterModel = ref(66)
     const monster = useMonsterStore()

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { Monster } from 'src/components/models'
+import { avgHP, statModifier } from 'src/components/rendering/mathRendering'
 import { DICE } from 'src/data/DICE'
 
 export const MONSTER_VERSION = 5
@@ -32,6 +33,22 @@ export const useMonsterStore = defineStore('monster', {
     },
     languages: '',
   }),
+  getters: {
+    statsWithModifiers: (state) => {
+      const statKeys = Object.keys(state.stats) as (keyof typeof state.stats)[]
+
+      return statKeys.map((k) => {
+        return {
+          stat: k,
+          score: state.stats[k],
+          modifier: statModifier(state.stats[k]),
+        }
+      })
+    },
+    avgHp: (state) => {
+      return avgHP(state.HP)
+    },
+  },
   actions: {},
   persist: {
     // this should be changed to app.monster after parity reached, as it will then read all of the
