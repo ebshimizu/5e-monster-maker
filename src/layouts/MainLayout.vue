@@ -51,7 +51,18 @@
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" bordered>
-      <q-list> </q-list>
+      <q-list>
+        <q-item clickable @click="reset">
+          <q-item-section>Reset Monster</q-item-section>
+        </q-item>
+        <q-separator />
+        <q-item clickable>
+          <q-item-section>Edit Custom Spells</q-item-section>
+        </q-item>
+        <q-item clickable>
+          <q-item-section>Edit Custom Templates</q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-page-container>
@@ -61,6 +72,7 @@
 </template>
 
 <script lang="ts">
+import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
@@ -74,12 +86,16 @@ export default defineComponent({
     // TODO: link this to the template search
     const search = ref('')
 
+    const monster = useMonsterStore()
+    const reset = () => monster.$reset()
+
     return {
       leftDrawerOpen,
       search,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
+      reset,
     }
   },
 })

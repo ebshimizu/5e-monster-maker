@@ -14,6 +14,7 @@ export const useMonsterStore = defineStore('monster', {
     size: 'Medium',
     type: 'humanoid',
     alignment: '',
+    languages: '',
     AC: 10,
     ACType: '',
     CR: 0,
@@ -34,7 +35,38 @@ export const useMonsterStore = defineStore('monster', {
       WIS: 10,
       CHA: 10,
     },
-    languages: '',
+    saves: {
+      STR: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      DEX: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      CON: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      INT: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      WIS: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+      CHA: {
+        proficient: false,
+        override: false,
+        overrideValue: 0,
+      },
+    },
   }),
   getters: {
     statsWithModifiers: (state) => {

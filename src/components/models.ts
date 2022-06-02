@@ -5,6 +5,12 @@ export interface DndDice {
   modifier: number
 }
 
+export interface MonsterSave {
+  proficient: boolean
+  override: boolean
+  overrideValue: number
+}
+
 // the big one is the monster definition
 export interface Monster {
   name: string
@@ -27,6 +33,14 @@ export interface Monster {
     INT: number
     WIS: number
     CHA: number
+  }
+  saves: {
+    STR: MonsterSave
+    DEX: MonsterSave
+    CON: MonsterSave
+    INT: MonsterSave
+    WIS: MonsterSave
+    CHA: MonsterSave
   }
   languages: string
 }
