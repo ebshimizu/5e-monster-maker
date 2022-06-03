@@ -25,10 +25,10 @@
     <div v-show="saves !== ''" class="skill">
       <span class="name">Saving Throws</span> {{ saves }}
     </div>
-    <!--
-    <div class="skill" v-show="monster.skills.length > 0">
+    <div v-show="monster.skills.length > 0" class="skill">
       <span class="name">Skills</span> {{ skills }}
     </div>
+    <!--
     <div class="skill" v-show="this.monster.resistances.length > 0">
       <span class="name">Damage Resistances</span> {{ resistances }}
     </div>
@@ -254,12 +254,15 @@
 import { computed, defineComponent } from 'vue'
 import N2W from 'number-to-words'
 import { useMonsterStore } from 'src/stores/monster-store'
-import { renderBonus, statModifier } from './mathRendering'
+import { bonusForSkill, renderBonus, statModifier } from './mathRendering'
 import { saveModifierForStat } from './mathRendering'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'WebRenderer',
   setup() {
+    const { t } = useI18n()
+
     const monster = useMonsterStore()
     const stats = computed(() => {
       return monster.statsWithModifiers.map((s) => {
@@ -306,12 +309,28 @@ export default defineComponent({
       return speeds.join(', ')
     })
 
+    // skills renderer
+    const skills = computed(() => {
+      const monsterSkills = monster.skills.map((s) => {
+        if (s.override) {
+          return `${t(`skill.${s.key}`)} ${renderBonus(s.overrideValue)}`
+        } else {
+          return `${t(`skill.${s.key}`)} ${renderBonus(
+            bonusForSkill(monster, s)
+          )}`
+        }
+      })
+
+      return monsterSkills.join(', ')
+    })
+
     return {
       monster,
       stats,
       hp,
       saves,
       speeds,
+      skills,
     }
   },
 })
