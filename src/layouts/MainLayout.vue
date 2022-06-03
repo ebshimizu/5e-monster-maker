@@ -50,7 +50,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" bordered>
+    <q-drawer v-model="leftDrawerOpen" overlay elevated>
       <q-list>
         <q-item clickable @click="reset">
           <q-item-section>Reset Monster</q-item-section>

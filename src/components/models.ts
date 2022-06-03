@@ -12,6 +12,7 @@ export interface MonsterSave {
 }
 
 export interface MonsterSpeed {
+  id: string
   type: string
   speed: number
   note: string

@@ -4,6 +4,7 @@ import { avgHP, statModifier } from 'src/components/rendering/mathRendering'
 import { CR } from 'src/data/CR'
 import { DICE } from 'src/data/DICE'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
+import { v4 as uuidv4 } from 'uuid'
 
 export const MONSTER_VERSION = 5
 
@@ -69,6 +70,7 @@ export const useMonsterStore = defineStore('monster', {
     },
     speeds: [
       {
+        id: uuidv4(),
         type: 'walk',
         speed: 30,
         note: '',
