@@ -1,3 +1,5 @@
+import { SKILL } from 'src/data/SKILL'
+
 export type DndStat = 'STR' | 'DEX' | 'CON' | 'INT' | 'WIS' | 'CHA'
 
 // subtypes used in various parts of the monster
@@ -21,9 +23,10 @@ export interface MonsterSpeed {
 }
 
 export interface MonsterSkill {
+  key: keyof typeof SKILL
   skill: {
     stat: DndStat
-    key: string
+    label: string
   }
   proficient: boolean
   expertise: boolean

@@ -4,6 +4,7 @@ import { avgHP, statModifier } from 'src/components/rendering/mathRendering'
 import { CR } from 'src/data/CR'
 import { DICE } from 'src/data/DICE'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
+import { SKILL } from 'src/data/SKILL'
 import { v4 as uuidv4 } from 'uuid'
 
 export const MONSTER_VERSION = 5
@@ -167,6 +168,23 @@ export const useMonsterStore = defineStore('monster', {
 
       if (index !== -1) {
         this.speeds.splice(index, 1)
+      }
+    },
+    addSkill(skillName: keyof typeof SKILL) {
+      this.skills.push({
+        skill: SKILL[skillName],
+        key: skillName,
+        proficient: false,
+        expertise: false,
+        override: false,
+        overrideValue: 0,
+      })
+    },
+    deleteSkill(skillName: keyof typeof SKILL) {
+      const index = this.skills.findIndex((s) => s.key === skillName)
+
+      if (index !== -1) {
+        this.skills.splice(index, 1)
       }
     },
   },

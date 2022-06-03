@@ -3,79 +3,79 @@ import { DndStat } from 'src/components/models'
 export const SKILL: {
   [key: string]: {
     stat: DndStat
-    key: string
+    label: string
   }
 } = {
   ACROBATICS: {
     stat: 'DEX',
-    key: 'Acrobatics',
+    label: 'Acrobatics',
   },
   ANIMAL_HANDLING: {
     stat: 'WIS',
-    key: 'Animal Handling',
+    label: 'Animal Handling',
   },
   ARCANA: {
     stat: 'INT',
-    key: 'Arcana',
+    label: 'Arcana',
   },
   ATHLETICS: {
     stat: 'STR',
-    key: 'Athletics',
+    label: 'Athletics',
   },
   DECEPTION: {
     stat: 'CHA',
-    key: 'Deception',
+    label: 'Deception',
   },
   HISTORY: {
     stat: 'INT',
-    key: 'History',
+    label: 'History',
   },
   INSIGHT: {
     stat: 'WIS',
-    key: 'Insight',
+    label: 'Insight',
   },
   INTIMIDATION: {
     stat: 'CHA',
-    key: 'Intimidation',
+    label: 'Intimidation',
   },
   INVESTIGATION: {
     stat: 'INT',
-    key: 'Investigation',
+    label: 'Investigation',
   },
   MEDICINE: {
     stat: 'WIS',
-    key: 'Medicine',
+    label: 'Medicine',
   },
   NATURE: {
     stat: 'INT',
-    key: 'Nature',
+    label: 'Nature',
   },
   PERCEPTION: {
     stat: 'WIS',
-    key: 'Perception',
+    label: 'Perception',
   },
   PERFORMANCE: {
     stat: 'CHA',
-    key: 'Performance',
+    label: 'Performance',
   },
   PERSUASION: {
     stat: 'CHA',
-    key: 'Persuasion',
+    label: 'Persuasion',
   },
   RELIGION: {
     stat: 'INT',
-    key: 'Religion',
+    label: 'Religion',
   },
   SLIGHT_OF_HAND: {
     stat: 'DEX',
-    key: 'Sleight of Hand',
+    label: 'Sleight of Hand',
   },
   STEALTH: {
     stat: 'DEX',
-    key: 'Stealth',
+    label: 'Stealth',
   },
   SURVIVAL: {
     stat: 'WIS',
-    key: 'Survival',
+    label: 'Survival',
   },
 }

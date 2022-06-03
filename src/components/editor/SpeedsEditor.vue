@@ -56,7 +56,7 @@
         <q-btn
           class="full-width"
           color="positive"
-          label="Add Speed"
+          :label="$t('editor.addSpeed')"
           @click="addSpeed"
         />
       </q-card-actions>

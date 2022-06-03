@@ -1,4 +1,4 @@
-import { DndDice, Monster } from '../models'
+import { DndDice, Monster, MonsterSkill } from '../models'
 
 // helpers for rendering stats
 export function avgHP(HP: DndDice) {
@@ -33,6 +33,18 @@ export function saveModifierForStat(
     return (
       statModifier(monster.stats[stat]) +
       (monster.saves[stat].proficient ? monster.proficiency : 0)
+    )
+  }
+}
+
+export function bonusForSkill(monster: Monster, skill: MonsterSkill) {
+  if (skill.override) {
+    return skill.overrideValue
+  } else {
+    const profModifier = skill.expertise ? 2 : skill.proficient ? 1 : 0
+    return (
+      statModifier(monster.stats[skill.skill.stat]) +
+      monster.proficiency * profModifier
     )
   }
 }
