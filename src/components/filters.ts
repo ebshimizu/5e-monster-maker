@@ -1,8 +1,9 @@
 import { QSelect } from 'quasar'
-import { Ref } from 'vue'
+import { Ref, unref } from 'vue'
+import { MaybeRef } from '@vueuse/core'
 
 export function basicArrayFilter(
-  baseOptions: string[],
+  baseOptions: MaybeRef<string[]>,
   options: Ref<string[]>
 ) {
   return function (
@@ -11,10 +12,10 @@ export function basicArrayFilter(
   ) {
     update(() => {
       if (val === '') {
-        options.value = baseOptions
+        options.value = unref(baseOptions)
       } else {
         const needle = val.toLowerCase()
-        options.value = baseOptions.filter(
+        options.value = unref(baseOptions).filter(
           (v) => v.toLowerCase().indexOf(needle) > -1
         )
       }

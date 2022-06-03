@@ -36,6 +36,18 @@ export default {
     setAcByCr: 'Set AC to Match CR',
     acType: 'AC Type',
     languages: 'Languages',
+    movement: {
+      type: {
+        label: 'Movement Type',
+        walk: 'walk',
+        fly: 'fly',
+        burrow: 'burrow',
+        climb: 'climb',
+        swim: 'swim',
+      },
+      speed: 'Speed',
+      note: 'Note',
+    },
   },
   editor: {
     basics: {

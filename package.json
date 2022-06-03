@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "@vueuse/core": "^8.6.0",
     "core-js": "^3.6.5",
     "number-to-words": "^1.2.4",
     "pinia": "^2.0.11",

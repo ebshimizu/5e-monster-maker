@@ -13,7 +13,7 @@ export interface MonsterSave {
 
 export interface MonsterSpeed {
   id: string
-  type: string
+  type?: string // type can be nulled in the picker text entry
   speed: number
   note: string
 }

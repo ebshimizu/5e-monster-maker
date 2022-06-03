@@ -153,6 +153,21 @@ export const useMonsterStore = defineStore('monster', {
       this.HP.HD = hd
       this.HP.modifier = modifier
     },
+    addSpeed() {
+      this.speeds.push({
+        id: uuidv4(),
+        type: 'walk',
+        speed: 30,
+        note: '',
+      })
+    },
+    deleteSpeed(id: string) {
+      const index = this.speeds.findIndex((s) => s.id === id)
+
+      if (index !== -1) {
+        this.speeds.splice(index, 1)
+      }
+    },
   },
   persist: {
     // this should be changed to app.monster after parity reached, as it will then read all of the

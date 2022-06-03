@@ -10,7 +10,7 @@
       }}{{ monster.ACType === '' ? '' : ` (${monster.ACType})` }}
     </div>
     <div class="skill"><span class="name">Hit Points</span> {{ hp }}</div>
-    <!-- <div class="skill"><span class="name">Speed</span> {{ speed }}</div> -->
+    <div class="skill"><span class="name">Speed</span> {{ speeds }}</div>
     <hr />
     <div class="row" style="width: 100%">
       <div v-for="stat in stats" :key="stat.stat" class="stat-container">
@@ -275,6 +275,8 @@ export default defineComponent({
         `${monster.avgHp} (${monster.HP.HD}d${monster.HP.type}+${monster.HP.modifier})`
     )
 
+    // maybe pull these into a separate file? idk if i'll need to reuse later so can always split later
+    // string renderer for saves
     const saves = computed(() => {
       const allSaves = Object.entries(monster.saves).map(([stat, save]) => {
         if (save.override) {
@@ -292,11 +294,24 @@ export default defineComponent({
       return allSaves.filter((s) => s !== '').join(', ')
     })
 
+    // string renderer for speeds
+    const speeds = computed(() => {
+      const speeds = monster.speeds.map((s) => {
+        const note = s.note === '' ? '' : ` (${s.note})`
+        const type =
+          s.type != null && s.type.toLowerCase() === 'walk' ? '' : ` ${s.type}`
+        return `${s.speed} ft.${type}${note}`
+      })
+
+      return speeds.join(', ')
+    })
+
     return {
       monster,
       stats,
       hp,
       saves,
+      speeds,
     }
   },
 })
