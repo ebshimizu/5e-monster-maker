@@ -22,9 +22,10 @@
       </div>
     </div>
     <hr />
-    <!-- <div class="skill" v-show="saves !== ''">
+    <div v-show="saves !== ''" class="skill">
       <span class="name">Saving Throws</span> {{ saves }}
     </div>
+    <!--
     <div class="skill" v-show="monster.skills.length > 0">
       <span class="name">Skills</span> {{ skills }}
     </div>
@@ -254,6 +255,7 @@ import { computed, defineComponent } from 'vue'
 import N2W from 'number-to-words'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { renderBonus, statModifier } from './mathRendering'
+import { saveModifierForStat } from './mathRendering'
 
 export default defineComponent({
   name: 'WebRenderer',
@@ -267,15 +269,34 @@ export default defineComponent({
         }
       })
     })
+
     const hp = computed(
       () =>
         `${monster.avgHp} (${monster.HP.HD}d${monster.HP.type}+${monster.HP.modifier})`
     )
 
+    const saves = computed(() => {
+      const allSaves = Object.entries(monster.saves).map(([stat, save]) => {
+        if (save.override) {
+          return `${stat} ${renderBonus(save.overrideValue)}`
+        } else if (save.proficient) {
+          // i guess typescript can't infer that save is a key of monster.saves from the map?
+          return `${stat} ${renderBonus(
+            saveModifierForStat(monster, stat as keyof typeof monster.saves)
+          )}`
+        } else {
+          return ''
+        }
+      })
+
+      return allSaves.filter((s) => s !== '').join(', ')
+    })
+
     return {
       monster,
       stats,
       hp,
+      saves,
     }
   },
 })

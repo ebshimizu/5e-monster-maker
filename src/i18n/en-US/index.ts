@@ -50,5 +50,7 @@ export default {
       label: 'Speeds',
       caption: 'Move Your Monster',
     },
+    proficient: 'Proficient',
+    override: 'Override',
   },
 }

@@ -10,7 +10,7 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const { configure } = require('quasar/wrappers');
+const { configure } = require('quasar/wrappers')
 
 module.exports = configure(function (ctx) {
   return {
@@ -88,6 +88,9 @@ module.exports = configure(function (ctx) {
     framework: {
       config: {
         dark: 'auto',
+        brand: {
+          warning: 'rgb(255 143 0)',
+        },
       },
 
       // iconSet: 'material-icons', // Quasar icon set
@@ -219,5 +222,5 @@ module.exports = configure(function (ctx) {
         // extendWebpackPreload also available besides this chainWebpackPreload
       },
     },
-  };
-});
+  }
+})

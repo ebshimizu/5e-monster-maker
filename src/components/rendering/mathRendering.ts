@@ -1,4 +1,4 @@
-import { DndDice } from '../models'
+import { DndDice, Monster } from '../models'
 
 // helpers for rendering stats
 export function avgHP(HP: DndDice) {
@@ -21,6 +21,20 @@ export function renderModifier(score: number): string {
 
 export function saveModifier(score: number, proficiency: number) {
   return statModifier(score) + proficiency
+}
+
+export function saveModifierForStat(
+  monster: Monster,
+  stat: keyof typeof monster.stats
+) {
+  if (monster.saves[stat].override) {
+    return monster.saves[stat].overrideValue
+  } else {
+    return (
+      statModifier(monster.stats[stat]) +
+      (monster.saves[stat].proficient ? monster.proficiency : 0)
+    )
+  }
 }
 
 export function renderBonus(number: number, spaces = false) {

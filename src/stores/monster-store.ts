@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { Monster } from 'src/components/models'
+import { Monster, MonsterSave } from 'src/components/models'
 import { avgHP, statModifier } from 'src/components/rendering/mathRendering'
 import { CR } from 'src/data/CR'
 import { DICE } from 'src/data/DICE'
