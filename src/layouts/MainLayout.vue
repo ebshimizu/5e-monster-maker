@@ -68,6 +68,8 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer elevated> hello? </q-footer>
   </q-layout>
 </template>
 

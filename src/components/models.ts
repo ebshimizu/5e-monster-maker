@@ -11,6 +11,12 @@ export interface MonsterSave {
   overrideValue: number
 }
 
+export interface MonsterSpeed {
+  type: string
+  speed: number
+  note: string
+}
+
 // the big one is the monster definition
 export interface Monster {
   name: string
@@ -18,6 +24,7 @@ export interface Monster {
   size: string
   type?: string
   alignment?: string
+  languages: string
   AC: number
   ACType: string
   CR: number
@@ -42,5 +49,5 @@ export interface Monster {
     WIS: MonsterSave
     CHA: MonsterSave
   }
-  languages: string
+  speeds: MonsterSpeed[]
 }

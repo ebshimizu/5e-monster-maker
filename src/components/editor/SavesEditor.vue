@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="shield"
     :label="$t('editor.saves.label')"
     :caption="$t('editor.saves.caption')"
@@ -12,8 +11,8 @@
         :key="stat"
         type="number"
         :model-value="saveModifierForStat(monster, stat)"
-        class="col-4 q-pa-sm"
-        :label="stat"
+        class="col-sm-12 col-md-4 q-pa-sm"
+        :label="$t(`monster.stat.${stat}`)"
         :disable="!save?.override ?? true"
         @update:model-value="
           (value) => (monster.saves[stat].overrideValue = parseInt(`${value}`))

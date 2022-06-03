@@ -1,9 +1,6 @@
 <template>
   <q-page class="row items-start">
-    <q-splitter
-      v-model="splitterModel"
-      style="height: calc(100vh - 50px); width: 100%"
-    >
+    <q-splitter v-model="splitterModel" style="min-height: 90vh; width: 100%">
       <template #before>
         <!-- todo: editing panels go here -->
         <div class="q-pa-md" style="width: 100%">
