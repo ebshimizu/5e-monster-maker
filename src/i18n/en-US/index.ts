@@ -1,6 +1,3 @@
-// This is just an example,
-// so you can safely delete all default props below
-
 export default {
   monster: {
     name: 'Name',
@@ -50,17 +47,22 @@ export default {
     },
   },
   editor: {
+    // caption fields are allocated for each tab but not used at the moment
     basics: {
       label: 'Basics',
-      caption: 'Essential Monster Stats',
+      caption: '',
     },
     saves: {
       label: 'Saving Throws',
-      caption: 'Monster Defenses',
+      caption: '',
     },
     speeds: {
       label: 'Speeds',
-      caption: 'Move Your Monster',
+      caption: '',
+    },
+    skills: {
+      label: 'Skills',
+      caption: '',
     },
     proficient: 'Proficient',
     override: 'Override',

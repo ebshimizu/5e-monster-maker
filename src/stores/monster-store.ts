@@ -76,6 +76,7 @@ export const useMonsterStore = defineStore('monster', {
         note: '',
       },
     ],
+    skills: [],
   }),
   getters: {
     statsWithModifiers: (state) => {

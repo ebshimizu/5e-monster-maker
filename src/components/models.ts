@@ -1,3 +1,5 @@
+export type DndStat = 'STR' | 'DEX' | 'CON' | 'INT' | 'WIS' | 'CHA'
+
 // subtypes used in various parts of the monster
 export interface DndDice {
   HD: number
@@ -16,6 +18,17 @@ export interface MonsterSpeed {
   type?: string // type can be nulled in the picker text entry
   speed: number
   note: string
+}
+
+export interface MonsterSkill {
+  skill: {
+    stat: DndStat
+    key: string
+  }
+  proficient: boolean
+  expertise: boolean
+  override: boolean
+  overrideValue: number
 }
 
 // the big one is the monster definition
@@ -51,4 +64,5 @@ export interface Monster {
     CHA: MonsterSave
   }
   speeds: MonsterSpeed[]
+  skills: MonsterSkill[]
 }

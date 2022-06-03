@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="speed"
     :label="$t('editor.speeds.label')"
     :caption="$t('editor.speeds.caption')"

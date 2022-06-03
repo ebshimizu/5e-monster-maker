@@ -8,6 +8,7 @@
             <basics-editor />
             <saves-editor />
             <speeds-editor />
+            <skills-editor />
           </q-list>
         </div>
       </template>
@@ -29,10 +30,17 @@ import BasicsEditor from 'src/components/editor/BasicsEditor.vue'
 import WebRenderer from 'src/components/rendering/WebRenderer.vue'
 import SavesEditor from 'src/components/editor/SavesEditor.vue'
 import SpeedsEditor from 'src/components/editor/SpeedsEditor.vue'
+import SkillsEditor from 'src/components/editor/SkillsEditor.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
-  components: { BasicsEditor, WebRenderer, SavesEditor, SpeedsEditor },
+  components: {
+    BasicsEditor,
+    WebRenderer,
+    SavesEditor,
+    SpeedsEditor,
+    SkillsEditor,
+  },
   setup() {
     const splitterModel = ref(66)
     const monster = useMonsterStore()
