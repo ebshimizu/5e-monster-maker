@@ -28,19 +28,31 @@
     <div v-show="monster.skills.length > 0" class="skill">
       <span class="name">Skills</span> {{ skills }}
     </div>
-    <!--
-    <div class="skill" v-show="this.monster.resistances.length > 0">
+    <div
+      v-show="monster.resistances && monster.resistances.length > 0"
+      class="skill"
+    >
       <span class="name">Damage Resistances</span> {{ resistances }}
     </div>
-    <div class="skill" v-show="this.monster.immunities.length > 0">
+    <div
+      v-show="monster.immunities && monster.immunities.length > 0"
+      class="skill"
+    >
       <span class="name">Damage Immunities</span> {{ immunities }}
     </div>
-    <div class="skill" v-show="this.monster.vulnerabilities.length > 0">
+    <div
+      v-show="monster.vulnerabilities && monster.vulnerabilities.length > 0"
+      class="skill"
+    >
       <span class="name">Damage Vulnerabilities</span> {{ vulnerabilities }}
     </div>
-    <div class="skill" v-show="this.monster.conditions.length > 0">
+    <div
+      v-show="monster.conditions && monster.conditions.length > 0"
+      class="skill"
+    >
       <span class="name">Condition Immunities</span> {{ conditions }}
     </div>
+    <!--
     <div class="skill"><span class="name">Senses</span> {{ senses }}</div>
     -->
     <div v-show="monster.languages !== ''" class="skill">
@@ -331,6 +343,12 @@ export default defineComponent({
       saves,
       speeds,
       skills,
+      resistances: computed(() => monster.resistances?.join(', ') ?? ''),
+      immunities: computed(() => monster.immunities?.join(', ') ?? ''),
+      vulnerabilities: computed(
+        () => monster.vulnerabilities?.join(', ') ?? ''
+      ),
+      conditions: computed(() => monster.conditions?.join(', ') ?? ''),
     }
   },
 })

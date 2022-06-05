@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="fa-solid fa-dice-d20"
     :label="$t('editor.skills.label')"
     :caption="$t('editor.skills.caption')"

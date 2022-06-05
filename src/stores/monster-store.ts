@@ -78,6 +78,10 @@ export const useMonsterStore = defineStore('monster', {
       },
     ],
     skills: [],
+    resistances: [],
+    immunities: [],
+    vulnerabilities: [],
+    conditions: [],
   }),
   getters: {
     statsWithModifiers: (state) => {

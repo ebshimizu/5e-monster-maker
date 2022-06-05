@@ -1,7 +1,7 @@
 <template>
   <q-expansion-item
     expand-separator
-    icon="shield"
+    icon="fa-solid fa-helmet-safety"
     :label="$t('editor.saves.label')"
     :caption="$t('editor.saves.caption')"
   >

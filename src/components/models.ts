@@ -68,4 +68,8 @@ export interface Monster {
   }
   speeds: MonsterSpeed[]
   skills: MonsterSkill[]
+  resistances: string[] | null
+  immunities: string[] | null
+  vulnerabilities: string[] | null
+  conditions: string[] | null
 }
