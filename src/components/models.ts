@@ -72,4 +72,14 @@ export interface Monster {
   immunities: string[] | null
   vulnerabilities: string[] | null
   conditions: string[] | null
+  senses: {
+    blindsight: number
+    darkvision: number
+    tremorsense: number
+    truesight: number
+  }
+  passivePerception: {
+    override: boolean
+    overrideValue: number | null
+  }
 }

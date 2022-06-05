@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia'
 import { Monster } from 'src/components/models'
-import { avgHP, statModifier } from 'src/components/rendering/mathRendering'
+import {
+  avgHP,
+  bonusForSkill,
+  statModifier,
+} from 'src/components/rendering/mathRendering'
 import { CR } from 'src/data/CR'
 import { DICE } from 'src/data/DICE'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
@@ -82,6 +86,16 @@ export const useMonsterStore = defineStore('monster', {
     immunities: [],
     vulnerabilities: [],
     conditions: [],
+    senses: {
+      blindsight: 0,
+      darkvision: 0,
+      tremorsense: 0,
+      truesight: 0,
+    },
+    passivePerception: {
+      override: false,
+      overrideValue: 0,
+    },
   }),
   getters: {
     statsWithModifiers: (state) => {
@@ -97,6 +111,18 @@ export const useMonsterStore = defineStore('monster', {
     },
     avgHp: (state) => {
       return avgHP(state.HP)
+    },
+    computedPassivePerception: (state) => {
+      // check if perception is in the skills
+      const perception = state.skills.find((s) => s.key === 'PERCEPTION')
+      let passive = 10
+      if (perception) {
+        passive += bonusForSkill(state, perception)
+      } else {
+        passive += statModifier(state.stats.WIS)
+      }
+
+      return passive
     },
   },
   actions: {

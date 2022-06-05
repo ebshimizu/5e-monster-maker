@@ -3,9 +3,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, provide } from 'vue'
+import { useTextRenderer } from './components/rendering/useTextRenderer'
 
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  setup() {
+    const textRenderer = useTextRenderer()
+
+    provide('textRenderer', textRenderer)
+  },
 })
 </script>

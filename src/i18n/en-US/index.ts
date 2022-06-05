@@ -49,6 +49,13 @@ export default {
     immunities: 'Damage Immunities',
     vulnerabilities: 'Damage Vulnerabilities',
     conditionImmunities: 'Condition Immunities',
+    passivePerception: 'Passive Perception',
+    sense: {
+      blindsight: 'Blindsight',
+      darkvision: 'Darkvision',
+      tremorsense: 'Tremorsense',
+      truesight: 'Truesight',
+    },
   },
   editor: {
     // caption fields are allocated for each tab but not used at the moment
@@ -72,6 +79,10 @@ export default {
       label: 'Resistances and Immunities',
       caption: '',
     },
+    senses: {
+      label: 'Senses',
+      caption: '',
+    },
     proficient: 'Proficient',
     override: 'Override',
     expertise: 'Expertise',
@@ -79,6 +90,9 @@ export default {
     addSpeed: 'Add Speed',
     addSkill: 'Add Skill',
   },
+  // note: add to these keys to provide additional default options for some of the dropdowns
+  // since the monster fields for these keys just output the array contents, it should be (theoretically)
+  // easy to swap out translations for default options, but monsters created in en-US won't automatically translate...
   skill: {
     ACROBATICS: 'Acrobatics',
     ANIMAL_HANDLING: 'Animal Handling',

@@ -9,6 +9,7 @@
             <saves-editor />
             <speeds-editor />
             <skills-editor />
+            <senses-editor />
             <resistances-editor />
           </q-list>
         </div>
@@ -32,6 +33,7 @@ import WebRenderer from 'src/components/rendering/WebRenderer.vue'
 import SavesEditor from 'src/components/editor/SavesEditor.vue'
 import SpeedsEditor from 'src/components/editor/SpeedsEditor.vue'
 import SkillsEditor from 'src/components/editor/SkillsEditor.vue'
+import SensesEditor from 'src/components/editor/SensesEditor.vue'
 import ResistancesEditor from 'src/components/editor/ResistancesEditor.vue'
 
 export default defineComponent({
@@ -42,6 +44,7 @@ export default defineComponent({
     SavesEditor,
     SpeedsEditor,
     SkillsEditor,
+    SensesEditor,
     ResistancesEditor,
   },
   setup() {

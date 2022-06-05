@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="shield"
     :label="$t('editor.resistances.label')"
     :caption="$t('editor.resistances.caption')"

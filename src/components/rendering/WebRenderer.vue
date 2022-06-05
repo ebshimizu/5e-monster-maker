@@ -52,9 +52,7 @@
     >
       <span class="name">Condition Immunities</span> {{ conditions }}
     </div>
-    <!--
     <div class="skill"><span class="name">Senses</span> {{ senses }}</div>
-    -->
     <div v-show="monster.languages !== ''" class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
@@ -263,92 +261,22 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 import N2W from 'number-to-words'
 import { useMonsterStore } from 'src/stores/monster-store'
-import { bonusForSkill, renderBonus, statModifier } from './mathRendering'
-import { saveModifierForStat } from './mathRendering'
-import { useI18n } from 'vue-i18n'
+import { useTextRenderer } from './useTextRenderer'
 
 export default defineComponent({
   name: 'WebRenderer',
   setup() {
-    const { t } = useI18n()
-
     const monster = useMonsterStore()
-    const stats = computed(() => {
-      return monster.statsWithModifiers.map((s) => {
-        return {
-          ...s,
-          renderedModifier: renderBonus(statModifier(s.score)),
-        }
-      })
-    })
-
-    const hp = computed(
-      () =>
-        `${monster.avgHp} (${monster.HP.HD}d${monster.HP.type}+${monster.HP.modifier})`
-    )
-
-    // maybe pull these into a separate file? idk if i'll need to reuse later so can always split later
-    // string renderer for saves
-    const saves = computed(() => {
-      const allSaves = Object.entries(monster.saves).map(([stat, save]) => {
-        if (save.override) {
-          return `${stat} ${renderBonus(save.overrideValue)}`
-        } else if (save.proficient) {
-          // i guess typescript can't infer that save is a key of monster.saves from the map?
-          return `${stat} ${renderBonus(
-            saveModifierForStat(monster, stat as keyof typeof monster.saves)
-          )}`
-        } else {
-          return ''
-        }
-      })
-
-      return allSaves.filter((s) => s !== '').join(', ')
-    })
-
-    // string renderer for speeds
-    const speeds = computed(() => {
-      const speeds = monster.speeds.map((s) => {
-        const note = s.note === '' ? '' : ` (${s.note})`
-        const type =
-          s.type != null && s.type.toLowerCase() === 'walk' ? '' : ` ${s.type}`
-        return `${s.speed} ft.${type}${note}`
-      })
-
-      return speeds.join(', ')
-    })
-
-    // skills renderer
-    const skills = computed(() => {
-      const monsterSkills = monster.skills.map((s) => {
-        if (s.override) {
-          return `${t(`skill.${s.key}`)} ${renderBonus(s.overrideValue)}`
-        } else {
-          return `${t(`skill.${s.key}`)} ${renderBonus(
-            bonusForSkill(monster, s)
-          )}`
-        }
-      })
-
-      return monsterSkills.join(', ')
-    })
+    const textRenderer = inject('textRenderer') as ReturnType<
+      typeof useTextRenderer
+    >
 
     return {
       monster,
-      stats,
-      hp,
-      saves,
-      speeds,
-      skills,
-      resistances: computed(() => monster.resistances?.join(', ') ?? ''),
-      immunities: computed(() => monster.immunities?.join(', ') ?? ''),
-      vulnerabilities: computed(
-        () => monster.vulnerabilities?.join(', ') ?? ''
-      ),
-      conditions: computed(() => monster.conditions?.join(', ') ?? ''),
+      ...textRenderer,
     }
   },
 })
