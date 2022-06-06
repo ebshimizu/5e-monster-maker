@@ -1,4 +1,5 @@
 import { SKILL } from 'src/data/SKILL'
+import { v4 } from 'uuid'
 
 export type DndStat = 'STR' | 'DEX' | 'CON' | 'INT' | 'WIS' | 'CHA'
 
@@ -32,6 +33,31 @@ export interface MonsterSkill {
   expertise: boolean
   override: boolean
   overrideValue: number
+}
+
+export interface MonsterCrAnnotation {
+  maxDamage: number
+  maxSave: number
+  maxModifier: number
+  multitarget: boolean
+  ehpMultiplier: number
+  ehpModifier: number
+  acModifier: number
+  include: boolean
+  automatic: boolean
+}
+
+export interface MonsterTrait {
+  name: string
+  id: string
+  description: string
+  limitedUse: {
+    count: number
+    rate: string
+  }
+  useCustomDescription: boolean
+  customDescription: string | null
+  crAnnotation: MonsterCrAnnotation
 }
 
 // the big one is the monster definition
@@ -81,5 +107,35 @@ export interface Monster {
   passivePerception: {
     override: boolean
     overrideValue: number | null
+  }
+  traits: MonsterTrait[]
+}
+
+export function defaultCrAnnotation(): MonsterCrAnnotation {
+  return {
+    maxDamage: 0,
+    maxSave: 0,
+    maxModifier: 0,
+    multitarget: false,
+    ehpMultiplier: 1,
+    ehpModifier: 0,
+    acModifier: 0,
+    include: false,
+    automatic: true,
+  }
+}
+
+export function defaultTrait(): MonsterTrait {
+  return {
+    name: '',
+    id: v4(),
+    description: '',
+    limitedUse: {
+      count: 0,
+      rate: '',
+    },
+    useCustomDescription: false,
+    customDescription: '',
+    crAnnotation: defaultCrAnnotation(),
   }
 }

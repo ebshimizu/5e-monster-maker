@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { Monster } from 'src/components/models'
+import { defaultTrait, Monster } from 'src/components/models'
 import {
   avgHP,
   bonusForSkill,
@@ -96,6 +96,7 @@ export const useMonsterStore = defineStore('monster', {
       override: false,
       overrideValue: 0,
     },
+    traits: [],
   }),
   getters: {
     statsWithModifiers: (state) => {
@@ -215,6 +216,16 @@ export const useMonsterStore = defineStore('monster', {
 
       if (index !== -1) {
         this.skills.splice(index, 1)
+      }
+    },
+    addTrait() {
+      this.traits.push(defaultTrait())
+    },
+    deleteTrait(id: string) {
+      const index = this.traits.findIndex((t) => t.id === id)
+
+      if (index !== -1) {
+        this.traits.splice(index, 1)
       }
     },
   },

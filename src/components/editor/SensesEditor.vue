@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="settings_input_antenna"
     :label="$t('editor.senses.label')"
     :caption="$t('editor.senses.caption')"

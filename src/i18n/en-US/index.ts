@@ -83,12 +83,17 @@ export default {
       label: 'Senses',
       caption: '',
     },
+    traits: {
+      label: 'Traits',
+      caption: 'Always active passive abilities',
+    },
     proficient: 'Proficient',
     override: 'Override',
     expertise: 'Expertise',
     delete: 'Delete',
     addSpeed: 'Add Speed',
     addSkill: 'Add Skill',
+    addTrait: 'Add Trait',
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)

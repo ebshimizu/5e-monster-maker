@@ -1,6 +1,9 @@
 <template>
   <q-page class="row items-start">
-    <q-splitter v-model="splitterModel" style="min-height: 90vh; width: 100%">
+    <q-splitter
+      v-model="splitterModel"
+      style="height: calc(100vh - 71px); width: 100%"
+    >
       <template #before>
         <!-- todo: editing panels go here -->
         <div class="q-pa-md" style="width: 100%">
@@ -11,6 +14,7 @@
             <skills-editor />
             <senses-editor />
             <resistances-editor />
+            <traits-editor />
           </q-list>
         </div>
       </template>
@@ -35,6 +39,7 @@ import SpeedsEditor from 'src/components/editor/SpeedsEditor.vue'
 import SkillsEditor from 'src/components/editor/SkillsEditor.vue'
 import SensesEditor from 'src/components/editor/SensesEditor.vue'
 import ResistancesEditor from 'src/components/editor/ResistancesEditor.vue'
+import TraitsEditor from 'src/components/editor/TraitsEditor.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
@@ -46,6 +51,7 @@ export default defineComponent({
     SkillsEditor,
     SensesEditor,
     ResistancesEditor,
+    TraitsEditor,
   },
   setup() {
     const splitterModel = ref(66)

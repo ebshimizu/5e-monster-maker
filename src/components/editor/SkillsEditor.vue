@@ -100,7 +100,7 @@ import { computed, defineComponent } from 'vue'
 import { bonusForSkill } from '../rendering/mathRendering'
 
 export default defineComponent({
-  name: 'SpeedsEditor',
+  name: 'SkillsEditor',
   setup() {
     const monster = useMonsterStore()
 
