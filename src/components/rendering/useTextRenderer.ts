@@ -1,3 +1,4 @@
+import { CR } from 'src/data/CR'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -7,6 +8,7 @@ import {
   saveModifierForStat,
   bonusForSkill,
 } from './mathRendering'
+import { processTrait } from './processTokens'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
@@ -100,6 +102,16 @@ export function useTextRenderer() {
       .join(', ')
   })
 
+  const cr = computed(() => {
+    return `${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString(
+      'en-US'
+    )} XP)`
+  })
+
+  const traits = computed(() => {
+    return monster.traits.map((t) => processTrait(t, monster))
+  })
+
   return {
     stats,
     hp,
@@ -111,5 +123,7 @@ export function useTextRenderer() {
     vulnerabilities,
     conditions,
     senses,
+    cr,
+    traits,
   }
 }

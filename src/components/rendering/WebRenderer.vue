@@ -56,14 +56,19 @@
     <div v-show="monster.languages !== ''" class="skill">
       <span class="name">Languages</span> {{ monster.languages }}
     </div>
-    <!--
     <div class="skill"><span class="name">Challenge</span> {{ cr }}</div>
-    <v-divider></v-divider>
+    <hr />
     <div class="traits">
-      <div class="trait" v-for="trait in monster.traits" :key="trait.id">
-        <span class="name">{{ trait.name }}{{ limitedUse(trait) }}.</span>
-        {{ processTokens(trait.description) }}
-      </div>
+      <div
+        v-for="(trait, idx) in traits"
+        :key="idx"
+        class="trait"
+        v-html="trait"
+      ></div>
+      <!-- <span class="name">{{ trait.name }}{{ limitedUse(trait) }}.</span>
+        {{ processTokens(trait.description) }} -->
+    </div>
+    <!--
       <div class="trait" v-if="monster.mythicActions.actions.length > 0">
         <span class="name"
           >{{ monster.mythicActions.triggerName }} ({{
@@ -261,10 +266,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
+import { computed, defineComponent, inject } from 'vue'
 import N2W from 'number-to-words'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useTextRenderer } from './useTextRenderer'
+import { sanitizeWebString } from './processTokens'
 
 export default defineComponent({
   name: 'WebRenderer',
@@ -274,13 +280,37 @@ export default defineComponent({
       typeof useTextRenderer
     >
 
+    const traits = computed(() =>
+      textRenderer.traits.value.map((t) => sanitizeWebString(t))
+    )
+
     return {
       monster,
       ...textRenderer,
+      traits,
     }
   },
 })
 </script>
+
+<style>
+/* i don't know why scoped doesn't work but this does */
+.statblock b {
+  font-family: ScalySansBold;
+  font-style: normal;
+}
+
+.statblock i {
+  font-family: ScalySansItalic;
+  font-style: normal;
+}
+
+.statblock b > i,
+.statblock i > b {
+  font-family: ScalySansBoldItalic;
+  font-style: normal;
+}
+</style>
 
 <style lang="scss" scoped>
 .statblock {

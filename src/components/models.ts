@@ -55,14 +55,14 @@ export interface MonsterTrait {
     count: number
     rate: string
   }
-  useCustomDescription: boolean
-  customDescription: string | null
+  customPreamble: boolean
   crAnnotation: MonsterCrAnnotation
 }
 
 // the big one is the monster definition
 export interface Monster {
   name: string
+  useArticleInToken: boolean
   saveVersion: number
   size: string
   type?: string
@@ -127,15 +127,14 @@ export function defaultCrAnnotation(): MonsterCrAnnotation {
 
 export function defaultTrait(): MonsterTrait {
   return {
-    name: '',
+    name: 'New Trait',
     id: v4(),
     description: '',
     limitedUse: {
       count: 0,
-      rate: '',
+      rate: 'DAY',
     },
-    useCustomDescription: false,
-    customDescription: '',
+    customPreamble: false,
     crAnnotation: defaultCrAnnotation(),
   }
 }

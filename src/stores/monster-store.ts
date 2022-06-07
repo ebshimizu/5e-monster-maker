@@ -16,6 +16,7 @@ export const MONSTER_VERSION = 5
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => ({
     name: 'My New Monster',
+    useArticleInToken: false,
     saveVersion: MONSTER_VERSION,
     size: 'Medium',
     type: 'humanoid',
@@ -124,6 +125,15 @@ export const useMonsterStore = defineStore('monster', {
       }
 
       return passive
+    },
+    defaultSpellSave: (state) => {
+      return (stat: keyof typeof state.stats) =>
+        8 + state.proficiency + statModifier(state.stats[stat])
+    },
+    defaultSpellAttackModifier: (state) => {
+      return (stat: keyof typeof state.stats) => {
+        return state.proficiency + statModifier(state.stats[stat])
+      }
     },
   },
   actions: {

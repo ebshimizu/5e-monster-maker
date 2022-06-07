@@ -94,6 +94,16 @@ export default {
     addSpeed: 'Add Speed',
     addSkill: 'Add Skill',
     addTrait: 'Add Trait',
+    deleteTrait: 'Delete Trait',
+    trait: {
+      name: 'Name',
+      limitedUse: {
+        count: 'Uses',
+        rate: 'Reset Type',
+      },
+      description: 'Description',
+      save: 'Save Trait',
+    },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)
@@ -187,5 +197,13 @@ export default {
     UNCONSCIOUS: 'unconscious',
     SLEEP: 'sleep',
     EXHAUSTION: 'exhaustion',
+  },
+  recharge: {
+    DAY: 'day',
+    DAY_EACH: 'day each',
+    AT_WILL: 'at will',
+    LONG_REST: 'long rest',
+    SHORT_REST: 'short rest',
+    LONG_OR_SHORT: 'long or short rest',
   },
 }
