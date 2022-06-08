@@ -108,7 +108,7 @@ export default {
     deleteTrait: 'Delete Trait',
     attackMod: 'Attack Mod',
     statSave: 'Save DC',
-    monsterToken: 'Monster Data',
+    monsterToken: 'Monster',
     trait: 'Trait',
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

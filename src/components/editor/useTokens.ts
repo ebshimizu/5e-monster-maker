@@ -68,6 +68,10 @@ export function useTokens() {
       label: t('monster.ac'),
       token: '{monster.AC}',
     },
+    {
+      label: t('monster.hp.label'),
+      token: '{monster.hp}',
+    },
   ])
 
   const traitTokens = computed(() => [

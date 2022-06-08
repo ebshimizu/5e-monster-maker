@@ -14,6 +14,13 @@ export function processMonsterTokens(
   input: string,
   monster: ReturnType<typeof useMonsterStore>
 ) {
+  // hehe cheating
+  // monster hp
+  const hp = RegExp(/\{monster.hp\}/gi)
+  input = input.replace(hp, () => {
+    return `{${monster.HP.HD}d${monster.HP.type}+${monster.HP.modifier}}`
+  })
+
   // dice: {xdy+z}
   const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi)
   input = input.replace(dice, (match, count, dice, modifier) => {
