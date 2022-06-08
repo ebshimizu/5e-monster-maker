@@ -71,6 +71,12 @@ export function processTraitTokens(input: string, context: MonsterTrait) {
     `${context.limitedUse.count > 0 ? limitedUse : ''}`
   )
 
+  // localize the rate string
+  input = input.replace(
+    /\{trait.limitedUse.rate\}/gi,
+    t(`recharge.${context.limitedUse.rate}`)
+  )
+
   return input
 }
 
@@ -132,7 +138,7 @@ export function sanitizeWebString(input: string) {
   input = input.replace(/>/gi, '&gt;')
   input = input.replace(/</gi, '&lt;')
 
-  // allow b/i
+  // allow b/i/u
   const allowedTags = /\&lt;(\/?[b|i|u])\&gt;/gi
   input = input.replace(allowedTags, (match, tag) => {
     return `<${tag}>`

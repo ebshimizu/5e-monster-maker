@@ -1,6 +1,6 @@
 <template>
   <q-btn
-    round
+    push
     :icon="locked ? 'lock' : 'lock_open'"
     :color="locked ? 'dark' : 'warning'"
     size="md"

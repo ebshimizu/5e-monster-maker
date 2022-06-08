@@ -19,7 +19,7 @@
               <q-card-section class="row">
                 <q-input
                   v-model="trait.name"
-                  :label="$t('editor.trait.name')"
+                  :label="$t('monster.trait.name')"
                   class="col-7 q-pa-sm"
                 />
                 <q-input
@@ -27,39 +27,30 @@
                   type="number"
                   min="0"
                   class="col-2 q-pa-sm"
-                  :label="$t('editor.trait.limitedUse.count')"
+                  :label="$t('monster.trait.limitedUse.count')"
                 />
                 <q-select
                   v-model="trait.limitedUse.rate"
                   :display-value="$t(`recharge.${trait.limitedUse.rate}`)"
                   :options="rechargeTimeOptions"
                   emit-value
-                  :label="$t('editor.trait.limitedUse.rate')"
+                  :label="$t('monster.trait.limitedUse.rate')"
                   class="col-3 q-pa-sm"
                 >
                   <template #after>
                     <q-btn round icon="save" color="primary">
                       <q-tooltip class="text-body2">{{
-                        $t('editor.trait.save')
+                        $t('monster.trait.save')
                       }}</q-tooltip></q-btn
                     >
                   </template>
                 </q-select>
-                <q-editor
-                  v-model="trait.description"
-                  :label="$t('editor.trait.description')"
-                  :toolbar="[['title'], ['bold', 'italic', 'underline']]"
-                  class="full-width q-ma-sm"
-                >
-                  <template #title>
-                    <div
-                      class="text-subtitle2"
-                      style="display: flex; align-items: center; height: 100%"
-                    >
-                      {{ $t('editor.trait.description') }}
-                    </div>
-                  </template>
-                </q-editor>
+                <monster-text-editor
+                  :field="trait.description"
+                  i18n-label-key="monster.trait.description"
+                  token-category="trait"
+                  @update:model-value="(value) => (trait.description = value)"
+                />
               </q-card-section>
               <q-card-actions align="center">
                 <q-btn
@@ -90,9 +81,11 @@
 import { useRechargeTimes } from 'src/data/RECHARGE_TIME'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent } from 'vue'
+import MonsterTextEditor from './MonsterTextEditor.vue'
 
 export default defineComponent({
   name: 'TraitsEditor',
+  components: { MonsterTextEditor },
   setup() {
     const monster = useMonsterStore()
     const { rechargeTimeOptions } = useRechargeTimes()

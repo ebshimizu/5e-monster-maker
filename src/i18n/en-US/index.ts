@@ -56,6 +56,17 @@ export default {
       tremorsense: 'Tremorsense',
       truesight: 'Truesight',
     },
+    trait: {
+      name: 'Name',
+      trait: 'Trait',
+      limitedUse: {
+        count: 'Uses',
+        rate: 'Reset Type',
+        label: 'Limited Uses',
+      },
+      description: 'Description',
+      save: 'Save Trait',
+    },
   },
   editor: {
     // caption fields are allocated for each tab but not used at the moment
@@ -95,15 +106,10 @@ export default {
     addSkill: 'Add Skill',
     addTrait: 'Add Trait',
     deleteTrait: 'Delete Trait',
-    trait: {
-      name: 'Name',
-      limitedUse: {
-        count: 'Uses',
-        rate: 'Reset Type',
-      },
-      description: 'Description',
-      save: 'Save Trait',
-    },
+    attackMod: 'Attack Mod',
+    statSave: 'Save DC',
+    monsterToken: 'Monster Data',
+    trait: 'Trait',
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)
