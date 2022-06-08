@@ -1,7 +1,7 @@
 import { MaybeRef } from '@vueuse/core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { unref } from 'vue'
-import { Monster, MonsterTrait } from '../models'
+import { MonsterTrait } from '../models'
 import { avgRoll, renderBonus } from './mathRendering'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'

@@ -114,8 +114,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@vue/runtime-core'
 import { QBtnDropdown } from 'quasar'
-import { ref, Ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
 import { MonsterContextType } from '../rendering/processTokens'
 import { useTokens } from './useTokens'
 
