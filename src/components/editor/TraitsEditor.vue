@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="fa-solid fa-dna"
     :label="$t('editor.traits.label')"
     :caption="$t('editor.traits.caption')"

@@ -67,6 +67,24 @@ export default {
       description: 'Description',
       save: 'Save Trait',
     },
+    spellcasting: {
+      class: 'Class',
+      classes: {
+        Bard: 'Bard',
+        Cleric: 'Cleric',
+        Druid: 'Druid',
+        Paladin: 'Paladin',
+        Ranger: 'Ranger',
+        Sorcerer: 'Sorcerer',
+        Wizard: 'Wizard',
+        Warlock: 'Warlock',
+      },
+      level: 'Caster Level',
+      ability: 'Spellcasting Ability',
+      save: 'Save DC',
+      attack: 'Attack Modifier',
+      modifier: 'Ability Modifier',
+    },
   },
   editor: {
     // caption fields are allocated for each tab but not used at the moment
@@ -97,6 +115,10 @@ export default {
     traits: {
       label: 'Traits',
       caption: 'Always active passive abilities',
+    },
+    spellcasting: {
+      label: 'Spellcasting',
+      caption: 'Innate and Slot Spellcasting',
     },
     proficient: 'Proficient',
     override: 'Override',

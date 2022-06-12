@@ -15,3 +15,52 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss">
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: rgb(18, 18, 18);
+}
+
+::-webkit-scrollbar-track {
+  margin-left: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #505050;
+  border: solid 2px #202020;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b6b6b6;
+}
+
+.full-height::-webkit-scrollbar,
+.v-dialog::-webkit-scrollbar {
+  display: block;
+}
+
+.v-menu__content::-webkit-scrollbar {
+  display: block;
+}
+
+@media print {
+  #main-nav,
+  #editor,
+  #footer {
+    display: none;
+  }
+
+  #renderer {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .v-main {
+    padding: 0 !important;
+  }
+}
+</style>

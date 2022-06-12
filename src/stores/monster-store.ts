@@ -98,6 +98,30 @@ export const useMonsterStore = defineStore('monster', {
       overrideValue: 0,
     },
     traits: [],
+    spellcasting: {
+      stat: 'INT',
+      save: {
+        override: false,
+        overrideValue: 0,
+      },
+      modifier: {
+        override: false,
+        overrideValue: 0,
+      },
+      attack: {
+        override: false,
+        overrideValue: 0,
+      },
+      class: null,
+      level: 1,
+      slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      atWill: [],
+      standard: [],
+      notes: '',
+      atWillNotes: '',
+      useCustomPreamble: false,
+      customPreamble: '',
+    },
   }),
   getters: {
     statsWithModifiers: (state) => {

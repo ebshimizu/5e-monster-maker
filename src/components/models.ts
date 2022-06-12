@@ -59,6 +59,24 @@ export interface MonsterTrait {
   crAnnotation: MonsterCrAnnotation
 }
 
+export interface DndSpell {
+  name: string
+  damage: number
+  multitarget: boolean
+  class: string[]
+  levelDisplay: string
+  level: number
+  srd: boolean
+  custom: boolean
+}
+
+export interface DndAtWillSpell {
+  id: string
+  count: number
+  rate: string
+  spells: string[]
+}
+
 // the big one is the monster definition
 export interface Monster {
   name: string
@@ -109,6 +127,34 @@ export interface Monster {
     overrideValue: number | null
   }
   traits: MonsterTrait[]
+  spellcasting: {
+    stat: DndStat
+    save: {
+      override: boolean
+      overrideValue: number
+    }
+    modifier: {
+      override: boolean
+      overrideValue: number
+    }
+    attack: {
+      override: boolean
+      overrideValue: number
+    }
+    class: string | null
+    level: number
+    slots: number[]
+    atWill: DndAtWillSpell[]
+    standard: string[]
+    notes: string
+    atWillNotes: string
+    useCustomPreamble: boolean
+    customPreamble: string
+  }
+}
+
+export interface Spells {
+  customSpells: Record<string, DndSpell>
 }
 
 export function defaultCrAnnotation(): MonsterCrAnnotation {

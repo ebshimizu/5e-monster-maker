@@ -29,7 +29,7 @@
       >
         <template #after>
           <q-btn
-            round
+            push
             :color="passivePerception.override ? 'warning' : 'dark'"
             icon="handyman"
             @click="passivePerception.override = !passivePerception.override"
