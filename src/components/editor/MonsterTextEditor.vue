@@ -9,7 +9,7 @@
       ['saves', 'attacks', 'monster-tokens', 'context-tokens'],
     ]"
     class="full-width q-ma-sm"
-    @update:model-value="(value) => $emit('update:modelValue', value)"
+    @update:model-value="(value) => throttledUpdate(value)"
   >
     <template #title>
       <div
@@ -117,6 +117,7 @@ import { QBtnDropdown } from 'quasar'
 import { ref } from 'vue'
 import { MonsterContextType } from '../rendering/processTokens'
 import { useTokens } from './useTokens'
+import _ from 'lodash'
 
 export default defineComponent({
   name: 'MonsterTextEditor',
@@ -135,13 +136,17 @@ export default defineComponent({
     },
   },
   emits: ['update:modelValue'],
-  setup(props) {
+  setup(props, ctx) {
     const editorRef = ref(null)
     const monsterTokenRef = ref<QBtnDropdown | null>(null)
     const attackTokenRef = ref<QBtnDropdown | null>(null)
     const saveTokenRef = ref<QBtnDropdown | null>(null)
     const contextTokenRef = ref<QBtnDropdown | null>(null)
     const tokens = useTokens()
+
+    const throttledUpdate = _.throttle((value: string) => {
+      ctx.emit('update:modelValue', value)
+    }, 500)
 
     const add = (token: string) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -183,6 +188,7 @@ export default defineComponent({
       ...tokens,
       contextTokens,
       contextTokenLabel,
+      throttledUpdate,
     }
   },
 })
