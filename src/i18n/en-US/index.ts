@@ -111,6 +111,7 @@ export default {
     monsterToken: 'Monster',
     trait: 'Trait',
     crAnnotation: {
+      title: 'CR Annotation Data',
       manual: 'Using Manual CR Estimation',
       automatic: 'Using Automatic CR Estimation',
       automaticShort: 'Automatic',

@@ -56,7 +56,7 @@
                     }
                   "
                 />
-                <cr-annotation-card :trait-index="idx" />
+                <cr-annotation-card field="traits" :index="idx" />
               </q-card-section>
               <q-card-actions align="center">
                 <q-btn

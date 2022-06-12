@@ -87,11 +87,7 @@ export function useAutoUpdateCr() {
         ? `, ${t('monster.ac')} ${renderBonus(annotation.acModifier)}`
         : ''
 
-    return `${
-      annotation.automatic
-        ? t('editor.crAnnotation.automaticShort')
-        : t('editor.crAnnotation.manualShort')
-    }: ${[damage, modifiers, ehp, ac].join('')}`
+    return `${[damage, modifiers, ehp, ac].join('')}`
   }
 
   return {

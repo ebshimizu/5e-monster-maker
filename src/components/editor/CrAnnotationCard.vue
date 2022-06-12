@@ -3,7 +3,9 @@
     <q-card flat bordered>
       <q-card-section class="bg-indigo-10 row">
         <div class="col">
-          <div class="text-overline">CR ESTIMATION</div>
+          <div class="text-overline text-uppercase">
+            {{ $t('editor.crAnnotation.title') }}
+          </div>
           <div class="text-subtitle">
             {{ printCrSummary(trait.crAnnotation) }}
           </div>
@@ -61,7 +63,7 @@
                 :disable="trait.crAnnotation.automatic"
                 :label="$t('editor.crAnnotation.maxDamage')"
                 min="0"
-                class="col-2 q-pa-sm"
+                class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               >
                 <template #after>
                   <q-btn
@@ -89,7 +91,7 @@
                 :label="$t('editor.crAnnotation.maxSave')"
                 :disable="trait.crAnnotation.automatic"
                 min="0"
-                class="col-2 q-pa-sm"
+                class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
                 v-model.number="trait.crAnnotation.maxModifier"
@@ -97,7 +99,7 @@
                 :label="$t('editor.crAnnotation.maxModifier')"
                 :disable="trait.crAnnotation.automatic"
                 min="0"
-                class="col-2 q-pa-sm"
+                class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
                 v-model.number="trait.crAnnotation.ehpModifier"
@@ -105,7 +107,7 @@
                 :label="$t('editor.crAnnotation.ehpModifier')"
                 :disable="trait.crAnnotation.automatic"
                 min="0"
-                class="col-2 q-pa-sm"
+                class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
                 v-model.number="trait.crAnnotation.ehpMultiplier"
@@ -113,7 +115,7 @@
                 :label="$t('editor.crAnnotation.ehpMultiplier')"
                 :disable="trait.crAnnotation.automatic"
                 min="0"
-                class="col-2 q-pa-sm"
+                class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
                 v-model.number="trait.crAnnotation.acModifier"
@@ -121,7 +123,7 @@
                 :label="$t('editor.crAnnotation.acModifier')"
                 :disable="trait.crAnnotation.automatic"
                 min="0"
-                class="col-2 q-pa-sm"
+                class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
             </div>
           </q-card-section>
@@ -132,10 +134,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/runtime-core'
+import { defineComponent, PropType } from '@vue/runtime-core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import LockToggleButton from '../LockToggleButton.vue'
+import { Monster, MonsterTrait } from '../models'
+
+export type CrAnnotatedField = Array<MonsterTrait>
 
 export default defineComponent({
   name: 'CrAnnotationCard',
@@ -143,7 +148,11 @@ export default defineComponent({
     LockToggleButton,
   },
   props: {
-    traitIndex: {
+    field: {
+      required: true,
+      type: String as PropType<keyof Monster>,
+    },
+    index: {
       required: true,
       type: Number,
     },
@@ -151,7 +160,7 @@ export default defineComponent({
   setup(props) {
     const monster = useMonsterStore()
 
-    const trait = monster.traits[props.traitIndex]
+    const trait = (monster[props.field] as CrAnnotatedField)[props.index]
 
     return {
       trait,
