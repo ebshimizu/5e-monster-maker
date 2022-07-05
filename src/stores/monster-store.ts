@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { defaultTrait, Monster } from 'src/components/models'
+import { defaultTrait, DndStat, Monster } from 'src/components/models'
 import {
   avgHP,
   bonusForSkill,
@@ -157,6 +157,11 @@ export const useMonsterStore = defineStore('monster', {
     defaultSpellAttackModifier: (state) => {
       return (stat: keyof typeof state.stats) => {
         return state.proficiency + statModifier(state.stats[stat])
+      }
+    },
+    defaultSpellModifier: (state) => {
+      return (stat: DndStat) => {
+        return statModifier(state.stats[stat])
       }
     },
   },

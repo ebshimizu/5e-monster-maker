@@ -84,6 +84,12 @@ export default {
       save: 'Save DC',
       attack: 'Attack Modifier',
       modifier: 'Ability Modifier',
+      lockSave: 'Save Locked to Stats',
+      unlockSave: 'Save Unlocked from Stats',
+      lockAttack: 'Spell Attack Locked to Stats',
+      unlockAttack: 'Spell Attack Unlocked from Stats',
+      lockModifier: 'Spell Modifier Locked to Stats',
+      unlockModifier: 'Spell Modifier Unlocked from Stats',
     },
   },
   editor: {
