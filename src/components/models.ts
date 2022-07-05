@@ -148,8 +148,10 @@ export interface Monster {
     standard: string[]
     notes: string
     atWillNotes: string
-    useCustomPreamble: boolean
-    customPreamble: string
+    useCustomClassPreamble: boolean
+    customClassPreamble: string
+    useCustomInnatePreamble: boolean
+    customInnatePreamble: string
   }
 }
 

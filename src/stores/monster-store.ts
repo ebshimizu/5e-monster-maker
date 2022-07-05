@@ -119,8 +119,10 @@ export const useMonsterStore = defineStore('monster', {
       standard: [],
       notes: '',
       atWillNotes: '',
-      useCustomPreamble: false,
-      customPreamble: '',
+      useCustomClassPreamble: false,
+      customClassPreamble: '',
+      useCustomInnatePreamble: false,
+      customInnatePreamble: '',
     },
   }),
   getters: {

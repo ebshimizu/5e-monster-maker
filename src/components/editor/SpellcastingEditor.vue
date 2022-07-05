@@ -84,6 +84,20 @@
           </template>
         </q-input>
       </div>
+      <!-- class spellcasting -->
+      <div class="row q-pa-sm">
+        <q-card flat bordered class="full-width">
+          <q-card-section class="bg-purple-10">
+            <div class="col">
+              <div class="text-overline text-uppercase">Class Spellcasting</div>
+              <div class="text-subtitle">
+                Slot-based spellcasting derived from a player character class.
+              </div>
+            </div>
+          </q-card-section>
+          <div class="row">Slot casting notes known spells per-slot spells</div>
+        </q-card>
+      </div>
     </q-card>
   </q-expansion-item>
 </template>
