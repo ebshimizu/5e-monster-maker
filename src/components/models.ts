@@ -141,7 +141,7 @@ export interface Monster {
       override: boolean
       overrideValue: number
     }
-    class: string | null
+    class: string | undefined
     level: number
     slots: number[]
     atWill: DndAtWillSpell[]

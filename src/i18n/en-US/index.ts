@@ -69,16 +69,6 @@ export default {
     },
     spellcasting: {
       class: 'Class',
-      classes: {
-        Bard: 'Bard',
-        Cleric: 'Cleric',
-        Druid: 'Druid',
-        Paladin: 'Paladin',
-        Ranger: 'Ranger',
-        Sorcerer: 'Sorcerer',
-        Wizard: 'Wizard',
-        Warlock: 'Warlock',
-      },
       level: 'Caster Level',
       ability: 'Spellcasting Ability',
       save: 'Save DC',
@@ -125,6 +115,11 @@ export default {
     spellcasting: {
       label: 'Spellcasting',
       caption: 'Innate and Slot Spellcasting',
+      class: {
+        label: 'Class Spellcasting',
+        caption:
+          'Slot-based spellcasting derived from a player character class',
+      },
     },
     proficient: 'Proficient',
     override: 'Override',
@@ -258,5 +253,27 @@ export default {
     LONG_REST: 'long rest',
     SHORT_REST: 'short rest',
     LONG_OR_SHORT: 'long or short rest',
+  },
+  statFull: {
+    STR: 'Strength',
+    DEX: 'Dexterity',
+    CON: 'Constitution',
+    INT: 'Intelligence',
+    WIS: 'Wisdom',
+    CHA: 'Charisma',
+  },
+  class: {
+    BARBARIAN: 'Barbarian',
+    BARD: 'Bard',
+    CLERIC: 'Cleric',
+    DRUID: 'Druid',
+    FIGHTER: 'Fighter',
+    MONK: 'Monk',
+    PALADIN: 'Paladin',
+    RANGER: 'Ranger',
+    ROGUE: 'Rogue',
+    SORCERER: 'Sorcerer',
+    WARLOCK: 'Warlock',
+    WIZARD: 'Wizard',
   },
 }

@@ -85,18 +85,33 @@
         </q-input>
       </div>
       <!-- class spellcasting -->
-      <div class="row q-pa-sm">
-        <q-card flat bordered class="full-width">
-          <q-card-section class="bg-purple-10">
-            <div class="col">
-              <div class="text-overline text-uppercase">Class Spellcasting</div>
-              <div class="text-subtitle">
-                Slot-based spellcasting derived from a player character class.
-              </div>
-            </div>
-          </q-card-section>
-          <div class="row">Slot casting notes known spells per-slot spells</div>
-        </q-card>
+      <div class="q-pa-sm full-width">
+        <q-list bordered class="rounded-borders">
+          <q-expansion-item
+            expand-separator
+            :label="$t('editor.spellcasting.class.label')"
+            :caption="$t('editor.spellcasting.class.caption')"
+            header-class="bg-purple-10"
+          >
+            <q-card>
+              <q-card-section>
+                <div class="row">
+                  <q-select
+                    :label="$t('monster.spellcasting.class')"
+                    :model-value="monster.spellcasting.class"
+                    :display-value="classDisplayValue"
+                    :options="SrdCastingClassOptions"
+                    new-value-mode="add-unique"
+                    use-input
+                    emit-value
+                    class="col-4 q-pa-sm"
+                    @update:model-value="updateSpellcastingClass"
+                  />
+                </div>
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+        </q-list>
       </div>
     </q-card>
   </q-expansion-item>
@@ -110,6 +125,7 @@ import { computed, defineComponent } from 'vue'
 import { DndStat } from '../models'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import LockToggleButton from '../LockToggleButton.vue'
+import { useClasses } from 'src/data/CLASS'
 
 export default defineComponent({
   name: 'SpellcastingEditor',
@@ -119,6 +135,18 @@ export default defineComponent({
     const spells = useSpellsStore()
     const { rechargeTimeOptions } = useRechargeTimes()
     const { autoUpdateCr, printCrSummary } = useAutoUpdateCr()
+    const classes = useClasses()
+
+    const classDisplayValue = computed(() => {
+      if (monster.spellcasting.class == null) return ''
+
+      return monster.spellcasting.class in classes.SrdClass.value
+        ? classes.SrdClass.value[
+            monster.spellcasting.class as keyof typeof classes.SrdClass.value
+          ]
+        : monster.spellcasting.class
+    })
+
     // TODO: come back and lift this out if a different component needs it
     const statOptions = computed<DndStat[]>(() => [
       'STR',
@@ -144,6 +172,27 @@ export default defineComponent({
         : monster.defaultSpellModifier(monster.spellcasting.stat)
     )
 
+    const updateSpellcastingClass = (value: string | undefined) => {
+      // if it's a class that actually casts
+      if (value != null && value in classes.ClassCastingStat) {
+        // input the data
+        const classKey = value as keyof typeof classes.ClassCastingStat
+        const slots = classes.ClassSpellSlots[classKey]
+
+        // the preset class names are special and get localized renders
+        // we also need the key for adjusting slots based on level
+        monster.spellcasting.class = classKey
+        monster.spellcasting.stat = classes.ClassCastingStat[classKey] ?? 'INT'
+        monster.spellcasting.slots =
+          slots != null
+            ? slots[monster.spellcasting.level]
+            : [0, 0, 0, 0, 0, 0, 0, 0, 0]
+      } else {
+        // leave it alone but update the monster
+        monster.spellcasting.class = value
+      }
+    }
+
     return {
       monster,
       rechargeTimeOptions,
@@ -153,6 +202,9 @@ export default defineComponent({
       spellModifierValue,
       autoUpdateCr,
       printCrSummary,
+      updateSpellcastingClass,
+      classDisplayValue,
+      ...classes,
     }
   },
 })

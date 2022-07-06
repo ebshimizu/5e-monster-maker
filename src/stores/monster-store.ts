@@ -112,7 +112,7 @@ export const useMonsterStore = defineStore('monster', {
         override: false,
         overrideValue: 0,
       },
-      class: null,
+      class: undefined,
       level: 1,
       slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
       atWill: [],
