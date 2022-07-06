@@ -74,6 +74,8 @@ export default {
       save: 'Save DC',
       attack: 'Attack Modifier',
       modifier: 'Ability Modifier',
+      notes: 'Slot Casting Notes',
+      atWillNotes: 'Innate Casting Notes',
       lockSave: 'Save Locked to Stats',
       unlockSave: 'Save Unlocked from Stats',
       lockAttack: 'Spell Attack Locked to Stats',
@@ -120,6 +122,9 @@ export default {
         caption:
           'Slot-based spellcasting derived from a player character class',
       },
+      slot: {
+        all: 'All Known Spells',
+      },
     },
     proficient: 'Proficient',
     override: 'Override',
@@ -133,6 +138,7 @@ export default {
     statSave: 'Save DC',
     monsterToken: 'Monster',
     trait: 'Trait',
+    plainTextNote: 'Plain Text Only',
     crAnnotation: {
       title: 'CR Annotation Data',
       manual: 'Using Manual CR Estimation',

@@ -149,14 +149,17 @@ export function useClasses() {
   })
 
   const SrdCastingClassOptions = computed(() => {
-    return Object.entries(SrdClass.value)
-      .filter(([value, _]) => value in ClassSpellSlots)
-      .map(([value, name]) => {
-        return {
-          value: value,
-          label: name,
-        }
-      })
+    return (
+      Object.entries(SrdClass.value)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        .filter(([value, _]) => value in ClassSpellSlots)
+        .map(([value, name]) => {
+          return {
+            value: value,
+            label: name,
+          }
+        })
+    )
   })
 
   return {

@@ -65,8 +65,6 @@
         class="trait"
         v-html="trait"
       ></div>
-      <!-- <span class="name">{{ trait.name }}{{ limitedUse(trait) }}.</span>
-        {{ processTokens(trait.description) }} -->
     </div>
     <!--
       <div class="trait" v-if="monster.mythicActions.actions.length > 0">

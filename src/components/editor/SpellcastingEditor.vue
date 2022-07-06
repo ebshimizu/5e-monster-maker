@@ -104,9 +104,38 @@
                     new-value-mode="add-unique"
                     use-input
                     emit-value
-                    class="col-4 q-pa-sm"
+                    class="col-2 q-pa-sm"
                     @update:model-value="updateSpellcastingClass"
                   />
+                  <q-input
+                    v-model.number="monster.spellcasting.level"
+                    :label="$t('monster.spellcasting.level')"
+                    type="number"
+                    min="1"
+                    max="20"
+                    class="col-2 q-pa-sm"
+                    @update:model-value="updateSpellcastingSlots"
+                  />
+                  <q-input
+                    v-model="monster.spellcasting.notes"
+                    :label="$t('monster.spellcasting.notes')"
+                    class="col q-pa-sm"
+                    bottom-slots
+                  >
+                    <template #hint>{{ $t('editor.plainTextNote') }}</template>
+                  </q-input>
+                  <q-select
+                    v-model="monster.spellcasting.standard"
+                    :label="$t('editor.spellcasting.slot.all')"
+                    :options="spellOptions"
+                    use-chips
+                    multiple
+                    use-input
+                    input-debounce="0"
+                    class="col-12 q-pa-sm"
+                    @filter="spellFilter"
+                  >
+                  </q-select>
                 </div>
               </q-card-section>
             </q-card>
@@ -120,12 +149,13 @@
 <script lang="ts">
 import { useRechargeTimes } from 'src/data/RECHARGE_TIME'
 import { useMonsterStore } from 'src/stores/monster-store'
-import { useSpellsStore } from 'src/stores/spells-store'
-import { computed, defineComponent } from 'vue'
+import { SpellOption, useSpellsStore } from 'src/stores/spells-store'
+import { computed, defineComponent, ref } from 'vue'
 import { DndStat } from '../models'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import LockToggleButton from '../LockToggleButton.vue'
 import { useClasses } from 'src/data/CLASS'
+import { spellArrayFilter } from '../filters'
 
 export default defineComponent({
   name: 'SpellcastingEditor',
@@ -136,6 +166,9 @@ export default defineComponent({
     const { rechargeTimeOptions } = useRechargeTimes()
     const { autoUpdateCr, printCrSummary } = useAutoUpdateCr()
     const classes = useClasses()
+    const baseSpells = computed<SpellOption[]>(() => spells.allSpellOptions)
+    const spellOptions = ref<SpellOption[]>([])
+    const spellFilter = spellArrayFilter(baseSpells, spellOptions)
 
     const classDisplayValue = computed(() => {
       if (monster.spellcasting.class == null) return ''
@@ -185,11 +218,28 @@ export default defineComponent({
         monster.spellcasting.stat = classes.ClassCastingStat[classKey] ?? 'INT'
         monster.spellcasting.slots =
           slots != null
-            ? slots[monster.spellcasting.level]
+            ? slots[monster.spellcasting.level - 1]
             : [0, 0, 0, 0, 0, 0, 0, 0, 0]
       } else {
         // leave it alone but update the monster
         monster.spellcasting.class = value
+      }
+    }
+
+    const updateSpellcastingSlots = (value: string | number | null) => {
+      if (
+        typeof value === 'number' &&
+        monster.spellcasting.class &&
+        monster.spellcasting.class in classes.ClassCastingStat
+      ) {
+        const classKey = monster.spellcasting
+          .class as keyof typeof classes.ClassCastingStat
+        const slots = classes.ClassSpellSlots[classKey]
+
+        // the preset class names are special and get localized renders
+        // we also need the key for adjusting slots based on level
+        monster.spellcasting.slots =
+          slots != null ? slots[value - 1] : [0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
     }
 
@@ -203,7 +253,10 @@ export default defineComponent({
       autoUpdateCr,
       printCrSummary,
       updateSpellcastingClass,
+      updateSpellcastingSlots,
       classDisplayValue,
+      spellOptions,
+      spellFilter,
       ...classes,
     }
   },
