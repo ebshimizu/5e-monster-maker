@@ -116,15 +116,17 @@ export default {
     },
     spellcasting: {
       label: 'Spellcasting',
-      caption: 'Innate and Slot Spellcasting',
+      caption: 'Innate and Class-based Spellcasting',
       class: {
         label: 'Class Spellcasting',
         caption:
-          'Slot-based spellcasting derived from a player character class',
+          'Slot-limited spellcasting derived from a player character class',
       },
       innate: {
         label: 'Innate Spellcasting',
         caption: 'At-will spellcasting derived from innate abilities',
+        preamble: 'Innate Spellcasting Preamble',
+        addNew: 'Add Innate Spell List',
       },
       slot: {
         all: 'All Known Spells',
@@ -306,6 +308,8 @@ export default {
   },
   presets: {
     classSpellcasting:
-      "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks. {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
+      "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
+    innateSpellcasting:
+      "<b><i>Innate Spellcasting.</b></i> {'{'}NAME{'}'}'s innate spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} It can cast the following spells, requiring no material components:",
   },
 }

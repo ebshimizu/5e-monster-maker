@@ -349,6 +349,14 @@ export const useMonsterStore = defineStore('monster', {
         }
       }
     },
+    addInnateSpellList() {
+      this.spellcasting.atWill.push({
+        id: uuidv4(),
+        count: 1,
+        rate: 'DAY',
+        spells: [],
+      })
+    },
   },
   persist: {
     // this should be changed to app.monster after parity reached, as it will then read all of the
