@@ -72,7 +72,7 @@ export default {
       level: 'Caster Level',
       ability: 'Spellcasting Ability',
       save: 'Save DC',
-      attack: 'Attack Modifier',
+      attack: 'Spell Attack Modifier',
       modifier: 'Ability Modifier',
       notes: 'Slot Casting Notes',
       atWillNotes: 'Innate Casting Notes',
@@ -125,7 +125,11 @@ export default {
       slot: {
         all: 'All Known Spells',
         level: '{ordinal} Level',
+        levelOrdinal: 'Ordinal Caster Level',
         knownAtLevel: '{ordinal} Level Spells',
+        warlockSlots: '{0}-{1} level ({2} {3} level slots)',
+        slotLabel: '{ordinal} level ({slots}): ',
+        slotQuantity: '0 slots | 1 slot | {n} slots',
         cantrip: 'Cantrip',
         cantrips: 'Cantrips',
         showSlots: 'Show Slots',
@@ -133,6 +137,9 @@ export default {
         classOnlyOn: 'Class Filter On',
         classOnlyOff: 'Class Filter Off',
         slots: 'Slots',
+        useDefaultPreamble: 'Using Default Preamble',
+        useCustomPreamble: 'Using Custom Preamble',
+        preamble: 'Slot Spellcasting Preamble',
       },
     },
     proficient: 'Proficient',
@@ -148,6 +155,8 @@ export default {
     monsterToken: 'Monster',
     trait: 'Trait',
     plainTextNote: 'Plain Text Only',
+    reset: 'Reset',
+    resetTip: 'Reset to Default',
     crAnnotation: {
       title: 'CR Annotation Data',
       manual: 'Using Manual CR Estimation',
@@ -290,5 +299,9 @@ export default {
     SORCERER: 'Sorcerer',
     WARLOCK: 'Warlock',
     WIZARD: 'Wizard',
+  },
+  presets: {
+    classSpellcasting:
+      "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks. {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
   },
 }

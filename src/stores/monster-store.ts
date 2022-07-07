@@ -167,6 +167,27 @@ export const useMonsterStore = defineStore('monster', {
         return statModifier(state.stats[stat])
       }
     },
+    spellSave(): number {
+      if (this.spellcasting.save.override) {
+        return this.spellcasting.save.overrideValue
+      } else {
+        return this.defaultSpellSave(this.spellcasting.stat)
+      }
+    },
+    spellAttackModifier(): number {
+      if (this.spellcasting.attack.override) {
+        return this.spellcasting.attack.overrideValue
+      } else {
+        return this.defaultSpellAttackModifier(this.spellcasting.stat)
+      }
+    },
+    spellAbilityModifier(): number {
+      if (this.spellcasting.modifier.override) {
+        return this.spellcasting.modifier.overrideValue
+      } else {
+        return this.defaultSpellModifier(this.spellcasting.stat)
+      }
+    },
     knownSpellsOfLevel() {
       const spells = useSpellsStore()
 
@@ -177,6 +198,30 @@ export const useMonsterStore = defineStore('monster', {
           (id) => allSpells[id].level === level
         )
       }
+    },
+    spellsBySlot(): {
+      level: number
+      slots: number
+      spells: string[]
+    }[] {
+      const slots = this.spellcasting.slots
+      const ret = []
+      for (const idx in slots) {
+        if (slots[idx] > 0) {
+          const spells = this.knownSpellsOfLevel(parseInt(idx) + 1)
+          if (spells.length === 0) continue
+
+          const level = parseInt(idx) + 1
+
+          ret.push({
+            level,
+            slots: slots[idx],
+            spells,
+          })
+        }
+      }
+
+      return ret
     },
   },
   actions: {

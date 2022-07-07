@@ -96,36 +96,39 @@
         </div>
       </div>
     </div>
+    -->
     <div v-if="monster.spellcasting.standard.length > 0" class="spellcasting">
-      <span class="name">Spellcasting.</span> The {{ monster.name }} is a
-      {{ casterLevel }} spellcaster. Its spellcasting ability is
-      {{ statFull(monster.spellcasting.stat) }} {{ spellStats() }}.
-      {{ monster.spellcasting.notes }}
-      The {{ monster.name }} has the following{{
-        monster.spellcasting.class ? ` ${monster.spellcasting.class}` : ''
-      }}
-      spells prepared:
+      <div v-html="sanitizedClassSpellcastingPreamble"></div>
       <div class="spell-list">
-        <div class="spell-row" v-if="cantrips.length > 0">
+        <div v-if="monster.knownSpellsOfLevel(0).length > 0" class="spell-row">
           <span class="spell-label">Cantrips (at will): </span>
-          <span class="spell-list-entries">{{ cantrips }}</span>
+          <span class="spell-list-entries">{{
+            monster.knownSpellsOfLevel(0).join(', ')
+          }}</span>
         </div>
         <div v-if="monster.spellcasting.class === 'Warlock'">
           <div class="spell-row">
-            <span class="spell-label">{{ warlockLabel }}: </span>
+            <span class="spell-label"
+              >{{ classSpellcastingWarlockLabel }}:
+            </span>
             <span class="spell-list-entries">{{
               monster.spellcasting.standard.join(', ')
             }}</span>
           </div>
         </div>
         <template v-else>
-          <div class="spell-row" v-for="slot in spellsBySlot" :key="slot.level">
-            <span class="spell-label">{{ slot.levelRender }} </span>
-            <span class="spell-list-entries">{{ slot.spells }}</span>
+          <div
+            v-for="slot in classSpellcastingSlots"
+            :key="slot.level"
+            class="spell-row"
+          >
+            <span class="spell-label">{{ slot.renderedLabel }}</span>
+            <span class="spell-list-entries">{{ slot.renderedSpells }}</span>
           </div>
         </template>
       </div>
     </div>
+    <!--
     <h3 class="section">Actions</h3>
     <div class="multiattack" v-if="monster.multiattacks.length > 0">
       <span class="name">Multiattack.</span>
@@ -265,7 +268,6 @@
 
 <script lang="ts">
 import { computed, defineComponent, inject } from 'vue'
-import N2W from 'number-to-words'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useTextRenderer } from './useTextRenderer'
 import { sanitizeWebString } from './processTokens'
@@ -282,9 +284,14 @@ export default defineComponent({
       textRenderer.traits.value.map((t) => sanitizeWebString(t))
     )
 
+    const sanitizedClassSpellcastingPreamble = computed(() =>
+      sanitizeWebString(textRenderer.classSpellcastingPreamble.value)
+    )
+
     return {
       monster,
       ...textRenderer,
+      sanitizedClassSpellcastingPreamble,
       traits,
     }
   },

@@ -93,10 +93,42 @@ export function useTokens() {
     },
   ])
 
+  const spellTokens = computed(() => [
+    {
+      label: t('monster.spellcasting.level'),
+      token: '{spellcasting.level}',
+    },
+    {
+      label: t('editor.spellcasting.slot.levelOrdinal'),
+      token: '{spellcasting.ordinal}',
+    },
+    {
+      label: t('monster.spellcasting.class'),
+      token: '{spellcasting.class}',
+    },
+    {
+      label: t('monster.spellcasting.ability'),
+      token: '{spellcasting.stat}',
+    },
+    {
+      label: t('monster.spellcasting.save'),
+      token: '{spellcasting.save}',
+    },
+    {
+      label: t('monster.spellcasting.attack'),
+      token: '{spellcasting.attack}',
+    },
+    {
+      label: t('monster.spellcasting.modifier'),
+      token: '{spellcasting.modifier}',
+    },
+  ])
+
   return {
     attackTokens,
     saveTokens,
     monsterTokens,
     traitTokens,
+    spellTokens,
   }
 }

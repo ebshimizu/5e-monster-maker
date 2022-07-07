@@ -123,7 +123,57 @@
                     bottom-slots
                   >
                     <template #hint>{{ $t('editor.plainTextNote') }}</template>
+                    <template #after>
+                      <q-btn
+                        push
+                        :icon="
+                          monster.spellcasting.useCustomClassPreamble
+                            ? 'edit'
+                            : 'edit_off'
+                        "
+                        :color="
+                          monster.spellcasting.useCustomClassPreamble
+                            ? 'warning'
+                            : 'dark'
+                        "
+                        size="md"
+                        @click="
+                          monster.spellcasting.useCustomClassPreamble =
+                            !monster.spellcasting.useCustomClassPreamble
+                        "
+                      >
+                        <q-tooltip class="text-body2">{{
+                          monster.spellcasting.useCustomClassPreamble
+                            ? $t('editor.spellcasting.slot.useCustomPreamble')
+                            : $t('editor.spellcasting.slot.useDefaultPreamble')
+                        }}</q-tooltip></q-btn
+                      >
+                    </template>
                   </q-input>
+
+                  <q-slide-transition>
+                    <div
+                      v-show="monster.spellcasting.useCustomClassPreamble"
+                      class="col-12 q-mt-md"
+                    >
+                      <monster-text-editor
+                        :field="monster.spellcasting.customClassPreamble"
+                        i18n-label-key="editor.spellcasting.slot.preamble"
+                        token-category="spell"
+                        :show-reset="true"
+                        @update:model-value="
+                          (value: string) =>
+                            (monster.spellcasting.customClassPreamble =
+                              value)
+                        "
+                        @reset="
+                          monster.spellcasting.customClassPreamble = $t(
+                            'presets.classSpellcasting'
+                          )
+                        "
+                      />
+                    </div>
+                  </q-slide-transition>
                   <q-select
                     v-model="monster.spellcasting.standard"
                     :label="$t('editor.spellcasting.slot.all')"
@@ -268,13 +318,14 @@ import { SpellOption, useSpellsStore } from 'src/stores/spells-store'
 import { computed, defineComponent, ref } from 'vue'
 import { DndStat } from '../models'
 import LockToggleButton from '../LockToggleButton.vue'
+import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useClasses } from 'src/data/CLASS'
 import { spellArrayFilter } from '../filters'
 import N2W from 'number-to-words'
 
 export default defineComponent({
   name: 'SpellcastingEditor',
-  components: { LockToggleButton },
+  components: { LockToggleButton, MonsterTextEditor },
   setup() {
     const showSlots = ref(false)
     const classFilter = ref(false)

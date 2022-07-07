@@ -8,7 +8,8 @@ import {
   saveModifierForStat,
   bonusForSkill,
 } from './mathRendering'
-import { processTrait } from './processTokens'
+import { processClassSpellcasting, processTrait } from './processTokens'
+import N2W from 'number-to-words'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
@@ -112,6 +113,43 @@ export function useTextRenderer() {
     return monster.traits.map((t) => processTrait(t, monster))
   })
 
+  const classSpellcastingPreamble = computed(() => {
+    return processClassSpellcasting(monster.spellcasting, monster)
+  })
+
+  const classSpellcastingWarlockLabel = computed(() => {
+    // find the highest level slot and note the quantity
+    // this is such a weird way to write this
+    const slots = monster.spellcasting.slots
+    for (let idx = 8; idx >= 0; idx--) {
+      if (slots[idx] > 0) {
+        return t('editor.spellcasting.slot.warlockSlots', [
+          N2W.toOrdinal(1),
+          N2W.toOrdinal(idx + 1),
+          slots[idx],
+          N2W.toOrdinal(idx + 1),
+        ])
+      }
+    }
+
+    return ''
+  })
+
+  const classSpellcastingSlots = computed(() => {
+    const spellsBySlot = monster.spellsBySlot
+
+    return spellsBySlot.map((s) => {
+      return {
+        ...s,
+        renderedLabel: t('editor.spellcasting.slot.slotLabel', {
+          ordinal: N2W.toOrdinal(s.level),
+          slots: t('editor.spellcasting.slot.slotQuantity', s.slots),
+        }),
+        renderedSpells: s.spells.join(', '),
+      }
+    })
+  })
+
   return {
     stats,
     hp,
@@ -125,5 +163,8 @@ export function useTextRenderer() {
     senses,
     cr,
     traits,
+    classSpellcastingPreamble,
+    classSpellcastingWarlockLabel,
+    classSpellcastingSlots,
   }
 }

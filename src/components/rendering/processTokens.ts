@@ -1,14 +1,16 @@
 import { MaybeRef } from '@vueuse/core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { unref } from 'vue'
-import { MonsterTrait } from '../models'
+import { Monster, MonsterTrait } from '../models'
 import { avgRoll, renderBonus } from './mathRendering'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'
+import N2W from 'number-to-words'
+import { useClasses } from 'src/data/CLASS'
 
-export type MonsterContext = MonsterTrait
+export type MonsterContext = MonsterTrait | Monster['spellcasting']
 
-export type MonsterContextType = 'none' | 'trait' | 'attack'
+export type MonsterContextType = 'none' | 'trait' | 'attack' | 'spell'
 
 export function processMonsterTokens(
   input: string,
@@ -87,13 +89,76 @@ export function processTraitTokens(input: string, context: MonsterTrait) {
   return input
 }
 
+export function processSpellTokens(
+  input: string,
+  context: Monster['spellcasting'],
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+  const classes = useClasses()
+
+  // level but ordinal
+  input = input.replace(
+    /\{spellcasting.ordinal\}/gi,
+    N2W.toOrdinal(context.level)
+  )
+
+  // stat
+  input = input.replace(
+    /\{spellcasting.stat\}/gi,
+    t(`statFull.${context.stat}`)
+  )
+
+  // spell save
+  input = input.replace(/\{spellcasting.save\}/gi, `DC ${monster.spellSave}`)
+
+  // spell attack
+  input = input.replace(
+    /\{spellcasting.attack\}/gi,
+    renderBonus(monster.spellAttackModifier)
+  )
+
+  // ability modifier
+  input = input.replace(
+    /\{spellcasting.ability\}/gi,
+    renderBonus(monster.spellAbilityModifier)
+  )
+
+  // class
+  if (context.class && context.class in classes.SrdClass.value) {
+    input = input.replace(
+      /\{spellcasting.class\}/gi,
+      t(`class.${context.class}`)
+    )
+  } else {
+    input = input.replace(/\{spellcasting.class\}/gi, context.class ?? '')
+  }
+
+  // generic tokens
+  const generic = RegExp(/\{spellcasting.([\w\d\[\].]+)}/gi)
+  input = input.replace(generic, (match, prop) => {
+    const value = _.get(context, prop)
+
+    return value
+  })
+
+  return input
+}
+
 export function processContextTokens(
   input: string,
   context: MonsterContext,
-  contextType: MonsterContextType
+  contextType: MonsterContextType,
+  monster: ReturnType<typeof useMonsterStore>
 ) {
   if (contextType === 'trait') {
     input = processTraitTokens(input, context as MonsterTrait)
+  } else if (contextType === 'spell') {
+    input = processSpellTokens(
+      input,
+      context as Monster['spellcasting'],
+      monster
+    )
   }
 
   // generic tokens
@@ -117,7 +182,7 @@ export function processTokens(
   input = processMonsterTokens(input, monster)
 
   // specific parsing
-  input = processContextTokens(input, context, contextType)
+  input = processContextTokens(input, context, contextType, monster)
 
   return input
 }
@@ -140,6 +205,25 @@ export function processTrait(
   }
 }
 
+export function processClassSpellcasting(
+  contextRef: MaybeRef<Monster['spellcasting']>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+  const context = unref(contextRef)
+
+  if (context.useCustomClassPreamble) {
+    return processTokens(context.customClassPreamble, context, monster, 'spell')
+  } else {
+    return processTokens(
+      t('presets.classSpellcasting'),
+      context,
+      monster,
+      'spell'
+    )
+  }
+}
+
 export function sanitizeWebString(input: string) {
   // allowed tags are: bold, italic, underline
   input = input.replace(/>/gi, '&gt;')
@@ -149,6 +233,12 @@ export function sanitizeWebString(input: string) {
   const allowedTags = /\&lt;(\/?[b|i|u])\&gt;/gi
   input = input.replace(allowedTags, (match, tag) => {
     return `<${tag}>`
+  })
+
+  // linebreak time
+  const linebreak = /\&lt;div\&gt;\&lt;br\&gt;\&lt;\/div\&gt;/gi
+  input = input.replace(linebreak, () => {
+    return '<div><br></div>'
   })
 
   return input

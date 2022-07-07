@@ -2,12 +2,8 @@
   <q-editor
     ref="editorRef"
     :model-value="$props.field"
-    :toolbar="[
-      ['title'],
-      ['bold', 'italic', 'underline'],
-      ['undo', 'redo'],
-      ['saves', 'attacks', 'monster-tokens', 'context-tokens'],
-    ]"
+    :toolbar="toolbarOptions"
+    :definitions="toolbarDefinitions"
     class="full-width q-ma-sm"
     @update:model-value="(value) => throttledUpdate(value)"
   >
@@ -118,6 +114,7 @@ import { ref } from 'vue'
 import { MonsterContextType } from '../rendering/processTokens'
 import { useTokens } from './useTokens'
 import _ from 'lodash'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'MonsterTextEditor',
@@ -134,15 +131,38 @@ export default defineComponent({
       required: true,
       type: String,
     },
+    showReset: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'reset'],
   setup(props, ctx) {
+    const { t } = useI18n()
     const editorRef = ref(null)
     const monsterTokenRef = ref<QBtnDropdown | null>(null)
     const attackTokenRef = ref<QBtnDropdown | null>(null)
     const saveTokenRef = ref<QBtnDropdown | null>(null)
     const contextTokenRef = ref<QBtnDropdown | null>(null)
     const tokens = useTokens()
+    const toolbarOptions = ref([
+      ['title'],
+      ['bold', 'italic', 'underline'],
+      ['undo', 'redo'],
+      ['saves', 'attacks', 'monster-tokens', 'context-tokens'],
+    ])
+
+    if (props.showReset) {
+      toolbarOptions.value.push(['reset'])
+    }
+
+    const toolbarDefinitions = ref({
+      reset: {
+        tip: t('editor.resetTip'),
+        icon: 'restart_alt',
+        handler: () => ctx.emit('reset'),
+      },
+    })
 
     const throttledUpdate = _.throttle((value: string) => {
       ctx.emit('update:modelValue', value)
@@ -165,6 +185,8 @@ export default defineComponent({
     const contextTokens = computed(() => {
       if (props.tokenCategory === 'trait') {
         return tokens.traitTokens.value
+      } else if (props.tokenCategory === 'spell') {
+        return tokens.spellTokens.value
       }
 
       return null
@@ -173,6 +195,8 @@ export default defineComponent({
     const contextTokenLabel = computed(() => {
       if (props.tokenCategory === 'trait') {
         return 'editor.trait'
+      } else if (props.tokenCategory === 'spell') {
+        return 'editor.spellcasting.label'
       }
 
       return ''
@@ -189,6 +213,8 @@ export default defineComponent({
       contextTokens,
       contextTokenLabel,
       throttledUpdate,
+      toolbarOptions,
+      toolbarDefinitions,
     }
   },
 })
