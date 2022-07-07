@@ -131,13 +131,128 @@
                     use-chips
                     multiple
                     use-input
+                    clearable
+                    emit-value
                     input-debounce="0"
                     class="col-12 q-pa-sm"
                     @filter="spellFilter"
+                    @clear="monster.spellcasting.standard = []"
                   >
+                    <template #after>
+                      <q-btn
+                        class="q-mr-sm"
+                        :color="classFilter ? 'positive' : 'dark'"
+                        @click="classFilter = !classFilter"
+                      >
+                        {{
+                          classFilter
+                            ? $t('editor.spellcasting.slot.classOnlyOn')
+                            : $t('editor.spellcasting.slot.classOnlyOff')
+                        }}
+                      </q-btn>
+                      <q-btn color="primary" @click="showSlots = !showSlots">
+                        {{
+                          showSlots
+                            ? $t('editor.spellcasting.slot.hideSlots')
+                            : $t('editor.spellcasting.slot.showSlots')
+                        }}
+                      </q-btn>
+                    </template>
+                    <template #option="scope">
+                      <q-item v-bind="scope.itemProps">
+                        <q-item-section>
+                          <q-item-label>{{ scope.opt.label }}</q-item-label>
+                          <q-item-label caption>{{
+                            scope.opt.classDisplay
+                          }}</q-item-label>
+                        </q-item-section>
+                        <q-item-section side top>
+                          <q-badge
+                            color="purple-8"
+                            :label="scope.opt.levelDisplay"
+                          />
+                        </q-item-section>
+                      </q-item>
+                    </template>
                   </q-select>
                 </div>
               </q-card-section>
+              <q-slide-transition>
+                <div v-show="showSlots">
+                  <q-separator />
+                  <q-card-section>
+                    <div class="row">
+                      <template
+                        v-for="(ordinal, level) in spellLevels"
+                        :key="level"
+                      >
+                        <div class="col-1 flex flex-center">
+                          {{
+                            level === 0
+                              ? $t('editor.spellcasting.slot.cantrip')
+                              : $t('editor.spellcasting.slot.level', {
+                                  ordinal,
+                                })
+                          }}
+                        </div>
+                        <div
+                          v-if="level === 0"
+                          class="col-1 text-capitalize flex flex-center"
+                        >
+                          {{ $t('recharge.AT_WILL') }}
+                        </div>
+                        <q-input
+                          v-else
+                          v-model.number="monster.spellcasting.slots[level - 1]"
+                          type="number"
+                          class="col-1 q-pa-sm"
+                          min="0"
+                          :label="$t('editor.spellcasting.slot.slots')"
+                        />
+                        <q-select
+                          :model-value="monster.knownSpellsOfLevel(level)"
+                          :label="
+                            level === 0
+                              ? $t('editor.spellcasting.slot.cantrips')
+                              : $t('editor.spellcasting.slot.knownAtLevel', {
+                                  ordinal,
+                                })
+                          "
+                          :options="
+                            spellOptionsByLevel(
+                              level,
+                              classFilter
+                                ? monster.spellcasting.class
+                                : undefined
+                            )
+                          "
+                          use-chips
+                          multiple
+                          emit-value
+                          input-debounce="0"
+                          class="col-10 q-pa-sm"
+                          @update:model-value="
+                            (value) => monster.updateSpellsAtLevel(level, value)
+                          "
+                        >
+                          <template #option="scope">
+                            <q-item v-bind="scope.itemProps">
+                              <q-item-section>
+                                <q-item-label>{{
+                                  scope.opt.label
+                                }}</q-item-label>
+                                <q-item-label caption>{{
+                                  scope.opt.classDisplay
+                                }}</q-item-label>
+                              </q-item-section>
+                            </q-item>
+                          </template>
+                        </q-select>
+                      </template>
+                    </div>
+                  </q-card-section>
+                </div>
+              </q-slide-transition>
             </q-card>
           </q-expansion-item>
         </q-list>
@@ -152,23 +267,37 @@ import { useMonsterStore } from 'src/stores/monster-store'
 import { SpellOption, useSpellsStore } from 'src/stores/spells-store'
 import { computed, defineComponent, ref } from 'vue'
 import { DndStat } from '../models'
-import { useAutoUpdateCr } from './useAutoUpdateCr'
 import LockToggleButton from '../LockToggleButton.vue'
 import { useClasses } from 'src/data/CLASS'
 import { spellArrayFilter } from '../filters'
+import N2W from 'number-to-words'
 
 export default defineComponent({
   name: 'SpellcastingEditor',
   components: { LockToggleButton },
   setup() {
+    const showSlots = ref(false)
+    const classFilter = ref(false)
+
     const monster = useMonsterStore()
     const spells = useSpellsStore()
     const { rechargeTimeOptions } = useRechargeTimes()
-    const { autoUpdateCr, printCrSummary } = useAutoUpdateCr()
     const classes = useClasses()
-    const baseSpells = computed<SpellOption[]>(() => spells.allSpellOptions)
+    const baseSpells = computed<SpellOption[]>(() =>
+      classFilter.value
+        ? spells.allSpellOptions.filter((s) =>
+            s.class.find(
+              (c) =>
+                c.toLowerCase() === monster.spellcasting.class?.toLowerCase()
+            )
+          )
+        : spells.allSpellOptions
+    )
     const spellOptions = ref<SpellOption[]>([])
     const spellFilter = spellArrayFilter(baseSpells, spellOptions)
+    const spellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((l) =>
+      N2W.toOrdinal(l)
+    )
 
     const classDisplayValue = computed(() => {
       if (monster.spellcasting.class == null) return ''
@@ -250,13 +379,15 @@ export default defineComponent({
       spellSaveValue,
       spellAttackValue,
       spellModifierValue,
-      autoUpdateCr,
-      printCrSummary,
       updateSpellcastingClass,
       updateSpellcastingSlots,
       classDisplayValue,
       spellOptions,
       spellFilter,
+      showSlots,
+      classFilter,
+      spellLevels,
+      spellOptionsByLevel: spells.spellOptionsByLevel,
       ...classes,
     }
   },

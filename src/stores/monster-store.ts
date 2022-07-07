@@ -10,6 +10,7 @@ import { DICE } from 'src/data/DICE'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
 import { SKILL } from 'src/data/SKILL'
 import { v4 as uuidv4 } from 'uuid'
+import { useSpellsStore } from './spells-store'
 
 export const MONSTER_VERSION = 5
 
@@ -166,6 +167,17 @@ export const useMonsterStore = defineStore('monster', {
         return statModifier(state.stats[stat])
       }
     },
+    knownSpellsOfLevel() {
+      const spells = useSpellsStore()
+
+      return (level: number) => {
+        const allSpells = spells.allSpells
+
+        return this.spellcasting.standard.filter(
+          (id) => allSpells[id].level === level
+        )
+      }
+    },
   },
   actions: {
     setCR(value: number) {
@@ -267,6 +279,29 @@ export const useMonsterStore = defineStore('monster', {
 
       if (index !== -1) {
         this.traits.splice(index, 1)
+      }
+    },
+    updateSpellsAtLevel(level: number, spells: string[]) {
+      // first get the list of spells at the current level
+      const spellsAtLevel = this.knownSpellsOfLevel(level)
+
+      // if a spell isn't in the given list, remove it
+      for (const spell of spellsAtLevel) {
+        // if the spell isn't in the incoming list remove it
+        if (spells.find((name) => name === spell) == null) {
+          this.spellcasting.standard.splice(
+            this.spellcasting.standard.indexOf(spell),
+            1
+          )
+        }
+      }
+
+      // append new spells
+      for (const spell of spells) {
+        // if the spell isn't in the current list, add it
+        if (spellsAtLevel.find((name) => name === spell) == null) {
+          this.spellcasting.standard.push(spell)
+        }
       }
     },
   },
