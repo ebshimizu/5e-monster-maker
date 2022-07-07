@@ -122,6 +122,10 @@ export default {
         caption:
           'Slot-based spellcasting derived from a player character class',
       },
+      innate: {
+        label: 'Innate Spellcasting',
+        caption: 'At-will spellcasting derived from innate abilities',
+      },
       slot: {
         all: 'All Known Spells',
         level: '{ordinal} Level',

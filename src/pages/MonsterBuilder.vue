@@ -7,7 +7,7 @@
       <template #before>
         <!-- todo: editing panels go here -->
         <div class="q-pa-md" style="width: 100%">
-          <q-list bordered class="rounded-borders">
+          <q-list bordered separator class="rounded-borders">
             <basics-editor />
             <saves-editor />
             <speeds-editor />
