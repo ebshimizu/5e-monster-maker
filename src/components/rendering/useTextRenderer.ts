@@ -8,7 +8,11 @@ import {
   saveModifierForStat,
   bonusForSkill,
 } from './mathRendering'
-import { processClassSpellcasting, processTrait } from './processTokens'
+import {
+  processClassSpellcasting,
+  processInnateSpellcasting,
+  processTrait,
+} from './processTokens'
 import N2W from 'number-to-words'
 
 // rendering strings for whatever needs it
@@ -117,6 +121,10 @@ export function useTextRenderer() {
     return processClassSpellcasting(monster.spellcasting, monster)
   })
 
+  const innateSpellcastingPreamble = computed(() => {
+    return processInnateSpellcasting(monster.spellcasting, monster)
+  })
+
   const classSpellcastingWarlockLabel = computed(() => {
     // find the highest level slot and note the quantity
     // this is such a weird way to write this
@@ -150,6 +158,16 @@ export function useTextRenderer() {
     })
   })
 
+  const innateSpellcastingLists = computed(() => {
+    return monster.spellcasting.atWill.map((s) => {
+      return {
+        ...s,
+        renderedLabel: `${s.count}/${t(`recharge.${s.rate}`)}`,
+        renderedSpells: s.spells.join(', '),
+      }
+    })
+  })
+
   return {
     stats,
     hp,
@@ -166,5 +184,7 @@ export function useTextRenderer() {
     classSpellcastingPreamble,
     classSpellcastingWarlockLabel,
     classSpellcastingSlots,
+    innateSpellcastingPreamble,
+    innateSpellcastingLists,
   }
 }

@@ -127,6 +127,10 @@ export default {
         caption: 'At-will spellcasting derived from innate abilities',
         preamble: 'Innate Spellcasting Preamble',
         addNew: 'Add Innate Spell List',
+        casts: 'Casts',
+        recharge: 'Recharge',
+        list: 'Spell List',
+        delete: 'Delete List',
       },
       slot: {
         all: 'All Known Spells',
@@ -138,6 +142,7 @@ export default {
         slotQuantity: '0 slots | 1 slot | {n} slots',
         cantrip: 'Cantrip',
         cantrips: 'Cantrips',
+        cantripLabel: 'Cantrips (at will)',
         showSlots: 'Show Slots',
         hideSlots: 'Hide Slots',
         classOnlyOn: 'Class Filter On',

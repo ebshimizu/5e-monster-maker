@@ -76,32 +76,30 @@
         {{ processTokens(monster.mythicActions.triggerDescription) }}
       </div>
     </div>
+    -->
     <div
       v-if="monster.spellcasting.atWill.length > 0"
       class="innate-spellcasting"
     >
-      <span class="name">Innate Spellcasting.</span> The {{ monster.name }}'s
-      innate spellcasting ability is {{ statFull(monster.spellcasting.stat) }}
-      {{ spellStats() }}.
-      {{ monster.spellcasting.atWillNotes }}
-      It can cast the following spells, requiring no material components:
+      <div v-html="sanitizedInnateSpellcastingPreamble"></div>
       <div class="spell-list">
         <div
-          class="spell-row"
-          v-for="innate in monster.spellcasting.atWill"
+          v-for="innate in innateSpellcastingLists"
           :key="innate.id"
+          class="spell-row"
         >
-          <span class="spell-label">{{ formatInnateSpellLabel(innate) }} </span>
-          <span class="spell-list-entries">{{ innate.spells.join(', ') }}</span>
+          <span class="spell-label">{{ innate.renderedLabel }}: </span>
+          <span class="spell-list-entries">{{ innate.renderedSpells }}</span>
         </div>
       </div>
     </div>
-    -->
     <div v-if="monster.spellcasting.standard.length > 0" class="spellcasting">
       <div v-html="sanitizedClassSpellcastingPreamble"></div>
       <div class="spell-list">
         <div v-if="monster.knownSpellsOfLevel(0).length > 0" class="spell-row">
-          <span class="spell-label">Cantrips (at will): </span>
+          <span class="spell-label"
+            >{{ $t('editor.spellcasting.slot.cantripLabel') }}:
+          </span>
           <span class="spell-list-entries">{{
             monster.knownSpellsOfLevel(0).join(', ')
           }}</span>
@@ -288,10 +286,15 @@ export default defineComponent({
       sanitizeWebString(textRenderer.classSpellcastingPreamble.value)
     )
 
+    const sanitizedInnateSpellcastingPreamble = computed(() =>
+      sanitizeWebString(textRenderer.innateSpellcastingPreamble.value)
+    )
+
     return {
       monster,
       ...textRenderer,
       sanitizedClassSpellcastingPreamble,
+      sanitizedInnateSpellcastingPreamble,
       traits,
     }
   },

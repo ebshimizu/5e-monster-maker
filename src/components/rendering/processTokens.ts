@@ -224,6 +224,30 @@ export function processClassSpellcasting(
   }
 }
 
+export function processInnateSpellcasting(
+  contextRef: MaybeRef<Monster['spellcasting']>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+  const context = unref(contextRef)
+
+  if (context.useCustomInnatePreamble) {
+    return processTokens(
+      context.customInnatePreamble,
+      context,
+      monster,
+      'spell'
+    )
+  } else {
+    return processTokens(
+      t('presets.innateSpellcasting'),
+      context,
+      monster,
+      'spell'
+    )
+  }
+}
+
 export function sanitizeWebString(input: string) {
   // allowed tags are: bold, italic, underline
   input = input.replace(/>/gi, '&gt;')

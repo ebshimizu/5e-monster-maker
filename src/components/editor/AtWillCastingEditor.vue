@@ -10,7 +10,7 @@
         <div class="row">
           <q-input
             v-model="monster.spellcasting.atWillNotes"
-            class="col-12 q-pa-sm"
+            class="col-12 q-pa-sm q-mb-sm"
             bottom-slots
             :label="$t('monster.spellcasting.atWillNotes')"
           >
@@ -65,6 +65,46 @@
               />
             </div>
           </q-slide-transition>
+          <template
+            v-for="innateList in monster.spellcasting.atWill"
+            :key="innateList.id"
+          >
+            <q-input
+              v-model.number="innateList.count"
+              :label="$t('editor.spellcasting.innate.casts')"
+              type="number"
+              class="col-2 q-pa-sm"
+            />
+            <q-select
+              v-model="innateList.rate"
+              :display-value="$t(`recharge.${innateList.rate}`)"
+              :options="rechargeTimeOptions"
+              emit-value
+              :label="$t('editor.spellcasting.innate.recharge')"
+              class="col-3 q-pa-sm"
+            />
+            <searchable-spell-select
+              :model-value="innateList.spells"
+              :label="$t('editor.spellcasting.innate.list')"
+              class="col-7 q-pa-sm"
+              @clear="innateList.spells = []"
+              @update:model-value="(value: string[]) => innateList.spells = value"
+            >
+              <template #after>
+                <q-btn
+                  round
+                  color="negative"
+                  icon="delete"
+                  @click="monster.deleteInnateSpellList(innateList.id)"
+                >
+                  <q-tooltip class="text-body2">{{
+                    $t('editor.spellcasting.innate.delete')
+                  }}</q-tooltip>
+                </q-btn>
+              </template>
+            </searchable-spell-select>
+          </template>
+
           <div class="col-12 q-py-md q-px-sm">
             <q-btn
               class="full-width"
@@ -88,11 +128,12 @@ import { useSpellsStore, SpellOption } from 'src/stores/spells-store'
 import { ref, computed } from 'vue'
 import { spellArrayFilter } from '../filters'
 import MonsterTextEditor from './MonsterTextEditor.vue'
+import SearchableSpellSelect from './widgets/SearchableSpellSelect.vue'
 import N2W from 'number-to-words'
 
 export default defineComponent({
   name: 'ClassCastingEditor',
-  components: { MonsterTextEditor },
+  components: { MonsterTextEditor, SearchableSpellSelect },
   setup() {
     const showSlots = ref(false)
     const classFilter = ref(false)

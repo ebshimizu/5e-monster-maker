@@ -357,6 +357,11 @@ export const useMonsterStore = defineStore('monster', {
         spells: [],
       })
     },
+    deleteInnateSpellList(id: string) {
+      const index = this.spellcasting.atWill.findIndex((aw) => aw.id === id)
+
+      if (index !== -1) this.spellcasting.atWill.splice(index, 1)
+    },
   },
   persist: {
     // this should be changed to app.monster after parity reached, as it will then read all of the
