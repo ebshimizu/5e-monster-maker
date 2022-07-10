@@ -1,7 +1,13 @@
 import { defineStore } from 'pinia'
-import { defaultTrait, DndStat, Monster } from 'src/components/models'
+import {
+  defaultAttack,
+  defaultTrait,
+  DndStat,
+  Monster,
+} from 'src/components/models'
 import {
   avgHP,
+  bonusForAttack,
   bonusForSkill,
   statModifier,
 } from 'src/components/rendering/mathRendering'
@@ -125,6 +131,7 @@ export const useMonsterStore = defineStore('monster', {
       useCustomInnatePreamble: false,
       customInnatePreamble: '',
     },
+    attacks: [],
   }),
   getters: {
     statsWithModifiers: (state) => {
@@ -186,6 +193,17 @@ export const useMonsterStore = defineStore('monster', {
         return this.spellcasting.modifier.overrideValue
       } else {
         return this.defaultSpellModifier(this.spellcasting.stat)
+      }
+    },
+    attackModifier: (state) => {
+      return (id: string): number => {
+        const attack = state.attacks.find((a) => a.id === id)
+
+        if (attack) {
+          return bonusForAttack(state, attack)
+        }
+
+        return 0
       }
     },
     knownSpellsOfLevel() {
@@ -361,6 +379,16 @@ export const useMonsterStore = defineStore('monster', {
       const index = this.spellcasting.atWill.findIndex((aw) => aw.id === id)
 
       if (index !== -1) this.spellcasting.atWill.splice(index, 1)
+    },
+    addNewAttack() {
+      this.attacks.push(defaultAttack())
+    },
+    deleteAttack(id: string) {
+      const index = this.attacks.findIndex((a) => a.id === id)
+
+      if (index !== -1) {
+        this.attacks.splice(index, 1)
+      }
     },
   },
   persist: {

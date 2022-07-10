@@ -1,0 +1,45 @@
+<template>
+  <q-expansion-item
+    expand-separator
+    default-opened
+    icon="fa-solid fa-hand-fist"
+    :label="$t('editor.attack.label')"
+  >
+    <q-card>
+      <q-card-section class="row">
+        <q-list bordered class="rounded-borders bg-blue-10 full-width">
+          <attack-panel
+            v-for="attack in monster.attacks"
+            :id="attack.id"
+            :key="attack.id"
+          />
+        </q-list>
+      </q-card-section>
+      <q-card-actions align="center">
+        <q-btn
+          color="positive"
+          class="full-width"
+          :label="$t('editor.attack.add')"
+          @click="monster.addNewAttack()"
+        />
+      </q-card-actions>
+    </q-card>
+  </q-expansion-item>
+</template>
+
+<script lang="ts">
+import { useMonsterStore } from 'src/stores/monster-store'
+import { defineComponent } from 'vue'
+import AttackPanel from './widgets/AttackPanel.vue'
+
+export default defineComponent({
+  name: 'AttacksEditor',
+  components: { AttackPanel },
+  setup() {
+    const monster = useMonsterStore()
+    return {
+      monster,
+    }
+  },
+})
+</script>

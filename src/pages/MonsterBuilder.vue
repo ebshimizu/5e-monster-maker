@@ -16,6 +16,7 @@
             <resistances-editor />
             <traits-editor />
             <spellcasting-editor />
+            <attacks-editor />
           </q-list>
         </div>
       </template>
@@ -42,6 +43,7 @@ import SensesEditor from 'src/components/editor/SensesEditor.vue'
 import ResistancesEditor from 'src/components/editor/ResistancesEditor.vue'
 import TraitsEditor from 'src/components/editor/TraitsEditor.vue'
 import SpellcastingEditor from 'src/components/editor/SpellcastingEditor.vue'
+import AttacksEditor from 'src/components/editor/AttacksEditor.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
@@ -55,6 +57,7 @@ export default defineComponent({
     ResistancesEditor,
     TraitsEditor,
     SpellcastingEditor,
+    AttacksEditor,
   },
   setup() {
     const splitterModel = ref(66)

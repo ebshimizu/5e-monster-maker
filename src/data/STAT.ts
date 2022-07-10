@@ -16,5 +16,8 @@ export function useStats() {
     }
   })
 
-  return { statOptions }
+  // TODO: come back and lift this out if a different component needs it
+  const statOptionsShort = ['STR', 'CON', 'DEX', 'INT', 'WIS', 'CHA']
+
+  return { statOptions, statOptionsShort }
 }

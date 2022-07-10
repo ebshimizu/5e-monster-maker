@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="fa-solid fa-wand-sparkles"
     :label="$t('editor.spellcasting.label')"
     :caption="$t('editor.spellcasting.caption')"
@@ -99,11 +98,11 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useSpellsStore } from 'src/stores/spells-store'
 import { computed, defineComponent } from 'vue'
-import { DndStat } from '../models'
 import LockToggleButton from '../LockToggleButton.vue'
 import ClassCastingEditor from './ClassCastingEditor.vue'
 import { useClasses } from 'src/data/CLASS'
 import AtWillCastingEditor from './AtWillCastingEditor.vue'
+import { useStats } from 'src/data/STAT'
 
 export default defineComponent({
   name: 'SpellcastingEditor',
@@ -112,6 +111,7 @@ export default defineComponent({
     const monster = useMonsterStore()
     const spells = useSpellsStore()
     const classes = useClasses()
+    const { statOptionsShort } = useStats()
 
     const classDisplayValue = computed(() => {
       if (monster.spellcasting.class == null) return ''
@@ -123,15 +123,6 @@ export default defineComponent({
         : monster.spellcasting.class
     })
 
-    // TODO: come back and lift this out if a different component needs it
-    const statOptions = computed<DndStat[]>(() => [
-      'STR',
-      'CON',
-      'DEX',
-      'INT',
-      'WIS',
-      'CHA',
-    ])
     const spellSaveValue = computed(() =>
       monster.spellcasting.save.override
         ? monster.spellcasting.save.overrideValue
@@ -150,7 +141,7 @@ export default defineComponent({
 
     return {
       monster,
-      statOptions,
+      statOptions: statOptionsShort,
       spellSaveValue,
       spellAttackValue,
       spellModifierValue,

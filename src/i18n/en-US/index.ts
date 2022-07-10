@@ -83,6 +83,18 @@ export default {
       lockModifier: 'Spell Modifier Locked to Stats',
       unlockModifier: 'Spell Modifier Unlocked from Stats',
     },
+    attack: {
+      name: 'Name',
+      targets: 'Targets',
+      bonus: 'To Hit',
+      stat: 'Stat',
+      range: 'Range',
+      kind: 'Kind',
+      reach: 'Reach',
+      close: 'Close',
+      long: 'Long',
+      effectDc: 'Effect DC',
+    },
   },
   editor: {
     // caption fields are allocated for each tab but not used at the moment
@@ -152,6 +164,11 @@ export default {
         useCustomPreamble: 'Using Custom Preamble',
         preamble: 'Slot Spellcasting Preamble',
       },
+    },
+    attack: {
+      label: 'Attacks',
+      caption: '',
+      add: 'Add Attack',
     },
     proficient: 'Proficient',
     override: 'Override',
@@ -315,6 +332,6 @@ export default {
     classSpellcasting:
       "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
     innateSpellcasting:
-      "<b><i>Innate Spellcasting.</b></i> {'{'}NAME{'}'}'s innate spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} It can cast the following spells, requiring no material components:",
+      "<b><i>Innate Spellcasting.</b></i> {'{'}NAME{'}'}'s innate spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.atWillNotes{'}'} It can cast the following spells, requiring no material components:",
   },
 }

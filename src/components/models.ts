@@ -1,3 +1,4 @@
+import { DICE } from 'src/data/DICE'
 import { SKILL } from 'src/data/SKILL'
 import { v4 } from 'uuid'
 
@@ -77,6 +78,61 @@ export interface DndAtWillSpell {
   spells: string[]
 }
 
+export interface AdditionalAttackDamage {
+  id: string
+  dice: number
+  count: number
+  type: string
+  note: string
+}
+
+export interface DndAttack {
+  id: string
+  name: string
+  distance: 'melee' | 'ranged' | 'both'
+  kind: 'weapon' | 'spell'
+  modifier: {
+    override: boolean
+    overrideValue: number
+    stat: DndStat
+    proficient: boolean
+  }
+  range: {
+    standard: number
+    long: number
+    reach: number
+  }
+  targets: number
+  damage: {
+    dice: number
+    count: number
+    modifier: {
+      override: boolean
+      overrideValue: number
+      stat: DndStat
+    }
+    type: string
+  }
+  alternateDamage: {
+    dice: number
+    count: number
+    modifier: {
+      override: boolean
+      overrideValue: number
+      stat: DndStat
+    }
+    type: string
+    condition: string
+    active: boolean
+  }
+  additionalDamage: AdditionalAttackDamage[]
+  save: number | undefined
+  description: string
+  legendaryOnly: boolean
+  useCustomRenderer: boolean
+  customRenderer: string
+}
+
 // the big one is the monster definition
 export interface Monster {
   name: string
@@ -153,6 +209,7 @@ export interface Monster {
     useCustomInnatePreamble: boolean
     customInnatePreamble: string
   }
+  attacks: DndAttack[]
 }
 
 export interface Spells {
@@ -184,5 +241,54 @@ export function defaultTrait(): MonsterTrait {
     },
     customPreamble: false,
     crAnnotation: defaultCrAnnotation(),
+  }
+}
+
+export function defaultAttack(): DndAttack {
+  return {
+    id: v4(),
+    name: 'New Attack',
+    distance: 'melee',
+    kind: 'weapon',
+    modifier: {
+      override: false,
+      overrideValue: 0,
+      stat: 'STR',
+      proficient: true,
+    },
+    range: {
+      standard: 20,
+      long: 60,
+      reach: 5,
+    },
+    targets: 1,
+    damage: {
+      dice: DICE.d6,
+      count: 1,
+      modifier: {
+        override: false,
+        overrideValue: 0,
+        stat: 'STR',
+      },
+      type: 'slashing',
+    },
+    alternateDamage: {
+      dice: DICE.d6,
+      count: 1,
+      modifier: {
+        override: false,
+        overrideValue: 0,
+        stat: 'STR',
+      },
+      type: 'slashing',
+      condition: '',
+      active: false,
+    },
+    additionalDamage: [],
+    save: 0,
+    description: '',
+    legendaryOnly: false,
+    useCustomRenderer: false,
+    customRenderer: '',
   }
 }
