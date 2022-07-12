@@ -89,8 +89,8 @@ export interface AdditionalAttackDamage {
 export interface DndAttack {
   id: string
   name: string
-  distance: 'melee' | 'ranged' | 'both'
-  kind: 'weapon' | 'spell'
+  distance: 'MELEE' | 'RANGED' | 'BOTH'
+  kind: 'WEAPON' | 'SPELL'
   modifier: {
     override: boolean
     overrideValue: number
@@ -248,8 +248,8 @@ export function defaultAttack(): DndAttack {
   return {
     id: v4(),
     name: 'New Attack',
-    distance: 'melee',
-    kind: 'weapon',
+    distance: 'MELEE',
+    kind: 'WEAPON',
     modifier: {
       override: false,
       overrideValue: 0,

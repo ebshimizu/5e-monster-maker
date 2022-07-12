@@ -61,6 +61,14 @@ export function bonusForAttack(monster: Monster, attack: DndAttack) {
   }
 }
 
+export function bonusForAttackDamage(monster: Monster, attack: DndAttack) {
+  if (attack.damage.modifier.override) {
+    return attack.damage.modifier.overrideValue
+  } else {
+    return statModifier(monster.stats[attack.modifier.stat])
+  }
+}
+
 export function renderBonus(number: number, spaces = false) {
   return `${spaces ? ' ' : ''}${number >= 0 ? '+' : ''}${
     spaces ? ' ' : ''

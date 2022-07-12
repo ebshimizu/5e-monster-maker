@@ -94,6 +94,10 @@ export default {
       close: 'Close',
       long: 'Long',
       effectDc: 'Effect DC',
+      count: 'Count',
+      dieType: 'Die Type',
+      damageType: 'Damage Type',
+      damageBonus: 'Damage Bonus',
     },
   },
   editor: {
@@ -169,6 +173,14 @@ export default {
       label: 'Attacks',
       caption: '',
       add: 'Add Attack',
+      primary: 'Primary Damage',
+      additional: 'Additional Damage',
+      additionalCaption: 'Extra damage applied every hit',
+      conditional: 'Conditional Damage',
+      conditionalCaption:
+        'Replaces the Primary Damage when the Condition is met (e.g. Versatile Weapons)',
+      lockedToStats: 'Locked to Stats',
+      unlockedFromStats: 'Unlocked from Stats',
     },
     proficient: 'Proficient',
     override: 'Override',
@@ -327,6 +339,15 @@ export default {
     SORCERER: 'Sorcerer',
     WARLOCK: 'Warlock',
     WIZARD: 'Wizard',
+  },
+  range: {
+    MELEE: 'Melee',
+    RANGED: 'Ranged',
+    BOTH: 'Melee or Ranged',
+  },
+  kind: {
+    WEAPON: 'Weapon',
+    SPELL: 'Spell',
   },
   presets: {
     classSpellcasting:
