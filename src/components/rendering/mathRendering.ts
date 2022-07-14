@@ -65,7 +65,7 @@ export function bonusForAttackDamage(monster: Monster, attack: DndAttack) {
   if (attack.damage.modifier.override) {
     return attack.damage.modifier.overrideValue
   } else {
-    return statModifier(monster.stats[attack.modifier.stat])
+    return statModifier(monster.stats[attack.damage.modifier.stat])
   }
 }
 

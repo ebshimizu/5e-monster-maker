@@ -176,6 +176,8 @@ export default {
       primary: 'Primary Damage',
       additional: 'Additional Damage',
       additionalCaption: 'Extra damage applied every hit',
+      addAdditional: 'Add Additional Damage',
+      additionalNote: 'Notes',
       conditional: 'Conditional Damage',
       conditionalCaption:
         'Replaces the Primary Damage when the Condition is met (e.g. Versatile Weapons)',

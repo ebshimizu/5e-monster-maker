@@ -121,56 +121,120 @@
             :label="$t('editor.attack.primary')"
           >
             <q-card>
-              <div class="row">
-                <q-input
-                  v-model.number="attack.damage.count"
-                  :label="$t('monster.attack.count')"
-                  type="number"
-                  class="col-2 q-pa-sm"
-                />
-                <q-select
-                  v-model.number="attack.damage.dice"
-                  :options="diceOptions"
-                  emit-value
-                  :display-value="diceLookup[attack.damage.dice]"
-                  :label="$t('monster.attack.dieType')"
-                  class="col-2 q-pa-sm"
-                />
-                <q-select
-                  v-model="attack.damage.type"
-                  :label="$t('monster.attack.damageType')"
-                  :options="attackTypeDefaults"
-                  use-input
-                  new-value-mode="add-unique"
-                  class="col-4 q-pa-sm"
-                />
-                <q-input
-                  :model-value="attackDamageModifier"
-                  type="number"
-                  :label="$t('monster.attack.damageBonus')"
-                  :disable="!attack.damage.modifier.override"
-                  class="col-2 q-pa-sm"
-                >
-                  <template #after>
-                    <lock-toggle-button
-                      :locked="!attack.damage.modifier.override"
-                      :lock-tooltip="$t('editor.attack.lockedToStats')"
-                      :unlock-tooltip="$t('editor.attack.unlockedFromStats')"
-                      @click="
-                        attack.damage.modifier.override =
-                          !attack.damage.modifier.override
-                      "
-                    />
-                  </template>
-                </q-input>
-              </div>
+              <q-card-section>
+                <div class="row">
+                  <q-input
+                    v-model.number="attack.damage.count"
+                    :label="$t('monster.attack.count')"
+                    type="number"
+                    class="col-2 q-pa-sm"
+                  />
+                  <q-select
+                    v-model.number="attack.damage.dice"
+                    :options="diceOptions"
+                    emit-value
+                    :display-value="diceLookup[attack.damage.dice]"
+                    :label="$t('monster.attack.dieType')"
+                    class="col-2 q-pa-sm"
+                  />
+                  <q-select
+                    v-model="attack.damage.type"
+                    :label="$t('monster.attack.damageType')"
+                    :options="attackTypeDefaults"
+                    use-input
+                    new-value-mode="add-unique"
+                    class="col-4 q-pa-sm"
+                  />
+                  <q-input
+                    :model-value="attackDamageModifier"
+                    type="number"
+                    :label="$t('monster.attack.damageBonus')"
+                    :disable="!attack.damage.modifier.override"
+                    class="col-2 q-pa-sm"
+                  >
+                    <template #after>
+                      <lock-toggle-button
+                        :locked="!attack.damage.modifier.override"
+                        :lock-tooltip="$t('editor.attack.lockedToStats')"
+                        :unlock-tooltip="$t('editor.attack.unlockedFromStats')"
+                        @click="
+                          attack.damage.modifier.override =
+                            !attack.damage.modifier.override
+                        "
+                      />
+                    </template>
+                  </q-input>
+                  <q-select
+                    v-model="attack.damage.modifier.stat"
+                    :label="$t('monster.attack.stat')"
+                    class="col-2 q-pa-sm"
+                    :options="statOptions"
+                  />
+                </div>
+              </q-card-section>
             </q-card>
           </q-expansion-item>
           <q-expansion-item
             expand-separator
             :label="$t('editor.attack.additional')"
             :caption="$t('editor.attack.additionalCaption')"
-          ></q-expansion-item>
+          >
+            <q-card>
+              <q-card-section>
+                <div
+                  v-for="additional in attack.additionalDamage"
+                  :key="additional.id"
+                  class="row"
+                >
+                  <q-input
+                    v-model.number="additional.count"
+                    :label="$t('monster.attack.count')"
+                    type="number"
+                    class="col-2 q-pa-sm"
+                  />
+                  <q-select
+                    v-model.number="additional.dice"
+                    :options="diceOptions"
+                    emit-value
+                    :display-value="diceLookup[attack.damage.dice]"
+                    :label="$t('monster.attack.dieType')"
+                    class="col-2 q-pa-sm"
+                  />
+                  <q-select
+                    v-model="additional.type"
+                    :label="$t('monster.attack.damageType')"
+                    :options="attackTypeDefaults"
+                    use-input
+                    new-value-mode="add-unique"
+                    class="col-4 q-pa-sm"
+                  />
+                  <q-input
+                    v-model="additional.note"
+                    :label="$t('editor.attack.additionalNote')"
+                    class="col-4 q-pa-sm"
+                  >
+                    <template #after>
+                      <q-btn
+                        round
+                        color="negative"
+                        icon="delete"
+                        @click="() => deleteAdditionalDamage(additional.id)"
+                      >
+                        <q-tooltip class="text-body2">{{
+                          $t('editor.delete')
+                        }}</q-tooltip>
+                      </q-btn>
+                    </template>
+                  </q-input>
+                </div>
+              </q-card-section>
+              <q-card-actions>
+                <q-btn color="positive" @click="addAdditionalDamage">{{
+                  $t('editor.attack.addAdditional')
+                }}</q-btn>
+              </q-card-actions>
+            </q-card></q-expansion-item
+          >
           <q-expansion-item
             expand-separator
             :label="$t('editor.attack.conditional')"
@@ -220,6 +284,10 @@ export default defineComponent({
       monster.attackDamageModifier(props.id)
     )
 
+    const addAdditionalDamage = () => monster.addAdditionalDamage(props.id)
+    const deleteAdditionalDamage = (addId: string) =>
+      monster.deleteAdditionalDamage(props.id, addId)
+
     return {
       attack,
       attackModifier,
@@ -230,6 +298,8 @@ export default defineComponent({
       diceLookup,
       attackTypeDefaults,
       attackDamageModifier,
+      addAdditionalDamage,
+      deleteAdditionalDamage,
     }
   },
 })

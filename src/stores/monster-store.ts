@@ -402,6 +402,30 @@ export const useMonsterStore = defineStore('monster', {
         this.attacks.splice(index, 1)
       }
     },
+    addAdditionalDamage(id: string) {
+      const attack = this.attacks.find((a) => a.id === id)
+
+      if (attack) {
+        attack.additionalDamage.push({
+          id: uuidv4(),
+          dice: DICE.d6,
+          count: 1,
+          type: '',
+          note: '',
+        })
+      }
+    },
+    deleteAdditionalDamage(id: string, addId: string) {
+      const attack = this.attacks.find((a) => a.id === id)
+
+      if (attack) {
+        const index = attack.additionalDamage.findIndex((a) => a.id === addId)
+
+        if (index !== -1) {
+          attack.additionalDamage.splice(index, 1)
+        }
+      }
+    },
   },
   persist: {
     // this should be changed to app.monster after parity reached, as it will then read all of the
