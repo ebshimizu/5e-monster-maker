@@ -1,14 +1,14 @@
 import { MaybeRef } from '@vueuse/core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { unref } from 'vue'
-import { Monster, MonsterTrait } from '../models'
+import { DndAttack, Monster, MonsterTrait } from '../models'
 import { avgRoll, renderBonus } from './mathRendering'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'
 import N2W from 'number-to-words'
 import { useClasses } from 'src/data/CLASS'
 
-export type MonsterContext = MonsterTrait | Monster['spellcasting']
+export type MonsterContext = MonsterTrait | Monster['spellcasting'] | DndAttack
 
 export type MonsterContextType = 'none' | 'trait' | 'attack' | 'spell'
 
@@ -145,6 +145,14 @@ export function processSpellTokens(
   return input
 }
 
+export function processAttackTokens(
+  input: string,
+  context: DndAttack,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  return input
+}
+
 export function processContextTokens(
   input: string,
   context: MonsterContext,
@@ -159,6 +167,8 @@ export function processContextTokens(
       context as Monster['spellcasting'],
       monster
     )
+  } else if (contextType === 'attack') {
+    input = processAttackTokens(input, context as DndAttack, monster)
   }
 
   // generic tokens
@@ -202,6 +212,20 @@ export function processTrait(
       monster,
       'trait'
     )
+  }
+}
+
+export function processAttack(
+  contextRef: MaybeRef<DndAttack>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+  const context = unref(contextRef)
+
+  if (context.useCustomRenderer) {
+    return processTokens(context.customRenderer, context, monster, 'attack')
+  } else {
+    return processTokens(t('presets.attack'), context, monster, 'attack')
   }
 }
 
