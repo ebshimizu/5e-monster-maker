@@ -239,8 +239,130 @@
             expand-separator
             :label="$t('editor.attack.conditional')"
             :caption="$t('editor.attack.conditionalCaption')"
-          ></q-expansion-item>
+          >
+            <q-card>
+              <q-card-section>
+                <div class="row">
+                  <q-input
+                    v-model="attack.alternateDamage.condition"
+                    :disable="!attack.alternateDamage.active"
+                    :label="$t('editor.attack.condition')"
+                    class="col-12"
+                  >
+                    <template #before>
+                      <q-btn
+                        push
+                        :color="
+                          attack.alternateDamage.active ? 'primary' : 'dark'
+                        "
+                        @click="
+                          attack.alternateDamage.active =
+                            !attack.alternateDamage.active
+                        "
+                      >
+                        {{
+                          attack.alternateDamage.active
+                            ? $t('editor.attack.enableConditional')
+                            : $t('editor.attack.disableConditional')
+                        }}
+                      </q-btn>
+                    </template>
+                  </q-input>
+                  <q-input
+                    v-model.number="attack.alternateDamage.count"
+                    :disable="!attack.alternateDamage.active"
+                    :label="$t('monster.attack.count')"
+                    type="number"
+                    class="col-2 q-pa-sm"
+                  />
+                  <q-select
+                    v-model.number="attack.alternateDamage.dice"
+                    :disable="!attack.alternateDamage.active"
+                    :options="diceOptions"
+                    emit-value
+                    :display-value="diceLookup[attack.damage.dice]"
+                    :label="$t('monster.attack.dieType')"
+                    class="col-2 q-pa-sm"
+                  />
+                  <q-select
+                    v-model="attack.alternateDamage.type"
+                    :disable="!attack.alternateDamage.active"
+                    :label="$t('monster.attack.damageType')"
+                    :options="attackTypeDefaults"
+                    use-input
+                    new-value-mode="add-unique"
+                    class="col-4 q-pa-sm"
+                  />
+                  <q-input
+                    :model-value="attackDamageModifier"
+                    type="number"
+                    :label="$t('monster.attack.damageBonus')"
+                    :disable="conditionalModifierLocked"
+                    class="col-2 q-pa-sm"
+                  >
+                    <template #after>
+                      <lock-toggle-button
+                        :locked="!attack.alternateDamage.modifier.override"
+                        :lock-tooltip="$t('editor.attack.lockedToStats')"
+                        :unlock-tooltip="$t('editor.attack.unlockedFromStats')"
+                        @click="
+                          attack.alternateDamage.modifier.override =
+                            !attack.alternateDamage.modifier.override
+                        "
+                      />
+                    </template>
+                  </q-input>
+                  <q-select
+                    v-model="attack.alternateDamage.modifier.stat"
+                    :disable="!attack.alternateDamage.active"
+                    :label="$t('monster.attack.stat')"
+                    class="col-2 q-pa-sm"
+                    :options="statOptions"
+                  />
+                </div>
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
         </q-list>
+      </q-card-section>
+      <q-card-section class="row">
+        <q-input
+          v-model="attack.description"
+          :label="$t('editor.attack.description')"
+          class="col-12"
+        >
+          <template #after>
+            <q-btn
+              push
+              :icon="attack.useCustomRenderer ? 'edit' : 'edit_off'"
+              :color="attack.useCustomRenderer ? 'warning' : 'dark'"
+              size="md"
+              @click="attack.useCustomRenderer = !attack.useCustomRenderer"
+            >
+              <q-tooltip class="text-body2">{{
+                attack.useCustomRenderer
+                  ? $t('editor.attack.useCustomRenderer')
+                  : $t('editor.attack.useDefaultRenderer')
+              }}</q-tooltip></q-btn
+            >
+          </template>
+        </q-input>
+        <q-slide-transition>
+          <div v-show="attack.useCustomRenderer" class="col-12 q-mt-md">
+            <monster-text-editor
+              :field="attack.customRenderer"
+              i18n-label-key="editor.attack.customRenderer"
+              token-category="attack"
+              :show-reset="true"
+              @update:model-value="
+                          (value: string) =>
+                            (attack.customRenderer =
+                              value)
+                        "
+              @reset="attack.customRenderer = $t('presets.attack')"
+            />
+          </div>
+        </q-slide-transition>
       </q-card-section>
     </q-card>
   </q-expansion-item>
@@ -254,10 +376,11 @@ import { useAttackData } from 'src/data/ATTACK'
 import { DICE_SELECT, DIE_LOOKUP } from 'src/data/DICE'
 import { useAttackTypeDefaults } from 'src/data/DAMAGE_TYPE'
 import LockToggleButton from 'src/components/LockToggleButton.vue'
+import MonsterTextEditor from '../MonsterTextEditor.vue'
 
 export default defineComponent({
   name: 'AttackPanel',
-  components: { LockToggleButton },
+  components: { LockToggleButton, MonsterTextEditor },
   props: {
     id: {
       type: String,
@@ -300,6 +423,11 @@ export default defineComponent({
       attackDamageModifier,
       addAdditionalDamage,
       deleteAdditionalDamage,
+      conditionalModifierLocked: computed(
+        () =>
+          !attack.value.alternateDamage.active ||
+          !attack.value.alternateDamage.modifier.override
+      ),
     }
   },
 })

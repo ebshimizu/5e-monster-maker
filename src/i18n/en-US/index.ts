@@ -179,10 +179,17 @@ export default {
       addAdditional: 'Add Additional Damage',
       additionalNote: 'Notes',
       conditional: 'Conditional Damage',
+      condition: 'Condition',
+      enableConditional: 'Enabled',
+      disableConditional: 'Disabled',
       conditionalCaption:
         'Replaces the Primary Damage when the Condition is met (e.g. Versatile Weapons)',
       lockedToStats: 'Locked to Stats',
       unlockedFromStats: 'Unlocked from Stats',
+      description: 'Additional Description or Effects',
+      useCustomRenderer: 'Using Custom Renderer',
+      useDefaultRenderer: 'Using Default Renderer',
+      customRenderer: 'Attack',
     },
     proficient: 'Proficient',
     override: 'Override',
@@ -356,5 +363,7 @@ export default {
       "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
     innateSpellcasting:
       "<b><i>Innate Spellcasting.</b></i> {'{'}NAME{'}'}'s innate spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.atWillNotes{'}'} It can cast the following spells, requiring no material components:",
+    attack:
+      "<b><i>{'{'}attack.name{'}'}.</b></i> <i>{'{'}attack.distance{'}'}:</i> {'{'}attack.modifier{'}'}, {'{'}attack.range{'}'}, {'{'}attack.targets{'}'}. <i>Hit:</i> {'{'}attack.damage{'}'}{'{'}attack.conditionalDamage{'}'}{'{'}attack.additionalDamage{'}'}. {'{'}attack.description{'}'}",
   },
 }
