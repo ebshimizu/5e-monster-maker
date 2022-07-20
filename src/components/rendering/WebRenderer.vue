@@ -126,33 +126,20 @@
         </template>
       </div>
     </div>
-    <!--
     <h3 class="section">Actions</h3>
+    <!--
     <div class="multiattack" v-if="monster.multiattacks.length > 0">
       <span class="name">Multiattack.</span>
       {{ renderMultiattacks() }}
     </div>
-    <div class="attack" v-for="attack in monster.attacks" :key="attack.id">
-      <span class="name">{{ attack.name }}. </span>
-      <span class="distance"
-        >{{ attack.distance }} {{ attack.kind }} Attack:
-      </span>
-      <span class="to-hit">{{ toHit(attack.modifier) }}</span> to hit,
-      <span
-        ><span class="reach">{{ attackReach(attack) }}, </span>
-        {{ targets(attack.targets) }}. <span class="hit">Hit: </span>
-        {{ baseDamage(attack.damage) }} {{ attack.damage.type }} damage</span
-      >
-      <span v-if="attack.alternateDamage.active"
-        >, or {{ baseDamage(attack.alternateDamage) }}
-        {{ attack.alternateDamage.type }} damage
-        {{ attack.alternateDamage.condition }}</span
-      >
-      <span v-if="attack.additionalDamage.length > 0">
-        plus {{ additionalDamage(attack.additionalDamage) }}</span
-      >.
-      <span class="description">{{ processTokens(attack.description) }}</span>
-    </div>
+    -->
+    <div
+      v-for="attack in attacks"
+      :key="attack.id"
+      class="attack"
+      v-html="attack"
+    ></div>
+    <!--
     <div class="other-actions">
       <div
         class="action"
@@ -290,12 +277,17 @@ export default defineComponent({
       sanitizeWebString(textRenderer.innateSpellcastingPreamble.value)
     )
 
+    const attacks = computed(() =>
+      textRenderer.attacks.value.map((a) => sanitizeWebString(a))
+    )
+
     return {
       monster,
       ...textRenderer,
       sanitizedClassSpellcastingPreamble,
       sanitizedInnateSpellcastingPreamble,
       traits,
+      attacks,
     }
   },
 })

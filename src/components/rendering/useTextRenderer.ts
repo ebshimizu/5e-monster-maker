@@ -9,6 +9,7 @@ import {
   bonusForSkill,
 } from './mathRendering'
 import {
+  processAttack,
   processClassSpellcasting,
   processInnateSpellcasting,
   processTrait,
@@ -168,6 +169,10 @@ export function useTextRenderer() {
     })
   })
 
+  const attacks = computed(() => {
+    return monster.attacks.map((a) => processAttack(a, monster))
+  })
+
   return {
     stats,
     hp,
@@ -186,5 +191,6 @@ export function useTextRenderer() {
     classSpellcastingSlots,
     innateSpellcastingPreamble,
     innateSpellcastingLists,
+    attacks,
   }
 }
