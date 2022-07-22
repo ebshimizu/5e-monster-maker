@@ -12,6 +12,13 @@ export type MonsterContext = MonsterTrait | Monster['spellcasting'] | DndAttack
 
 export type MonsterContextType = 'none' | 'trait' | 'attack' | 'spell'
 
+export function listJoin(list: string[], sep: string) {
+  if (list.length === 1) return list[0]
+
+  const part1 = list.slice(0, list.length - 1).join(sep)
+  return `${part1}, and ${list[list.length - 1]}`
+}
+
 export function processMonsterTokens(
   input: string,
   monster: ReturnType<typeof useMonsterStore>
@@ -60,7 +67,8 @@ export function processMonsterTokens(
   // generic tokens
   const generic = RegExp(/\{monster.([\w\d\[\].]+)}/gi)
   input = input.replace(generic, (match, prop) => {
-    const value = _.get(monster, prop)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const value: any = _.get(monster, prop)
 
     return value
   })
@@ -150,6 +158,111 @@ export function processAttackTokens(
   context: DndAttack,
   monster: ReturnType<typeof useMonsterStore>
 ) {
+  const { t } = useI18n()
+
+  // attack is a... complicated bit of rendering
+  // attack distance
+  const distance = t('editor.attack.distance', [
+    t(`range.${context.distance}`),
+    t(`kind.${context.kind}`),
+  ])
+
+  input = input.replace(/\{attack.distance\}/gi, `${distance}`)
+
+  // attack modifier
+  input = input.replace(
+    /\{attack.modifier\}/gi,
+    renderBonus(monster.attackModifier(context.id))
+  )
+
+  // range
+  const meleeRange = t('editor.attack.meleeRange', [context.range.reach])
+  const rangeRange = t('editor.attack.rangeRange', [
+    context.range.standard,
+    context.range.long,
+  ])
+  const bothRange = t('editor.attack.bothRange', [
+    context.range.reach,
+    context.range.standard,
+    context.range.long,
+  ])
+
+  input = input.replace(
+    /\{attack.range\}/gi,
+    context.distance === 'MELEE'
+      ? meleeRange
+      : context.distance === 'RANGED'
+      ? rangeRange
+      : bothRange
+  )
+
+  // targets
+  input = input.replace(
+    /\{attack.targets\}/gi,
+    t(
+      'editor.attack.targets',
+      {
+        count: N2W.toWords(context.targets),
+      },
+      context.targets
+    )
+  )
+
+  // primary damage
+  const damageModifier = monster.attackDamageModifier(context.id)
+  const modifier =
+    damageModifier < 0 ? `${damageModifier}` : `+${damageModifier}`
+  const primary = t('editor.attack.damage', [
+    `{${context.damage.count}d${context.damage.dice}${
+      damageModifier === 0 ? '' : modifier
+    }} ${context.damage.type}`,
+  ])
+  input = input.replace(/\{attack.damage\}/gi, primary)
+
+  // conditional damage
+  const conditionalDamageModifier = monster.conditionalDamageModifier(
+    context.id
+  )
+  const condMod =
+    conditionalDamageModifier < 0
+      ? `${conditionalDamageModifier}`
+      : `+${conditionalDamageModifier}`
+  const conditional = t('editor.attack.damage', [
+    `{${context.alternateDamage.count}d${context.alternateDamage.dice}${
+      conditionalDamageModifier === 0 ? '' : condMod
+    }} ${context.alternateDamage.type}`,
+  ])
+  input = input.replace(
+    /\{attack.conditionalDamage\}/gi,
+    context.alternateDamage.active
+      ? t('editor.attack.conditionalDamage', [
+          conditional,
+          context.alternateDamage.condition,
+        ])
+      : ''
+  )
+
+  // additional damage
+  const additional = context.additionalDamage.map((d) => {
+    const damage = `{${d.count}d${d.dice}} ${d.type}`
+
+    return t('editor.attack.damage', [damage])
+  })
+  input = input.replace(
+    /\{attack.additionalDamage\}/gi,
+    context.additionalDamage.length > 0
+      ? t('editor.attack.additionalDamage', [listJoin(additional, ', ')])
+      : ''
+  )
+
+  // generic tokens
+  const generic = RegExp(/\{attack.([\w\d\[\].]+)}/gi)
+  input = input.replace(generic, (match, prop) => {
+    const value = _.get(context, prop)
+
+    return value
+  })
+
   return input
 }
 
@@ -188,11 +301,11 @@ export function processTokens(
   monster: ReturnType<typeof useMonsterStore>,
   contextType: MonsterContextType
 ) {
-  // general parsing
-  input = processMonsterTokens(input, monster)
-
   // specific parsing
   input = processContextTokens(input, context, contextType, monster)
+
+  // general parsing
+  input = processMonsterTokens(input, monster)
 
   return input
 }

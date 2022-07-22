@@ -53,10 +53,16 @@
       <span class="name">Condition Immunities</span> {{ conditions }}
     </div>
     <div class="skill"><span class="name">Senses</span> {{ senses }}</div>
-    <div v-show="monster.languages !== ''" class="skill">
-      <span class="name">Languages</span> {{ monster.languages }}
+    <div class="skill">
+      <span class="name">Languages</span>
+      {{ monster.languages !== '' ? monster.languages : '&mdash;' }}
     </div>
-    <div class="skill"><span class="name">Challenge</span> {{ cr }}</div>
+    <div class="skill">
+      <span class="name">Challenge</span> {{ cr }}
+      <span style="float: right"
+        ><b>Proficiency Bonus</b> +{{ monster.proficiency }}</span
+      >
+    </div>
     <hr />
     <div class="traits">
       <div

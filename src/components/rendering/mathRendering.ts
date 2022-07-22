@@ -69,6 +69,14 @@ export function bonusForAttackDamage(monster: Monster, attack: DndAttack) {
   }
 }
 
+export function bonusForConditionalDamage(monster: Monster, attack: DndAttack) {
+  if (attack.alternateDamage.modifier.override) {
+    return attack.alternateDamage.modifier.overrideValue
+  } else {
+    return statModifier(monster.stats[attack.alternateDamage.modifier.stat])
+  }
+}
+
 export function renderBonus(number: number, spaces = false) {
   return `${spaces ? ' ' : ''}${number >= 0 ? '+' : ''}${
     spaces ? ' ' : ''

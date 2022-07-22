@@ -124,11 +124,40 @@ export function useTokens() {
     },
   ])
 
+  // oops naming conflict
+  const attackDamageTokens = computed(() => [
+    {
+      label: t('editor.attack.primary'),
+      token: '{attack.damage}',
+    },
+    {
+      label: t('editor.attack.distanceLabel'),
+      token: '{attack.distance}',
+    },
+    {
+      label: t('monster.attack.bonus'),
+      token: '{attack.modifier}',
+    },
+    {
+      label: t('monster.attack.targets'),
+      token: '{attack.targets}',
+    },
+    {
+      label: t('editor.attack.additional'),
+      token: '{attack.additionalDamage}',
+    },
+    {
+      label: t('editor.attack.conditional'),
+      token: '{attack.conditionalDamage}',
+    },
+  ])
+
   return {
     attackTokens,
     saveTokens,
     monsterTokens,
     traitTokens,
     spellTokens,
+    attackDamageTokens,
   }
 }

@@ -187,6 +187,8 @@ export default defineComponent({
         return tokens.traitTokens.value
       } else if (props.tokenCategory === 'spell') {
         return tokens.spellTokens.value
+      } else if (props.tokenCategory === 'attack') {
+        return tokens.attackDamageTokens.value
       }
 
       return null
@@ -197,6 +199,8 @@ export default defineComponent({
         return 'editor.trait'
       } else if (props.tokenCategory === 'spell') {
         return 'editor.spellcasting.label'
+      } else if (props.tokenCategory === 'attack') {
+        return 'editor.attack.customRenderer'
       }
 
       return ''

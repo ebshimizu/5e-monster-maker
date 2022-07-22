@@ -127,6 +127,7 @@
                     v-model.number="attack.damage.count"
                     :label="$t('monster.attack.count')"
                     type="number"
+                    min="0"
                     class="col-2 q-pa-sm"
                   />
                   <q-select
@@ -151,6 +152,12 @@
                     :label="$t('monster.attack.damageBonus')"
                     :disable="!attack.damage.modifier.override"
                     class="col-2 q-pa-sm"
+                    @change="
+                      (v) =>
+                        (attack.damage.modifier.overrideValue = parseInt(
+                          `${v}`
+                        ))
+                    "
                   >
                     <template #after>
                       <lock-toggle-button
@@ -294,11 +301,16 @@
                     class="col-4 q-pa-sm"
                   />
                   <q-input
-                    :model-value="attackDamageModifier"
+                    :model-value="conditionalDamageModifier"
                     type="number"
                     :label="$t('monster.attack.damageBonus')"
                     :disable="conditionalModifierLocked"
                     class="col-2 q-pa-sm"
+                    @change="
+                      (v) =>
+                        (attack.alternateDamage.modifier.overrideValue =
+                          parseInt(`${v}`))
+                    "
                   >
                     <template #after>
                       <lock-toggle-button
@@ -406,6 +418,9 @@ export default defineComponent({
     const attackDamageModifier = computed(() =>
       monster.attackDamageModifier(props.id)
     )
+    const conditionalDamageModifier = computed(() =>
+      monster.conditionalDamageModifier(props.id)
+    )
 
     const addAdditionalDamage = () => monster.addAdditionalDamage(props.id)
     const deleteAdditionalDamage = (addId: string) =>
@@ -423,6 +438,7 @@ export default defineComponent({
       attackDamageModifier,
       addAdditionalDamage,
       deleteAdditionalDamage,
+      conditionalDamageModifier,
       conditionalModifierLocked: computed(
         () =>
           !attack.value.alternateDamage.active ||

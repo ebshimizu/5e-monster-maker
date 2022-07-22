@@ -190,6 +190,15 @@ export default {
       useCustomRenderer: 'Using Custom Renderer',
       useDefaultRenderer: 'Using Default Renderer',
       customRenderer: 'Attack',
+      distanceLabel: 'Distance',
+      distance: '{0} {1} Attack',
+      meleeRange: 'reach {0} ft.',
+      rangeRange: 'range {0}/{1} ft.',
+      bothRange: 'reach {0} ft. or range {1}/{2} ft.',
+      targets: 'no targets | one target | {count} targets',
+      damage: '{0} damage',
+      conditionalDamage: ', or {0} {1}',
+      additionalDamage: ' plus {0}',
     },
     proficient: 'Proficient',
     override: 'Override',
@@ -364,6 +373,6 @@ export default {
     innateSpellcasting:
       "<b><i>Innate Spellcasting.</b></i> {'{'}NAME{'}'}'s innate spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.atWillNotes{'}'} It can cast the following spells, requiring no material components:",
     attack:
-      "<b><i>{'{'}attack.name{'}'}.</b></i> <i>{'{'}attack.distance{'}'}:</i> {'{'}attack.modifier{'}'}, {'{'}attack.range{'}'}, {'{'}attack.targets{'}'}. <i>Hit:</i> {'{'}attack.damage{'}'}{'{'}attack.conditionalDamage{'}'}{'{'}attack.additionalDamage{'}'}. {'{'}attack.description{'}'}",
+      "<b><i>{'{'}attack.name{'}'}.</b></i> <i>{'{'}attack.distance{'}'}:</i> {'{'}attack.modifier{'}'} to hit, {'{'}attack.range{'}'}, {'{'}attack.targets{'}'}. <i>Hit:</i> {'{'}attack.damage{'}'}{'{'}attack.conditionalDamage{'}'}{'{'}attack.additionalDamage{'}'}. {'{'}attack.description{'}'}",
   },
 }

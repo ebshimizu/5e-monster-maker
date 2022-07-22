@@ -9,6 +9,7 @@ import {
   avgHP,
   bonusForAttack,
   bonusForAttackDamage,
+  bonusForConditionalDamage,
   bonusForSkill,
   statModifier,
 } from 'src/components/rendering/mathRendering'
@@ -213,6 +214,17 @@ export const useMonsterStore = defineStore('monster', {
 
         if (attack) {
           return bonusForAttackDamage(state, attack)
+        }
+
+        return 0
+      }
+    },
+    conditionalDamageModifier: (state) => {
+      return (id: string): number => {
+        const attack = state.attacks.find((a) => a.id === id)
+
+        if (attack) {
+          return bonusForConditionalDamage(state, attack)
         }
 
         return 0
