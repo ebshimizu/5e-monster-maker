@@ -134,6 +134,7 @@ export const useMonsterStore = defineStore('monster', {
       customInnatePreamble: '',
     },
     attacks: [],
+    multiattacks: [],
   }),
   getters: {
     statsWithModifiers: (state) => {
@@ -435,6 +436,58 @@ export const useMonsterStore = defineStore('monster', {
 
         if (index !== -1) {
           attack.additionalDamage.splice(index, 1)
+        }
+      }
+    },
+    addMultiattack() {
+      this.multiattacks.push({
+        id: uuidv4(),
+        attacks: [],
+        actions: [],
+      })
+    },
+    deleteMultiattack(id: string) {
+      const idx = this.multiattacks.findIndex((ma) => ma.id === id)
+
+      if (idx !== -1) {
+        this.multiattacks.splice(idx, 1)
+      }
+    },
+    addMultiattackAttack(id: string, attackId: string) {
+      const ma = this.multiattacks.find((ma) => ma.id === id)
+
+      if (ma) {
+        ma.attacks.push(attackId)
+      }
+    },
+    removeMultiattackAttack(id: string, attackId: string) {
+      // remove the first instance, it's equivalent
+      const ma = this.multiattacks.find((ma) => ma.id === id)
+
+      if (ma) {
+        const idx = ma.attacks.findIndex((id) => attackId === id)
+
+        if (idx !== -1) {
+          ma.attacks.splice(idx, 1)
+        }
+      }
+    },
+    addMultiattackAction(id: string, actionId: string) {
+      const ma = this.multiattacks.find((ma) => ma.id === id)
+
+      if (ma) {
+        ma.actions.push(actionId)
+      }
+    },
+    removeMultiattackAction(id: string, actionId: string) {
+      // remove the first instance, it's equivalent
+      const ma = this.multiattacks.find((ma) => ma.id === id)
+
+      if (ma) {
+        const idx = ma.actions.findIndex((id) => actionId === id)
+
+        if (idx !== -1) {
+          ma.attacks.splice(idx, 1)
         }
       }
     },

@@ -19,7 +19,7 @@
           />
         </q-list>
       </q-card-section>
-      <q-card-actions align="center">
+      <q-card-actions>
         <q-btn
           color="positive"
           class="full-width"
@@ -28,6 +28,21 @@
         />
       </q-card-actions>
     </q-card>
+    <div class="q-pa-sm">
+      <q-card bordered>
+        <q-card-section class="bg-blue-10">
+          <div class="text-body2 text-bold">Multiattacks</div>
+        </q-card-section>
+        <q-card-section> None </q-card-section>
+        <q-card-actions>
+          <q-btn
+            color="positive"
+            class="full-width"
+            :label="$t('editor.multiattack.add')"
+          />
+        </q-card-actions>
+      </q-card>
+    </div>
   </q-expansion-item>
 </template>
 

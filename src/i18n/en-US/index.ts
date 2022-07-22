@@ -173,6 +173,7 @@ export default {
       label: 'Attacks',
       caption: '',
       add: 'Add Attack',
+      delete: 'Delete Attack',
       primary: 'Primary Damage',
       additional: 'Additional Damage',
       additionalCaption: 'Extra damage applied every hit',
@@ -199,6 +200,9 @@ export default {
       damage: '{0} damage',
       conditionalDamage: ', or {0} {1}',
       additionalDamage: ' plus {0}',
+    },
+    multiattack: {
+      add: 'Add Multiattack Group',
     },
     proficient: 'Proficient',
     override: 'Override',

@@ -86,6 +86,12 @@ export interface AdditionalAttackDamage {
   note: string
 }
 
+export interface Multiattack {
+  id: string
+  attacks: string[]
+  actions: string[]
+}
+
 export interface DndAttack {
   id: string
   name: string
@@ -210,6 +216,7 @@ export interface Monster {
     customInnatePreamble: string
   }
   attacks: DndAttack[]
+  multiattacks: Multiattack[]
 }
 
 export interface Spells {

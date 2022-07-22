@@ -140,8 +140,8 @@
     </div>
     -->
     <div
-      v-for="attack in attacks"
-      :key="attack.id"
+      v-for="(attack, idx) in attacks"
+      :key="idx"
       class="attack"
       v-html="attack"
     ></div>

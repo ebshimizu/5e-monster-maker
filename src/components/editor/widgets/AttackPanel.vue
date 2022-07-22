@@ -376,6 +376,14 @@
           </div>
         </q-slide-transition>
       </q-card-section>
+      <q-card-actions>
+        <q-btn
+          class="full-width"
+          color="negative"
+          :label="$t('editor.attack.delete')"
+          @click="deleteAttack"
+        />
+      </q-card-actions>
     </q-card>
   </q-expansion-item>
 </template>
@@ -426,9 +434,14 @@ export default defineComponent({
     const deleteAdditionalDamage = (addId: string) =>
       monster.deleteAdditionalDamage(props.id, addId)
 
+    const deleteAttack = () => {
+      monster.deleteAttack(props.id)
+    }
+
     return {
       attack,
       attackModifier,
+      deleteAttack,
       statOptions: statOptionsShort,
       rangeOptions,
       kindOptions,
