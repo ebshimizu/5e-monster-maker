@@ -295,6 +295,28 @@ export const useMonsterStore = defineStore('monster', {
         return (base + extra) * attack.targets
       }
     },
+    attackName: (state) => {
+      return (attackId: string) => {
+        const attack = state.attacks.find((a) => a.id === attackId)
+
+        if (attack) {
+          return attack.name
+        } else {
+          return '[Invalid Attack Id]'
+        }
+      }
+    },
+    actionName: (state) => {
+      return (actionId: string) => {
+        const action = state.actions.find((a) => a.id === actionId)
+
+        if (action) {
+          return action.name
+        } else {
+          return '[Invalid Action Id]'
+        }
+      }
+    },
   },
   actions: {
     setCR(value: number) {
@@ -516,7 +538,7 @@ export const useMonsterStore = defineStore('monster', {
         const idx = ma.actions.findIndex((id) => actionId === id)
 
         if (idx !== -1) {
-          ma.attacks.splice(idx, 1)
+          ma.actions.splice(idx, 1)
         }
       }
     },

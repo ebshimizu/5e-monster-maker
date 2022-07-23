@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="mdi-movie-open"
     :label="$t('editor.action.label')"
   >

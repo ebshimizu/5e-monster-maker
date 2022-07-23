@@ -208,6 +208,10 @@ export default {
     multiattack: {
       label: 'Multiattack',
       add: 'Add Multiattack Group',
+      addAttack: '',
+      attackHeader: 'Attacks',
+      actionHeader: 'Actions',
+      group: 'Multiattack Group {0}',
     },
     action: {
       label: 'Actions',
