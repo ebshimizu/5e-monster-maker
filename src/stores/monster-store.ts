@@ -3,11 +3,13 @@ import {
   defaultAction,
   defaultAttack,
   defaultTrait,
+  DndAttack,
   DndStat,
   Monster,
 } from 'src/components/models'
 import {
   avgHP,
+  avgRoll,
   bonusForAttack,
   bonusForAttackDamage,
   bonusForConditionalDamage,
@@ -267,6 +269,31 @@ export const useMonsterStore = defineStore('monster', {
       }
 
       return ret
+    },
+    expectedAttackDamage: (state) => {
+      return (attack: DndAttack) => {
+        const primary =
+          avgRoll(attack.damage.count, attack.damage.dice) +
+          (attack.damage.modifier.override
+            ? attack.damage.modifier.overrideValue
+            : statModifier(state.stats[attack.damage.modifier.stat]))
+
+        const secondary =
+          avgRoll(attack.alternateDamage.count, attack.alternateDamage.dice) +
+          (attack.alternateDamage.modifier.override
+            ? attack.alternateDamage.modifier.overrideValue
+            : statModifier(state.stats[attack.alternateDamage.modifier.stat]))
+
+        const base = attack.alternateDamage.active
+          ? Math.max(primary, secondary)
+          : primary
+
+        const extra = attack.additionalDamage
+          .map((a) => avgRoll(a.count, a.dice))
+          .reduce((acc, current) => acc + current, 0)
+
+        return (base + extra) * attack.targets
+      }
     },
   },
   actions: {

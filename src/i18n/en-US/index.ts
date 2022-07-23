@@ -203,6 +203,7 @@ export default {
       damage: '{0} damage',
       conditionalDamage: ', or {0} {1}',
       additionalDamage: ' plus {0}',
+      estimatedAttackDamage: '{0} Avg. Damage per Hit',
     },
     multiattack: {
       label: 'Multiattack',

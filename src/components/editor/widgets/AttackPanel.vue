@@ -1,5 +1,9 @@
 <template>
-  <q-expansion-item :label="attack.name" expand-separator>
+  <q-expansion-item
+    :label="attack.name"
+    expand-separator
+    :caption="estimatedAttackDamage"
+  >
     <q-card>
       <q-card-section class="row">
         <q-input
@@ -397,6 +401,7 @@ import { DICE_SELECT, DIE_LOOKUP } from 'src/data/DICE'
 import { useAttackTypeDefaults } from 'src/data/DAMAGE_TYPE'
 import LockToggleButton from 'src/components/LockToggleButton.vue'
 import MonsterTextEditor from '../MonsterTextEditor.vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'AttackPanel',
@@ -408,6 +413,7 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const { t } = useI18n()
     const monster = useMonsterStore()
     const attack = computed(
       () =>
@@ -438,6 +444,12 @@ export default defineComponent({
       monster.deleteAttack(props.id)
     }
 
+    const estimatedAttackDamage = computed(() => {
+      const damage = monster.expectedAttackDamage(attack.value)
+
+      return t('editor.attack.estimatedAttackDamage', [damage])
+    })
+
     return {
       attack,
       attackModifier,
@@ -457,6 +469,7 @@ export default defineComponent({
           !attack.value.alternateDamage.active ||
           !attack.value.alternateDamage.modifier.override
       ),
+      estimatedAttackDamage,
     }
   },
 })
