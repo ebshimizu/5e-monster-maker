@@ -20,8 +20,8 @@
             <div class="text-caption">[estimated damage]</div>
           </q-card-section>
           <q-card-section>
-            <div class="row">
-              <div class="col-2 flex justify-start items-center">
+            <div class="flex items-center" style="flex-wrap: nowrap; gap: 10px">
+              <div class="flex justify-start items-center">
                 <q-btn-dropdown color="positive" rounded icon="add">
                   <q-list>
                     <template v-if="monster.attacks.length > 0">
@@ -70,7 +70,7 @@
                   </q-list>
                 </q-btn-dropdown>
               </div>
-              <div class="col">
+              <div class="full-width" style="flex-shrink: 1">
                 <q-chip
                   v-for="(attackId, aidx) in ma.attacks"
                   :key="aidx"
@@ -90,7 +90,7 @@
                   {{ monster.actionName(actionId) }}
                 </q-chip>
               </div>
-              <div class="col-1 flex justify-end items-center">
+              <div class="flex justify-end items-center">
                 <q-btn
                   round
                   color="negative"
