@@ -72,8 +72,8 @@
               </div>
               <div class="col">
                 <q-chip
-                  v-for="(attackId, idx) in ma.attacks"
-                  :key="idx"
+                  v-for="(attackId, aidx) in ma.attacks"
+                  :key="aidx"
                   color="primary"
                   removable
                   @remove="monster.removeMultiattackAttack(ma.id, attackId)"
@@ -81,8 +81,8 @@
                   {{ monster.attackName(attackId) }}
                 </q-chip>
                 <q-chip
-                  v-for="(actionId, idx) in ma.actions"
-                  :key="idx"
+                  v-for="(actionId, aidx) in ma.actions"
+                  :key="aidx"
                   color="primary"
                   removable
                   @remove="monster.removeMultiattackAction(ma.id, actionId)"
