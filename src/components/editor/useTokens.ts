@@ -152,6 +152,29 @@ export function useTokens() {
     },
   ])
 
+  const actionTokens = computed(() => [
+    {
+      label: t('monster.trait.name'),
+      token: '{action.name}',
+    },
+    {
+      label: t('monster.trait.limitedUse.label'),
+      token: '{action.limitedUse}',
+    },
+    {
+      label: t('monster.trait.limitedUse.count'),
+      token: '{action.limitedUse.count}',
+    },
+    {
+      label: t('monster.trait.limitedUse.rate'),
+      token: '{action.limitedUse.rate}',
+    },
+    {
+      label: t('monster.action.recharge'),
+      token: '{action.recharge}',
+    },
+  ])
+
   return {
     attackTokens,
     saveTokens,
@@ -159,5 +182,6 @@ export function useTokens() {
     traitTokens,
     spellTokens,
     attackDamageTokens,
+    actionTokens,
   }
 }

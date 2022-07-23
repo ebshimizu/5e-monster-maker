@@ -219,6 +219,7 @@ export default {
       legendaryExplanation:
         'Actions marked as Legendary Only will not display in the rendered list of actions, but can still be used as legendary actions.',
       save: 'Save Action',
+      recharge: '(Recharge {0})',
     },
     proficient: 'Proficient',
     override: 'Override',

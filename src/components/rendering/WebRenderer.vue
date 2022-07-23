@@ -145,19 +145,15 @@
       class="attack"
       v-html="attack"
     ></div>
-    <!--
     <div class="other-actions">
       <div
+        v-for="(action, idx) in actions"
+        :key="idx"
         class="action"
-        v-for="action in nonLegendaryOnlyActions"
-        :key="action.id"
-      >
-        <span class="name"
-          >{{ action.name }}{{ rechargeOrLimited(action) }}.</span
-        >
-        {{ processTokens(action.description) }}
-      </div>
+        v-html="action"
+      ></div>
     </div>
+    <!--
     <div class="legendary-actions" v-if="monster.legendaryActions.count > 0">
       <h3 class="section">Legendary Actions</h3>
       <div class="preamble">
@@ -287,6 +283,10 @@ export default defineComponent({
       textRenderer.attacks.value.map((a) => sanitizeWebString(a))
     )
 
+    const actions = computed(() =>
+      textRenderer.actions.value.map((a) => sanitizeWebString(a))
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -294,6 +294,7 @@ export default defineComponent({
       sanitizedInnateSpellcastingPreamble,
       traits,
       attacks,
+      actions,
     }
   },
 })

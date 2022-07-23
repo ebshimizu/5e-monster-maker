@@ -1,14 +1,18 @@
 import { MaybeRef } from '@vueuse/core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { unref } from 'vue'
-import { DndAttack, Monster, MonsterTrait } from '../models'
+import { DndAttack, Monster, MonsterAction, MonsterTrait } from '../models'
 import { avgRoll, renderBonus } from './mathRendering'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'
 import N2W from 'number-to-words'
 import { useClasses } from 'src/data/CLASS'
 
-export type MonsterContext = MonsterTrait | Monster['spellcasting'] | DndAttack
+export type MonsterContext =
+  | MonsterTrait
+  | Monster['spellcasting']
+  | DndAttack
+  | MonsterAction
 
 export type MonsterContextType =
   | 'none'
@@ -147,14 +151,6 @@ export function processSpellTokens(
     input = input.replace(/\{spellcasting.class\}/gi, context.class ?? '')
   }
 
-  // generic tokens
-  const generic = RegExp(/\{spellcasting.([\w\d\[\].]+)}/gi)
-  input = input.replace(generic, (match, prop) => {
-    const value = _.get(context, prop)
-
-    return value
-  })
-
   return input
 }
 
@@ -260,13 +256,32 @@ export function processAttackTokens(
       : ''
   )
 
-  // generic tokens
-  const generic = RegExp(/\{attack.([\w\d\[\].]+)}/gi)
-  input = input.replace(generic, (match, prop) => {
-    const value = _.get(context, prop)
+  return input
+}
 
-    return value
-  })
+export function processActionTokens(input: string, context: MonsterAction) {
+  const { t } = useI18n()
+
+  // limitedUse is a special case
+  const limitedUse =
+    context.recharge === ''
+      ? ` (${context.limitedUse.count}/${t(
+          `recharge.${context.limitedUse.rate}`
+        )})`
+      : ` ${t('editor.action.recharge', [context.recharge])}`
+
+  input = input.replace(
+    /\{action.limitedUse\}/gi,
+    `${
+      context.limitedUse.count > 0 || context.recharge !== '' ? limitedUse : ''
+    }`
+  )
+
+  // localize the rate string
+  input = input.replace(
+    /\{action.limitedUse.rate\}/gi,
+    t(`recharge.${context.limitedUse.rate}`)
+  )
 
   return input
 }
@@ -277,6 +292,7 @@ export function processContextTokens(
   contextType: MonsterContextType,
   monster: ReturnType<typeof useMonsterStore>
 ) {
+  // context tokens first
   if (contextType === 'trait') {
     input = processTraitTokens(input, context as MonsterTrait)
   } else if (contextType === 'spell') {
@@ -287,10 +303,14 @@ export function processContextTokens(
     )
   } else if (contextType === 'attack') {
     input = processAttackTokens(input, context as DndAttack, monster)
+  } else if (contextType === 'action') {
+    input = processActionTokens(input, context as MonsterAction)
   }
 
   // generic tokens
-  const generic = RegExp(/\{(?:trait|attack).([\w\d\[\].]+)}/gi)
+  const generic = RegExp(
+    /\{(?:trait|attack|action|spellcasting).([\w\d\[\].]+)}/gi
+  )
   input = input.replace(generic, (match, prop) => {
     const value = _.get(context, prop)
 
@@ -329,6 +349,24 @@ export function processTrait(
       context,
       monster,
       'trait'
+    )
+  }
+}
+
+export function processAction(
+  contextRef: MaybeRef<MonsterAction>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const context = unref(contextRef)
+
+  if (context.customPreamble) {
+    return processTokens(context.description, context, monster, 'action')
+  } else {
+    return processTokens(
+      `<b><i>{action.name}{action.limitedUse}.</i></b> ${context.description}`,
+      context,
+      monster,
+      'action'
     )
   }
 }

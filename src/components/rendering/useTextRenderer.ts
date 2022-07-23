@@ -9,6 +9,7 @@ import {
   bonusForSkill,
 } from './mathRendering'
 import {
+  processAction,
   processAttack,
   processClassSpellcasting,
   processInnateSpellcasting,
@@ -173,6 +174,13 @@ export function useTextRenderer() {
     return monster.attacks.map((a) => processAttack(a, monster))
   })
 
+  // non-legendary only actions
+  const actions = computed(() => {
+    return monster.actions
+      .filter((a) => !a.legendaryOnly)
+      .map((a) => processAction(a, monster))
+  })
+
   return {
     stats,
     hp,
@@ -192,5 +200,6 @@ export function useTextRenderer() {
     innateSpellcastingPreamble,
     innateSpellcastingLists,
     attacks,
+    actions,
   }
 }

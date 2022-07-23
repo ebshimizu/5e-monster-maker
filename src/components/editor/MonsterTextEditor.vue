@@ -189,6 +189,8 @@ export default defineComponent({
         return tokens.spellTokens.value
       } else if (props.tokenCategory === 'attack') {
         return tokens.attackDamageTokens.value
+      } else if (props.tokenCategory === 'action') {
+        return tokens.actionTokens.value
       }
 
       return null
