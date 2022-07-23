@@ -7,7 +7,7 @@
             {{ $t('editor.crAnnotation.title') }}
           </div>
           <div class="text-subtitle">
-            {{ printCrSummary(trait.crAnnotation) }}
+            {{ printCrSummary(crData.crAnnotation) }}
           </div>
         </div>
         <div
@@ -22,27 +22,29 @@
         >
           <q-btn-group push>
             <lock-toggle-button
-              :locked="trait.crAnnotation.automatic"
+              :locked="crData.crAnnotation.automatic"
               :lock-tooltip="$t('editor.crAnnotation.automatic')"
               :unlock-tooltip="$t('editor.crAnnotation.manual')"
               @click="
                 () => {
-                  trait.crAnnotation.automatic = !trait.crAnnotation.automatic
-                  if (trait.crAnnotation.automatic)
-                    autoUpdateCr(trait.description, trait.crAnnotation)
+                  crData.crAnnotation.automatic = !crData.crAnnotation.automatic
+                  if (crData.crAnnotation.automatic)
+                    autoUpdateCr(crData.description, crData.crAnnotation)
                 }
               "
             />
             <q-btn
               push
-              :icon="trait.crAnnotation.include ? 'code' : 'code_off'"
-              :color="trait.crAnnotation.include ? 'positive' : 'dark'"
+              :icon="crData.crAnnotation.include ? 'code' : 'code_off'"
+              :color="crData.crAnnotation.include ? 'positive' : 'dark'"
               size="md"
-              @click="trait.crAnnotation.include = !trait.crAnnotation.include"
+              @click="
+                crData.crAnnotation.include = !crData.crAnnotation.include
+              "
             >
               <q-tooltip class="text-body2">
                 {{
-                  trait.crAnnotation.include
+                  crData.crAnnotation.include
                     ? $t('editor.crAnnotation.include')
                     : $t('editor.crAnnotation.exclude')
                 }}
@@ -53,14 +55,14 @@
       </q-card-section>
 
       <q-slide-transition>
-        <div v-show="!trait.crAnnotation.automatic">
+        <div v-show="!crData.crAnnotation.automatic">
           <q-separator />
           <q-card-section>
             <div class="row">
               <q-input
-                v-model.number="trait.crAnnotation.maxDamage"
+                v-model.number="crData.crAnnotation.maxDamage"
                 type="number"
-                :disable="trait.crAnnotation.automatic"
+                :disable="crData.crAnnotation.automatic"
                 :label="$t('editor.crAnnotation.maxDamage')"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
@@ -68,16 +70,18 @@
                 <template #after>
                   <q-btn
                     push
-                    :icon="trait.crAnnotation.multitarget ? 'groups' : 'person'"
+                    :icon="
+                      crData.crAnnotation.multitarget ? 'groups' : 'person'
+                    "
                     color="primary"
                     @click="
-                      trait.crAnnotation.multitarget =
-                        !trait.crAnnotation.multitarget
+                      crData.crAnnotation.multitarget =
+                        !crData.crAnnotation.multitarget
                     "
                   >
                     <q-tooltip class="text-body2">
                       {{
-                        trait.crAnnotation.multitarget
+                        crData.crAnnotation.multitarget
                           ? $t('editor.crAnnotation.multitarget')
                           : $t('editor.crAnnotation.singletarget')
                       }}
@@ -86,42 +90,42 @@
                 </template>
               </q-input>
               <q-input
-                v-model.number="trait.crAnnotation.maxSave"
+                v-model.number="crData.crAnnotation.maxSave"
                 type="number"
                 :label="$t('editor.crAnnotation.maxSave')"
-                :disable="trait.crAnnotation.automatic"
+                :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
-                v-model.number="trait.crAnnotation.maxModifier"
+                v-model.number="crData.crAnnotation.maxModifier"
                 type="number"
                 :label="$t('editor.crAnnotation.maxModifier')"
-                :disable="trait.crAnnotation.automatic"
+                :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
-                v-model.number="trait.crAnnotation.ehpModifier"
+                v-model.number="crData.crAnnotation.ehpModifier"
                 type="number"
                 :label="$t('editor.crAnnotation.ehpModifier')"
-                :disable="trait.crAnnotation.automatic"
+                :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
-                v-model.number="trait.crAnnotation.ehpMultiplier"
+                v-model.number="crData.crAnnotation.ehpMultiplier"
                 type="number"
                 :label="$t('editor.crAnnotation.ehpMultiplier')"
-                :disable="trait.crAnnotation.automatic"
+                :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
               <q-input
-                v-model.number="trait.crAnnotation.acModifier"
+                v-model.number="crData.crAnnotation.acModifier"
                 type="number"
                 :label="$t('editor.crAnnotation.acModifier')"
-                :disable="trait.crAnnotation.automatic"
+                :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
               />
@@ -138,9 +142,9 @@ import { defineComponent, PropType } from '@vue/runtime-core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import LockToggleButton from '../LockToggleButton.vue'
-import { Monster, MonsterTrait } from '../models'
+import { Monster, MonsterAction, MonsterTrait } from '../models'
 
-export type CrAnnotatedField = Array<MonsterTrait>
+export type CrAnnotatedField = MonsterTrait[] | MonsterAction[]
 
 export default defineComponent({
   name: 'CrAnnotationCard',
@@ -160,10 +164,10 @@ export default defineComponent({
   setup(props) {
     const monster = useMonsterStore()
 
-    const trait = (monster[props.field] as CrAnnotatedField)[props.index]
+    const crData = (monster[props.field] as CrAnnotatedField)[props.index]
 
     return {
-      trait,
+      crData,
       ...useAutoUpdateCr(),
     }
   },

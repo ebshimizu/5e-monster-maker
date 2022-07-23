@@ -201,6 +201,8 @@ export default defineComponent({
         return 'editor.spellcasting.label'
       } else if (props.tokenCategory === 'attack') {
         return 'editor.attack.customRenderer'
+      } else if (props.tokenCategory === 'action') {
+        return 'editor.action.tokenLabel'
       }
 
       return ''

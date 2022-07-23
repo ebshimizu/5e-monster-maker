@@ -99,6 +99,9 @@ export default {
       damageType: 'Damage Type',
       damageBonus: 'Damage Bonus',
     },
+    action: {
+      recharge: 'Recharge',
+    },
   },
   editor: {
     // caption fields are allocated for each tab but not used at the moment
@@ -202,7 +205,20 @@ export default {
       additionalDamage: ' plus {0}',
     },
     multiattack: {
+      label: 'Multiattack',
       add: 'Add Multiattack Group',
+    },
+    action: {
+      label: 'Actions',
+      tokenLabel: 'Action',
+      caption: '',
+      add: 'Add Action',
+      delete: 'Delete Action',
+      legendaryOnly: 'Legendary Action Only',
+      regular: 'Regular Action',
+      legendaryExplanation:
+        'Actions marked as Legendary Only will not display in the rendered list of actions, but can still be used as legendary actions.',
+      save: 'Save Action',
     },
     proficient: 'Proficient',
     override: 'Override',

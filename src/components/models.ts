@@ -60,6 +60,20 @@ export interface MonsterTrait {
   crAnnotation: MonsterCrAnnotation
 }
 
+export interface MonsterAction {
+  name: string
+  id: string
+  description: string
+  recharge: string
+  legendaryOnly: boolean
+  limitedUse: {
+    count: number
+    rate: string
+  }
+  customPreamble: boolean
+  crAnnotation: MonsterCrAnnotation
+}
+
 export interface DndSpell {
   name: string
   damage: number
@@ -217,6 +231,7 @@ export interface Monster {
   }
   attacks: DndAttack[]
   multiattacks: Multiattack[]
+  actions: MonsterAction[]
 }
 
 export interface Spells {
@@ -232,7 +247,7 @@ export function defaultCrAnnotation(): MonsterCrAnnotation {
     ehpMultiplier: 1,
     ehpModifier: 0,
     acModifier: 0,
-    include: false,
+    include: true,
     automatic: true,
   }
 }
@@ -246,6 +261,22 @@ export function defaultTrait(): MonsterTrait {
       count: 0,
       rate: 'DAY',
     },
+    customPreamble: false,
+    crAnnotation: defaultCrAnnotation(),
+  }
+}
+
+export function defaultAction(): MonsterAction {
+  return {
+    name: 'New Action',
+    id: v4(),
+    description: '',
+    recharge: '',
+    limitedUse: {
+      count: 0,
+      rate: 'DAY',
+    },
+    legendaryOnly: false,
     customPreamble: false,
     crAnnotation: defaultCrAnnotation(),
   }

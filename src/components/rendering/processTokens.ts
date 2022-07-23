@@ -10,7 +10,12 @@ import { useClasses } from 'src/data/CLASS'
 
 export type MonsterContext = MonsterTrait | Monster['spellcasting'] | DndAttack
 
-export type MonsterContextType = 'none' | 'trait' | 'attack' | 'spell'
+export type MonsterContextType =
+  | 'none'
+  | 'trait'
+  | 'attack'
+  | 'spell'
+  | 'action'
 
 export function listJoin(list: string[], sep: string) {
   if (list.length === 1) return list[0]

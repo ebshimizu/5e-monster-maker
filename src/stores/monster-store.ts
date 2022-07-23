@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import {
+  defaultAction,
   defaultAttack,
   defaultTrait,
   DndStat,
@@ -135,6 +136,7 @@ export const useMonsterStore = defineStore('monster', {
     },
     attacks: [],
     multiattacks: [],
+    actions: [],
   }),
   getters: {
     statsWithModifiers: (state) => {
@@ -489,6 +491,16 @@ export const useMonsterStore = defineStore('monster', {
         if (idx !== -1) {
           ma.attacks.splice(idx, 1)
         }
+      }
+    },
+    addAction() {
+      this.actions.push(defaultAction())
+    },
+    deleteAction(actionId: string) {
+      const index = this.actions.findIndex((a) => a.id === actionId)
+
+      if (index !== -1) {
+        this.actions.splice(index, 1)
       }
     },
   },

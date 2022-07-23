@@ -17,6 +17,8 @@
             <traits-editor />
             <spellcasting-editor />
             <attacks-editor />
+            <actions-editor />
+            <multiattack-editor />
           </q-list>
         </div>
       </template>
@@ -44,6 +46,8 @@ import ResistancesEditor from 'src/components/editor/ResistancesEditor.vue'
 import TraitsEditor from 'src/components/editor/TraitsEditor.vue'
 import SpellcastingEditor from 'src/components/editor/SpellcastingEditor.vue'
 import AttacksEditor from 'src/components/editor/AttacksEditor.vue'
+import MultiattackEditor from 'src/components/editor/MultiattackEditor.vue'
+import ActionsEditor from '../components/editor/ActionsEditor.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
@@ -58,6 +62,8 @@ export default defineComponent({
     TraitsEditor,
     SpellcastingEditor,
     AttacksEditor,
+    MultiattackEditor,
+    ActionsEditor,
   },
   setup() {
     const splitterModel = ref(66)
