@@ -13,6 +13,7 @@ import {
   processAttack,
   processClassSpellcasting,
   processInnateSpellcasting,
+  processMultiattack,
   processTrait,
 } from './processTokens'
 import N2W from 'number-to-words'
@@ -181,6 +182,10 @@ export function useTextRenderer() {
       .map((a) => processAction(a, monster))
   })
 
+  const multiattacks = computed(() =>
+    processMultiattack(monster.multiattacks, monster)
+  )
+
   return {
     stats,
     hp,
@@ -201,5 +206,6 @@ export function useTextRenderer() {
     innateSpellcastingLists,
     attacks,
     actions,
+    multiattacks,
   }
 }

@@ -212,6 +212,10 @@ export default {
       attackHeader: 'Attacks',
       actionHeader: 'Actions',
       group: 'Multiattack Group {0}',
+      attack: '{a} attack | {a} attacks',
+      action: 'the {a} action {count} time | the {a} action {count} times',
+      postscript: 'Postscript',
+      help: "Rendered multiattack entries can be accessed with the {'{'}multiattack.rendered{'}'} token. As an example, if you wanted to access the rendered version of the first multiattack group's first attack, you would use {'{'}multiattack.rendered[0].attacks[0]{'}'}.",
     },
     action: {
       label: 'Actions',

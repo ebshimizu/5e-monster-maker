@@ -137,8 +137,13 @@ export const useMonsterStore = defineStore('monster', {
       customInnatePreamble: '',
     },
     attacks: [],
-    multiattacks: [],
     actions: [],
+    multiattacks: [],
+    multiattackOptions: {
+      useCustomRenderer: false,
+      customMultiattackRenderer: '',
+      postscript: '',
+    },
   }),
   getters: {
     statsWithModifiers: (state) => {

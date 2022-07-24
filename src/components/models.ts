@@ -230,8 +230,13 @@ export interface Monster {
     customInnatePreamble: string
   }
   attacks: DndAttack[]
-  multiattacks: Multiattack[]
   actions: MonsterAction[]
+  multiattacks: Multiattack[]
+  multiattackOptions: {
+    useCustomRenderer: boolean
+    customMultiattackRenderer: string
+    postscript: string
+  }
 }
 
 export interface Spells {

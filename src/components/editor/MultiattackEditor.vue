@@ -105,6 +105,65 @@
           </q-card-section>
         </q-card>
       </q-card-section>
+      <q-card-section class="row">
+        <q-input
+          v-model="monster.multiattackOptions.postscript"
+          :label="$t('editor.multiattack.postscript')"
+          class="col-12"
+        >
+          <template #after>
+            <q-btn
+              push
+              :icon="
+                monster.multiattackOptions.useCustomRenderer
+                  ? 'edit'
+                  : 'edit_off'
+              "
+              :color="
+                monster.multiattackOptions.useCustomRenderer
+                  ? 'warning'
+                  : 'dark'
+              "
+              size="md"
+              @click="
+                monster.multiattackOptions.useCustomRenderer =
+                  !monster.multiattackOptions.useCustomRenderer
+              "
+            >
+              <q-tooltip class="text-body2">{{
+                monster.multiattackOptions.useCustomRenderer
+                  ? $t('editor.attack.useCustomRenderer')
+                  : $t('editor.attack.useDefaultRenderer')
+              }}</q-tooltip></q-btn
+            >
+          </template>
+        </q-input>
+        <q-slide-transition>
+          <div
+            v-show="monster.multiattackOptions.useCustomRenderer"
+            class="col-12 q-mt-md"
+          >
+            <monster-text-editor
+              :field="monster.multiattackOptions.customMultiattackRenderer"
+              i18n-label-key="editor.multiattack.label"
+              token-category="none"
+              :show-reset="true"
+              @update:model-value="
+                          (value: string) =>
+                            (monster.multiattackOptions.customMultiattackRenderer =
+                              value)
+                        "
+              @reset="
+                monster.multiattackOptions.customMultiattackRenderer =
+                  '{multiattack.all}. {multiattack.postscript}'
+              "
+            />
+            <div class="text-caption full-width">
+              {{ $t('editor.multiattack.help') }}
+            </div>
+          </div>
+        </q-slide-transition>
+      </q-card-section>
       <q-card-actions>
         <q-btn
           color="positive"
@@ -120,9 +179,13 @@
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent } from 'vue'
+import MonsterTextEditor from './MonsterTextEditor.vue'
 
 export default defineComponent({
   name: 'MultiattackEditor',
+  components: {
+    MonsterTextEditor,
+  },
   setup() {
     const monster = useMonsterStore()
 

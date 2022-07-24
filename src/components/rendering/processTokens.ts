@@ -13,6 +13,7 @@ export type MonsterContext =
   | Monster['spellcasting']
   | DndAttack
   | MonsterAction
+  | Monster['multiattacks']
 
 export type MonsterContextType =
   | 'none'
@@ -20,6 +21,7 @@ export type MonsterContextType =
   | 'attack'
   | 'spell'
   | 'action'
+  | 'multiattack'
 
 export function listJoin(list: string[], sep: string) {
   if (list.length === 1) return list[0]
@@ -286,6 +288,105 @@ export function processActionTokens(input: string, context: MonsterAction) {
   return input
 }
 
+export function processMultiattackTokens(
+  input: string,
+  context: Monster['multiattacks'],
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+
+  // multiattack is a rather unique renderer at the moment
+  // we're going to construct a different data structure while rendering (this might form the basis
+  // of the planned revision in 2.1)
+  const renderedMa: { attacks: string[]; actions: string[]; full: string }[] =
+    []
+
+  for (const ma of context) {
+    // map attacks
+    const collatedAttacks: Record<string, number> = {}
+
+    ma.attacks.forEach((aId) => {
+      if (!(aId in collatedAttacks)) {
+        collatedAttacks[aId] = 0
+      }
+
+      collatedAttacks[aId] += 1
+    })
+
+    // render attacks
+    const attacks = Object.entries(collatedAttacks).map(([id, count]) => {
+      return t(
+        'editor.multiattack.attack',
+        { a: `${N2W.toWords(count)} ${monster.attackName(id)}` },
+        count
+      )
+    })
+
+    // map actions
+    const collatedActions: Record<string, number> = {}
+
+    ma.actions.forEach((aId) => {
+      if (!(aId in collatedActions)) {
+        collatedActions[aId] = 0
+      }
+
+      collatedActions[aId] += 1
+    })
+
+    // render actions
+    const actions = Object.entries(collatedActions).map(([id, count]) => {
+      return t(
+        'editor.multiattack.action',
+        {
+          a: monster.actionName(id),
+          count: N2W.toWords(count),
+        },
+        count
+      )
+    })
+
+    // the full string
+    // TODO: this isn't very i18n friendly
+    let multiattackAll = ''
+    if (actions.length > 0) {
+      multiattackAll = `uses ${listJoin(actions, ', ')}${
+        actions.length > 0 ? ` followed by ${listJoin(attacks, ', ')}` : ''
+      }`
+    } else {
+      multiattackAll = `makes ${listJoin(attacks, ', ')}`
+    }
+
+    renderedMa.push({
+      attacks,
+      actions,
+      full: multiattackAll,
+    })
+  }
+
+  // render everything
+  const multiattackAll = `{NAME} ${renderedMa
+    .map((ma) => ma.full)
+    .join(' or ')}`
+
+  // ok so now the renderedMa object is the context
+  input = input.replace(/\{multiattack.all\}/gi, multiattackAll)
+
+  input = input.replace(
+    /\{multiattack.postscript\}/gi,
+    monster.multiattackOptions.postscript
+  )
+
+  // context tokens accessible via "rendered"
+  const generic = RegExp(/\{(?:multiattack).([\w\d\[\].]+)}/gi)
+  input = input.replace(generic, (match, prop) => {
+    const value = _.get({ rendered: renderedMa }, prop)
+
+    return value
+  })
+
+  return input
+}
+
 export function processContextTokens(
   input: string,
   context: MonsterContext,
@@ -305,6 +406,12 @@ export function processContextTokens(
     input = processAttackTokens(input, context as DndAttack, monster)
   } else if (contextType === 'action') {
     input = processActionTokens(input, context as MonsterAction)
+  } else if (contextType === 'multiattack') {
+    input = processMultiattackTokens(
+      input,
+      context as Monster['multiattacks'],
+      monster
+    )
   }
 
   // generic tokens
@@ -424,6 +531,29 @@ export function processInnateSpellcasting(
       context,
       monster,
       'spell'
+    )
+  }
+}
+
+export function processMultiattack(
+  contextRef: MaybeRef<Monster['multiattacks']>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const context = unref(contextRef)
+  if (monster.multiattackOptions.useCustomRenderer) {
+    return processTokens(
+      monster.multiattackOptions.customMultiattackRenderer,
+      context,
+      monster,
+      'multiattack'
+    )
+  } else {
+    // not doing i18n for this right now since it's just tokens.
+    return processTokens(
+      '{multiattack.all}. {multiattack.postscript}',
+      context,
+      monster,
+      'multiattack'
     )
   }
 }

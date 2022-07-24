@@ -133,12 +133,10 @@
       </div>
     </div>
     <h3 class="section">Actions</h3>
-    <!--
-    <div class="multiattack" v-if="monster.multiattacks.length > 0">
+    <div v-if="monster.multiattacks.length > 0" class="multiattack">
       <span class="name">Multiattack.</span>
-      {{ renderMultiattacks() }}
+      {{ multiattacks }}
     </div>
-    -->
     <div
       v-for="(attack, idx) in attacks"
       :key="idx"
@@ -287,6 +285,10 @@ export default defineComponent({
       textRenderer.actions.value.map((a) => sanitizeWebString(a))
     )
 
+    const multiattacks = computed(() =>
+      sanitizeWebString(textRenderer.multiattacks.value)
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -295,6 +297,7 @@ export default defineComponent({
       traits,
       attacks,
       actions,
+      multiattacks,
     }
   },
 })
