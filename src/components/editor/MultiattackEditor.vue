@@ -145,7 +145,6 @@
             <monster-text-editor
               :field="monster.multiattackOptions.customMultiattackRenderer"
               i18n-label-key="editor.multiattack.label"
-              token-category="none"
               :show-reset="true"
               @update:model-value="
                           (value: string) =>
