@@ -85,7 +85,7 @@
 <script lang="ts">
 import { useRechargeTimes } from 'src/data/RECHARGE_TIME'
 import { useMonsterStore } from 'src/stores/monster-store'
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import CrAnnotationCard from './CrAnnotationCard.vue'
@@ -100,7 +100,7 @@ export default defineComponent({
 
     return {
       monster,
-      traits: monster.traits,
+      traits: computed(() => monster.traits),
       rechargeTimeOptions,
       autoUpdateCr,
       printCrSummary,

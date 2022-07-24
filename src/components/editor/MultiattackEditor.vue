@@ -178,7 +178,7 @@
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 
 export default defineComponent({
@@ -191,7 +191,7 @@ export default defineComponent({
 
     return {
       monster,
-      multiattacks: monster.multiattacks,
+      multiattacks: computed(() => monster.multiattacks),
     }
   },
 })
