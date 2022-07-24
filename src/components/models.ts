@@ -153,6 +153,12 @@ export interface DndAttack {
   customRenderer: string
 }
 
+export interface LegendaryAction {
+  id: string
+  actionId: string
+  cost: number
+}
+
 // the big one is the monster definition
 export interface Monster {
   name: string
@@ -236,6 +242,12 @@ export interface Monster {
     useCustomRenderer: boolean
     customMultiattackRenderer: string
     postscript: string
+  }
+  legendaryActions: {
+    count: number
+    actions: LegendaryAction[]
+    useCustomPreamble: boolean
+    customPreamble: string
   }
 }
 

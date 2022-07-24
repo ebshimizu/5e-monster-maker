@@ -144,6 +144,12 @@ export const useMonsterStore = defineStore('monster', {
       customMultiattackRenderer: '',
       postscript: '',
     },
+    legendaryActions: {
+      count: 0,
+      actions: [],
+      useCustomPreamble: false,
+      customPreamble: '',
+    },
   }),
   getters: {
     statsWithModifiers: (state) => {

@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="mdi-sword-cross"
     :label="$t('editor.multiattack.label')"
   >

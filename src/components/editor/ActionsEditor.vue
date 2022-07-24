@@ -6,7 +6,11 @@
   >
     <q-card>
       <q-card-section class="row">
-        <q-list bordered class="rounded-borders bg-blue-10 full-width">
+        <q-list
+          bordered
+          separator
+          class="rounded-borders bg-blue-10 full-width"
+        >
           <q-expansion-item
             v-for="(action, idx) in actions"
             :key="action.id"

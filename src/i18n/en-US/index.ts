@@ -230,6 +230,10 @@ export default {
       save: 'Save Action',
       recharge: '(Recharge {0})',
     },
+    legendary: {
+      label: 'Legendary Actions',
+      caption: 'Mark existing Attacks or Actions as Legendary',
+    },
     proficient: 'Proficient',
     override: 'Override',
     expertise: 'Expertise',
