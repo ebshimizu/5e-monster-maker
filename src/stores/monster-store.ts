@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { defineStore } from 'pinia'
 import {
   defaultAction,
@@ -21,6 +22,7 @@ import { DICE } from 'src/data/DICE'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
 import { SKILL } from 'src/data/SKILL'
 import { v4 as uuidv4 } from 'uuid'
+import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
 
 export const MONSTER_VERSION = 5
@@ -328,6 +330,62 @@ export const useMonsterStore = defineStore('monster', {
         }
       }
     },
+    attacksAndActions: (state) => {
+      // concatenates actions and attacks for use in a list
+      const { t } = useI18n()
+
+      const actions = state.actions.map((a) => {
+        return {
+          name: a.name,
+          id: a.id,
+          typeInternal: 'action',
+          type: t('editor.action.tokenLabel'),
+        }
+      })
+
+      const attacks = state.attacks.map((a) => {
+        return {
+          name: a.name,
+          id: a.id,
+          typeInternal: 'attack',
+          type: t('editor.attack.tokenLabel'),
+        }
+      })
+
+      return _.sortBy([...actions, ...attacks], 'name')
+    },
+    legendaryActionName: (state) => {
+      return (id: string) => {
+        const maybeAction = state.actions.find((a) => a.id === id)
+
+        if (maybeAction) return maybeAction.name
+
+        const maybeAttack = state.attacks.find((a) => a.id === id)
+
+        if (maybeAttack) return maybeAttack.name
+
+        return '[Invalid Id]'
+      }
+    },
+    legendaryAction: (state) => {
+      return (id: string) => {
+        const maybeAction = state.actions.find((a) => a.id === id)
+
+        if (maybeAction)
+          return {
+            action: maybeAction,
+            type: 'action',
+          }
+
+        const maybeAttack = state.attacks.find((a) => a.id === id)
+
+        if (maybeAttack)
+          return {
+            action: maybeAttack,
+            type: 'attack',
+          }
+      }
+    },
   },
   actions: {
     setCR(value: number) {
@@ -561,6 +619,26 @@ export const useMonsterStore = defineStore('monster', {
 
       if (index !== -1) {
         this.actions.splice(index, 1)
+      }
+    },
+    addLegendaryAction(actionId: string) {
+      if (
+        this.legendaryActions.actions.find((la) => la.actionId === actionId) ==
+        null
+      ) {
+        this.legendaryActions.actions.push({
+          actionId,
+          cost: 1,
+        })
+      }
+    },
+    deleteLegendaryAction(actionId: string) {
+      const idx = this.legendaryActions.actions.findIndex(
+        (a) => a.actionId === actionId
+      )
+
+      if (idx !== -1) {
+        this.legendaryActions.actions.splice(idx, 1)
       }
     },
   },

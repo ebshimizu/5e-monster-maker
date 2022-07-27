@@ -14,6 +14,8 @@ export type MonsterContext =
   | DndAttack
   | MonsterAction
   | Monster['multiattacks']
+  | Monster['legendaryActions']
+  | undefined
 
 export type MonsterContextType =
   | 'none'
@@ -22,6 +24,7 @@ export type MonsterContextType =
   | 'spell'
   | 'action'
   | 'multiattack'
+  | 'legendary'
 
 export function listJoin(list: string[], sep: string) {
   if (list.length === 1) return list[0]
@@ -387,6 +390,21 @@ export function processMultiattackTokens(
   return input
 }
 
+export function processLegendaryTokens(
+  input: string,
+  context: Monster['legendaryActions'],
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+
+  input = input.replace(
+    /\{legendaryActions.actions\}/gi,
+    t('editor.action.plural', context.count)
+  )
+
+  return input
+}
+
 export function processContextTokens(
   input: string,
   context: MonsterContext,
@@ -412,17 +430,25 @@ export function processContextTokens(
       context as Monster['multiattacks'],
       monster
     )
+  } else if (contextType === 'legendary') {
+    input = processLegendaryTokens(
+      input,
+      context as Monster['legendaryActions'],
+      monster
+    )
   }
 
-  // generic tokens
-  const generic = RegExp(
-    /\{(?:trait|attack|action|spellcasting).([\w\d\[\].]+)}/gi
-  )
-  input = input.replace(generic, (match, prop) => {
-    const value = _.get(context, prop)
+  if (context != null) {
+    // generic tokens
+    const generic = RegExp(
+      /\{(?:trait|attack|action|spellcasting|legendaryActions).([\w\d\[\].]+)}/gi
+    )
+    input = input.replace(generic, (match, prop) => {
+      const value = _.get(context, prop)
 
-    return value
-  })
+      return value
+    })
+  }
 
   return input
 }
@@ -556,6 +582,77 @@ export function processMultiattack(
       'multiattack'
     )
   }
+}
+
+export function processLegendaryPreamble(
+  contextRef: MaybeRef<Monster['legendaryActions']>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+  const context = unref(contextRef)
+
+  if (monster.legendaryActions.useCustomPreamble) {
+    return processTokens(
+      monster.legendaryActions.customPreamble,
+      context,
+      monster,
+      'legendary'
+    )
+  } else {
+    return processTokens(
+      t('presets.legendaryActions'),
+      context,
+      monster,
+      'legendary'
+    )
+  }
+}
+
+export function processLegendaryAction(
+  actionId: string,
+  cost: number,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+  const action = monster.legendaryAction(actionId)
+
+  if (action) {
+    // process the name
+    const count = cost > 1 ? t('editor.legendary.renderedCost', [cost]) : ''
+
+    let description = ''
+    if (action.type === 'action') {
+      // process
+      if (action.action.legendaryOnly) {
+        // need it without the name attached
+        description = processTokens(
+          action.action.description,
+          action.action as MonsterAction,
+          monster,
+          'action'
+        )
+      } else {
+        description = processTokens(
+          t('presets.legendaryAction', [action.action.name]),
+          undefined,
+          monster,
+          'none'
+        )
+      }
+    } else if (action.type === 'attack') {
+      // process
+      description = processTokens(
+        t('presets.legendaryAttack', [action.action.name]),
+        undefined,
+        monster,
+        'none'
+      )
+    }
+
+    return `<b><i>${action.action.name}${count}.</b></i> ${description}`
+  }
+
+  return '[Invalid Attack or Action ID]'
 }
 
 export function sanitizeWebString(input: string) {

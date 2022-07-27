@@ -194,6 +194,7 @@ export default {
       useCustomRenderer: 'Using Custom Renderer',
       useDefaultRenderer: 'Using Default Renderer',
       customRenderer: 'Attack',
+      tokenLabel: 'Attack',
       distanceLabel: 'Distance',
       distance: '{0} {1} Attack',
       meleeRange: 'reach {0} ft.',
@@ -229,10 +230,16 @@ export default {
         'Actions marked as Legendary Only will not display in the rendered list of actions, but can still be used as legendary actions.',
       save: 'Save Action',
       recharge: '(Recharge {0})',
+      plural: 'action | actions',
     },
     legendary: {
       label: 'Legendary Actions',
       caption: 'Mark existing Attacks or Actions as Legendary',
+      count: 'Actions',
+      add: 'Add Legendary Action',
+      none: 'No Attacks or Actions Available',
+      cost: 'Cost',
+      renderedCost: ' (Costs {0} Actions)',
     },
     proficient: 'Proficient',
     override: 'Override',
@@ -408,5 +415,9 @@ export default {
       "<b><i>Innate Spellcasting.</b></i> {'{'}NAME{'}'}'s innate spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.atWillNotes{'}'} It can cast the following spells, requiring no material components:",
     attack:
       "<b><i>{'{'}attack.name{'}'}.</b></i> <i>{'{'}attack.distance{'}'}:</i> {'{'}attack.modifier{'}'} to hit, {'{'}attack.range{'}'}, {'{'}attack.targets{'}'}. <i>Hit:</i> {'{'}attack.damage{'}'}{'{'}attack.conditionalDamage{'}'}{'{'}attack.additionalDamage{'}'}. {'{'}attack.description{'}'}",
+    legendaryActions:
+      "{'{'}NAME{'}'} can take {'{'}legendaryActions.count{'}'} legendary {'{'}legendaryActions.actions{'}'}, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. {'{'}NAME{'}'} regains spent legendary actions at the start of its turn.",
+    legendaryAttack: "{'{'}NAME{'}'} makes a {0} attack.",
+    legendaryAction: "{'{'}NAME{'}'} uses the {0} action.",
   },
 }

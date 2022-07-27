@@ -154,7 +154,6 @@ export interface DndAttack {
 }
 
 export interface LegendaryAction {
-  id: string
   actionId: string
   cost: number
 }

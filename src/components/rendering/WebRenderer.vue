@@ -151,36 +151,17 @@
         v-html="action"
       ></div>
     </div>
-    <!--
-    <div class="legendary-actions" v-if="monster.legendaryActions.count > 0">
+    <div v-if="monster.legendaryActions.count > 0" class="legendary-actions">
       <h3 class="section">Legendary Actions</h3>
-      <div class="preamble">
-        The {{ monster.name }} can take
-        {{ monster.legendaryActions.count }} legendary action{{
-          monster.legendaryActions.count === 1 ? '' : 's'
-        }}, choosing from the options below. Only one legendary action option
-        can be used at a time and only at the end of another creature's turn.
-        The {{ monster.name }} regains spent legendary actions at the start of
-        its turn.
-      </div>
+      <div class="preamble" v-html="legendaryPreamble"></div>
       <div
+        v-for="(action, idx) in legendaryActions"
+        :key="idx"
         class="action legendary"
-        v-for="action in resolvedLegendaryActions"
-        :key="action.id"
-      >
-        <span class="name"
-          >{{ action.name
-          }}{{
-            action.cost > 1 ? ` (Costs ${action.cost} Actions)` : ''
-          }}.</span
-        >
-        {{
-          action.legendaryOnly
-            ? processTokens(action.description)
-            : duplicateLegendary(action)
-        }}
-      </div>
+        v-html="action"
+      ></div>
     </div>
+    <!--
     <div class="mythic-actions" v-if="monster.mythicActions.actions.length > 0">
       <h3 class="section">Mythic Actions</h3>
       <div class="preamble">
@@ -289,6 +270,14 @@ export default defineComponent({
       sanitizeWebString(textRenderer.multiattacks.value)
     )
 
+    const legendaryPreamble = computed(() =>
+      sanitizeWebString(textRenderer.legendaryPreamble.value)
+    )
+
+    const legendaryActions = computed(() =>
+      textRenderer.legendaryActions.value.map((a) => sanitizeWebString(a))
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -298,6 +287,8 @@ export default defineComponent({
       attacks,
       actions,
       multiattacks,
+      legendaryPreamble,
+      legendaryActions,
     }
   },
 })
@@ -429,6 +420,7 @@ export default defineComponent({
     color: #58180d;
     border-bottom: 1px solid #58180d;
     margin-bottom: 4px;
+    line-height: 1.5rem;
   }
 }
 </style>

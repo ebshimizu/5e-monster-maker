@@ -13,10 +13,14 @@ import {
   processAttack,
   processClassSpellcasting,
   processInnateSpellcasting,
+  processLegendaryAction,
+  processLegendaryPreamble,
   processMultiattack,
+  processTokens,
   processTrait,
 } from './processTokens'
 import N2W from 'number-to-words'
+import { MonsterAction } from '../models'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
@@ -186,6 +190,16 @@ export function useTextRenderer() {
     processMultiattack(monster.multiattacks, monster)
   )
 
+  const legendaryPreamble = computed(() =>
+    processLegendaryPreamble(monster.legendaryActions, monster)
+  )
+
+  const legendaryActions = computed(() =>
+    monster.legendaryActions.actions.map((a) =>
+      processLegendaryAction(a.actionId, a.cost, monster)
+    )
+  )
+
   return {
     stats,
     hp,
@@ -207,5 +221,7 @@ export function useTextRenderer() {
     attacks,
     actions,
     multiattacks,
+    legendaryPreamble,
+    legendaryActions,
   }
 }
