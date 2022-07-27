@@ -13,9 +13,32 @@
           type="number"
           min="0"
           :label="$t('editor.legendary.count')"
-          class="col-2 q-pa-sm"
-        />
-        <div class="col-10 q-pa-sm flex items-end">
+          class="col-3 q-pa-sm"
+        >
+          <template #after>
+            <q-btn
+              push
+              :icon="
+                monster.legendaryActions.useCustomPreamble ? 'edit' : 'edit_off'
+              "
+              :color="
+                monster.legendaryActions.useCustomPreamble ? 'warning' : 'dark'
+              "
+              size="md"
+              @click="
+                monster.legendaryActions.useCustomPreamble =
+                  !monster.legendaryActions.useCustomPreamble
+              "
+            >
+              <q-tooltip class="text-body2">{{
+                monster.legendaryActions.useCustomPreamble
+                  ? $t('editor.legendary.useCustomPreamble')
+                  : $t('editor.legendary.useDefaultPreamble')
+              }}</q-tooltip></q-btn
+            >
+          </template>
+        </q-input>
+        <div class="col-9 q-pa-sm flex items-center">
           <q-btn-dropdown
             :color="
               monster.attacksAndActions.length === 0 ? 'dark' : 'positive'
@@ -49,6 +72,29 @@
             </q-list>
           </q-btn-dropdown>
         </div>
+        <q-slide-transition>
+          <div
+            v-show="monster.legendaryActions.useCustomPreamble"
+            class="col-12 q-mt-md"
+          >
+            <monster-text-editor
+              :field="monster.legendaryActions.customPreamble"
+              i18n-label-key="editor.legendary.preamble"
+              :show-reset="true"
+              token-category="legendary"
+              @update:model-value="
+                          (value: string) =>
+                            (monster.legendaryActions.customPreamble =
+                              value)
+                        "
+              @reset="
+                monster.legendaryActions.customPreamble = $t(
+                  'presets.legendaryActions'
+                )
+              "
+            />
+          </div>
+        </q-slide-transition>
       </q-card-section>
       <q-card-section class="row">
         <template
@@ -88,10 +134,11 @@
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, computed } from 'vue'
+import MonsterTextEditor from './MonsterTextEditor.vue'
 
 export default defineComponent({
   name: 'LegendaryActionsEditor',
-  // components: { MonsterTextEditor },
+  components: { MonsterTextEditor },
   setup() {
     const monster = useMonsterStore()
 

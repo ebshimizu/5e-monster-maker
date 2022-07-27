@@ -190,6 +190,8 @@ export default defineComponent({
         return tokens.attackDamageTokens.value
       } else if (props.tokenCategory === 'action') {
         return tokens.actionTokens.value
+      } else if (props.tokenCategory === 'legendary') {
+        return tokens.legendaryTokens.value
       }
 
       return null
@@ -204,6 +206,8 @@ export default defineComponent({
         return 'editor.attack.customRenderer'
       } else if (props.tokenCategory === 'action') {
         return 'editor.action.tokenLabel'
+      } else if (props.tokenCategory === 'legendary') {
+        return 'editor.legendary.label'
       }
 
       return ''

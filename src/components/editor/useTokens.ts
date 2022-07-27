@@ -175,6 +175,17 @@ export function useTokens() {
     },
   ])
 
+  const legendaryTokens = computed(() => [
+    {
+      label: t('legendary.actionCount'),
+      token: '{legendaryActions.count',
+    },
+    {
+      label: t('legendary.count'),
+      token: '{legendaryActions.actions}',
+    },
+  ])
+
   return {
     attackTokens,
     saveTokens,
@@ -183,5 +194,6 @@ export function useTokens() {
     spellTokens,
     attackDamageTokens,
     actionTokens,
+    legendaryTokens,
   }
 }
