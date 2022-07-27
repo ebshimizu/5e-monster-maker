@@ -281,6 +281,10 @@ export default {
       damage: 'damage',
       ehp: 'Effective HP',
     },
+    mythic: {
+      label: 'Mythic Actions',
+      caption: 'Mythic trigger conditions and additional actions',
+    },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)
@@ -425,5 +429,10 @@ export default {
       "{'{'}NAME{'}'} can take {'{'}legendaryActions.count{'}'} legendary {'{'}legendaryActions.actions{'}'}, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. {'{'}NAME{'}'} regains spent legendary actions at the start of its turn.",
     legendaryAttack: "{'{'}NAME{'}'} makes a {0} attack.",
     legendaryAction: "{'{'}NAME{'}'} uses the {0} action.",
+    mythicRecharge: 'Recharges after a Short or Long Rest',
+    mythicDescription:
+      "If the {'{'}NAME{'}'} would be reduced to 0 hit points, its current hit point total instead resets to {'{'}monster.hp{'}'} hit points. Additionally, the {'{'}NAME{'}'} can now use the options in the \"Mythic Actions\" section for 1 hour. Award a party an additional [x]XP ([x] XP total) for defeating the {'{'}NAME{'}'} after this trait activates.",
+    mythicPreamble:
+      "If the {'{'}NAME{'}'}'s mythic trait is active, it can use the options below as legendary actions.",
   },
 }

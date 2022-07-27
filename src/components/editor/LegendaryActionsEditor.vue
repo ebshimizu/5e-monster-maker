@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="fa-solid fa-dragon"
     :label="$t('editor.legendary.label')"
     :caption="$t('editor.legendary.caption')"

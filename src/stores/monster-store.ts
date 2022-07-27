@@ -28,131 +28,143 @@ import { useSpellsStore } from './spells-store'
 export const MONSTER_VERSION = 5
 
 export const useMonsterStore = defineStore('monster', {
-  state: (): Monster => ({
-    name: 'My New Monster',
-    useArticleInToken: false,
-    saveVersion: MONSTER_VERSION,
-    size: 'Medium',
-    type: 'humanoid',
-    alignment: '',
-    languages: '',
-    AC: 10,
-    ACType: '',
-    CR: 0,
-    proficiency: 4,
-    proficiencyOverride: false,
-    HP: {
-      HD: 1,
-      type: DICE.d8,
-      modifier: 0,
-    },
-    hpModifierOverride: false,
-    hpDieTypeOverride: false,
-    stats: {
-      STR: 10,
-      DEX: 10,
-      CON: 10,
-      INT: 10,
-      WIS: 10,
-      CHA: 10,
-    },
-    saves: {
-      STR: {
-        proficient: false,
+  state: (): Monster => {
+    // uh is this legal
+    const { t } = useI18n()
+
+    return {
+      name: 'My New Monster',
+      useArticleInToken: false,
+      saveVersion: MONSTER_VERSION,
+      size: 'Medium',
+      type: 'humanoid',
+      alignment: '',
+      languages: '',
+      AC: 10,
+      ACType: '',
+      CR: 0,
+      proficiency: 4,
+      proficiencyOverride: false,
+      HP: {
+        HD: 1,
+        type: DICE.d8,
+        modifier: 0,
+      },
+      hpModifierOverride: false,
+      hpDieTypeOverride: false,
+      stats: {
+        STR: 10,
+        DEX: 10,
+        CON: 10,
+        INT: 10,
+        WIS: 10,
+        CHA: 10,
+      },
+      saves: {
+        STR: {
+          proficient: false,
+          override: false,
+          overrideValue: 0,
+        },
+        DEX: {
+          proficient: false,
+          override: false,
+          overrideValue: 0,
+        },
+        CON: {
+          proficient: false,
+          override: false,
+          overrideValue: 0,
+        },
+        INT: {
+          proficient: false,
+          override: false,
+          overrideValue: 0,
+        },
+        WIS: {
+          proficient: false,
+          override: false,
+          overrideValue: 0,
+        },
+        CHA: {
+          proficient: false,
+          override: false,
+          overrideValue: 0,
+        },
+      },
+      speeds: [
+        {
+          id: uuidv4(),
+          type: 'walk',
+          speed: 30,
+          note: '',
+        },
+      ],
+      skills: [],
+      resistances: [],
+      immunities: [],
+      vulnerabilities: [],
+      conditions: [],
+      senses: {
+        blindsight: 0,
+        darkvision: 0,
+        tremorsense: 0,
+        truesight: 0,
+      },
+      passivePerception: {
         override: false,
         overrideValue: 0,
       },
-      DEX: {
-        proficient: false,
-        override: false,
-        overrideValue: 0,
+      traits: [],
+      spellcasting: {
+        stat: 'INT',
+        save: {
+          override: false,
+          overrideValue: 0,
+        },
+        modifier: {
+          override: false,
+          overrideValue: 0,
+        },
+        attack: {
+          override: false,
+          overrideValue: 0,
+        },
+        class: undefined,
+        level: 1,
+        slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        atWill: [],
+        standard: [],
+        notes: '',
+        atWillNotes: '',
+        useCustomClassPreamble: false,
+        customClassPreamble: '',
+        useCustomInnatePreamble: false,
+        customInnatePreamble: '',
       },
-      CON: {
-        proficient: false,
-        override: false,
-        overrideValue: 0,
-      },
-      INT: {
-        proficient: false,
-        override: false,
-        overrideValue: 0,
-      },
-      WIS: {
-        proficient: false,
-        override: false,
-        overrideValue: 0,
-      },
-      CHA: {
-        proficient: false,
-        override: false,
-        overrideValue: 0,
-      },
-    },
-    speeds: [
-      {
-        id: uuidv4(),
-        type: 'walk',
-        speed: 30,
-        note: '',
-      },
-    ],
-    skills: [],
-    resistances: [],
-    immunities: [],
-    vulnerabilities: [],
-    conditions: [],
-    senses: {
-      blindsight: 0,
-      darkvision: 0,
-      tremorsense: 0,
-      truesight: 0,
-    },
-    passivePerception: {
-      override: false,
-      overrideValue: 0,
-    },
-    traits: [],
-    spellcasting: {
-      stat: 'INT',
-      save: {
-        override: false,
-        overrideValue: 0,
-      },
-      modifier: {
-        override: false,
-        overrideValue: 0,
-      },
-      attack: {
-        override: false,
-        overrideValue: 0,
-      },
-      class: undefined,
-      level: 1,
-      slots: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      atWill: [],
-      standard: [],
-      notes: '',
-      atWillNotes: '',
-      useCustomClassPreamble: false,
-      customClassPreamble: '',
-      useCustomInnatePreamble: false,
-      customInnatePreamble: '',
-    },
-    attacks: [],
-    actions: [],
-    multiattacks: [],
-    multiattackOptions: {
-      useCustomRenderer: false,
-      customMultiattackRenderer: '',
-      postscript: '',
-    },
-    legendaryActions: {
-      count: 0,
+      attacks: [],
       actions: [],
-      useCustomPreamble: false,
-      customPreamble: '',
-    },
-  }),
+      multiattacks: [],
+      multiattackOptions: {
+        useCustomRenderer: false,
+        customMultiattackRenderer: '',
+        postscript: '',
+      },
+      legendaryActions: {
+        count: 0,
+        actions: [],
+        useCustomPreamble: false,
+        customPreamble: '',
+      },
+      mythicActions: {
+        triggerName: '',
+        triggerRecharge: t('presets.mythicRecharge'),
+        triggerDescription: t('presets.mythicDescription'),
+        preamble: t('presets.mythicPreamble'),
+        actions: [],
+      },
+    }
+  },
   getters: {
     statsWithModifiers: (state) => {
       const statKeys = Object.keys(state.stats) as (keyof typeof state.stats)[]

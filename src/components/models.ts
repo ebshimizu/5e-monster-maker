@@ -248,6 +248,13 @@ export interface Monster {
     useCustomPreamble: boolean
     customPreamble: string
   }
+  mythicActions: {
+    triggerName: string
+    triggerRecharge: string
+    triggerDescription: string
+    preamble: string
+    actions: LegendaryAction[]
+  }
 }
 
 export interface Spells {
