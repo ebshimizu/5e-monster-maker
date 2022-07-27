@@ -308,6 +308,40 @@ export const useMonsterStore = defineStore('monster', {
         return (base + extra) * attack.targets
       }
     },
+    expectedMultiattackDamage(): (id: string) => number {
+      return (id: string) => {
+        const multiattack = this.multiattacks.find((ma) => ma.id === id)
+
+        if (multiattack != null) {
+          const attackDamage = multiattack.attacks.map((attackId) => {
+            const attack = this.attacks.find((a) => a.id === attackId)
+
+            if (attack) {
+              return this.expectedAttackDamage(attack)
+            }
+            return 0
+          })
+
+          const actionDamage = multiattack.actions.map((actionId) => {
+            const action = this.actions.find((a) => a.id === actionId)
+
+            if (action) {
+              return action.crAnnotation.include
+                ? action.crAnnotation.maxDamage
+                : 0
+            }
+            return 0
+          })
+
+          return [...attackDamage, ...actionDamage].reduce(
+            (acc, current) => acc + current,
+            0
+          )
+        }
+
+        return 0
+      }
+    },
     attackName: (state) => {
       return (attackId: string) => {
         const attack = state.attacks.find((a) => a.id === attackId)

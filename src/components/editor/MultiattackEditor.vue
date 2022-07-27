@@ -11,7 +11,13 @@
             <div class="text-overline text-uppercase">
               {{ $t('editor.multiattack.group', [idx + 1]) }}
             </div>
-            <div class="text-caption">[estimated damage]</div>
+            <div class="text-caption">
+              {{
+                $t('editor.multiattack.estimatedDamage', [
+                  monster.expectedMultiattackDamage(ma.id),
+                ])
+              }}
+            </div>
           </q-card-section>
           <q-card-section>
             <div class="flex items-center" style="flex-wrap: nowrap; gap: 10px">
