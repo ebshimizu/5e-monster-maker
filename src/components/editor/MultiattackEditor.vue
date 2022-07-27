@@ -5,14 +5,9 @@
     :label="$t('editor.multiattack.label')"
   >
     <q-card>
-      <q-card-section>
-        <q-card
-          v-for="(ma, idx) in multiattacks"
-          :key="ma.id"
-          bordered
-          class="q-mb-sm"
-        >
-          <q-card-section class="bg-blue-10">
+      <q-card-section v-show="multiattacks.length > 0">
+        <q-card v-for="(ma, idx) in multiattacks" :key="ma.id" bordered>
+          <q-card-section class="bg-red-10">
             <div class="text-overline text-uppercase">
               {{ $t('editor.multiattack.group', [idx + 1]) }}
             </div>
@@ -100,6 +95,15 @@
                   }}</q-tooltip></q-btn
                 >
               </div>
+            </div>
+          </q-card-section>
+        </q-card>
+      </q-card-section>
+      <q-card-section v-show="multiattacks.length === 0">
+        <q-card bordered>
+          <q-card-section
+            ><div class="full-width flex items-center justify-center text-h6">
+              {{ $t('editor.multiattack.none') }}
             </div>
           </q-card-section>
         </q-card>

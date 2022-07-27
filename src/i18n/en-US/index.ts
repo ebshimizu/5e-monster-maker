@@ -210,6 +210,7 @@ export default {
       label: 'Multiattack',
       add: 'Add Multiattack Group',
       addAttack: '',
+      none: 'No Multiattack Groups Defined',
       attackHeader: 'Attacks',
       actionHeader: 'Actions',
       group: 'Multiattack Group {0}',
