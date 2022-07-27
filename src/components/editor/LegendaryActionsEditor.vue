@@ -40,15 +40,13 @@
         </q-input>
         <div class="col-9 q-pa-sm flex items-center">
           <q-btn-dropdown
-            :color="
-              monster.attacksAndActions.length === 0 ? 'dark' : 'positive'
-            "
+            :color="filteredActions.length === 0 ? 'dark' : 'positive'"
             :label="
-              monster.attacksAndActions.length === 0
+              filteredActions.length === 0
                 ? $t('editor.legendary.none')
                 : $t('editor.legendary.add')
             "
-            :disable="monster.attacksAndActions.length === 0"
+            :disable="filteredActions.length === 0"
             class="full-width"
           >
             <q-list>

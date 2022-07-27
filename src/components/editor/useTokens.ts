@@ -177,11 +177,11 @@ export function useTokens() {
 
   const legendaryTokens = computed(() => [
     {
-      label: t('legendary.actionCount'),
+      label: t('editor.legendary.actionCount'),
       token: '{legendaryActions.count',
     },
     {
-      label: t('legendary.count'),
+      label: t('editor.legendary.count'),
       token: '{legendaryActions.actions}',
     },
   ])
