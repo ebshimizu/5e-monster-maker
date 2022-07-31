@@ -165,18 +165,16 @@
         v-html="action"
       ></div>
     </div>
-    <!--
-    <div class="reactions" v-if="monster.reactions.length > 0">
+    <div v-if="monster.reactions.length > 0" class="reactions">
       <h3 class="section">Reactions</h3>
       <div
+        v-for="(reaction, idx) in reactions"
+        :key="idx"
         class="action reaction"
-        v-for="reaction in monster.reactions"
-        :key="reaction.id"
-      >
-        <span class="name">{{ reaction.name }}. </span
-        >{{ processTokens(reaction.description) }}
-      </div>
+        v-html="reaction"
+      ></div>
     </div>
+    <!--
     <div class="lair-actions" v-if="monster.lairActions.length > 0">
       <h3 class="section">Lair Actions</h3>
       <div class="preamble">
@@ -271,6 +269,10 @@ export default defineComponent({
       textRenderer.mythicActions.value.map((a) => sanitizeWebString(a))
     )
 
+    const reactions = computed(() =>
+      textRenderer.reactions.value.map((r) => sanitizeWebString(r))
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -285,6 +287,7 @@ export default defineComponent({
       mythicTrait,
       mythicPreamble,
       mythicActions,
+      reactions,
     }
   },
 })

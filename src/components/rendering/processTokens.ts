@@ -1,7 +1,13 @@
 import { MaybeRef } from '@vueuse/core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { unref } from 'vue'
-import { DndAttack, Monster, MonsterAction, MonsterTrait } from '../models'
+import {
+  DndAttack,
+  Monster,
+  MonsterAction,
+  MonsterReaction,
+  MonsterTrait,
+} from '../models'
 import { avgRoll, renderBonus } from './mathRendering'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'
@@ -504,6 +510,20 @@ export function processAction(
       'action'
     )
   }
+}
+
+export function processReaction(
+  contextRef: MaybeRef<MonsterReaction>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const context = unref(contextRef)
+
+  return processTokens(
+    `<b><i>${context.name}.</i></b> ${context.description}`,
+    undefined,
+    monster,
+    'none'
+  )
 }
 
 export function processAttack(

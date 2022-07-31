@@ -18,6 +18,7 @@ import {
   processMultiattack,
   processMythicActionPreamble,
   processMythicActionTrait,
+  processReaction,
   processTrait,
 } from './processTokens'
 import N2W from 'number-to-words'
@@ -214,6 +215,10 @@ export function useTextRenderer() {
     )
   )
 
+  const reactions = computed(() =>
+    monster.reactions.map((r) => processReaction(r, monster))
+  )
+
   return {
     stats,
     hp,
@@ -240,5 +245,6 @@ export function useTextRenderer() {
     mythicTrait,
     mythicPreamble,
     mythicActions,
+    reactions,
   }
 }

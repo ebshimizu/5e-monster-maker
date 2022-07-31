@@ -12,32 +12,62 @@
           separator
           class="rounded-borders bg-blue-10 full-width"
         >
+          <q-expansion-item
+            v-for="reaction in monster.reactions"
+            :key="reaction.id"
+            :label="reaction.name"
+            expand-separator
+          >
+            <q-card>
+              <q-card-section class="row">
+                <q-input
+                  v-model="reaction.name"
+                  :label="$t('monster.trait.name')"
+                  class="col-12 q-pa-sm"
+                />
+                <monster-text-editor
+                  :field="reaction.description"
+                  i18n-label-key="monster.trait.description"
+                  @update:model-value="
+                    (value: string) => {
+                      reaction.description = value
+                    }
+                  "
+                />
+              </q-card-section>
+              <q-card-actions align="center">
+                <q-btn
+                  color="negative"
+                  class="full-width"
+                  :label="$t('editor.reaction.delete')"
+                  @click="() => monster.deleteReaction(reaction.id)"
+                />
+              </q-card-actions>
+            </q-card>
+          </q-expansion-item>
         </q-list>
       </q-card-section>
 
       <q-card-actions align="center">
-        <!-- <q-btn
+        <q-btn
           color="positive"
           class="full-width"
           :label="$t('editor.reaction.add')"
           @click="monster.addReaction"
-        /> -->
+        />
       </q-card-actions>
     </q-card>
   </q-expansion-item>
 </template>
 
 <script lang="ts">
-import { useRechargeTimes } from 'src/data/RECHARGE_TIME'
 import { useMonsterStore } from 'src/stores/monster-store'
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
-import { useAutoUpdateCr } from './useAutoUpdateCr'
-import CrAnnotationCard from './CrAnnotationCard.vue'
 
 export default defineComponent({
   name: 'ReactionsEditor',
-  // components: { MonsterTextEditor, CrAnnotationCard },
+  components: { MonsterTextEditor },
   setup() {
     const monster = useMonsterStore()
 

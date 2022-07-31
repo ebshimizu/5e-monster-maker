@@ -21,7 +21,7 @@ import { CR } from 'src/data/CR'
 import { DICE } from 'src/data/DICE'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
 import { SKILL } from 'src/data/SKILL'
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4, v4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
 
@@ -705,6 +705,20 @@ export const useMonsterStore = defineStore('monster', {
 
       if (idx !== -1) {
         this.mythicActions.actions.splice(idx, 1)
+      }
+    },
+    addReaction() {
+      this.reactions.push({
+        id: v4(),
+        name: 'New Reaction',
+        description: '',
+      })
+    },
+    deleteReaction(reactionId: string) {
+      const idx = this.reactions.findIndex((r) => r.id === reactionId)
+
+      if (idx !== -1) {
+        this.reactions.splice(idx, 1)
       }
     },
   },

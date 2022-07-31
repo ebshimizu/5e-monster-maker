@@ -293,6 +293,7 @@ export default {
       label: 'Reactions',
       caption: '',
       add: 'Add Reaction',
+      delete: 'Delete Reaction',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
