@@ -129,7 +129,6 @@ import { ref, computed } from 'vue'
 import { spellArrayFilter } from '../filters'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import SearchableSpellSelect from './widgets/SearchableSpellSelect.vue'
-import N2W from 'number-to-words'
 
 export default defineComponent({
   name: 'ClassCastingEditor',

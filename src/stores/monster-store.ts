@@ -29,9 +29,6 @@ export const MONSTER_VERSION = 5
 
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
-    // uh is this legal
-    const { t } = useI18n()
-
     return {
       name: 'My New Monster',
       useArticleInToken: false,
@@ -158,9 +155,11 @@ export const useMonsterStore = defineStore('monster', {
       },
       mythicActions: {
         triggerName: '',
-        triggerRecharge: t('presets.mythicRecharge'),
-        triggerDescription: t('presets.mythicDescription'),
-        preamble: t('presets.mythicPreamble'),
+        triggerRecharge: 'Recharges after a Short or Long Rest',
+        triggerDescription:
+          'If the {NAME} would be reduced to 0 hit points, its current hit point total instead resets to {monster.hp} hit points. Additionally, the {NAME} can now use the options in the "Mythic Actions" section for 1 hour. Award a party an additional [x]XP ([x] XP total) for defeating the {}NAME} after this trait activates.',
+        preamble:
+          "If the {NAME}'s mythic trait is active, it can use the options below as legendary actions.",
         actions: [],
       },
     }
@@ -685,6 +684,26 @@ export const useMonsterStore = defineStore('monster', {
 
       if (idx !== -1) {
         this.legendaryActions.actions.splice(idx, 1)
+      }
+    },
+    addMythicAction(actionId: string) {
+      if (
+        this.mythicActions.actions.find((la) => la.actionId === actionId) ==
+        null
+      ) {
+        this.mythicActions.actions.push({
+          actionId,
+          cost: 1,
+        })
+      }
+    },
+    deleteMythicAction(actionId: string) {
+      const idx = this.mythicActions.actions.findIndex(
+        (a) => a.actionId === actionId
+      )
+
+      if (idx !== -1) {
+        this.mythicActions.actions.splice(idx, 1)
       }
     },
   },

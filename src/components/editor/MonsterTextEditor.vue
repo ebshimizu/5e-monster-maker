@@ -125,6 +125,7 @@ export default defineComponent({
     },
     tokenCategory: {
       type: String as PropType<MonsterContextType>,
+      default: 'none',
     },
     i18nLabelKey: {
       required: true,

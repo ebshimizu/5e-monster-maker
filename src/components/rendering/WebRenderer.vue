@@ -71,18 +71,12 @@
         class="trait"
         v-html="trait"
       ></div>
+      <div
+        v-if="monster.mythicActions.actions.length > 0"
+        class="trait"
+        v-html="mythicTrait"
+      ></div>
     </div>
-    <!--
-      <div class="trait" v-if="monster.mythicActions.actions.length > 0">
-        <span class="name"
-          >{{ monster.mythicActions.triggerName }} ({{
-            monster.mythicActions.triggerRecharge
-          }}.</span
-        >
-        {{ processTokens(monster.mythicActions.triggerDescription) }}
-      </div>
-    </div>
-    -->
     <div
       v-if="monster.spellcasting.atWill.length > 0"
       class="innate-spellcasting"
@@ -161,30 +155,17 @@
         v-html="action"
       ></div>
     </div>
-    <!--
-    <div class="mythic-actions" v-if="monster.mythicActions.actions.length > 0">
-      <h3 class="section">Mythic Actions</h3>
-      <div class="preamble">
-        {{ processTokens(monster.mythicActions.preamble) }}
-      </div>
+    <div v-if="monster.mythicActions.actions.length > 0" class="mythic-actions">
+      <h3 class="section">{{ $t('editor.mythic.label') }}</h3>
+      <div class="preamble" v-html="mythicPreamble"></div>
       <div
+        v-for="(action, idx) in mythicActions"
+        :key="idx"
         class="action legendary"
-        v-for="action in resolvedMythicActions"
-        :key="action.id"
-      >
-        <span class="name"
-          >{{ action.name
-          }}{{
-            action.cost > 1 ? ` (Costs ${action.cost} Actions)` : ''
-          }}.</span
-        >
-        {{
-          action.legendaryOnly
-            ? processTokens(action.description)
-            : duplicateLegendary(action)
-        }}
-      </div>
+        v-html="action"
+      ></div>
     </div>
+    <!--
     <div class="reactions" v-if="monster.reactions.length > 0">
       <h3 class="section">Reactions</h3>
       <div
@@ -278,6 +259,18 @@ export default defineComponent({
       textRenderer.legendaryActions.value.map((a) => sanitizeWebString(a))
     )
 
+    const mythicTrait = computed(() =>
+      sanitizeWebString(textRenderer.mythicTrait.value)
+    )
+
+    const mythicPreamble = computed(() =>
+      sanitizeWebString(textRenderer.mythicPreamble.value)
+    )
+
+    const mythicActions = computed(() =>
+      textRenderer.mythicActions.value.map((a) => sanitizeWebString(a))
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -289,6 +282,9 @@ export default defineComponent({
       multiattacks,
       legendaryPreamble,
       legendaryActions,
+      mythicTrait,
+      mythicPreamble,
+      mythicActions,
     }
   },
 })

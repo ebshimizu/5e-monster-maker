@@ -15,6 +15,7 @@ export type MonsterContext =
   | MonsterAction
   | Monster['multiattacks']
   | Monster['legendaryActions']
+  | Monster['mythicActions']
   | undefined
 
 export type MonsterContextType =
@@ -25,6 +26,7 @@ export type MonsterContextType =
   | 'action'
   | 'multiattack'
   | 'legendary'
+  | 'mythic'
 
 export function listJoin(list: string[], sep: string) {
   if (list.length === 1) return list[0]
@@ -441,7 +443,7 @@ export function processContextTokens(
   if (context != null) {
     // generic tokens
     const generic = RegExp(
-      /\{(?:trait|attack|action|spellcasting|legendaryActions).([\w\d\[\].]+)}/gi
+      /\{(?:trait|attack|action|spellcasting|legendaryActions|mythicActions).([\w\d\[\].]+)}/gi
     )
     input = input.replace(generic, (match, prop) => {
       const value = _.get(context, prop)
@@ -653,6 +655,33 @@ export function processLegendaryAction(
   }
 
   return '[Invalid Attack or Action ID]'
+}
+
+export function processMythicActionTrait(
+  contextRef: MaybeRef<Monster['mythicActions']>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const context = unref(contextRef)
+
+  const trait = processTokens(
+    context.triggerDescription,
+    context,
+    monster,
+    'mythic'
+  )
+
+  return `<b><i>${context.triggerName} (${context.triggerRecharge}).</b></i> ${trait}`
+}
+
+export function processMythicActionPreamble(
+  contextRef: MaybeRef<Monster['mythicActions']>,
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const context = unref(contextRef)
+
+  const preamble = processTokens(context.preamble, context, monster, 'mythic')
+
+  return preamble
 }
 
 export function sanitizeWebString(input: string) {

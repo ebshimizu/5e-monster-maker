@@ -16,11 +16,11 @@ import {
   processLegendaryAction,
   processLegendaryPreamble,
   processMultiattack,
-  processTokens,
+  processMythicActionPreamble,
+  processMythicActionTrait,
   processTrait,
 } from './processTokens'
 import N2W from 'number-to-words'
-import { MonsterAction } from '../models'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
@@ -200,6 +200,20 @@ export function useTextRenderer() {
     )
   )
 
+  const mythicTrait = computed(() =>
+    processMythicActionTrait(monster.mythicActions, monster)
+  )
+
+  const mythicPreamble = computed(() =>
+    processMythicActionPreamble(monster.mythicActions, monster)
+  )
+
+  const mythicActions = computed(() =>
+    monster.mythicActions.actions.map((a) =>
+      processLegendaryAction(a.actionId, a.cost, monster)
+    )
+  )
+
   return {
     stats,
     hp,
@@ -223,5 +237,8 @@ export function useTextRenderer() {
     multiattacks,
     legendaryPreamble,
     legendaryActions,
+    mythicTrait,
+    mythicPreamble,
+    mythicActions,
   }
 }

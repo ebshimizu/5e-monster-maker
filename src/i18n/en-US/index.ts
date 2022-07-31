@@ -284,6 +284,10 @@ export default {
     mythic: {
       label: 'Mythic Actions',
       caption: 'Mythic trigger conditions and additional actions',
+      traitName: 'Mythic Trait Trigger Name',
+      recharge: 'Mythic Trait Recharge Condition',
+      description: 'Trait Description',
+      preamble: 'Actions Preamble',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
@@ -431,8 +435,8 @@ export default {
     legendaryAction: "{'{'}NAME{'}'} uses the {0} action.",
     mythicRecharge: 'Recharges after a Short or Long Rest',
     mythicDescription:
-      "If the {'{'}NAME{'}'} would be reduced to 0 hit points, its current hit point total instead resets to {'{'}monster.hp{'}'} hit points. Additionally, the {'{'}NAME{'}'} can now use the options in the \"Mythic Actions\" section for 1 hour. Award a party an additional [x]XP ([x] XP total) for defeating the {'{'}NAME{'}'} after this trait activates.",
+      "If {'{'}NAME{'}'} would be reduced to 0 hit points, its current hit point total instead resets to {'{'}monster.hp{'}'} hit points. Additionally, {'{'}NAME{'}'} can now use the options in the \"Mythic Actions\" section for 1 hour. Award a party an additional [x]XP ([x] XP total) for defeating {'{'}NAME{'}'} after this trait activates.",
     mythicPreamble:
-      "If the {'{'}NAME{'}'}'s mythic trait is active, it can use the options below as legendary actions.",
+      "If {'{'}NAME{'}'}'s mythic trait is active, it can use the options below as legendary actions.",
   },
 }
