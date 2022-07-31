@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="fa-solid fa-building-columns"
     :label="$t('editor.mythic.label')"
     :caption="$t('editor.mythic.caption')"

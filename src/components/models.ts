@@ -158,6 +158,12 @@ export interface LegendaryAction {
   cost: number
 }
 
+export interface MonsterReaction {
+  name: string
+  id: string
+  description: string
+}
+
 // the big one is the monster definition
 export interface Monster {
   name: string
@@ -255,6 +261,7 @@ export interface Monster {
     preamble: string
     actions: LegendaryAction[]
   }
+  reactions: MonsterReaction[]
 }
 
 export interface Spells {

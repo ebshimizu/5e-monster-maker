@@ -162,6 +162,7 @@ export const useMonsterStore = defineStore('monster', {
           "If the {NAME}'s mythic trait is active, it can use the options below as legendary actions.",
         actions: [],
       },
+      reactions: [],
     }
   },
   getters: {

@@ -289,6 +289,11 @@ export default {
       description: 'Trait Description',
       preamble: 'Actions Preamble',
     },
+    reaction: {
+      label: 'Reactions',
+      caption: '',
+      add: 'Add Reaction',
+    },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)

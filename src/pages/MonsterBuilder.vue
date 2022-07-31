@@ -19,6 +19,7 @@
             <attacks-editor />
             <actions-editor />
             <multiattack-editor />
+            <reactions-editor />
             <legendary-actions-editor />
             <mythic-actions-editor />
           </q-list>
@@ -52,6 +53,7 @@ import MultiattackEditor from 'src/components/editor/MultiattackEditor.vue'
 import ActionsEditor from '../components/editor/ActionsEditor.vue'
 import LegendaryActionsEditor from 'src/components/editor/LegendaryActionsEditor.vue'
 import MythicActionsEditor from 'src/components/MythicActionsEditor.vue'
+import ReactionsEditor from 'src/components/editor/ReactionsEditor.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
@@ -70,6 +72,7 @@ export default defineComponent({
     ActionsEditor,
     LegendaryActionsEditor,
     MythicActionsEditor,
+    ReactionsEditor,
   },
   setup() {
     const splitterModel = ref(66)
