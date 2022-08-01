@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="mdi-account-reactivate"
     :label="$t('editor.reaction.label')"
   >

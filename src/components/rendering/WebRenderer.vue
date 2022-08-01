@@ -174,25 +174,19 @@
         v-html="reaction"
       ></div>
     </div>
-    <!--
-    <div class="lair-actions" v-if="monster.lairActions.length > 0">
+    <div v-if="monster.lairActions.length > 0" class="lair-actions">
       <h3 class="section">Lair Actions</h3>
-      <div class="preamble">
-        When fighting inside its lair, the {{ monster.name }} can take lair
-        actions. On initiative count 20 (losing initiative ties), the
-        {{ monster.name }} takes a lair action to cause one of the following
-        effects:
-      </div>
+      <div class="preamble" v-html="lairActionPreamble"></div>
       <ul>
         <li
+          v-for="(lairAction, idx) in lairActions"
+          :key="idx"
           class="action lair"
-          v-for="action in monster.lairActions"
-          :key="action.id"
-        >
-          {{ processTokens(action.description) }}
-        </li>
+          v-html="lairAction"
+        ></li>
       </ul>
     </div>
+    <!--
     <div class="regional-effects" v-if="monster.regionalEffects.length > 0">
       <h3 class="section">Regional Effects</h3>
       <div class="preamble">
@@ -273,6 +267,14 @@ export default defineComponent({
       textRenderer.reactions.value.map((r) => sanitizeWebString(r))
     )
 
+    const lairActionPreamble = computed(() =>
+      sanitizeWebString(textRenderer.lairActionPreamble.value)
+    )
+
+    const lairActions = computed(() =>
+      textRenderer.lairActions.value.map((la) => sanitizeWebString(la))
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -288,6 +290,8 @@ export default defineComponent({
       mythicPreamble,
       mythicActions,
       reactions,
+      lairActionPreamble,
+      lairActions,
     }
   },
 })

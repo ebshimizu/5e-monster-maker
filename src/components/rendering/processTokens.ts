@@ -704,6 +704,18 @@ export function processMythicActionPreamble(
   return preamble
 }
 
+export function processLairActionPreamble(
+  monster: ReturnType<typeof useMonsterStore>
+) {
+  const { t } = useI18n()
+
+  if (monster.useCustomLairActionPreamble) {
+    return processTokens(monster.lairActionPreamble, undefined, monster, 'none')
+  } else {
+    return processTokens(t('presets.lair'), undefined, monster, 'none')
+  }
+}
+
 export function sanitizeWebString(input: string) {
   // allowed tags are: bold, italic, underline
   input = input.replace(/>/gi, '&gt;')

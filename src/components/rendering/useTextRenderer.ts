@@ -13,12 +13,14 @@ import {
   processAttack,
   processClassSpellcasting,
   processInnateSpellcasting,
+  processLairActionPreamble,
   processLegendaryAction,
   processLegendaryPreamble,
   processMultiattack,
   processMythicActionPreamble,
   processMythicActionTrait,
   processReaction,
+  processTokens,
   processTrait,
 } from './processTokens'
 import N2W from 'number-to-words'
@@ -219,6 +221,14 @@ export function useTextRenderer() {
     monster.reactions.map((r) => processReaction(r, monster))
   )
 
+  const lairActionPreamble = computed(() => processLairActionPreamble(monster))
+
+  const lairActions = computed(() =>
+    monster.lairActions.map((la) =>
+      processTokens(la.description, undefined, monster, 'none')
+    )
+  )
+
   return {
     stats,
     hp,
@@ -246,5 +256,7 @@ export function useTextRenderer() {
     mythicPreamble,
     mythicActions,
     reactions,
+    lairActionPreamble,
+    lairActions,
   }
 }

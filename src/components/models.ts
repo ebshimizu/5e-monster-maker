@@ -74,6 +74,12 @@ export interface MonsterAction {
   crAnnotation: MonsterCrAnnotation
 }
 
+export interface LairAction {
+  id: string
+  description: string
+  crAnnotation: MonsterCrAnnotation
+}
+
 export interface DndSpell {
   name: string
   damage: number
@@ -262,6 +268,9 @@ export interface Monster {
     actions: LegendaryAction[]
   }
   reactions: MonsterReaction[]
+  useCustomLairActionPreamble: boolean
+  lairActionPreamble: string
+  lairActions: LairAction[]
 }
 
 export interface Spells {

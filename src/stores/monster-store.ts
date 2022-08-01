@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import {
   defaultAction,
   defaultAttack,
+  defaultCrAnnotation,
   defaultTrait,
   DndAttack,
   DndStat,
@@ -163,6 +164,9 @@ export const useMonsterStore = defineStore('monster', {
         actions: [],
       },
       reactions: [],
+      useCustomLairActionPreamble: false,
+      lairActionPreamble: '',
+      lairActions: [],
     }
   },
   getters: {
@@ -719,6 +723,20 @@ export const useMonsterStore = defineStore('monster', {
 
       if (idx !== -1) {
         this.reactions.splice(idx, 1)
+      }
+    },
+    addLairAction() {
+      this.lairActions.push({
+        id: v4(),
+        description: '',
+        crAnnotation: defaultCrAnnotation(),
+      })
+    },
+    deleteLairAction(actionId: string) {
+      const idx = this.lairActions.findIndex((la) => la.id === actionId)
+
+      if (idx !== -1) {
+        this.lairActions.splice(idx, 1)
       }
     },
   },

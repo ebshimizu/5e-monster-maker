@@ -295,6 +295,17 @@ export default {
       add: 'Add Reaction',
       delete: 'Delete Reaction',
     },
+    lair: {
+      label: 'Lair Actions',
+      caption: '',
+      add: 'Add Lair Action',
+      delete: 'Delete Lair Action',
+      useCustom: 'Using Custom Preamble',
+      useDefault: 'Using Default Preamble',
+      preamble: 'Preamble',
+      actionItem: 'Lair Action {0}',
+      help: 'In the CR calculation, it is assumed that lair actions cannot be used twice in a row (this is not true for all actions, but it is a commonly used pattern).',
+    },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)
@@ -444,5 +455,6 @@ export default {
       "If {'{'}NAME{'}'} would be reduced to 0 hit points, its current hit point total instead resets to {'{'}monster.hp{'}'} hit points. Additionally, {'{'}NAME{'}'} can now use the options in the \"Mythic Actions\" section for 1 hour. Award a party an additional [x]XP ([x] XP total) for defeating {'{'}NAME{'}'} after this trait activates.",
     mythicPreamble:
       "If {'{'}NAME{'}'}'s mythic trait is active, it can use the options below as legendary actions.",
+    lair: "When fighting inside its lair, {'{'}NAME{'}'} can take lair actions. On initiative count 20 (losing initiative ties), {'{'}NAME{'}'} takes a lair action to cause one of the following effects:",
   },
 }
