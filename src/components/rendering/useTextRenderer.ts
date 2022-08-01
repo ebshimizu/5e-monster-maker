@@ -229,6 +229,16 @@ export function useTextRenderer() {
     )
   )
 
+  const regionalEffectPreamble = computed(() =>
+    processTokens(monster.regionalEffectDescription, undefined, monster, 'none')
+  )
+
+  const regionalEffects = computed(() =>
+    monster.regionalEffects.map((re) =>
+      processTokens(re.description, undefined, monster, 'none')
+    )
+  )
+
   return {
     stats,
     hp,
@@ -258,5 +268,7 @@ export function useTextRenderer() {
     reactions,
     lairActionPreamble,
     lairActions,
+    regionalEffectPreamble,
+    regionalEffects,
   }
 }

@@ -1,7 +1,6 @@
 <template>
   <q-expansion-item
     expand-separator
-    default-opened
     icon="home"
     :label="$t('editor.lair.label')"
     :caption="$t('editor.lair.caption')"
@@ -75,7 +74,7 @@
                   <q-btn
                     color="negative"
                     class="full-width"
-                    :label="$t('editor.action.delete')"
+                    :label="$t('editor.lair.delete')"
                     @click="() => monster.deleteAction(action.id)"
                   />
                 </q-card-actions>
@@ -98,10 +97,10 @@
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
-import { computed, defineComponent } from 'vue'
-import { useAutoUpdateCr } from './editor/useAutoUpdateCr'
-import MonsterTextEditor from './editor/MonsterTextEditor.vue'
-import CrAnnotationCard from './editor/CrAnnotationCard.vue'
+import { defineComponent } from 'vue'
+import { useAutoUpdateCr } from './useAutoUpdateCr'
+import MonsterTextEditor from './MonsterTextEditor.vue'
+import CrAnnotationCard from './CrAnnotationCard.vue'
 
 export default defineComponent({
   name: 'LairActionsEditor',

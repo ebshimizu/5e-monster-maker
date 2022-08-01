@@ -126,9 +126,9 @@
         </template>
       </div>
     </div>
-    <h3 class="section">Actions</h3>
+    <h3 class="section">{{ $t('editor.action.label') }}</h3>
     <div v-if="monster.multiattacks.length > 0" class="multiattack">
-      <span class="name">Multiattack.</span>
+      <span class="name">{{ $t('editor.multiattack.label') }}.</span>
       {{ multiattacks }}
     </div>
     <div
@@ -146,7 +146,7 @@
       ></div>
     </div>
     <div v-if="monster.legendaryActions.count > 0" class="legendary-actions">
-      <h3 class="section">Legendary Actions</h3>
+      <h3 class="section">{{ $t('editor.legendary.label') }}</h3>
       <div class="preamble" v-html="legendaryPreamble"></div>
       <div
         v-for="(action, idx) in legendaryActions"
@@ -166,7 +166,7 @@
       ></div>
     </div>
     <div v-if="monster.reactions.length > 0" class="reactions">
-      <h3 class="section">Reactions</h3>
+      <h3 class="section">{{ $t('editor.reaction.label') }}</h3>
       <div
         v-for="(reaction, idx) in reactions"
         :key="idx"
@@ -175,7 +175,7 @@
       ></div>
     </div>
     <div v-if="monster.lairActions.length > 0" class="lair-actions">
-      <h3 class="section">Lair Actions</h3>
+      <h3 class="section">{{ $t('editor.lair.label') }}</h3>
       <div class="preamble" v-html="lairActionPreamble"></div>
       <ul>
         <li
@@ -186,22 +186,18 @@
         ></li>
       </ul>
     </div>
-    <!--
-    <div class="regional-effects" v-if="monster.regionalEffects.length > 0">
-      <h3 class="section">Regional Effects</h3>
-      <div class="preamble">
-        {{ processTokens(monster.regionalEffectDescription) }}
-      </div>
+    <div v-if="monster.regionalEffects.length > 0" class="regional-effects">
+      <h3 class="section">{{ $t('editor.regional.label') }}</h3>
+      <div class="preamble" v-html="regionalEffectPreamble"></div>
       <ul>
         <li
+          v-for="(effect, idx) in regionalEffects"
+          :key="idx"
           class="action regional"
-          v-for="effect in monster.regionalEffects"
-          :key="effect.id"
-        >
-          {{ processTokens(effect.description) }}
-        </li>
+          v-html="effect"
+        ></li>
       </ul>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -275,6 +271,14 @@ export default defineComponent({
       textRenderer.lairActions.value.map((la) => sanitizeWebString(la))
     )
 
+    const regionalEffectPreamble = computed(() =>
+      sanitizeWebString(textRenderer.regionalEffectPreamble.value)
+    )
+
+    const regionalEffects = computed(() =>
+      textRenderer.regionalEffects.value.map((re) => sanitizeWebString(re))
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -292,6 +296,8 @@ export default defineComponent({
       reactions,
       lairActionPreamble,
       lairActions,
+      regionalEffectPreamble,
+      regionalEffects,
     }
   },
 })

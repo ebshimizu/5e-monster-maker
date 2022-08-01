@@ -167,6 +167,8 @@ export const useMonsterStore = defineStore('monster', {
       useCustomLairActionPreamble: false,
       lairActionPreamble: '',
       lairActions: [],
+      regionalEffects: [],
+      regionalEffectDescription: '',
     }
   },
   getters: {
@@ -737,6 +739,19 @@ export const useMonsterStore = defineStore('monster', {
 
       if (idx !== -1) {
         this.lairActions.splice(idx, 1)
+      }
+    },
+    addRegionalEffect() {
+      this.regionalEffects.push({
+        id: v4(),
+        description: '',
+      })
+    },
+    deleteRegionalEffect(effectId: string) {
+      const idx = this.regionalEffects.findIndex((re) => re.id === effectId)
+
+      if (idx !== -1) {
+        this.regionalEffects.splice(idx, 1)
       }
     },
   },

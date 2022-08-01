@@ -49,7 +49,7 @@
             :label="
               filteredActions.length === 0
                 ? $t('editor.legendary.none')
-                : $t('editor.legendary.add')
+                : $t('editor.mythic.add')
             "
             :disable="filteredActions.length === 0"
             class="full-width"
@@ -67,7 +67,7 @@
                 >
                 <q-item-section side top>
                   <q-badge
-                    :color="a.typeInternal === 'attack' ? 'red-10' : 'blue-10'"
+                    :color="a.typeInternal === 'attack' ? 'red-10' : 'amber-10'"
                     :label="a.type"
                   />
                 </q-item-section>
@@ -112,7 +112,7 @@
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
 import { computed, defineComponent } from 'vue'
-import MonsterTextEditor from './editor/MonsterTextEditor.vue'
+import MonsterTextEditor from './MonsterTextEditor.vue'
 
 export default defineComponent({
   name: 'MythicActionsEditor',

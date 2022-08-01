@@ -288,6 +288,7 @@ export default {
       recharge: 'Mythic Trait Recharge Condition',
       description: 'Trait Description',
       preamble: 'Actions Preamble',
+      add: 'Add Mythic Action',
     },
     reaction: {
       label: 'Reactions',
@@ -304,7 +305,15 @@ export default {
       useDefault: 'Using Default Preamble',
       preamble: 'Preamble',
       actionItem: 'Lair Action {0}',
-      help: 'In the CR calculation, it is assumed that lair actions cannot be used twice in a row (this is not true for all actions, but it is a commonly used pattern).',
+      help: 'Lair Actions will appear in the stat block once an action has been added. In the CR calculation, it is assumed that lair actions cannot be used twice in a row (this is not true for all actions, but it is a commonly used pattern).',
+    },
+    regional: {
+      label: 'Regional Effects',
+      add: 'Add Regional Effect',
+      delete: 'Delete Regional Effect',
+      effectItem: 'Regional Effect {0}',
+      preamble: 'Regional Effect Preamble',
+      help: 'Regional effects will appear after lair actions (if any). Regional effects are not included in the CR calculation and will only appear if at least one effect is in the list.',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
@@ -456,5 +465,7 @@ export default {
     mythicPreamble:
       "If {'{'}NAME{'}'}'s mythic trait is active, it can use the options below as legendary actions.",
     lair: "When fighting inside its lair, {'{'}NAME{'}'} can take lair actions. On initiative count 20 (losing initiative ties), {'{'}NAME{'}'} takes a lair action to cause one of the following effects:",
+    regional:
+      "The region containing {'{'}NAME{'}'}'s lair is warped by {'{'}NAME{'}'}'s magic. When {'{'}NAME{'}'} dies, the effects fade after {'{'}1d10{'}'} days.",
   },
 }

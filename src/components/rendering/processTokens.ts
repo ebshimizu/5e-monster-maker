@@ -733,5 +733,11 @@ export function sanitizeWebString(input: string) {
     return '<div><br></div>'
   })
 
+  // div wrapper?
+  const allowedDiv = /\&lt;(\/?div)\&gt;/gi
+  input = input.replace(allowedDiv, (match, tag) => {
+    return `<${tag}>`
+  })
+
   return input
 }

@@ -271,6 +271,8 @@ export interface Monster {
   useCustomLairActionPreamble: boolean
   lairActionPreamble: string
   lairActions: LairAction[]
+  regionalEffects: { id: string; description: string }[]
+  regionalEffectDescription: string
 }
 
 export interface Spells {

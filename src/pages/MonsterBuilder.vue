@@ -23,6 +23,7 @@
             <legendary-actions-editor />
             <mythic-actions-editor />
             <lair-actions-editor />
+            <regional-effects-editor />
           </q-list>
         </div>
       </template>
@@ -53,9 +54,10 @@ import AttacksEditor from 'src/components/editor/AttacksEditor.vue'
 import MultiattackEditor from 'src/components/editor/MultiattackEditor.vue'
 import ActionsEditor from '../components/editor/ActionsEditor.vue'
 import LegendaryActionsEditor from 'src/components/editor/LegendaryActionsEditor.vue'
-import MythicActionsEditor from 'src/components/MythicActionsEditor.vue'
+import MythicActionsEditor from 'src/components/editor/MythicActionsEditor.vue'
 import ReactionsEditor from 'src/components/editor/ReactionsEditor.vue'
-import LairActionsEditor from 'src/components/LairActionsEditor.vue'
+import LairActionsEditor from 'src/components/editor/LairActionsEditor.vue'
+import RegionalEffectsEditor from 'src/components/editor/RegionalEffectsEditor.vue'
 
 export default defineComponent({
   name: 'MonsterBuilder',
@@ -76,6 +78,7 @@ export default defineComponent({
     MythicActionsEditor,
     ReactionsEditor,
     LairActionsEditor,
+    RegionalEffectsEditor,
   },
   setup() {
     const splitterModel = ref(66)

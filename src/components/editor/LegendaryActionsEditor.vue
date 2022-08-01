@@ -61,7 +61,7 @@
                 >
                 <q-item-section side top>
                   <q-badge
-                    :color="a.typeInternal === 'attack' ? 'red-10' : 'blue-10'"
+                    :color="a.typeInternal === 'attack' ? 'red-10' : 'amber-10'"
                     :label="a.type"
                   />
                 </q-item-section>
