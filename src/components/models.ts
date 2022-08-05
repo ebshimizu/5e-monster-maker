@@ -170,6 +170,63 @@ export interface MonsterReaction {
   description: string
 }
 
+export interface CrAttackInfo {
+  name: string
+  damage: number
+  toHit: number
+  save: number | undefined
+  type: 'Attack' | 'Multiattack' | 'Lair Action'
+}
+
+export interface CrActionInfo {
+  name: string
+  damage: number
+  toHit: number
+  save: number | undefined
+  limited: boolean
+  uses: number
+  type: 'Action'
+}
+
+export interface CrTraitInfo {
+  name: string
+  damage: number
+  limited: boolean
+  uses: number
+  save: number
+  toHit: number
+  remove: boolean
+  type: 'Trait'
+}
+
+export interface CrLegendaryInfo {
+  name: string
+  damage: number
+  limited: boolean
+  uses: number
+  save: number | undefined
+  toHit: number
+  cost: number
+  type: 'Legendary'
+}
+
+export interface CrSpellInfo {
+  name: string
+  damage: number
+  save: number
+  type: 'Spell'
+}
+
+export interface CrDamageInfo {
+  attacks: CrAttackInfo[]
+  actions: CrActionInfo[]
+  legendary: CrLegendaryInfo[]
+  traits: CrTraitInfo[]
+  spells: CrSpellInfo[]
+  lairActions: CrAttackInfo[]
+  legendaryCount: number
+}
+
 // the big one is the monster definition
 export interface Monster {
   name: string
