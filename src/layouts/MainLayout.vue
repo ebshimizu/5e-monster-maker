@@ -69,18 +69,29 @@
       <router-view />
     </q-page-container>
 
-    <q-footer elevated> hello? </q-footer>
+    <q-footer elevated>
+      <q-card class="full-width">
+        <q-card-section class="bg-blue-grey-7 no-padding">
+          <cr-footer />
+        </q-card-section>
+        <q-card-section class="bg-grey-10 no-padding">
+          <generic-footer />
+        </q-card-section>
+      </q-card>
+    </q-footer>
   </q-layout>
 </template>
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
+import CrFooter from 'src/components/CrFooter.vue'
+import GenericFooter from 'src/components/GenericFooter.vue'
 
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {},
+  components: { CrFooter, GenericFooter },
 
   setup() {
     const leftDrawerOpen = ref(false)

@@ -11,6 +11,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { configure } = require('quasar/wrappers')
+const fs = require('fs')
+const packageJson = fs.readFileSync('./package.json')
+const buildJson = fs.readFileSync('./build.json')
+const version = JSON.parse(packageJson).version || 0
+const buildNumber = JSON.parse(buildJson).build || 0
 
 module.exports = configure(function (ctx) {
   return {
@@ -54,7 +59,7 @@ module.exports = configure(function (ctx) {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,
-      // publicPath: '/',
+      publicPath: '/5emm',
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).
@@ -72,7 +77,18 @@ module.exports = configure(function (ctx) {
 
       // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      // chainWebpack (/* chain */) {}
+      chainWebpack(chain) {
+        chain.module
+          .rule('txt')
+          .test(/\.txt$/)
+          .use('raw-loader')
+          .loader('raw-loader')
+      },
+
+      env: {
+        PACKAGE_VERSION: version,
+        BUILD_NUMBER: buildNumber,
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer

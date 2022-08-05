@@ -35,7 +35,8 @@
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^8.5.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "raw-loader": "^4.0.2"
   },
   "browserslist": [
     "last 10 Chrome versions",

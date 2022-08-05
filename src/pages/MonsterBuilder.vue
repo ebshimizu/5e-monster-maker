@@ -2,10 +2,9 @@
   <q-page class="row items-start">
     <q-splitter
       v-model="splitterModel"
-      style="height: calc(100vh - 71px); width: 100%"
+      style="height: calc(100vh - 177px); width: 100%"
     >
       <template #before>
-        <!-- todo: editing panels go here -->
         <div class="q-pa-md" style="width: 100%">
           <q-list bordered separator class="rounded-borders">
             <basics-editor />
@@ -29,7 +28,6 @@
       </template>
 
       <template #after>
-        <!-- todo: stat block renderer goes here -->
         <div class="q-pa-md">
           <web-renderer />
         </div>
