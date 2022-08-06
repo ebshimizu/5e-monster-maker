@@ -1,24 +1,32 @@
 <template>
   <div class="cr-footer full-width q-pa-sm">
     <span class="big text-overline">ESTIMATED CR</span>
-    <span class="text-h3 q-ml-sm">##</span>
+    <span class="text-h3 q-ml-sm">{{ crData.estimatedCr.value.cr }}</span>
     <q-separator class="q-mx-sm" vertical />
     <div class="split">
       <div class="top">
         <span class="small text-overline">Offensive CR</span>
-        <span class="text-h5 q-ml-2 cr">##</span>
+        <span class="text-h5 q-ml-2 cr">{{ crData.offensiveCr.value.cr }}</span>
       </div>
       <q-separator />
       <div class="bot">
         <span class="text-overline">Defensive CR</span>
-        <span class="text-h5 q-ml-2 cr">##</span>
+        <span class="text-h5 q-ml-2 cr"
+          >{{ crData.defensiveCr.value.cr }}
+        </span>
       </div>
     </div>
     <q-separator class="q-mx-sm" vertical />
     <div class="split chips text-weight-bold cursor-pointer">
       <div class="top">
-        <q-chip color="red-10" icon="mdi-sword-cross">### (CR ##)</q-chip>
-        <q-chip color="red-10" icon="mdi-bullseye-arrow">### (CR ##)</q-chip>
+        <q-chip color="red-10" icon="mdi-sword-cross"
+          >{{ Math.floor(crData.damagePerRound.value) }} (CR
+          {{ crData.damageCr.value.cr }})</q-chip
+        >
+        <q-chip color="red-10" icon="mdi-bullseye-arrow"
+          >{{ crData.maxAttackRender.value }} (CR
+          {{ crData.attackCrDelta.value }})</q-chip
+        >
         <q-chip color="red-10" icon="fa-solid fa-wand-sparkles"
           >### (CR ##)</q-chip
         >
@@ -33,9 +41,17 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useCr } from './useCr'
 
 export default defineComponent({
   name: 'CrFooter',
+  setup() {
+    const crData = useCr()
+
+    return {
+      crData,
+    }
+  },
 })
 </script>
 

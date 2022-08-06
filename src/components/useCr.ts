@@ -394,7 +394,10 @@ export const useCr = () => {
       damageCRStep +
       (stepDelta < 0 ? Math.ceil(stepDelta) : Math.floor(stepDelta))
 
-    return CR[Math.max(0, Math.min(CR.length, offensiveStep))]
+    console.log(CR.length)
+    console.log(CR[Math.max(0, Math.min(CR.length, offensiveStep))])
+
+    return CR[Math.max(0, Math.min(CR.length - 1, offensiveStep))]
   })
 
   const attackCrDelta = computed(() => {
@@ -747,6 +750,10 @@ export const useCr = () => {
 
   return {
     attackCrExplain,
+    damagePerRound,
+    damageCr,
+    maxAttackRender,
+    attackCrDelta,
     offensiveCr,
     defensiveCr,
     estimatedCr,
