@@ -26,7 +26,7 @@
             <q-chip v-bind="activatorAttr" color="red-10" icon="mdi-sword-cross"
               >{{ Math.floor(crData.damagePerRound.value) }} (
               {{ crData.damageCr.value.cr }} CR)
-              <q-menu v-bind="menuAttr" :offset="[0, 10]">
+              <q-menu v-bind="menuAttr" :offset="[0, 2]">
                 <q-card style="width: 350px" class="q-mx-auto" bordered>
                   <q-card-section
                     ><div class="text-h6">
@@ -80,6 +80,7 @@
                           <q-item-section avatar>
                             <q-avatar
                               :color="crData.actionTypeColor(action.type)"
+                              font-size="14px"
                               >{{ Math.floor(action.damage) }}</q-avatar
                             >
                           </q-item-section>
@@ -106,7 +107,7 @@
               icon="mdi-bullseye-arrow"
               >{{ crData.maxAttackRender.value }} (
               {{ crData.attackCrDelta.value }} CR)
-              <q-menu v-bind="menuAttr" :offset="[0, 10]">
+              <q-menu v-bind="menuAttr" :offset="[0, 2]">
                 <q-card style="width: 350px" class="q-mx-auto" bordered>
                   <q-card-section
                     ><div class="text-h6">
@@ -131,6 +132,7 @@
                       <q-item-section avatar>
                         <q-avatar
                           :color="crData.actionTypeColor(action.type)"
+                          font-size="14px"
                           >{{ action.toHitRender }}</q-avatar
                         >
                       </q-item-section>
@@ -162,7 +164,7 @@
               icon="fa-solid fa-wand-sparkles"
               >{{ crData.maxDc.value }} ( {{ crData.attackCrDelta.value }} CR)
 
-              <q-menu v-bind="menuAttr" :offset="[0, 10]">
+              <q-menu v-bind="menuAttr" :offset="[0, 2]">
                 <q-card style="width: 350px" class="q-mx-auto" bordered>
                   <q-card-section
                     ><div class="text-h6">
@@ -183,6 +185,7 @@
                       <q-item-section avatar>
                         <q-avatar
                           :color="crData.actionTypeColor(action.type)"
+                          font-size="14px"
                           >{{ action.save }}</q-avatar
                         >
                       </q-item-section>
@@ -208,35 +211,151 @@
         </menu-hover>
       </div>
       <div class="bot">
-        <q-chip color="green-8" icon="mdi-hospital"
-          >{{ Math.floor(crData.ehp.value) }} (CR
-          {{ crData.hpCr.value.cr }})</q-chip
-        >
-        <q-chip color="green-8" icon="shield"
-          >{{ Math.floor(crData.eac.value) }} (
-          {{ crData.acCrDelta.value }} CR)</q-chip
-        >
+        <menu-hover>
+          <template #default="{ activatorAttr, menuAttr }">
+            <q-chip v-bind="activatorAttr" color="green-8" icon="mdi-hospital"
+              >{{ Math.floor(crData.ehp.value) }} (CR
+              {{ crData.hpCr.value.cr }})
+              <q-menu v-bind="menuAttr" :offset="[0, 2]">
+                <q-card style="width: 350px" class="q-mx-auto" bordered>
+                  <q-card-section
+                    ><div class="text-h6">
+                      {{ $t('editor.cr.ehp', [Math.floor(crData.ehp.value)]) }}
+                    </div>
+                    <div class="text-subtitle2 text-grey-5">
+                      CR {{ crData.hpCr.value.cr }}:
+                      {{ crData.hpCr.value.hpMin }} -
+                      {{ crData.hpCr.value.hpMax }}
+                    </div>
+                  </q-card-section>
+
+                  <q-separator class="q-mb-sm" />
+                  <q-list>
+                    <q-item class="q-pb-md q-px-md">
+                      <q-item-section avatar>
+                        <q-avatar
+                          :color="crData.actionTypeColor('HP')"
+                          font-size="14px"
+                          >{{ avgHp }}</q-avatar
+                        >
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{
+                          $t('editor.cr.baseHp')
+                        }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-item
+                      v-for="(mod, idx) in crData.ehpModifierList.value"
+                      :key="`${mod.title}-${mod.type}-${idx}`"
+                      class="q-pb-md q-px-md"
+                    >
+                      <q-item-section avatar>
+                        <q-avatar
+                          :color="crData.actionTypeColor(mod.type as any)"
+                          font-size="14px"
+                          >{{ mod.value }}</q-avatar
+                        >
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ mod.title }}</q-item-label>
+                        <q-item-label caption lines="1"
+                          >{{ mod.subtitle }}
+                        </q-item-label>
+                      </q-item-section>
+                    </q-item>
+                  </q-list>
+                </q-card></q-menu
+              >
+            </q-chip>
+          </template>
+        </menu-hover>
+        <menu-hover>
+          <template #default="{ activatorAttr, menuAttr }">
+            <q-chip v-bind="activatorAttr" color="green-8" icon="shield"
+              >{{ Math.floor(crData.eac.value) }} (
+              {{ crData.acCrDelta.value }} CR)
+              <q-menu v-bind="menuAttr" :offset="[0, 2]">
+                <q-card style="width: 350px" class="q-mx-auto" bordered>
+                  <q-card-section
+                    ><div class="text-h6">
+                      {{ $t('editor.cr.eac', [Math.floor(crData.eac.value)]) }}
+                    </div>
+                    <div class="text-subtitle2 text-grey-5">
+                      {{ crData.acCrExplain.value }}
+                    </div>
+                  </q-card-section>
+
+                  <q-separator class="q-mb-sm" />
+                  <q-list>
+                    <q-item class="q-pb-md q-px-md">
+                      <q-item-section avatar>
+                        <q-avatar
+                          :color="crData.actionTypeColor('HP')"
+                          font-size="14px"
+                          >{{ ac }}</q-avatar
+                        >
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{
+                          $t('editor.cr.baseAc')
+                        }}</q-item-label>
+                        <q-item-label v-if="ac < 12" caption lines="1">{{
+                          $t('editor.cr.baseAcLow')
+                        }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-item
+                      v-for="(mod, idx) in crData.eacModifierList.value"
+                      :key="`${mod.title}-${mod.type}-${idx}`"
+                      class="q-pb-md q-px-md"
+                    >
+                      <q-item-section avatar>
+                        <q-avatar
+                          :color="crData.actionTypeColor(mod.type as any)"
+                          font-size="14px"
+                          >{{ mod.value }}</q-avatar
+                        >
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ mod.title }}</q-item-label>
+                        <q-item-label caption lines="1"
+                          >{{ mod.subtitle }}
+                        </q-item-label>
+                      </q-item-section>
+                    </q-item>
+                  </q-list>
+                </q-card></q-menu
+              >
+            </q-chip>
+          </template>
+        </menu-hover>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useCr } from './useCr'
 import MenuHover from '../MenuHover.vue'
+import { useMonsterStore } from 'src/stores/monster-store'
 
 export default defineComponent({
   name: 'CrFooter',
   components: { MenuHover },
   setup() {
+    const monsterStore = useMonsterStore()
     const crData = useCr()
     const damageInfo = ref(false)
     const dprTab = ref(0)
+
     return {
       crData,
       damageInfo,
       dprTab,
+      avgHp: computed(() => monsterStore.avgHp),
+      ac: computed(() => monsterStore.AC),
     }
   },
 })

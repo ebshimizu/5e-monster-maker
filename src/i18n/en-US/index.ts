@@ -331,6 +331,12 @@ export default {
       maxDc: 'Max. Save DC {0}',
       dcCrInactive: 'Inactive. Attack Bonus has a higher expected CR.',
       dcCrExplain: 'Offensive CR {0} (Save DC Delta: {1})',
+      ehp: '{0} Effective Hit Points',
+      baseHp: 'Base Hit Points',
+      eac: '{0} Effective Armor Class',
+      baseAc: 'Base Armor Class',
+      baseAcLow: 'AC below minimum of 12',
+      acExplain: 'Defensive CR {0} (AC Delta: {1})',
       type: {
         Attack: 'Attack',
         Multiattack: 'Multiattack',

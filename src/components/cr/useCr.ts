@@ -742,9 +742,10 @@ export const useCr = () => {
   })
 
   const acCrExplain = computed(() => {
-    return `Defensive CR ${acCrDelta.value} (AC Delta: ${renderBonus(
-      acCr.value.ac - defensiveCr.value.ac
-    )})`
+    return t('editor.cr.acExplain', [
+      acCrDelta.value,
+      renderBonus(acCr.value.ac - defensiveCr.value.ac),
+    ])
   })
 
   // this, logically, goes at the bottom
@@ -779,6 +780,8 @@ export const useCr = () => {
     ehpModifierList,
     eac,
     acCrDelta,
+    acCrExplain,
+    eacModifierList,
     defensiveCr,
     estimatedCr,
   }
