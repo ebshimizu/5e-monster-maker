@@ -426,18 +426,29 @@ export const useCr = () => {
     // renders out modifiers and multipliers to a list for display
     const mods = []
 
-    // TODO: add toggle for using monster's set CR instead of computed
-    const resMult = resMultiplier(offensiveCr.value.numeric)
-    const immuneMult = immuneMultiplier(offensiveCr.value.numeric)
+    // toggle for using a manual CR instead of auto-estimating from offensive
+    const estCr = monster.autoEstimateDefenseCr
+      ? offensiveCr.value
+      : CR[monster.CR]
+
+    const resMult = resMultiplier(estCr.numeric)
+    const immuneMult = immuneMultiplier(estCr.numeric)
     const vulnMult = vulnMultiplier()
 
     // multipliers
     if (resMult > 1) {
       mods.push({
-        title: 'Resistances',
-        subtitle: `${monster.resistances?.length} Resistance${
-          monster.resistances?.length === 1 ? '' : 's'
-        } at CR ${offensiveCr.value.cr}`,
+        title: t('monster.resistances'),
+        subtitle: t('editor.cr.atCr', [
+          t(
+            'editor.cr.resistance',
+            {
+              n: monster.resistances?.length,
+            },
+            monster.resistances?.length ?? 0
+          ),
+          estCr.cr,
+        ]),
         value: `x${resMult}`,
         type: 'HP',
       })
@@ -445,10 +456,17 @@ export const useCr = () => {
 
     if (immuneMult > 1) {
       mods.push({
-        title: 'Immunities',
-        subtitle: `${monster.immunities?.length} Immunit${
-          monster.immunities?.length === 1 ? 'y' : 'ies'
-        } at CR ${offensiveCr.value.cr}`,
+        title: t('monster.immunities'),
+        subtitle: t('editor.cr.atCr', [
+          t(
+            'editor.cr.immunity',
+            {
+              n: monster.immunities?.length,
+            },
+            monster.immunities?.length ?? 0
+          ),
+          estCr.cr,
+        ]),
         value: `x${immuneMult}`,
         type: 'HP',
       })
@@ -456,10 +474,17 @@ export const useCr = () => {
 
     if (vulnMult < 1) {
       mods.push({
-        title: 'Vulnerabilities',
-        subtitle: `${monster.vulnerabilities?.length} Vulnerabilit${
-          monster.vulnerabilities?.length === 1 ? 'y' : 'ies'
-        } at CR ${offensiveCr.value.cr}`,
+        title: t('monster.vulnerabilities'),
+        subtitle: t('editor.cr.atCr', [
+          t(
+            'editor.cr.vulnerability',
+            {
+              n: monster.vulnerabilities?.length,
+            },
+            monster.vulnerabilities?.length ?? 0
+          ),
+          estCr.cr,
+        ]),
         value: `x${vulnMult}`,
         type: 'HP',
       })
@@ -561,13 +586,18 @@ export const useCr = () => {
     const baseHP = monster.avgHp
     let ehp = baseHP
 
-    // TODO: add toggle for using specified CR instead of computed
+    // toggle for using specified CR instead of computed
+    const estCr = monster.autoEstimateDefenseCr
+      ? offensiveCr.value
+      : CR[monster.CR]
+
     // built-in adjustments
     // resistances and immunities
     // combine the multipliers
+
     const resMult =
-      resMultiplier(offensiveCr.value.numeric) *
-      immuneMultiplier(offensiveCr.value.numeric) *
+      resMultiplier(estCr.numeric) *
+      immuneMultiplier(estCr.numeric) *
       vulnMultiplier()
     ehp *= resMult
 

@@ -332,6 +332,22 @@
         </menu-hover>
       </div>
     </div>
+    <q-separator class="q-mx-sm" vertical />
+    <div>
+      <q-btn
+        push
+        icon="mdi-arrow-decision-auto"
+        :color="monsterStore.autoEstimateDefenseCr ? 'positive' : 'dark'"
+        @click="
+          monsterStore.autoEstimateDefenseCr =
+            !monsterStore.autoEstimateDefenseCr
+        "
+      >
+        <q-tooltip class="text-body2"
+          >Automatically Estimate Defensive CR</q-tooltip
+        >
+      </q-btn>
+    </div>
   </div>
 </template>
 
@@ -354,6 +370,7 @@ export default defineComponent({
       crData,
       damageInfo,
       dprTab,
+      monsterStore,
       avgHp: computed(() => monsterStore.avgHp),
       ac: computed(() => monsterStore.AC),
     }

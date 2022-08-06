@@ -171,6 +171,7 @@ export const useMonsterStore = defineStore('monster', {
       lairActions: [],
       regionalEffects: [],
       regionalEffectDescription: '',
+      autoEstimateDefenseCr: true,
     }
   },
   getters: {

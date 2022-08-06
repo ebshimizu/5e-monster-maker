@@ -330,6 +330,7 @@ export interface Monster {
   lairActions: LairAction[]
   regionalEffects: { id: string; description: string }[]
   regionalEffectDescription: string
+  autoEstimateDefenseCr: boolean
 }
 
 export interface Spells {
