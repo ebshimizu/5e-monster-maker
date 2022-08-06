@@ -316,9 +316,11 @@ export default {
       help: 'Regional effects will appear after lair actions (if any). Regional effects are not included in the CR calculation and will only appear if at least one effect is in the list.',
     },
     cr: {
+      estimated: 'Estimated CR',
+      defensive: 'Defensive CR',
+      offensive: 'Offensive CR',
       round: 'Round {0}',
       totalDamage: '{0} Total Damage',
-      dprTooltip: 'Average Damage per Round. Click for Details.',
       type: {
         Attack: 'Attack',
         Multiattack: 'Multiattack',
