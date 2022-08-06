@@ -85,7 +85,7 @@
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
-import CrFooter from 'src/components/CrFooter.vue'
+import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
 
 export default defineComponent({

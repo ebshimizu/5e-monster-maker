@@ -321,6 +321,16 @@ export default {
       offensive: 'Offensive CR',
       round: 'Round {0}',
       totalDamage: '{0} Total Damage',
+      avgDamage: '{0} Average Damage (3 Rounds)',
+      maxAttack: '{0} Max. Attack Bonus',
+      attackCrInactive: 'Inactive. Save DC has a higher expected CR.',
+      attackCrExplain: 'Offensive CR {0} (Attack Bonus Delta: {1})',
+      attackActionsBelowThreshold:
+        '{n} Action with +0 or less | {n} Actions with +0 or less',
+      dcActionsBelowThreshold: '{n} Action with DC 0 | {n} Actions with DC 0',
+      maxDc: 'Max. Save DC {0}',
+      dcCrInactive: 'Inactive. Attack Bonus has a higher expected CR.',
+      dcCrExplain: 'Offensive CR {0} (Save DC Delta: {1})',
       type: {
         Attack: 'Attack',
         Multiattack: 'Multiattack',

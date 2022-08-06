@@ -17,9 +17,10 @@ import {
   CrLegendaryInfo,
   CrSpellInfo,
   CrTraitInfo,
-} from './models'
+} from '../models'
 import { useSpellsStore } from 'src/stores/spells-store'
-import { renderBonus } from './rendering/mathRendering'
+import { renderBonus } from '../rendering/mathRendering'
+import { useI18n } from 'vue-i18n'
 
 // unsure if i'll move this into util at some point
 const ACTION_COLOR = {
@@ -50,6 +51,7 @@ type CrToHitInfo =
 export const useCr = () => {
   const monster = useMonsterStore()
   const spells = useSpellsStore()
+  const { t } = useI18n()
 
   // bunch of helper functions go here
   const legendaryCombo = (la: CrLegendaryInfo[], count: number) => {
@@ -403,15 +405,21 @@ export const useCr = () => {
   })
 
   const attackCrExplain = computed(() => {
-    if (useDc.value) return 'Inactive. Save DC has a higher expected CR.'
+    if (useDc.value) return t('editor.cr.attackCrInactive')
 
-    return `Offensive CR ${attackCrDelta.value} (Attack Bonus Delta: ${attackStepDeltaRender.value})`
+    return t('editor.cr.attackCrExplain', [
+      attackCrDelta.value,
+      attackStepDeltaRender.value,
+    ])
   })
 
   const dcCrExplain = computed(() => {
-    if (!useDc.value) return 'Inactive. Attack Bonus has a higher expected CR'
+    if (!useDc.value) return t('editor.cr.dcCrInactive')
 
-    return `Offensive CR ${attackCrDelta.value} (Save DC Delta: ${dcStepDeltaRender.value})`
+    return t('editor.cr.dcCrExplain', [
+      attackCrDelta.value,
+      dcStepDeltaRender.value,
+    ])
   })
 
   const ehpModifierList = computed(() => {
@@ -755,7 +763,16 @@ export const useCr = () => {
     maxAttackRender,
     attackCrDelta,
     attackChipColor,
+    actionsBelowThreshold: computed(
+      () => toHitActions.value.length - filteredToHitActions.value.length
+    ),
+    filteredToHitActions,
+    filteredDcActions,
     dcChipColor,
+    dcCrExplain,
+    dcsBelowThreshold: computed(
+      () => dcActions.value.length - filteredDcActions.value.length
+    ),
     offensiveCr,
     ehp,
     hpCr,
