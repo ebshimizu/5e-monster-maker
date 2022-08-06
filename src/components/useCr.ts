@@ -394,9 +394,6 @@ export const useCr = () => {
       damageCRStep +
       (stepDelta < 0 ? Math.ceil(stepDelta) : Math.floor(stepDelta))
 
-    console.log(CR.length)
-    console.log(CR[Math.max(0, Math.min(CR.length, offensiveStep))])
-
     return CR[Math.max(0, Math.min(CR.length - 1, offensiveStep))]
   })
 
@@ -729,11 +726,11 @@ export const useCr = () => {
   })
 
   const attackChipColor = computed(() => {
-    return !useDc.value ? 'red darken-4' : 'gray darken-1'
+    return !useDc.value ? 'red-10' : 'dark'
   })
 
   const dcChipColor = computed(() => {
-    return useDc.value ? 'red darken-4' : 'gray darken-1'
+    return useDc.value ? 'red-10' : 'dark'
   })
 
   const acCrExplain = computed(() => {
@@ -752,9 +749,17 @@ export const useCr = () => {
     attackCrExplain,
     damagePerRound,
     damageCr,
+    maxDc,
     maxAttackRender,
     attackCrDelta,
+    attackChipColor,
+    dcChipColor,
     offensiveCr,
+    ehp,
+    hpCr,
+    ehpModifierList,
+    eac,
+    acCrDelta,
     defensiveCr,
     estimatedCr,
   }

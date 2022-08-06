@@ -20,20 +20,29 @@
     <div class="split chips text-weight-bold cursor-pointer">
       <div class="top">
         <q-chip color="red-10" icon="mdi-sword-cross"
-          >{{ Math.floor(crData.damagePerRound.value) }} (CR
-          {{ crData.damageCr.value.cr }})</q-chip
+          >{{ Math.floor(crData.damagePerRound.value) }} (
+          {{ crData.damageCr.value.cr }} CR)</q-chip
         >
-        <q-chip color="red-10" icon="mdi-bullseye-arrow"
-          >{{ crData.maxAttackRender.value }} (CR
-          {{ crData.attackCrDelta.value }})</q-chip
+        <q-chip :color="crData.attackChipColor.value" icon="mdi-bullseye-arrow"
+          >{{ crData.maxAttackRender.value }} (
+          {{ crData.attackCrDelta.value }} CR)</q-chip
         >
-        <q-chip color="red-10" icon="fa-solid fa-wand-sparkles"
-          >### (CR ##)</q-chip
+        <q-chip
+          :color="crData.dcChipColor.value"
+          icon="fa-solid fa-wand-sparkles"
+          >{{ crData.maxDc.value }} (
+          {{ crData.attackCrDelta.value }} CR)</q-chip
         >
       </div>
       <div class="bot">
-        <q-chip color="green-8" icon="mdi-hospital">### (CR ##)</q-chip>
-        <q-chip color="green-8" icon="shield">### (CR ##)</q-chip>
+        <q-chip color="green-8" icon="mdi-hospital"
+          >{{ Math.floor(crData.ehp.value) }} (CR
+          {{ crData.hpCr.value.cr }})</q-chip
+        >
+        <q-chip color="green-8" icon="shield"
+          >{{ Math.floor(crData.eac.value) }} (
+          {{ crData.acCrDelta.value }} CR)</q-chip
+        >
       </div>
     </div>
   </div>
