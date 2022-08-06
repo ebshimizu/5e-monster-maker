@@ -341,6 +341,8 @@ export default {
       baseAc: 'Base Armor Class',
       baseAcLow: 'AC below minimum of 12',
       acExplain: 'Defensive CR {0} (AC Delta: {1})',
+      saveCount:
+        '{n} Proficient or Modified Save | {n} Proficient or Modified Saves',
       type: {
         Attack: 'Attack',
         Multiattack: 'Multiattack',

@@ -662,7 +662,11 @@ export const useCr = () => {
     if (saveAcBonus.value > 0) {
       mods.push({
         title: 'Saving Throws',
-        subtitle: `${saveCount.value} Proficient or Modified Saves`,
+        subtitle: t(
+          'editor.cr.saveCount',
+          { n: saveCount.value },
+          saveCount.value
+        ),
         type: 'HP',
         value: `+${saveAcBonus.value}`,
       })

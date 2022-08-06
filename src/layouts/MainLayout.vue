@@ -43,9 +43,9 @@
         <q-space />
 
         <div class="q-gutter-sm row items-center no-wrap">
-          <q-btn round flat>
-            <q-tooltip>Export</q-tooltip>
-          </q-btn>
+          <q-btn round flat icon="mdi-folder-open"></q-btn>
+          <q-btn round flat icon="settings"></q-btn>
+          <q-btn round flat icon="download"> </q-btn>
         </div>
       </q-toolbar>
     </q-header>
