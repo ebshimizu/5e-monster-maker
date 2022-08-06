@@ -2,42 +2,56 @@
   <slot :activator-attr="activatorAttr" :menu-attr="menuAttr" />
 </template>
 
-<script setup>
-// big thanks to @Tofandel over here: https://github.com/quasarframework/quasar/issues/5787
+<script>
 import { debounce } from 'quasar'
-import { ref, watch } from 'vue'
 
-const props = defineProps({
-  debounceTime: {
-    type: Number,
-    default: 50,
+// big thanks to @Tofandel over here: https://github.com/quasarframework/quasar/issues/5787
+export default {
+  name: 'QMenuHover',
+  props: {
+    debounceTime: {
+      type: Number,
+      default: 50,
+    },
   },
-})
-
-const activatorHover = ref(false)
-const menuHover = ref(false)
-const menu = ref(false)
-
-const checkMenu = () => {
-  menu.value = activatorHover.value || menuHover.value
+  data() {
+    return {
+      menu: false,
+      activatorHover: false,
+      menuHover: false,
+      debounceMenu: null,
+    }
+  },
+  computed: {
+    activatorAttr() {
+      return {
+        onMouseenter: () => (this.activatorHover = true),
+        onMouseleave: () => (this.activatorHover = false),
+      }
+    },
+    menuAttr() {
+      return {
+        modelValue: this.menu,
+        onMouseenter: () => (this.menuHover = true),
+        onMouseleave: () => (this.menuHover = false),
+      }
+    },
+  },
+  watch: {
+    menuHover() {
+      this.debounceMenu()
+    },
+    activatorHover() {
+      this.debounceMenu()
+    },
+  },
+  created() {
+    this.debounceMenu = debounce(this.checkMenu, this.debounceTime)
+  },
+  methods: {
+    checkMenu() {
+      this.menu = this.activatorHover || this.menuHover
+    },
+  },
 }
-
-const debounceMenu = debounce(checkMenu, props.debounceTime)
-
-watch(menuHover, () => {
-  debounceMenu()
-})
-watch(activatorHover, () => {
-  debounceMenu()
-})
-
-const activatorAttr = {
-  onMouseenter: () => (activatorHover.value = true),
-  onMouseleave: () => (activatorHover.value = false),
-}
-const menuAttr = ref({
-  modelValue: menu,
-  onMouseenter: () => (menuHover.value = true),
-  onMouseleave: () => (menuHover.value = false),
-})
 </script>
