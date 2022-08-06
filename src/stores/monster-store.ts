@@ -1,7 +1,6 @@
 import _ from 'lodash'
 import { defineStore } from 'pinia'
 import {
-  CrAttackInfo,
   CrDamageInfo,
   defaultAction,
   defaultAttack,

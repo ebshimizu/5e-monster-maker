@@ -73,8 +73,8 @@
                         >
                         <q-separator class="q-mb-sm" />
                         <q-item
-                          v-for="(action, idx) in round.actions"
-                          :key="`${action.name}-${action.type}-${idx}`"
+                          v-for="(action, ridx) in round.actions"
+                          :key="`${action.name}-${action.type}-${ridx}`"
                           class="q-pb-md q-px-md"
                         >
                           <q-item-section avatar>
