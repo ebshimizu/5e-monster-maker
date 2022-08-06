@@ -10,7 +10,7 @@
         <q-list
           bordered
           separator
-          class="rounded-borders bg-blue-10 full-width"
+          class="rounded-borders bg-teal-10 full-width"
         >
           <q-expansion-item
             v-for="(trait, idx) in traits"

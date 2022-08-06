@@ -23,14 +23,14 @@ import { renderBonus } from './rendering/mathRendering'
 
 // unsure if i'll move this into util at some point
 const ACTION_COLOR = {
-  HP: 'green darken-2',
-  Attack: 'red darken-4',
-  Multiattack: 'red darken-4',
-  Action: 'amber darken-4',
-  Trait: 'teal darken-4',
-  Legendary: 'cyan darken-4',
-  Spell: 'deep-purple darken-4',
-  'Lair Action': 'blue darken-4',
+  HP: 'green-8',
+  Attack: 'red-10',
+  Multiattack: 'red-10',
+  Action: 'amber-10',
+  Trait: 'teal-10',
+  Legendary: 'cyan-8',
+  Spell: 'purple-10',
+  'Lair Action': 'blue-10',
 }
 
 type CrInfo =
@@ -746,6 +746,8 @@ export const useCr = () => {
   })
 
   return {
+    actionSequence,
+    actionTypeColor,
     attackCrExplain,
     damagePerRound,
     damageCr,

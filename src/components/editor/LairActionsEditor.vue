@@ -75,7 +75,7 @@
                     color="negative"
                     class="full-width"
                     :label="$t('editor.lair.delete')"
-                    @click="() => monster.deleteAction(action.id)"
+                    @click="() => monster.deleteLairAction(action.id)"
                   />
                 </q-card-actions>
               </q-card>

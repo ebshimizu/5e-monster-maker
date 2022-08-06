@@ -492,15 +492,15 @@ export const useMonsterStore = defineStore('monster', {
         // get attack/action names
         const attackNames =
           ma.attacks.length > 0
-            ? ma.attacks.map((id) => this.attackName(id)).join(', ')
+            ? ma.attacks.map((id) => this.attackName(id))
             : ''
         const actionNames =
           ma.actions.length > 0
-            ? ma.actions.map((id) => this.actionName(id)).join(', ')
+            ? ma.actions.map((id) => this.actionName(id))
             : ''
 
         data.attacks.push({
-          name: `Multiattack: ${[attackNames, actionNames].join(', ')}`,
+          name: `Multiattack: ${[...attackNames, ...actionNames].join(', ')}`,
           damage: this.expectedMultiattackDamage(ma.id),
           save: 0,
           toHit: 0,
@@ -568,7 +568,7 @@ export const useMonsterStore = defineStore('monster', {
 
         if (lairAction.crAnnotation.include) {
           data.lairActions.push({
-            name: `Lair Action ${idx + 1}`,
+            name: `Lair Action ${parseInt(idx) + 1}`,
             damage:
               lairAction.crAnnotation.maxDamage *
               (lairAction.crAnnotation.multitarget ? 2 : 1),
