@@ -44,7 +44,12 @@
 
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round flat icon="settings"></q-btn>
-          <q-btn round flat icon="mdi-folder-open" @click="loadFile()"></q-btn>
+          <q-btn
+            round
+            flat
+            icon="mdi-folder-open"
+            @click="loadFileDialog()"
+          ></q-btn>
           <q-btn round flat icon="download" @click="save5emm()"> </q-btn>
         </div>
       </q-toolbar>
@@ -89,7 +94,7 @@ import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
 import { useFileLoader } from 'src/file/useFileLoader'
 import { saveJson } from 'src/file/download'
-import _ from 'lodash'
+import { popFileDialog } from 'src/file/popFileDialog'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -105,7 +110,15 @@ export default defineComponent({
     const monster = useMonsterStore()
     const reset = () => monster.$reset()
 
-    const { loadFromDialog } = useFileLoader()
+    const { loadFile } = useFileLoader()
+
+    const loadFileDialog = async () => {
+      const file = await popFileDialog()
+
+      if (file) {
+        loadFile(file)
+      }
+    }
 
     const save5emm = () => {
       saveJson(monster.$state, `${monster.name}.5emm.json`)
@@ -118,7 +131,7 @@ export default defineComponent({
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
       reset,
-      loadFile: loadFromDialog,
+      loadFileDialog,
       save5emm,
     }
   },

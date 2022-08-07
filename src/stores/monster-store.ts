@@ -1,5 +1,7 @@
+import { validate } from 'jsonschema'
 import _ from 'lodash'
 import { defineStore } from 'pinia'
+import { useQuasar } from 'quasar'
 import {
   CrDamageInfo,
   defaultAction,
@@ -22,8 +24,10 @@ import {
 } from 'src/components/rendering/mathRendering'
 import { CR } from 'src/data/CR'
 import { DICE } from 'src/data/DICE'
+import { SCHEMA } from 'src/data/SCHEMA'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
 import { SKILL } from 'src/data/SKILL'
+import { useFileLoader } from 'src/file/useFileLoader'
 import { v4 as uuidv4, v4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
@@ -276,7 +280,7 @@ export const useMonsterStore = defineStore('monster', {
         const allSpells = spells.allSpells
 
         return this.spellcasting.standard.filter(
-          (id) => allSpells[id].level === level
+          (id) => id in allSpells && allSpells[id].level === level
         )
       }
     },
@@ -982,10 +986,34 @@ export const useMonsterStore = defineStore('monster', {
         this.regionalEffects.splice(idx, 1)
       }
     },
+    validate() {
+      const { updateMonster } = useFileLoader()
+      const $q = useQuasar()
+
+      updateMonster(this.$state)
+      const valid = validate(this.$state, SCHEMA['5'])
+
+      if (!valid.valid) {
+        console.error(valid.errors.map((e) => e.toString()))
+
+        $q.notify({
+          message:
+            'Monster failed to validate after update. Please submit a bug report and include the monster file.',
+          color: 'negative',
+        })
+
+        $q.notify({
+          message: `Errors: ${valid.errors
+            .map((e) => e.toString())
+            .join('\n')}`,
+          color: 'negative',
+        })
+      }
+    },
   },
   persist: {
     // this should be changed to app.monster after parity reached, as it will then read all of the
     // existing data correctly
-    key: 'dev.monster',
+    key: 'app.monster',
   },
 })

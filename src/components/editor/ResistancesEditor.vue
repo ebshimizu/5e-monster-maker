@@ -19,6 +19,7 @@
           input-debounce="0"
           :label="$t('monster.resistances')"
           @filter="resistanceFilter"
+          @clear="monster.resistances = []"
         />
         <q-select
           v-model="monster.immunities"
@@ -32,6 +33,7 @@
           input-debounce="0"
           :label="$t('monster.immunities')"
           @filter="immunityFilter"
+          @clear="monster.immunities = []"
         />
         <q-select
           v-model="monster.vulnerabilities"
@@ -45,6 +47,7 @@
           input-debounce="0"
           :label="$t('monster.vulnerabilities')"
           @filter="vulnerabilityFilter"
+          @clear="monster.vulnerabilities = []"
         />
         <q-select
           v-model="monster.conditions"
@@ -58,6 +61,7 @@
           input-debounce="0"
           :label="$t('monster.conditionImmunities')"
           @filter="conditionFilter"
+          @clear="monster.conditions = []"
         />
       </q-card-section>
     </q-card>

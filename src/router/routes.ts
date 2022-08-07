@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -8,6 +8,10 @@ const routes: RouteRecordRaw[] = [
       { path: '', component: () => import('pages/MonsterBuilder.vue') },
     ],
   },
+  {
+    path: '/reset',
+    component: () => import('layouts/ErrorCorrection.vue'),
+  },
 
   // Always leave this as last one,
   // but you can also remove it
@@ -15,6 +19,6 @@ const routes: RouteRecordRaw[] = [
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
   },
-];
+]
 
-export default routes;
+export default routes

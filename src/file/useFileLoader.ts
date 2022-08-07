@@ -190,6 +190,10 @@ export function useFileLoader() {
     }
   }
 
+  const validateSpells = () => {
+    console.log('merp')
+  }
+
   const loadMonster = (data: any) => {
     updateMonster(data)
 
@@ -211,6 +215,9 @@ export function useFileLoader() {
         color: 'negative',
       })
     } else {
+      // VALIDATE SPELLS FIRST
+      validateSpells()
+
       // update the store
       const monsterStore = useMonsterStore()
       monsterStore.$state = monster
@@ -226,5 +233,6 @@ export function useFileLoader() {
   return {
     loadFile,
     loadMonster,
+    updateMonster,
   }
 }

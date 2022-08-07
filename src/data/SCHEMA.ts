@@ -3,6 +3,8 @@ import v1 from './schema/5emm-v1.json'
 import v2 from './schema/5emm-v2.json'
 import v3 from './schema/5emm-v3.json'
 import v4 from './schema/5emm-v4.json'
+import v5 from './schema/5emm-v5.json'
+
 import spellsV1 from './schema/spells-v1.json'
 
 export const SPELL_SCHEMA = spellsV1
@@ -12,4 +14,5 @@ export const SCHEMA: Record<string, Schema> = {
   '2': v2,
   '3': v3,
   '4': v4,
+  '5': v5,
 }

@@ -262,10 +262,10 @@ export interface Monster {
   }
   speeds: MonsterSpeed[]
   skills: MonsterSkill[]
-  resistances: string[] | null
-  immunities: string[] | null
-  vulnerabilities: string[] | null
-  conditions: string[] | null
+  resistances: string[]
+  immunities: string[]
+  vulnerabilities: string[]
+  conditions: string[]
   senses: {
     blindsight: number
     darkvision: number

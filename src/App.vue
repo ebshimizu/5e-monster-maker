@@ -5,6 +5,7 @@
 <script lang="ts">
 import { defineComponent, provide } from 'vue'
 import { useTextRenderer } from './components/rendering/useTextRenderer'
+import { useMonsterStore } from './stores/monster-store'
 
 export default defineComponent({
   name: 'App',
@@ -12,6 +13,10 @@ export default defineComponent({
     const textRenderer = useTextRenderer()
 
     provide('textRenderer', textRenderer)
+
+    // on load validation
+    const monsterStore = useMonsterStore()
+    monsterStore.validate()
   },
 })
 </script>
