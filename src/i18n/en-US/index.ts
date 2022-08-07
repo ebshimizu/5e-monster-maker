@@ -353,6 +353,23 @@ export default {
         'Lair Action': 'Lair Action',
       },
     },
+    ok: 'OK',
+  },
+  io: {
+    error: {
+      version: 'Load Failed: No Version Detected',
+      validation: 'Load Failed: version {0} did not validate. Reasons: {1}',
+      unknown: 'Load Failed for unknown reason. Check dev console for error.',
+      upload: 'File failed to upload',
+      update:
+        'Monster failed to validate after update. Please submit a bug report and include the monster file.',
+      validationList: 'Validation Errors: {0}',
+    },
+    warn: {
+      spell:
+        "Some spells failed to validate and have been removed from the stat block. These are likely custom spells that don't exist in your database. Please add the spells listed and then re-load the monster. Missing: {0}",
+    },
+    success: 'Load Successful',
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)
