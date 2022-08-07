@@ -21,15 +21,21 @@
           <q-separator />
 
           <q-card-section>
-            Uh oh! If you're seeing this, it means the app crashed. Usually this
-            happens due to badly formatted monster data, and you can fix the
-            issue by using the buttons below. The monster you're working on will
-            be deleted. If you're able to, submit a bug report on GitHub and
-            attach the monster that caused this problem.
+            <p>
+              Uh oh! If you're seeing this, it means the app crashed. Usually
+              this happens due to badly formatted monster data, and you can fix
+              the issue by using the buttons below. The monster you're working
+              on will be deleted, but your custom templates and spells will be
+              unaffected.
+            </p>
+            <p>
+              If you're able to, submit a bug report on GitHub and attach the
+              monster that caused this problem.
+            </p>
           </q-card-section>
           <q-card-actions>
-            <q-btn color="negative" @click="clear">Clear Data</q-btn>
-            <q-btn @click="downloadFile">Download Data</q-btn>
+            <q-btn color="negative" @click="clear">Reset Monster</q-btn>
+            <q-btn @click="downloadFile">Download Monster</q-btn>
           </q-card-actions>
         </q-card>
       </div>
