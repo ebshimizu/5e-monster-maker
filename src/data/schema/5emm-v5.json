@@ -3,14 +3,17 @@
   "type": "object",
   "properties": {
     "name": { "type": "string" },
+    "useArticleInToken": { "type": "boolean" },
     "saveVersion": { "type": "integer" },
     "size": { "type": "string" },
-    "type": { "type": "string" },
-    "alignment": { "type": "string" },
+    "type": { "type": ["string", "null"] },
+    "alignment": { "type": ["string", "null"] },
+    "languages": { "type": "string" },
     "AC": { "type": "integer" },
     "ACType": { "type": "string" },
     "CR": { "type": "integer" },
     "proficiency": { "type": "integer" },
+    "proficiencyOverride": { "type": "boolean" },
     "HP": {
       "type": "object",
       "properties": {
@@ -19,18 +22,8 @@
         "modifier": { "type": "integer" }
       }
     },
-    "speeds": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "type": { "type": "string" },
-          "speed": { "type": "integer" },
-          "note": { "type": "string" }
-        }
-      }
-    },
+    "hpModifierOverride": { "type": "boolean" },
+    "hpDieTypeOverride": { "type": "boolean" },
     "stats": {
       "type": "object",
       "properties": {
@@ -95,6 +88,18 @@
         }
       }
     },
+    "speeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": ["string", "null"] },
+          "speed": { "type": "integer" },
+          "note": { "type": "string" }
+        }
+      }
+    },
     "skills": {
       "type": "array",
       "items": {
@@ -104,9 +109,10 @@
             "type": "object",
             "properties": {
               "stat": { "type": "string" },
-              "key": { "type": "string" }
+              "label": { "type": "string" }
             }
           },
+          "key": { "type": "string" },
           "proficient": { "type": "boolean" },
           "expertise": { "type": "boolean" },
           "override": { "type": "boolean" },
@@ -151,17 +157,103 @@
       "type": "object",
       "properties": {
         "override": { "type": "boolean" },
-        "overrideValue": { "type": "integer" }
+        "overrideValue": { "type": ["integer", "null"] }
       }
     },
-    "languages": { "type": "string" },
-    "attacks": {
+    "traits": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "name": { "type": "string" },
           "id": { "type": "string" },
+          "description": { "type": "string" },
+          "limitedUse": {
+            "type": "object",
+            "properties": {
+              "count": { "type": "integer" },
+              "rate": { "type": "string" }
+            }
+          },
+          "customPreamble": { "type": "boolean" },
+          "crAnnotation": {
+            "type": "object",
+            "properties": {
+              "maxDamage": { "type": "integer" },
+              "maxSave": { "type": "integer" },
+              "maxModifier": { "type": "integer" },
+              "multitarget": { "type": "boolean" },
+              "ehpMultiplier": { "type": "integer" },
+              "ehpModifier": { "type": "integer" },
+              "acModifier": { "type": "integer" },
+              "include": { "type": "boolean" },
+              "automatic": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "spellcasting": {
+      "type": "object",
+      "properties": {
+        "stat": { "type": "string" },
+        "save": {
+          "type": "object",
+          "properties": {
+            "override": { "type": "boolean" },
+            "overrideValue": { "type": "integer" }
+          }
+        },
+        "modifier": {
+          "type": "object",
+          "properties": {
+            "override": { "type": "boolean" },
+            "overrideValue": { "type": "integer" }
+          }
+        },
+        "attack": {
+          "type": "object",
+          "properties": {
+            "override": { "type": "boolean" },
+            "overrideValue": { "type": "integer" }
+          }
+        },
+        "class": { "type": ["string", "null"] },
+        "level": { "type": "integer" },
+        "slots": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "minItems": 9,
+          "maxItems": 9
+        },
+        "atWill": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "count": { "type": "integer" },
+              "rate": { "type": "string" },
+              "spells": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "standard": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" },
+        "atWillNotes": { "type": "string" },
+        "useCustomClassPreamble": { "type": "boolean" },
+        "customClassPreamble": { "type": "string" },
+        "useCustomInnatePreamble": { "type": "boolean" },
+        "customInnatePreamble": { "type": "string" }
+      }
+    },
+    "attacks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
           "distance": { "type": "string" },
           "kind": { "type": "string" },
           "modifier": {
@@ -231,7 +323,44 @@
           },
           "save": { "type": ["integer", "null"] },
           "description": { "type": "string" },
-          "legendaryOnly": { "type": "boolean" }
+          "legendaryOnly": { "type": "boolean" },
+          "useCustomRenderer": { "type": "boolean" },
+          "customRenderer": { "type": "string" }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "recharge": { "type": "string" },
+          "legendaryOnly": { "type": "boolean" },
+          "limitedUse": {
+            "type": "object",
+            "properties": {
+              "count": { "type": "integer" },
+              "rate": { "type": "string" }
+            }
+          },
+          "customPreamble": { "type": "boolean" },
+          "crAnnotation": {
+            "type": "object",
+            "properties": {
+              "maxDamage": { "type": "integer" },
+              "maxSave": { "type": "integer" },
+              "maxModifier": { "type": "integer" },
+              "multitarget": { "type": "boolean" },
+              "ehpMultiplier": { "type": "integer" },
+              "ehpModifier": { "type": "integer" },
+              "acModifier": { "type": "integer" },
+              "include": { "type": "boolean" },
+              "automatic": { "type": "boolean" }
+            }
+          }
         }
       }
     },
@@ -246,206 +375,103 @@
         }
       }
     },
-    "spellcasting": {
+    "multiattackOptions": {
       "type": "object",
       "properties": {
-        "stat": { "type": "string" },
-        "save": {
-          "type": "object",
-          "properties": {
-            "override": { "type": "boolean" },
-            "overrideValue": { "type": "integer" }
-          }
-        },
-        "modifier": {
-          "type": "object",
-          "properties": {
-            "override": { "type": "boolean" },
-            "overrideValue": { "type": "integer" }
-          }
-        },
-        "attack": {
-          "type": "object",
-          "properties": {
-            "override": { "type": "boolean" },
-            "overrideValue": { "type": "integer" }
-          }
-        },
-        "class": { "type": ["string", "null"] },
-        "level": { "type": "integer" },
-        "slots": {
-          "type": "array",
-          "items": { "type": "integer" },
-          "minItems": 9,
-          "maxItems": 9
-        },
-        "atWill": {
+        "useCustomRenderer": { "type": "boolean" },
+        "customMultiattackRenderer": { "type": "string" },
+        "postscript": { "type": "string" }
+      }
+    },
+    "legendaryActions": {
+      "type": "object",
+      "properties": {
+        "count": { "type": "integer" },
+        "actions": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "id": { "type": "string" },
-              "count": { "type": "integer" },
-              "rate": { "type": "string" },
-              "spells": { "type": "array", "items": { "type": "string" } }
+              "actionId": { "type": "string" },
+              "cost": { "type": "integer" }
             }
           }
         },
-        "standard": { "type": "array", "items": { "type": "string" } },
-        "notes": { "type": "string" },
-        "atWillNotes": { "type": "string" }
-      },
-      "traits": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "id": { "type": "string" },
-            "description": { "type": "string" },
-            "limitedUse": {
-              "type": "object",
-              "properties": {
-                "count": { "type": "integer" },
-                "rate": { "type": "string" }
-              }
-            },
-            "crAnnotation": {
-              "type": "object",
-              "properties": {
-                "maxDamage": { "type": "integer" },
-                "maxSave": { "type": "integer" },
-                "maxModifier": { "type": "integer" },
-                "multitarget": { "type": "boolean" },
-                "ehpMultiplier": { "type": "integer" },
-                "ehpModifier": { "type": "integer" },
-                "acModifier": { "type": "integer" },
-                "include": { "type": "boolean" }
-              }
-            }
-          }
-        }
-      },
-      "actions": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "id": { "type": "string" },
-            "description": { "type": "string" },
-            "recharge": { "type": "string" },
-            "legendaryOnly": { "type": "boolean" },
-            "limitedUse": {
-              "type": "object",
-              "properties": {
-                "count": { "type": "integer" },
-                "rate": { "type": "string" }
-              }
-            },
-            "crAnnotation": {
-              "type": "object",
-              "properties": {
-                "maxDamage": { "type": "integer" },
-                "maxSave": { "type": "integer" },
-                "maxModifier": { "type": "integer" },
-                "multitarget": { "type": "boolean" },
-                "ehpMultiplier": { "type": "integer" },
-                "ehpModifier": { "type": "integer" },
-                "acModifier": { "type": "integer" },
-                "include": { "type": "boolean" }
-              }
-            }
-          }
-        }
-      },
-      "legendaryActions": {
-        "type": "object",
-        "properties": {
-          "count": { "type": "integer" },
-          "actions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": { "type": "string" },
-                "actionId": { "type": "string" },
-                "cost": { "type": "integer" }
-              }
-            }
-          }
-        }
-      },
-      "mythicActions": {
-        "type": "object",
-        "properties": {
-          "triggerName": { "type": "string" },
-          "triggerRecharge": { "type": "string" },
-          "triggerDescription": { "type": "string" },
-          "preamble": { "type": "string" },
-          "actions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": { "type": "string" },
-                "actionId": { "type": "string" },
-                "cost": { "type": "integer" }
-              }
-            }
-          }
-        }
-      },
-      "reactions": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "id": { "type": "string" },
-            "description": { "type": "string" }
-          }
-        }
-      },
-      "lairActions": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "id": { "type": "string" },
-            "description": { "type": "string" },
-            "crAnnotation": {
-              "type": "object",
-              "properties": {
-                "maxDamage": { "type": "integer" },
-                "maxSave": { "type": "integer" },
-                "maxModifier": { "type": "integer" },
-                "multitarget": { "type": "boolean" },
-                "ehpMultiplier": { "type": "integer" },
-                "ehpModifier": { "type": "integer" },
-                "acModifier": { "type": "integer" },
-                "include": { "type": "boolean" }
-              }
-            }
-          }
-        }
-      },
-      "regionalEffects": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "id": { "type": "string" },
-            "description": { "type": "string" }
-          }
-        }
-      },
-      "regionalEffectDescription": {
-        "type": "string"
+        "useCustomPreamble": { "type": "boolean" },
+        "customPreamble": { "type": "string" }
       }
-    }
+    },
+    "mythicActions": {
+      "type": "object",
+      "properties": {
+        "triggerName": { "type": "string" },
+        "triggerRecharge": { "type": "string" },
+        "triggerDescription": { "type": "string" },
+        "preamble": { "type": "string" },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "actionId": { "type": "string" },
+              "cost": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "reactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "id": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "useCustomLairActionPreamble": { "type": "boolean" },
+    "lairActionPreamble": { "type": "string" },
+    "lairActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "crAnnotation": {
+            "type": "object",
+            "properties": {
+              "maxDamage": { "type": "integer" },
+              "maxSave": { "type": "integer" },
+              "maxModifier": { "type": "integer" },
+              "multitarget": { "type": "boolean" },
+              "ehpMultiplier": { "type": "integer" },
+              "ehpModifier": { "type": "integer" },
+              "acModifier": { "type": "integer" },
+              "include": { "type": "boolean" },
+              "automatic": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "regionalEffects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "regionalEffectDescription": {
+      "type": "string"
+    },
+    "autoEstimateDefenseCr": { "type": "boolean" }
   },
   "required": [
     "name",

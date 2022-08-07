@@ -1,6 +1,7 @@
 import { validate } from 'jsonschema'
 import { useQuasar } from 'quasar'
 import { SCHEMA } from 'src/data/SCHEMA'
+import { useMonsterStore } from 'src/stores/monster-store'
 import { useI18n } from 'vue-i18n'
 import { Monster } from '../components/models'
 import { popFileDialog } from './popFileDialog'
@@ -29,12 +30,6 @@ export function useFileLoader() {
 
             if (valid.valid) {
               loadMonster(monster)
-
-              $q.notify({
-                color: 'positive',
-                message: 'Load Successful',
-                position: 'top',
-              })
             } else {
               $q.notify({
                 message: `Load Failed: version ${
@@ -70,14 +65,6 @@ export function useFileLoader() {
     })
 
     reader.readAsText(file)
-  }
-
-  const loadFromDialog = async () => {
-    const file = await popFileDialog()
-
-    if (file != null) {
-      loadFile(file)
-    }
   }
 
   const updateMonster = (monster: any) => {
@@ -117,23 +104,126 @@ export function useFileLoader() {
 
     // v5 is a big one, this was the app version 1 -> 2 upgrade
     if (monster.saveVersion < 5) {
-      // oof
+      // add missing fields
+      monster.useArticleInToken = false
+      monster.proficiencyOverride = false
+      monster.hpModifierOverride = false
+      monster.hpDieTypeOverride = false
+
+      // skill conversion
+      const newSkills = []
+      for (const skill of monster.skills) {
+        newSkills.push({
+          ...skill,
+          skill: {
+            stat: skill.skill.stat,
+            label: skill.skill.key,
+          },
+          key: skill.skill.key.toUpperCase(),
+        })
+      }
+
+      monster.skills = newSkills
+
+      // traits
+      for (const trait of monster.traits) {
+        trait.customPreamble = false
+        trait.limitedUse.rate = trait.limitedUse.rate.toUpperCase()
+        trait.crAnnotation.automatic = false // 4 -> 5 conversion shouldn't assume this
+      }
+
+      // spellcasting
+      monster.spellcasting.useCustomClassPreamble = false
+      monster.spellcasting.customClassPreamble = ''
+      monster.spellcasting.useCustomInnatePreamble = false
+      monster.spellcasting.customInnatePreamble = ''
+
+      // attacks
+      for (const attack of monster.attacks) {
+        attack.useCustomRenderer = false
+        attack.customRenderer = ''
+        attack.kind = attack.kind.toUpperCase()
+        attack.distance = attack.distance.toUpperCase()
+      }
+
+      // actions
+      for (const action of monster.actions) {
+        action.customPreamble = false
+        action.limitedUse.rate = action.limitedUse.rate.toUpperCase()
+        action.crAnnotation.automatic = false
+      }
+
+      // multiattack options
+      monster.multiattackOptions = {
+        useCustomRenderer: false,
+        customMultiattackRenderer: '',
+        postscript: '',
+      }
+
+      // legendary actions
+      monster.legendaryActions.useCustomPreamble = false
+      monster.legendaryActions.customPreamble = ''
+
+      // lair actions
+      monster.useCustomLairActionPreamble = false
+      monster.lairActionPreamble = ''
+      for (const la of monster.lairActions) {
+        la.crAnnotation.automatic = false
+      }
+
+      monster.autoEstimateDefenseCr = true
+      monster.saveVersion = 5
     }
 
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0
     }
+
+    // trait and action limited use, check for empty string
+    for (const trait of monster.traits) {
+      if (trait.limitedUse.count === '') trait.limitedUse.count = 0
+    }
+
+    for (const action of monster.actions) {
+      if (action.limitedUse.count === '') action.limitedUse.count = 0
+    }
   }
 
   const loadMonster = (data: any) => {
     updateMonster(data)
 
-    // update the store
+    // one more validation for the road, use the most recent version
+    const monster = data as Monster
+    const valid = validate(data, SCHEMA['5'])
+
+    if (!valid.valid) {
+      console.error(valid.errors.map((e) => e.toString()))
+
+      $q.notify({
+        message:
+          'Monster failed to validate after update. Please submit a bug report and include the monster file.',
+        color: 'negative',
+      })
+
+      $q.notify({
+        message: `Errors: ${valid.errors.map((e) => e.toString()).join('\n')}`,
+        color: 'negative',
+      })
+    } else {
+      // update the store
+      const monsterStore = useMonsterStore()
+      monsterStore.$state = monster
+
+      $q.notify({
+        color: 'positive',
+        message: 'Load Successful',
+        position: 'top',
+      })
+    }
   }
 
   return {
-    loadFromDialog,
     loadFile,
     loadMonster,
   }
