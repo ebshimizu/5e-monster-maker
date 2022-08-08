@@ -372,12 +372,15 @@ export default {
       update:
         'Monster failed to validate after update. Please submit a bug report and include the monster file.',
       validationList: 'Validation Errors: {0}',
+      md: 'Error exporting markdown file. Check console and file a bug report. {0}',
+      json: 'Error exporting json file. Check console and file a bug report. {0}',
     },
     warn: {
       spell:
         "Some spells failed to validate and have been removed from the stat block. These are likely custom spells that don't exist in your database. Please add the spells listed and then re-load the monster. Missing: {0}",
     },
     success: 'Load Successful',
+    copyMd: 'Copied Markdown (Homebrewery Format) to Clipboard',
     export: {
       default: 'Export JSON (5emm format)',
       md: 'Export Markdown (Homebrewery)',

@@ -1,5 +1,6 @@
 // this file is a mess
-// Markdown is sensitive to whitespace, be careful when running the formatter on this file
+// the autoformatter is allowed to run here it's just ugly af
+// due to the whitespace sensitivity of markdown
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useTextRenderer } from './useTextRenderer'
 import { avgRoll, renderBonus, renderModifier } from './mathRendering'
