@@ -111,7 +111,7 @@
 import { computed, defineComponent, PropType } from '@vue/runtime-core'
 import { QBtnDropdown } from 'quasar'
 import { ref } from 'vue'
-import { MonsterContextType } from '../rendering/processTokens'
+import { MonsterContextType } from '../rendering/useProcessTokens'
 import { useTokens } from './useTokens'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'

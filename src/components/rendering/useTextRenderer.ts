@@ -9,7 +9,7 @@ import {
   bonusForSkill,
 } from './mathRendering'
 import N2W from 'number-to-words'
-import { useProcessTokens } from './processTokens'
+import { useProcessTokens } from './useProcessTokens'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {

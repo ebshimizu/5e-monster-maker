@@ -205,7 +205,7 @@
 import { computed, defineComponent, inject } from 'vue'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useTextRenderer } from './useTextRenderer'
-import { useProcessTokens } from './processTokens'
+import { useProcessTokens } from './useProcessTokens'
 
 export default defineComponent({
   name: 'WebRenderer',
