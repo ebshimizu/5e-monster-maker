@@ -8,6 +8,9 @@
         <q-item v-close-popup clickable @click="saveMd()">
           <q-item-section>{{ $t('io.export.md') }}</q-item-section>
         </q-item>
+        <q-item v-close-popup clickable @click="savePng()">
+          <q-item-section>{{ $t('io.export.png') }}</q-item-section>
+        </q-item>
         <q-item v-close-popup clickable @click="copyMd()">
           <q-item-section>{{ $t('io.export.mdClip') }}</q-item-section>
         </q-item>
@@ -24,6 +27,7 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { download, saveJson } from './download'
 import copy from 'copy-to-clipboard'
+import DomToImage from 'dom-to-image'
 
 export default defineComponent({
   name: 'DownloadButton',
@@ -76,10 +80,21 @@ export default defineComponent({
       }
     }
 
+    const savePng = () => {
+      const node = document.getElementById('render')
+
+      if (node != null) {
+        DomToImage.toBlob(node).then(function (image: Blob) {
+          download(image, `${monster.name}.png`, 'image/png')
+        })
+      }
+    }
+
     return {
       save5emm,
       saveMd,
       copyMd,
+      savePng,
     }
   },
 })

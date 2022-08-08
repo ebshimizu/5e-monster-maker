@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header elevated height-hint="64">
+    <q-header id="main-nav" elevated height-hint="64">
       <q-toolbar>
         <q-btn
           flat
@@ -74,7 +74,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer elevated>
+    <q-footer id="footer" elevated>
       <q-card class="full-width">
         <q-card-section class="bg-blue-grey-7 no-padding">
           <cr-footer />

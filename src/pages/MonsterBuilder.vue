@@ -1,11 +1,12 @@
 <template>
   <q-page class="row items-start">
     <q-splitter
+      id="splitter"
       v-model="splitterModel"
       style="height: calc(100vh - 177px); width: 100%"
     >
       <template #before>
-        <div class="q-pa-md" style="width: 100%">
+        <div id="editor" class="q-pa-md" style="width: 100%">
           <q-list bordered separator class="rounded-borders">
             <basics-editor />
             <saves-editor />
@@ -29,7 +30,7 @@
 
       <template #after>
         <div class="q-pa-md">
-          <web-renderer />
+          <web-renderer id="renderer" />
         </div>
       </template>
     </q-splitter>

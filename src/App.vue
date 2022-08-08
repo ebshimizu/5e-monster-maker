@@ -57,6 +57,15 @@ export default defineComponent({
     display: none;
   }
 
+  #splitter {
+    overflow: visible;
+    height: unset !important;
+
+    .q-splitter__panel.q-splitter__before {
+      width: 0px !important;
+    }
+  }
+
   #renderer {
     max-width: 100% !important;
     flex: 0 0 100% !important;
