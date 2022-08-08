@@ -1,7 +1,11 @@
 export default {
+  app: {
+    name: '5e Monster Maker',
+  },
   monster: {
     name: 'Name',
     cr: 'CR',
+    challenge: 'Challenge',
     proficiencyBonus: 'Proficiency Bonus',
     proficiency: {
       lockToCr: 'Lock Bonus to CR',
@@ -10,6 +14,7 @@ export default {
     size: 'Size',
     hp: {
       label: 'HP',
+      full: 'Hit Points',
       hd: 'HD Count',
       type: 'HD Type',
       modifier: 'HP Modifier',
@@ -26,10 +31,13 @@ export default {
       WIS: 'WIS',
       CHA: 'CHA',
     },
+    saves: 'Saving Throws',
+    skills: 'Skills',
     setHdByCr: 'Set HD to Match CR',
     type: 'Type',
     alignment: 'Alignment',
     ac: 'AC',
+    armorClass: 'Armor Class',
     setAcByCr: 'Set AC to Match CR',
     acType: 'AC Type',
     languages: 'Languages',
@@ -370,6 +378,16 @@ export default {
         "Some spells failed to validate and have been removed from the stat block. These are likely custom spells that don't exist in your database. Please add the spells listed and then re-load the monster. Missing: {0}",
     },
     success: 'Load Successful',
+    export: {
+      default: 'Export JSON (5emm format)',
+      md: 'Export Markdown (Homebrewery)',
+      tarrasque: 'Export JSON (Tarrasque.io format)',
+      latex1c: 'Export LaTeX (rpgtex, 1 col)',
+      latex2c: 'Export LaTeX (rpgtex, 2 col)',
+      png: 'Save as PNG',
+      mdClip: 'Copy Markdown to Clipboard (Homebrewery)',
+      link: 'Copy 5emm Link (tinyurl)',
+    },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)

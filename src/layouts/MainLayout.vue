@@ -17,7 +17,7 @@
           shrink
           class="row items-center no-wrap"
         >
-          <span class="q-ml-sm">5e Monster Maker</span>
+          <span class="q-ml-sm">{{ $t('app.name') }}</span>
         </q-toolbar-title>
 
         <q-space />
@@ -50,7 +50,7 @@
             icon="mdi-folder-open"
             @click="loadFileDialog()"
           ></q-btn>
-          <q-btn round flat icon="download" @click="save5emm()"> </q-btn>
+          <download-button />
         </div>
       </q-toolbar>
     </q-header>
@@ -93,14 +93,12 @@ import { defineComponent, ref } from 'vue'
 import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
 import { useFileLoader } from 'src/file/useFileLoader'
-import { saveJson } from 'src/file/download'
 import { popFileDialog } from 'src/file/popFileDialog'
+import DownloadButton from 'src/file/DownloadButton.vue'
 
 export default defineComponent({
   name: 'MainLayout',
-
-  components: { CrFooter, GenericFooter },
-
+  components: { CrFooter, GenericFooter, DownloadButton },
   setup() {
     const leftDrawerOpen = ref(false)
 
@@ -119,11 +117,6 @@ export default defineComponent({
         loadFile(file)
       }
     }
-
-    const save5emm = () => {
-      saveJson(monster.$state, `${monster.name}.5emm.json`)
-    }
-
     return {
       leftDrawerOpen,
       search,
@@ -132,7 +125,6 @@ export default defineComponent({
       },
       reset,
       loadFileDialog,
-      save5emm,
     }
   },
 })

@@ -8,27 +8,28 @@ import {
   saveModifierForStat,
   bonusForSkill,
 } from './mathRendering'
-import {
-  processAction,
-  processAttack,
-  processClassSpellcasting,
-  processInnateSpellcasting,
-  processLairActionPreamble,
-  processLegendaryAction,
-  processLegendaryPreamble,
-  processMultiattack,
-  processMythicActionPreamble,
-  processMythicActionTrait,
-  processReaction,
-  processTokens,
-  processTrait,
-} from './processTokens'
 import N2W from 'number-to-words'
+import { useProcessTokens } from './processTokens'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
   const monster = useMonsterStore()
   const { t } = useI18n()
+  const {
+    processAction,
+    processAttack,
+    processClassSpellcasting,
+    processInnateSpellcasting,
+    processLairActionPreamble,
+    processLegendaryAction,
+    processLegendaryPreamble,
+    processMultiattack,
+    processMythicActionPreamble,
+    processMythicActionTrait,
+    processReaction,
+    processTokens,
+    processTrait,
+  } = useProcessTokens()
 
   const stats = computed(() => {
     return monster.statsWithModifiers.map((s) => {

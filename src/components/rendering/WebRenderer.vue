@@ -205,12 +205,13 @@
 import { computed, defineComponent, inject } from 'vue'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useTextRenderer } from './useTextRenderer'
-import { sanitizeWebString } from './processTokens'
+import { useProcessTokens } from './processTokens'
 
 export default defineComponent({
   name: 'WebRenderer',
   setup() {
     const monster = useMonsterStore()
+    const { sanitizeWebString } = useProcessTokens()
     const textRenderer = inject('textRenderer') as ReturnType<
       typeof useTextRenderer
     >
