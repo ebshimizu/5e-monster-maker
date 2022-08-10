@@ -362,6 +362,8 @@ export default {
       },
     },
     ok: 'OK',
+    load: 'Load',
+    cancel: 'Cancel',
   },
   io: {
     error: {
@@ -378,6 +380,10 @@ export default {
     warn: {
       spell:
         "Some spells failed to validate and have been removed from the stat block. These are likely custom spells that don't exist in your database. Please add the spells listed and then re-load the monster. Missing: {0}",
+    },
+    dataUrl: {
+      title: 'Load from URL',
+      loadText: 'You are about to load a monster named "{0}". Proceed?',
     },
     success: 'Load Successful',
     copyMd: 'Copied Markdown (Homebrewery Format) to Clipboard',

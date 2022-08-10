@@ -88,20 +88,25 @@
     <q-dialog v-model="showDataLoad" persistent>
       <q-card>
         <q-card-section class="row items-center">
-          <span class="q-ml-sm"
-            >You are about to load a monster named {{ queryData.name }}.
-            Proceed?</span
-          >
+          <div class="text-h6">{{ $t('io.dataUrl.title') }}</div>
+          <div class="q-my-sm">
+            {{ $t('io.dataUrl.loadText', [queryData.name]) }}
+          </div>
         </q-card-section>
 
         <q-card-actions align="right">
           <q-btn
             flat
-            label="Load"
+            :label="$t('editor.load')"
             color="positive"
             @click="loadFromDataParam"
           />
-          <q-btn v-close-popup flat label="Cancel" color="negative" />
+          <q-btn
+            v-close-popup
+            flat
+            :label="$t('editor.cancel')"
+            color="negative"
+          />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -110,7 +115,7 @@
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
-import { computed, defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue'
 import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
 import { useFileLoader } from 'src/file/useFileLoader'
@@ -149,6 +154,7 @@ export default defineComponent({
 
     const dataParamFound = route.query.data != null
     const showDataLoad = ref(false)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queryData: any = ref({})
 
     const loadDataParam = async () => {
