@@ -84,23 +84,52 @@
         </q-card-section>
       </q-card>
     </q-footer>
+
+    <q-dialog v-model="showDataLoad" persistent>
+      <q-card>
+        <q-card-section class="row items-center">
+          <span class="q-ml-sm"
+            >You are about to load a monster named {{ queryData.name }}.
+            Proceed?</span
+          >
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn
+            flat
+            label="Load"
+            color="positive"
+            @click="loadFromDataParam"
+          />
+          <q-btn v-close-popup flat label="Cancel" color="negative" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-layout>
 </template>
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
 import { useFileLoader } from 'src/file/useFileLoader'
 import { popFileDialog } from 'src/file/popFileDialog'
 import DownloadButton from 'src/file/DownloadButton.vue'
+import { useRoute } from 'vue-router'
+
+import * as jsonurl from 'json-url'
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
   name: 'MainLayout',
   components: { CrFooter, GenericFooter, DownloadButton },
   setup() {
     const leftDrawerOpen = ref(false)
+    const route = useRoute()
+    const codec = jsonurl('lzma')
+    const $q = useQuasar()
+    const { loadMonster } = useFileLoader()
 
     // TODO: link this to the template search
     const search = ref('')
@@ -117,6 +146,40 @@ export default defineComponent({
         loadFile(file)
       }
     }
+
+    const dataParamFound = route.query.data != null
+    const showDataLoad = ref(false)
+    const queryData: any = ref({})
+
+    const loadDataParam = async () => {
+      try {
+        const data = await codec.decompress(route.query.data)
+        const maybeMonster = JSON.parse(data)
+        queryData.value = maybeMonster
+        showDataLoad.value = true
+      } catch (e) {
+        $q.notify({
+          message: 'Invalid data parameter',
+          type: 'negative',
+        })
+
+        route.query.data = ''
+      }
+    }
+    // only do this on load
+    if (dataParamFound) {
+      loadDataParam()
+    }
+
+    // TODO: load from data param
+    const loadFromDataParam = () => {
+      if (dataParamFound) {
+        loadMonster(queryData.value)
+      }
+
+      showDataLoad.value = false
+    }
+
     return {
       leftDrawerOpen,
       search,
@@ -125,6 +188,10 @@ export default defineComponent({
       },
       reset,
       loadFileDialog,
+      dataParamFound,
+      showDataLoad,
+      queryData,
+      loadFromDataParam,
     }
   },
 })

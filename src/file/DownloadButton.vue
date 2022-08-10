@@ -20,6 +20,9 @@
         <q-item v-close-popup clickable @click="copyMd()">
           <q-item-section>{{ $t('io.export.mdClip') }}</q-item-section>
         </q-item>
+        <q-item v-close-popup clickable @click="copyLink()">
+          <q-item-section>{{ $t('io.export.link') }}</q-item-section>
+        </q-item>
       </q-list>
     </q-menu>
   </q-btn>
@@ -37,6 +40,8 @@ import DomToImage from 'dom-to-image'
 import { useLatexRenderer } from 'src/components/rendering/useLatexRenderer'
 import { useTarrasqueRenderer } from 'src/components/rendering/useTarrasqueRenderer'
 
+import * as jsonurl from 'json-url'
+
 export default defineComponent({
   name: 'DownloadButton',
   setup() {
@@ -46,6 +51,17 @@ export default defineComponent({
     const { renderMarkdown } = useMdRenderer()
     const { renderLatex } = useLatexRenderer()
     const { renderTarrasqueJson } = useTarrasqueRenderer()
+    const codec = jsonurl('lzma')
+
+    // who needs a library i guess
+    const shorten = async (url: string) => {
+      const data = await fetch(
+        'https://tinyurl.com/api-create.php?url=' + encodeURIComponent(url)
+      )
+
+      const short = await data.text()
+      return short
+    }
 
     const save5emm = () => {
       try {
@@ -112,6 +128,37 @@ export default defineComponent({
       }
     }
 
+    const copyLink = async () => {
+      try {
+        const b64 = await codec.compress(JSON.stringify(monster.$state))
+        const url = `${window.location.origin}${window.location.pathname}#/?data=${b64}`
+
+        try {
+          const short = await shorten(url)
+          copy(short)
+          $q.notify({
+            message: 'Copied Sharable Link to Clipboard',
+            type: 'positive',
+          })
+        } catch (e) {
+          $q.notify({
+            message: 'Copied long link to Clipboard (unable to shorten)',
+            type: 'warning',
+          })
+          console.log(e)
+
+          copy(url)
+        }
+      } catch (e) {
+        $q.notify({
+          message: 'Error encoding url. Check console for details.',
+          type: 'negative',
+        })
+
+        console.log(e)
+      }
+    }
+
     return {
       save5emm,
       saveMd,
@@ -119,6 +166,7 @@ export default defineComponent({
       saveLatex,
       saveTio,
       savePng,
+      copyLink,
     }
   },
 })
