@@ -769,6 +769,41 @@ export function useProcessTokens() {
     return input
   }
 
+  const latexFormatter = (input: string) => {
+    const biStart = /^<[bi]><[bi]>(.+)<\/[bi]><\/[bi]>/gi
+    input = input.replace(biStart, (match, content) => {
+      return `\\DndMonsterAction{${content.replace(/\.$/gi, '')}}`
+    })
+
+    // three tiers of *s
+    // b/i and i/b
+    const bi = /<[bi]><[bi]>(.+)<\/[bi]><\/[bi]>/gi
+    input = input.replace(bi, (match, content) => {
+      return `\\emph{\\textbf{${content}}`
+    })
+
+    // b
+    const b = /<\s*b[^>]*>(.*?)<\s*\/\s*b>/gi
+    input = input.replace(b, (match, content) => {
+      return `\\textbf{${content}}`
+    })
+
+    // i
+    const i = /<\s*i[^>]*>(.*?)<\s*\/\s*i>/gi
+    input = input.replace(i, (match, content) => {
+      return `\\emph{${content}}`
+    })
+
+    // brs
+    // linebreak time
+    const linebreak = /<div><br><\/div>/gi
+    input = input.replace(linebreak, () => {
+      return '\n'
+    })
+
+    return input
+  }
+
   return {
     processMonsterTokens,
     processTraitTokens,
@@ -792,5 +827,6 @@ export function useProcessTokens() {
     processLairActionPreamble,
     sanitizeWebString,
     mdFormatter,
+    latexFormatter,
   }
 }
