@@ -12,6 +12,7 @@ import {
   DndStat,
   Monster,
   MonsterAction,
+  MonsterSkill,
 } from 'src/components/models'
 import {
   avgHP,
@@ -20,6 +21,7 @@ import {
   bonusForAttackDamage,
   bonusForConditionalDamage,
   bonusForSkill,
+  saveModifier,
   statModifier,
 } from 'src/components/rendering/mathRendering'
 import { CR } from 'src/data/CR'
@@ -204,6 +206,27 @@ export const useMonsterStore = defineStore('monster', {
       }
 
       return passive
+    },
+    defaultSaveBonus: (state) => {
+      return (stat: keyof typeof state.stats) => {
+        const proficient = state.saves[stat].proficient
+        return saveModifier(
+          state.stats[stat],
+          proficient ? state.proficiency : 0
+        )
+      }
+    },
+    defaultSkillBonus: (state) => {
+      return (skill: MonsterSkill) => {
+        const proficient = skill.proficient
+        // back compat safety
+        const expertise = skill.expertise ? skill.expertise : false
+
+        return saveModifier(
+          state.stats[skill.skill.stat],
+          expertise ? state.proficiency * 2 : proficient ? state.proficiency : 0
+        )
+      }
     },
     defaultSpellSave: (state) => {
       return (stat: keyof typeof state.stats) =>

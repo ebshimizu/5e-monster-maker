@@ -736,6 +736,21 @@ export function useProcessTokens() {
     return input
   }
 
+  const stripTags = (input: string) => {
+    const allowedTags = /<(\/?[b|i|u])>/gi
+    input = input.replace(allowedTags, (match, tag) => {
+      return ''
+    })
+
+    // linebreak time
+    const linebreak = /<div><br><\/div>/gi
+    input = input.replace(linebreak, () => {
+      return '\n'
+    })
+
+    return input
+  }
+
   const mdFormatter = (input: string) => {
     // three tiers of *s
     // b/i and i/b
@@ -828,5 +843,6 @@ export function useProcessTokens() {
     sanitizeWebString,
     mdFormatter,
     latexFormatter,
+    stripTags,
   }
 }

@@ -11,6 +11,9 @@
         <q-item v-close-popup clickable @click="saveLatex()">
           <q-item-section>{{ $t('io.export.latex') }}</q-item-section>
         </q-item>
+        <q-item v-close-popup clickable @click="saveTio()">
+          <q-item-section>{{ $t('io.export.tarrasque') }}</q-item-section>
+        </q-item>
         <q-item v-close-popup clickable @click="savePng()">
           <q-item-section>{{ $t('io.export.png') }}</q-item-section>
         </q-item>
@@ -32,6 +35,7 @@ import { download, saveJson } from './download'
 import copy from 'copy-to-clipboard'
 import DomToImage from 'dom-to-image'
 import { useLatexRenderer } from 'src/components/rendering/useLatexRenderer'
+import { useTarrasqueRenderer } from 'src/components/rendering/useTarrasqueRenderer'
 
 export default defineComponent({
   name: 'DownloadButton',
@@ -41,6 +45,7 @@ export default defineComponent({
     const { t } = useI18n()
     const { renderMarkdown } = useMdRenderer()
     const { renderLatex } = useLatexRenderer()
+    const { renderTarrasqueJson } = useTarrasqueRenderer()
 
     const save5emm = () => {
       try {
@@ -89,6 +94,14 @@ export default defineComponent({
       download(renderLatex(), `${monster.name}.tex`, 'text/latex')
     }
 
+    const saveTio = () => {
+      download(
+        renderTarrasqueJson(),
+        `${monster.name}.tio.json`,
+        'application/json'
+      )
+    }
+
     const savePng = () => {
       const node = document.getElementById('render')
 
@@ -104,6 +117,7 @@ export default defineComponent({
       saveMd,
       copyMd,
       saveLatex,
+      saveTio,
       savePng,
     }
   },
