@@ -1,5 +1,5 @@
 <template>
-  <div id="render" class="statblock">
+  <div id="render" class="statblock" :style="columns">
     <h2 class="monster-name">{{ monster.name }}</h2>
     <div class="type">
       {{ monster.size }} {{ monster.type }}, {{ monster.alignment }}
@@ -202,10 +202,11 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject } from 'vue'
+import { computed, defineComponent, inject, StyleValue } from 'vue'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useTextRenderer } from './useTextRenderer'
 import { useProcessTokens } from './useProcessTokens'
+import { useEditorStore } from 'src/stores/editor-store'
 
 export default defineComponent({
   name: 'WebRenderer',
@@ -280,6 +281,13 @@ export default defineComponent({
       textRenderer.regionalEffects.value.map((re) => sanitizeWebString(re))
     )
 
+    const editorStore = useEditorStore()
+    const columns = computed<StyleValue>(() => {
+      return {
+        columnCount: editorStore.statBlockColumns,
+      }
+    })
+
     return {
       monster,
       ...textRenderer,
@@ -299,6 +307,7 @@ export default defineComponent({
       lairActions,
       regionalEffectPreamble,
       regionalEffects,
+      columns,
     }
   },
 })

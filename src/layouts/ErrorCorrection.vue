@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import { download } from 'src/file/download'
+import { download } from '../components/file/download'
 import { defineComponent } from 'vue'
 
 export default defineComponent({

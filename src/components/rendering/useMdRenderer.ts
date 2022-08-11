@@ -207,7 +207,7 @@ ${formattedActions.join('\n>\n')}\n>`
     const lair = getLairActions()
     const regional = getRegionalEffects()
 
-    return `___${twoCol ? '___' : ''}
+    return `___${twoCol ? '\n___' : ''}
 > ## ${monster.name}
 >*${monster.size} ${monster.type}, ${monster.alignment}*
 > ___

@@ -30,17 +30,18 @@
 
 <script lang="ts">
 import { useQuasar } from 'quasar'
-import { useMdRenderer } from 'src/components/rendering/useMdRenderer'
-import { useMonsterStore } from 'src/stores/monster-store'
+import { useMdRenderer } from '../rendering/useMdRenderer'
+import { useMonsterStore } from '../../stores/monster-store'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { download, saveJson } from './download'
 import copy from 'copy-to-clipboard'
 import DomToImage from 'dom-to-image'
-import { useLatexRenderer } from 'src/components/rendering/useLatexRenderer'
-import { useTarrasqueRenderer } from 'src/components/rendering/useTarrasqueRenderer'
+import { useLatexRenderer } from '../rendering/useLatexRenderer'
+import { useTarrasqueRenderer } from '../rendering/useTarrasqueRenderer'
 
 import * as jsonurl from 'json-url'
+import { useEditorStore } from 'src/stores/editor-store'
 
 export default defineComponent({
   name: 'DownloadButton',
@@ -52,6 +53,7 @@ export default defineComponent({
     const { renderLatex } = useLatexRenderer()
     const { renderTarrasqueJson } = useTarrasqueRenderer()
     const codec = jsonurl('lzma')
+    const editorStore = useEditorStore()
 
     // who needs a library i guess
     const shorten = async (url: string) => {
@@ -78,7 +80,11 @@ export default defineComponent({
 
     const saveMd = () => {
       try {
-        download(renderMarkdown(), `${monster.name}.md`, 'text/markdown')
+        download(
+          renderMarkdown(editorStore.statBlockColumns === 2),
+          `${monster.name}.md`,
+          'text/markdown'
+        )
       } catch (e) {
         console.error(e)
 
@@ -91,7 +97,7 @@ export default defineComponent({
 
     const copyMd = () => {
       try {
-        copy(renderMarkdown())
+        copy(renderMarkdown(editorStore.statBlockColumns === 2))
         $q.notify({
           message: t('io.copyMd'),
           type: 'positive',
@@ -107,7 +113,11 @@ export default defineComponent({
     }
 
     const saveLatex = () => {
-      download(renderLatex(), `${monster.name}.tex`, 'text/latex')
+      download(
+        renderLatex(editorStore.statBlockColumns === 2),
+        `${monster.name}.tex`,
+        'text/latex'
+      )
     }
 
     const saveTio = () => {
@@ -119,7 +129,8 @@ export default defineComponent({
     }
 
     const savePng = () => {
-      const node = document.getElementById('render')
+      const node = document.getElementById('renderer')
+      console.log(node)
 
       if (node != null) {
         DomToImage.toBlob(node).then(function (image: Blob) {

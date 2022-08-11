@@ -4,7 +4,7 @@ import { SCHEMA } from 'src/data/SCHEMA'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useSpellsStore } from 'src/stores/spells-store'
 import { useI18n } from 'vue-i18n'
-import { Monster } from '../components/models'
+import { Monster } from '../models'
 
 export function useFileLoader() {
   const $q = useQuasar()

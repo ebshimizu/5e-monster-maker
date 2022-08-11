@@ -43,7 +43,7 @@
         <q-space />
 
         <div class="q-gutter-sm row items-center no-wrap">
-          <q-btn round flat icon="settings"></q-btn>
+          <web-renderer-settings-button />
           <q-btn
             round
             flat
@@ -58,7 +58,7 @@
     <q-drawer v-model="leftDrawerOpen" overlay elevated>
       <q-list>
         <q-item clickable @click="reset">
-          <q-item-section>Reset Monster</q-item-section>
+          <q-item-section>{{ $t('editor.resetMonster') }}</q-item-section>
         </q-item>
         <q-separator />
         <q-item clickable>
@@ -118,17 +118,23 @@ import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
 import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
-import { useFileLoader } from 'src/file/useFileLoader'
-import { popFileDialog } from 'src/file/popFileDialog'
-import DownloadButton from 'src/file/DownloadButton.vue'
+import { useFileLoader } from 'src/components/file/useFileLoader'
+import { popFileDialog } from 'src/components/file/popFileDialog'
+import DownloadButton from 'src/components/file/DownloadButton.vue'
 import { useRoute } from 'vue-router'
 
 import * as jsonurl from 'json-url'
 import { useQuasar } from 'quasar'
+import WebRendererSettingsButton from 'src/components/rendering/WebRendererSettingsButton.vue'
 
 export default defineComponent({
   name: 'MainLayout',
-  components: { CrFooter, GenericFooter, DownloadButton },
+  components: {
+    CrFooter,
+    GenericFooter,
+    DownloadButton,
+    WebRendererSettingsButton,
+  },
   setup() {
     const leftDrawerOpen = ref(false)
     const route = useRoute()

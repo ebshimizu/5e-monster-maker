@@ -269,7 +269,11 @@ export default {
     trait: 'Trait',
     plainTextNote: 'Plain Text Only',
     reset: 'Reset',
+    resetMonster: 'Reset Monster',
     resetTip: 'Reset to Default',
+    article: "Use 'The' in NAME Token",
+    renderSettings: 'Stat Block Settings',
+    columns: 'Columns',
     crAnnotation: {
       title: 'CR Annotation Data',
       manual: 'Using Manual CR Estimation',
