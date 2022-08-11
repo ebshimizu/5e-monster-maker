@@ -77,6 +77,25 @@
         v-html="mythicTrait"
       ></div>
     </div>
+    <h3 class="section">{{ $t('editor.action.label') }}</h3>
+    <div v-if="monster.multiattacks.length > 0" class="multiattack">
+      <span class="name">{{ $t('editor.multiattack.label') }}.</span>
+      {{ multiattacks }}
+    </div>
+    <div
+      v-for="(attack, idx) in attacks"
+      :key="idx"
+      class="attack"
+      v-html="attack"
+    ></div>
+    <div class="other-actions">
+      <div
+        v-for="(action, idx) in actions"
+        :key="idx"
+        class="action"
+        v-html="action"
+      ></div>
+    </div>
     <div
       v-if="monster.spellcasting.atWill.length > 0"
       class="innate-spellcasting"
@@ -125,25 +144,6 @@
           </div>
         </template>
       </div>
-    </div>
-    <h3 class="section">{{ $t('editor.action.label') }}</h3>
-    <div v-if="monster.multiattacks.length > 0" class="multiattack">
-      <span class="name">{{ $t('editor.multiattack.label') }}.</span>
-      {{ multiattacks }}
-    </div>
-    <div
-      v-for="(attack, idx) in attacks"
-      :key="idx"
-      class="attack"
-      v-html="attack"
-    ></div>
-    <div class="other-actions">
-      <div
-        v-for="(action, idx) in actions"
-        :key="idx"
-        class="action"
-        v-html="action"
-      ></div>
     </div>
     <div v-if="monster.legendaryActions.count > 0" class="legendary-actions">
       <h3 class="section">{{ $t('editor.legendary.label') }}</h3>

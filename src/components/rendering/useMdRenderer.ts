@@ -22,7 +22,7 @@ export function useMdRenderer() {
     const mdTraits =
       monster.traits.length === 0
         ? ''
-        : `${traits.map((t) => `> ${mdFormatter(t)}`).join('\n>\n')}\n>\n`
+        : `${traits.map((t) => `> ${mdFormatter(t)}`).join('\n>\n')}\n>`
     return mdTraits
   }
 
@@ -55,7 +55,7 @@ ${lists.join('\n')}`
     })
 
     const preamble = mdFormatter(renderer.classSpellcastingPreamble.value)
-    return `> ${preamble}
+    return `\n> ${preamble}
 >
 ${renderedRows.join('\n')}`
   }
@@ -235,12 +235,12 @@ ${formattedActions.join('\n>\n')}\n>`
       monster.CR
     ].xp.toLocaleString()})
 >___
-${traits}${mythicTrait}${
-      monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>\n`
-    }${monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>\n`}>
-> ### ${t(
-      'editor.action.label'
-    )}${multi}${attacks}${actions}${legendary}${mythic}${reactions}${lair}${regional}`
+${traits}${mythicTrait}
+> ### ${t('editor.action.label')}${multi}${attacks}${actions}${
+      monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>`
+    }${
+      monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>`
+    }${legendary}${mythic}${reactions}${lair}${regional}`
   }
 
   return {

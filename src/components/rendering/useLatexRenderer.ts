@@ -344,11 +344,6 @@ ${latexFormatter(renderer.lairActionPreamble.value)}`
 
   ${monster.mythicActions.actions.length > 0 ? getMythicTrait() : ''}
 
-  % Spellcasting
-  ${monster.spellcasting.atWill.length > 0 ? getAtWill() : ''}
-
-  ${monster.spellcasting.standard.length > 0 ? getStandard() : ''}
-
   % Actions
   \\DndMonsterSection{${t('editor.action.label')}}
   ${monster.multiattacks.length > 0 ? getMultiattack() : ''}
@@ -356,6 +351,11 @@ ${latexFormatter(renderer.lairActionPreamble.value)}`
   ${getAttacks()}
 
   ${getActions()}
+
+  % Spellcasting
+  ${monster.spellcasting.atWill.length > 0 ? getAtWill() : ''}
+
+  ${monster.spellcasting.standard.length > 0 ? getStandard() : ''}
 
   ${monster.legendaryActions.count > 0 ? getLegendary() : ''}
 
