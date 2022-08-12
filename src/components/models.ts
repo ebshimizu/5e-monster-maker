@@ -85,7 +85,6 @@ export interface DndSpell {
   damage: number
   multitarget: boolean
   class: string[]
-  levelDisplay: string
   level: number
   srd: boolean
   custom: boolean

@@ -7,7 +7,6 @@ export interface SpellOption {
   value: string
   label: string
   level: number
-  levelDisplay: string
   class: string[]
   classDisplay: string
 }
@@ -64,8 +63,39 @@ export const useSpellsStore = defineStore('spells', {
       }
     },
   },
+  actions: {
+    addSpell(spell: DndSpell) {
+      // hey it might've gotten through validation
+      if (!(spell.name in this.customSpells)) {
+        this.customSpells[spell.name] = spell
+      }
+    },
+    deleteSpell(name: string) {
+      delete this.customSpells[name]
+    },
+    updateFromV1() {
+      // if the old app key exists, we should copy that over and then delete it
+      const oldCustom = localStorage.getItem('app.customSpells')
+
+      if (oldCustom != null) {
+        // need to reformat with new key
+        const old = JSON.parse(oldCustom)
+
+        // remove unused fields and assign to new format
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        old.forEach((s: any) => {
+          delete s.levelDisplay
+
+          this.customSpells[s.name] = s as DndSpell
+        })
+
+        // delete the old key
+        localStorage.removeItem('app.customSpells')
+      }
+    },
+  },
   persist: {
     // TODO: change to match custom spell location from v1
-    key: 'dev.spells',
+    key: 'app.spells',
   },
 })

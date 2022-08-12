@@ -12,7 +12,7 @@
           v-model="monster.spellcasting.stat"
           :options="statOptions"
           :label="$t('monster.spellcasting.ability')"
-          class="col q-pa-sm"
+          class="col-2 q-pa-sm"
         />
         <q-input
           :model-value="spellSaveValue"
@@ -21,7 +21,7 @@
           :disable="!monster.spellcasting.save.override"
           class="col q-pa-sm"
           @update:model-value="
-            (v) => (monster.spellcasting.save.overrideValue = parseInt(`${v}`))
+            (v: string | number | null) => (monster.spellcasting.save.overrideValue = parseInt(`${v}`))
           "
         >
           <template #after>
@@ -43,7 +43,7 @@
           :disable="!monster.spellcasting.attack.override"
           class="col q-pa-sm"
           @update:model-value="
-            (v) =>
+            (v: string | number | null) =>
               (monster.spellcasting.attack.overrideValue = parseInt(`${v}`))
           "
         >
@@ -66,7 +66,7 @@
           :disable="!monster.spellcasting.modifier.override"
           class="col q-pa-sm"
           @update:model-value="
-            (v) =>
+            (v: string | number | null) =>
               (monster.spellcasting.modifier.overrideValue = parseInt(`${v}`))
           "
         >
@@ -80,6 +80,17 @@
                   !monster.spellcasting.modifier.override
               "
             />
+            <q-btn
+              icon="add"
+              push
+              color="primary"
+              class="q-ml-md"
+              @click="addSpell"
+            >
+              <q-tooltip class="text-body2">{{
+                $t('editor.spellcasting.custom.create')
+              }}</q-tooltip>
+            </q-btn>
           </template>
         </q-input>
       </div>
@@ -103,6 +114,8 @@ import ClassCastingEditor from './ClassCastingEditor.vue'
 import { useClasses } from 'src/data/CLASS'
 import AtWillCastingEditor from './AtWillCastingEditor.vue'
 import { useStats } from 'src/data/STAT'
+import { useQuasar } from 'quasar'
+import NewSpellDialog from '../spell/NewSpellDialog.vue'
 
 export default defineComponent({
   name: 'SpellcastingEditor',
@@ -112,6 +125,7 @@ export default defineComponent({
     const spells = useSpellsStore()
     const classes = useClasses()
     const { statOptionsShort } = useStats()
+    const $q = useQuasar()
 
     const classDisplayValue = computed(() => {
       if (monster.spellcasting.class == null) return ''
@@ -139,6 +153,12 @@ export default defineComponent({
         : monster.defaultSpellModifier(monster.spellcasting.stat)
     )
 
+    const addSpell = () => {
+      $q.dialog({
+        component: NewSpellDialog,
+      })
+    }
+
     return {
       monster,
       statOptions: statOptionsShort,
@@ -147,6 +167,7 @@ export default defineComponent({
       spellModifierValue,
       classDisplayValue,
       spellOptionsByLevel: spells.spellOptionsByLevel,
+      addSpell,
       ...classes,
     }
   },

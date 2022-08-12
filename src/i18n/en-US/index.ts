@@ -179,6 +179,15 @@ export default {
         useCustomPreamble: 'Using Custom Preamble',
         preamble: 'Slot Spellcasting Preamble',
       },
+      custom: {
+        create: 'Add Custom Spell',
+        name: 'Spell Name',
+        nameValidator: 'Spell names must be unique',
+        level: 'Level',
+        classes: 'Available To',
+        damage: 'Avg. Single Target Damage',
+        multitarget: 'Multitarget',
+      },
     },
     attack: {
       label: 'Attacks',
@@ -368,6 +377,8 @@ export default {
     ok: 'OK',
     load: 'Load',
     cancel: 'Cancel',
+    save: 'Save',
+    monsterReset: 'Monster Reset',
   },
   io: {
     error: {
@@ -399,6 +410,14 @@ export default {
       png: 'Save as PNG',
       mdClip: 'Copy Markdown to Clipboard (Homebrewery)',
       link: 'Copy 5emm Link (tinyurl)',
+    },
+    update: {
+      v1Spells:
+        'Found custom spells from app version 1. In order to use these spells with version 2, we need to update them. This is a potentially destructive operation, so please use the download button below to make a backup. If you encounter issues with this process, please submit a bug report on GitHub and include your backup spell file.',
+      v1SpellsError:
+        'Error converting v1 Spells to v2. Please submit a bug report. Error: {0}',
+      v1SpellsOk: 'Successfully upgraded spells to v2.',
+      v1SpellsDownload: 'Download v1 Spells',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

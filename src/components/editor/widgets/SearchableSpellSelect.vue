@@ -20,7 +20,16 @@
           <q-item-label caption>{{ scope.opt.classDisplay }}</q-item-label>
         </q-item-section>
         <q-item-section side top>
-          <q-badge color="purple-8" :label="scope.opt.levelDisplay" />
+          <q-badge
+            color="purple-8"
+            :label="
+              scope.opt.level === 0
+                ? $t('editor.spellcasting.slot.cantrip')
+                : $t('editor.spellcasting.slot.level', {
+                    ordinal: spellLevels[scope.opt.level],
+                  })
+            "
+          />
         </q-item-section>
       </q-item>
     </template>
@@ -33,6 +42,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from '@vue/runtime-core'
 import { spellArrayFilter } from 'src/components/filters'
+import { useSpellLevels } from 'src/components/spell/useSpellLevels'
 import { SpellOption, useSpellsStore } from 'src/stores/spells-store'
 import { computed, ref } from 'vue'
 
@@ -54,10 +64,12 @@ export default defineComponent({
     const baseSpells = computed(() => spells.allSpellOptions)
     const spellOptions = ref<SpellOption[]>([])
     const spellFilter = spellArrayFilter(baseSpells, spellOptions)
+    const { ordinalSpellLevels } = useSpellLevels()
 
     return {
       spellOptions,
       spellFilter,
+      spellLevels: ordinalSpellLevels,
     }
   },
 })
