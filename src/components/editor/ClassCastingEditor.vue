@@ -129,7 +129,16 @@
                   }}</q-item-label>
                 </q-item-section>
                 <q-item-section side top>
-                  <q-badge color="purple-8" :label="scope.opt.levelDisplay" />
+                  <q-badge
+                    color="purple-8"
+                    :label="
+                      scope.level === 0
+                        ? $t('editor.spellcasting.slot.cantrip')
+                        : $t('editor.spellcasting.slot.level', {
+                            ordinal: spellLevels[scope.opt.level],
+                          })
+                    "
+                  />
                 </q-item-section>
               </q-item>
             </template>
@@ -186,7 +195,7 @@
                   input-debounce="0"
                   class="col-10 q-pa-sm"
                   @update:model-value="
-                    (value) => monster.updateSpellsAtLevel(level, value)
+                    (value: string[]) => monster.updateSpellsAtLevel(level, value)
                   "
                 >
                   <template #option="scope">
@@ -218,7 +227,7 @@ import { useSpellsStore, SpellOption } from 'src/stores/spells-store'
 import { ref, computed } from 'vue'
 import { spellArrayFilter } from '../filters'
 import MonsterTextEditor from './MonsterTextEditor.vue'
-import N2W from 'number-to-words'
+import { useSpellLevels } from '../spell/useSpellLevels'
 
 export default defineComponent({
   name: 'ClassCastingEditor',
@@ -243,9 +252,9 @@ export default defineComponent({
     )
     const spellOptions = ref<SpellOption[]>([])
     const spellFilter = spellArrayFilter(baseSpells, spellOptions)
-    const spellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((l) =>
-      N2W.toOrdinal(l)
-    )
+
+    const { ordinalSpellLevels } = useSpellLevels()
+    const spellLevels = ordinalSpellLevels
 
     const classDisplayValue = computed(() => {
       if (monster.spellcasting.class == null) return ''
@@ -267,7 +276,8 @@ export default defineComponent({
         // the preset class names are special and get localized renders
         // we also need the key for adjusting slots based on level
         monster.spellcasting.class = classKey
-        monster.spellcasting.stat = classes.ClassCastingStat[classKey] ?? 'INT'
+        monster.spellcasting.stat =
+          classes.ClassCastingStat[classKey] ?? monster.spellcasting.stat
         monster.spellcasting.slots =
           slots != null
             ? slots[monster.spellcasting.level - 1]
