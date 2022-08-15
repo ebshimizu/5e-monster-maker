@@ -187,6 +187,9 @@ export default {
         classes: 'Available To',
         damage: 'Avg. Single Target Damage',
         multitarget: 'Multitarget',
+        title: 'Custom Spells',
+        mtTrue: 'Yes',
+        mtFalse: 'No',
       },
     },
     attack: {
@@ -379,6 +382,7 @@ export default {
     cancel: 'Cancel',
     save: 'Save',
     monsterReset: 'Monster Reset',
+    home: 'Monster Editor',
   },
   io: {
     error: {

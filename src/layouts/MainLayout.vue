@@ -55,25 +55,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer ref="drawerRef" v-model="leftDrawerOpen" overlay elevated>
-      <q-list>
-        <q-item clickable @click="reset">
-          <q-item-section>{{ $t('editor.resetMonster') }}</q-item-section>
-        </q-item>
-        <q-separator />
-        <q-item clickable @click="createSpell()">
-          <q-item-section>{{
-            $t('editor.spellcasting.custom.create')
-          }}</q-item-section>
-        </q-item>
-        <q-item clickable>
-          <q-item-section>Edit Custom Spells</q-item-section>
-        </q-item>
-        <q-item clickable>
-          <q-item-section>Edit Custom Templates</q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
+    <app-drawer :left-drawer-open="leftDrawerOpen" />
 
     <q-page-container>
       <router-view />
@@ -119,7 +101,6 @@
 </template>
 
 <script lang="ts">
-import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
 import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
@@ -129,15 +110,15 @@ import DownloadButton from 'src/components/file/DownloadButton.vue'
 import { useRoute } from 'vue-router'
 
 import * as jsonurl from 'json-url'
-import { QDrawer, useQuasar } from 'quasar'
+import { useQuasar } from 'quasar'
 import WebRendererSettingsButton from 'src/components/rendering/WebRendererSettingsButton.vue'
 import { useV1Updater } from 'src/components/file/useV1Updater'
-import NewSpellDialog from 'src/components/spell/NewSpellDialog.vue'
-import { useI18n } from 'vue-i18n'
+import AppDrawer from 'src/components/AppDrawer.vue'
 
 export default defineComponent({
   name: 'MainLayout',
   components: {
+    AppDrawer,
     CrFooter,
     GenericFooter,
     DownloadButton,
@@ -145,30 +126,16 @@ export default defineComponent({
   },
   setup() {
     const leftDrawerOpen = ref(false)
-    const drawerRef = ref<QDrawer | null>(null)
     const route = useRoute()
     const codec = jsonurl('lzma')
     const $q = useQuasar()
     const { loadMonster } = useFileLoader()
-    const { t } = useI18n()
 
     // run the v1 updater checks
     useV1Updater()
 
     // TODO: link this to the template search
     const search = ref('')
-
-    const monster = useMonsterStore()
-    const reset = () => {
-      drawerRef.value?.hide()
-
-      monster.$reset()
-
-      $q.notify({
-        message: t('editor.monsterReset'),
-        type: 'positive',
-      })
-    }
 
     const { loadFile } = useFileLoader()
 
@@ -214,29 +181,17 @@ export default defineComponent({
       showDataLoad.value = false
     }
 
-    const createSpell = () => {
-      // the dialog actually handles basically everything
-      drawerRef.value?.hide()
-
-      $q.dialog({
-        component: NewSpellDialog,
-      })
-    }
-
     return {
-      leftDrawerOpen,
       search,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
-      reset,
       loadFileDialog,
       dataParamFound,
       showDataLoad,
       queryData,
       loadFromDataParam,
-      createSpell,
-      drawerRef,
+      leftDrawerOpen,
     }
   },
 })

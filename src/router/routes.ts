@@ -9,6 +9,11 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: '/spells',
+    component: () => import('layouts/TemplateEditorLayout.vue'),
+    children: [{ path: '', component: () => import('pages/SpellsEditor.vue') }],
+  },
+  {
     path: '/reset',
     component: () => import('layouts/ErrorCorrection.vue'),
   },
