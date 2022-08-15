@@ -190,6 +190,9 @@ export default {
         title: 'Custom Spells',
         mtTrue: 'Yes',
         mtFalse: 'No',
+        delete: 'Delete Spells | Delete 1 Spell | Delete {n} Spells',
+        export: 'Export',
+        import: 'Import',
       },
     },
     attack: {

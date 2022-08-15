@@ -13,6 +13,27 @@
       selection="multiple"
       style="width: 98vw"
     >
+      <template #top>
+        <div class="text-h6">{{ $t('editor.spellcasting.custom.title') }}</div>
+        <q-space />
+        <q-btn
+          v-show="selected.length !== 0"
+          color="negative"
+          class="q-mr-md"
+          @click="deleteSpells"
+        >
+          {{ $tc('editor.spellcasting.custom.delete', selected.length) }}</q-btn
+        >
+        <q-btn color="primary" class="q-mr-md">{{
+          $t('editor.spellcasting.custom.import')
+        }}</q-btn>
+        <q-btn color="primary" class="q-mr-md" @click="downloadSpells">{{
+          $t('editor.spellcasting.custom.export')
+        }}</q-btn>
+        <q-btn color="positive" @click="addSpell">{{
+          $t('editor.spellcasting.custom.create')
+        }}</q-btn>
+      </template>
       <template #body="props">
         <q-tr :props="props">
           <q-td>
@@ -83,18 +104,22 @@
 </template>
 
 <script lang="ts">
-import { QTableProps } from 'quasar'
+import { QTableProps, useQuasar } from 'quasar'
 import { useSpellLevels } from 'src/components/spell/useSpellLevels'
 import { useClasses } from 'src/data/CLASS'
 import { useSpellsStore } from 'src/stores/spells-store'
 import { computed, defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import NewSpellDialog from 'src/components/spell/NewSpellDialog.vue'
 import _ from 'lodash'
+import { DndSpell } from 'src/components/models'
+import { download } from 'src/components/file/download'
 
 export default defineComponent({
   name: 'SpellsEditor',
   setup() {
     const { t } = useI18n()
+    const $q = useQuasar()
     const spellStore = useSpellsStore()
     const { ordinalSpellLevels, spellOptions } = useSpellLevels()
     const selected = ref([])
@@ -148,12 +173,34 @@ export default defineComponent({
       },
     ]
 
+    const addSpell = () => {
+      $q.dialog({
+        component: NewSpellDialog,
+      })
+    }
+
+    const deleteSpells = () => {
+      selected.value.forEach((s: DndSpell) => spellStore.deleteSpell(s.name))
+      selected.value = []
+    }
+
+    const downloadSpells = () => {
+      download(
+        JSON.stringify(spellStore.customSpells),
+        'custom-spells.5emms.json',
+        'application/json'
+      )
+    }
+
     return {
       spells,
       columns,
       selected,
       spellOptions,
       SrdCastingClassOptions,
+      addSpell,
+      deleteSpells,
+      downloadSpells,
     }
   },
 })
