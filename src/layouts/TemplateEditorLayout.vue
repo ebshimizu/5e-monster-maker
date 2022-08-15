@@ -55,7 +55,6 @@ export default defineComponent({
   },
   setup() {
     const leftDrawerOpen = ref(false)
-    const $q = useQuasar()
 
     return {
       leftDrawerOpen,

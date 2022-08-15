@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import N2W from 'number-to-words'
 import { defineStore } from 'pinia'
 import { DndSpell, Spells } from 'src/components/models'
@@ -85,6 +86,7 @@ export const useSpellsStore = defineStore('spells', {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         old.forEach((s: any) => {
           delete s.levelDisplay
+          s.class = s.class.map((s: string) => _.upperCase(s))
 
           this.customSpells[s.name] = s as DndSpell
         })
