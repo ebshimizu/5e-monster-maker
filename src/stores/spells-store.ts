@@ -74,6 +74,25 @@ export const useSpellsStore = defineStore('spells', {
     deleteSpell(name: string) {
       delete this.customSpells[name]
     },
+    import(spells: DndSpell[], overwrite = false) {
+      let imported = 0
+      let skipped = 0
+
+      spells.forEach((spell) => {
+        if (!overwrite && spell.name in this.customSpells) {
+          skipped += 1
+          return
+        } else {
+          this.customSpells[spell.name] = spell
+          imported += 1
+        }
+      })
+
+      return {
+        imported,
+        skipped,
+      }
+    },
     updateFromV1() {
       // if the old app key exists, we should copy that over and then delete it
       const oldCustom = localStorage.getItem('app.customSpells')

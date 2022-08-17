@@ -24,7 +24,7 @@
         >
           {{ $tc('editor.spellcasting.custom.delete', selected.length) }}</q-btn
         >
-        <q-btn color="primary" class="q-mr-md">{{
+        <q-btn color="primary" class="q-mr-md" @click="importSpells">{{
           $t('editor.spellcasting.custom.import')
         }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="downloadSpells">{{
@@ -40,7 +40,7 @@
             <q-checkbox v-model="props.selected" />
           </q-td>
           <q-td key="name" :props="props">{{ props.row.name }}</q-td>
-          <q-td key="level" :props="props">
+          <q-td key="level" :props="props" class="editable">
             {{ props.cols[1].format(props.row.level) }}
             <q-popup-edit
               v-slot="scope"
@@ -56,7 +56,7 @@
                 :label="$t('editor.spellcasting.custom.level')"
               /> </q-popup-edit
           ></q-td>
-          <q-td key="class" :props="props"
+          <q-td key="class" :props="props" class="editable"
             >{{ props.cols[2].format(props.row.class) }}
             <q-popup-edit
               v-slot="scope"
@@ -78,7 +78,7 @@
               />
             </q-popup-edit>
           </q-td>
-          <q-td key="damage" :props="props"
+          <q-td key="damage" :props="props" class="editable"
             >{{ props.row.damage }}
             <q-popup-edit
               v-slot="scope"
@@ -114,6 +114,7 @@ import NewSpellDialog from 'src/components/spell/NewSpellDialog.vue'
 import _ from 'lodash'
 import { DndSpell } from 'src/components/models'
 import { download } from 'src/components/file/download'
+import LoadSpellsDialog from 'src/components/spell/LoadSpellsDialog.vue'
 
 export default defineComponent({
   name: 'SpellsEditor',
@@ -192,6 +193,12 @@ export default defineComponent({
       )
     }
 
+    const importSpells = () => {
+      $q.dialog({
+        component: LoadSpellsDialog,
+      })
+    }
+
     return {
       spells,
       columns,
@@ -201,7 +208,22 @@ export default defineComponent({
       addSpell,
       deleteSpells,
       downloadSpells,
+      importSpells,
     }
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.editable {
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.editable:hover {
+  // blue-grey-7
+  background-color: #546e7a;
+}
+</style>

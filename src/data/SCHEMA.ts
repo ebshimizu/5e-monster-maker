@@ -6,8 +6,13 @@ import v4 from './schema/5emm-v4.json'
 import v5 from './schema/5emm-v5.json'
 
 import spellsV1 from './schema/spells-v1.json'
+import spellsV2 from './schema/spells-v2.json'
 
-export const SPELL_SCHEMA = spellsV1
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const SPELL_SCHEMA: Record<string, any> = {
+  v1: spellsV1,
+  v2: spellsV2,
+}
 
 export const SCHEMA: Record<string, Schema> = {
   '1': v1,

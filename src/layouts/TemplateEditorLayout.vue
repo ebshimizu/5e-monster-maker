@@ -44,7 +44,6 @@
 import { defineComponent, ref } from 'vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
 
-import { useQuasar } from 'quasar'
 import AppDrawer from 'src/components/AppDrawer.vue'
 
 export default defineComponent({

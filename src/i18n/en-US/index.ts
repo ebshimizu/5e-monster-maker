@@ -193,6 +193,14 @@ export default {
         delete: 'Delete Spells | Delete 1 Spell | Delete {n} Spells',
         export: 'Export',
         import: 'Import',
+        importDialog: 'Import Spells',
+        importFile: 'Pick Spells File',
+        importMode: 'Overwrite Spells with Same Name',
+        importInvalid: 'Import failed. Spells failed to validate: {0}',
+        importResult:
+          'No Spells Imported | 1 Spell Imported | {n} Spells Imported',
+        importSkip: 'No Spells Skipped | 1 Spell Skipped | {n} Spells Skipped',
+        importError: 'Error reading file. {0}',
       },
     },
     attack: {

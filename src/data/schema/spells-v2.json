@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "type": "object",
+  "properties": {
+    "patternProperties": {
+      ".*": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "damage": { "type": "integer" },
+          "multitarget": { "type": "boolean" },
+          "level": { "type": "integer" },
+          "class": { "type": "array", "items": { "type": "string" } },
+          "custom": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}
