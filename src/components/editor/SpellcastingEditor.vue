@@ -82,7 +82,7 @@
             />
             <q-btn
               icon="add"
-              push
+              round
               color="primary"
               class="q-ml-md"
               @click="addSpell"
