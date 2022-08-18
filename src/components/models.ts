@@ -332,6 +332,39 @@ export interface Monster {
   autoEstimateDefenseCr: boolean
 }
 
+// uhhhhhh
+// how do i template
+// templates are ... augmented regular things so let's see...
+export interface TemplateMetadata<T> {
+  type: T
+  icon: string
+  templateName: string
+}
+
+// templates have no id because they're not instantiated
+export type RemoveId<T> = {
+  [Property in keyof T as Exclude<Property, 'id'>]: T[Property]
+}
+
+export interface AttackTemplate
+  extends RemoveId<DndAttack>,
+    TemplateMetadata<'Attack'> {}
+
+export interface ActionTemplate
+  extends RemoveId<MonsterAction>,
+    TemplateMetadata<'Action'> {}
+
+export interface TraitTemplate
+  extends RemoveId<MonsterTrait>,
+    TemplateMetadata<'Trait'> {}
+
+// extend this as needed for other action types
+export type DndTemplate = AttackTemplate | ActionTemplate | TraitTemplate
+
+export interface Templates {
+  customTemplates: Record<string, DndTemplate>
+}
+
 export interface Spells {
   customSpells: Record<string, DndSpell>
 }

@@ -16,6 +16,7 @@
     "copy-to-clipboard": "^3.3.2",
     "core-js": "^3.6.5",
     "dom-to-image": "^2.6.0",
+    "fs-extra": "^10.1.0",
     "json-url": "^3.0.0",
     "jsonschema": "^1.4.1",
     "lodash": "^4.17.21",

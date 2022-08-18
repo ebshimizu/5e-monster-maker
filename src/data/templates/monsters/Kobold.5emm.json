@@ -1,0 +1,166 @@
+{
+  "name": "Kobold",
+  "saveVersion": 1,
+  "size": "Small",
+  "type": "humanoid (kobold)",
+  "alignment": "lawful evil",
+  "AC": 12,
+  "ACType": "",
+  "CR": 1,
+  "proficiency": 2,
+  "HP": { "HD": 2, "type": 6, "modifier": -2 },
+  "speeds": [
+    {
+      "id": "1e4e14ed-ccaf-4d5f-a26b-15f7236dd665",
+      "type": "walk",
+      "speed": 30,
+      "note": ""
+    }
+  ],
+  "stats": { "STR": 7, "DEX": 15, "CON": 9, "INT": 8, "WIS": 7, "CHA": 8 },
+  "saves": {
+    "STR": { "proficient": false, "override": false, "overrideValue": 0 },
+    "DEX": { "proficient": false, "override": false, "overrideValue": 0 },
+    "CON": { "proficient": false, "override": false, "overrideValue": 0 },
+    "INT": { "proficient": false, "override": false, "overrideValue": 0 },
+    "WIS": { "proficient": false, "override": false, "overrideValue": 0 },
+    "CHA": { "proficient": false, "override": false, "overrideValue": 0 }
+  },
+  "skills": [
+    {
+      "skill": { "stat": "WIS", "key": "Perception" },
+      "proficient": false,
+      "override": false,
+      "overrideValue": 0
+    }
+  ],
+  "resistances": [],
+  "immunities": [],
+  "vulnerabilities": [],
+  "conditions": [],
+  "senses": {
+    "blindsight": 0,
+    "darkvision": 60,
+    "tremorsense": 0,
+    "truesight": 0
+  },
+  "passivePerception": { "override": false, "overrideValue": 0 },
+  "languages": "",
+  "attacks": [
+    {
+      "name": "Dagger",
+      "id": "57e3f46d-8778-4d20-a400-f1af2a2c0a08",
+      "distance": "Melee",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "DEX",
+        "proficient": true
+      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 4,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
+        "type": "piercing"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false
+    },
+    {
+      "name": "Sling",
+      "id": "e482e036-d4f2-4e7f-8964-833f39291bd6",
+      "distance": "Ranged",
+      "kind": "Weapon",
+      "modifier": {
+        "override": false,
+        "overrideValue": 0,
+        "stat": "DEX",
+        "proficient": true
+      },
+      "range": { "standard": 30, "long": 120, "reach": 5 },
+      "targets": 1,
+      "damage": {
+        "dice": 4,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
+        "type": "bludgeoning"
+      },
+      "alternateDamage": {
+        "dice": 10,
+        "count": 1,
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
+        "type": "slashing",
+        "condition": "",
+        "active": false
+      },
+      "additionalDamage": [],
+      "save": 0,
+      "description": "",
+      "legendaryOnly": false
+    }
+  ],
+  "multiattacks": [],
+  "spellcasting": {
+    "stat": "INT",
+    "save": { "override": false, "overrideValue": 0 },
+    "modifier": { "override": false, "overrideValue": 0 },
+    "attack": { "override": false, "overrideValue": 0 },
+    "class": "",
+    "level": 1,
+    "slots": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "atWill": [],
+    "standard": [],
+    "notes": "",
+    "atWillNotes": ""
+  },
+  "traits": [
+    {
+      "name": "Pack Tactics",
+      "id": "0983a0cf-4a36-47ab-a3f5-438505f3c913",
+      "description": "The {NAME} has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally isn't incapacitated.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 5,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": true
+      }
+    },
+    {
+      "name": "Sunlight Sensitivity",
+      "id": "d4cb9c47-da20-4b88-b9e3-caf2332c5452",
+      "description": " While in sunlight, the {NAME} has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.",
+      "limitedUse": { "count": 0, "rate": "day" },
+      "crAnnotation": {
+        "maxDamage": 0,
+        "maxSave": 0,
+        "maxModifier": 0,
+        "multitarget": false,
+        "ehpMultiplier": 1,
+        "ehpModifier": 0,
+        "acModifier": 0,
+        "include": false
+      }
+    }
+  ],
+  "actions": [],
+  "legendaryActions": { "count": 0, "actions": [] },
+  "reactions": []
+}

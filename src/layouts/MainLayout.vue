@@ -114,6 +114,7 @@ import { useQuasar } from 'quasar'
 import WebRendererSettingsButton from 'src/components/rendering/WebRendererSettingsButton.vue'
 import { useV1Updater } from 'src/components/file/useV1Updater'
 import AppDrawer from 'src/components/AppDrawer.vue'
+import { useTemplatesStore } from 'src/stores/templates-store'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -130,6 +131,9 @@ export default defineComponent({
     const codec = jsonurl('lzma')
     const $q = useQuasar()
     const { loadMonster } = useFileLoader()
+
+    // TODO: move to separate component
+    const templateStore = useTemplatesStore()
 
     // run the v1 updater checks
     useV1Updater()
