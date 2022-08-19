@@ -20,6 +20,7 @@ const srd_actions: Record<string, ActionTemplate> = {}
 actions.actions.forEach((a) => {
   srd_actions[a.templateName.toLowerCase()] = {
     ...a,
+    templateName: a.templateName.toLowerCase(),
     type: 'Action',
     icon: a.icon === '' ? DEFAULT_TEMPLATE_ICON.Action : a.icon,
   }
@@ -29,6 +30,7 @@ const srd_attacks: Record<string, AttackTemplate> = {}
 attacks.attacks.forEach((a) => {
   srd_attacks[a.templateName.toLowerCase()] = {
     ...a,
+    templateName: a.templateName.toLowerCase(),
     // couple of manual casts, the data is formatted accordingly
     // this might seem like overkill but i'm trying to avoid a cast in order to catch errors as things
     // get imported in the future
@@ -61,6 +63,7 @@ const srd_traits: Record<string, TraitTemplate> = {}
 traits.traits.map((t) => {
   srd_traits[t.templateName.toLowerCase()] = {
     ...t,
+    templateName: t.templateName.toLowerCase(),
     type: 'Trait',
     icon: t.icon === '' ? DEFAULT_TEMPLATE_ICON.Trait : t.icon,
   }

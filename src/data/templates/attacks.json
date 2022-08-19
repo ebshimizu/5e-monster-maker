@@ -37,7 +37,7 @@
     },
     {
       "templateName": "Acid Bite",
-      "name": "Bite",
+      "name": "Acid Bite",
       "distance": "MELEE",
       "kind": "WEAPON",
       "modifier": {

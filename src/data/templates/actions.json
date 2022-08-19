@@ -6,7 +6,7 @@
       "description": "The {NAME} exhales acid in a 60-­foot line that is 5 feet wide. Each creature in that line must make a {DC:DEX} Dexterity saving throw, taking {12d8} acid damage on a failed save, or half as much damage on a successful one.",
       "recharge": "5-6",
       "legendaryOnly": false,
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 54,
         "maxSave": 0,
@@ -27,7 +27,7 @@
       "description": "Each creature of the {NAME}'s choice that is within 120 feet of the {NAME} and aware of it must succeed on a {DC:CHA} Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the {NAME}'s Frightful Presence for the next 24 hours.",
       "recharge": "",
       "legendaryOnly": false,
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 16,
@@ -48,7 +48,7 @@
       "description": "The {NAME} beats its wings. Each creature within 10 feet of the {NAME} must succeed on a {DC:STR} Dexterity saving throw or take {2d6+6} bludgeoning damage and be knocked prone. The {NAME} can then fly up to half its flying speed.",
       "recharge": "",
       "legendaryOnly": true,
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "recurringDamage": 0,
         "maxDamage": 13,
@@ -70,7 +70,7 @@
       "description": "The {NAME} targets one creature it can see within 30 feet of it. The target must succeed on a {DC:WIS} Wisdom saving throw or be magically charmed by the {NAME} until the {NAME} dies or until it is on a different plane of existence from the target. The charmed target is under the {NAME}'s control and can't take reactions, and the {NAME} and the target can communicate telepathically with each other over any distance. Whenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the {NAME}.",
       "recharge": "",
       "legendaryOnly": false,
-      "limitedUse": { "count": 3, "rate": "day" },
+      "limitedUse": { "count": 3, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 14,
@@ -91,7 +91,7 @@
       "description": "The {NAME} makes a Wisdom (Perception) check.",
       "recharge": "",
       "legendaryOnly": true,
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -112,7 +112,7 @@
       "description": "One creature charmed by the {NAME} takes {3d6} psychic damage, and the {NAME} regains hit points equal to the damage the creature takes.",
       "recharge": "",
       "legendaryOnly": true,
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 10,
         "maxSave": 0,
@@ -133,7 +133,7 @@
       "description": "The {NAME} exhales lightning in a 90-foot line that is 5 feet wide. Each creature in that line must make a {DC:CON} Dexterity saving throw, taking {12d10} lightning damage on a failed save, or half as much damage on a successful one.",
       "recharge": "5-6",
       "legendaryOnly": false,
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "recurringDamage": 0,
         "maxDamage": 66,
@@ -155,7 +155,7 @@
       "description": "For 1 minute, the {NAME} can utter a special command or warning whenever a nonhostile creature that it can see within 30 feet of it makes an attack roll or a saving throw. The creature can add a d4 to its roll provided it can hear and understand the {NAME}. A creature can benefit from only one Leadership die at a time. This effect ends if the {NAME} is incapacitated.",
       "recharge": "",
       "legendaryOnly": false,
-      "limitedUse": { "count": 1, "rate": "long or short rest" },
+      "limitedUse": { "count": 1, "rate": "LONG_OR_SHORT_REST" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -177,7 +177,7 @@
       "legendaryOnly": false,
       "limitedUse": {
         "count": 0,
-        "rate": "day"
+        "rate": "DAY"
       },
       "crAnnotation": {
         "maxDamage": 15,

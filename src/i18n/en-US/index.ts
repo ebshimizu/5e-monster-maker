@@ -1,6 +1,6 @@
 export default {
   app: {
-    name: '5e Monster Maker',
+    name: "Falindrith's Monster Maker",
   },
   monster: {
     name: 'Name',
@@ -386,6 +386,18 @@ export default {
         Legendary: 'Legendary Action',
         Spell: 'Spell',
         'Lair Action': 'Lair Action',
+      },
+    },
+    template: {
+      recharge: 'Recharge {0}',
+      legendary: 'Legendary Action. ',
+      applied: 'Applied Template {0}',
+      negative:
+        'Failed to apply template {0}. Check console and submit a bug report.',
+      type: {
+        Action: 'Action',
+        Attack: 'Attack',
+        Trait: 'Trait',
       },
     },
     ok: 'OK',

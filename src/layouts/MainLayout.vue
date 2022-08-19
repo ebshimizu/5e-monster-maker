@@ -22,23 +22,9 @@
 
         <q-space />
 
-        <q-input
-          v-model="search"
-          class="template-search"
-          dense
-          standout
-          placeholder="Search for Actions, Traits, and Attacks"
-        >
-          <template #prepend>
-            <q-icon v-if="search === ''" name="search" />
-            <q-icon
-              v-else
-              name="clear"
-              class="cursor-pointer"
-              @click="search = ''"
-            />
-          </template>
-        </q-input>
+        <div class="template-bar">
+          <template-search />
+        </div>
 
         <q-space />
 
@@ -114,7 +100,7 @@ import { useQuasar } from 'quasar'
 import WebRendererSettingsButton from 'src/components/rendering/WebRendererSettingsButton.vue'
 import { useV1Updater } from 'src/components/file/useV1Updater'
 import AppDrawer from 'src/components/AppDrawer.vue'
-import { useTemplatesStore } from 'src/stores/templates-store'
+import TemplateSearch from 'src/components/editor/TemplateSearch.vue'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -124,6 +110,7 @@ export default defineComponent({
     GenericFooter,
     DownloadButton,
     WebRendererSettingsButton,
+    TemplateSearch,
   },
   setup() {
     const leftDrawerOpen = ref(false)
@@ -132,14 +119,8 @@ export default defineComponent({
     const $q = useQuasar()
     const { loadMonster } = useFileLoader()
 
-    // TODO: move to separate component
-    const templateStore = useTemplatesStore()
-
     // run the v1 updater checks
     useV1Updater()
-
-    // TODO: link this to the template search
-    const search = ref('')
 
     const { loadFile } = useFileLoader()
 
@@ -186,7 +167,6 @@ export default defineComponent({
     }
 
     return {
-      search,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
@@ -202,7 +182,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.template-search {
+.template-bar {
   width: 55%;
 }
 </style>

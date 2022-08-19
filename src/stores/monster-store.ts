@@ -840,6 +840,14 @@ export const useMonsterStore = defineStore('monster', {
 
       if (index !== -1) {
         this.attacks.splice(index, 1)
+
+        // filter out legendary actions
+        this.deleteLegendaryAction(id)
+
+        // check if it's in a multiattack group
+        this.multiattacks.forEach((ma) => {
+          ma.attacks = ma.attacks.filter((aId) => aId !== id)
+        })
       }
     },
     addAdditionalDamage(id: string) {
@@ -926,6 +934,14 @@ export const useMonsterStore = defineStore('monster', {
 
       if (index !== -1) {
         this.actions.splice(index, 1)
+
+        // check if it's in a legendary action
+        this.deleteLegendaryAction(actionId)
+
+        // check if it's in a multiattack group
+        this.multiattacks.forEach((ma) => {
+          ma.actions = ma.actions.filter((aId) => aId !== actionId)
+        })
       }
     },
     addLegendaryAction(actionId: string) {

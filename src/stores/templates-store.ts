@@ -2,12 +2,20 @@ import { defineStore } from 'pinia'
 import {
   ActionTemplate,
   AttackTemplate,
+  DndAttack,
   DndTemplate,
+  MonsterAction,
+  MonsterTrait,
   Templates,
   TraitTemplate,
 } from 'src/components/models'
 import { useTemplates } from 'src/data/TEMPLATES'
 import { v4 } from 'uuid'
+import { useMonsterStore } from './monster-store'
+import _ from 'lodash'
+import { useTemplateSubtitles } from 'src/components/rendering/useTemplateSubtitles'
+import { useQuasar } from 'quasar'
+import { useI18n } from 'vue-i18n'
 
 export const useTemplatesStore = defineStore('templates', {
   state: (): Templates => ({
@@ -32,10 +40,65 @@ export const useTemplatesStore = defineStore('templates', {
     },
     allTemplateOptions(): DndTemplate[] {
       // use the option value and text keys
-      return Object.values(this.allTemplates)
+      return _.sortBy(Object.values(this.allTemplates), (t) => t.templateName)
+    },
+    allTemplateSubtitles(): Record<string, string> {
+      const subtitles: Record<string, string> = {}
+      const formatters = useTemplateSubtitles()
+
+      this.allTemplateOptions.forEach((t) => {
+        if (t.type === 'Action') {
+          subtitles[t.templateName] = formatters.actionTemplateSubtitle(t)
+        } else if (t.type === 'Attack') {
+          subtitles[t.templateName] = formatters.attackTemplateSubtitle(t)
+        } else if (t.type === 'Trait') {
+          subtitles[t.templateName] = formatters.traitTemplateSubtitle(t)
+        }
+      })
+
+      return subtitles
     },
   },
   actions: {
+    applyTemplate(name: string) {
+      if (name in this.allTemplates) {
+        // get the monster
+        const monsterStore = useMonsterStore()
+
+        // get the template and strip out the extra data
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const templateInstance: any = _.cloneDeep(this.allTemplates[name])
+
+        // delete the extras
+        const type = templateInstance.type
+        delete templateInstance.icon
+        delete templateInstance.templateName
+        delete templateInstance.type
+
+        // add an id
+        templateInstance.id = v4()
+
+        // reassert type based on type
+        if (type === 'Attack') {
+          const attackInstance = templateInstance as DndAttack
+          monsterStore.attacks.push(attackInstance)
+        } else if (type === 'Action') {
+          const actionInstance = templateInstance as MonsterAction
+          monsterStore.actions.push(actionInstance)
+
+          if (actionInstance.legendaryOnly) {
+            monsterStore.addLegendaryAction(actionInstance.id)
+          }
+        } else if (type === 'Trait') {
+          const traitInstance = templateInstance as MonsterTrait
+          monsterStore.traits.push(traitInstance)
+        }
+        // add additional template types here
+        return true
+      }
+
+      return false
+    },
     updateFromV1() {
       const oldCustom = localStorage.getItem('app.customTemplates')
 

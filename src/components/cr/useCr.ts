@@ -23,7 +23,7 @@ import { renderBonus } from '../rendering/mathRendering'
 import { useI18n } from 'vue-i18n'
 
 // unsure if i'll move this into util at some point
-const ACTION_COLOR = {
+export const ACTION_COLOR = {
   HP: 'green-8',
   Attack: 'red-10',
   Multiattack: 'red-10',
