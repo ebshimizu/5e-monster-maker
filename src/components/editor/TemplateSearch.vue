@@ -1,7 +1,8 @@
 <template>
   <q-select
+    ref="templateRef"
     :model-value="search"
-    :options="templateStore.allTemplateOptions"
+    :options="filteredTemplateOptions"
     class="template-search"
     dense
     standout
@@ -12,8 +13,11 @@
     use-input
     hide-selected
     input-debounce="0"
+    behavior="dialog"
     placeholder="Search for Actions, Traits, and Attacks"
+    @filter="templateFilter"
     @update:model-value="addTemplate"
+    @input-value="checkPopupStatus"
   >
     <template #option="scope">
       <q-item v-bind="scope.itemProps">
@@ -39,11 +43,13 @@
 </template>
 
 <script lang="ts">
-import { useQuasar } from 'quasar'
+import { QSelect, useQuasar } from 'quasar'
 import { useTemplatesStore } from 'src/stores/templates-store'
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { ACTION_COLOR } from '../cr/useCr'
+import { templateArrayFilter } from '../filters'
+import _ from 'lodash'
 
 export default defineComponent({
   name: 'TemplateSearch',
@@ -53,7 +59,14 @@ export default defineComponent({
     const { t } = useI18n()
     const $q = useQuasar()
 
+    const templateRef = ref<QSelect>()
     const templateStore = useTemplatesStore()
+    const templateOptions = computed(() => templateStore.allTemplateOptions)
+    const filteredTemplateOptions = ref(templateOptions.value)
+    const templateFilter = templateArrayFilter(
+      templateOptions,
+      filteredTemplateOptions
+    )
 
     const addTemplate = (value: string | undefined) => {
       if (value != null) {
@@ -61,15 +74,21 @@ export default defineComponent({
 
         if (result) {
           $q.notify({
-            message: t('editor.template.applied', [value]),
+            message: t('editor.template.applied', [_.capitalize(value)]),
             type: 'positive',
           })
         } else {
           $q.notify({
-            message: t('editor.template.failed', [value]),
+            message: t('editor.template.failed', [_.capitalize(value)]),
             type: 'negative',
           })
         }
+      }
+    }
+
+    const checkPopupStatus = () => {
+      if (templateRef.value) {
+        templateRef.value.showPopup()
       }
     }
 
@@ -77,7 +96,11 @@ export default defineComponent({
       search,
       templateStore,
       addTemplate,
+      filteredTemplateOptions,
+      templateFilter,
+      templateRef,
       actionColor: ACTION_COLOR,
+      checkPopupStatus,
     }
   },
 })

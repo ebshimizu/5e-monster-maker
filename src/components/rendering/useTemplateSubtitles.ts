@@ -10,9 +10,14 @@ export function useTemplateSubtitles() {
     const plusDamage = template.additionalDamage
       .map((ad) => `${ad.count}d${ad.dice} ${ad.type}`)
       .join(', ')
-    return `${template.distance} ${template.kind}. ${template.damage.count}d${
-      template.damage.dice
-    } + ${template.damage.modifier.stat} ${template.damage.type}${
+    const distance = t('editor.attack.distance', [
+      t(`range.${template.distance}`),
+      t(`kind.${template.kind}`),
+    ])
+
+    return `${distance}. ${template.damage.count}d${template.damage.dice} + ${
+      template.damage.modifier.stat
+    } ${template.damage.type}${
       template.alternateDamage.active ? ` / ${altDamage}` : ''
     }${template.additionalDamage.length > 0 ? ` + ${plusDamage}` : ''}.`
   }

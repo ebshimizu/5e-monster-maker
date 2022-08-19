@@ -112,6 +112,13 @@ export const useTemplatesStore = defineStore('templates', {
             action.crAnnotation.automatic = false
             action.templateName = action.templateName.toLowerCase()
 
+            if (action.limitedUse.rate === 'long or short rest')
+              action.limitedUse.rate = 'LONG_OR_SHORT'
+            else
+              action.limitedUse.rate = action.limitedUse.rate
+                .toUpperCase()
+                .replace(' ', '_')
+
             // direct overwrite
             this.customTemplates[action.templateName] = action
           } else if (o.type === 'Attack') {
@@ -129,6 +136,13 @@ export const useTemplatesStore = defineStore('templates', {
             trait.customPreamble = false
             trait.crAnnotation.automatic = false
             trait.templateName = trait.templateName.toLowerCase()
+
+            if (trait.limitedUse.rate === 'long or short rest')
+              trait.limitedUse.rate = 'LONG_OR_SHORT'
+            else
+              trait.limitedUse.rate = trait.limitedUse.rate
+                .toUpperCase()
+                .replace(' ', '_')
 
             this.customTemplates[trait.templateName] = trait
           }

@@ -99,7 +99,7 @@
           min="0"
           class="col-2 q-pa-sm"
           @update:model-value="
-            (value) => monster.setHpModifier(value, monster.stats.CON)
+            (value: number) => monster.setHpModifier(value, monster.stats.CON)
           "
         >
           <template #after>
@@ -157,7 +157,7 @@
           type="number"
           :label="$t(`monster.stat.${stat}`)"
           class="col-2 q-pa-sm"
-          @update:model-value="(value) => updateStat(stat, value)"
+          @update:model-value="(value: number) => updateStat(stat, value)"
         />
         <q-input
           v-model="monster.languages"
