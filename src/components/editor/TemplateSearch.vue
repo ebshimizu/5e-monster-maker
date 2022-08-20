@@ -7,7 +7,7 @@
     dense
     standout
     option-value="templateName"
-    option-label="name"
+    option-label="templateName"
     emit-value
     clearable
     use-input
@@ -25,7 +25,7 @@
           <q-icon :name="scope.opt.icon" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>{{ scope.opt.name }}</q-item-label>
+          <q-item-label>{{ scope.opt.templateName }}</q-item-label>
           <q-item-label lines="1" caption>{{
             templateStore.allTemplateSubtitles[scope.opt.templateName]
           }}</q-item-label>

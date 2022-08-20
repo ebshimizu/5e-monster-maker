@@ -18,9 +18,8 @@ export const DEFAULT_TEMPLATE_ICON: Record<string, string> = {
 // right these are all global, as in they won't change unless the app is reloaded
 const srd_actions: Record<string, ActionTemplate> = {}
 actions.actions.forEach((a) => {
-  srd_actions[a.templateName.toLowerCase()] = {
+  srd_actions[a.templateName] = {
     ...a,
-    templateName: a.templateName.toLowerCase(),
     type: 'Action',
     icon: a.icon === '' ? DEFAULT_TEMPLATE_ICON.Action : a.icon,
   }
@@ -28,9 +27,8 @@ actions.actions.forEach((a) => {
 
 const srd_attacks: Record<string, AttackTemplate> = {}
 attacks.attacks.forEach((a) => {
-  srd_attacks[a.templateName.toLowerCase()] = {
+  srd_attacks[a.templateName] = {
     ...a,
-    templateName: a.templateName.toLowerCase(),
     // couple of manual casts, the data is formatted accordingly
     // this might seem like overkill but i'm trying to avoid a cast in order to catch errors as things
     // get imported in the future
@@ -61,9 +59,8 @@ attacks.attacks.forEach((a) => {
 
 const srd_traits: Record<string, TraitTemplate> = {}
 traits.traits.map((t) => {
-  srd_traits[t.templateName.toLowerCase()] = {
+  srd_traits[t.templateName] = {
     ...t,
-    templateName: t.templateName.toLowerCase(),
     type: 'Trait',
     icon: t.icon === '' ? DEFAULT_TEMPLATE_ICON.Trait : t.icon,
   }

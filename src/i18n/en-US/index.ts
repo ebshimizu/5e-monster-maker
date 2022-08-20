@@ -236,6 +236,7 @@ export default {
       conditionalDamage: ', or {0} {1}',
       additionalDamage: ' plus {0}',
       estimatedAttackDamage: '{0} Avg. Damage per Hit',
+      save: 'Save Attack',
     },
     multiattack: {
       label: 'Multiattack',
@@ -392,6 +393,19 @@ export default {
       recharge: 'Recharge {0}',
       legendary: 'Legendary Action. ',
       applied: 'Applied Template {0}',
+      create: 'Create Template from {0}',
+      name: 'Template Name',
+      icon: 'Template Icon',
+      availableIcons:
+        "You can use an icon code formatted according to the {0} from {1}, {2}, or {3}. If you're not sure what to use, feel free to leave it blank and a default icon will be provided.",
+      link0: 'Quasar webfont icon usage format',
+      link1: 'Material Icons',
+      link2: 'Material Design Icons',
+      link3: 'Font Awesome v6 Free',
+      added: 'Added "{0}" to your templates',
+      nameHint:
+        "This name gets displayed when searching. It does not have to match the feature's display name.",
+      nameValidator: 'Template names must be unique.',
       negative:
         'Failed to apply template {0}. Check console and submit a bug report.',
       type: {

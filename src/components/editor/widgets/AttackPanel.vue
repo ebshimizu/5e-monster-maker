@@ -9,7 +9,7 @@
         <q-input
           v-model="attack.name"
           :label="$t('monster.attack.name')"
-          class="col-6 q-pa-sm"
+          class="col-7 q-pa-sm"
         />
         <q-input
           v-model.number="attack.targets"
@@ -21,10 +21,10 @@
           :model-value="attackModifier"
           :label="$t('monster.attack.bonus')"
           type="number"
-          class="col-3 q-pa-sm"
+          class="col-4 q-pa-sm"
           :disable="!attack.modifier.override"
           @update:model-value="
-            (v) => (attack.modifier.overrideValue = parseInt(`${v}`))
+            (v: number) => (attack.modifier.overrideValue = parseInt(`${v}`))
           "
         >
           <template #after>
@@ -52,6 +52,17 @@
                 }}</q-tooltip>
               </q-btn>
             </q-btn-group>
+            <q-btn
+              round
+              icon="save"
+              color="primary"
+              class="q-ml-sm"
+              @click="addTemplate(attack)"
+            >
+              <q-tooltip class="text-body2">{{
+                $t('editor.attack.save')
+              }}</q-tooltip></q-btn
+            >
           </template>
         </q-input>
         <q-select
@@ -157,7 +168,7 @@
                     :disable="!attack.damage.modifier.override"
                     class="col-2 q-pa-sm"
                     @change="
-                      (v) =>
+                      (v: number) =>
                         (attack.damage.modifier.overrideValue = parseInt(
                           `${v}`
                         ))
@@ -311,7 +322,7 @@
                     :disable="conditionalModifierLocked"
                     class="col-2 q-pa-sm"
                     @change="
-                      (v) =>
+                      (v: number) =>
                         (attack.alternateDamage.modifier.overrideValue =
                           parseInt(`${v}`))
                     "
@@ -402,6 +413,10 @@ import { useAttackTypeDefaults } from 'src/data/DAMAGE_TYPE'
 import LockToggleButton from 'src/components/LockToggleButton.vue'
 import MonsterTextEditor from '../MonsterTextEditor.vue'
 import { useI18n } from 'vue-i18n'
+import { useQuasar } from 'quasar'
+import { DndAttack } from 'src/components/models'
+import { useTemplatesStore } from 'src/stores/templates-store'
+import NewTemplateDialog from './NewTemplateDialog.vue'
 
 export default defineComponent({
   name: 'AttackPanel',
@@ -450,6 +465,25 @@ export default defineComponent({
       return t('editor.attack.estimatedAttackDamage', [damage])
     })
 
+    const $q = useQuasar()
+    const templateStore = useTemplatesStore()
+
+    const addTemplate = (target: DndAttack) => {
+      $q.dialog({
+        component: NewTemplateDialog,
+        componentProps: {
+          targetName: target.name,
+        },
+      }).onOk(({ name, icon }: { name: string; icon: string }) => {
+        templateStore.addCustomAttack(target, name, icon)
+
+        $q.notify({
+          message: t('editor.template.added', [name]),
+          type: 'positive',
+        })
+      })
+    }
+
     return {
       attack,
       attackModifier,
@@ -470,6 +504,7 @@ export default defineComponent({
           !attack.value.alternateDamage.modifier.override
       ),
       estimatedAttackDamage,
+      addTemplate,
     }
   },
 })

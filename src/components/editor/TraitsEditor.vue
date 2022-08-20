@@ -41,7 +41,12 @@
                   class="col-3 q-pa-sm"
                 >
                   <template #after>
-                    <q-btn round icon="save" color="primary">
+                    <q-btn
+                      round
+                      icon="save"
+                      color="primary"
+                      @click="addTemplate(trait)"
+                    >
                       <q-tooltip class="text-body2">{{
                         $t('monster.trait.save')
                       }}</q-tooltip></q-btn
@@ -53,7 +58,7 @@
                   i18n-label-key="monster.trait.description"
                   token-category="trait"
                   @update:model-value="
-                    (value) => {
+                    (value: string) => {
                       trait.description = value
                       autoUpdateCr(trait.description, trait.crAnnotation)
                     }
@@ -93,6 +98,11 @@ import { defineComponent, computed } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import CrAnnotationCard from './CrAnnotationCard.vue'
+import { useQuasar } from 'quasar'
+import { useTemplatesStore } from 'src/stores/templates-store'
+import { useI18n } from 'vue-i18n'
+import { MonsterTrait } from '../models'
+import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 
 export default defineComponent({
   name: 'TraitsEditor',
@@ -102,12 +112,33 @@ export default defineComponent({
     const { rechargeTimeOptions } = useRechargeTimes()
     const { autoUpdateCr, printCrSummary } = useAutoUpdateCr()
 
+    const $q = useQuasar()
+    const { t } = useI18n()
+    const templateStore = useTemplatesStore()
+
+    const addTemplate = (target: MonsterTrait) => {
+      $q.dialog({
+        component: NewTemplateDialog,
+        componentProps: {
+          targetName: target.name,
+        },
+      }).onOk(({ name, icon }: { name: string; icon: string }) => {
+        templateStore.addCustomTrait(target, name, icon)
+
+        $q.notify({
+          message: t('editor.template.added', [name]),
+          type: 'positive',
+        })
+      })
+    }
+
     return {
       monster,
       traits: computed(() => monster.traits),
       rechargeTimeOptions,
       autoUpdateCr,
       printCrSummary,
+      addTemplate,
     }
   },
 })

@@ -50,6 +50,17 @@ export default defineComponent({
   display: block;
 }
 
+a {
+  // light blue
+  color: #03a9f4;
+  text-decoration: none;
+}
+
+a:hover {
+  // light blue 3
+  color: #81d4fa;
+}
+
 @media print {
   #main-nav,
   #editor,

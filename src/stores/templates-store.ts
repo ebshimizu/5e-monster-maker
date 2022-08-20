@@ -9,13 +9,11 @@ import {
   Templates,
   TraitTemplate,
 } from 'src/components/models'
-import { useTemplates } from 'src/data/TEMPLATES'
+import { DEFAULT_TEMPLATE_ICON, useTemplates } from 'src/data/TEMPLATES'
 import { v4 } from 'uuid'
 import { useMonsterStore } from './monster-store'
 import _ from 'lodash'
 import { useTemplateSubtitles } from 'src/components/rendering/useTemplateSubtitles'
-import { useQuasar } from 'quasar'
-import { useI18n } from 'vue-i18n'
 
 export const useTemplatesStore = defineStore('templates', {
   state: (): Templates => ({
@@ -99,18 +97,61 @@ export const useTemplatesStore = defineStore('templates', {
 
       return false
     },
+    addCustomAction(action: MonsterAction, templateName: string, icon: string) {
+      // uh here we go
+      const template = _.cloneDeep(action) as unknown as ActionTemplate
+
+      // now we have to make it comply
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      delete (template as any).id // remove the id
+      template.type = 'Action'
+      template.icon = icon === '' ? DEFAULT_TEMPLATE_ICON.Action : icon
+      template.templateName = templateName
+
+      this.addCustomTemplate(template)
+    },
+    addCustomAttack(attack: DndAttack, templateName: string, icon: string) {
+      // uh here we go
+      const template = _.cloneDeep(attack) as unknown as AttackTemplate
+
+      // now we have to make it comply
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      delete (template as any).id // remove the id
+      template.type = 'Attack'
+      template.icon = icon === '' ? DEFAULT_TEMPLATE_ICON.Attack : icon
+      template.templateName = templateName
+
+      this.addCustomTemplate(template)
+    },
+    addCustomTrait(trait: MonsterTrait, templateName: string, icon: string) {
+      // uh here we go
+      const template = _.cloneDeep(trait) as unknown as TraitTemplate
+
+      // now we have to make it comply
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      delete (template as any).id // remove the id
+      template.type = 'Trait'
+      template.icon = icon === '' ? DEFAULT_TEMPLATE_ICON.Trait : icon
+      template.templateName = templateName
+
+      this.addCustomTemplate(template)
+    },
+    addCustomTemplate(template: DndTemplate) {
+      // this overwrites by default
+      this.customTemplates[template.templateName] = template
+    },
     updateFromV1() {
       const oldCustom = localStorage.getItem('app.customTemplates')
 
       if (oldCustom != null) {
         const old = JSON.parse(oldCustom)
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Object.values(old).forEach((o: any) => {
           if (o.type === 'Action') {
             const action = o as ActionTemplate
             action.customPreamble = false
             action.crAnnotation.automatic = false
-            action.templateName = action.templateName.toLowerCase()
 
             if (action.limitedUse.rate === 'long or short rest')
               action.limitedUse.rate = 'LONG_OR_SHORT'
@@ -128,14 +169,12 @@ export const useTemplatesStore = defineStore('templates', {
             attack.additionalDamage.forEach((d) => {
               d.id = v4()
             })
-            attack.templateName = attack.templateName.toLowerCase()
 
             this.customTemplates[attack.templateName] = attack
           } else if (o.type === 'Trait') {
             const trait = o as TraitTemplate
             trait.customPreamble = false
             trait.crAnnotation.automatic = false
-            trait.templateName = trait.templateName.toLowerCase()
 
             if (trait.limitedUse.rate === 'long or short rest')
               trait.limitedUse.rate = 'LONG_OR_SHORT'

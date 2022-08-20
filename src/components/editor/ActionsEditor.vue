@@ -41,7 +41,12 @@
                         $t('editor.action.legendaryExplanation')
                       }}</q-tooltip>
                     </q-btn>
-                    <q-btn round icon="save" color="primary">
+                    <q-btn
+                      round
+                      icon="save"
+                      color="primary"
+                      @click="addTemplate(action)"
+                    >
                       <q-tooltip class="text-body2">{{
                         $t('editor.action.save')
                       }}</q-tooltip></q-btn
@@ -73,7 +78,7 @@
                   i18n-label-key="monster.trait.description"
                   token-category="action"
                   @update:model-value="
-                    (value) => {
+                    (value: string) => {
                       action.description = value
                       autoUpdateCr(action.description, action.crAnnotation)
                     }
@@ -113,6 +118,11 @@ import { defineComponent, computed } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import CrAnnotationCard from './CrAnnotationCard.vue'
+import { useQuasar } from 'quasar'
+import { MonsterAction } from '../models'
+import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
+import { useTemplatesStore } from 'src/stores/templates-store'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'ActionsEditor',
@@ -121,6 +131,25 @@ export default defineComponent({
     const monster = useMonsterStore()
     const { rechargeTimeOptions } = useRechargeTimes()
     const { autoUpdateCr, printCrSummary } = useAutoUpdateCr()
+    const $q = useQuasar()
+    const { t } = useI18n()
+    const templateStore = useTemplatesStore()
+
+    const addTemplate = (target: MonsterAction) => {
+      $q.dialog({
+        component: NewTemplateDialog,
+        componentProps: {
+          targetName: target.name,
+        },
+      }).onOk(({ name, icon }: { name: string; icon: string }) => {
+        templateStore.addCustomAction(target, name, icon)
+
+        $q.notify({
+          message: t('editor.template.added', [name]),
+          type: 'positive',
+        })
+      })
+    }
 
     return {
       monster,
@@ -128,6 +157,7 @@ export default defineComponent({
       rechargeTimeOptions,
       autoUpdateCr,
       printCrSummary,
+      addTemplate,
     }
   },
 })

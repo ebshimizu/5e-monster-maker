@@ -60,7 +60,9 @@ export function templateArrayFilter(
       } else {
         const needle = val.toLowerCase()
         options.value = unref(baseOptions).filter(
-          (v) => v.name.toLowerCase().indexOf(needle) > -1
+          (v) =>
+            v.name.toLowerCase().indexOf(needle) > -1 ||
+            v.templateName.toLowerCase().indexOf(needle) > -1
         )
       }
     })
