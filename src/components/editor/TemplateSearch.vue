@@ -116,5 +116,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .template-search {
+  width: 100%;
 }
 </style>

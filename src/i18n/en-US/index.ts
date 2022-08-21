@@ -1,6 +1,6 @@
 export default {
   app: {
-    name: "Falindrith's Monster Maker",
+    name: "Falindrith's D&D Monster Maker",
   },
   monster: {
     name: 'Name',
@@ -493,6 +493,22 @@ export default {
       v1TemplatesError:
         'Error converting v1 Templates to v2. Please submit a bug report. Error: {0}',
       v1TemplatesOk: 'Successfully upgraded templates to v2',
+    },
+  },
+  error: {
+    message:
+      "Uh oh! If you're seeing this, it probably means the app threw an unhandled error. Usually this happens due to badly formatted monster, template, or spell data, and you can fix the issue by using the buttons below. If you're not sure which part caused the error, start by clearing the monster. Please note that these buttons clear data, so make sure you've made adequate backups before using them.",
+    report:
+      "If you're able to, please submit a bug reAport on GitHub and attach the backups for all data when you encountered this problem.",
+    delete: {
+      monster: 'Delete Monster',
+      spells: 'Delete Spells',
+      templates: 'Delete Templates',
+    },
+    download: {
+      monster: 'Download Monster',
+      spells: 'Download Spells',
+      templates: 'Download Templates',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

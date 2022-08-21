@@ -11,7 +11,6 @@ export default boot(({ app }) => {
     if (process.env.BUILD_NUMBER === 'DEV') return
 
     window.location.assign(`${window.location.href}reset`)
-    window.location.reload()
   }
 
   window.onerror = function (err) {
@@ -21,6 +20,5 @@ export default boot(({ app }) => {
     if (process.env.BUILD_NUMBER === 'DEV') return
 
     window.location.assign(`${window.location.href}reset`)
-    window.location.reload()
   }
 })

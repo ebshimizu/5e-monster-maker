@@ -7,14 +7,14 @@
           shrink
           class="row items-center no-wrap"
         >
-          <span class="q-ml-sm">5e Monster Maker</span>
+          <span class="q-ml-sm">{{ $t('app.name') }}</span>
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
     <q-page-container>
       <div class="flex items-center justify-center full-height full-width">
-        <q-card bordered style="max-width: 400px" class="q-mt-lg">
+        <q-card bordered style="max-width: 500px" class="q-mt-lg">
           <q-card-section>
             <div class="text-h6">Reset Data</div>
           </q-card-section>
@@ -22,20 +22,31 @@
 
           <q-card-section>
             <p>
-              Uh oh! If you're seeing this, it means the app crashed. Usually
-              this happens due to badly formatted monster data, and you can fix
-              the issue by using the buttons below. The monster you're working
-              on will be deleted, but your custom templates and spells will be
-              unaffected.
+              {{ $t('error.message') }}
             </p>
             <p>
-              If you're able to, submit a bug report on GitHub and attach the
-              monster that caused this problem.
+              {{ $t('error.report') }}
             </p>
           </q-card-section>
           <q-card-actions>
-            <q-btn color="negative" @click="clear">Reset Monster</q-btn>
-            <q-btn @click="downloadFile">Download Monster</q-btn>
+            <q-btn color="negative" @click="clear">{{
+              $t('error.delete.monster')
+            }}</q-btn>
+            <q-btn color="negative" @click="clearSpells">{{
+              $t('error.delete.spells')
+            }}</q-btn>
+            <q-btn color="negative" @click="clearTemplates">{{
+              $t('error.delete.templates')
+            }}</q-btn>
+            <q-btn @click="downloadFile">{{
+              $t('error.download.monster')
+            }}</q-btn>
+            <q-btn @click="downloadSpells">{{
+              $t('error.download.spells')
+            }}</q-btn>
+            <q-btn @click="downloadTemplates">{{
+              $t('error.download.spells')
+            }}</q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -59,15 +70,45 @@ export default defineComponent({
       )
     }
 
+    const clearSpells = () => {
+      localStorage.removeItem('app.spells')
+      window.location.assign(
+        `${window.location.origin}${window.location.pathname}`
+      )
+    }
+
+    const clearTemplates = () => {
+      localStorage.removeItem('app.templates')
+      window.location.assign(
+        `${window.location.origin}${window.location.pathname}`
+      )
+    }
+
     const downloadFile = () => {
       const data = localStorage.getItem('app.monster')
 
-      if (data) download(data, 'monster-error.5emm.json', 'application/json')
+      if (data) download(data, 'monster-error.json', 'application/json')
+    }
+
+    const downloadSpells = () => {
+      const data = localStorage.getItem('app.spells')
+
+      if (data) download(data, 'spells-error.json', 'application/json')
+    }
+
+    const downloadTemplates = () => {
+      const data = localStorage.getItem('app.templates')
+
+      if (data) download(data, 'templates-error.json', 'application/json')
     }
 
     return {
       clear,
+      clearSpells,
+      clearTemplates,
       downloadFile,
+      downloadSpells,
+      downloadTemplates,
     }
   },
 })
