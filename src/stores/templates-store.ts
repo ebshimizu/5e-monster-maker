@@ -15,6 +15,52 @@ import { useMonsterStore } from './monster-store'
 import _ from 'lodash'
 import { useTemplateSubtitles } from 'src/components/rendering/useTemplateSubtitles'
 
+// Updates the v1 templates in place
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function updateV1Templates(old: any) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Object.values(old).forEach((o: any) => {
+    if (o.type === 'Action') {
+      const action = o as ActionTemplate
+      action.customPreamble = false
+      action.crAnnotation.automatic = false
+
+      if (action.limitedUse.rate === 'long or short rest')
+        action.limitedUse.rate = 'LONG_OR_SHORT'
+      else
+        action.limitedUse.rate = action.limitedUse.rate
+          .toUpperCase()
+          .replace(' ', '_')
+    } else if (o.type === 'Attack') {
+      const attack = o as AttackTemplate
+      attack.customRenderer = ''
+      attack.useCustomRenderer = false
+      attack.additionalDamage.forEach((d) => {
+        d.id = v4()
+      })
+      attack.kind = attack.kind.toUpperCase() as AttackTemplate['kind']
+      attack.distance =
+        attack.distance.toUpperCase() as AttackTemplate['distance']
+
+      // hm some additional check for attack distance
+      if ((attack.distance as any) === 'MELEE OR RANGED') {
+        attack.distance = 'BOTH'
+      }
+    } else if (o.type === 'Trait') {
+      const trait = o as TraitTemplate
+      trait.customPreamble = false
+      trait.crAnnotation.automatic = false
+
+      if (trait.limitedUse.rate === 'long or short rest')
+        trait.limitedUse.rate = 'LONG_OR_SHORT'
+      else
+        trait.limitedUse.rate = trait.limitedUse.rate
+          .toUpperCase()
+          .replace(' ', '_')
+    }
+  })
+}
+
 export const useTemplatesStore = defineStore('templates', {
   state: (): Templates => ({
     customTemplates: {},
@@ -145,51 +191,34 @@ export const useTemplatesStore = defineStore('templates', {
         delete this.customTemplates[name]
       }
     },
+    import(templates: DndTemplate[], overwrite = false) {
+      let imported = 0
+      let skipped = 0
+
+      templates.forEach((template) => {
+        if (!overwrite && template.templateName in this.customTemplates) {
+          skipped += 1
+          return
+        } else {
+          this.customTemplates[template.templateName] = template
+          imported += 1
+        }
+      })
+
+      return {
+        imported,
+        skipped,
+      }
+    },
     updateFromV1() {
       const oldCustom = localStorage.getItem('app.customTemplates')
 
       if (oldCustom != null) {
         const old = JSON.parse(oldCustom)
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        Object.values(old).forEach((o: any) => {
-          if (o.type === 'Action') {
-            const action = o as ActionTemplate
-            action.customPreamble = false
-            action.crAnnotation.automatic = false
-
-            if (action.limitedUse.rate === 'long or short rest')
-              action.limitedUse.rate = 'LONG_OR_SHORT'
-            else
-              action.limitedUse.rate = action.limitedUse.rate
-                .toUpperCase()
-                .replace(' ', '_')
-
-            // direct overwrite
-            this.customTemplates[action.templateName] = action
-          } else if (o.type === 'Attack') {
-            const attack = o as AttackTemplate
-            attack.customRenderer = ''
-            attack.useCustomRenderer = false
-            attack.additionalDamage.forEach((d) => {
-              d.id = v4()
-            })
-
-            this.customTemplates[attack.templateName] = attack
-          } else if (o.type === 'Trait') {
-            const trait = o as TraitTemplate
-            trait.customPreamble = false
-            trait.crAnnotation.automatic = false
-
-            if (trait.limitedUse.rate === 'long or short rest')
-              trait.limitedUse.rate = 'LONG_OR_SHORT'
-            else
-              trait.limitedUse.rate = trait.limitedUse.rate
-                .toUpperCase()
-                .replace(' ', '_')
-
-            this.customTemplates[trait.templateName] = trait
-          }
+        updateV1Templates(old)
+        old.forEach((o: DndTemplate) => {
+          this.customTemplates[o.templateName] = o
         })
 
         // delete the old key

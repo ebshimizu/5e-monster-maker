@@ -24,9 +24,9 @@
         >
           {{ $t('editor.template.delete', selected.length) }}</q-btn
         >
-        <!-- <q-btn color="primary" class="q-mr-md" @click="importSpells">{{
-          $t('editor.spellcasting.custom.import')
-        }}</q-btn> -->
+        <q-btn color="primary" class="q-mr-md" @click="importTemplates">{{
+          $t('editor.template.import')
+        }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="downloadTemplates">{{
           $t('editor.template.export')
         }}</q-btn>
@@ -91,9 +91,6 @@
               </q-input>
             </q-popup-edit>
           </q-td>
-          <q-td key="caption" :props="props">{{
-            subtitles[props.row.templateName]
-          }}</q-td>
         </q-tr>
       </template>
     </q-table>
@@ -104,11 +101,11 @@
 import { QTableProps, useQuasar } from 'quasar'
 import { computed, defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import _ from 'lodash'
 import { DndTemplate } from 'src/components/models'
 import { download } from 'src/components/file/download'
 import { useTemplatesStore } from 'src/stores/templates-store'
 import { ACTION_COLOR } from 'src/components/cr/useCr'
+import LoadTemplatesDialog from 'src/components/editor/widgets/LoadTemplatesDialog.vue'
 
 export default defineComponent({
   name: 'SpellsEditor',
@@ -150,12 +147,7 @@ export default defineComponent({
         label: t('editor.template.icon'),
         sortable: true,
         field: 'icon',
-      },
-      {
-        name: 'caption',
-        label: t('editor.template.summary'),
-        sortable: false,
-        field: (val) => templateStore.allTemplateSubtitles[val.templateName],
+        align: 'left',
       },
     ]
 
@@ -175,8 +167,9 @@ export default defineComponent({
     }
 
     const importTemplates = () => {
-      // $q.dialog({
-      // })
+      $q.dialog({
+        component: LoadTemplatesDialog,
+      })
     }
 
     return {
@@ -187,6 +180,7 @@ export default defineComponent({
       deleteTemplates,
       subtitles: computed(() => templateStore.allTemplateSubtitles),
       actionColor: ACTION_COLOR,
+      importTemplates,
     }
   },
 })

@@ -421,6 +421,17 @@ export default {
         Attack: 'Attack',
         Trait: 'Trait',
       },
+      importDialog: 'Import Templates',
+      importFile: 'Templates File',
+      importMode: 'Overwrite',
+      importResult:
+        'No Templates Imported | 1 Template Imported | {n} Templates Imported',
+      importSkip:
+        'No Templates Skipped | 1 Template Skipped | {n} Templates Skipped',
+      importError: 'Error reading file. {0}',
+      legacyImport: 'Legacy Import',
+      legacyImportHint:
+        "Select this option if you're importing from Version 1. If you forget to check this, certain features might not work.",
     },
     ok: 'OK',
     load: 'Load',
