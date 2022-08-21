@@ -738,7 +738,7 @@ export function useProcessTokens() {
 
   const stripTags = (input: string) => {
     const allowedTags = /<(\/?[b|i|u])>/gi
-    input = input.replace(allowedTags, (match, tag) => {
+    input = input.replace(allowedTags, () => {
       return ''
     })
 

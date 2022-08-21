@@ -42,6 +42,8 @@ export function useTarrasqueRenderer() {
 
   // Tarrasque.io also uses JSON so we'll corral the 5emm monster data into tarrasque's format
   const renderTarrasqueJson = () => {
+    // listen i'm not writing an interface for this i'm guessing at the types
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const tio: any = {}
 
     // basics

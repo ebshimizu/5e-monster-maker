@@ -72,7 +72,6 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { QInput, useDialogPluginComponent } from 'quasar'
-import _ from 'lodash'
 import { useTemplatesStore } from 'src/stores/templates-store'
 
 export default defineComponent({
