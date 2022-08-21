@@ -4,7 +4,7 @@ name: Deploy (v2)
 # Controls when the action will run. Triggers the workflow on push to master
 on:
   push:
-    branches: [master]
+    branches: [experimental]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -45,7 +45,7 @@ jobs:
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.1.0
         with:
-          repo: ebshimizu/5emm
+          repo: ebshimizu/5emm-stage
           target_branch: master
           build_dir: dist/spa
         env:
