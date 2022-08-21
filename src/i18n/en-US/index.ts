@@ -356,6 +356,7 @@ export default {
       estimated: 'Estimated CR',
       defensive: 'Defensive CR',
       offensive: 'Offensive CR',
+      table: 'CR Table',
       resistance: '{n} Resistance | {n} Resistances',
       immunity: '{n} Immunity | {n} Immunities',
       vulnerability: '{n} Vulnerability | {n} Vulnerabilities',
@@ -389,6 +390,12 @@ export default {
         Spell: 'Spell',
         'Lair Action': 'Lair Action',
       },
+      prof: 'Prof. Bonus',
+      ac: 'Armor Class',
+      hp: 'Hit Points',
+      attack: 'Attack Bonus',
+      damage: 'Damage/Round',
+      save: 'Save DC',
     },
     template: {
       title: 'Manage Custom Templates',
@@ -439,6 +446,8 @@ export default {
     save: 'Save',
     monsterReset: 'Monster Reset',
     home: 'Monster Editor',
+    ogl: 'Open Gaming License (EN-US)',
+    crTable: 'Show CR Table',
   },
   io: {
     error: {
