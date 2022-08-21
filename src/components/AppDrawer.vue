@@ -5,10 +5,10 @@
         ><q-item-section>{{ $t('editor.home') }}</q-item-section></q-item
       >
       <q-item clickable to="/spells">
-        <q-item-section>Custom Spell Editor</q-item-section>
+        <q-item-section>{{ $t('editor.customSpells') }}</q-item-section>
       </q-item>
-      <q-item clickable>
-        <q-item-section>Custom Template Editor</q-item-section>
+      <q-item clickable to="/templates">
+        <q-item-section>{{ $t('editor.template.title') }}</q-item-section>
       </q-item>
       <q-separator />
       <q-item clickable @click="createSpell()">

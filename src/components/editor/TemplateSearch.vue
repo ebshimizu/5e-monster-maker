@@ -22,7 +22,13 @@
     <template #option="scope">
       <q-item v-bind="scope.itemProps">
         <q-item-section avatar>
-          <q-icon :name="scope.opt.icon" />
+          <q-icon
+            :name="
+              scope.opt.icon === ''
+                ? defaultIcon[scope.opt.type]
+                : scope.opt.icon
+            "
+          />
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ scope.opt.templateName }}</q-item-label>
@@ -50,6 +56,7 @@ import { useI18n } from 'vue-i18n'
 import { ACTION_COLOR } from '../cr/useCr'
 import { templateArrayFilter } from '../filters'
 import _ from 'lodash'
+import { DEFAULT_TEMPLATE_ICON } from 'src/data/TEMPLATES'
 
 export default defineComponent({
   name: 'TemplateSearch',
@@ -101,6 +108,7 @@ export default defineComponent({
       templateRef,
       actionColor: ACTION_COLOR,
       checkPopupStatus,
+      defaultIcon: DEFAULT_TEMPLATE_ICON,
     }
   },
 })

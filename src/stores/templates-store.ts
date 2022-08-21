@@ -140,6 +140,11 @@ export const useTemplatesStore = defineStore('templates', {
       // this overwrites by default
       this.customTemplates[template.templateName] = template
     },
+    deleteCustomTemplate(name: string) {
+      if (name in this.customTemplates) {
+        delete this.customTemplates[name]
+      }
+    },
     updateFromV1() {
       const oldCustom = localStorage.getItem('app.customTemplates')
 

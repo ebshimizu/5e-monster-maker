@@ -298,6 +298,7 @@ export default {
     article: "Use 'The' in NAME Token",
     renderSettings: 'Stat Block Settings',
     columns: 'Columns',
+    customSpells: 'Manage Custom Spells',
     crAnnotation: {
       title: 'CR Annotation Data',
       manual: 'Using Manual CR Estimation',
@@ -390,11 +391,13 @@ export default {
       },
     },
     template: {
+      title: 'Manage Custom Templates',
       recharge: 'Recharge {0}',
       legendary: 'Legendary Action. ',
       applied: 'Applied Template {0}',
       create: 'Create Template from {0}',
       name: 'Template Name',
+      instanceName: 'Instance Name',
       icon: 'Template Icon',
       availableIcons:
         "You can use an icon code formatted according to the {0} from {1}, {2}, or {3}. If you're not sure what to use, feel free to leave it blank and a default icon will be provided.",
@@ -408,7 +411,12 @@ export default {
       nameValidator: 'Template names must be unique.',
       negative:
         'Failed to apply template {0}. Check console and submit a bug report.',
+      summary: 'Description',
+      delete: 'Delete Templates | Delete 1 Template | Delete {n} Templates',
+      export: 'Export',
+      import: 'Import',
       type: {
+        type: 'Type',
         Action: 'Action',
         Attack: 'Attack',
         Trait: 'Trait',

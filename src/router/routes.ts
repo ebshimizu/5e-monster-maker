@@ -14,6 +14,13 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: '', component: () => import('pages/SpellsEditor.vue') }],
   },
   {
+    path: '/templates',
+    component: () => import('layouts/TemplateEditorLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/TemplatesEditor.vue') },
+    ],
+  },
+  {
     path: '/reset',
     component: () => import('layouts/ErrorCorrection.vue'),
   },

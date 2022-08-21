@@ -22,7 +22,7 @@
           class="q-mr-md"
           @click="deleteSpells"
         >
-          {{ $tc('editor.spellcasting.custom.delete', selected.length) }}</q-btn
+          {{ $t('editor.spellcasting.custom.delete', selected.length) }}</q-btn
         >
         <q-btn color="primary" class="q-mr-md" @click="importSpells">{{
           $t('editor.spellcasting.custom.import')
