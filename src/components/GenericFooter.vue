@@ -25,7 +25,7 @@
   <q-dialog v-model="oglDialog">
     <q-card>
       <q-card-section>
-        <div class="text-h6">Open Gaming License</div>
+        <div class="text-h6">{{ $t('editor.ogl') }}</div>
       </q-card-section>
 
       <q-separator />
