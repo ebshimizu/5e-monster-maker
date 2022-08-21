@@ -38,6 +38,13 @@
             been added to a dropdown menu in the next text renderer sections.
           </li>
           <li>
+            <strong>Input Restrictions Lifted</strong>: The list of resistances,
+            immunities, vulnerabilities, and condition immunities is no longer a
+            static list. You can now add your own values to these fields. Also,
+            spellcasting classes no longer have to be one of the SRD classes,
+            just type in your own class and hit enter.
+          </li>
+          <li>
             <strong
               ><a
                 href="https://github.com/ebshimizu/5e-monster-maker/issues/16"
