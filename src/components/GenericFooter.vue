@@ -3,8 +3,11 @@
     <span class="ogl-link" @click.stop="oglDialog = true"
       >Open Gaming Licence</span
     >
-    | v{{ majorVersion }}.{{ minorVersion }} build {{ buildNumber }} | Created
-    by <strong>Falindrith</strong> |
+    |
+    <span class="version" @click="changelog = true"
+      >v{{ majorVersion }}.{{ minorVersion }} build {{ buildNumber }}</span
+    >
+    | Created by <strong>Falindrith</strong> |
     <q-btn
       round
       icon="mdi-twitter"
@@ -40,21 +43,52 @@
       </q-card-actions>
     </q-card>
   </q-dialog>
+  <q-dialog v-model="changelog" full-height>
+    <q-card style="width: 100%; max-width: 75vw">
+      <q-card-section>
+        <div class="text-h6">{{ $t('changelog') }}</div>
+      </q-card-section>
+      <q-separator />
+      <q-card-section class="scroll">
+        <changelog-content />
+      </q-card-section>
+      <q-separator />
+      <q-card-actions align="right">
+        <q-btn v-close-popup flat label="Close" color="primary" />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useAppVersion } from './useAppVersion'
 import ogl from '../data/OGL.txt'
+import ChangelogContent from './ChangelogContent.vue'
+import { useEditorStore } from 'src/stores/editor-store'
+
+// TODO: don't forget to change the target changelog when the app has an update
+// that should trigger a notice
+const TARGET_CHANGELOG = 'v2.0.0'
 
 export default defineComponent({
   name: 'GenericFooter',
+  components: { ChangelogContent },
   setup() {
     const appVersion = useAppVersion()
+    const editorStore = useEditorStore()
+
+    const changelog = ref(false)
+    if (editorStore.changelogShown !== TARGET_CHANGELOG) {
+      changelog.value = true
+      // show once
+      editorStore.changelogShown = TARGET_CHANGELOG
+    }
 
     return {
       openLink: (url: string) => window.open(url),
       oglDialog: ref(false),
+      changelog,
       oglText: ogl.replace(/\n/g, '<br />'),
       ...appVersion,
     }
@@ -63,8 +97,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.ogl-link {
-  text-decoration: underline;
+.ogl-link,
+.version {
+  color: #03a9f4;
   cursor: pointer;
+}
+
+.ogl-link:hover,
+.version:hover {
+  color: #81d4fa;
 }
 </style>

@@ -5,6 +5,7 @@ export const useEditorStore = defineStore({
   state: () => {
     return {
       statBlockColumns: 1,
+      changelogShown: '',
     }
   },
   persist: {

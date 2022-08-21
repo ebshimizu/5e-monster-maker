@@ -33,7 +33,7 @@
       </q-item>
     </q-list>
   </q-drawer>
-  <q-dialog v-model="crTable">
+  <q-dialog v-model="crTable" full-height>
     <q-card style="width: 700px; max-width: 80vw">
       <q-card-section>
         <div class="text-h6">{{ $t('editor.cr.table') }}</div>
@@ -41,7 +41,7 @@
 
       <q-separator />
 
-      <q-card-section style="max-height: 50vh" class="scroll">
+      <q-card-section class="scroll">
         <q-markup-table>
           <thead>
             <th>{{ $t('monster.cr') }}</th>
