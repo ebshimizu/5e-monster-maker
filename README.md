@@ -3,7 +3,9 @@
 update sample image
 update link to adult frost Dragon
 
-# 5e Monster Maker
+# Falindrith's D&D Monster Maker
+
+Formerly "5e Monster Maker"
 
 Live site: https://ebshimizu.github.io/5emm/
 
@@ -40,7 +42,9 @@ The current monster that's being worked on in the app is automatically saved eve
 
 ### Using {} Tokens in Descriptions
 
-There's a little bit of support in the app for using text replacement tokens. Currently supported:
+Every property of the monster can be accessed through tokens starting with `{monster.[feature]}`. A full specification of all of the available fields is in the (models.ts)[https://github.com/ebshimizu/5e-monster-maker/blob/experimental/src/components/models.ts] definition. Some tokens are shortcuts to relevant properties (e.g. `{action.recharge}`) that only work in certain contexts. Check the text editor of the section you're editing to see what things are available.
+
+There are also some special tokens that can be used anywhere:
 
 - {NAME} for the monster's name
 - {#d#} for computing a dice roll (e.g. {3d6})
