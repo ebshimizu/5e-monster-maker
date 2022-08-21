@@ -41,11 +41,6 @@ export function updateV1Templates(old: any) {
       attack.kind = attack.kind.toUpperCase() as AttackTemplate['kind']
       attack.distance =
         attack.distance.toUpperCase() as AttackTemplate['distance']
-
-      // hm some additional check for attack distance
-      if ((attack.distance as any) === 'MELEE OR RANGED') {
-        attack.distance = 'BOTH'
-      }
     } else if (o.type === 'Trait') {
       const trait = o as TraitTemplate
       trait.customPreamble = false
@@ -214,7 +209,7 @@ export const useTemplatesStore = defineStore('templates', {
       const oldCustom = localStorage.getItem('app.customTemplates')
 
       if (oldCustom != null) {
-        const old = JSON.parse(oldCustom)
+        const old = Object.values(JSON.parse(oldCustom)) as DndTemplate[]
 
         updateV1Templates(old)
         old.forEach((o: DndTemplate) => {

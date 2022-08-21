@@ -478,6 +478,12 @@ export default {
         'Error converting v1 Spells to v2. Please submit a bug report. Error: {0}',
       v1SpellsOk: 'Successfully upgraded spells to v2.',
       v1SpellsDownload: 'Download v1 Spells',
+      v1Templates:
+        'Found custom templates from app version 1. In order to use these templates with version 2, we need to update them. This is a potentially destructive operation, so please use the download button below to make a backup. If you encounter issues with this process, please submit a bug report on GitHub and include your backup templates file.',
+      v1TemplatesDownload: 'Download v1 Templates',
+      v1TemplatesError:
+        'Error converting v1 Templates to v2. Please submit a bug report. Error: {0}',
+      v1TemplatesOk: 'Successfully upgraded templates to v2',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

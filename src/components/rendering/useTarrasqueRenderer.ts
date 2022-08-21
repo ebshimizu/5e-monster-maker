@@ -1,4 +1,3 @@
-import N2W from 'number-to-words'
 import { CR } from 'src/data/CR'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useI18n } from 'vue-i18n'

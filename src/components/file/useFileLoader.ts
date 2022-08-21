@@ -157,11 +157,6 @@ export function useFileLoader() {
         attack.customRenderer = ''
         attack.kind = attack.kind.toUpperCase()
         attack.distance = attack.distance.toUpperCase()
-
-        // both doesn't exist so we gotta do it this way
-        if (attack.distance === 'MELEE OR RANGED') {
-          attack.distance = 'BOTH'
-        }
       }
 
       // actions
