@@ -38,6 +38,15 @@
             been added to a dropdown menu in the next text renderer sections.
           </li>
           <li>
+            <strong>Automatic CR Estimation for Arbitrary Features</strong>: Any
+            monster feature that has a CR Estimator (Actions and Traits) now has
+            the option to automatically infer the CR from the text of the
+            feature description. This is a very simplistic estimate that looks
+            for dice roll, attack modifier, and save DC tokens and inserts the
+            maximum of those values into the CR estimate. This feature is
+            enabled by default and can be turned off or overriden as needed.
+          </li>
+          <li>
             <strong>Input Restrictions Lifted</strong>: The list of resistances,
             immunities, vulnerabilities, and condition immunities is no longer a
             static list. You can now add your own values to these fields. Also,
