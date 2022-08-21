@@ -24,7 +24,7 @@ jobs:
     - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
-        node-version: 14.x
+        node-version: 16.x
     
     - name: Build Number Generator
       uses: einaregilsson/build-number@v3
@@ -38,6 +38,7 @@ jobs:
     
     # install packages
     - run: npm install
+    - run: npm install -g @quasar/cli
 
     - name: Build dist
       run: quasar build
