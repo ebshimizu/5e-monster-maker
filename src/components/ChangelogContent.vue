@@ -135,6 +135,10 @@
             for that much longer, I've re-titled the app.
           </li>
           <li>
+            <strong>Resizeable Statblock</strong>: Grab the vertical bar to
+            resize the statblock.
+          </li>
+          <li>
             <strong>Development QoL</strong>: The app has been re-written
             entirely in Typescript with Quasar as the front-end framework. This
             will hopefully make adding and adjusting new features easier, as

@@ -1,7 +1,7 @@
 {
   "name": "5e-monster-maker",
-  "version": "2.0.0-alpha",
-  "description": "A tool for creating monsters for 5th Edition Dungeons and Dragons",
+  "version": "2.0.0",
+  "description": "A monster builder and generator for 5th Edition Dungeons and Dragons. Effortlessly create a monster with tools for automatically computing CR, formatting a statblock, and managing your monster actions and traits.",
   "productName": "Falindrith's D&D Monster Maker",
   "author": "Evan Shimizu <ebshimizu@gmail.com>",
   "private": true,
