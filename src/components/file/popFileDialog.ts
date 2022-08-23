@@ -3,6 +3,7 @@ export function popFileDialog(): Promise<File | undefined> {
     // Opening file dialog
     const input = document.createElement('input')
     input.type = 'file'
+    input.accept = '.5emm.json'
     input.onchange = async (event: Event) => {
       // Returning if no target
       if (!event.target) {
