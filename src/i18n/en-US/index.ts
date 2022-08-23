@@ -499,7 +499,7 @@ export default {
     message:
       "Uh oh! If you're seeing this, it probably means the app threw an unhandled error. Usually this happens due to badly formatted monster, template, or spell data, and you can fix the issue by using the buttons below. If you're not sure which part caused the error, start by clearing the monster. Please note that these buttons clear data, so make sure you've made adequate backups before using them.",
     report:
-      "If you're able to, please submit a bug reAport on GitHub and attach the backups for all data when you encountered this problem.",
+      "If you're able to, please submit a bug report on GitHub and attach the backups for all data when you encountered this problem.",
     delete: {
       monster: 'Delete Monster',
       spells: 'Delete Spells',
@@ -566,7 +566,7 @@ export default {
     SLASHING_NM_NA: 'non-magical non-adamantine slashing',
     SLASHING_NM_SN: 'non-magical non-silvered slashing',
     THUNDER: 'thunder',
-    ALL_PHYSICAL_NM: 'non-magical slashing, piercing, and bludgeoning',
+    ALL_PHYSICAL_NM: 'non-magical bludgeoning, piercing, and slashing',
     ALL_PHYSICAL_NM_NA:
       "bludgeoning, piercing, and slashing from non-magical attacks that aren't adamantine",
   },
