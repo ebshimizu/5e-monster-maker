@@ -66,6 +66,7 @@
                 :label="$t('editor.crAnnotation.maxDamage')"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
+                @blur="validate('maxDamage', 0)"
               >
                 <template #after>
                   <q-btn
@@ -96,6 +97,7 @@
                 :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
+                @blur="validate('maxSave', 0)"
               />
               <q-input
                 v-model.number="crData.crAnnotation.maxModifier"
@@ -104,6 +106,7 @@
                 :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
+                @blur="validate('maxModifier', 0)"
               />
               <q-input
                 v-model.number="crData.crAnnotation.ehpModifier"
@@ -112,6 +115,7 @@
                 :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
+                @blur="validate('ehpModifier', 0)"
               />
               <q-input
                 v-model.number="crData.crAnnotation.ehpMultiplier"
@@ -120,6 +124,7 @@
                 :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
+                @blur="validate('ehpMultiplier', 1)"
               />
               <q-input
                 v-model.number="crData.crAnnotation.acModifier"
@@ -128,6 +133,7 @@
                 :disable="crData.crAnnotation.automatic"
                 min="0"
                 class="col-12 col-sm-6 col-md-3 col-lg-2 q-pa-sm"
+                @blur="validate('acModifier', 0)"
               />
             </div>
           </q-card-section>
@@ -142,7 +148,12 @@ import { defineComponent, PropType } from '@vue/runtime-core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import LockToggleButton from '../LockToggleButton.vue'
-import { Monster, MonsterAction, MonsterTrait } from '../models'
+import {
+  Monster,
+  MonsterAction,
+  MonsterCrAnnotation,
+  MonsterTrait,
+} from '../models'
 
 export type CrAnnotatedField = MonsterTrait[] | MonsterAction[]
 
@@ -166,8 +177,27 @@ export default defineComponent({
 
     const crData = (monster[props.field] as CrAnnotatedField)[props.index]
 
+    const validate = (
+      field:
+        | 'maxDamage'
+        | 'maxSave'
+        | 'maxModifier'
+        | 'ehpMultiplier'
+        | 'ehpModifier'
+        | 'acModifier',
+      defaultValue: number
+    ) => {
+      // bit of wiggliness here, the number input type sometimes returns strings (fun)
+      const value = crData.crAnnotation[field] as string | number | null
+
+      if (typeof value === 'string' || value == null) {
+        crData.crAnnotation[field] = defaultValue
+      }
+    }
+
     return {
       crData,
+      validate,
       ...useAutoUpdateCr(),
     }
   },

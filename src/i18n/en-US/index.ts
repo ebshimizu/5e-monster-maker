@@ -605,12 +605,12 @@ export default {
     EXHAUSTION: 'exhaustion',
   },
   recharge: {
-    DAY: 'day',
-    DAY_EACH: 'day each',
-    AT_WILL: 'at will',
-    LONG_REST: 'long rest',
-    SHORT_REST: 'short rest',
-    LONG_OR_SHORT: 'long or short rest',
+    DAY: 'Day',
+    DAY_EACH: 'Day Each',
+    AT_WILL: 'At Will',
+    LONG_REST: 'Long Rest',
+    SHORT_REST: 'Short Rest',
+    LONG_OR_SHORT: 'Long or Short Rest',
   },
   statFull: {
     STR: 'Strength',
