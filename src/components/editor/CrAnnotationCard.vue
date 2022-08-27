@@ -166,12 +166,7 @@ import { defineComponent, PropType } from '@vue/runtime-core'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import LockToggleButton from '../LockToggleButton.vue'
-import {
-  Monster,
-  MonsterAction,
-  MonsterCrAnnotation,
-  MonsterTrait,
-} from '../models'
+import { Monster, MonsterAction, MonsterTrait } from '../models'
 import { validateNumber } from './numberInput'
 
 export type CrAnnotatedField = MonsterTrait[] | MonsterAction[]
