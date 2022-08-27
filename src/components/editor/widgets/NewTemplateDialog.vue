@@ -14,11 +14,8 @@
           v-model="name"
           :label="$t('editor.template.name')"
           class="col-12 q-pa-sm"
-          :rules="[
-            (val) =>
-              !(val in templateStore.allTemplates) ||
-              $t('editor.template.nameValidator'),
-          ]"
+          reactive-rules
+          :rules="rules"
           bottom-slots
         >
           <template #hint>
@@ -50,13 +47,19 @@
             }}</a>
           </i18n-t>
         </div>
+        <div class="col-12 q-pa-sm">
+          <q-toggle
+            v-model="override"
+            :label="$t('editor.template.override')"
+          />
+        </div>
       </q-card-section>
       <!-- buttons example -->
       <q-card-actions align="right">
         <q-btn
           color="green"
           :label="$t('editor.save')"
-          :disabled="!nameInput?.validate() || name.length === 0"
+          :disabled="!override && (!nameInput?.validate() || name.length === 0)"
           @click="onOKClick"
         />
         <q-btn
@@ -70,9 +73,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { QInput, useDialogPluginComponent } from 'quasar'
 import { useTemplatesStore } from 'src/stores/templates-store'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'NewTemplateDialog',
@@ -99,11 +103,28 @@ export default defineComponent({
     // onDialogCancel - Function to call to settle dialog with "cancel" outcome
 
     const templateStore = useTemplatesStore()
+    const { t } = useI18n()
 
     // spell field, commits on save
     const icon = ref('')
     const name = ref(props.targetName)
+    const override = ref(false)
     const nameInput = ref<QInput | null>(null)
+
+    const rules = computed(() => {
+      if (override.value) {
+        // this is... questionable due to side effects happening in a computed prop
+        // but it does work so whatever
+        nameInput.value?.resetValidation()
+        return []
+      }
+
+      return [
+        (val: string) =>
+          !(val in templateStore.allTemplates) ||
+          t('editor.template.nameValidator'),
+      ]
+    })
 
     return {
       // This is REQUIRED;
@@ -118,6 +139,7 @@ export default defineComponent({
         // call onDialogOK (with optional payload)
         // caller needs to handle this due to different template types
         // could handle it here but would rather have the caller do it since it has all type data available
+        // also, override just lets you click the save anyway, the function overrides by default
         onDialogOK({
           name: name.value,
           icon: icon.value,
@@ -132,7 +154,9 @@ export default defineComponent({
       icon,
       name,
       nameInput,
+      override,
       templateStore,
+      rules,
     }
   },
 })

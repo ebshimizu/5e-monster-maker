@@ -406,6 +406,7 @@ export default {
       name: 'Template Name',
       instanceName: 'Instance Name',
       icon: 'Template Icon',
+      override: 'Overwrite',
       availableIcons:
         "You can use an icon code formatted according to the {0} from {1}, {2}, or {3}. If you're not sure what to use, feel free to leave it blank and a default icon will be provided.",
       link0: 'Quasar webfont icon usage format',
