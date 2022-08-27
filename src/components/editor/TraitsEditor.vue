@@ -26,11 +26,15 @@
                   class="col-7 q-pa-sm"
                 />
                 <q-input
-                  v-model.number="trait.limitedUse.count"
+                  :model-value="trait.limitedUse.count"
                   type="number"
                   min="0"
                   class="col-2 q-pa-sm"
                   :label="$t('monster.trait.limitedUse.count')"
+                  @update:model-value="
+                    (value: string | number | null) =>
+                      (trait.limitedUse.count = validateNumber(value, 0))
+                  "
                 />
                 <q-select
                   v-model="trait.limitedUse.rate"
@@ -103,6 +107,7 @@ import { useTemplatesStore } from 'src/stores/templates-store'
 import { useI18n } from 'vue-i18n'
 import { MonsterTrait } from '../models'
 import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'TraitsEditor',
@@ -139,6 +144,7 @@ export default defineComponent({
       autoUpdateCr,
       printCrSummary,
       addTemplate,
+      validateNumber,
     }
   },
 })

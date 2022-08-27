@@ -9,13 +9,16 @@
       <q-input
         v-for="(_, sense) in monster.senses"
         :key="sense"
-        v-model.number="monster.senses[sense]"
+        :model-value="monster.senses[sense]"
         type="number"
         :label="$t(`monster.sense.${sense}`)"
         suffix="ft"
         min="0"
         step="5"
         class="col q-pa-sm"
+        @update:model-value="
+          (value) => (monster.senses[sense] = validateNumber(value, 0))
+        "
       />
       <q-input
         type="number"
@@ -47,6 +50,7 @@
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent } from 'vue'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'SavesEditor',
@@ -59,6 +63,7 @@ export default defineComponent({
       senses: Object.entries(monster.senses).map(([k, v]) => {
         return { sense: k, range: v }
       }),
+      validateNumber: validateNumber,
     }
   },
 })

@@ -70,10 +70,13 @@
             :key="innateList.id"
           >
             <q-input
-              v-model.number="innateList.count"
+              :model-value="innateList.count"
               :label="$t('editor.spellcasting.innate.casts')"
               type="number"
               class="col-2 q-pa-sm"
+              @update:model-value="
+                (value: string | number | null) => (innateList.count = validateNumber(value, 0))
+              "
             />
             <q-select
               v-model="innateList.rate"
@@ -128,6 +131,7 @@ import { useSpellsStore, SpellOption } from 'src/stores/spells-store'
 import { ref, computed } from 'vue'
 import { spellArrayFilter } from '../filters'
 import MonsterTextEditor from './MonsterTextEditor.vue'
+import { validateNumber } from './numberInput'
 import SearchableSpellSelect from './widgets/SearchableSpellSelect.vue'
 
 export default defineComponent({
@@ -162,6 +166,7 @@ export default defineComponent({
       showSlots,
       classFilter,
       spellOptionsByLevel: spells.spellOptionsByLevel,
+      validateNumber: validateNumber,
       ...classes,
     }
   },

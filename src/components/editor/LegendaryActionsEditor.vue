@@ -8,11 +8,15 @@
     <q-card>
       <q-card-section class="row">
         <q-input
-          v-model.number="monster.legendaryActions.count"
+          :model-value="monster.legendaryActions.count"
           type="number"
           min="0"
           :label="$t('editor.legendary.count')"
           class="col-3 q-pa-sm"
+          @update:model-value="
+            (value: string | number | null) =>
+              (monster.legendaryActions.count = validateNumber(value, 0))
+          "
         >
           <template #after>
             <q-btn
@@ -103,10 +107,13 @@
           </div>
           <div class="col-4">
             <q-input
-              v-model.number="la.cost"
+              :model-value="la.cost"
               type="number"
               min="0"
               :label="$t('editor.legendary.cost')"
+              @update:model-value="
+                (value: string | number | null) => (la.cost = validateNumber(value, 1))
+              "
             >
               <template #after>
                 <q-btn
@@ -132,6 +139,7 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, computed } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'LegendaryActionsEditor',
@@ -159,6 +167,7 @@ export default defineComponent({
       monster,
       filteredActions,
       addLegendary,
+      validateNumber: validateNumber,
     }
   },
 })

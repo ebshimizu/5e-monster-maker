@@ -24,11 +24,14 @@
           @update:model-value="monster.setCR"
         />
         <q-input
-          v-model.number="monster.proficiency"
+          :model-value="monster.proficiency"
           type="number"
           :label="$t('monster.proficiencyBonus')"
           class="col-3 q-pa-sm"
           :disable="!monster.proficiencyOverride"
+          @update:model-value="
+            (value: string | number | null) => (monster.proficiency = validateNumber(value, 0))
+          "
         >
           <template #after>
             <lock-toggle-button
@@ -67,11 +70,12 @@
           @filter="alignmentFilter"
         />
         <q-input
-          v-model.number="monster.AC"
+          :model-value="monster.AC"
           type="number"
           :label="$t('monster.ac')"
           min="0"
           class="col-2 q-pa-sm"
+          @update:model-value="(value: string | number | null) => (monster.AC = validateNumber(value, 0))"
         >
           <template #after>
             <q-btn
@@ -117,7 +121,7 @@
           </template>
         </q-input>
         <q-select
-          v-model.number="monster.HP.type"
+          v-model="monster.HP.type"
           :options="diceOptions"
           emit-value
           :display-value="diceLookup[monster.HP.type]"
@@ -135,11 +139,14 @@
           </template>
         </q-select>
         <q-input
-          v-model.number="monster.HP.modifier"
+          :model-value="monster.HP.modifier"
           :disable="!monster.hpModifierOverride"
           type="number"
           :label="$t('monster.hp.modifier')"
           class="col-2 q-pa-sm"
+          @update:model-value="
+            (value: string | number | null) => (monster.HP.modifier = validateNumber(value, 0))
+          "
         >
           <template #after>
             <lock-toggle-button
@@ -179,6 +186,7 @@ import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, ref } from 'vue'
 import { basicArrayFilter } from '../filters'
 import LockToggleButton from '../LockToggleButton.vue'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'BasicsEditor',
@@ -222,6 +230,7 @@ export default defineComponent({
       diceLookup,
       statKeys,
       updateStat,
+      validateNumber: validateNumber,
     }
   },
 })

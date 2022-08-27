@@ -20,13 +20,18 @@
             @update:model-value="updateSpellcastingClass"
           />
           <q-input
-            v-model.number="monster.spellcasting.level"
+            :model-value="monster.spellcasting.level"
             :label="$t('monster.spellcasting.level')"
             type="number"
             min="1"
             max="20"
             class="col-2 q-pa-sm"
-            @update:model-value="updateSpellcastingSlots"
+            @update:model-value="
+              (value: string | number | null) => {
+                (monster.spellcasting.level = validateNumber(value, 1))
+                updateSpellcastingSlots(monster.spellcasting.level)
+              }
+            "
           />
           <q-input
             v-model="monster.spellcasting.notes"
@@ -132,7 +137,7 @@
                   <q-badge
                     color="purple-8"
                     :label="
-                      scope.level === 0
+                      scope.opt.level === 0
                         ? $t('editor.spellcasting.slot.cantrip')
                         : $t('editor.spellcasting.slot.level', {
                             ordinal: spellLevels[scope.opt.level],
@@ -168,11 +173,18 @@
                 </div>
                 <q-input
                   v-else
-                  v-model.number="monster.spellcasting.slots[level - 1]"
+                  :model-value="monster.spellcasting.slots[level - 1]"
                   type="number"
                   class="col-1 q-pa-sm"
                   min="0"
                   :label="$t('editor.spellcasting.slot.slots')"
+                  @update:model-value="
+                    (value: string | number | null) =>
+                      (monster.spellcasting.slots[level - 1] = validateNumber(
+                        value,
+                        0
+                      ))
+                  "
                 />
                 <q-select
                   :model-value="monster.knownSpellsOfLevel(level)"
@@ -228,6 +240,7 @@ import { ref, computed } from 'vue'
 import { spellArrayFilter } from '../filters'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useSpellLevels } from '../spell/useSpellLevels'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'ClassCastingEditor',
@@ -288,9 +301,8 @@ export default defineComponent({
       }
     }
 
-    const updateSpellcastingSlots = (value: string | number | null) => {
+    const updateSpellcastingSlots = (value: number) => {
       if (
-        typeof value === 'number' &&
         monster.spellcasting.class &&
         monster.spellcasting.class in classes.ClassCastingStat
       ) {
@@ -317,6 +329,7 @@ export default defineComponent({
       classFilter,
       spellLevels,
       spellOptionsByLevel: spells.spellOptionsByLevel,
+      validateNumber: validateNumber,
       ...classes,
     }
   },

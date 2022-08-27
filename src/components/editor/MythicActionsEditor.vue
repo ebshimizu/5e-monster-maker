@@ -84,10 +84,13 @@
           </div>
           <div class="col-4">
             <q-input
-              v-model.number="la.cost"
+              :model-value="la.cost"
               type="number"
               min="0"
               :label="$t('editor.legendary.cost')"
+              @update:model-value="
+                (value: string | number | null) => (la.cost = validateNumber(value, 1))
+              "
             >
               <template #after>
                 <q-btn
@@ -113,6 +116,7 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { computed, defineComponent } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'MythicActionsEditor',
@@ -137,6 +141,7 @@ export default defineComponent({
     return {
       monster,
       filteredActions,
+      validateNumber: validateNumber,
     }
   },
 })

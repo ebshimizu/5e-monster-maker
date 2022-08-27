@@ -12,10 +12,13 @@
           class="col-7 q-pa-sm"
         />
         <q-input
-          v-model.number="attack.targets"
+          :model-value="attack.targets"
           :label="$t('monster.attack.targets')"
           class="col-1 q-pa-sm"
           type="number"
+          @update:model-value="
+            (value: string | number | null) => (attack.targets = validateNumber(value, 1))
+          "
         />
         <q-input
           :model-value="attackModifier"
@@ -24,7 +27,7 @@
           class="col-4 q-pa-sm"
           :disable="!attack.modifier.override"
           @update:model-value="
-            (v: number) => (attack.modifier.overrideValue = parseInt(`${v}`))
+            (v: string | number | null) => (attack.modifier.overrideValue = validateNumber(v, 0))
           "
         >
           <template #after>
@@ -89,39 +92,51 @@
         />
         <q-input
           v-show="attack.distance === 'MELEE' || attack.distance === 'BOTH'"
-          v-model.number="attack.range.reach"
+          :model-value="attack.range.reach"
           :label="$t('monster.attack.reach')"
           type="number"
           min="0"
           step="5"
           suffix="ft"
           class="col-1 q-pa-sm"
+          @update:model-value="
+            (value: string | number | null) => (attack.range.reach = validateNumber(value, 0))
+          "
         />
         <q-input
           v-show="attack.distance === 'RANGED' || attack.distance === 'BOTH'"
-          v-model.number="attack.range.standard"
+          :model-value="attack.range.standard"
           :label="$t('monster.attack.close')"
           type="number"
           min="0"
           step="5"
           suffix="ft"
           class="col-1 q-pa-sm"
+          @update:model-value="
+            (value: string | number | null) => (attack.range.standard = validateNumber(value, 0))
+          "
         />
         <q-input
           v-show="attack.distance === 'RANGED' || attack.distance === 'BOTH'"
-          v-model.number="attack.range.long"
+          :model-value="attack.range.long"
           :label="$t('monster.attack.long')"
           type="number"
           min="0"
           step="5"
           suffix="ft"
           class="col-1 q-pa-sm"
+          @update:model-value="
+            (value: string | number | null) => (attack.range.long = validateNumber(value, 0))
+          "
         />
         <q-input
-          v-model.number="attack.save"
+          :model-value="attack.save"
           :label="$t('monster.attack.effectDc')"
           type="number"
           class="col-1 q-pa-sm"
+          @update:model-value="
+            (value: string | number | null) => (attack.save = validateNumber(value, 0))
+          "
         />
       </q-card-section>
       <q-card-section>
@@ -139,14 +154,18 @@
               <q-card-section>
                 <div class="row">
                   <q-input
-                    v-model.number="attack.damage.count"
+                    :model-value="attack.damage.count"
                     :label="$t('monster.attack.count')"
                     type="number"
                     min="0"
                     class="col-2 q-pa-sm"
+                    @update:model-value="
+                      (value: string | number | null) =>
+                        (attack.damage.count = validateNumber(value, 0))
+                    "
                   />
                   <q-select
-                    v-model.number="attack.damage.dice"
+                    v-model="attack.damage.dice"
                     :options="diceOptions"
                     emit-value
                     :display-value="diceLookup[attack.damage.dice]"
@@ -168,10 +187,8 @@
                     :disable="!attack.damage.modifier.override"
                     class="col-2 q-pa-sm"
                     @change="
-                      (v: number) =>
-                        (attack.damage.modifier.overrideValue = parseInt(
-                          `${v}`
-                        ))
+                      (v: string | number | null) =>
+                        attack.damage.modifier.overrideValue = validateNumber(v, 0)
                     "
                   >
                     <template #after>
@@ -209,13 +226,16 @@
                   class="row"
                 >
                   <q-input
-                    v-model.number="additional.count"
+                    :model-value="additional.count"
                     :label="$t('monster.attack.count')"
                     type="number"
                     class="col-2 q-pa-sm"
+                    @update:model-value="
+                      (value: string | number | null) => (additional.count = validateNumber(value, 0))
+                    "
                   />
                   <q-select
-                    v-model.number="additional.dice"
+                    v-model="additional.dice"
                     :options="diceOptions"
                     emit-value
                     :display-value="diceLookup[attack.damage.dice]"
@@ -291,14 +311,21 @@
                     </template>
                   </q-input>
                   <q-input
-                    v-model.number="attack.alternateDamage.count"
+                    :model-value="attack.alternateDamage.count"
                     :disable="!attack.alternateDamage.active"
                     :label="$t('monster.attack.count')"
                     type="number"
                     class="col-2 q-pa-sm"
+                    @update:model-value="
+                      (value: string | number | null) =>
+                        (attack.alternateDamage.count = validateNumber(
+                          value,
+                          0
+                        ))
+                    "
                   />
                   <q-select
-                    v-model.number="attack.alternateDamage.dice"
+                    v-model="attack.alternateDamage.dice"
                     :disable="!attack.alternateDamage.active"
                     :options="diceOptions"
                     emit-value
@@ -322,9 +349,8 @@
                     :disable="conditionalModifierLocked"
                     class="col-2 q-pa-sm"
                     @change="
-                      (v: number) =>
-                        (attack.alternateDamage.modifier.overrideValue =
-                          parseInt(`${v}`))
+                      (v: string | number | null) =>
+                        attack.alternateDamage.modifier.overrideValue = validateNumber(v, 0)
                     "
                   >
                     <template #after>
@@ -417,6 +443,7 @@ import { useQuasar } from 'quasar'
 import { DndAttack } from 'src/components/models'
 import { useTemplatesStore } from 'src/stores/templates-store'
 import NewTemplateDialog from './NewTemplateDialog.vue'
+import { validateNumber } from '../numberInput'
 
 export default defineComponent({
   name: 'AttackPanel',
@@ -505,6 +532,7 @@ export default defineComponent({
       ),
       estimatedAttackDamage,
       addTemplate,
+      validateNumber,
     }
   },
 })

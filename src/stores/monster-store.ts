@@ -33,6 +33,7 @@ import { useFileLoader } from 'src/components/file/useFileLoader'
 import { v4 as uuidv4, v4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
+import { validateNumber } from 'src/components/editor/numberInput'
 
 export const MONSTER_VERSION = 5
 
@@ -49,7 +50,7 @@ export const useMonsterStore = defineStore('monster', {
       AC: 10,
       ACType: '',
       CR: 0,
-      proficiency: 4,
+      proficiency: 2,
       proficiencyOverride: false,
       HP: {
         HD: 1,
@@ -727,8 +728,8 @@ export const useMonsterStore = defineStore('monster', {
       hdCount: number | string | null,
       con: number | string | null
     ) {
-      this.HP.HD = parseInt(`${hdCount}`)
-      this.stats.CON = parseInt(`${con}`)
+      this.HP.HD = validateNumber(hdCount, 0)
+      this.stats.CON = validateNumber(con, 0)
 
       if (!this.hpModifierOverride) {
         this.HP.modifier = statModifier(this.stats.CON) * this.HP.HD

@@ -26,13 +26,16 @@
                 @filter="movementFilter"
               />
               <q-input
-                v-model.number="speed.speed"
+                :model-value="speed.speed"
                 type="number"
                 :label="$t('monster.movement.speed')"
                 suffix="ft"
                 min="0"
                 step="5"
                 class="col-2 q-pa-sm"
+                @update:model-value="
+                  (value) => (speed.speed = validateNumber(value, 0))
+                "
               />
               <q-input
                 v-model="speed.note"
@@ -70,6 +73,7 @@ import { computed, defineComponent, ref } from 'vue'
 import { STANDARD_MOVEMENTS } from 'src/data/MOVEMENT'
 import { useI18n } from 'vue-i18n'
 import { basicArrayFilter } from '../filters'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'SpeedsEditor',
@@ -93,6 +97,7 @@ export default defineComponent({
       deleteSpeed: monster.deleteSpeed,
       movementFilter,
       filteredMovementOptions,
+      validateNumber,
     }
   },
 })

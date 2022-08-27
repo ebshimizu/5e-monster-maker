@@ -40,11 +40,12 @@
           @clear="classes = []"
         />
         <q-input
-          v-model.number="damage"
+          :model-value="damage"
           class="col-6 q-pa-sm"
           type="number"
           min="0"
           :label="$t('editor.spellcasting.custom.damage')"
+          @update:model-value="(value) => (damage = validateNumber(value, 0))"
         />
         <div class="col-6 flex items-center">
           <q-toggle
@@ -78,6 +79,7 @@ import { useSpellsStore } from 'src/stores/spells-store'
 import { useSpellLevels } from './useSpellLevels'
 import { useClasses } from 'src/data/CLASS'
 import _ from 'lodash'
+import { validateNumber } from '../editor/numberInput'
 
 export default defineComponent({
   name: 'NewSpellDialog',
@@ -150,6 +152,7 @@ export default defineComponent({
       damage,
       multitarget,
       nameInput,
+      validateNumber,
     }
   },
 })

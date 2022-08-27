@@ -59,11 +59,15 @@
                   :label="$t('monster.action.recharge')"
                 />
                 <q-input
-                  v-model.number="action.limitedUse.count"
+                  :model-value="action.limitedUse.count"
                   type="number"
                   min="0"
                   class="col-4 q-pa-sm"
                   :label="$t('monster.trait.limitedUse.count')"
+                  @update:model-value="
+                    (value: string | number | null) =>
+                      (action.limitedUse.count = validateNumber(value, 0))
+                  "
                 />
                 <q-select
                   v-model="action.limitedUse.rate"
@@ -123,6 +127,7 @@ import { MonsterAction } from '../models'
 import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 import { useTemplatesStore } from 'src/stores/templates-store'
 import { useI18n } from 'vue-i18n'
+import { validateNumber } from './numberInput'
 
 export default defineComponent({
   name: 'ActionsEditor',
@@ -158,6 +163,7 @@ export default defineComponent({
       autoUpdateCr,
       printCrSummary,
       addTemplate,
+      validateNumber: validateNumber,
     }
   },
 })

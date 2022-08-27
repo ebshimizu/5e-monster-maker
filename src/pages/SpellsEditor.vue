@@ -87,10 +87,13 @@
               :title="$t('editor.spellcasting.custom.damage')"
             >
               <q-input
-                v-model.number="scope.value"
+                :model-value="scope.value"
                 type="number"
                 min="0"
                 :label="$t('editor.spellcasting.custom.damage')"
+                @update:model-value="
+                  (value) => (scope.value = validateNumber(value, 0))
+                "
               />
             </q-popup-edit>
           </q-td>
@@ -115,6 +118,7 @@ import _ from 'lodash'
 import { DndSpell } from 'src/components/models'
 import { download } from 'src/components/file/download'
 import LoadSpellsDialog from 'src/components/spell/LoadSpellsDialog.vue'
+import { validateNumber } from 'src/components/editor/numberInput'
 
 export default defineComponent({
   name: 'SpellsEditor',
@@ -209,6 +213,7 @@ export default defineComponent({
       deleteSpells,
       downloadSpells,
       importSpells,
+      validateNumber,
     }
   },
 })
