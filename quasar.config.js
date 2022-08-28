@@ -59,8 +59,7 @@ module.exports = configure(function (ctx) {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,
-      // TODO: when moving to master, change this prefix
-      publicPath: '/5emm-stage',
+      publicPath: '/5emm',
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).

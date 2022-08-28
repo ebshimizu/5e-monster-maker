@@ -1,8 +1,3 @@
-# README TODOS
-
-update sample image
-update link to adult frost Dragon
-
 # Falindrith's D&D Monster Maker
 
 Formerly "5e Monster Maker"
