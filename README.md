@@ -37,7 +37,7 @@ The current monster that's being worked on in the app is automatically saved eve
 
 ### Using {} Tokens in Descriptions
 
-Every property of the monster can be accessed through tokens starting with `{monster.[feature]}`. A full specification of all of the available fields is in the (models.ts)[https://github.com/ebshimizu/5e-monster-maker/blob/experimental/src/components/models.ts] definition. Some tokens are shortcuts to relevant properties (e.g. `{action.recharge}`) that only work in certain contexts. Check the text editor of the section you're editing to see what things are available.
+Every property of the monster can be accessed through tokens starting with `{monster.[feature]}`. A full specification of all of the available fields is in the [models.ts](https://github.com/ebshimizu/5e-monster-maker/blob/master/src/components/models.ts) definition. Some tokens are shortcuts to relevant properties (e.g. `{action.recharge}`) that only work in certain contexts. Check the text editor of the section you're editing to see what things are available.
 
 There are also some special tokens that can be used anywhere:
 
@@ -82,7 +82,11 @@ Traits are assumed to be "always active" while actions must be specifically used
 
 Templates will add pre-made actions, traits, attacks, etc. to a monster. Find them by clicking on the search bar up at the top of the app. Right now, there aren't too many templates available, and I eventually plan to support using custom templates.
 
-### FAQ
+### Troubleshooting
+
+If the app gets stuck or crashes, visit the reset page: https://ebshimizu.github.io/5emm/#/reset. This page will let you delete saved data to get the app back to a working state. Note that this is a destructive operation, and you should use the buttons on the page to make backups of your data before proceeding. If you get redirected to that page while using the application, that indicates a bug. Please attach all relevant data and submit a [bug report](https://github.com/ebshimizu/5e-monster-maker/issues).
+
+## FAQ
 
 **Can you make it run on mobile?**
 Eventually, probably! I developed it primarily as a desktop app in about a week and didn't add mobile formatting yet, but there's no reason why it wouldn't work.
