@@ -1,0 +1,7 @@
+{
+  "extends": "@quasar/app-webpack/tsconfig-preset",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es2020"
+  }
+}

@@ -1,43 +1,28 @@
 <template>
-  <v-app class="app">
-    <dnd-app-bar id="main-nav"></dnd-app-bar>
-
-    <v-main>
-      <v-container fluid>
-        <v-row no-gutters>
-          <v-col cols="8" class="full-height pa-1" id="editor"
-            ><data-entry></data-entry
-          ></v-col>
-          <v-col cols="4" class="full-height px-6 py-2" id="renderer"
-            ><render
-          /></v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-    <dnd-cr id="footer"></dnd-cr>
-  </v-app>
+  <router-view />
 </template>
 
-<script>
-import DataEntry from './components/DataEntry';
-import DndAppBar from './components/DndAppBar';
-import DndCr from './components/input/DndCr';
-import Render from './components/Render';
+<script lang="ts">
+import { defineComponent, provide } from 'vue'
+import { useTextRenderer } from './components/rendering/useTextRenderer'
+import { useMonsterStore } from './stores/monster-store'
 
-export default {
+export default defineComponent({
   name: 'App',
-  components: {
-    DataEntry,
-    DndAppBar,
-    DndCr,
-    Render,
+  setup() {
+    const textRenderer = useTextRenderer()
+
+    provide('textRenderer', textRenderer)
+
+    // on load validation
+    const monsterStore = useMonsterStore()
+    monsterStore.validate()
   },
-};
+})
 </script>
 
 <style lang="scss">
 ::-webkit-scrollbar {
-  display: none;
   width: 12px;
   background-color: rgb(18, 18, 18);
 }
@@ -65,14 +50,15 @@ export default {
   display: block;
 }
 
-.full-height {
-  height: calc(100vh - 215px);
-  overflow: auto;
+a {
+  // light blue
+  color: #03a9f4;
+  text-decoration: none;
 }
 
-.app {
-  height: 100%;
-  overflow: hidden;
+a:hover {
+  // light blue 3
+  color: #81d4fa;
 }
 
 @media print {
@@ -80,6 +66,15 @@ export default {
   #editor,
   #footer {
     display: none;
+  }
+
+  #splitter {
+    overflow: visible;
+    height: unset !important;
+
+    .q-splitter__panel.q-splitter__before {
+      width: 0px !important;
+    }
   }
 
   #renderer {

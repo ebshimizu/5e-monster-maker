@@ -4,7 +4,7 @@
       "templateName": "Heated Body",
       "name": "Heated Body",
       "description": "A creature that touches the {NAME} or hits it with a melee attack while within 5 feet of it takes {1d10} fire damage.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 5,
         "maxSave": 0,
@@ -13,15 +13,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-fire"
+      "icon": "mdi-fire",
+      "customPreamble": false
     },
     {
       "templateName": "Improved Critical",
       "name": "Improved Critical",
       "description": "The {NAME}'s attacks score a critical hit on a roll of 19 or 20.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -30,15 +32,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-dice-d20"
+      "icon": "mdi-dice-d20",
+      "customPreamble": false
     },
     {
       "templateName": "Superior Critical",
       "name": "Superior Critical",
       "description": "The {NAME}'s attacks score a critical hit on a roll of 18-20.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -47,15 +51,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-dice-d20"
+      "icon": "mdi-dice-d20",
+      "customPreamble": false
     },
     {
       "templateName": "Fighting Style: Great Weapon Fighting",
       "name": "Great Weapon Fighting",
       "description": "When the {NAME} rolls a 1 or 2 on a damage die for an attack made with a melee weapon wielded with two hands, it can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for the {NAME} to gain this benefit.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 2,
         "maxSave": 0,
@@ -64,15 +70,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-sword-cross"
+      "icon": "mdi-sword-cross",
+      "customPreamble": false
     },
     {
       "templateName": "Fighting Style: Protection",
       "name": "Protection",
       "description": "When a creature the {NAME} can see attacks a target other than the {NAME} that is within 5 feet of it, the {NAME} can use its reaction to impose disadvantage on the attack roll. The {NAME} must be wielding a shield to use this trait.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -81,15 +89,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-shield"
+      "icon": "mdi-shield",
+      "customPreamble": false
     },
     {
       "templateName": "Regeneration",
       "name": "Regeneration",
       "description": "The {NAME} regains 10 hit points at the start of its turn. If the {NAME} takes acid or fire damage, this trait doesn't function at the start of the {NAME}'s next turn. The {NAME} dies only if it starts its turn with 0 hit points and doesn't regenerate.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -98,15 +108,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 30,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-ambulance"
+      "icon": "mdi-ambulance",
+      "customPreamble": false
     },
     {
       "templateName": "Pack Tactics",
       "name": "Pack Tactics",
       "description": "The {NAME} has advantage on an attack roll against a creature if at least one of the {NAME}'s allies is within 5 feet of the creature and the ally isn't incapacitated.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -115,15 +127,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-account-group"
+      "icon": "mdi-account-group",
+      "customPreamble": false
     },
     {
       "templateName": "Sunlight Sensitivity",
       "name": "Sunlight Sensitivity",
       "description": "While in sunlight, the {NAME} has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -132,15 +146,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": false
+        "include": false,
+        "automatic": false
       },
-      "icon": "mdi-sunglasses"
+      "icon": "mdi-sunglasses",
+      "customPreamble": false
     },
     {
       "templateName": "Amphibious",
       "name": "Amphibious",
       "description": "The {NAME} can breathe air and water.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -149,15 +165,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": false
+        "include": false,
+        "automatic": false
       },
-      "icon": "mdi-fish"
+      "icon": "mdi-fish",
+      "customPreamble": false
     },
     {
       "templateName": "Mucous Cloud",
       "name": "Mucous Cloud",
       "description": "While underwater, the {NAME} is surrounded by transformative mucus. A creature that touches the {NAME} or that hits it with a melee attack while within 5 feet of it must make a {DC:CON} Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 14,
@@ -166,15 +184,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-cloud-alert"
+      "icon": "mdi-cloud-alert",
+      "customPreamble": false
     },
     {
       "templateName": "Probing Telepathy",
       "name": "Probing Telepathy",
       "description": "If a creature communicates telepathically with the {NAME}, the {NAME} learns the creature's greatest desires if the {NAME} can see the creature.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -183,15 +203,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": false
+        "include": false,
+        "automatic": false
       },
-      "icon": "mdi-head-snowflake-outline"
+      "icon": "mdi-head-snowflake-outline",
+      "customPreamble": false
     },
     {
       "templateName": "Legendary Resistance",
       "name": "Legendary Resistance",
       "description": "If the {NAME} fails a saving throw, it can choose to succeed instead.",
-      "limitedUse": { "count": 3, "rate": "day" },
+      "limitedUse": { "count": 3, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -200,15 +222,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 30,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-shield"
+      "icon": "mdi-shield",
+      "customPreamble": false
     },
     {
       "templateName": "Petrifying Gaze",
       "name": "Petrifying Gaze",
       "description": "If a creature starts its turn within 30 feet of the {NAME} and the two of them can see each other, the {NAME} can force the creature to make a {DC:CON} Constitution saving throw if the {NAME} isn't incapacitated. On a failed save, the creature magically begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified until freed by the greater restoration spell or other magic.\nA creature that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the {NAME} until the start of its next turn, when it can avert its eyes again. If it looks at the {NAME} in the meantime, it must immediately make the save. If the {NAME} sees its reflection within 30 feet of it in bright light, it mistakes itself for a rival and targets itself with its gaze.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 12,
@@ -217,15 +241,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-eye"
+      "icon": "mdi-eye",
+      "customPreamble": false
     },
     {
       "templateName": "Brave",
       "name": "Brave",
       "description": "The {NAME} has advantage on saving throws against being frightened.",
-      "limitedUse": { "count": 0, "rate": "day" },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -234,18 +260,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-ghost-off"
+      "icon": "mdi-ghost-off",
+      "customPreamble": false
     },
     {
       "templateName": "Magic Resistance",
       "name": "Magic Resistance",
       "description": "The {NAME} has advantage on saving throws against spells and other magical effects.",
-      "limitedUse": {
-        "count": 0,
-        "rate": "day"
-      },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -254,18 +279,17 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-resistor"
+      "icon": "mdi-resistor",
+      "customPreamble": false
     },
     {
       "templateName": "Evasion",
       "name": "Evasion",
       "description": "When the {NAME} is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
-      "limitedUse": {
-        "count": "",
-        "rate": "day"
-      },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -274,17 +298,16 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
-      "icon": "mdi-run-fast"
+      "icon": "mdi-run-fast",
+      "customPreamble": false
     },
     {
       "name": "Flurry of Blows",
       "description": "Immediately after the {NAME} takes the attack action on its turn, it can use this ability to make two unarmed strikes as a bonus action.",
-      "limitedUse": {
-        "count": 3,
-        "rate": "day"
-      },
+      "limitedUse": { "count": 3, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -293,19 +316,18 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
       "templateName": "Flurry of Blows",
       "type": "Trait",
-      "icon": "mdi-karate"
+      "icon": "mdi-karate",
+      "customPreamble": false
     },
     {
       "name": "Assassinate",
       "description": "During its first turn, the {NAME} has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the {NAME} scores against a surprised creature is a critical hit.",
-      "limitedUse": {
-        "count": 0,
-        "rate": "day"
-      },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -314,19 +336,18 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
       "templateName": "Assassinate",
       "type": "Trait",
-      "icon": "mdi-knife-military"
+      "icon": "mdi-knife-military",
+      "customPreamble": false
     },
     {
       "name": "Sneak Attack",
       "description": "Once per turn, the {NAME} deals an extra {4d6} damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the {NAME} that isn't incapacitated and the {NAME} doesn't have disadvantage on the attack roll.",
-      "limitedUse": {
-        "count": 0,
-        "rate": "day"
-      },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 14,
         "maxSave": 0,
@@ -335,19 +356,18 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
       "templateName": "Sneak Attack",
       "type": "Trait",
-      "icon": "mdi-incognito"
+      "icon": "mdi-incognito",
+      "customPreamble": false
     },
     {
       "name": "Air Form",
       "description": "The {NAME} can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.",
-      "limitedUse": {
-        "count": 0,
-        "rate": "day"
-      },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -356,19 +376,18 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
       "templateName": "Air Form",
       "type": "Trait",
-      "icon": "mdi-weather-windy-variant"
+      "icon": "mdi-weather-windy-variant",
+      "customPreamble": false
     },
     {
       "name": "Heated Weapons",
       "description": "When the {NAME} hits wit a metal melee weapon, it deals an extra {1d6} fire damage (included in the attack).",
-      "limitedUse": {
-        "count": 0,
-        "rate": "day"
-      },
+      "limitedUse": { "count": 0, "rate": "DAY" },
       "crAnnotation": {
         "maxDamage": 0,
         "maxSave": 0,
@@ -377,11 +396,13 @@
         "ehpMultiplier": 1,
         "ehpModifier": 0,
         "acModifier": 0,
-        "include": true
+        "include": true,
+        "automatic": false
       },
       "templateName": "Heated Weapons",
       "type": "Trait",
-      "icon": "mdi-fire"
+      "icon": "mdi-fire",
+      "customPreamble": false
     }
   ]
 }

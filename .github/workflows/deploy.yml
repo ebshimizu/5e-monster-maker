@@ -1,11 +1,10 @@
 # This is a basic workflow to help you get started with Actions
-
-name: Deploy
+name: Deploy (v2)
 
 # Controls when the action will run. Triggers the workflow on push to master
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -16,37 +15,38 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    
-    # run node setup
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    
-    - name: Build Number Generator
-      uses: einaregilsson/build-number@v3
-      with:
-        token: ${{secrets.github_token}}
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    - name: Write build number to file
-      run: |
-        rm build.json
-        echo {\"build\":$BUILD_NUMBER} >> build.json
-    
-    # install packages
-    - run: yarn install
+      # run node setup
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
 
-    - name: Build dist
-      run: yarn build
+      - name: Build Number Generator
+        uses: einaregilsson/build-number@v3
+        with:
+          token: ${{secrets.github_token}}
 
-    - name: GitHub Pages
-      uses: crazy-max/ghaction-github-pages@v2.1.0
-      with:
-        repo: ebshimizu/5emm
-        target_branch: master
-        build_dir:  dist
-      env:
-        GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+      - name: Write build number to file
+        run: |
+          rm build.json
+          echo {\"build\":$BUILD_NUMBER} >> build.json
+
+      # install packages
+      - run: npm install
+      - run: npm install --location=global @quasar/cli
+
+      - name: Build dist
+        run: quasar build
+
+      - name: GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2.1.0
+        with:
+          repo: ebshimizu/5emm
+          target_branch: master
+          build_dir: dist/spa
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}

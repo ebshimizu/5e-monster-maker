@@ -8,7 +8,6 @@
       "damage": { "type": "integer" },
       "multitarget": { "type": "boolean" },
       "level": { "type": "integer" },
-      "levelDisplay": { "type": "string" },
       "class": { "type": "array", "items": { "type": "string" } },
       "custom": { "type": "boolean" }
     }

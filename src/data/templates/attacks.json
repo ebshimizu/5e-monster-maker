@@ -3,8 +3,8 @@
     {
       "templateName": "Claw",
       "name": "Claw",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -31,13 +31,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Acid Bite",
-      "name": "Bite",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "name": "Acid Bite",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -65,19 +67,22 @@
           "dice": 8,
           "count": 1,
           "type": "acid",
-          "note": ""
+          "note": "",
+          "id": "911e608b-5d8b-4bbb-97ff-0ee4bc75aa60"
         }
       ],
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Bite",
       "name": "Bite",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -104,13 +109,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Javelin",
       "name": "Javelin",
-      "distance": "Melee or Ranged",
-      "kind": "Weapon",
+      "distance": "MELEE OR RANGED",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -137,13 +144,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Poison Shortbow",
       "name": "Shortbow",
-      "distance": "Ranged",
-      "kind": "Weapon",
+      "distance": "RANGED",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -170,13 +179,15 @@
       "save": 12,
       "description": "The target must succeed on a {DC:CON} Constitution saving throw or take {2d4} poison damage.",
       "legendaryOnly": false,
-      "icon": "mdi-bullseye-arrow"
+      "icon": "mdi-bullseye-arrow",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Shortbow",
       "name": "Shortbow",
-      "distance": "Ranged",
-      "kind": "Weapon",
+      "distance": "RANGED",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -203,13 +214,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": "mdi-bullseye-arrow"
+      "icon": "mdi-bullseye-arrow",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Dagger",
       "name": "Dagger",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -236,13 +249,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Sling",
       "name": "Sling",
-      "distance": "Ranged",
-      "kind": "Weapon",
+      "distance": "RANGED",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -269,13 +284,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": "mdi-bullseye-arrow"
+      "icon": "mdi-bullseye-arrow",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Diseased Tentacle",
       "name": "Tentacle",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -302,13 +319,15 @@
       "save": 14,
       "description": "If the target is a creature, it must succeed on a {DC:CON} Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes {1d12} acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Tentacle",
       "name": "Tentacle",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -335,14 +354,16 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Tail",
       "name": "Tail",
       "id": "5e8d56bb-4bb4-4d33-bdb5-53446972999c",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -369,13 +390,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Greatsword",
       "name": "Greatsword",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -402,13 +425,15 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Heavy Crossbow",
       "name": "Heavy Crossbow",
-      "distance": "Ranged",
-      "kind": "Weapon",
+      "distance": "RANGED",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
@@ -435,43 +460,33 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": "mdi-bullseye-arrow"
+      "icon": "mdi-bullseye-arrow",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "templateName": "Unarmed Strike",
       "name": "Unarmed Strike",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "STR",
         "proficient": true
       },
-      "range": {
-        "standard": 0,
-        "long": 0,
-        "reach": 5
-      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 1,
         "count": 0,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "bludgeoning"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "slashing",
         "condition": "",
         "active": false
@@ -480,43 +495,33 @@
       "save": 0,
       "description": "",
       "legendaryOnly": false,
-      "icon": "mdi-karate"
+      "icon": "mdi-karate",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "type": "Attack",
       "name": "Light Crossbow",
-      "distance": "Ranged",
-      "kind": "Weapon",
+      "distance": "RANGED",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "DEX",
         "proficient": true
       },
-      "range": {
-        "standard": 80,
-        "long": 320,
-        "reach": 5
-      },
+      "range": { "standard": 80, "long": 320, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 8,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "DEX"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
         "type": "piercing"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "slashing",
         "condition": "",
         "active": false
@@ -526,49 +531,40 @@
           "dice": 6,
           "count": 7,
           "type": "poison",
-          "note": "and the target must make a DC 15 Constitution saving throw, taking half as much poison damage on success"
+          "note": "and the target must make a DC 15 Constitution saving throw, taking half as much poison damage on success",
+          "id": "9b6e9891-e595-4211-bdbd-627b0fb9153b"
         }
       ],
       "save": 0,
       "description": "",
       "legendaryOnly": false,
       "templateName": "Poisoned Light Crossbow",
-      "icon": "mdi-bullseye-arrow"
+      "icon": "mdi-bullseye-arrow",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "name": "Shortsword",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "DEX",
         "proficient": true
       },
-      "range": {
-        "standard": 0,
-        "long": 0,
-        "reach": 5
-      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 6,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "DEX"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
         "type": "slashing"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "slashing",
         "condition": "",
         "active": false
@@ -578,7 +574,8 @@
           "dice": 6,
           "count": 7,
           "type": "poison",
-          "note": "and the target must make a DC 15 Constitution saving throw, taking half as much poison damage on success"
+          "note": "and the target must make a DC 15 Constitution saving throw, taking half as much poison damage on success",
+          "id": "cc8b7ea0-3988-44fa-b20d-858138a573ab"
         }
       ],
       "save": 15,
@@ -586,42 +583,32 @@
       "legendaryOnly": false,
       "templateName": "Poisoned Shortsword",
       "type": "Attack",
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "name": "Scimitar",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "DEX",
         "proficient": true
       },
-      "range": {
-        "standard": 0,
-        "long": 0,
-        "reach": 5
-      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 6,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "DEX"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
         "type": "slashing"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "slashing",
         "condition": "",
         "active": false
@@ -632,42 +619,32 @@
       "legendaryOnly": false,
       "templateName": "Scimitar",
       "type": "Attack",
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "name": "Slam",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "DEX",
         "proficient": true
       },
-      "range": {
-        "standard": 0,
-        "long": 0,
-        "reach": 5
-      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 8,
         "count": 2,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "DEX"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "DEX" },
         "type": "bludgeoning"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "slashing",
         "condition": "",
         "active": false
@@ -678,42 +655,32 @@
       "legendaryOnly": false,
       "templateName": "Slam (DEX)",
       "type": "Attack",
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "name": "Slam",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "STR",
         "proficient": true
       },
-      "range": {
-        "standard": 0,
-        "long": 0,
-        "reach": 5
-      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 8,
         "count": 2,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "bludgeoning"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "slashing",
         "condition": "",
         "active": false
@@ -724,42 +691,32 @@
       "legendaryOnly": false,
       "templateName": "Slam (STR)",
       "type": "Attack",
-      "icon": ""
+      "icon": "",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "name": "Warhammer",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "STR",
         "proficient": true
       },
-      "range": {
-        "standard": 0,
-        "long": 0,
-        "reach": 5
-      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 8,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "bludgeoning"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "bludgeoning",
         "condition": "if used with two hands to make a melee attack",
         "active": true
@@ -770,42 +727,32 @@
       "legendaryOnly": false,
       "templateName": "Warhammer",
       "type": "Attack",
-      "icon": "mdi-hammer"
+      "icon": "mdi-hammer",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     },
     {
       "name": "Warhammer",
-      "distance": "Melee",
-      "kind": "Weapon",
+      "distance": "MELEE",
+      "kind": "WEAPON",
       "modifier": {
         "override": false,
         "overrideValue": 0,
         "stat": "STR",
         "proficient": true
       },
-      "range": {
-        "standard": 0,
-        "long": 0,
-        "reach": 5
-      },
+      "range": { "standard": 0, "long": 0, "reach": 5 },
       "targets": 1,
       "damage": {
         "dice": 8,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "bludgeoning"
       },
       "alternateDamage": {
         "dice": 10,
         "count": 1,
-        "modifier": {
-          "override": false,
-          "overrideValue": 0,
-          "stat": "STR"
-        },
+        "modifier": { "override": false, "overrideValue": 0, "stat": "STR" },
         "type": "bludgeoning",
         "condition": "if used with two hands to make a melee attack",
         "active": true
@@ -815,7 +762,8 @@
           "dice": 6,
           "count": 1,
           "type": "fire",
-          "note": ""
+          "note": "",
+          "id": "42158c99-6e78-4543-8abc-2ac692aba8be"
         }
       ],
       "save": 0,
@@ -824,7 +772,9 @@
       "templateName": "Heated Warhammer",
       "type": "Attack",
       "subtitle": "Melee Weapon. 1d8 + STR bludgeoning / 1d10 + STR bludgeoning plus 1d6 fire.",
-      "icon": "mdi-hammer"
+      "icon": "mdi-hammer",
+      "useCustomRenderer": false,
+      "customRenderer": ""
     }
   ]
 }

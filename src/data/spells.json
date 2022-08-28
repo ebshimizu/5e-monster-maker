@@ -5,10 +5,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -18,10 +15,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -31,10 +25,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Ranger",
-      "Wizard"
-    ],
+    "class": ["Ranger", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -44,10 +35,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -57,11 +45,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Bard", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -71,11 +55,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Bard", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -85,9 +65,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -97,10 +75,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -110,11 +85,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -124,9 +95,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -136,10 +105,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -149,10 +115,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -162,9 +125,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -174,9 +135,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -186,11 +145,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Cleric",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -200,9 +155,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -212,10 +165,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Druid"
-    ],
+    "class": ["Bard", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -225,10 +175,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Cleric"
-    ],
+    "class": ["Bard", "Cleric"],
     "srd": true,
     "custom": false
   },
@@ -238,13 +185,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Cleric",
-      "Paladin",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Paladin", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -254,10 +195,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -267,9 +205,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -279,24 +215,8 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Wizard"],
     "srd": true,
-    "custom": false
-  },
-  "Arcane Hand": {
-    "name": "Arcane Hand",
-    "damage": 18,
-    "multitarget": false,
-    "level": 5,
-    "levelDisplay": "5th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Arcane Hand",
     "custom": false
   },
   "Blade Barrier": {
@@ -305,9 +225,7 @@
     "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -317,10 +235,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -330,12 +245,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -345,12 +255,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -360,10 +265,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -373,10 +275,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -386,9 +285,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Paladin"
-    ],
+    "class": ["Paladin"],
     "srd": true,
     "custom": false
   },
@@ -398,10 +295,7 @@
     "multitarget": true,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -411,9 +305,7 @@
     "multitarget": true,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -423,10 +315,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric"
-    ],
+    "class": ["Bard", "Cleric"],
     "srd": true,
     "custom": false
   },
@@ -436,10 +325,7 @@
     "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -449,13 +335,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -465,11 +345,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -479,11 +355,7 @@
     "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -493,12 +365,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -508,9 +375,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -520,10 +385,7 @@
     "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -533,10 +395,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -546,10 +405,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -559,9 +415,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -571,10 +425,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -584,12 +435,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -599,9 +445,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard"
-    ],
+    "class": ["Bard"],
     "srd": true,
     "custom": false
   },
@@ -611,10 +455,7 @@
     "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -624,12 +465,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -639,10 +475,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -652,9 +485,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -664,10 +495,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -677,10 +505,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Druid",
-      "Warlock"
-    ],
+    "class": ["Druid", "Warlock"],
     "srd": true,
     "custom": false
   },
@@ -690,10 +515,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -703,10 +525,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -716,10 +535,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -729,10 +545,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -742,9 +555,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -754,10 +565,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -767,11 +575,7 @@
     "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -781,11 +585,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -795,11 +595,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -809,10 +605,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -822,10 +615,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -835,11 +625,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -849,10 +635,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -862,13 +645,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Paladin", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -878,11 +655,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -892,11 +665,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -906,12 +675,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid",
-      "Ranger",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Ranger", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -921,13 +685,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger",
-      "Sorcerer"
-    ],
+    "class": ["Cleric", "Druid", "Paladin", "Ranger", "Sorcerer"],
     "srd": true,
     "custom": false
   },
@@ -937,10 +695,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -950,10 +705,7 @@
     "multitarget": true,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -963,10 +715,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -976,10 +725,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -1007,12 +753,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger"
-    ],
+    "class": ["Cleric", "Druid", "Paladin", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -1022,11 +763,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1036,12 +773,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1051,11 +783,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1065,10 +793,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1078,10 +803,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -1109,9 +831,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1121,9 +841,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Paladin"
-    ],
+    "class": ["Paladin"],
     "srd": true,
     "custom": false
   },
@@ -1133,9 +851,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1145,10 +861,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Sorcerer"
-    ],
+    "class": ["Druid", "Sorcerer"],
     "srd": true,
     "custom": false
   },
@@ -1158,12 +871,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1173,11 +881,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1187,10 +891,8 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Instant Summons",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Dream": {
@@ -1199,11 +901,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1213,9 +911,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -1225,11 +921,7 @@
     "multitarget": true,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Sorcerer"
-    ],
+    "class": ["Cleric", "Druid", "Sorcerer"],
     "srd": true,
     "custom": false
   },
@@ -1239,9 +931,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Warlock"
-    ],
+    "class": ["Warlock"],
     "srd": true,
     "custom": false
   },
@@ -1251,12 +941,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Sorcerer"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Sorcerer"],
     "srd": true,
     "custom": false
   },
@@ -1266,10 +951,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1279,9 +961,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -1291,10 +971,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Warlock"
-    ],
+    "class": ["Bard", "Warlock"],
     "srd": true,
     "custom": false
   },
@@ -1304,13 +981,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1320,10 +991,8 @@
     "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Black Tentacles",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Expeditious Retreat": {
@@ -1332,11 +1001,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1346,12 +1011,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1361,9 +1021,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1373,10 +1031,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Druid"
-    ],
+    "class": ["Bard", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -1386,10 +1041,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1399,12 +1051,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1414,11 +1061,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1428,12 +1071,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1443,9 +1081,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1455,9 +1091,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Paladin"
-    ],
+    "class": ["Paladin"],
     "srd": true,
     "custom": false
   },
@@ -1467,11 +1101,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Bard", "Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -1481,11 +1111,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Cleric", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -1495,11 +1121,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1509,10 +1131,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1522,9 +1141,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1534,11 +1151,7 @@
     "multitarget": true,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Sorcerer"
-    ],
+    "class": ["Cleric", "Druid", "Sorcerer"],
     "srd": true,
     "custom": false
   },
@@ -1548,10 +1161,7 @@
     "multitarget": true,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1561,9 +1171,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -1573,9 +1181,7 @@
     "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1585,10 +1191,7 @@
     "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1598,10 +1201,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1611,11 +1211,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1625,12 +1221,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Druid",
-      "Ranger",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Ranger", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1640,9 +1231,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1652,11 +1241,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1666,12 +1251,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1681,12 +1261,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -1696,11 +1271,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1710,11 +1281,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Cleric",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1724,13 +1291,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Paladin", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1740,10 +1301,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1753,9 +1311,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -1765,10 +1321,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Bard",
-      "Warlock"
-    ],
+    "class": ["Bard", "Warlock"],
     "srd": true,
     "custom": false
   },
@@ -1778,10 +1331,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1791,11 +1341,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1805,10 +1351,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -1818,9 +1361,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1830,11 +1371,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1844,11 +1381,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Bard", "Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -1858,9 +1391,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1870,10 +1401,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1883,10 +1411,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -1896,9 +1421,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1908,11 +1431,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1922,9 +1441,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1934,12 +1451,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1949,9 +1461,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -1961,10 +1471,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -1974,10 +1481,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -1987,11 +1491,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Bard", "Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -2001,10 +1501,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Druid"
-    ],
+    "class": ["Bard", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -2014,9 +1511,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Warlock"
-    ],
+    "class": ["Warlock"],
     "srd": true,
     "custom": false
   },
@@ -2026,10 +1521,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -2039,10 +1531,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Paladin"
-    ],
+    "class": ["Bard", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -2052,12 +1541,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2067,14 +1551,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2084,9 +1561,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -2096,9 +1571,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Ranger"
-    ],
+    "class": ["Ranger"],
     "srd": true,
     "custom": false
   },
@@ -2108,12 +1581,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2123,11 +1591,7 @@
     "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2137,10 +1601,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2150,11 +1611,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2164,10 +1621,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2177,10 +1631,7 @@
     "multitarget": true,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2190,9 +1641,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -2202,11 +1651,7 @@
     "multitarget": true,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Sorcerer"
-    ],
+    "class": ["Cleric", "Druid", "Sorcerer"],
     "srd": true,
     "custom": false
   },
@@ -2216,12 +1661,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2231,12 +1671,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Druid",
-      "Ranger",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Ranger", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2246,11 +1681,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2260,11 +1691,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2274,10 +1701,8 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Secret Chest",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Tiny Hut": {
@@ -2286,11 +1711,8 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
-    "srd": "Tiny Hut",
+    "class": ["Bard", "Wizard"],
+    "srd": true,
     "custom": false
   },
   "Lesser Restoration": {
@@ -2299,13 +1721,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Paladin", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -2315,10 +1731,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2328,12 +1741,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2343,10 +1751,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2356,11 +1761,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Bard", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -2370,14 +1771,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Paladin", "Ranger", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2387,14 +1781,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Paladin", "Ranger", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2404,12 +1791,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Ranger",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Ranger", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2419,10 +1801,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2432,12 +1811,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2447,12 +1821,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Paladin",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Paladin", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2462,9 +1831,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2474,10 +1841,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2487,10 +1851,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2500,10 +1861,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Paladin",
-      "Wizard"
-    ],
+    "class": ["Paladin", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2513,12 +1871,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2528,11 +1881,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Bard", "Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -2542,9 +1891,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -2554,9 +1901,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -2566,12 +1911,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2581,9 +1921,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2593,10 +1931,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -2606,10 +1941,8 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Acid Arrow",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Mending": {
@@ -2618,13 +1951,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2634,11 +1961,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2648,10 +1971,7 @@
     "multitarget": true,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2661,10 +1981,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2674,12 +1991,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2689,11 +2001,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2703,11 +2011,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2717,10 +2021,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2730,11 +2031,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2744,10 +2041,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2757,9 +2051,7 @@
     "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -2769,10 +2061,8 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Faithful Hound",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Magnificent Mansion": {
@@ -2781,11 +2071,8 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
-    "srd": "Magnificent Mansion",
+    "class": ["Bard", "Wizard"],
+    "srd": true,
     "custom": false
   },
   "Private Sanctum": {
@@ -2794,10 +2081,8 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Private Sanctum",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Arcane Sword": {
@@ -2806,11 +2091,8 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
-    "srd": "Arcane Sword",
+    "class": ["Bard", "Wizard"],
+    "srd": true,
     "custom": false
   },
   "Move Earth": {
@@ -2819,11 +2101,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2833,11 +2111,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Ranger",
-      "Wizard"
-    ],
+    "class": ["Bard", "Ranger", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2847,10 +2121,8 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Arcanist's Magic Aura",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Freezing Sphere": {
@@ -2859,10 +2131,8 @@
     "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Freezing Sphere",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Resilient Sphere": {
@@ -2871,10 +2141,8 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Resilient Sphere",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Irresistible Dance": {
@@ -2883,11 +2151,8 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
-    "srd": "Irresistible Dance",
+    "class": ["Bard", "Wizard"],
+    "srd": true,
     "custom": false
   },
   "Pass without Trace": {
@@ -2896,10 +2161,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -2909,9 +2171,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2921,9 +2181,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2933,9 +2191,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2945,9 +2201,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -2957,12 +2211,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2972,13 +2221,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Druid", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -2988,11 +2231,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Bard", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -3002,12 +2241,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3017,12 +2251,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3032,12 +2261,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3047,12 +2271,7 @@
     "multitarget": false,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3062,9 +2281,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3074,12 +2291,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3089,10 +2301,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3102,9 +2311,7 @@
     "multitarget": true,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3114,9 +2321,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -3126,10 +2331,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3139,10 +2341,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
+    "class": ["Bard", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3152,13 +2351,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Ranger",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Druid", "Ranger", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3168,12 +2361,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Paladin",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Paladin", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3183,12 +2371,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger"
-    ],
+    "class": ["Cleric", "Druid", "Paladin", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -3198,11 +2381,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Druid", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -3212,11 +2391,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Bard", "Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -3226,10 +2401,8 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Telepathic Bond",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Ray of Enfeeblement": {
@@ -3238,10 +2411,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3251,10 +2421,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3264,11 +2431,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Bard", "Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -3278,9 +2441,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -3290,12 +2451,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Paladin",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Paladin", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3305,10 +2461,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -3318,10 +2471,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Cleric"
-    ],
+    "class": ["Bard", "Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3331,11 +2481,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3345,10 +2491,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -3358,9 +2501,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3370,9 +2511,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3382,9 +2521,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3394,10 +2531,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3407,13 +2541,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Druid", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3423,11 +2551,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3437,11 +2561,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3451,11 +2571,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3465,9 +2581,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3477,10 +2591,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3490,12 +2601,7 @@
     "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3505,10 +2611,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3518,10 +2621,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Cleric", "Paladin"],
     "srd": true,
     "custom": false
   },
@@ -3531,9 +2631,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -3543,10 +2641,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3556,11 +2651,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Ranger"
-    ],
+    "class": ["Bard", "Cleric", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -3570,11 +2661,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3584,9 +2671,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3596,11 +2681,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3610,11 +2691,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3624,10 +2701,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3637,9 +2711,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3649,11 +2721,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Bard", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -3663,10 +2731,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Cleric"
-    ],
+    "class": ["Bard", "Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3676,11 +2741,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Bard", "Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -3690,11 +2751,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3704,10 +2761,7 @@
     "multitarget": true,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -3717,9 +2771,7 @@
     "multitarget": true,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3729,9 +2781,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3741,11 +2791,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3755,11 +2801,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Wizard"
-    ],
+    "class": ["Cleric", "Druid", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3769,12 +2811,7 @@
     "multitarget": false,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Ranger",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Ranger", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3784,9 +2821,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -3796,12 +2831,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3811,11 +2841,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3825,11 +2851,7 @@
     "multitarget": true,
     "level": 8,
     "levelDisplay": "8th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3839,11 +2861,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3853,11 +2871,8 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Wizard"
-    ],
-    "srd": "Hideous Laughter",
+    "class": ["Bard", "Wizard"],
+    "srd": true,
     "custom": false
   },
   "Telekinesis": {
@@ -3866,10 +2881,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3879,11 +2891,7 @@
     "multitarget": false,
     "level": 7,
     "levelDisplay": "7th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3893,11 +2901,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3907,10 +2911,8 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Wizard"
-    ],
-    "srd": "Floating Disk",
+    "class": ["Wizard"],
+    "srd": true,
     "custom": false
   },
   "Thaumaturgy": {
@@ -3919,9 +2921,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -3931,12 +2931,7 @@
     "multitarget": true,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Bard", "Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3946,10 +2941,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3959,13 +2951,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -3975,9 +2961,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -3987,10 +2971,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -4000,11 +2981,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Bard",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4014,10 +2991,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Cleric",
-      "Druid"
-    ],
+    "class": ["Cleric", "Druid"],
     "srd": true,
     "custom": false
   },
@@ -4027,13 +3001,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Cleric", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4043,12 +3011,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard",
-      "Sorcerer",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Sorcerer", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4058,11 +3021,7 @@
     "multitarget": false,
     "level": 1,
     "levelDisplay": "1st level",
-    "class": [
-      "Bard",
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Bard", "Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4072,10 +3031,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Warlock",
-      "Wizard"
-    ],
+    "class": ["Warlock", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4085,9 +3041,7 @@
     "multitarget": false,
     "level": 0,
     "levelDisplay": "Cantrip",
-    "class": [
-      "Bard"
-    ],
+    "class": ["Bard"],
     "srd": true,
     "custom": false
   },
@@ -4097,11 +3051,7 @@
     "multitarget": true,
     "level": 4,
     "levelDisplay": "4th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4111,9 +3061,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4123,9 +3071,7 @@
     "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4135,11 +3081,7 @@
     "multitarget": false,
     "level": 5,
     "levelDisplay": "5th level",
-    "class": [
-      "Druid",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4149,9 +3091,7 @@
     "multitarget": true,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -4161,9 +3101,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -4173,12 +3111,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Druid",
-      "Ranger",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Druid", "Ranger", "Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4188,12 +3121,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Cleric",
-      "Druid",
-      "Ranger",
-      "Sorcerer"
-    ],
+    "class": ["Cleric", "Druid", "Ranger", "Sorcerer"],
     "srd": true,
     "custom": false
   },
@@ -4203,10 +3131,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4216,9 +3141,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Wizard"
-    ],
+    "class": ["Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4228,9 +3151,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Druid"
-    ],
+    "class": ["Druid"],
     "srd": true,
     "custom": false
   },
@@ -4240,10 +3161,7 @@
     "multitarget": false,
     "level": 3,
     "levelDisplay": "3rd level",
-    "class": [
-      "Druid",
-      "Ranger"
-    ],
+    "class": ["Druid", "Ranger"],
     "srd": true,
     "custom": false
   },
@@ -4253,10 +3171,7 @@
     "multitarget": false,
     "level": 9,
     "levelDisplay": "9th level",
-    "class": [
-      "Sorcerer",
-      "Wizard"
-    ],
+    "class": ["Sorcerer", "Wizard"],
     "srd": true,
     "custom": false
   },
@@ -4266,9 +3181,7 @@
     "multitarget": false,
     "level": 6,
     "levelDisplay": "6th level",
-    "class": [
-      "Cleric"
-    ],
+    "class": ["Cleric"],
     "srd": true,
     "custom": false
   },
@@ -4278,11 +3191,7 @@
     "multitarget": false,
     "level": 2,
     "levelDisplay": "2nd level",
-    "class": [
-      "Bard",
-      "Cleric",
-      "Paladin"
-    ],
+    "class": ["Bard", "Cleric", "Paladin"],
     "srd": true,
     "custom": false
   }
