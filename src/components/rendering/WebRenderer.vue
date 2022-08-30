@@ -347,6 +347,7 @@ export default defineComponent({
     font-weight: 800;
     font-size: 2.2em;
     margin: 0;
+    line-height: 2.5rem;
   }
 
   .type,
