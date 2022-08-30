@@ -19,6 +19,7 @@
         "include": true
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-weather-windy"
     },
     {
@@ -40,6 +41,7 @@
         "include": true
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-skull-crossbones"
     },
     {
@@ -62,6 +64,7 @@
         "include": true
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-sword"
     },
     {
@@ -83,6 +86,7 @@
         "include": true
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": ""
     },
     {
@@ -104,6 +108,7 @@
         "include": false
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-motion-sensor"
     },
     {
@@ -125,6 +130,7 @@
         "include": true
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-head-snowflake-outline"
     },
     {
@@ -147,6 +153,7 @@
         "include": true
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-weather-windy"
     },
     {
@@ -168,6 +175,7 @@
         "include": true
       },
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-flag-plus-outline"
     },
     {
@@ -193,6 +201,7 @@
       "templateName": "Whirlwind",
       "type": "Action",
       "customPreamble": false,
+      "bonusAction": false,
       "icon": "mdi-weather-tornado"
     }
   ]

@@ -71,6 +71,7 @@ export interface MonsterAction {
     rate: string
   }
   customPreamble: boolean
+  bonusAction: boolean
   crAnnotation: MonsterCrAnnotation
 }
 
@@ -409,6 +410,7 @@ export function defaultAction(): MonsterAction {
     },
     legendaryOnly: false,
     customPreamble: false,
+    bonusAction: false,
     crAnnotation: defaultCrAnnotation(),
   }
 }

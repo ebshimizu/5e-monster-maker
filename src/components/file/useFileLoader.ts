@@ -4,7 +4,7 @@ import { SCHEMA } from 'src/data/SCHEMA'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useSpellsStore } from 'src/stores/spells-store'
 import { useI18n } from 'vue-i18n'
-import { Monster } from '../models'
+import { Monster, MonsterAction } from '../models'
 
 export function useFileLoader() {
   const $q = useQuasar()
@@ -195,6 +195,17 @@ export function useFileLoader() {
       monster.saveVersion = 5
     }
 
+    // v6 adds a bonus action toggle to actions
+    // and adds a field for a visaul CR override
+    if (monster.saveVersion < 6) {
+      monster.actions.forEach((a: MonsterAction) => {
+        a.bonusAction = false
+      })
+
+      // cr visual override
+      monster.saveVersion = 6
+    }
+
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0
@@ -244,7 +255,7 @@ export function useFileLoader() {
 
     // one more validation for the road, use the most recent version
     const monster = data as Monster
-    const valid = validate(data, SCHEMA['5'])
+    const valid = validate(data, SCHEMA['6'])
 
     if (!valid.valid) {
       console.error(valid.errors.map((e) => e.toString()))

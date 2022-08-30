@@ -25,22 +25,33 @@
                   class="col-12 q-pa-sm"
                 >
                   <template #after>
-                    <q-btn
-                      push
-                      :color="action.legendaryOnly ? 'positive' : 'dark'"
-                      icon="fa-solid fa-dragon"
-                      class="q-mr-sm"
-                      :label="
-                        action.legendaryOnly
-                          ? $t('editor.action.legendaryOnly')
-                          : $t('editor.action.regular')
-                      "
-                      @click="action.legendaryOnly = !action.legendaryOnly"
-                    >
-                      <q-tooltip class="text-body2">{{
-                        $t('editor.action.legendaryExplanation')
-                      }}</q-tooltip>
-                    </q-btn>
+                    <q-btn-group push class="q-mr-sm">
+                      <q-btn
+                        push
+                        :color="action.legendaryOnly ? 'positive' : 'dark'"
+                        icon="fa-solid fa-dragon"
+                        :label="
+                          action.legendaryOnly
+                            ? $t('editor.action.legendaryOnly')
+                            : $t('editor.action.regular')
+                        "
+                        @click="action.legendaryOnly = !action.legendaryOnly"
+                      >
+                        <q-tooltip class="text-body2">{{
+                          $t('editor.action.legendaryExplanation')
+                        }}</q-tooltip>
+                      </q-btn>
+                      <q-btn
+                        push
+                        :color="action.bonusAction ? 'positive' : 'dark'"
+                        :label="
+                          action.bonusAction
+                            ? $t('editor.action.bonusAction')
+                            : $t('editor.action.fullAction')
+                        "
+                        @click="action.bonusAction = !action.bonusAction"
+                      ></q-btn>
+                    </q-btn-group>
                     <q-btn
                       round
                       icon="save"
