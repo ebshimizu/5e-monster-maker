@@ -1,6 +1,22 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.0.1"
+      subtitle="Bugfix - 9/3/22"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <a
+          href="https://github.com/ebshimizu/5e-monster-maker/issues/73"
+          target="_blank"
+          >#73</a
+        >
+        Fixed issue with the Attack editor's Additional Damage field not
+        displaying the selected value in the dropdown.
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.0.0"
       subtitle="Major Update"
       icon="update"
