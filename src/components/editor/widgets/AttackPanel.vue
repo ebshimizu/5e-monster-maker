@@ -186,7 +186,7 @@
                     :label="$t('monster.attack.damageBonus')"
                     :disable="!attack.damage.modifier.override"
                     class="col-2 q-pa-sm"
-                    @change="
+                    @update:model-value="
                       (v: string | number | null) =>
                         attack.damage.modifier.overrideValue = validateNumber(v, 0)
                     "
@@ -238,7 +238,7 @@
                     v-model="additional.dice"
                     :options="diceOptions"
                     emit-value
-                    :display-value="diceLookup[attack.damage.dice]"
+                    :display-value="diceLookup[additional.dice]"
                     :label="$t('monster.attack.dieType')"
                     class="col-2 q-pa-sm"
                   />
@@ -348,7 +348,7 @@
                     :label="$t('monster.attack.damageBonus')"
                     :disable="conditionalModifierLocked"
                     class="col-2 q-pa-sm"
-                    @change="
+                    @update:model-value="
                       (v: string | number | null) =>
                         attack.alternateDamage.modifier.overrideValue = validateNumber(v, 0)
                     "
