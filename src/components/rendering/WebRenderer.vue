@@ -23,38 +23,43 @@
     </div>
     <hr />
     <div v-show="saves !== ''" class="skill">
-      <span class="name">Saving Throws</span> {{ saves }}
+      <span class="name">{{ $t('monster.saves') }}</span> {{ saves }}
     </div>
     <div v-show="monster.skills.length > 0" class="skill">
-      <span class="name">Skills</span> {{ skills }}
+      <span class="name">{{ $t('monster.skills') }}</span> {{ skills }}
     </div>
     <div
       v-show="monster.resistances && monster.resistances.length > 0"
       class="skill"
     >
-      <span class="name">Damage Resistances</span> {{ resistances }}
+      <span class="name">{{ $t('monster.resistances') }}</span>
+      {{ resistances }}
     </div>
     <div
       v-show="monster.immunities && monster.immunities.length > 0"
       class="skill"
     >
-      <span class="name">Damage Immunities</span> {{ immunities }}
+      <span class="name">{{ $t('monster.immunities') }}</span> {{ immunities }}
     </div>
     <div
       v-show="monster.vulnerabilities && monster.vulnerabilities.length > 0"
       class="skill"
     >
-      <span class="name">Damage Vulnerabilities</span> {{ vulnerabilities }}
+      <span class="name">{{ $t('monster.vulnerabilities') }}</span>
+      {{ vulnerabilities }}
     </div>
     <div
       v-show="monster.conditions && monster.conditions.length > 0"
       class="skill"
     >
-      <span class="name">Condition Immunities</span> {{ conditions }}
+      <span class="name">{{ $t('monster.conditionImmunities') }}</span>
+      {{ conditions }}
     </div>
-    <div class="skill"><span class="name">Senses</span> {{ senses }}</div>
     <div class="skill">
-      <span class="name">Languages</span>
+      <span class="name">{{ $t('monster.senses') }}</span> {{ senses }}
+    </div>
+    <div class="skill">
+      <span class="name">{{ $t('monster.languages') }}</span>
       {{ monster.languages !== '' ? monster.languages : '&mdash;' }}
     </div>
     <div class="skill">
@@ -144,6 +149,15 @@
           </div>
         </template>
       </div>
+    </div>
+    <div v-if="bonusActions.length > 0" class="bonus-actions">
+      <h3 class="section">{{ $t('monster.bonusActions') }}</h3>
+      <div
+        v-for="(action, idx) in bonusActions"
+        :key="idx"
+        class="action"
+        v-html="action"
+      ></div>
     </div>
     <div v-if="monster.legendaryActions.count > 0" class="legendary-actions">
       <h3 class="section">{{ $t('editor.legendary.label') }}</h3>
@@ -237,6 +251,10 @@ export default defineComponent({
       textRenderer.actions.value.map((a) => sanitizeWebString(a))
     )
 
+    const bonusActions = computed(() =>
+      textRenderer.bonusActions.value.map((a) => sanitizeWebString(a))
+    )
+
     const multiattacks = computed(() =>
       sanitizeWebString(textRenderer.multiattacks.value)
     )
@@ -296,6 +314,7 @@ export default defineComponent({
       traits,
       attacks,
       actions,
+      bonusActions,
       multiattacks,
       legendaryPreamble,
       legendaryActions,

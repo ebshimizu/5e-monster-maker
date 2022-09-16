@@ -58,6 +58,7 @@ export default {
     vulnerabilities: 'Damage Vulnerabilities',
     conditionImmunities: 'Condition Immunities',
     passivePerception: 'Passive Perception',
+    senses: 'Senses',
     sense: {
       blindsight: 'Blindsight',
       darkvision: 'Darkvision',
@@ -110,6 +111,7 @@ export default {
     action: {
       recharge: 'Recharge',
     },
+    bonusActions: 'Bonus Actions',
   },
   editor: {
     // caption fields are allocated for each tab but not used at the moment

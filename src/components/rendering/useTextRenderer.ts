@@ -186,7 +186,13 @@ export function useTextRenderer() {
   // non-legendary only actions
   const actions = computed(() => {
     return monster.actions
-      .filter((a) => !a.legendaryOnly)
+      .filter((a) => !a.legendaryOnly && !a.bonusAction)
+      .map((a) => processAction(a, monster))
+  })
+
+  const bonusActions = computed(() => {
+    return monster.actions
+      .filter((a) => !a.legendaryOnly && a.bonusAction)
       .map((a) => processAction(a, monster))
   })
 
@@ -260,6 +266,7 @@ export function useTextRenderer() {
     innateSpellcastingLists,
     attacks,
     actions,
+    bonusActions,
     multiattacks,
     legendaryPreamble,
     legendaryActions,

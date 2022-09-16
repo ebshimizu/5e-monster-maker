@@ -22,7 +22,7 @@ export function useMdRenderer() {
     const mdTraits =
       monster.traits.length === 0
         ? ''
-        : `${traits.map((t) => `> ${mdFormatter(t)}`).join('\n>\n')}\n>`
+        : `${traits.map((t) => `> ${mdFormatter(t)}`).join('\n>\n')}\n`
     return mdTraits
   }
 
@@ -74,6 +74,17 @@ ${renderedRows.join('\n')}`
     return `\n${actions.join('\n>\n')}\n>`
   }
 
+  const getBonusActions = () => {
+    if (renderer.bonusActions.value.length === 0) return ''
+
+    const actions = renderer.bonusActions.value.map(
+      (a) => `> ${mdFormatter(a)}`
+    )
+    return `\n> ### ${t('monster.bonusActions')}\n>\n${actions.join(
+      '\n>\n'
+    )}\n>`
+  }
+
   const getLegendaryActions = () => {
     if (renderer.legendaryActions.value.length === 0) return ''
 
@@ -92,7 +103,7 @@ ${legendaryActions.join('\n>\n')}\n>`
   const getMythicTrait = () => {
     if (monster.mythicActions.actions.length === 0) return ''
 
-    return `> ${mdFormatter(renderer.mythicTrait.value)}\n>\n`
+    return `> ${mdFormatter(renderer.mythicTrait.value)}\n`
   }
 
   const getMythicActions = () => {
@@ -201,6 +212,7 @@ ${formattedActions.join('\n>\n')}\n>`
           )}\n>`
     const attacks = getAttacks()
     const actions = getActions()
+    const bonusActions = getBonusActions()
     const legendary = getLegendaryActions()
     const mythic = getMythicActions()
     const reactions = getReactions()
@@ -235,12 +247,13 @@ ${formattedActions.join('\n>\n')}\n>`
       monster.CR
     ].xp.toLocaleString()})
 >___
-${traits}${mythicTrait}
-> ### ${t('editor.action.label')}${multi}${attacks}${actions}${
+${traits}${mythicTrait}> ### ${t(
+      'editor.action.label'
+    )}${multi}${attacks}${actions}${
       monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>`
     }${
       monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>`
-    }${legendary}${mythic}${reactions}${lair}${regional}`
+    }${bonusActions}${legendary}${mythic}${reactions}${lair}${regional}`
   }
 
   return {
