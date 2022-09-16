@@ -230,8 +230,9 @@ export interface CrDamageInfo {
 // the big one is the monster definition
 export interface Monster {
   name: string
-  useArticleInToken: boolean
   saveVersion: number
+  useArticleInToken: boolean
+  alphaTraits: boolean
   size: string
   type?: string
   alignment?: string

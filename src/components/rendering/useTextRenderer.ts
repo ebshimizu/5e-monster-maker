@@ -10,6 +10,7 @@ import {
 } from './mathRendering'
 import N2W from 'number-to-words'
 import { useProcessTokens } from './useProcessTokens'
+import _ from 'lodash'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
@@ -125,7 +126,13 @@ export function useTextRenderer() {
   })
 
   const traits = computed(() => {
-    return monster.traits.map((t) => processTrait(t, monster))
+    if (monster.alphaTraits) {
+      return _.sortBy(monster.traits, 'name').map((trait) =>
+        processTrait(trait, monster)
+      )
+    } else {
+      return monster.traits.map((trait) => processTrait(trait, monster))
+    }
   })
 
   const classSpellcastingPreamble = computed(() => {

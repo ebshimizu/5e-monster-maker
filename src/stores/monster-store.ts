@@ -41,8 +41,9 @@ export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
     return {
       name: 'My New Monster',
-      useArticleInToken: false,
       saveVersion: MONSTER_VERSION,
+      useArticleInToken: false,
+      alphaTraits: true,
       size: 'Medium',
       type: 'humanoid',
       alignment: '',

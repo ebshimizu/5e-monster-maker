@@ -301,6 +301,13 @@ export default {
     resetTip: 'Reset to Default',
     article: "Use 'The' in NAME Token",
     renderSettings: 'Stat Block Settings',
+    settings: {
+      cols: 'Columns',
+      article: "Use 'The' in NAME Token",
+      alphaTrait: 'Sort Traits by Name',
+      one: 'One',
+      two: 'Two',
+    },
     columns: 'Columns',
     customSpells: 'Manage Custom Spells',
     crAnnotation: {

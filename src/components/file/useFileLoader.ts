@@ -202,6 +202,9 @@ export function useFileLoader() {
         a.bonusAction = false
       })
 
+      // trait sorting
+      monster.alphaTrait = false
+
       // cr visual override
       monster.saveVersion = 6
     }

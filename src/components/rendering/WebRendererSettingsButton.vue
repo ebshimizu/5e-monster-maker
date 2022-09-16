@@ -10,20 +10,25 @@
             <div class="text-body1 q-mr-md">{{ $t('editor.columns') }}</div>
             <q-btn-toggle
               v-model="editorStore.statBlockColumns"
-              label="Columns"
+              :label="$t('editor.settings.cols')"
               :options="[
                 {
-                  label: 'One',
+                  label: $t('editor.settings.one'),
                   value: 1,
                 },
-                { label: 'Two', value: 2 },
+                { label: $t('editor.settings.two'), value: 2 },
               ]"
             ></q-btn-toggle>
           </div>
           <q-toggle
             v-model="monsterStore.useArticleInToken"
             class="col-12"
-            label="Use 'The' in NAME token"
+            :label="$t('editor.settings.article')"
+          />
+          <q-toggle
+            v-model="monsterStore.alphaTraits"
+            class="col-12"
+            :label="$t('editor.settings.alphaTrait')"
           />
         </div>
       </div>
