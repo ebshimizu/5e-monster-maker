@@ -120,6 +120,8 @@ export function useTextRenderer() {
   })
 
   const cr = computed(() => {
+    if (monster.useCrDisplayOverride) return monster.crOverride
+
     return `${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString(
       'en-US'
     )} XP)`

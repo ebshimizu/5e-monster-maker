@@ -240,6 +240,8 @@ export interface Monster {
   AC: number
   ACType: string
   CR: number
+  useCrDisplayOverride: boolean
+  crOverride: string
   proficiency: number
   proficiencyOverride: boolean
   HP: DndDice

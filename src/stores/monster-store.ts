@@ -51,6 +51,8 @@ export const useMonsterStore = defineStore('monster', {
       AC: 10,
       ACType: '',
       CR: 0,
+      useCrDisplayOverride: false,
+      crOverride: '',
       proficiency: 2,
       proficiencyOverride: false,
       HP: {

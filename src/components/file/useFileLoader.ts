@@ -196,7 +196,7 @@ export function useFileLoader() {
     }
 
     // v6 adds a bonus action toggle to actions
-    // and adds a field for a visaul CR override
+    // and adds a field for a visual CR override
     if (monster.saveVersion < 6) {
       monster.actions.forEach((a: MonsterAction) => {
         a.bonusAction = false
@@ -206,6 +206,9 @@ export function useFileLoader() {
       monster.alphaTrait = false
 
       // cr visual override
+      monster.useCrDisplayOverride = false
+      monster.crOverride = ''
+
       monster.saveVersion = 6
     }
 

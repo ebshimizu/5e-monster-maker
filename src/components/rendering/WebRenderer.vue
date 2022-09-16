@@ -306,9 +306,12 @@ export default defineComponent({
       }
     })
 
+    const cr = computed(() => sanitizeWebString(textRenderer.cr.value))
+
     return {
       monster,
       ...textRenderer,
+      cr,
       sanitizedClassSpellcastingPreamble,
       sanitizedInnateSpellcastingPreamble,
       traits,

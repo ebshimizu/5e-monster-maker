@@ -407,6 +407,8 @@ export default {
       attack: 'Attack Bonus',
       damage: 'Damage/Round',
       save: 'Save DC',
+      visualOverride: 'Using Custom CR Display',
+      standard: 'Using Standard CR',
     },
     template: {
       title: 'Manage Custom Templates',

@@ -243,9 +243,7 @@ ${formattedActions.join('\n>\n')}\n>`
 >___${saves !== '' ? saves : ''}${skills}${vuln}${resist}${immune}${condition}
 > - **${t('editor.senses.label')}** ${renderer.senses.value}
 > - **${t('monster.languages')}** ${monster.languages}
-> - **${t('monster.challenge')}** ${CR[monster.CR].cr} (${CR[
-      monster.CR
-    ].xp.toLocaleString()})
+> - **${t('monster.challenge')}** ${renderer.cr.value}
 >___
 ${traits}${mythicTrait}> ### ${t(
       'editor.action.label'

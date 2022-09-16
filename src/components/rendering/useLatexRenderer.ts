@@ -302,6 +302,8 @@ ${latexFormatter(renderer.lairActionPreamble.value)}`
 
   // exporter for the rpgtex template
   // https://github.com/rpgtex/DND-5e-LaTeX-Template
+  // notes:
+  // - latex renderer does not support custom cr values
   const renderLatex = (twoCol = false) => {
     const saves = renderer.saves.value
 
