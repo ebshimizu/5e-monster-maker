@@ -227,6 +227,15 @@ export interface CrDamageInfo {
   legendaryCount: number
 }
 
+// these arrays can be swapped with the SwapButtons component
+export type SwappableField =
+  | 'actions'
+  | 'traits'
+  | 'attacks'
+  | 'reactions'
+  | 'lairActions'
+  | 'regionalEffects'
+
 // the big one is the monster definition
 export interface Monster {
   name: string

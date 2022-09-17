@@ -462,6 +462,8 @@ export default {
     home: 'Monster Editor',
     ogl: 'Open Gaming License (EN-US)',
     crTable: 'Show CR Table',
+    moveUp: 'Move Up',
+    moveDown: 'Move Down',
   },
   io: {
     error: {

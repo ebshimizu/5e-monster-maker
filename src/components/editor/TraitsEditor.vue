@@ -18,6 +18,15 @@
             :label="trait.name"
             expand-separator
           >
+            <template #header>
+              <q-item-section>
+                {{ trait.name }}
+              </q-item-section>
+
+              <q-item-section v-if="!monster.alphaTraits" side>
+                <swap-buttons field="traits" :idx="idx" />
+              </q-item-section>
+            </template>
             <q-card>
               <q-card-section class="row">
                 <q-input
@@ -108,10 +117,11 @@ import { useI18n } from 'vue-i18n'
 import { MonsterTrait } from '../models'
 import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 import { validateNumber } from './numberInput'
+import SwapButtons from './widgets/SwapButtons.vue'
 
 export default defineComponent({
   name: 'TraitsEditor',
-  components: { MonsterTextEditor, CrAnnotationCard },
+  components: { MonsterTextEditor, CrAnnotationCard, SwapButtons },
   setup() {
     const monster = useMonsterStore()
     const { rechargeTimeOptions } = useRechargeTimes()

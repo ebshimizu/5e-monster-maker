@@ -8,9 +8,10 @@
       <q-card-section class="row">
         <q-list bordered separator class="rounded-borders bg-red-10 full-width">
           <attack-panel
-            v-for="attack in monster.attacks"
+            v-for="(attack, idx) in monster.attacks"
             :id="attack.id"
             :key="attack.id"
+            :idx="idx"
           />
         </q-list>
       </q-card-section>

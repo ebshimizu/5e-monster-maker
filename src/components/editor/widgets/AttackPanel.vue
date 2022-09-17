@@ -4,6 +4,15 @@
     expand-separator
     :caption="estimatedAttackDamage"
   >
+    <template #header>
+      <q-item-section>
+        {{ attack.name }}
+      </q-item-section>
+
+      <q-item-section side>
+        <swap-buttons field="attacks" :idx="idx" />
+      </q-item-section>
+    </template>
     <q-card>
       <q-card-section class="row">
         <q-input
@@ -444,13 +453,18 @@ import { DndAttack } from 'src/components/models'
 import { useTemplatesStore } from 'src/stores/templates-store'
 import NewTemplateDialog from './NewTemplateDialog.vue'
 import { validateNumber } from '../numberInput'
+import SwapButtons from './SwapButtons.vue'
 
 export default defineComponent({
   name: 'AttackPanel',
-  components: { LockToggleButton, MonsterTextEditor },
+  components: { LockToggleButton, MonsterTextEditor, SwapButtons },
   props: {
     id: {
       type: String,
+      required: true,
+    },
+    idx: {
+      type: Number,
       required: true,
     },
   },

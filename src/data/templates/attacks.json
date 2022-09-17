@@ -116,7 +116,7 @@
     {
       "templateName": "Javelin",
       "name": "Javelin",
-      "distance": "MELEE OR RANGED",
+      "distance": "BOTH",
       "kind": "WEAPON",
       "modifier": {
         "override": false,
