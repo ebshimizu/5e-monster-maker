@@ -71,6 +71,7 @@ export interface MonsterAction {
     rate: string
   }
   customPreamble: boolean
+  bonusAction: boolean
   crAnnotation: MonsterCrAnnotation
 }
 
@@ -226,11 +227,21 @@ export interface CrDamageInfo {
   legendaryCount: number
 }
 
+// these arrays can be swapped with the SwapButtons component
+export type SwappableField =
+  | 'actions'
+  | 'traits'
+  | 'attacks'
+  | 'reactions'
+  | 'lairActions'
+  | 'regionalEffects'
+
 // the big one is the monster definition
 export interface Monster {
   name: string
-  useArticleInToken: boolean
   saveVersion: number
+  useArticleInToken: boolean
+  alphaTraits: boolean
   size: string
   type?: string
   alignment?: string
@@ -238,6 +249,8 @@ export interface Monster {
   AC: number
   ACType: string
   CR: number
+  useCrDisplayOverride: boolean
+  crOverride: string
   proficiency: number
   proficiencyOverride: boolean
   HP: DndDice
@@ -409,6 +422,7 @@ export function defaultAction(): MonsterAction {
     },
     legendaryOnly: false,
     customPreamble: false,
+    bonusAction: false,
     crAnnotation: defaultCrAnnotation(),
   }
 }

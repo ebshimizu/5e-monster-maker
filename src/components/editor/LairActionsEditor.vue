@@ -56,6 +56,15 @@
               :label="$t('editor.lair.actionItem', [idx + 1])"
               expand-separator
             >
+              <template #header>
+                <q-item-section>
+                  {{ $t('editor.lair.actionItem', [idx + 1]) }}
+                </q-item-section>
+
+                <q-item-section side>
+                  <swap-buttons field="lairActions" :idx="idx" />
+                </q-item-section>
+              </template>
               <q-card>
                 <q-card-section class="row">
                   <monster-text-editor
@@ -101,12 +110,14 @@ import { defineComponent } from 'vue'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import CrAnnotationCard from './CrAnnotationCard.vue'
+import SwapButtons from './widgets/SwapButtons.vue'
 
 export default defineComponent({
   name: 'LairActionsEditor',
   components: {
     MonsterTextEditor,
     CrAnnotationCard,
+    SwapButtons,
   },
   setup() {
     const monster = useMonsterStore()

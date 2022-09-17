@@ -137,7 +137,19 @@ export function useLatexRenderer() {
   }
 
   const getActions = () => {
-    return renderer.actions.value.map((a) => latexFormatter(a)).join('\n  ')
+    return renderer.actions.value.map((a) => latexFormatter(a)).join('\n ')
+  }
+
+  const getBonusActions = () => {
+    if (renderer.bonusActions.value.length > 0) {
+      return `\\DndMonsterSection{${t(
+        'monster.bonusActions'
+      )}}\n${renderer.bonusActions.value
+        .map((a) => latexFormatter(a))
+        .join('\n ')}`
+    }
+
+    return ''
   }
 
   const getLegendary = () => {
@@ -290,6 +302,8 @@ ${latexFormatter(renderer.lairActionPreamble.value)}`
 
   // exporter for the rpgtex template
   // https://github.com/rpgtex/DND-5e-LaTeX-Template
+  // notes:
+  // - latex renderer does not support custom cr values
   const renderLatex = (twoCol = false) => {
     const saves = renderer.saves.value
 
@@ -356,6 +370,8 @@ ${latexFormatter(renderer.lairActionPreamble.value)}`
   ${monster.spellcasting.atWill.length > 0 ? getAtWill() : ''}
 
   ${monster.spellcasting.standard.length > 0 ? getStandard() : ''}
+
+  ${getBonusActions()}
 
   ${monster.legendaryActions.count > 0 ? getLegendary() : ''}
 

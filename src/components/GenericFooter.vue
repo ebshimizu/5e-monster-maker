@@ -69,7 +69,7 @@ import { useEditorStore } from 'src/stores/editor-store'
 
 // TODO: don't forget to change the target changelog when the app has an update
 // that should trigger a notice
-const TARGET_CHANGELOG = 'v2.0.0'
+const TARGET_CHANGELOG = 'v2.1.0'
 
 export default defineComponent({
   name: 'GenericFooter',

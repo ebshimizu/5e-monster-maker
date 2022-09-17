@@ -127,6 +127,7 @@ export function useTarrasqueRenderer() {
     }
 
     // actions includes multiattack, regular attack, and extra actions
+    // and they'll also include bonus actions because i don't think there's currently space for that
     tio.actions = []
 
     // tarrasque io likes to have multiattack first looks like

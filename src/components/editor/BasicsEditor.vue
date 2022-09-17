@@ -15,6 +15,7 @@
           debounce="500"
         />
         <q-select
+          v-if="!monster.useCrDisplayOverride"
           :model-value="monster.CR"
           :options="crValues"
           :display-value="crValues[monster.CR].label"
@@ -22,7 +23,35 @@
           :label="$t('monster.cr')"
           class="col-2 q-pa-sm"
           @update:model-value="monster.setCR"
-        />
+        >
+          <template #after>
+            <lock-toggle-button
+              :locked="!monster.useCrDisplayOverride"
+              :lock-tooltip="$t('editor.cr.standard')"
+              :unlock-tooltip="$t('editor.cr.visualOverride')"
+              @click="
+                monster.useCrDisplayOverride = !monster.useCrDisplayOverride
+              "
+            />
+          </template>
+        </q-select>
+        <q-input
+          v-else
+          v-model="monster.crOverride"
+          :label="$t('monster.cr')"
+          class="col-2 q-pa-sm"
+        >
+          <template #after>
+            <lock-toggle-button
+              :locked="!monster.useCrDisplayOverride"
+              :lock-tooltip="$t('editor.cr.standard')"
+              :unlock-tooltip="$t('editor.cr.visualOverride')"
+              @click="
+                monster.useCrDisplayOverride = !monster.useCrDisplayOverride
+              "
+            />
+          </template>
+        </q-input>
         <q-input
           :model-value="monster.proficiency"
           type="number"
@@ -103,7 +132,7 @@
           min="0"
           class="col-2 q-pa-sm"
           @update:model-value="
-            (value: number) => monster.setHpModifier(value, monster.stats.CON)
+            (value: number | string | null) => monster.setHpModifier(value, monster.stats.CON)
           "
         >
           <template #after>
@@ -164,7 +193,7 @@
           type="number"
           :label="$t(`monster.stat.${stat}`)"
           class="col-2 q-pa-sm"
-          @update:model-value="(value: number) => updateStat(stat, value)"
+          @update:model-value="(value: number | string | null) => updateStat(stat, value)"
         />
         <q-input
           v-model="monster.languages"

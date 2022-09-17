@@ -1,6 +1,63 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.1.0"
+      subtitle="Update"
+      icon="update"
+      color="positive"
+    >
+      <div class="text-body1 q-mb-sm">
+        This update brings easier action re-ordering and a number of statblock
+        formatting changes that follow recent adjustments in published modules.
+        The markdown updater has also been updated for Homebrewery v3.
+      </div>
+      <q-separator />
+      <div class="text-overline text-uppercase q-mb-sm">New Features</div>
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="74" />
+            A new export option for Homebrewery v3 has been added. The v2
+            renderer will continue to be supported until the Homebrewery removes
+            their legacy mode.
+          </li>
+          <li>
+            <github-issue-link :issue="66" />
+            Actions, attacks, reactions, lair actions, regional effects, and
+            traits (if they're not being automatically sorted) can now be
+            re-ordered by using the buttons inside of each accordion header.
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <github-issue-link :issue="67" />
+            Actions can now be marked as bonus actions. Bonus actions will show
+            up in a separate section that gets placed after actions but before
+            legendary actions. Additionally, traits are automatically sorted by
+            default. You can change this behavior in the Stat Block Settings.
+          </li>
+          <li>
+            <github-issue-link :issue="70" />
+            Allow anything to be input as the CR. Note that this custom value is
+            just visual, it does not affect the CR calculations.
+          </li>
+          <li>
+            <github-issue-link :issue="72" />
+            Reduced spacing around monster name
+          </li>
+        </ul>
+      </div>
+      <div class="text-overline text-uppercase q-mb-sm">Bug Fixes</div>
+      <div class="text-body2">
+        <ul>
+          <li>Fixed a couple issues with the Homebrewery v2 Exporter.</li>
+          <li>
+            Some localization strings have been added to the web renderer.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.0.1"
       subtitle="Bugfix - 9/3/22"
       icon="build"
@@ -165,3 +222,13 @@
     </q-timeline-entry>
   </q-timeline>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import GithubIssueLink from './GithubIssueLink.vue'
+
+export default defineComponent({
+  name: 'ChangelogContent',
+  components: { GithubIssueLink },
+})
+</script>

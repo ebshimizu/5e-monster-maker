@@ -10,6 +10,7 @@ import {
 } from './mathRendering'
 import N2W from 'number-to-words'
 import { useProcessTokens } from './useProcessTokens'
+import _ from 'lodash'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
@@ -119,13 +120,21 @@ export function useTextRenderer() {
   })
 
   const cr = computed(() => {
+    if (monster.useCrDisplayOverride) return monster.crOverride
+
     return `${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString(
       'en-US'
     )} XP)`
   })
 
   const traits = computed(() => {
-    return monster.traits.map((t) => processTrait(t, monster))
+    if (monster.alphaTraits) {
+      return _.sortBy(monster.traits, 'name').map((trait) =>
+        processTrait(trait, monster)
+      )
+    } else {
+      return monster.traits.map((trait) => processTrait(trait, monster))
+    }
   })
 
   const classSpellcastingPreamble = computed(() => {
@@ -186,7 +195,13 @@ export function useTextRenderer() {
   // non-legendary only actions
   const actions = computed(() => {
     return monster.actions
-      .filter((a) => !a.legendaryOnly)
+      .filter((a) => !a.legendaryOnly && !a.bonusAction)
+      .map((a) => processAction(a, monster))
+  })
+
+  const bonusActions = computed(() => {
+    return monster.actions
+      .filter((a) => !a.legendaryOnly && a.bonusAction)
       .map((a) => processAction(a, monster))
   })
 
@@ -260,6 +275,7 @@ export function useTextRenderer() {
     innateSpellcastingLists,
     attacks,
     actions,
+    bonusActions,
     multiattacks,
     legendaryPreamble,
     legendaryActions,

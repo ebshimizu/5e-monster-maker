@@ -32,6 +32,15 @@
               :label="$t('editor.regional.effectItem', [idx + 1])"
               expand-separator
             >
+              <template #header>
+                <q-item-section>
+                  {{ $t('editor.regional.effectItem', [idx + 1]) }}
+                </q-item-section>
+
+                <q-item-section side>
+                  <swap-buttons field="regionalEffects" :idx="idx" />
+                </q-item-section>
+              </template>
               <q-card>
                 <q-card-section class="row">
                   <monster-text-editor
@@ -73,11 +82,13 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
+import SwapButtons from './widgets/SwapButtons.vue'
 
 export default defineComponent({
   name: 'RegionalEffectsEditor',
   components: {
     MonsterTextEditor,
+    SwapButtons,
   },
   setup() {
     const monster = useMonsterStore()

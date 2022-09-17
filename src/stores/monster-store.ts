@@ -13,6 +13,7 @@ import {
   Monster,
   MonsterAction,
   MonsterSkill,
+  SwappableField,
 } from 'src/components/models'
 import {
   avgHP,
@@ -41,8 +42,9 @@ export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
     return {
       name: 'My New Monster',
-      useArticleInToken: false,
       saveVersion: MONSTER_VERSION,
+      useArticleInToken: false,
+      alphaTraits: true,
       size: 'Medium',
       type: 'humanoid',
       alignment: '',
@@ -50,6 +52,8 @@ export const useMonsterStore = defineStore('monster', {
       AC: 10,
       ACType: '',
       CR: 0,
+      useCrDisplayOverride: false,
+      crOverride: '',
       proficiency: 2,
       proficiencyOverride: false,
       HP: {
@@ -1049,6 +1053,27 @@ export const useMonsterStore = defineStore('monster', {
           color: 'negative',
         })
       }
+    },
+    swapItems(target: SwappableField, source: number, dest: number) {
+      const targetArray = this[target]
+
+      const tmp = targetArray[dest]
+      targetArray[dest] = targetArray[source]
+      targetArray[source] = tmp
+    },
+    moveItemUp(target: SwappableField, source: number) {
+      // already at top
+      if (source === 0) return
+
+      this.swapItems(target, source, source - 1)
+    },
+    moveItemDown(target: SwappableField, source: number) {
+      const targetLen = this[target].length
+
+      // already at the bottom
+      if (source === targetLen - 1) return
+
+      this.swapItems(target, source, source + 1)
     },
   },
   persist: {

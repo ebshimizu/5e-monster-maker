@@ -12,11 +12,20 @@
           class="rounded-borders bg-blue-10 full-width"
         >
           <q-expansion-item
-            v-for="reaction in monster.reactions"
+            v-for="(reaction, idx) in monster.reactions"
             :key="reaction.id"
             :label="reaction.name"
             expand-separator
           >
+            <template #header>
+              <q-item-section>
+                {{ reaction.name }}
+              </q-item-section>
+
+              <q-item-section side>
+                <swap-buttons field="reactions" :idx="idx" />
+              </q-item-section>
+            </template>
             <q-card>
               <q-card-section class="row">
                 <q-input
@@ -63,10 +72,11 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
+import SwapButtons from './widgets/SwapButtons.vue'
 
 export default defineComponent({
   name: 'ReactionsEditor',
-  components: { MonsterTextEditor },
+  components: { MonsterTextEditor, SwapButtons },
   setup() {
     const monster = useMonsterStore()
 

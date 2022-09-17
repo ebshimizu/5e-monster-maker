@@ -58,6 +58,7 @@ export default {
     vulnerabilities: 'Damage Vulnerabilities',
     conditionImmunities: 'Condition Immunities',
     passivePerception: 'Passive Perception',
+    senses: 'Senses',
     sense: {
       blindsight: 'Blindsight',
       darkvision: 'Darkvision',
@@ -110,6 +111,7 @@ export default {
     action: {
       recharge: 'Recharge',
     },
+    bonusActions: 'Bonus Actions',
   },
   editor: {
     // caption fields are allocated for each tab but not used at the moment
@@ -258,10 +260,12 @@ export default {
       caption: '',
       add: 'Add Action',
       delete: 'Delete Action',
-      legendaryOnly: 'Legendary Action Only',
-      regular: 'Regular Action',
+      legendaryOnly: 'Legendary Only',
+      regular: 'Regular',
       legendaryExplanation:
         'Actions marked as Legendary Only will not display in the rendered list of actions, but can still be used as legendary actions.',
+      fullAction: 'Full Action',
+      bonusAction: 'Bonus Action',
       save: 'Save Action',
       recharge: '(Recharge {0})',
       plural: 'action | actions',
@@ -297,6 +301,13 @@ export default {
     resetTip: 'Reset to Default',
     article: "Use 'The' in NAME Token",
     renderSettings: 'Stat Block Settings',
+    settings: {
+      cols: 'Columns',
+      article: "Use 'The' in NAME Token",
+      alphaTrait: 'Sort Traits by Name',
+      one: 'One',
+      two: 'Two',
+    },
     columns: 'Columns',
     customSpells: 'Manage Custom Spells',
     crAnnotation: {
@@ -396,6 +407,8 @@ export default {
       attack: 'Attack Bonus',
       damage: 'Damage/Round',
       save: 'Save DC',
+      visualOverride: 'Using Custom CR Display',
+      standard: 'Using Standard CR',
     },
     template: {
       title: 'Manage Custom Templates',
@@ -449,6 +462,8 @@ export default {
     home: 'Monster Editor',
     ogl: 'Open Gaming License (EN-US)',
     crTable: 'Show CR Table',
+    moveUp: 'Move Up',
+    moveDown: 'Move Down',
   },
   io: {
     error: {
@@ -474,11 +489,12 @@ export default {
     copyMd: 'Copied Markdown (Homebrewery Format) to Clipboard',
     export: {
       default: 'Export JSON (5emm format)',
-      md: 'Export Markdown (Homebrewery)',
+      md: 'Export Markdown (Homebrewery Legacy)',
+      md3: 'Export Markdown (Homebrewery v3)',
       tarrasque: 'Export JSON (Tarrasque.io format)',
       latex: 'Export LaTeX (rpgtex)',
       png: 'Save as PNG',
-      mdClip: 'Copy Markdown to Clipboard (Homebrewery)',
+      mdClip: 'Copy Markdown to Clipboard (Homebrewery v3)',
       link: 'Copy 5emm Link (tinyurl)',
     },
     update: {
