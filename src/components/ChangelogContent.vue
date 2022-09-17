@@ -16,21 +16,13 @@
       <div class="text-body2">
         <ul>
           <li>
-            <a
-              href="https://github.com/ebshimizu/5e-monster-maker/issues/74"
-              target="_blank"
-              >#74</a
-            >
+            <github-issue-link :issue="74" />
             A new export option for Homebrewery v3 has been added. The v2
             renderer will continue to be supported until the Homebrewery removes
             their legacy mode.
           </li>
           <li>
-            <a
-              href="https://github.com/ebshimizu/5e-monster-maker/issues/66"
-              target="_blank"
-              >#66</a
-            >
+            <github-issue-link :issue="66" />
             Actions, attacks, reactions, lair actions, regional effects, and
             traits (if they're not being automatically sorted) can now be
             re-ordered by using the buttons inside of each accordion header.
@@ -38,31 +30,19 @@
         </ul>
         <ul>
           <li>
-            <a
-              href="https://github.com/ebshimizu/5e-monster-maker/issues/67"
-              target="_blank"
-              >#67</a
-            >
+            <github-issue-link :issue="67" />
             Actions can now be marked as bonus actions. Bonus actions will show
             up in a separate section that gets placed after actions but before
             legendary actions. Additionally, traits are automatically sorted by
             default. You can change this behavior in the Stat Block Settings.
           </li>
           <li>
-            <a
-              href="https://github.com/ebshimizu/5e-monster-maker/issues/70"
-              target="_blank"
-              >#70</a
-            >
+            <github-issue-link :issue="70" />
             Allow anything to be input as the CR. Note that this custom value is
             just visual, it does not affect the CR calculations.
           </li>
           <li>
-            <a
-              href="https://github.com/ebshimizu/5e-monster-maker/issues/72"
-              target="_blank"
-              >#72</a
-            >
+            <github-issue-link :issue="72" />
             Reduced spacing around monster name
           </li>
         </ul>
@@ -242,3 +222,13 @@
     </q-timeline-entry>
   </q-timeline>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import GithubIssueLink from './GithubIssueLink.vue'
+
+export default defineComponent({
+  name: 'ChangelogContent',
+  components: { GithubIssueLink },
+})
+</script>
