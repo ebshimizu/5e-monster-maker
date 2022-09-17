@@ -9,7 +9,7 @@
       <div class="text-body1 q-mb-sm">
         This update brings easier action re-ordering and a number of statblock
         formatting changes that follow recent adjustments in published modules.
-        The markdown updater has also been updated for Homebrewery v3.
+        The markdown exporter has also been updated for Homebrewery v3.
       </div>
       <q-separator />
       <div class="text-overline text-uppercase q-mb-sm">New Features</div>
