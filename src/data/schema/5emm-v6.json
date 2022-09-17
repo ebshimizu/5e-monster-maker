@@ -3,8 +3,11 @@
   "type": "object",
   "properties": {
     "name": { "type": "string" },
-    "useArticleInToken": { "type": "boolean" },
     "saveVersion": { "type": "integer" },
+    "useArticleInToken": { "type": "boolean" },
+    "alphaTrait": { "type": "boolean" },
+    "useCrDisplayOverride": { "type": "boolean" },
+    "crOverride": { "type": "string" },
     "size": { "type": "string" },
     "type": { "type": ["string", "null"] },
     "alignment": { "type": ["string", "null"] },

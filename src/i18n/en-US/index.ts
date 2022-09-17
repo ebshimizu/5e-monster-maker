@@ -489,11 +489,12 @@ export default {
     copyMd: 'Copied Markdown (Homebrewery Format) to Clipboard',
     export: {
       default: 'Export JSON (5emm format)',
-      md: 'Export Markdown (Homebrewery)',
+      md: 'Export Markdown (Homebrewery Legacy)',
+      md3: 'Export Markdown (Homebrewery v3)',
       tarrasque: 'Export JSON (Tarrasque.io format)',
       latex: 'Export LaTeX (rpgtex)',
       png: 'Save as PNG',
-      mdClip: 'Copy Markdown to Clipboard (Homebrewery)',
+      mdClip: 'Copy Markdown to Clipboard (Homebrewery v3)',
       link: 'Copy 5emm Link (tinyurl)',
     },
     update: {
