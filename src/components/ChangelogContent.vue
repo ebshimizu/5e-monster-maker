@@ -2,7 +2,7 @@
   <q-timeline color="secondary">
     <q-timeline-entry
       title="v2.1.0"
-      subtitle="Update"
+      subtitle="Update - 9/17/22"
       icon="update"
       color="positive"
     >
