@@ -338,19 +338,21 @@ export default defineComponent({
 <style>
 /* i don't know why scoped doesn't work but this does */
 .statblock b {
-  font-family: ScalySansBold;
+  font-family: ff-scala-sans-pro;
   font-style: normal;
+  font-weight: 700;
 }
 
 .statblock i {
-  font-family: ScalySansItalic;
-  font-style: normal;
+  font-family: ff-scala-sans-pro;
+  font-style: italic;
 }
 
 .statblock b > i,
 .statblock i > b {
-  font-family: ScalySansBoldItalic;
-  font-style: normal;
+  font-family: ff-scala-sans-pro;
+  font-style: italic;
+  font-weight: 700;
 }
 </style>
 
@@ -358,13 +360,14 @@ export default defineComponent({
 .statblock {
   background-color: #fdf1dc;
   color: #000;
-  font-family: ScalySans;
+  font-family: ff-scala-sans-pro;
   font-size: 1rem;
+  letter-spacing: 0.01em;
   padding: 8px;
   width: 100%;
 
   .monster-name {
-    font-family: MrEaves;
+    font-family: mrs-eaves-roman-small-caps, MrEaves;
     color: #58180d;
     font-weight: 800;
     font-size: 2.2em;
@@ -375,19 +378,22 @@ export default defineComponent({
   .type,
   .attack .distance,
   .attack .hit {
-    font-family: ScalySansItalic;
+    font-family: ff-scala-sans-pro, ScalySansItalic;
+    font-style: italic;
   }
 
   hr {
     border: 1px solid #9c2b1b;
-    margin: 2px 0;
+    margin: 4px 0;
   }
 
   .skill {
-    line-height: 1.3rem;
+    line-height: 1.2rem;
+    color: #58180d;
 
     .name {
-      font-family: ScalySansBold;
+      font-family: ff-scala-sans-pro, ScalySansBold;
+      font-weight: 700;
     }
   }
 
@@ -400,7 +406,8 @@ export default defineComponent({
     color: #58180d;
 
     .stat-name {
-      font-family: ScalySansBold;
+      font-family: ff-scala-sans-pro, ScalySansBold;
+      font-weight: 700;
     }
 
     .stat {
@@ -420,7 +427,8 @@ export default defineComponent({
       text-indent: -20px;
 
       .spell-list-entries {
-        font-family: ScalySansItalic;
+        font-family: ff-scala-sans-pro, ScalySansItalic;
+        font-style: italic;
       }
     }
   }
@@ -445,7 +453,9 @@ export default defineComponent({
     margin-bottom: 0.8rem;
 
     .name {
-      font-family: ScalySansBoldItalic;
+      font-family: ff-scala-sans-pro, ScalySansBoldItalic;
+      font-weight: 700;
+      font-style: italic;
     }
   }
 
@@ -458,7 +468,9 @@ export default defineComponent({
 
   h3.section {
     font-size: 1.3rem;
-    font-weight: 200;
+    font-family: ScalaSansCaps;
+    font-weight: 400;
+    letter-spacing: normal;
     color: #58180d;
     border-bottom: 1px solid #58180d;
     margin-bottom: 4px;

@@ -22,3 +22,8 @@
   font-family: ScalySansBoldItalic;
   src: url('fonts/Scaly\ Sans/Scaly Sans Bold Italic.otf');
 }
+
+@font-face {
+  font-family: ScalaSansCaps;
+  src: url('fonts/ScalaSansCaps.otf');
+}
