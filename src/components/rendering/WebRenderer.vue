@@ -12,7 +12,7 @@
     <div class="skill"><span class="name">Hit Points</span> {{ hp }}</div>
     <div class="skill"><span class="name">Speed</span> {{ speeds }}</div>
     <hr />
-    <div class="row" style="width: 100%">
+    <div class="row no-wrap" style="width: 100%">
       <div v-for="stat in stats" :key="stat.stat" class="stat-container">
         <div class="stat-name">{{ stat.stat }}</div>
         <div class="stat">

@@ -1,6 +1,26 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.1.1"
+      subtitle="Minor Update - 11/12/22"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            Updated the fonts to a closer match of published book formatting
+          </li>
+          <li>
+            <github-issue-link :issue="79" />,
+            <github-issue-link :issue="80" /> Attempted to resolve rendering
+            issues with the CHA stat getting bumped to a new line by forcing
+            "no-wrap" on the container.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.1.0"
       subtitle="Update - 9/17/22"
       icon="update"
