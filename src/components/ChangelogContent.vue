@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.1.2"
+      subtitle="Bugfix - 11/12/22"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="81" /> Fixed issue with Speeds and SKills
+            not resetting the UI.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.1.1"
       subtitle="Minor Update - 11/12/22"
       icon="update"
