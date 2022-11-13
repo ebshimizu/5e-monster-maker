@@ -16,7 +16,7 @@
           :model-value="bonusForSkill(monster, skill)"
           :disable="!skill.override"
           @update:model-value="
-            (value) => (skill.overrideValue = parseInt(`${value}`))
+            (value: string | number | null) => (skill.overrideValue = parseInt(`${value}`))
           "
         >
           <template #after>
@@ -119,7 +119,7 @@ export default defineComponent({
 
     return {
       monster,
-      skills: monster.skills,
+      skills: computed(() => monster.skills),
       addSkill: monster.addSkill,
       deleteSkill: monster.deleteSkill,
       availableSkills,

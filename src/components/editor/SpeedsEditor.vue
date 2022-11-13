@@ -34,7 +34,7 @@
                 step="5"
                 class="col-2 q-pa-sm"
                 @update:model-value="
-                  (value) => (speed.speed = validateNumber(value, 0))
+                  (value: string | number | null) => (speed.speed = validateNumber(value, 0))
                 "
               />
               <q-input
@@ -92,7 +92,7 @@ export default defineComponent({
     )
 
     return {
-      speeds: monster.speeds,
+      speeds: computed(() => monster.speeds),
       addSpeed: monster.addSpeed,
       deleteSpeed: monster.deleteSpeed,
       movementFilter,
