@@ -17,7 +17,7 @@
         step="5"
         class="col q-pa-sm"
         @update:model-value="
-          (value) => (monster.senses[sense] = validateNumber(value, 0))
+          (value: string | number | null) => (monster.senses[sense] = validateNumber(value, 0))
         "
       />
       <q-input
@@ -27,7 +27,7 @@
         :label="$t(`monster.passivePerception`)"
         :disable="!passivePerception?.override ?? true"
         @update:model-value="
-          (value) => (passivePerception.overrideValue = parseInt(`${value}`))
+          (value: string | number | null) => (passivePerception.overrideValue = validateNumber(value, 0))
         "
       >
         <template #after>
@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { validateNumber } from './numberInput'
 
 export default defineComponent({
@@ -59,7 +59,7 @@ export default defineComponent({
 
     return {
       monster,
-      passivePerception: monster.passivePerception,
+      passivePerception: computed(() => monster.passivePerception),
       senses: Object.entries(monster.senses).map(([k, v]) => {
         return { sense: k, range: v }
       }),

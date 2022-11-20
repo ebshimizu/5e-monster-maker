@@ -166,7 +166,7 @@ export default defineComponent({
       spellAttackValue,
       spellModifierValue,
       classDisplayValue,
-      spellOptionsByLevel: spells.spellOptionsByLevel,
+      spellOptionsByLevel: computed(() => spells.spellOptionsByLevel),
       addSpell,
       ...classes,
     }

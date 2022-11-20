@@ -5,7 +5,8 @@
     >
     |
     <span class="version" @click="changelog = true"
-      >v{{ majorVersion }}.{{ minorVersion }} build {{ buildNumber }}</span
+      >v{{ majorVersion }}.{{ minorVersion }}.{{ revision }} build
+      {{ buildNumber }}</span
     >
     | Created by <strong>Falindrith</strong> |
     <q-btn

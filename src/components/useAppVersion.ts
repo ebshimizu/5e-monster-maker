@@ -9,5 +9,6 @@ export const useAppVersion = () => {
     ...appVersion,
     majorVersion: appVersion.appVersion.split('.')[0],
     minorVersion: appVersion.appVersion.split('.')[1],
+    revision: appVersion.appVersion.split('.')[2],
   }
 }
