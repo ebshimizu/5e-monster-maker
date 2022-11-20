@@ -15,7 +15,7 @@
         :label="$t(`monster.stat.${stat}`)"
         :disable="!save?.override ?? true"
         @update:model-value="
-          (value) =>
+          (value: string | number | null) =>
             (monster.saves[stat].overrideValue = validateNumber(value, 0))
         "
       >
@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import { saveModifierForStat } from '../rendering/mathRendering'
 import { validateNumber } from './numberInput'
 
@@ -61,7 +61,7 @@ export default defineComponent({
 
     return {
       monster,
-      saves: monster.saves,
+      saves: computed(() => monster.saves),
       saveModifierForStat,
       validateNumber: validateNumber,
     }

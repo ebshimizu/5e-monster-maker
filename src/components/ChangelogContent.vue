@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.1.3"
+      subtitle="Bugfix - 11/20/22"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="83" /> Fixed issue with Saving Throws not
+            resetting the UI after monster reset.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.1.2"
       subtitle="Bugfix - 11/12/22"
       icon="build"
