@@ -11,7 +11,7 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
+    "@quasar/extras": "^1.15.6",
     "@vueuse/core": "^8.6.0",
     "copy-to-clipboard": "^3.3.2",
     "core-js": "^3.6.5",
@@ -23,7 +23,7 @@
     "number-to-words": "^1.2.4",
     "pinia": "^2.0.11",
     "pinia-plugin-persistedstate": "^1.6.1",
-    "quasar": "^2.6.0",
+    "quasar": "^2.10.2",
     "url": "^0.11.0",
     "uuid": "^8.3.2",
     "vue": "^3.0.0",
@@ -31,7 +31,6 @@
     "vue-router": "^4.0.0"
   },
   "devDependencies": {
-    "@quasar/app-webpack": "^3.0.0",
     "@types/dom-to-image": "^2.6.4",
     "@types/lodash": "^4.14.182",
     "@types/node": "^12.20.21",
@@ -40,26 +39,19 @@
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^8.5.0",
-    "http": "^0.0.1-security",
-    "https": "^1.0.0",
+    "eslint-config-prettier": "^8.1.0",
     "prettier": "^2.5.1",
-    "raw-loader": "^4.0.2"
+    "@types/node": "^12.20.21",
+    "@intlify/vite-plugin-vue-i18n": "^3.3.1",
+    "@quasar/app-vite": "^1.0.0",
+    "autoprefixer": "^10.4.2",
+    "typescript": "^4.5.4",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0"
   },
-  "browserslist": [
-    "last 10 Chrome versions",
-    "last 10 Firefox versions",
-    "last 4 Edge versions",
-    "last 7 Safari versions",
-    "last 8 Android versions",
-    "last 8 ChromeAndroid versions",
-    "last 8 FirefoxAndroid versions",
-    "last 10 iOS versions",
-    "last 5 Opera versions"
-  ],
   "engines": {
-    "node": ">= 12.22.1",
+    "node": "^18 || ^16 || ^14.19",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   }
