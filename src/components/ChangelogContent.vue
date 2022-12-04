@@ -14,6 +14,14 @@
             calculations. Recharge abilities are treated as single use actions
             for the purposes of the simulated 3-round combat.
           </li>
+          <li>
+            <github-issue-link :issue="85" /> Reactions can now be saved as
+            custom templates.
+          </li>
+          <li>
+            An issue causing lowercase template titles to appear out of order in
+            the templates list has been resolved.
+          </li>
         </ui>
       </div>
     </q-timeline-entry>
