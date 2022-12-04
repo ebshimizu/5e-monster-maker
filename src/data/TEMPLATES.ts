@@ -13,6 +13,7 @@ export const DEFAULT_TEMPLATE_ICON: Record<string, string> = {
   Attack: 'mdi-sword',
   Action: 'mdi-movie-open',
   Trait: 'fa-solid fa-dna',
+  Reaction: 'mdi-account-reactivate',
 }
 
 // right these are all global, as in they won't change unless the app is reloaded

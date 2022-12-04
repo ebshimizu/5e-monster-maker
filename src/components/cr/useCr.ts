@@ -27,6 +27,7 @@ export const ACTION_COLOR = {
   HP: 'green-8',
   Attack: 'red-10',
   Multiattack: 'red-10',
+  LimitedMultiattack: 'red-10',
   Action: 'amber-10',
   Trait: 'teal-10',
   Legendary: 'cyan-8',

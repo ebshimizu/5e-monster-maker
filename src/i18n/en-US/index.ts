@@ -343,6 +343,7 @@ export default {
       caption: '',
       add: 'Add Reaction',
       delete: 'Delete Reaction',
+      save: 'Save Reaction',
     },
     lair: {
       label: 'Lair Actions',
@@ -395,6 +396,7 @@ export default {
       type: {
         Attack: 'Attack',
         Multiattack: 'Multiattack',
+        LimitedMultiattack: 'Multiattack',
         Action: 'Action',
         Trait: 'Trait',
         Legendary: 'Legendary Action',
@@ -441,6 +443,7 @@ export default {
         Action: 'Action',
         Attack: 'Attack',
         Trait: 'Trait',
+        Reaction: 'Reaction',
       },
       importDialog: 'Import Templates',
       importFile: 'Templates File',

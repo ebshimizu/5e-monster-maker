@@ -185,7 +185,7 @@ export interface CrActionInfo {
   save: number | undefined
   limited: boolean
   uses: number
-  type: 'Action'
+  type: 'Action' | 'LimitedMultiattack'
 }
 
 export interface CrTraitInfo {
@@ -371,8 +371,16 @@ export interface TraitTemplate
   extends RemoveId<MonsterTrait>,
     TemplateMetadata<'Trait'> {}
 
+export interface ReactionTemplate
+  extends RemoveId<MonsterReaction>,
+    TemplateMetadata<'Reaction'> {}
+
 // extend this as needed for other action types
-export type DndTemplate = AttackTemplate | ActionTemplate | TraitTemplate
+export type DndTemplate =
+  | AttackTemplate
+  | ActionTemplate
+  | TraitTemplate
+  | ReactionTemplate
 
 export interface Templates {
   customTemplates: Record<string, DndTemplate>

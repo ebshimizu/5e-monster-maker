@@ -5,7 +5,9 @@ import {
   DndAttack,
   DndTemplate,
   MonsterAction,
+  MonsterReaction,
   MonsterTrait,
+  ReactionTemplate,
   Templates,
   TraitTemplate,
 } from 'src/components/models'
@@ -79,7 +81,9 @@ export const useTemplatesStore = defineStore('templates', {
     },
     allTemplateOptions(): DndTemplate[] {
       // use the option value and text keys
-      return _.sortBy(Object.values(this.allTemplates), (t) => t.templateName)
+      return _.sortBy(Object.values(this.allTemplates), (t) =>
+        t.templateName.toLowerCase()
+      )
     },
     allTemplateSubtitles(): Record<string, string> {
       const subtitles: Record<string, string> = {}
@@ -131,6 +135,9 @@ export const useTemplatesStore = defineStore('templates', {
         } else if (type === 'Trait') {
           const traitInstance = templateInstance as MonsterTrait
           monsterStore.traits.push(traitInstance)
+        } else if (type === 'Reaction') {
+          const reactionInstance = templateInstance as MonsterReaction
+          monsterStore.reactions.push(reactionInstance)
         }
         // add additional template types here
         return true
@@ -165,7 +172,6 @@ export const useTemplatesStore = defineStore('templates', {
       this.addCustomTemplate(template)
     },
     addCustomTrait(trait: MonsterTrait, templateName: string, icon: string) {
-      // uh here we go
       const template = _.cloneDeep(trait) as unknown as TraitTemplate
 
       // now we have to make it comply
@@ -173,6 +179,22 @@ export const useTemplatesStore = defineStore('templates', {
       delete (template as any).id // remove the id
       template.type = 'Trait'
       template.icon = icon === '' ? DEFAULT_TEMPLATE_ICON.Trait : icon
+      template.templateName = templateName
+
+      this.addCustomTemplate(template)
+    },
+    addCustomReaction(
+      reaction: MonsterReaction,
+      templateName: string,
+      icon: string
+    ) {
+      const template = _.cloneDeep(reaction) as unknown as ReactionTemplate
+
+      // now we have to make it comply
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      delete (template as any).id // remove the id
+      template.type = 'Reaction'
+      template.icon = icon === '' ? DEFAULT_TEMPLATE_ICON.Reaction : icon
       template.templateName = templateName
 
       this.addCustomTemplate(template)
