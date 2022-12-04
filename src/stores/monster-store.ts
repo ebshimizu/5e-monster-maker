@@ -3,6 +3,7 @@ import _ from 'lodash'
 import { defineStore } from 'pinia'
 import { useQuasar } from 'quasar'
 import {
+  CrActionInfo,
   CrDamageInfo,
   defaultAction,
   defaultAttack,
@@ -395,6 +396,107 @@ export const useMonsterStore = defineStore('monster', {
         return 0
       }
     },
+    getLimitedMultiattackVariants(): (id: string) => CrActionInfo[] {
+      return (id: string) => {
+        const multiattack = this.multiattacks.find((ma) => ma.id === id)
+        const crActions = [] as CrActionInfo[]
+
+        if (multiattack != null) {
+          // have to classify these as actions due to limited use
+          const attackDamage = multiattack.attacks.map((attackId) => {
+            const attack = this.attacks.find((a) => a.id === attackId)
+
+            if (attack) {
+              return this.expectedAttackDamage(attack)
+            }
+            return 0
+          })
+
+          const attackNames =
+            multiattack.attacks.length > 0
+              ? multiattack.attacks.map((id) => this.attackName(id))
+              : ''
+
+          // this is constant
+          const baseAttackDamage = attackDamage.reduce(
+            (acc, current) => acc + current,
+            0
+          )
+
+          // TODO: if I decide to have a variable number of rounds, change this
+          const maxTurns = 3
+
+          // find the actions and map to a temp data stucture
+          const actions = multiattack.actions.map((actionId) =>
+            this.actions.find((a) => a.id === actionId)
+          )
+
+          // unlimited power
+          const unlimitedActionNames: string[] = []
+          let unlimitedActionDamage = 0
+
+          let limitedActions: {
+            action: MonsterAction
+            uses: number
+          }[] = []
+
+          actions.forEach((a) => {
+            if (a != null) {
+              if (a.limitedUse.count === 0) {
+                unlimitedActionNames.push(this.actionName(a.id))
+                unlimitedActionDamage += a.crAnnotation.include
+                  ? a.crAnnotation.maxDamage
+                  : 0
+              } else {
+                limitedActions.push({
+                  action: a,
+                  uses: a.limitedUse.count,
+                })
+              }
+            }
+          })
+
+          // split it
+          for (let i = 0; i < maxTurns; i++) {
+            // first, get the limited action damage
+            const limitedActionDamage = limitedActions.map((la) => {
+              return la.action.crAnnotation.include
+                ? la.action.crAnnotation.maxDamage
+                : 0
+            })
+
+            // TODO: i18n
+            const name = `Multiattack: ${[
+              ...attackNames,
+              ...unlimitedActionNames,
+              ...limitedActions.map((la) => this.actionName(la.action.id)),
+            ].join(', ')}`
+
+            const damage =
+              baseAttackDamage +
+              unlimitedActionDamage +
+              limitedActionDamage.reduce((acc, current) => acc + current, 0)
+
+            // construct the action info
+            crActions.push({
+              name,
+              damage,
+              toHit: 0,
+              save: 0,
+              limited: true,
+              uses: 1,
+              type: 'LimitedMultiattack',
+            })
+
+            // decrement the limited action uses and filter
+            limitedActions.forEach((la) => (la.uses -= 1))
+            limitedActions = limitedActions.filter((la) => la.uses > 0)
+          }
+        }
+
+        return crActions
+      }
+    },
     attackName: (state) => {
       return (attackId: string) => {
         const attack = state.attacks.find((a) => a.id === attackId)
@@ -519,6 +621,10 @@ export const useMonsterStore = defineStore('monster', {
       }
 
       // multi
+      // multiattacks with associated limited use actions are added individually
+      // with and without the used actions
+      // if there is a multiattack with multiple limited use actions i will scream but also
+      // it'll have to add a new entry for every possible overlap
       for (const ma of this.multiattacks) {
         // multiattacks have no modifiers
         // get attack/action names
@@ -531,13 +637,27 @@ export const useMonsterStore = defineStore('monster', {
             ? ma.actions.map((id) => this.actionName(id))
             : ''
 
-        data.attacks.push({
-          name: `Multiattack: ${[...attackNames, ...actionNames].join(', ')}`,
-          damage: this.expectedMultiattackDamage(ma.id),
-          save: 0,
-          toHit: 0,
-          type: 'Multiattack',
-        })
+        // check if the attack has limited use actions (only the actions need to do this
+        // attacks are not allowed to have a limited use field)
+        const limitedActions = ma.actions
+          .map((id) => this.actions.find((a) => a.id === id))
+          .filter((action) => {
+            return action != null && action.limitedUse.count > 0
+          })
+
+        if (limitedActions.length === 0) {
+          data.attacks.push({
+            name: `Multiattack: ${[...attackNames, ...actionNames].join(', ')}`,
+            damage: this.expectedMultiattackDamage(ma.id),
+            save: 0,
+            toHit: 0,
+            type: 'Multiattack',
+          })
+        } else {
+          // break it on down
+          const variants = this.getLimitedMultiattackVariants(ma.id)
+          data.actions.push(...variants)
+        }
       }
 
       // sort descending damage

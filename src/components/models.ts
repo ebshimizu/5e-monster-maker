@@ -185,7 +185,7 @@ export interface CrActionInfo {
   save: number | undefined
   limited: boolean
   uses: number
-  type: 'Action'
+  type: 'Action' | 'LimitedMultiattack'
 }
 
 export interface CrTraitInfo {

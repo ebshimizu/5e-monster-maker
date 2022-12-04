@@ -395,6 +395,7 @@ export default {
       type: {
         Attack: 'Attack',
         Multiattack: 'Multiattack',
+        LimitedMultiattack: 'Multiattack',
         Action: 'Action',
         Trait: 'Trait',
         Legendary: 'Legendary Action',
