@@ -32,7 +32,20 @@
                   v-model="reaction.name"
                   :label="$t('monster.trait.name')"
                   class="col-12 q-pa-sm"
-                />
+                >
+                  <template #after>
+                    <q-btn
+                      round
+                      icon="save"
+                      color="primary"
+                      @click="addTemplate(reaction)"
+                    >
+                      <q-tooltip class="text-body2">{{
+                        $t('editor.reaction.save')
+                      }}</q-tooltip></q-btn
+                    >
+                  </template>
+                </q-input>
                 <monster-text-editor
                   :field="reaction.description"
                   i18n-label-key="monster.trait.description"
@@ -70,18 +83,43 @@
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
+import { useTemplatesStore } from 'src/stores/templates-store'
 import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { MonsterReaction } from '../models'
+import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import SwapButtons from './widgets/SwapButtons.vue'
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
   name: 'ReactionsEditor',
   components: { MonsterTextEditor, SwapButtons },
   setup() {
     const monster = useMonsterStore()
+    const $q = useQuasar()
+    const { t } = useI18n()
+    const templateStore = useTemplatesStore()
+
+    const addTemplate = (target: MonsterReaction) => {
+      $q.dialog({
+        component: NewTemplateDialog,
+        componentProps: {
+          targetName: target.name,
+        },
+      }).onOk(({ name, icon }: { name: string; icon: string }) => {
+        templateStore.addCustomReaction(target, name, icon)
+
+        $q.notify({
+          message: t('editor.template.added', [name]),
+          type: 'positive',
+        })
+      })
+    }
 
     return {
       monster,
+      addTemplate,
     }
   },
 })
