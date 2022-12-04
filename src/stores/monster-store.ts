@@ -442,11 +442,17 @@ export const useMonsterStore = defineStore('monster', {
 
           actions.forEach((a) => {
             if (a != null) {
-              if (a.limitedUse.count === 0) {
+              if (a.limitedUse.count === 0 && a.recharge === '') {
                 unlimitedActionNames.push(this.actionName(a.id))
                 unlimitedActionDamage += a.crAnnotation.include
                   ? a.crAnnotation.maxDamage
                   : 0
+              } else if (a.recharge !== '') {
+                // treat recharge as single use
+                limitedActions.push({
+                  action: a,
+                  uses: 1,
+                })
               } else {
                 limitedActions.push({
                   action: a,
@@ -642,7 +648,10 @@ export const useMonsterStore = defineStore('monster', {
         const limitedActions = ma.actions
           .map((id) => this.actions.find((a) => a.id === id))
           .filter((action) => {
-            return action != null && action.limitedUse.count > 0
+            return (
+              action != null &&
+              (action.limitedUse.count > 0 || action.recharge !== '')
+            )
           })
 
         if (limitedActions.length === 0) {

@@ -1,6 +1,23 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.1.4"
+      subtitle="Minor Update - 12/4/22"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ui>
+          <li>
+            <github-issue-link :issue="86" /> The Offensive CR estimator now
+            accounts for limited use actions in the multiattack damage
+            calculations. Recharge abilities are treated as single use actions
+            for the purposes of the simulated 3-round combat.
+          </li>
+        </ui>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.1.3"
       subtitle="Bugfix - 11/20/22"
       icon="build"
