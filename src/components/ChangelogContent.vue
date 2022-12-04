@@ -7,7 +7,7 @@
       color="primary"
     >
       <div class="text-body2">
-        <ui>
+        <ul>
           <li>
             <github-issue-link :issue="86" /> The Offensive CR estimator now
             accounts for limited use actions in the multiattack damage
@@ -22,7 +22,7 @@
             An issue causing lowercase template titles to appear out of order in
             the templates list has been resolved.
           </li>
-        </ui>
+        </ul>
       </div>
     </q-timeline-entry>
     <q-timeline-entry
