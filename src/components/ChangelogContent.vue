@@ -49,7 +49,7 @@
       <div class="text-body2">
         <ul>
           <li>
-            <github-issue-link :issue="81" /> Fixed issue with Speeds and SKills
+            <github-issue-link :issue="81" /> Fixed issue with Speeds and Skills
             not resetting the UI.
           </li>
         </ul>
