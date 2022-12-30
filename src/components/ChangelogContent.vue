@@ -1,6 +1,28 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.1.5"
+      subtitle="Minor Update - 12/29/22"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="76" /> A new export format has been added
+            for
+            <a href="https://www.improved-initiative.com/" target="_blank"
+              >Improved Initiative.</a
+            >
+          </li>
+          <li>
+            Tooling: Moved the project from webpack to vite. This is a technical
+            change that shouldn't affect site operations.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.1.4"
       subtitle="Minor Update - 12/4/22"
       icon="update"
