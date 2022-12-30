@@ -49,6 +49,7 @@ import { useLatexRenderer } from '../rendering/useLatexRenderer'
 import { useTarrasqueRenderer } from '../rendering/useTarrasqueRenderer'
 import { useImprovedInitRenderer } from '../rendering/useImprovedInitRenderer'
 
+import jsonurl from 'json-url'
 import { useEditorStore } from 'src/stores/editor-store'
 
 export default defineComponent({
@@ -62,7 +63,7 @@ export default defineComponent({
     const { renderLatex } = useLatexRenderer()
     const { renderTarrasqueJson } = useTarrasqueRenderer()
     const { renderImprovedInitJson } = useImprovedInitRenderer()
-    const codec = require('json-url')('lzma')
+    const codec = jsonurl('lzma')
     const editorStore = useEditorStore()
 
     // who needs a library i guess

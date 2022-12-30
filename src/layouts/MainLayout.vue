@@ -95,6 +95,7 @@ import { popFileDialog } from 'src/components/file/popFileDialog'
 import DownloadButton from 'src/components/file/DownloadButton.vue'
 import { useRoute } from 'vue-router'
 
+import jsonurl from 'json-url'
 import { useQuasar } from 'quasar'
 import WebRendererSettingsButton from 'src/components/rendering/WebRendererSettingsButton.vue'
 import { useV1Updater } from 'src/components/file/useV1Updater'
@@ -114,7 +115,7 @@ export default defineComponent({
   setup() {
     const leftDrawerOpen = ref(false)
     const route = useRoute()
-    const codec = require('json-url')('lzma')
+    const codec = jsonurl('lzma')
     const $q = useQuasar()
     const { loadMonster } = useFileLoader()
 
@@ -138,7 +139,7 @@ export default defineComponent({
 
     const loadDataParam = async () => {
       try {
-        const data = await codec.decompress(route.query.data)
+        const data = (await codec.decompress(route.query.data)) as string
         const maybeMonster = JSON.parse(data)
         queryData.value = maybeMonster
         showDataLoad.value = true
