@@ -49,4 +49,4 @@ jobs:
           target_branch: master
           build_dir: dist/spa
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
