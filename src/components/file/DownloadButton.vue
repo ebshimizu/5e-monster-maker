@@ -8,6 +8,9 @@
         <q-item v-close-popup clickable @click="saveMd3()">
           <q-item-section>{{ $t('io.export.md3') }}</q-item-section>
         </q-item>
+        <q-item v-close-popup clickable @click="saveImprovedInit()">
+          <q-item-section>{{ $t('io.export.improvedInit') }}</q-item-section>
+        </q-item>
         <q-item v-close-popup clickable @click="saveLatex()">
           <q-item-section>{{ $t('io.export.latex') }}</q-item-section>
         </q-item>
@@ -44,6 +47,7 @@ import copy from 'copy-to-clipboard'
 import DomToImage from 'dom-to-image'
 import { useLatexRenderer } from '../rendering/useLatexRenderer'
 import { useTarrasqueRenderer } from '../rendering/useTarrasqueRenderer'
+import { useImprovedInitRenderer } from '../rendering/useImprovedInitRenderer'
 
 import * as jsonurl from 'json-url'
 import { useEditorStore } from 'src/stores/editor-store'
@@ -58,6 +62,7 @@ export default defineComponent({
     const { renderMarkdownV3 } = useMd3Renderer()
     const { renderLatex } = useLatexRenderer()
     const { renderTarrasqueJson } = useTarrasqueRenderer()
+    const { renderImprovedInitJson } = useImprovedInitRenderer()
     const codec = jsonurl('lzma')
     const editorStore = useEditorStore()
 
@@ -162,6 +167,14 @@ export default defineComponent({
       }
     }
 
+    const saveImprovedInit = async () => {
+      download(
+        await renderImprovedInitJson(),
+        `${monster.name}.improved-initiative.json`,
+        'application/json'
+      )
+    }
+
     const copyLink = async () => {
       try {
         const b64 = await codec.compress(JSON.stringify(monster.$state))
@@ -201,6 +214,7 @@ export default defineComponent({
       saveLatex,
       saveTio,
       savePng,
+      saveImprovedInit,
       copyLink,
     }
   },

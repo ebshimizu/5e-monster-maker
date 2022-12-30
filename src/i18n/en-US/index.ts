@@ -499,6 +499,7 @@ export default {
       png: 'Save as PNG',
       mdClip: 'Copy Markdown to Clipboard (Homebrewery v3)',
       link: 'Copy 5emm Link (tinyurl)',
+      improvedInit: 'Export JSON (Improved Initiative format)',
     },
     update: {
       v1Spells:
