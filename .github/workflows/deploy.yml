@@ -16,24 +16,24 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # run node setup
-      - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
-      - name: Build Number Generator
-        uses: einaregilsson/build-number@v3
-        with:
-          token: ${{secrets.github_token}}
+      # - name: Build Number Generator
+      #   uses: einaregilsson/build-number@v3
+      #   with:
+      #     token: ${{secrets.github_token}}
 
       - name: Write build number to file
         run: |
           rm build.json
-          echo {\"build\":$BUILD_NUMBER} >> build.json
+          echo {\"build\":$GITHUB_RUN_ATTEMPT} >> build.json
 
       # install packages
       - run: npm install
@@ -43,7 +43,7 @@ jobs:
         run: quasar build
 
       - name: GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.1.0
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           repo: ebshimizu/5emm
           target_branch: master
