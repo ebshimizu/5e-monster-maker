@@ -16,7 +16,7 @@ const buildJson = fs.readFileSync('./build.json')
 const version = JSON.parse(packageJson).version || 0
 const buildNumber = JSON.parse(buildJson).build || 0
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(function (ctx) {
   return {
     eslint: {
       // fix: true,
@@ -87,6 +87,7 @@ module.exports = configure(function (/* ctx */) {
           {
             // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
             // compositionOnly: false,
+            runtimeOnly: ctx.dev,
 
             // you need to set i18n resource including paths !
             include: path.resolve(__dirname, './src/i18n/**'),
