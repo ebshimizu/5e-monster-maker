@@ -33,7 +33,7 @@ jobs:
       - name: Write build number to file
         run: |
           rm build.json
-          echo {\"build\":$GITHUB_RUN_ATTEMPT} >> build.json
+          echo {\"build\":$GITHUB_RUN_NUMBER} >> build.json
 
       # install packages
       - run: npm install
