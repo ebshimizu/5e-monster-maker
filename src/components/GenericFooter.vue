@@ -64,7 +64,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useAppVersion } from './useAppVersion'
-import ogl from '../data/OGL.txt'
+import ogl from '../data/OGL.txt?raw'
 import ChangelogContent from './ChangelogContent.vue'
 import { useEditorStore } from 'src/stores/editor-store'
 
