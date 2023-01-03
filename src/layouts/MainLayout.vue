@@ -183,6 +183,6 @@ export default defineComponent({
 
 <style lang="scss">
 .template-bar {
-  width: 55%;
+  width: 45%;
 }
 </style>

@@ -459,6 +459,7 @@ export default {
     },
     ok: 'OK',
     load: 'Load',
+    import: 'Import',
     cancel: 'Cancel',
     save: 'Save',
     monsterReset: 'Monster Reset',
@@ -531,6 +532,14 @@ export default {
       spells: 'Download Spells',
       templates: 'Download Templates',
     },
+  },
+  import: {
+    title: 'Import Monster from Open5e',
+    description: 'Showing {0} of {1}',
+    results: 'No Monsters Found | {n} Monster | {n} Monsters',
+    tooltip: 'Import from Open5e',
+    label: 'Monster Name',
+    import: 'Import',
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)

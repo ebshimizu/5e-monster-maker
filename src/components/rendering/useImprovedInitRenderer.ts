@@ -1,7 +1,7 @@
 import { CR } from 'src/data/CR'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useI18n } from 'vue-i18n'
-import { DndAttack, DndStat, MonsterAction } from '../models'
+import { DndStat, MonsterAction } from '../models'
 import { avgRoll, renderBonus, statModifier } from './mathRendering'
 import { useProcessTokens } from './useProcessTokens'
 import { useTextRenderer } from './useTextRenderer'
@@ -24,20 +24,6 @@ export function useImprovedInitRenderer() {
   const renderer = useTextRenderer()
   const { processTokens, stripTags } = useProcessTokens()
   const { t } = useI18n()
-
-  // does not account for versatile
-  const attackDamageDice = (attack: DndAttack) => {
-    const base = `${attack.damage.count}d${attack.damage.dice}`
-
-    const extra =
-      attack.additionalDamage.length > 0
-        ? `+${attack.additionalDamage
-            .map((ad) => `${ad.count}d${ad.dice}`)
-            .join('+')}`
-        : ''
-
-    return base + extra
-  }
 
   // https://www.improved-initiative.com/
   const renderImprovedInitJson = async () => {

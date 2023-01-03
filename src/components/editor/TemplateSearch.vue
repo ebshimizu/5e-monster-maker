@@ -1,51 +1,54 @@
 <template>
-  <q-select
-    ref="templateRef"
-    :model-value="search"
-    :options="filteredTemplateOptions"
-    class="template-search"
-    dense
-    standout
-    option-value="templateName"
-    option-label="templateName"
-    emit-value
-    clearable
-    use-input
-    hide-selected
-    input-debounce="0"
-    behavior="dialog"
-    placeholder="Search for Actions, Traits, and Attacks"
-    @filter="templateFilter"
-    @update:model-value="addTemplate"
-    @input-value="checkPopupStatus"
-  >
-    <template #option="scope">
-      <q-item v-bind="scope.itemProps">
-        <q-item-section avatar>
-          <q-icon
-            :name="
-              scope.opt.icon === ''
-                ? defaultIcon[scope.opt.type]
-                : scope.opt.icon
-            "
-          />
-        </q-item-section>
-        <q-item-section>
-          <q-item-label>{{ scope.opt.templateName }}</q-item-label>
-          <q-item-label lines="1" caption>{{
-            templateStore.allTemplateSubtitles[scope.opt.templateName]
-          }}</q-item-label>
-        </q-item-section>
-        <q-item-section side top>
-          <q-badge
-            :color="actionColor[scope.opt.type as keyof typeof actionColor]"
-          >
-            {{ $t(`editor.template.type.${scope.opt.type}`) }}
-          </q-badge>
-        </q-item-section>
-      </q-item>
-    </template>
-  </q-select>
+  <div style="display: flex">
+    <q-select
+      ref="templateRef"
+      :model-value="search"
+      :options="filteredTemplateOptions"
+      class="template-search"
+      dense
+      standout
+      option-value="templateName"
+      option-label="templateName"
+      emit-value
+      clearable
+      use-input
+      hide-selected
+      input-debounce="0"
+      behavior="dialog"
+      placeholder="Search for Actions, Traits, and Attacks"
+      @filter="templateFilter"
+      @update:model-value="addTemplate"
+      @input-value="checkPopupStatus"
+    >
+      <template #option="scope">
+        <q-item v-bind="scope.itemProps">
+          <q-item-section avatar>
+            <q-icon
+              :name="
+                scope.opt.icon === ''
+                  ? defaultIcon[scope.opt.type]
+                  : scope.opt.icon
+              "
+            />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ scope.opt.templateName }}</q-item-label>
+            <q-item-label lines="1" caption>{{
+              templateStore.allTemplateSubtitles[scope.opt.templateName]
+            }}</q-item-label>
+          </q-item-section>
+          <q-item-section side top>
+            <q-badge
+              :color="actionColor[scope.opt.type as keyof typeof actionColor]"
+            >
+              {{ $t(`editor.template.type.${scope.opt.type}`) }}
+            </q-badge>
+          </q-item-section>
+        </q-item>
+      </template>
+    </q-select>
+    <import-button />
+  </div>
 </template>
 
 <script lang="ts">
@@ -57,9 +60,13 @@ import { ACTION_COLOR } from '../cr/useCr'
 import { templateArrayFilter } from '../filters'
 import _ from 'lodash'
 import { DEFAULT_TEMPLATE_ICON } from 'src/data/TEMPLATES'
+import ImportButton from '../file/ImportButton.vue'
 
 export default defineComponent({
   name: 'TemplateSearch',
+  components: {
+    ImportButton,
+  },
   setup() {
     // TODO: link this to the template search
     const search = ref('')
