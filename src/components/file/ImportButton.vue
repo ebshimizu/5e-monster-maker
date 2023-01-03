@@ -11,6 +11,13 @@
       >
       <q-separator />
       <q-card-section class="q-pt-md">
+        <div class="q-mb-md">
+          <i18n-t keypath="import.help">
+            <a href="https://open5e.com/" target="_blank">{{
+              $t('import.open5eLink')
+            }}</a>
+          </i18n-t>
+        </div>
         <q-select
           v-model="selectedName"
           filled
@@ -26,9 +33,13 @@
           @virtual-scroll="appendOptions"
         >
           <template #after>
-            <q-btn color="positive" :disable="importInvalid">{{
-              $t('import.import')
-            }}</q-btn>
+            <q-btn
+              color="positive"
+              :disable="importInvalid"
+              :loading="loadingData"
+              @click="loadData"
+              >{{ $t('import.import') }}</q-btn
+            >
           </template>
           <template #option="scope">
             <q-item v-bind="scope.itemProps">
@@ -60,9 +71,10 @@
 </template>
 
 <script setup lang="ts">
-import { QSelect } from 'quasar'
+import { QSelect, useQuasar } from 'quasar'
 import { computed, nextTick, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useOpen5eImport } from './importers/useOpen5eImport'
 import { Open5eMonster, Open5eMonsterResponse } from './Open5eData'
 
 const { t } = useI18n()
@@ -74,6 +86,7 @@ const next = ref<string | null>(null)
 const prev = ref<string | null>(null)
 const count = ref<number>(0)
 const loading = ref(false)
+const loadingData = ref(false)
 
 // might include extra data for rendering too
 const options = computed(() =>
@@ -153,5 +166,31 @@ const appendOptions = async ({ to, ref }: { to: number; ref: QSelect }) => {
       loading.value = false
     })
   }
+}
+
+const { importOpen5eMonster } = useOpen5eImport()
+const $q = useQuasar()
+const loadData = async () => {
+  loadingData.value = true
+
+  // find the monster first
+  const selectedMonster = monsterResults.value.find(
+    (m) => m.name === selectedName.value
+  )
+
+  if (selectedMonster) {
+    const result = importOpen5eMonster(selectedMonster)
+
+    if (result) {
+      importDialog.value = false
+    }
+  } else {
+    $q.notify({
+      message: t('import.error.notFound'),
+      type: 'negative',
+    })
+  }
+
+  loadingData.value = false
 }
 </script>

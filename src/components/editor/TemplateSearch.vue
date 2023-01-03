@@ -47,7 +47,9 @@
         </q-item>
       </template>
     </q-select>
-    <import-button />
+    <div class="q-ml-sm">
+      <import-button />
+    </div>
   </div>
 </template>
 

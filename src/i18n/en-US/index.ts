@@ -535,11 +535,19 @@ export default {
   },
   import: {
     title: 'Import Monster from Open5e',
+    help: "Import a monster from the {0}. Importing a monster will overwrite your current monster, so make sure you've saved your data before importing a monster.",
+    open5eLink: 'Open5e API',
     description: 'Showing {0} of {1}',
     results: 'No Monsters Found | {n} Monster | {n} Monsters',
     tooltip: 'Import from Open5e',
     label: 'Monster Name',
     import: 'Import',
+    error: {
+      notFound: 'Import failed. Key not found in API results.',
+      hp: 'HP failed to validate. HP String: {0}',
+      skill: 'Failed to resolve skill for key {0}. Received {1}.',
+      sense: 'Unknown sense: {0}',
+    },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns
   // since the monster fields for these keys just output the array contents, it should be (theoretically)
