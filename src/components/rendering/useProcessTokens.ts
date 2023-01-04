@@ -816,6 +816,10 @@ export function useProcessTokens() {
       return '\n'
     })
 
+    // nonbreaking spaces
+    const nbsp = '&nbsp;'
+    input = input.replaceAll(nbsp, ' ')
+
     return input
   }
 
