@@ -338,7 +338,7 @@
                     :disable="!attack.alternateDamage.active"
                     :options="diceOptions"
                     emit-value
-                    :display-value="diceLookup[attack.damage.dice]"
+                    :display-value="diceLookup[attack.alternateDamage.dice]"
                     :label="$t('monster.attack.dieType')"
                     class="col-2 q-pa-sm"
                   />
