@@ -57,6 +57,9 @@
             </q-item>
           </template>
         </q-select>
+        <div class="q-pt-md text-caption">
+          {{ $t('import.additional') }}
+        </div>
       </q-card-section>
       <q-card-actions align="right">
         <q-btn
