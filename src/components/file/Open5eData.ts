@@ -14,7 +14,7 @@ export interface Open5eMonster {
   group: null | string
   alignment: string
   armor_class: number
-  armor_desc: string
+  armor_desc: string | null
   hit_points: number
   hit_dice: string
   speed: Record<string, number>

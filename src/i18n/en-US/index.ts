@@ -558,6 +558,10 @@ export default {
         'Basic attack info for {0} was imported but damage parsing failed. Full description: {1}',
       legendaryCount:
         'Failed to set number of legendary actions. Description: {0}',
+      spellcastingLevel: 'Unable to determine spellcaster level. {0}',
+      spellcastingStat: 'Unable to determine spellcasting stat. {0}',
+      spells:
+        'The following spells were not found in the spells database. Please add spells with the following names: {0}',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

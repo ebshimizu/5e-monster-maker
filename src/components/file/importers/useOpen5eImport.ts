@@ -18,9 +18,12 @@ import { useMonsterStore } from 'src/stores/monster-store'
 import { v4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { Open5eAction, Open5eMonster } from '../Open5eData'
+import _ from 'lodash'
+import { useSpellsStore } from 'src/stores/spells-store'
 
 export function useOpen5eImport() {
   const monster = useMonsterStore()
+  const spells = useSpellsStore()
   const $q = useQuasar()
   const { t } = useI18n()
 
@@ -31,6 +34,15 @@ export function useOpen5eImport() {
     INT: 'intelligence',
     WIS: 'wisdom',
     CHA: 'charisma',
+  }
+
+  const StringToStat: Record<string, DndStat> = {
+    strength: 'STR',
+    dexterity: 'DEX',
+    constitution: 'CON',
+    intelligence: 'INT',
+    wisdom: 'WIS',
+    charisma: 'CHA',
   }
 
   // used for target count parsing.
@@ -109,6 +121,106 @@ export function useOpen5eImport() {
     return newAction.id
   }
 
+  const processSpellcasting = (desc: string) => {
+    // oh boy
+    const level = new RegExp(/is an? (\d+)(?:st|nd|th)-level/gi)
+    const stat = new RegExp(/spellcasting ability is (\w+)/gi)
+    const dc = new RegExp(/spell save DC (\d+)/gi)
+    const toHit = new RegExp(/\+(\d+) to hit/gi)
+
+    // the stat determines the modifiers, though we should check after the fact if the DCs match...
+    const levelMatch = level.exec(desc)
+    if (levelMatch != null) {
+      monster.spellcasting.level = parseInt(levelMatch[1])
+    } else {
+      importNote(t('import.error.spellcasterLevel', [desc]))
+    }
+
+    const statMatch = stat.exec(desc)
+    if (statMatch != null) {
+      const stat: DndStat = StringToStat[statMatch[1].toLowerCase()]
+      monster.spellcasting.stat = stat
+
+      // modifier check
+      const dcMatch = dc.exec(desc)
+      const toHitMatch = toHit.exec(desc)
+      if (dcMatch != null) {
+        const targetSpellSave = parseInt(dcMatch[1])
+
+        if (monster.spellSave !== targetSpellSave) {
+          monster.spellcasting.save.override = true
+          monster.spellcasting.save.overrideValue = targetSpellSave
+        }
+      }
+
+      if (toHitMatch != null) {
+        const targetToHit = parseInt(toHitMatch[1])
+
+        if (monster.spellAttackModifier !== targetToHit) {
+          monster.spellcasting.attack.override = true
+          monster.spellcasting.attack.overrideValue = targetToHit
+        }
+      }
+    } else {
+      importNote(t('import.error.spellcasterStat', [desc]))
+    }
+
+    // spell list time
+    const spellLists = [
+      ...desc.matchAll(
+        /(cantrips?)(?= \(at will\): ([^\n$]+))|(\d+)(?:st|nd|th) level \((\d+) slots?\): ([^\n$]+)/gi
+      ),
+    ]
+    const unavailableSpells = [] as string[]
+
+    // snapshot the spell names, casing issue
+    const validSpellNames = Object.keys(spells.allSpells)
+    const validSpells = [] as string[]
+
+    spellLists.forEach((sl) => {
+      console.log(`[Import] Processing spell list ${sl[0]}`)
+      // check if cantrip list or not
+      if (sl[1] != null) {
+        // cantrip
+        const spellNames = sl[2].split(',').map((s) => _.trim(s))
+
+        spellNames.forEach((s) => {
+          const name = validSpellNames.find((name) => name.toLowerCase() === s)
+
+          if (name != null) {
+            validSpells.push(name)
+          } else {
+            unavailableSpells.push(s)
+          }
+        })
+      } else {
+        // not cantrip
+        // one of the conditions has to match and if the first one is null then it's a level
+        const level = parseInt(sl[3])
+        const slots = parseInt(sl[4])
+        const spellNames = sl[5].split(',').map((s) => _.trim(s))
+
+        monster.spellcasting.slots[level - 1] = slots
+
+        spellNames.forEach((s) => {
+          const name = validSpellNames.find((name) => name.toLowerCase() === s)
+
+          if (name != null) {
+            validSpells.push(name)
+          } else {
+            unavailableSpells.push(s)
+          }
+        })
+      }
+    })
+
+    monster.spellcasting.standard = validSpells
+
+    if (unavailableSpells.length > 0) {
+      importNote(t('import.error.spells', [unavailableSpells.join(', ')]))
+    }
+  }
+
   const processTrait = (a: Open5eAction) => {
     console.log(`[Import] Processing trait ${a.name}`)
 
@@ -118,7 +230,7 @@ export function useOpen5eImport() {
       console.warn('TODO: innate spellcasting')
     } else if (a.name.toLowerCase() === 'spellcasting') {
       // todo: parse spellcasting
-      console.warn('TODO: spellcasting')
+      processSpellcasting(a.desc)
     } else {
       const newTrait = defaultTrait()
       newTrait.name = a.name
@@ -245,7 +357,7 @@ export function useOpen5eImport() {
         newAttack.damage.dice = parseInt(damageMatches[2])
 
         // optional modifier
-        if (damageMatches[3] !== '') {
+        if (damageMatches[3] != null) {
           newAttack.damage.modifier.stat = newAttack.modifier.stat
 
           // ok now check if the damage modifier actually lines up
@@ -376,7 +488,7 @@ export function useOpen5eImport() {
     }`
     monster.alignment = data.alignment
     monster.AC = data.armor_class
-    monster.ACType = data.armor_desc
+    monster.ACType = data.armor_desc ?? ''
     monster.languages = data.languages
 
     // challenge rating
@@ -397,7 +509,7 @@ export function useOpen5eImport() {
     if (dieMatches) {
       monster.HP.HD = parseInt(dieMatches[1])
       monster.HP.type = parseInt(dieMatches[2])
-      monster.HP.modifier = parseInt(dieMatches[3])
+      monster.HP.modifier = dieMatches[3] == null ? 0 : parseInt(dieMatches[3])
     } else {
       importNote(t('import.error.hp', [data.hit_dice]))
     }
