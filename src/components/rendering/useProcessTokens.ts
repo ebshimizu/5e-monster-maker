@@ -90,6 +90,12 @@ export function useProcessTokens() {
       `${monster.useArticleInToken ? 'the ' : ''}${monster.name}`
     )
 
+    // continuing with caps for name token
+    // this is case sensitive actually
+    input = input.replace(/(?:\.\s*|^)\s*(?:<\/?[b|i]>)*\s*(the)/gm, (match) =>
+      match.replace('the', 'The')
+    )
+
     // generic tokens
     const generic = RegExp(/\{monster.([\w\d\[\].]+)}/gi)
     input = input.replace(generic, (match, prop) => {

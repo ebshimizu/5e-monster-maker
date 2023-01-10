@@ -28,6 +28,7 @@
           :hint="status"
           :label="$t('import.label')"
           :options="options"
+          :disable="loadingData"
           style="width: 100%"
           @filter="apiSearch"
           @virtual-scroll="appendOptions"
@@ -35,7 +36,7 @@
           <template #after>
             <q-btn
               color="positive"
-              :disable="importInvalid"
+              :disable="importInvalid || loadingData"
               :loading="loadingData"
               @click="loadData"
               >{{ $t('import.import') }}</q-btn
@@ -176,24 +177,26 @@ const $q = useQuasar()
 const loadData = async () => {
   loadingData.value = true
 
-  // find the monster first
-  const selectedMonster = monsterResults.value.find(
-    (m) => m.name === selectedName.value
-  )
+  setTimeout(() => {
+    // find the monster first
+    const selectedMonster = monsterResults.value.find(
+      (m) => m.name === selectedName.value
+    )
 
-  if (selectedMonster) {
-    const result = importOpen5eMonster(selectedMonster)
+    if (selectedMonster) {
+      const result = importOpen5eMonster(selectedMonster)
 
-    if (result) {
-      importDialog.value = false
+      if (result) {
+        importDialog.value = false
+      }
+    } else {
+      $q.notify({
+        message: t('import.error.notFound'),
+        type: 'negative',
+      })
     }
-  } else {
-    $q.notify({
-      message: t('import.error.notFound'),
-      type: 'negative',
-    })
-  }
 
-  loadingData.value = false
+    loadingData.value = false
+  }, 100)
 }
 </script>

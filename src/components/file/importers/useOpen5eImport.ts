@@ -20,10 +20,14 @@ import { useI18n } from 'vue-i18n'
 import { Open5eAction, Open5eMonster } from '../Open5eData'
 import _ from 'lodash'
 import { useSpellsStore } from 'src/stores/spells-store'
+import { useClasses } from 'src/data/CLASS'
+import { useAutoUpdateCr } from 'src/components/editor/useAutoUpdateCr'
 
 export function useOpen5eImport() {
   const monster = useMonsterStore()
   const spells = useSpellsStore()
+  const { SrdClass } = useClasses()
+  const { autoUpdateCr } = useAutoUpdateCr()
   const $q = useQuasar()
   const { t } = useI18n()
 
@@ -65,6 +69,7 @@ export function useOpen5eImport() {
       message,
       type: 'warning',
       timeout: 0,
+      multiLine: true,
       actions: [{ label: t('editor.ok'), color: 'white' }],
     })
   }
@@ -117,6 +122,8 @@ export function useOpen5eImport() {
     newAction.description = replaceFormattingStrings(newAction.description)
     newAction.legendaryOnly = legendaryOnly
 
+    autoUpdateCr(newAction.description, newAction.crAnnotation)
+
     monster.actions.push(newAction)
     return newAction.id
   }
@@ -125,6 +132,7 @@ export function useOpen5eImport() {
     // oh boy
     const level = new RegExp(/is an? (\d+)(?:st|nd|th)-level/gi)
     const stat = new RegExp(/spellcasting ability is (\w+)/gi)
+    const cls = new RegExp(/following (\w+) spells?/gi)
     const dc = new RegExp(/spell save DC (\d+)/gi)
     const toHit = new RegExp(/\+(\d+) to hit/gi)
 
@@ -134,6 +142,14 @@ export function useOpen5eImport() {
       monster.spellcasting.level = parseInt(levelMatch[1])
     } else {
       importNote(t('import.error.spellcasterLevel', [desc]))
+    }
+
+    const clsMatch = cls.exec(desc)
+    if (clsMatch != null) {
+      monster.spellcasting.class =
+        clsMatch[1].toUpperCase() in SrdClass
+          ? clsMatch[1].toUpperCase()
+          : clsMatch[1]
     }
 
     const statMatch = stat.exec(desc)
@@ -182,7 +198,9 @@ export function useOpen5eImport() {
       // check if cantrip list or not
       if (sl[1] != null) {
         // cantrip
-        const spellNames = sl[2].split(',').map((s) => _.trim(s))
+        const spellNames = sl[2]
+          .split(',')
+          .map((s) => _.trim(s).replaceAll('*', ''))
 
         spellNames.forEach((s) => {
           const name = validSpellNames.find((name) => name.toLowerCase() === s)
@@ -198,7 +216,9 @@ export function useOpen5eImport() {
         // one of the conditions has to match and if the first one is null then it's a level
         const level = parseInt(sl[3])
         const slots = parseInt(sl[4])
-        const spellNames = sl[5].split(',').map((s) => _.trim(s))
+        const spellNames = sl[5]
+          .split(',')
+          .map((s) => _.trim(s).replaceAll('*', ''))
 
         monster.spellcasting.slots[level - 1] = slots
 
@@ -247,6 +267,7 @@ export function useOpen5eImport() {
 
       // replace dice strings
       newTrait.description = replaceFormattingStrings(newTrait.description)
+      autoUpdateCr(newTrait.description, newTrait.crAnnotation)
 
       monster.traits.push(newTrait)
     }
@@ -281,8 +302,9 @@ export function useOpen5eImport() {
 
     // starting with the attack basics
     const attackInfo = RegExp(
-      /(Melee|Ranged) (Weapon|Spell) Attack: ([+-]\d+) to hit, (?:reach|range) (\d+|\d+\/\d+) ft\., (\w+) target\./gi
+      /(Melee|Ranged|Melee or Ranged) (Weapon|Spell) Attack: ([+-]\d+) to hit, (?:reach|range) (\d+|\d+\/\d+) ft\.(?: or (?:reach|range) (\d+)\/(\d+) ft\.)?, (\w+) target\./gi
     )
+
     const infoMatches = attackInfo.exec(a.desc)
     if (infoMatches != null) {
       // run the basics
@@ -293,7 +315,8 @@ export function useOpen5eImport() {
       )
 
       const dist = infoMatches[1].toUpperCase()
-      newAttack.distance = dist as DndAttack['distance']
+      newAttack.distance =
+        dist === 'MELEE OR RANGED' ? 'BOTH' : (dist as DndAttack['distance'])
 
       // kind, uppercase conversion
       const kind = infoMatches[2].toUpperCase()
@@ -334,12 +357,18 @@ export function useOpen5eImport() {
         newAttack.range.reach = parseInt(range)
       }
 
+      if (infoMatches[5] != null && infoMatches[6] != null) {
+        // versatile
+        newAttack.range.standard = parseInt(infoMatches[5])
+        newAttack.range.long = parseInt(infoMatches[6])
+      }
+
       // target count
-      const targets = wordToNumber[infoMatches[5]]
+      const targets = wordToNumber[infoMatches[7]]
       if (targets != null) {
         newAttack.targets = targets
       } else {
-        importNote(t('import.error.targets', [a.name, infoMatches[5]]))
+        importNote(t('import.error.targets', [a.name, infoMatches[7]]))
       }
 
       // next, parse the damage

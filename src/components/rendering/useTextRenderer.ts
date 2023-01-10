@@ -41,9 +41,12 @@ export function useTextRenderer() {
     })
   })
 
+  const hpModifier = computed(() =>
+    monster.HP.modifier === 0 ? '' : `+${monster.HP.modifier}`
+  )
   const hp = computed(
     () =>
-      `${monster.avgHp} (${monster.HP.HD}d${monster.HP.type}+${monster.HP.modifier})`
+      `${monster.avgHp} (${monster.HP.HD}d${monster.HP.type}${hpModifier.value})`
   )
 
   // maybe pull these into a separate file? idk if i'll need to reuse later so can always split later
