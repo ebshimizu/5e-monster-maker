@@ -555,7 +555,9 @@ export default {
         'Attack {0} specified more than 9 targets. Please set the number of targets for {1}.',
       attackFail: 'Unable to parse attack named {0}. Full description: {1}.',
       attackDamageFail:
-        'Basic attack info for {0} was imported but damage parsing failed. Full description: {1}.',
+        'Basic attack info for {0} was imported but damage parsing failed. Full description: {1}',
+      legendaryCount:
+        'Failed to set number of legendary actions. Description: {0}',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

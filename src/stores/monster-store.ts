@@ -1078,14 +1078,14 @@ export const useMonsterStore = defineStore('monster', {
         })
       }
     },
-    addLegendaryAction(actionId: string) {
+    addLegendaryAction(actionId: string, cost = 1) {
       if (
         this.legendaryActions.actions.find((la) => la.actionId === actionId) ==
         null
       ) {
         this.legendaryActions.actions.push({
           actionId,
-          cost: 1,
+          cost,
         })
       }
     },

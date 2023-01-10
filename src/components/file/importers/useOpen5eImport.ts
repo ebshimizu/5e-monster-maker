@@ -57,14 +57,27 @@ export function useOpen5eImport() {
     })
   }
 
-  const replaceDiceStrings = (input: string): string => {
-    const dice = RegExp(/\d+\s\((\d+)d(\d+)[ ]*([+-][ ]*\d+)?\)/gi)
-    return input.replace(dice, (match, count, dice, modifier) => {
-      return `{${count}d${dice}${modifier ? modifier : ''}}`
+  const replaceMdStrings = (input: string): string => {
+    const bold = RegExp(/\*\*([^\*]+)\*\*/gi)
+    let modifiedInput = input.replace(bold, (match, text) => {
+      return `<b>${text}</b>`
     })
+
+    modifiedInput = modifiedInput.replaceAll('\n', '<br>')
+
+    return modifiedInput
   }
 
-  const processAction = (a: Open5eAction) => {
+  const replaceFormattingStrings = (input: string): string => {
+    const dice = RegExp(/\d+\s\((\d+)d(\d+)[ ]*([+-][ ]*\d+)?\)/gi)
+    const modInput = input.replace(dice, (match, count, dice, modifier) => {
+      return `{${count}d${dice}${modifier ? modifier : ''}}`
+    })
+
+    return replaceMdStrings(modInput)
+  }
+
+  const processAction = (a: Open5eAction, legendaryOnly = false) => {
     // plain actions aren't too bad
     // theoretically we should replace the DCs with the relevant stat but that's work and we'd be guessing.
     const newAction = defaultAction()
@@ -89,9 +102,11 @@ export function useOpen5eImport() {
     }
 
     // replace dice strings
-    newAction.description = replaceDiceStrings(newAction.description)
+    newAction.description = replaceFormattingStrings(newAction.description)
+    newAction.legendaryOnly = legendaryOnly
 
     monster.actions.push(newAction)
+    return newAction.id
   }
 
   const processTrait = (a: Open5eAction) => {
@@ -119,7 +134,7 @@ export function useOpen5eImport() {
       }
 
       // replace dice strings
-      newTrait.description = replaceDiceStrings(newTrait.description)
+      newTrait.description = replaceFormattingStrings(newTrait.description)
 
       monster.traits.push(newTrait)
     }
@@ -252,6 +267,8 @@ export function useOpen5eImport() {
         }
 
         // match group 4 is the primary damage type
+        // it is possible for this to be missing if the "plus" has the same damage type but if
+        // that's the case, then don't put it in plus honestly
         newAttack.damage.type = damageMatches[4]
 
         // match group 5 is the "plus [x] damage" strings, if any
@@ -292,12 +309,58 @@ export function useOpen5eImport() {
       newAttack.name = a.name
 
       // replace dice strings in description
-      newAttack.description = replaceDiceStrings(newAttack.description)
+      newAttack.description = replaceFormattingStrings(newAttack.description)
       monster.attacks.push(newAttack)
     } else {
       importNote(t('import.error.attackFail', [a.name, a.desc]))
       return
     }
+  }
+
+  const processLegendaryActions = (desc: string, actions: Open5eAction[]) => {
+    // first, get the number of actions.
+    const laCount = new RegExp(/can take (\d+) legendary actions?/gi)
+    const countMatches = laCount.exec(desc)
+
+    monster.legendaryActions.useCustomPreamble = true
+    monster.legendaryActions.customPreamble = desc
+
+    if (countMatches != null) {
+      monster.legendaryActions.count = parseInt(countMatches[1])
+    } else {
+      console.log(
+        `Legendary action error. Unable to find action count. ${desc}`
+      )
+      importNote(t('import.error.legendaryCount', [desc]))
+    }
+
+    // action iteration
+    actions.forEach((a) => {
+      // name check
+      const actionCount = new RegExp(/\(costs (\d+) actions?\)/gi)
+      const actionCountMatches = actionCount.exec(a.name)
+
+      const cost =
+        actionCountMatches != null ? parseInt(actionCountMatches[1]) : 1
+
+      // name adjustment
+      const name =
+        actionCountMatches != null
+          ? a.name.substring(0, a.name.indexOf('(') - 1)
+          : a.name
+
+      // match an attack
+      const existingAttack = monster.attacks.find(
+        (atk) => atk.name.toLowerCase().indexOf(a.name) !== -1
+      )
+
+      if (existingAttack != null) {
+        monster.addLegendaryAction(existingAttack.id, cost)
+      } else {
+        const id = processAction({ name, desc: a.desc }, true)
+        monster.addLegendaryAction(id)
+      }
+    })
   }
 
   const importOpen5eMonster = (data: Open5eMonster): boolean => {
@@ -490,7 +553,7 @@ export function useOpen5eImport() {
 
             monster.multiattackOptions.useCustomRenderer = true
             monster.multiattackOptions.customMultiattackRenderer =
-              replaceDiceStrings(a.desc)
+              replaceFormattingStrings(a.desc)
           } else {
             // process the action
             processAction(a)
@@ -511,12 +574,15 @@ export function useOpen5eImport() {
         monster.reactions.push({
           id: v4(),
           name: r.name,
-          description: replaceDiceStrings(r.desc),
+          description: replaceFormattingStrings(r.desc),
         })
       })
     }
 
     // TODO: legendary actions
+    if (data.legendary_desc !== '' && data.legendary_actions != '') {
+      processLegendaryActions(data.legendary_desc, data.legendary_actions)
+    }
 
     // force save
     monster.$persist()
