@@ -441,50 +441,56 @@ const rawCR = [
     numeric: 30,
     xp: 155000,
   },
-];
+]
 
 export const CR = rawCR.map((cr, index) => {
-  return { index, ...cr };
-});
+  return { index, ...cr }
+})
 
 export const CR_SELECT = CR.map((cr, idx) => {
-  return { label: cr.cr, value: idx };
-});
+  return { label: cr.cr, value: idx }
+})
 
 // the cr retrieval functions are a disaster let's fix that
 function getCrByRange(value: number, field: keyof typeof rawCR[number]) {
   // check if the value is between index.field and index + 1.field
   for (let i = 0; i < CR.length - 1; i++) {
     if (CR[i][field] <= value && value < CR[i + 1][field]) {
-      return CR[i];
+      return CR[i]
     }
   }
 
   // if it wasn't like in a range, then it can only be min or max so...
-  if (value <= CR[0][field]) return CR[0];
-  else return CR[CR.length - 1];
+  if (value <= CR[0][field]) return CR[0]
+  else return CR[CR.length - 1]
+}
+
+export function getCrByString(crString: string) {
+  const maybeCr = CR.find((cr) => cr.cr === crString)
+
+  return maybeCr ?? CR[0]
 }
 
 export function getCrByDamage(damage: number) {
-  return getCrByRange(damage, 'dprMin');
+  return getCrByRange(damage, 'dprMin')
 }
 
 export function getCrByDc(dc: number) {
-  return getCrByRange(dc, 'saveDc');
+  return getCrByRange(dc, 'saveDc')
 }
 
 export function getCrByAttack(attack: number) {
-  return getCrByRange(attack, 'attack');
+  return getCrByRange(attack, 'attack')
 }
 
 export function getCrByNumber(number: number) {
-  return getCrByRange(number, 'numeric');
+  return getCrByRange(number, 'numeric')
 }
 
 export function getCrByHp(hp: number) {
-  return getCrByRange(hp, 'hpMin');
+  return getCrByRange(hp, 'hpMin')
 }
 
 export function getCrByAc(ac: number) {
-  return getCrByRange(ac, 'ac');
+  return getCrByRange(ac, 'ac')
 }

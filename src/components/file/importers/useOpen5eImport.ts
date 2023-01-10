@@ -12,7 +12,7 @@ import {
   saveModifierForStat,
   statModifier,
 } from 'src/components/rendering/mathRendering'
-import { getCrByNumber } from 'src/data/CR'
+import { getCrByString } from 'src/data/CR'
 import { SKILL } from 'src/data/SKILL'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { v4 } from 'uuid'
@@ -124,7 +124,15 @@ export function useOpen5eImport() {
 
     autoUpdateCr(newAction.description, newAction.crAnnotation)
 
+    // is this a bonus action
+    const isBonusAction =
+      newAction.description.match(/^as a bonus action/gi) != null
+    if (isBonusAction) {
+      newAction.bonusAction = true
+    }
+
     monster.actions.push(newAction)
+
     return newAction.id
   }
 
@@ -244,32 +252,38 @@ export function useOpen5eImport() {
   const processTrait = (a: Open5eAction) => {
     console.log(`[Import] Processing trait ${a.name}`)
 
-    // if we're dealing with spellcasting we're in for a time
-    if (a.name.toLowerCase() === 'innate spellcasting') {
-      // TODO: parse innate spellcasting
-      console.warn('TODO: innate spellcasting')
-    } else if (a.name.toLowerCase() === 'spellcasting') {
-      // todo: parse spellcasting
-      processSpellcasting(a.desc)
+    // is secretly a bonus action
+    const isBonusAction = a.desc.match(/^as a bonus action/gi) != null
+    if (isBonusAction) {
+      processAction(a, false)
     } else {
-      const newTrait = defaultTrait()
-      newTrait.name = a.name
-      newTrait.description = a.desc
+      // if we're dealing with spellcasting we're in for a time
+      if (a.name.toLowerCase() === 'innate spellcasting') {
+        // TODO: parse innate spellcasting
+        console.warn('TODO: innate spellcasting')
+      } else if (a.name.toLowerCase() === 'spellcasting') {
+        // todo: parse spellcasting
+        processSpellcasting(a.desc)
+      } else {
+        const newTrait = defaultTrait()
+        newTrait.name = a.name
+        newTrait.description = a.desc
 
-      // check for limited use
-      const limited = RegExp(/\((\d+)\/(\w+)\)/gi)
-      const matches = limited.exec(a.name)
-      if (matches != null) {
-        newTrait.limitedUse.count = parseInt(matches[1])
-        newTrait.limitedUse.rate = matches[2].toUpperCase()
-        newTrait.name = a.name.substring(0, a.name.indexOf('(') - 1)
+        // check for limited use
+        const limited = RegExp(/\((\d+)\/(\w+)\)/gi)
+        const matches = limited.exec(a.name)
+        if (matches != null) {
+          newTrait.limitedUse.count = parseInt(matches[1])
+          newTrait.limitedUse.rate = matches[2].toUpperCase()
+          newTrait.name = a.name.substring(0, a.name.indexOf('(') - 1)
+        }
+
+        // replace dice strings
+        newTrait.description = replaceFormattingStrings(newTrait.description)
+        autoUpdateCr(newTrait.description, newTrait.crAnnotation)
+
+        monster.traits.push(newTrait)
       }
-
-      // replace dice strings
-      newTrait.description = replaceFormattingStrings(newTrait.description)
-      autoUpdateCr(newTrait.description, newTrait.crAnnotation)
-
-      monster.traits.push(newTrait)
     }
   }
 
@@ -302,7 +316,7 @@ export function useOpen5eImport() {
 
     // starting with the attack basics
     const attackInfo = RegExp(
-      /(Melee|Ranged|Melee or Ranged) (Weapon|Spell) Attack: ([+-]\d+) to hit, (?:reach|range) (\d+|\d+\/\d+) ft\.(?: or (?:reach|range) (\d+)\/(\d+) ft\.)?, (\w+) target\./gi
+      /(Melee|Ranged|Melee or Ranged) (Weapon|Spell) Attack: ([+-]\d+) to hit, (?:reach|range) (\d+|\d+\/\d+) ft\.(?: or (?:reach|range) (\d+)\/(\d+) ft\.)?, (\w+) (?:targets?|creatures?)\./gi
     )
 
     const infoMatches = attackInfo.exec(a.desc)
@@ -521,7 +535,7 @@ export function useOpen5eImport() {
     monster.languages = data.languages
 
     // challenge rating
-    const cr = getCrByNumber(parseFloat(data.challenge_rating))
+    const cr = getCrByString(data.challenge_rating)
     monster.CR = cr.index
     monster.proficiency = cr.proficiency
 
