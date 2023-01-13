@@ -562,6 +562,9 @@ export default {
       spellcastingStat: 'Unable to determine spellcasting stat. {0}',
       spells:
         'The following spells were not found in the spells database. Please add spells with the following names: {0}',
+      innateSpellList: 'Unable to parse innate spellcasting spell list. {0}',
+      innateSpellcasting: 'Unable to parse innate spellcasting preamble. {0}',
+      innateRate: 'Unable to determine innate spellcasting frequency. {0}',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

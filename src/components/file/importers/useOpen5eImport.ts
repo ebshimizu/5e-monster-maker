@@ -4,6 +4,7 @@ import {
   defaultAttack,
   defaultTrait,
   DndAttack,
+  DndAtWillSpell,
   DndStat,
   Monster,
 } from 'src/components/models'
@@ -22,11 +23,13 @@ import _ from 'lodash'
 import { useSpellsStore } from 'src/stores/spells-store'
 import { useClasses } from 'src/data/CLASS'
 import { useAutoUpdateCr } from 'src/components/editor/useAutoUpdateCr'
+import { useRechargeTimes } from 'src/data/RECHARGE_TIME'
 
 export function useOpen5eImport() {
   const monster = useMonsterStore()
   const spells = useSpellsStore()
   const { SrdClass } = useClasses()
+  const { rechargeTimeKeys } = useRechargeTimes()
   const { autoUpdateCr } = useAutoUpdateCr()
   const $q = useQuasar()
   const { t } = useI18n()
@@ -249,6 +252,113 @@ export function useOpen5eImport() {
     }
   }
 
+  const processInnateSpellcasting = (desc: string) => {
+    // oh boy
+    const stat = new RegExp(/spellcasting ability is (\w+)/gi)
+    const dc = new RegExp(/spell save DC (\d+)/gi)
+    const toHit = new RegExp(/\+(\d+) to hit/gi)
+
+    // the stat determines the modifiers, though we should check after the fact if the DCs match...
+    const statMatch = stat.exec(desc)
+    if (statMatch != null) {
+      const stat: DndStat = StringToStat[statMatch[1].toLowerCase()]
+      monster.spellcasting.stat = stat
+
+      // modifier check
+      const dcMatch = dc.exec(desc)
+      const toHitMatch = toHit.exec(desc)
+      if (dcMatch != null) {
+        const targetSpellSave = parseInt(dcMatch[1])
+
+        if (monster.spellSave !== targetSpellSave) {
+          monster.spellcasting.save.override = true
+          monster.spellcasting.save.overrideValue = targetSpellSave
+        }
+      }
+
+      if (toHitMatch != null) {
+        const targetToHit = parseInt(toHitMatch[1])
+
+        if (monster.spellAttackModifier !== targetToHit) {
+          monster.spellcasting.attack.override = true
+          monster.spellcasting.attack.overrideValue = targetToHit
+        }
+      }
+    } else {
+      importNote(t('import.error.innateSpellcasting', [desc]))
+    }
+
+    // spell list time
+    const spellLists = [
+      ...desc.matchAll(/(?:(at will)|(\d+)\/([^:]+)): ([^\n]+)/gi),
+    ]
+    const unavailableSpells = [] as string[]
+
+    // snapshot the spell names, casing issue
+    const validSpellNames = Object.keys(spells.allSpells)
+
+    spellLists.forEach((sl) => {
+      // each of these lists is separate so reinit this each loop
+      const validSpells = [] as string[]
+      console.log(`[Import] Processing spell list ${sl[0]}`)
+
+      // rate check
+      const newSpellList: DndAtWillSpell = {
+        id: v4(),
+        count: 0,
+        rate: '',
+        spells: [],
+      }
+
+      if (sl[1] != null) {
+        newSpellList.rate = sl[1]
+
+        const maybeKey = newSpellList.rate.toUpperCase().replaceAll(' ', '_')
+        if (rechargeTimeKeys.includes(maybeKey)) {
+          newSpellList.rate = maybeKey
+        } else {
+          importNote(t('import.error.innateRate', [sl[0]]))
+        }
+      } else if (sl[2] != null) {
+        newSpellList.rate = sl[3]
+
+        const maybeKey = newSpellList.rate.toUpperCase().replaceAll(' ', '_')
+        if (rechargeTimeKeys.includes(maybeKey)) {
+          newSpellList.rate = maybeKey
+        } else {
+          importNote(t('import.error.innateRate', [sl[0]]))
+        }
+
+        // count
+        newSpellList.count = parseInt(sl[2])
+      } else {
+        importNote(t('import.error.innateSpellList', [sl[0]]))
+      }
+
+      // spell validation
+      const spellNames = sl[4]
+        .split(',')
+        .map((s) => _.trim(s).replaceAll('*', ''))
+
+      spellNames.forEach((s) => {
+        const name = validSpellNames.find((name) => name.toLowerCase() === s)
+
+        if (name != null) {
+          validSpells.push(name)
+        } else {
+          unavailableSpells.push(s)
+        }
+      })
+
+      newSpellList.spells = validSpells
+      monster.spellcasting.atWill.push(newSpellList)
+    })
+
+    if (unavailableSpells.length > 0) {
+      importNote(t('import.error.spells', [unavailableSpells.join(', ')]))
+    }
+  }
+
   const processTrait = (a: Open5eAction) => {
     console.log(`[Import] Processing trait ${a.name}`)
 
@@ -259,10 +369,8 @@ export function useOpen5eImport() {
     } else {
       // if we're dealing with spellcasting we're in for a time
       if (a.name.toLowerCase() === 'innate spellcasting') {
-        // TODO: parse innate spellcasting
-        console.warn('TODO: innate spellcasting')
+        processInnateSpellcasting(a.desc)
       } else if (a.name.toLowerCase() === 'spellcasting') {
-        // todo: parse spellcasting
         processSpellcasting(a.desc)
       } else {
         const newTrait = defaultTrait()

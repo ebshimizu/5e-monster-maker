@@ -135,7 +135,7 @@ import { validateNumber } from './numberInput'
 import SearchableSpellSelect from './widgets/SearchableSpellSelect.vue'
 
 export default defineComponent({
-  name: 'ClassCastingEditor',
+  name: 'AtWillCastingEditor',
   components: { MonsterTextEditor, SearchableSpellSelect },
   setup() {
     const showSlots = ref(false)

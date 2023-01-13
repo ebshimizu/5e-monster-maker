@@ -185,7 +185,10 @@ export function useTextRenderer() {
     return monster.spellcasting.atWill.map((s) => {
       return {
         ...s,
-        renderedLabel: `${s.count}/${t(`recharge.${s.rate}`)}`,
+        renderedLabel:
+          s.rate === 'AT_WILL'
+            ? t('recharge.AT_WILL')
+            : `${s.count}/${t(`recharge.${s.rate}`)}`,
         renderedSpells: s.spells.join(', '),
       }
     })
