@@ -1,8 +1,8 @@
 <template>
   <div class="generic-footer q-py-xs text-center text-body1">
-    <span class="ogl-link" @click.stop="oglDialog = true"
-      >Open Gaming Licence</span
-    >
+    <span class="ogl-link" @click.stop="oglDialog = true">{{
+      $t('app.ogl')
+    }}</span>
     |
     <span class="version" @click="changelog = true"
       >v{{ majorVersion }}.{{ minorVersion }}.{{ revision }} build
