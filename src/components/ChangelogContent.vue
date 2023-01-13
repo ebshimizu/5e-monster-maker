@@ -47,6 +47,11 @@
             icon next to the template search bar.
           </li>
           <li>
+            <github-issue-link :issue="93" /> The Tarrasque.io JSON exporter no
+            longer inadvertently creates a regular spellcasting list if only
+            innate spellcasting is active.
+          </li>
+          <li>
             Text Rendering: the {NAME} token will now properly capitalize the
             "The" if it occurs as the start of a sentence.
           </li>
