@@ -274,7 +274,7 @@ export function useTarrasqueRenderer() {
       })
     }
 
-    const spells = monster.spellcasting.standard
+    const spells = Array.from(monster.spellcasting.standard)
     for (const atWill of monster.spellcasting.atWill) {
       spells.push(...atWill.spells)
     }

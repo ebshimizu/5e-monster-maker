@@ -1,6 +1,74 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.0"
+      subtitle="Major Update - 1/13/2023"
+      icon="update"
+      color="positive"
+    >
+      <div class="text-body1 q-mb-sm">
+        Hey! Before we get to the changes in this update, I want to take a
+        moment to highlight Wizards of the Coast's efforts to undermine the OGL
+        1.0 upon which so much homebrew content (like the stuff you're making!)
+        relies on. Please visit
+        <a href="https://www.opendnd.games" target="_blank">opendnd.games</a>
+        for more info, and add your name to the open letter.
+        <br />
+        <br />
+        As for how the OGL 1.1 would affect this site, I wouldn't worry about it
+        too much. I'll keep the site up and open source for as long as possible.
+        <br />
+        - Falindrith
+      </div>
+      <q-separator class="q-my-sm" />
+      <div class="text-body1 q-mb-sm">
+        Ever want to edit a monster but don't want to type it all in? This
+        update brings support for importing monsters from the
+        <a href="https://open5e.com/">Open5e API</a>, which contains all of the
+        monsters in the SRD and a bunch of other monsters licensed under the
+        OGL. The importer covers most cases, however it's a bit tricky to
+        convert plain text to the Monster Maker format. Please read the warning
+        messages carefully, and
+        <a
+          href="https://github.com/ebshimizu/5e-monster-maker/issues/new"
+          target="_blank"
+          >file a bug report</a
+        >
+        if there are larger issues with it.
+      </div>
+      <q-separator />
+      <div class="text-overline text-uppercase q-mb-sm">New Features</div>
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="77" /> A new importer for the
+            <a href="https://open5e.com/">Open5e API</a>
+            has been added. You can access this feature by clicking on the cloud
+            icon next to the template search bar.
+          </li>
+          <li>
+            <github-issue-link :issue="93" /> The Tarrasque.io JSON exporter no
+            longer inadvertently creates a regular spellcasting list if only
+            innate spellcasting is active.
+          </li>
+          <li>
+            Text Rendering: the {NAME} token will now properly capitalize the
+            "The" if it occurs as the start of a sentence.
+          </li>
+          <li>Text Rendering: plain line breaks tags (br) are now allowed.</li>
+          <li>
+            Text Rendering: if a monster has a +0 modifier to its HP, the +0
+            will no longer be rendered.
+          </li>
+          <li>
+            Text Rendering: an innate spellcasting list with an "At Will" number
+            of uses will no longer render the number of uses before the "At
+            Will" label.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.1.5"
       subtitle="Minor Update - 12/29/22"
       icon="update"

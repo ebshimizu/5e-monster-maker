@@ -1,6 +1,10 @@
 export default {
   app: {
-    name: "Falindrith's D&D Monster Maker",
+    name: "Falindrith's Monster Maker",
+    ogl: 'Open Gaming License 1.0',
+    opendnd: '#OpenDnD',
+    opendndTip:
+      'The new Open Gaming License proposed by Wizards of the Coast will negatively impact D&D homebrew creators. Click to visit opendnd.games for more info and to add your name to the open letter.',
   },
   monster: {
     name: 'Name',
@@ -459,6 +463,7 @@ export default {
     },
     ok: 'OK',
     load: 'Load',
+    import: 'Import',
     cancel: 'Cancel',
     save: 'Save',
     monsterReset: 'Monster Reset',
@@ -530,6 +535,40 @@ export default {
       monster: 'Download Monster',
       spells: 'Download Spells',
       templates: 'Download Templates',
+    },
+  },
+  import: {
+    title: 'Import Monster from Open5e',
+    help: "Import a monster from the {0}. Importing a monster will overwrite your current monster, so make sure you've saved your data before importing a monster.",
+    additional:
+      "Please note that some data may fail to import correctly due to structural differences between Open5e and this Monster Maker. We'll do our best to import the data into the right format, but there might be some data errors, especially around Multiattack actions. If an issue occurs, the app will put up a notice containing the original text, which should allow you to correct any mistakes manually. If more significant errors occur, please file a bug on GitHub and include the monster name you were trying to import.",
+    open5eLink: 'Open5e API',
+    description: 'Showing {0} of {1}',
+    results: 'No Monsters Found | {n} Monster | {n} Monsters',
+    tooltip: 'Import from Open5e',
+    label: 'Monster Name',
+    import: 'Import',
+    multiattack:
+      'Using custom multiattack description. Offensive CR estimate may be inaccurate. Add actions and attacks to the created Multiattack group to fix the CR calculation.',
+    error: {
+      notFound: 'Import failed. Key not found in API results.',
+      hp: 'HP failed to validate. HP String: {0}',
+      skill: 'Failed to resolve skill for key {0}. Received {1}.',
+      sense: 'Unknown sense: {0}',
+      targets:
+        'Attack {0} specified more than 9 targets. Please set the number of targets for {1}.',
+      attackFail: 'Unable to parse attack named {0}. Full description: {1}.',
+      attackDamageFail:
+        'Basic attack info for {0} was imported but damage parsing failed. Full description: {1}',
+      legendaryCount:
+        'Failed to set number of legendary actions. Description: {0}',
+      spellcastingLevel: 'Unable to determine spellcaster level. {0}',
+      spellcastingStat: 'Unable to determine spellcasting stat. {0}',
+      spells:
+        'The following spells were not found in the spells database. Please add spells with the following names: {0}',
+      innateSpellList: 'Unable to parse innate spellcasting spell list. {0}',
+      innateSpellcasting: 'Unable to parse innate spellcasting preamble. {0}',
+      innateRate: 'Unable to determine innate spellcasting frequency. {0}',
     },
   },
   // note: add to these keys to provide additional default options for some of the dropdowns

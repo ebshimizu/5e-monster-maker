@@ -18,6 +18,7 @@ A monster stat block builder for the 5th edition of Dungeons and Dragons.
   - Displays an explanation of each component when hovered
 - Templates: Apply attacks, traits, or other actions to a creature from a preset library
   - Add your own traits, actions, and attacks as templates for re-use
+- Import: Edit monsters from [Open5e](https://open5e.com/), including all of the SRD monsters and additional OGL licensed monsters hosted by Open5e.
 - Export Anywhere
   - JSON: For later editing with the 5e Monster Maker
   - Markdown: For use with [Homebrewery](https://homebrewery.naturalcrit.com/), [GMBinder](https://www.gmbinder.com/), or other editors that accept that Markdown format

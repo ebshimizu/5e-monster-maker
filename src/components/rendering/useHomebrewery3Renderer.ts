@@ -6,7 +6,6 @@ import { useTextRenderer } from './useTextRenderer'
 import { avgRoll, renderBonus, renderModifier } from './mathRendering'
 import { DndStat } from '../models'
 import { useI18n } from 'vue-i18n'
-import { CR } from 'src/data/CR'
 import { useProcessTokens } from './useProcessTokens'
 
 export function useMd3Renderer() {
