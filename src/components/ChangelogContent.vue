@@ -46,6 +46,11 @@
             has been added. You can access this feature by clicking on the cloud
             icon next to the template search bar.
           </li>
+        </ul>
+      </div>
+      <div class="text-overline text-uppercase q-mb-sm">Bug Fixes</div>
+      <div class="text-body2">
+        <ul>
           <li>
             <github-issue-link :issue="93" /> The Tarrasque.io JSON exporter no
             longer inadvertently creates a regular spellcasting list if only
