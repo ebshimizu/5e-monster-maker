@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.1"
+      subtitle="Bugfix - 1/24/23"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="95" /> Transparent redirect of v1 links
+            to the proper v2 route.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.0"
       subtitle="Major Update - 1/13/2023"
       icon="update"
