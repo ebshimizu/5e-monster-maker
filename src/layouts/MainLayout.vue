@@ -71,7 +71,7 @@
 
     <q-dialog v-model="showDataLoad" persistent>
       <q-card>
-        <q-card-section class="row items-center">
+        <q-card-section>
           <div class="text-h6">{{ $t('io.dataUrl.title') }}</div>
           <div class="q-my-sm">
             {{ $t('io.dataUrl.loadText', [queryData.name]) }}
@@ -104,7 +104,7 @@ import GenericFooter from 'src/components/GenericFooter.vue'
 import { useFileLoader } from 'src/components/file/useFileLoader'
 import { popFileDialog } from 'src/components/file/popFileDialog'
 import DownloadButton from 'src/components/file/DownloadButton.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import jsonurl from 'json-url'
 import { useQuasar } from 'quasar'
@@ -126,6 +126,7 @@ export default defineComponent({
   setup() {
     const leftDrawerOpen = ref(false)
     const route = useRoute()
+    const router = useRouter()
     const codec = jsonurl('lzma')
     const $q = useQuasar()
     const { loadMonster } = useFileLoader()
@@ -144,6 +145,13 @@ export default defineComponent({
     }
 
     const dataParamFound = route.query.data != null
+
+    // check data param on load, v1 links do not have the right hash
+    if (!dataParamFound && window.location.search.startsWith('?data')) {
+      // redirect
+      router.push(`/${window.location.search}`)
+    }
+
     const showDataLoad = ref(false)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queryData: any = ref({})
