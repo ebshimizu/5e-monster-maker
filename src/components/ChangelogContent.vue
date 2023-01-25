@@ -3,7 +3,7 @@
     <q-timeline-entry
       title="v2.2.1"
       subtitle="Bugfix - 1/24/23"
-      icon="update"
+      icon="build"
       color="primary"
     >
       <div class="text-body2">
