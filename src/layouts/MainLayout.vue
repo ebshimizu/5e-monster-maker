@@ -98,7 +98,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import CrFooter from 'src/components/cr/CrFooter.vue'
 import GenericFooter from 'src/components/GenericFooter.vue'
 import { useFileLoader } from 'src/components/file/useFileLoader'
@@ -146,12 +146,6 @@ export default defineComponent({
 
     const dataParamFound = route.query.data != null
 
-    // check data param on load, v1 links do not have the right hash
-    if (!dataParamFound && window.location.search.startsWith('?data')) {
-      // redirect
-      router.push(`/${window.location.search}`)
-    }
-
     const showDataLoad = ref(false)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queryData: any = ref({})
@@ -188,6 +182,17 @@ export default defineComponent({
     const openDnd = () => {
       window.open('https://opendnd.games')
     }
+
+    onMounted(() => {
+      // check data param on load, v1 links do not have the right hash
+      if (!dataParamFound && window.location.search.startsWith('?data')) {
+        // redirect
+        // a router replace does some... stuff that might cause the url to be too long
+        const data = window.location.search
+        window.location.search = ''
+        window.location.href = `${window.location.origin}${window.location.pathname}#/${data}`
+      }
+    })
 
     return {
       toggleLeftDrawer() {
