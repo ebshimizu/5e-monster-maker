@@ -93,14 +93,12 @@
       class="attack"
       v-html="attack"
     ></div>
-    <div class="other-actions">
-      <div
-        v-for="(action, idx) in actions"
-        :key="idx"
-        class="action"
-        v-html="action"
-      ></div>
-    </div>
+    <div
+      v-for="(action, idx) in actions"
+      :key="idx"
+      class="action"
+      v-html="action"
+    ></div>
     <div
       v-if="monster.spellcasting.atWill.length > 0"
       class="innate-spellcasting"

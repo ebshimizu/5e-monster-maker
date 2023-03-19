@@ -212,6 +212,12 @@ export function useFileLoader() {
       monster.saveVersion = 6
     }
 
+    // version 7 adds a notes field for the senses
+    if (monster.saveVersion < 7) {
+      monster.sensesNotes = ''
+      monster.saveVersion = 7
+    }
+
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0
@@ -261,7 +267,7 @@ export function useFileLoader() {
 
     // one more validation for the road, use the most recent version
     const monster = data as Monster
-    const valid = validate(data, SCHEMA['6'])
+    const valid = validate(data, SCHEMA['7'])
 
     if (!valid.valid) {
       console.error(valid.errors.map((e) => e.toString()))

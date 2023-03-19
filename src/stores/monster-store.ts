@@ -37,7 +37,7 @@ import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
 import { validateNumber } from 'src/components/editor/numberInput'
 
-export const MONSTER_VERSION = 5
+export const MONSTER_VERSION = 7
 
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
@@ -123,6 +123,7 @@ export const useMonsterStore = defineStore('monster', {
         tremorsense: 0,
         truesight: 0,
       },
+      sensesNotes: '',
       passivePerception: {
         override: false,
         overrideValue: 0,

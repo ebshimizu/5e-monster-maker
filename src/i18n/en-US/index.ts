@@ -63,6 +63,7 @@ export default {
     conditionImmunities: 'Condition Immunities',
     passivePerception: 'Passive Perception',
     senses: 'Senses',
+    sensesNotes: 'Notes',
     sense: {
       blindsight: 'Blindsight',
       darkvision: 'Darkvision',

@@ -680,6 +680,7 @@ export function useOpen5eImport() {
     Object.entries(StatMap).forEach(([stat, dataKey]) => {
       const saveKey = `${dataKey}_save`
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const save: number | null = (data as any)[saveKey]
 
       if (save != null) {

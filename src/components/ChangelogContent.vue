@@ -1,6 +1,35 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.2"
+      subtitle="Minor Update - 3/19/23"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="97" /> A notes field has been added to
+            the senses list. You can use token replacements (such as "blind
+            beyond {monster.senses.blindsight}" to link the note with the sense
+            value) in this field.
+          </li>
+          <li>
+            The save schema has been updated to version 7, and an error was
+            corrected regarding the data type of the ehpMultiplier field.
+          </li>
+          <li>
+            <github-issue-link :issue="98" />
+            [Unresolved] The PNG export does not always work correctly in
+            two-column mode on Firefox. This appears to be due to a problem with
+            the underlying library used to perform the export. For now,
+            switching to a different browser is advised (apologies for the
+            inconvenience).
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.1"
       subtitle="Bugfix - 1/24/23"
       icon="build"

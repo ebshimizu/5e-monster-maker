@@ -43,6 +43,12 @@
           </q-btn>
         </template>
       </q-input>
+      <q-input
+        :model-value="monster.sensesNotes"
+        :label="$t('monster.sensesNotes')"
+        class="col-12 q-pa-sm"
+        @update:model-value="(value: string | number | null) => monster.sensesNotes = `${value ?? ''}`"
+      />
     </q-card>
   </q-expansion-item>
 </template>
