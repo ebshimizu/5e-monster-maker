@@ -114,12 +114,18 @@ export function useTextRenderer() {
       value: monster.computedPassivePerception,
     })
 
-    return nonZero
-      .map(
-        (s) =>
-          `${s.name} ${s.value} ${s.name !== 'Passive Perception' ? 'ft.' : ''}`
+    const senses = nonZero.map(
+      (s) =>
+        `${s.name} ${s.value}${s.name !== 'Passive Perception' ? ' ft.' : ''}`
+    )
+
+    if (monster.sensesNotes !== '') {
+      senses.push(
+        processTokens(monster.sensesNotes, undefined, monster, 'none')
       )
-      .join(', ')
+    }
+
+    return senses.join(', ')
   })
 
   const cr = computed(() => {

@@ -127,6 +127,12 @@ export function useImprovedInitRenderer() {
     })
     ii.Senses.push(`passive Perception ${monster.computedPassivePerception}`)
 
+    if (monster.sensesNotes) {
+      ii.Senses.push(
+        processTokens(monster.sensesNotes, undefined, monster, 'none')
+      )
+    }
+
     ii.Languages = monster.languages.split(',')
     ii.Challenge = CR[monster.CR].cr
 

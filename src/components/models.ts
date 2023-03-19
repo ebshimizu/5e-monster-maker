@@ -284,6 +284,7 @@ export interface Monster {
     tremorsense: number
     truesight: number
   }
+  sensesNotes: string
   passivePerception: {
     override: boolean
     overrideValue: number | null

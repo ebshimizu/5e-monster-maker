@@ -11,7 +11,7 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.15.6",
+    "@quasar/extras": "^1.15.11",
     "@vueuse/core": "^8.6.0",
     "copy-to-clipboard": "^3.3.2",
     "core-js": "^3.6.5",
@@ -23,7 +23,7 @@
     "number-to-words": "^1.2.4",
     "pinia": "^2.0.11",
     "pinia-plugin-persistedstate": "^3.0.0",
-    "quasar": "^2.10.2",
+    "quasar": "^2.11.8",
     "slugify": "^1.6.5",
     "url": "^0.11.0",
     "uuid": "^8.3.2",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^3.3.1",
-    "@quasar/app-vite": "^1.0.0",
+    "@quasar/app-vite": "^1.2.1",
     "@types/dom-to-image": "^2.6.4",
     "@types/lodash": "^4.14.182",
     "@types/node": "^12.20.21",
