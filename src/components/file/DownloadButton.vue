@@ -44,10 +44,10 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { download, saveJson } from './download'
 import copy from 'copy-to-clipboard'
-import DomToImage from 'dom-to-image'
 import { useLatexRenderer } from '../rendering/useLatexRenderer'
 import { useTarrasqueRenderer } from '../rendering/useTarrasqueRenderer'
 import { useImprovedInitRenderer } from '../rendering/useImprovedInitRenderer'
+import { toPng } from 'html-to-image'
 
 import jsonurl from 'json-url'
 import { useEditorStore } from 'src/stores/editor-store'
@@ -158,11 +158,13 @@ export default defineComponent({
 
     const savePng = () => {
       const node = document.getElementById('renderer')
-      console.log(node)
 
       if (node != null) {
-        DomToImage.toBlob(node).then(function (image: Blob) {
-          download(image, `${monster.name}.png`, 'image/png')
+        toPng(node).then(function (image: string) {
+          const link = document.createElement('a')
+          link.download = `${monster.name}.png`
+          link.href = image
+          link.click()
         })
       }
     }
