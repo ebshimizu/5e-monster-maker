@@ -20,17 +20,6 @@
           <span class="q-ml-sm">{{ $t('app.name') }}</span>
         </q-toolbar-title>
 
-        <!-- hope I can get rid of this soon -->
-        <q-btn
-          icon="warning"
-          :label="$t('app.opendnd')"
-          color="accent"
-          class="q-ml-sm"
-          @click="openDnd"
-        >
-          <q-tooltip class="text-body2">{{ $t('app.opendndTip') }}</q-tooltip>
-        </q-btn>
-
         <q-space />
 
         <div class="template-bar">
