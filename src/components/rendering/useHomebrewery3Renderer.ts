@@ -173,9 +173,7 @@ ${renderer.regionalEffectPreamble.value}`
     const resist =
       monster.resistances.length === 0
         ? ''
-        : `\n**${t('monster.resistances')}** :: ${
-            renderer.vulnerabilities.value
-          }`
+        : `\n**${t('monster.resistances')}** :: ${renderer.resistances.value}`
     const immune =
       monster.immunities.length === 0
         ? ''
@@ -183,8 +181,8 @@ ${renderer.regionalEffectPreamble.value}`
     const condition =
       monster.conditions.length === 0
         ? ''
-        : `\n${t('monster.conditionImmunities')}** :: ${
-            renderer.immunities.value
+        : `\n**${t('monster.conditionImmunities')}** :: ${
+            renderer.conditions.value
           }`
     const traits = getTraits()
     const mythicTrait = getMythicTrait()

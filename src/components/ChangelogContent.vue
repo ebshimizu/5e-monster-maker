@@ -1,6 +1,24 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.3"
+      subtitle="Bugfix - 3/28/23"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="100" /> The Markdown renderers
+            (Homebrewery v3 and Legacy) now use the correct resistances and
+            immunities. Additionally, an error in the display of the Homebrewery
+            v3 Condition Immunities section has been fixed. Thanks to
+            @PrlfcIllithic on Twitter for catching this one.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.2"
       subtitle="Minor Update - 3/19/23"
       icon="update"

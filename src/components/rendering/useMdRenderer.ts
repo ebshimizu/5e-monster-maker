@@ -6,7 +6,6 @@ import { useTextRenderer } from './useTextRenderer'
 import { avgRoll, renderBonus, renderModifier } from './mathRendering'
 import { DndStat } from '../models'
 import { useI18n } from 'vue-i18n'
-import { CR } from 'src/data/CR'
 import { useProcessTokens } from './useProcessTokens'
 
 export function useMdRenderer() {
@@ -187,9 +186,7 @@ ${formattedActions.join('\n>\n')}\n>`
     const resist =
       monster.resistances.length === 0
         ? ''
-        : `\n> - **${t('monster.resistances')}** ${
-            renderer.vulnerabilities.value
-          }`
+        : `\n> - **${t('monster.resistances')}** ${renderer.resistances.value}`
     const immune =
       monster.immunities.length === 0
         ? ''
@@ -198,7 +195,7 @@ ${formattedActions.join('\n>\n')}\n>`
       monster.conditions.length === 0
         ? ''
         : `\n> - **${t('monster.conditionImmunities')}** ${
-            renderer.immunities.value
+            renderer.conditions.value
           }`
     const traits = getTraits()
     const mythicTrait = getMythicTrait()

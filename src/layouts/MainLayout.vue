@@ -115,7 +115,6 @@ export default defineComponent({
   setup() {
     const leftDrawerOpen = ref(false)
     const route = useRoute()
-    const router = useRouter()
     const codec = jsonurl('lzma')
     const $q = useQuasar()
     const { loadMonster } = useFileLoader()
