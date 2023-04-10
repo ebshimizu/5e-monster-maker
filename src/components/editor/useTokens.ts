@@ -61,6 +61,10 @@ export function useTokens() {
 
   const monsterTokens = computed(() => [
     {
+      label: t('monster.name'),
+      token: '{monster.name}',
+    },
+    {
       label: t('monster.proficiencyBonus'),
       token: '{monster.proficiency}',
     },
