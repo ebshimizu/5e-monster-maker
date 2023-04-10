@@ -3,7 +3,7 @@
     <q-timeline-entry
       title="v2.2.4"
       subtitle="Minor Update - 4/10/23"
-      icon="build"
+      icon="update"
       color="primary"
     >
       <div class="text-body2">
