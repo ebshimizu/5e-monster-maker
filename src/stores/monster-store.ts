@@ -203,9 +203,16 @@ export const useMonsterStore = defineStore('monster', {
       return avgHP(state.HP)
     },
     computedPassivePerception: (state) => {
+      // first check the override
+      if (state.passivePerception.override) {
+        return state.passivePerception.overrideValue
+      }
+
+      // non-override, default computation
       // check if perception is in the skills
       const perception = state.skills.find((s) => s.key === 'PERCEPTION')
       let passive = 10
+
       if (perception) {
         passive += bonusForSkill(state, perception)
       } else {
