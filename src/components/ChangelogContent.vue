@@ -1,6 +1,29 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.4"
+      subtitle="Minor Update - 4/10/23"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="102" /> Bugfix: corrected issue where the
+            passive perception override value did not work.
+          </li>
+          <li>
+            <github-issue-link :issue="104" /> Added "Turn" and "Round" ability
+            recharge times.
+          </li>
+          <li>
+            <github-issue-link :issue="105" /> Added monster name (v2 format) to
+            the monster tokens shortcut menu.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.3"
       subtitle="Bugfix - 3/28/23"
       icon="build"

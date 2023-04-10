@@ -2,9 +2,6 @@ export default {
   app: {
     name: "Falindrith's Monster Maker",
     ogl: 'Open Gaming License 1.0',
-    opendnd: '#OpenDnD',
-    opendndTip:
-      'The new Open Gaming License proposed by Wizards of the Coast will negatively impact D&D homebrew creators. Click to visit opendnd.games for more info and to add your name to the open letter.',
   },
   monster: {
     name: 'Name',
@@ -672,6 +669,8 @@ export default {
     LONG_REST: 'Long Rest',
     SHORT_REST: 'Short Rest',
     LONG_OR_SHORT: 'Long or Short Rest',
+    TURN: 'Turn',
+    ROUND: 'Round',
   },
   statFull: {
     STR: 'Strength',
