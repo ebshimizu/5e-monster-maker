@@ -672,6 +672,8 @@ export default {
     LONG_REST: 'Long Rest',
     SHORT_REST: 'Short Rest',
     LONG_OR_SHORT: 'Long or Short Rest',
+    TURN: 'Turn',
+    ROUND: 'Round',
   },
   statFull: {
     STR: 'Strength',
