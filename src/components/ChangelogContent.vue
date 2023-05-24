@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.5"
+      subtitle="Bugfix - 5/23/23"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="107" /> Bugfix: Notes written in the
+            additional damage field of an attack now render properly.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.4"
       subtitle="Minor Update - 4/10/23"
       icon="update"

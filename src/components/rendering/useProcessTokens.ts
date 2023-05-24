@@ -263,7 +263,11 @@ export function useProcessTokens() {
     const additional = context.additionalDamage.map((d) => {
       const damage = `{${d.count}d${d.dice}} ${d.type}`
 
-      return t('editor.attack.damage', [damage])
+      if (d.note !== '') {
+        return `${t('editor.attack.damage', [damage])} ${d.note}`
+      } else {
+        return t('editor.attack.damage', [damage])
+      }
     })
     input = input.replace(
       /\{attack.additionalDamage\}/gi,
