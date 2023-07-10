@@ -1,6 +1,22 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.6"
+      subtitle="Bugfix - 7/10/23"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="112" /> Bugfix: loosened file type filter
+            when opening files from disk. There were some reports of being
+            unable to open the .5emm.json files.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.5"
       subtitle="Bugfix - 5/23/23"
       icon="build"
