@@ -218,6 +218,12 @@ export function useFileLoader() {
       monster.saveVersion = 7
     }
 
+    // version 8 adds a notes field for the monster's inventory
+    if (monster.saveVersion < 8) {
+      monster.inventory = ''
+      monster.saveVersion = 8
+    }
+
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0
