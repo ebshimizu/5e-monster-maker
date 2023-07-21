@@ -300,6 +300,12 @@ ${latexFormatter(renderer.lairActionPreamble.value)}`
     \\end{itemize}`
   }
 
+  const getInventory = () => {
+    return `\\DndMonsterSection{${t(
+      'editor.inventory.label'
+    )}}\n${latexFormatter(renderer.inventory.value)}`
+  }
+
   // exporter for the rpgtex template
   // https://github.com/rpgtex/DND-5e-LaTeX-Template
   // notes:
@@ -382,6 +388,8 @@ ${latexFormatter(renderer.lairActionPreamble.value)}`
   ${monster.lairActions.length > 0 ? getLairActions() : ''}
 
   ${monster.regionalEffects.length > 0 ? getRegionalEffects() : ''}
+
+  ${monster.inventory !== '' ? getInventory() : ''}
 
   ${twoCol ? '\\end{multicols}' : ''}
 \\end{DndMonster}`
