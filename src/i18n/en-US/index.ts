@@ -470,6 +470,10 @@ export default {
     crTable: 'Show CR Table',
     moveUp: 'Move Up',
     moveDown: 'Move Down',
+    inventory: {
+      label: 'Inventory',
+      help: 'Notes field for whatever your creature might be carrying. Items listed here do not affect the displayed stats.',
+    },
   },
   io: {
     error: {
