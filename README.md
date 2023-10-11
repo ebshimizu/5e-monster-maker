@@ -45,6 +45,7 @@ There are also some special tokens that can be used anywhere:
 - {NAME} for the monster's name
 - {#d#} for computing a dice roll (e.g. {3d6})
 - {DC:STAT} for computing a Save DC based on the given stat. Stat must be one of: STR, DEX, CON, INT, WIS, CHA
+- {XP:[cr]} for displaying the XP of a monster with given CR (e.g. {XP:1/2} renders to 100 XP). You can put a + at the end to declare the total as additive to the monster's listed CR. These tokens mostly exist to automate part of the Mythic Actions preamble.
 
 ### Calculating CR
 
