@@ -61,7 +61,16 @@ export function useProcessTokens() {
     input = input.replace(dice, (match, count, dice, modifier) => {
       const cleanModifier =
         modifier && modifier !== '' ? parseInt(modifier.replace(' ', '')) : 0
-      const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier
+
+      const diceVal = parseInt(dice)
+      const countVal = parseInt(count)
+
+      const avg = avgRoll(countVal, diceVal) + cleanModifier
+
+      if (diceVal === 1 || countVal === 0) {
+        return `${avg}`
+      }
+
       return `${avg} (${count}d${dice}${
         modifier ? renderBonus(cleanModifier) : ''
       })`
