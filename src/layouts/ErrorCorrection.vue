@@ -45,7 +45,7 @@
               $t('error.download.spells')
             }}</q-btn>
             <q-btn @click="downloadTemplates">{{
-              $t('error.download.spells')
+              $t('error.download.templates')
             }}</q-btn>
           </q-card-actions>
         </q-card>
