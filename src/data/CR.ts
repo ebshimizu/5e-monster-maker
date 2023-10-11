@@ -452,7 +452,10 @@ export const CR_SELECT = CR.map((cr, idx) => {
 })
 
 // the cr retrieval functions are a disaster let's fix that
-function getCrByRange(value: number, field: keyof typeof rawCR[number]) {
+function getCrByRange(
+  value: number,
+  field: Exclude<keyof (typeof rawCR)[number], 'cr'>
+) {
   // check if the value is between index.field and index + 1.field
   for (let i = 0; i < CR.length - 1; i++) {
     if (CR[i][field] <= value && value < CR[i + 1][field]) {
@@ -468,7 +471,7 @@ function getCrByRange(value: number, field: keyof typeof rawCR[number]) {
 export function getCrByString(crString: string) {
   const maybeCr = CR.find((cr) => cr.cr === crString)
 
-  return maybeCr ?? CR[0]
+  return maybeCr
 }
 
 export function getCrByDamage(damage: number) {

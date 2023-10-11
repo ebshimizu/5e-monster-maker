@@ -13,7 +13,7 @@ import {
   saveModifierForStat,
   statModifier,
 } from 'src/components/rendering/mathRendering'
-import { getCrByString } from 'src/data/CR'
+import { CR, getCrByString } from 'src/data/CR'
 import { SKILL } from 'src/data/SKILL'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { v4 } from 'uuid'
@@ -643,7 +643,7 @@ export function useOpen5eImport() {
     monster.languages = data.languages
 
     // challenge rating
-    const cr = getCrByString(data.challenge_rating)
+    const cr = getCrByString(data.challenge_rating) ?? CR[0]
     monster.CR = cr.index
     monster.proficiency = cr.proficiency
 

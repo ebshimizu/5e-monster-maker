@@ -111,7 +111,7 @@ export function useTextRenderer() {
 
     nonZero.push({
       name: 'Passive Perception',
-      value: monster.computedPassivePerception,
+      value: monster.computedPassivePerception ?? 0,
     })
 
     const senses = nonZero.map(
@@ -267,6 +267,10 @@ export function useTextRenderer() {
     )
   )
 
+  const inventory = computed(() =>
+    processTokens(monster.inventory, undefined, monster, 'none')
+  )
+
   return {
     stats,
     hp,
@@ -299,5 +303,6 @@ export function useTextRenderer() {
     lairActions,
     regionalEffectPreamble,
     regionalEffects,
+    inventory,
   }
 }

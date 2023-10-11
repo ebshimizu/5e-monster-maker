@@ -343,6 +343,7 @@ export interface Monster {
   lairActions: LairAction[]
   regionalEffects: { id: string; description: string }[]
   regionalEffectDescription: string
+  inventory: string
   autoEstimateDefenseCr: boolean
 }
 

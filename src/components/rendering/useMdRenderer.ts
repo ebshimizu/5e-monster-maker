@@ -160,6 +160,16 @@ ${formattedActions.join('\n>\n')}\n>`
     return `\n${preamble}\n${formattedEffects.join('\n')}`
   }
 
+  const getInventory = () => {
+    if (monster.inventory === '') return ''
+
+    const inventory = `> ### ${t('editor.inventory.label')}\n> ${mdFormatter(
+      renderer.inventory.value
+    )}`
+
+    return inventory
+  }
+
   // formatted for the Homebrewery system
   // https://homebrewery.naturalcrit.com/
   const renderMarkdown = (twoCol = false) => {
@@ -215,6 +225,7 @@ ${formattedActions.join('\n>\n')}\n>`
     const reactions = getReactions()
     const lair = getLairActions()
     const regional = getRegionalEffects()
+    const inventory = getInventory()
 
     return `___${twoCol ? '\n___' : ''}
 > ## ${monster.name}
@@ -248,7 +259,7 @@ ${traits}${mythicTrait}> ### ${t(
       monster.spellcasting.standard.length === 0 ? '' : `${spellcasting}\n>`
     }${
       monster.spellcasting.atWill.length === 0 ? '' : `${innate}\n>`
-    }${bonusActions}${legendary}${mythic}${reactions}${lair}${regional}`
+    }${bonusActions}${legendary}${mythic}${reactions}${lair}${regional}${inventory}`
   }
 
   return {

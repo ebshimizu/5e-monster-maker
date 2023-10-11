@@ -210,6 +210,10 @@
         ></li>
       </ul>
     </div>
+    <div v-if="monster.inventory !== ''" class="inventory">
+      <h3 class="section">{{ $t('editor.inventory.label') }}</h3>
+      <div v-html="inventory"></div>
+    </div>
   </div>
 </template>
 
@@ -306,6 +310,10 @@ export default defineComponent({
 
     const cr = computed(() => sanitizeWebString(textRenderer.cr.value))
 
+    const inventory = computed(() =>
+      sanitizeWebString(textRenderer.inventory.value)
+    )
+
     return {
       monster,
       ...textRenderer,
@@ -328,6 +336,7 @@ export default defineComponent({
       regionalEffectPreamble,
       regionalEffects,
       columns,
+      inventory,
     }
   },
 })

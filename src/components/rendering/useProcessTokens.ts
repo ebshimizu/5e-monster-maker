@@ -13,6 +13,7 @@ import _ from 'lodash'
 import { useI18n } from 'vue-i18n'
 import N2W from 'number-to-words'
 import { useClasses } from 'src/data/CLASS'
+import { getCrByNumber, getCrByString } from 'src/data/CR'
 
 export type MonsterContext =
   | MonsterTrait
@@ -61,7 +62,16 @@ export function useProcessTokens() {
     input = input.replace(dice, (match, count, dice, modifier) => {
       const cleanModifier =
         modifier && modifier !== '' ? parseInt(modifier.replace(' ', '')) : 0
-      const avg = avgRoll(parseInt(count), parseInt(dice)) + cleanModifier
+
+      const diceVal = parseInt(dice)
+      const countVal = parseInt(count)
+
+      const avg = avgRoll(countVal, diceVal) + cleanModifier
+
+      if (diceVal === 1 || countVal === 0) {
+        return `${avg}`
+      }
+
       return `${avg} (${count}d${dice}${
         modifier ? renderBonus(cleanModifier) : ''
       })`
@@ -95,6 +105,29 @@ export function useProcessTokens() {
     input = input.replace(/(?:\.\s*|^)\s*(?:<\/?[b|i]>)*\s*(the)/gm, (match) =>
       match.replace('the', 'The')
     )
+
+    // XP rendering
+    const xp = RegExp(/\{XP:([\d/]+|monster)(\+)?\}/gi)
+    input = input.replace(xp, (match, cr, additive) => {
+      // change lookup based on token used
+      const crData =
+        cr.toLowerCase() === 'monster'
+          ? getCrByNumber(monster.CR)
+          : getCrByString(cr)
+
+      if (crData) {
+        if (additive != null) {
+          // add xp to the monster's cr
+          const monsterCr = getCrByNumber(monster.CR)
+
+          return `${(crData.xp + monsterCr.xp).toLocaleString()} XP`
+        } else {
+          return `${crData.xp.toLocaleString()} XP`
+        }
+      } else {
+        return match
+      }
+    })
 
     // generic tokens
     const generic = RegExp(/\{monster.([\w\d\[\].]+)}/gi)

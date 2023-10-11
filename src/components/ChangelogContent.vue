@@ -1,6 +1,44 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.7"
+      subtitle="Minor Update - 10/10/23"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="111" /> Added an inventory field in case
+            you want to write down what additional items or loot your monster
+            has. Note that the values written in this field do not affect the
+            monster's actual stats.
+          </li>
+          <li>
+            <github-issue-link :issue="115" /> Added XP tokens to better support
+            the Mythic Actions preamble. You can now type {XP:[cr]} to render
+            the XP corresponding to the listed CR. Adding a + at the end adds
+            the specified XP total to the monster's listed CR XP. See the new
+            default Mythic Actions preamble to see the tokens in action.
+          </li>
+          <li>
+            <github-issue-link :issue="116" /> The renderer no longer displays
+            the die or bonus if you are using 0 dice or a d1 to compute flat
+            damage.
+          </li>
+          <li>
+            <github-issue-link :issue="117" /> Bugfix: fixes a crash caused by
+            setting the monster's CR to undefined (really, this should be
+            disallowed by Quasar but you can apparently make any dropdown null
+            by hitting backspace).
+          </li>
+          <li>
+            Dev chores: updated packages, tightened some typescript typedefs.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.6"
       subtitle="Bugfix - 7/10/23"
       icon="build"
