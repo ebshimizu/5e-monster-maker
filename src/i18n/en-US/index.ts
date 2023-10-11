@@ -720,7 +720,7 @@ export default {
     legendaryAction: "{'{'}NAME{'}'} uses the {0} action.",
     mythicRecharge: 'Recharges after a Short or Long Rest',
     mythicDescription:
-      "If {'{'}NAME{'}'} would be reduced to 0 hit points, its current hit point total instead resets to {'{'}monster.hp{'}'} hit points. Additionally, {'{'}NAME{'}'} can now use the options in the \"Mythic Actions\" section for 1 hour. Award a party an additional [x]XP ([x] XP total) for defeating {'{'}NAME{'}'} after this trait activates.",
+      "If {'{'}NAME{'}'} would be reduced to 0 hit points, its current hit point total instead resets to {'{'}monster.hp{'}'} hit points. Additionally, {'{'}NAME{'}'} can now use the options in the \"Mythic Actions\" section for 1 hour. Award a party an additional {'{'}XP:monster{'}'} ({'{'}XP:monster+{'}'} total) for defeating {'{'}NAME{'}'} after this trait activates.",
     mythicPreamble:
       "If {'{'}NAME{'}'}'s mythic trait is active, it can use the options below as legendary actions.",
     lair: "When fighting inside its lair, {'{'}NAME{'}'} can take lair actions. On initiative count 20 (losing initiative ties), {'{'}NAME{'}'} takes a lair action to cause one of the following effects:",
