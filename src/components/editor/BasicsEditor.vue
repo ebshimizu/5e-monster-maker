@@ -22,7 +22,13 @@
           emit-value
           :label="$t('monster.cr')"
           class="col-2 q-pa-sm"
-          @update:model-value="monster.setCR"
+          @update:model-value="(value: number | undefined) => {
+            if (value != null) {
+              monster.setCR(value)
+            } else {
+              monster.setCR(0)
+            }
+          }"
         >
           <template #after>
             <lock-toggle-button
