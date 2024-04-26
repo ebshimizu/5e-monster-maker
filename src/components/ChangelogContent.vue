@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.8"
+      subtitle="Maintenance Update - 4/25/24"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            Just hopping in to update some packages. This shouldn't affect app
+            functionality, and if it does let me know!
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.7"
       subtitle="Minor Update - 10/10/23"
       icon="update"
