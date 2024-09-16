@@ -1132,6 +1132,12 @@ export const useMonsterStore = defineStore('monster', {
         id: v4(),
         name: 'New Reaction',
         description: '',
+        limitedUse: {
+          count: 1,
+          rate: 'DAY',
+        },
+        trigger: '',
+        response: '',
       })
     },
     deleteReaction(reactionId: string) {
@@ -1173,7 +1179,7 @@ export const useMonsterStore = defineStore('monster', {
       const $q = useQuasar()
 
       updateMonster(this.$state)
-      const valid = validate(this.$state, SCHEMA['5'])
+      const valid = validate(this.$state, SCHEMA['9'])
 
       if (!valid.valid) {
         console.error(valid.errors.map((e) => e.toString()))

@@ -4,7 +4,7 @@ import { SCHEMA } from 'src/data/SCHEMA'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useSpellsStore } from 'src/stores/spells-store'
 import { useI18n } from 'vue-i18n'
-import { Monster, MonsterAction } from '../models'
+import { Monster, MonsterAction, MonsterReaction } from '../models'
 
 export function useFileLoader() {
   const $q = useQuasar()
@@ -226,8 +226,34 @@ export function useFileLoader() {
 
     // version 9 is the big 2024 monster file format update
     if (monster.saveVersion < 9) {
-      // TODO: update actions
-      // TODO: update reactions
+      // update actions
+      monster.actions = monster.actions.map((a: MonsterAction) => {
+        return {
+          ...a,
+          stat: 'none',
+          save: {
+            override: false,
+            overrideValue: 0,
+          },
+          effects: [],
+        }
+      })
+
+      // update reactions
+      monster.reactions = monster.reactions.map((r: MonsterReaction) => {
+        return {
+          ...r,
+          limitedUse: {
+            count: 1,
+            rate: 'DAY',
+          },
+          trigger: '',
+          response: '',
+        }
+      })
+
+      // increment file version
+      monster.saveVersion = 9
     }
 
     // adjust saves in the attack field. null is ok but let's make it 0
