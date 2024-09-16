@@ -1,5 +1,4 @@
 import { validate } from 'jsonschema'
-import _ from 'lodash'
 import { defineStore } from 'pinia'
 import { useQuasar } from 'quasar'
 import {
@@ -36,8 +35,9 @@ import { v4 as uuidv4, v4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
 import { validateNumber } from 'src/components/editor/numberInput'
+import { sortBy, union } from 'lodash'
 
-export const MONSTER_VERSION = 8
+export const MONSTER_VERSION = 9
 
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
@@ -556,7 +556,7 @@ export const useMonsterStore = defineStore('monster', {
         }
       })
 
-      return _.sortBy([...actions, ...attacks], 'name')
+      return sortBy([...actions, ...attacks], 'name')
     },
     legendaryActionName: (state) => {
       return (id: string) => {
@@ -805,7 +805,7 @@ export const useMonsterStore = defineStore('monster', {
       // and that spells won't be upcasted (yeah yeah I know about upcasted fireball but you'll just have to
       // figure that out yourself)
       // there's a few spellcasting lists... let's combine them
-      const spells = _.union(
+      const spells = union(
         this.spellcasting.standard,
         ...this.spellcasting.atWill.map((a) => a.spells)
       )

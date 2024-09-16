@@ -224,6 +224,12 @@ export function useFileLoader() {
       monster.saveVersion = 8
     }
 
+    // version 9 is the big 2024 monster file format update
+    if (monster.saveVersion < 9) {
+      // TODO: update actions
+      // TODO: update reactions
+    }
+
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0
@@ -273,7 +279,7 @@ export function useFileLoader() {
 
     // one more validation for the road, use the most recent version
     const monster = data as Monster
-    const valid = validate(data, SCHEMA['7'])
+    const valid = validate(data, SCHEMA['9'])
 
     if (!valid.valid) {
       console.error(valid.errors.map((e) => e.toString()))
