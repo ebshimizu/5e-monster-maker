@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.9"
+      subtitle="Maintenance Update - 10/21/2024"
+      icon="update"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            Updating contact methods because I've been missing messages on
+            Twitter.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.8"
       subtitle="Maintenance Update - 4/25/24"
       icon="update"
