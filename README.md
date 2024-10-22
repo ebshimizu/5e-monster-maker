@@ -107,3 +107,9 @@ There could be a couple reasons for this. Before filing and issue with the core 
 This project is written in Vue with Quasar and uses npm as its package manager. I'm pretty sure it'd work with yarn as well.
 
 Clone the repository and install the [Quasar cli](https://quasar.dev/start/quasar-cli) with `npm install --location=global @quasar/cli`. After that, run `npm install`. The development server can then be started with `quasar dev`.
+
+### Translations
+
+Translations are welcome! All of the UI strings are contained in the `src/i18n` folder. To translate the UI to another language, we have to translate all of the strings in the [en-US index file](https://github.com/ebshimizu/5e-monster-maker/blob/master/src/i18n/en-US/index.ts).
+
+Note that the i18n index file does not contain localizations for the preset action templates. I have not worked out a solution for that yet.
