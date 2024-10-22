@@ -11,16 +11,36 @@
     | Created by <strong>Falindrith</strong> |
     <q-btn
       round
-      icon="mdi-twitter"
+      icon="fa-brands fa-bluesky"
       class="q-mx-1"
-      @click="openLink('https://twitter.com/falindrith')"
-    />
+      @click="openLink('https://bsky.app/profile/falindrith.me')"
+    >
+      <q-tooltip class="text-body2">Bluesky: @falindrith.me</q-tooltip>
+    </q-btn>
+    <q-btn
+      round
+      icon="fa-brands fa-telegram"
+      class="q-mx-1"
+      @click="openLink('https://t.me/falindrith')"
+    >
+      <q-tooltip class="text-body2">Telegram: @falindrith</q-tooltip>
+    </q-btn>
+    <q-btn
+      round
+      icon="mdi-email-outline"
+      class="q-mx-1"
+      @click="openLink('mailto:falindrith_dev@proton.me')"
+    >
+      <q-tooltip class="text-body2">Send an Email</q-tooltip>
+    </q-btn>
     <q-btn
       round
       icon="mdi-github"
       class="q-mr-1"
       @click="openLink('https://github.com/ebshimizu/5e-monster-maker')"
-    />
+    >
+      <q-tooltip class="text-body2">Source Code</q-tooltip>
+    </q-btn>
     <q-btn round @click="openLink('https://ko-fi.com/E1E2KHZ3')"
       ><q-tooltip class="text-body2">Tip Jar</q-tooltip
       ><q-avatar size="36px"><img src="../assets/ko-fi-icon.png" /></q-avatar
