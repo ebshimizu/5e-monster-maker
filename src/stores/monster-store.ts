@@ -535,28 +535,28 @@ export const useMonsterStore = defineStore('monster', {
       }
     },
     attacksAndActions: (state) => {
-      // concatenates actions and attacks for use in a list
-      const { t } = useI18n()
+      return (t: ReturnType<typeof useI18n>) => {
+        // concatenates actions and attacks for use in a list
+        const actions = state.actions.map((a) => {
+          return {
+            name: a.name,
+            id: a.id,
+            typeInternal: 'action',
+            type: t('editor.action.tokenLabel'),
+          }
+        })
 
-      const actions = state.actions.map((a) => {
-        return {
-          name: a.name,
-          id: a.id,
-          typeInternal: 'action',
-          type: t('editor.action.tokenLabel'),
-        }
-      })
+        const attacks = state.attacks.map((a) => {
+          return {
+            name: a.name,
+            id: a.id,
+            typeInternal: 'attack',
+            type: t('editor.attack.tokenLabel'),
+          }
+        })
 
-      const attacks = state.attacks.map((a) => {
-        return {
-          name: a.name,
-          id: a.id,
-          typeInternal: 'attack',
-          type: t('editor.attack.tokenLabel'),
-        }
-      })
-
-      return _.sortBy([...actions, ...attacks], 'name')
+        return _.sortBy([...actions, ...attacks], 'name')
+      }
     },
     legendaryActionName: (state) => {
       return (id: string) => {
