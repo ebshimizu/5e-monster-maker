@@ -117,6 +117,7 @@ import { useMonsterStore } from 'src/stores/monster-store'
 import { computed, defineComponent } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import { validateNumber } from './numberInput'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'MythicActionsEditor',
@@ -125,9 +126,10 @@ export default defineComponent({
   },
   setup() {
     const monster = useMonsterStore()
+    const { t } = useI18n()
 
     const filteredActions = computed(() => {
-      const actions = monster.attacksAndActions
+      const actions = monster.attacksAndActions(t)
 
       const filtered = actions.filter(
         (a) =>

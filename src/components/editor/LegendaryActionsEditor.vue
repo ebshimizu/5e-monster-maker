@@ -140,19 +140,21 @@ import { useMonsterStore } from 'src/stores/monster-store'
 import { defineComponent, computed } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import { validateNumber } from './numberInput'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'LegendaryActionsEditor',
   components: { MonsterTextEditor },
   setup() {
     const monster = useMonsterStore()
+    const { t } = useI18n()
 
     const addLegendary = (id: string) => {
       monster.addLegendaryAction(id)
     }
 
     const filteredActions = computed(() => {
-      const actions = monster.attacksAndActions
+      const actions = monster.attacksAndActions(t)
 
       const filtered = actions.filter(
         (a) =>
