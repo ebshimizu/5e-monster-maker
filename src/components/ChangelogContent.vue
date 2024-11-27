@@ -1,6 +1,22 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.2.10"
+      subtitle="Bugfix - 11/26/2024"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="136" /> Fixed issue where legendary and
+            mythic actions menus were not updating after new actions or attacks
+            were added.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.9"
       subtitle="Maintenance Update - 10/21/2024"
       icon="update"
