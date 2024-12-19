@@ -79,6 +79,7 @@ export interface MonsterAction {
     override: boolean
     overrideValue: number
   }
+  range: string
   effects: ActionEffect[]
   customPreamble: boolean
   bonusAction: boolean
@@ -357,6 +358,7 @@ export interface Monster {
   regionalEffectDescription: string
   inventory: string
   autoEstimateDefenseCr: boolean
+  format: '2014' | '2024'
 }
 
 // uhhhhhh
@@ -446,6 +448,7 @@ export function defaultAction(): MonsterAction {
       override: false,
       overrideValue: 0,
     },
+    range: '',
     stat: 'none',
     effects: [],
     legendaryOnly: false,

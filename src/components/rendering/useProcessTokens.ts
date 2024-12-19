@@ -8,7 +8,7 @@ import {
   MonsterReaction,
   MonsterTrait,
 } from '../models'
-import { avgRoll, renderBonus } from './mathRendering'
+import { avgRoll, renderBonus, saveForAction } from './mathRendering'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'
 import N2W from 'number-to-words'
@@ -315,6 +315,13 @@ export function useProcessTokens() {
   }
 
   const processActionTokens = (input: string, context: MonsterAction) => {
+    // format the effects
+    // we run this replacement first, because the effects can have other tokens in them
+    const effects = context.effects
+      .map((e) => `<i>${e.case}:</i> ${e.effect}`)
+      .join(' ')
+    input = input.replace(/\{action.effects\}/gi, effects)
+
     // limitedUse is a special case
     const limitedUse =
       context.recharge === ''
@@ -560,6 +567,19 @@ export function useProcessTokens() {
 
     if (context.customPreamble) {
       return processTokens(context.description, context, monster, 'action')
+    } else if (context.stat !== 'none') {
+      return processTokens(
+        `<b><i>{action.name}{action.limitedUse}.</i></b> <i>${t(
+          `statFull.${context.stat}`
+        )} Saving Throw:</i> DC ${saveForAction(
+          monster,
+          context.stat,
+          context.save
+        )}, {action.range}. {action.effects} ${context.description}`,
+        context,
+        monster,
+        'action'
+      )
     } else {
       return processTokens(
         `<b><i>{action.name}{action.limitedUse}.</i></b> ${context.description}`,
@@ -577,7 +597,6 @@ export function useProcessTokens() {
     const context = unref(contextRef)
 
     // case on the presence of a Trigger to choose old style rendering or new
-
     if (context.trigger === '') {
       return processTokens(
         `<b><i>${context.name}{reaction.limitedUse}.</i></b> ${context.description}`,

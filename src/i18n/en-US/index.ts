@@ -112,6 +112,11 @@ export default {
     },
     action: {
       recharge: 'Recharge',
+      savingThrowStat: 'Saving Throw Stat',
+      saveDc: 'DC',
+      lockSave: 'Save DC Locked to Stats',
+      unlockSave: 'Save DC Unlocked from Stats',
+      range: 'Targets',
     },
     reaction: {
       response: 'Response',
@@ -275,6 +280,21 @@ export default {
       save: 'Save Action',
       recharge: '(Recharge {0})',
       plural: 'action | actions',
+      addEffect: 'Add Effect',
+      deleteEffect: 'Delete Effect',
+      condition: 'Condition',
+      effect: 'Effect',
+      effectCase: {
+        success: 'Success',
+        failure: 'Failure',
+        failByFive: 'Failure by 5 or More',
+      },
+      effectTemplate: {
+        halfDamage: 'Half Damage.',
+      },
+      saveDescription: 'Ability Save Effects',
+      saveHelp:
+        'List the effects that happen when the target succeeds or fails the listed saving throw.',
     },
     legendary: {
       label: 'Legendary Actions',

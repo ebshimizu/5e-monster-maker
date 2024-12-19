@@ -43,6 +43,7 @@ export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
     return {
       name: 'My New Monster',
+      format: '2024',
       saveVersion: MONSTER_VERSION,
       useArticleInToken: false,
       alphaTraits: true,

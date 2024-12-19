@@ -236,6 +236,7 @@ export function useFileLoader() {
             overrideValue: 0,
           },
           effects: [],
+          range: '',
         }
       })
 
@@ -250,6 +251,9 @@ export function useFileLoader() {
           trigger: '',
         }
       })
+
+      // update format
+      monster.format = '2014'
 
       // increment file version
       monster.saveVersion = 9
