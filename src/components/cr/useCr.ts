@@ -74,8 +74,11 @@ export const useCr = () => {
 
       // first, figure out if we have multi-cost items
       for (const action of currentActions) {
-        if (action.cost >= highestCost) {
-          highestCost = action.cost
+        // address issues with 0 cost actions
+        const safeCost = Math.max(1, action.cost)
+
+        if (safeCost >= highestCost) {
+          highestCost = safeCost
           if (action.damage > highestCostDamage) {
             highestCostDamage = action.damage
           }
@@ -85,10 +88,13 @@ export const useCr = () => {
       // now that we know the highest remaining cost and the damage that's expected, check to see
       // if any lower cost items can match that damage
       const adjustedDamageActions = currentActions.map((a) => {
+        const safeCost = Math.max(a.cost, 1)
+
         return {
-          adjustedDamage: a.damage * Math.floor(highestCost / a.cost),
-          addCount: Math.floor(highestCost / a.cost),
+          adjustedDamage: a.damage * Math.floor(highestCost / safeCost),
+          addCount: Math.floor(highestCost / safeCost),
           ...a,
+          cost: safeCost,
         }
       })
 

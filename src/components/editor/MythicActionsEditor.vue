@@ -86,7 +86,7 @@
             <q-input
               :model-value="la.cost"
               type="number"
-              min="0"
+              min="1"
               :label="$t('editor.legendary.cost')"
               @update:model-value="
                 (value: string | number | null) => (la.cost = validateNumber(value, 1))
