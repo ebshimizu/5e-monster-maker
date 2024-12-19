@@ -23,6 +23,7 @@ export type MonsterContext =
   | Monster['multiattacks']
   | Monster['legendaryActions']
   | Monster['mythicActions']
+  | MonsterReaction
   | undefined
 
 export type MonsterContextType =
@@ -34,6 +35,7 @@ export type MonsterContextType =
   | 'multiattack'
   | 'legendary'
   | 'mythic'
+  | 'reaction'
 
 export function listJoin(list: string[], sep: string) {
   if (list.length === 1) return list[0]
@@ -339,6 +341,26 @@ export function useProcessTokens() {
     return input
   }
 
+  const processReactionTokens = (input: string, context: MonsterReaction) => {
+    // limitedUse is a special case
+    const limitedUse = ` (${context.limitedUse.count}/${t(
+      `recharge.${context.limitedUse.rate}`
+    )})`
+
+    input = input.replace(
+      /\{reaction.limitedUse\}/gi,
+      `${context.limitedUse.count > 0 ? limitedUse : ''}`
+    )
+
+    // localize the rate string
+    input = input.replace(
+      /\{reaction.limitedUse.rate\}/gi,
+      t(`recharge.${context.limitedUse.rate}`)
+    )
+
+    return input
+  }
+
   const processMultiattackTokens = (
     input: string,
     context: Monster['multiattacks'],
@@ -478,12 +500,14 @@ export function useProcessTokens() {
         input,
         context as Monster['legendaryActions']
       )
+    } else if (contextType === 'reaction') {
+      input = processReactionTokens(input, context as MonsterReaction)
     }
 
     if (context != null) {
       // generic tokens
       const generic = RegExp(
-        /\{(?:trait|attack|action|spellcasting|legendaryActions|mythicActions).([\w\d\[\].]+)}/gi
+        /\{(?:trait|attack|action|spellcasting|legendaryActions|mythicActions|reaction).([\w\d\[\].]+)}/gi
       )
       input = input.replace(generic, (match, prop) => {
         const value = _.get(context, prop)
@@ -552,12 +576,27 @@ export function useProcessTokens() {
   ) => {
     const context = unref(contextRef)
 
-    return processTokens(
-      `<b><i>${context.name}.</i></b> ${context.description}`,
-      undefined,
-      monster,
-      'none'
-    )
+    // case on the presence of a Trigger to choose old style rendering or new
+
+    if (context.trigger === '') {
+      return processTokens(
+        `<b><i>${context.name}{reaction.limitedUse}.</i></b> ${context.description}`,
+        context,
+        monster,
+        'reaction'
+      )
+    } else {
+      return processTokens(
+        `<b><i>${context.name}{reaction.limitedUse}.</i></b> <i>${t(
+          'monster.reaction.trigger'
+        )}:</i> ${context.trigger} <i>${t('monster.reaction.response')}:</i> ${
+          context.description
+        }`,
+        context,
+        monster,
+        'reaction'
+      )
+    }
   }
 
   const processAttack = (

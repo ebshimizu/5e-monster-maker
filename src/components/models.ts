@@ -180,7 +180,6 @@ export interface MonsterReaction {
   description: string
   limitedUse: DndLimitedUse
   trigger: string
-  response: string
 }
 
 export interface CrAttackInfo {

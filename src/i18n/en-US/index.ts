@@ -113,6 +113,10 @@ export default {
     action: {
       recharge: 'Recharge',
     },
+    reaction: {
+      response: 'Response',
+      trigger: 'Trigger',
+    },
     bonusActions: 'Bonus Actions',
   },
   editor: {

@@ -248,7 +248,6 @@ export function useFileLoader() {
             rate: 'DAY',
           },
           trigger: '',
-          response: '',
         }
       })
 

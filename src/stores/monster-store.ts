@@ -1133,11 +1133,10 @@ export const useMonsterStore = defineStore('monster', {
         name: 'New Reaction',
         description: '',
         limitedUse: {
-          count: 1,
+          count: 0,
           rate: 'DAY',
         },
         trigger: '',
-        response: '',
       })
     },
     deleteReaction(reactionId: string) {
