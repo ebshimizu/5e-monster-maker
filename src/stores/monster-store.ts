@@ -555,7 +555,8 @@ export const useMonsterStore = defineStore('monster', {
           }
         })
 
-      return sortBy([...actions, ...attacks], 'name')
+        return sortBy([...actions, ...attacks], 'name')
+      }
     },
     legendaryActionName: (state) => {
       return (id: string) => {
