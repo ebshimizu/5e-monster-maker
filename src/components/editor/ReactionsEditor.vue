@@ -46,9 +46,30 @@
                     >
                   </template>
                 </q-input>
+                <q-input
+                  v-model="reaction.limitedUse.count"
+                  type="number"
+                  min="0"
+                  class="col-2 q-pa-sm"
+                  :label="$t('monster.trait.limitedUse.count')"
+                  @update:model-value="(value: string | number | null) => (reaction.limitedUse.count = validateNumber(value, 0))"
+                />
+                <q-select
+                  v-model="reaction.limitedUse.rate"
+                  :display-value="$t(`recharge.${reaction.limitedUse.rate}`)"
+                  :options="rechargeTimeOptions"
+                  emit-value
+                  :label="$t('monster.trait.limitedUse.rate')"
+                  class="col-2 q-pa-sm"
+                />
+                <q-input
+                  v-model="reaction.trigger"
+                  class="col-8 q-pa-sm"
+                  :label="$t('monster.reaction.trigger')"
+                />
                 <monster-text-editor
                   :field="reaction.description"
-                  i18n-label-key="monster.trait.description"
+                  i18n-label-key="monster.reaction.response"
                   @update:model-value="
                     (value: string) => {
                       reaction.description = value
@@ -91,6 +112,8 @@ import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
 import SwapButtons from './widgets/SwapButtons.vue'
 import { useQuasar } from 'quasar'
+import { validateNumber } from './numberInput'
+import { useRechargeTimes } from 'src/data/RECHARGE_TIME'
 
 export default defineComponent({
   name: 'ReactionsEditor',
@@ -99,6 +122,7 @@ export default defineComponent({
     const monster = useMonsterStore()
     const $q = useQuasar()
     const { t } = useI18n()
+    const { rechargeTimeOptions } = useRechargeTimes()
     const templateStore = useTemplatesStore()
 
     const addTemplate = (target: MonsterReaction) => {
@@ -120,6 +144,8 @@ export default defineComponent({
     return {
       monster,
       addTemplate,
+      validateNumber,
+      rechargeTimeOptions,
     }
   },
 })
