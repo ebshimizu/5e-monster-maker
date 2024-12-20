@@ -216,7 +216,6 @@ export function useProcessTokens() {
     // attack distance
     const distance = t('editor.attack.distance', [
       t(`range.${context.distance}`),
-      t(`kind.${context.kind}`),
     ])
 
     input = input.replace(/\{attack.distance\}/gi, `${distance}`)

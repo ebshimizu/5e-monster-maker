@@ -242,7 +242,7 @@ export default {
       customRenderer: 'Attack',
       tokenLabel: 'Attack',
       distanceLabel: 'Distance',
-      distance: '{0} {1} Attack',
+      distance: '{0} Attack Roll',
       meleeRange: 'reach {0} ft.',
       rangeRange: 'range {0}/{1} ft.',
       bothRange: 'reach {0} ft. or range {1}/{2} ft.',
