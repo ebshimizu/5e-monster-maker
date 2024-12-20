@@ -8,7 +8,7 @@ import {
   MonsterReaction,
   MonsterTrait,
 } from '../models'
-import { avgRoll, renderBonus } from './mathRendering'
+import { avgRoll, renderBonus, saveForAction } from './mathRendering'
 import _ from 'lodash'
 import { useI18n } from 'vue-i18n'
 import N2W from 'number-to-words'
@@ -23,6 +23,7 @@ export type MonsterContext =
   | Monster['multiattacks']
   | Monster['legendaryActions']
   | Monster['mythicActions']
+  | MonsterReaction
   | undefined
 
 export type MonsterContextType =
@@ -34,6 +35,7 @@ export type MonsterContextType =
   | 'multiattack'
   | 'legendary'
   | 'mythic'
+  | 'reaction'
 
 export function listJoin(list: string[], sep: string) {
   if (list.length === 1) return list[0]
@@ -214,7 +216,6 @@ export function useProcessTokens() {
     // attack distance
     const distance = t('editor.attack.distance', [
       t(`range.${context.distance}`),
-      t(`kind.${context.kind}`),
     ])
 
     input = input.replace(/\{attack.distance\}/gi, `${distance}`)
@@ -313,6 +314,13 @@ export function useProcessTokens() {
   }
 
   const processActionTokens = (input: string, context: MonsterAction) => {
+    // format the effects
+    // we run this replacement first, because the effects can have other tokens in them
+    const effects = context.effects
+      .map((e) => `<i>${e.case}:</i> ${e.effect}`)
+      .join(' ')
+    input = input.replace(/\{action.effects\}/gi, effects)
+
     // limitedUse is a special case
     const limitedUse =
       context.recharge === ''
@@ -333,6 +341,26 @@ export function useProcessTokens() {
     // localize the rate string
     input = input.replace(
       /\{action.limitedUse.rate\}/gi,
+      t(`recharge.${context.limitedUse.rate}`)
+    )
+
+    return input
+  }
+
+  const processReactionTokens = (input: string, context: MonsterReaction) => {
+    // limitedUse is a special case
+    const limitedUse = ` (${context.limitedUse.count}/${t(
+      `recharge.${context.limitedUse.rate}`
+    )})`
+
+    input = input.replace(
+      /\{reaction.limitedUse\}/gi,
+      `${context.limitedUse.count > 0 ? limitedUse : ''}`
+    )
+
+    // localize the rate string
+    input = input.replace(
+      /\{reaction.limitedUse.rate\}/gi,
       t(`recharge.${context.limitedUse.rate}`)
     )
 
@@ -478,12 +506,14 @@ export function useProcessTokens() {
         input,
         context as Monster['legendaryActions']
       )
+    } else if (contextType === 'reaction') {
+      input = processReactionTokens(input, context as MonsterReaction)
     }
 
     if (context != null) {
       // generic tokens
       const generic = RegExp(
-        /\{(?:trait|attack|action|spellcasting|legendaryActions|mythicActions).([\w\d\[\].]+)}/gi
+        /\{(?:trait|attack|action|spellcasting|legendaryActions|mythicActions|reaction).([\w\d\[\].]+)}/gi
       )
       input = input.replace(generic, (match, prop) => {
         const value = _.get(context, prop)
@@ -536,6 +566,19 @@ export function useProcessTokens() {
 
     if (context.customPreamble) {
       return processTokens(context.description, context, monster, 'action')
+    } else if (context.stat !== 'none') {
+      return processTokens(
+        `<b><i>{action.name}{action.limitedUse}.</i></b> <i>${t(
+          `statFull.${context.stat}`
+        )} Saving Throw:</i> DC ${saveForAction(
+          monster,
+          context.stat,
+          context.save
+        )}, {action.range}. {action.effects} ${context.description}`,
+        context,
+        monster,
+        'action'
+      )
     } else {
       return processTokens(
         `<b><i>{action.name}{action.limitedUse}.</i></b> ${context.description}`,
@@ -552,12 +595,26 @@ export function useProcessTokens() {
   ) => {
     const context = unref(contextRef)
 
-    return processTokens(
-      `<b><i>${context.name}.</i></b> ${context.description}`,
-      undefined,
-      monster,
-      'none'
-    )
+    // case on the presence of a Trigger to choose old style rendering or new
+    if (context.trigger === '') {
+      return processTokens(
+        `<b><i>${context.name}{reaction.limitedUse}.</i></b> ${context.description}`,
+        context,
+        monster,
+        'reaction'
+      )
+    } else {
+      return processTokens(
+        `<b><i>${context.name}{reaction.limitedUse}.</i></b> <i>${t(
+          'monster.reaction.trigger'
+        )}:</i> ${context.trigger} <i>${t('monster.reaction.response')}:</i> ${
+          context.description
+        }`,
+        context,
+        monster,
+        'reaction'
+      )
+    }
   }
 
   const processAttack = (

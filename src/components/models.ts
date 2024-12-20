@@ -48,16 +48,23 @@ export interface MonsterCrAnnotation {
   automatic: boolean
 }
 
+export interface DndLimitedUse {
+  count: number
+  rate: string
+}
+
 export interface MonsterTrait {
   name: string
   id: string
   description: string
-  limitedUse: {
-    count: number
-    rate: string
-  }
+  limitedUse: DndLimitedUse
   customPreamble: boolean
   crAnnotation: MonsterCrAnnotation
+}
+
+export interface ActionEffect {
+  case: string
+  effect: string
 }
 
 export interface MonsterAction {
@@ -66,10 +73,14 @@ export interface MonsterAction {
   description: string
   recharge: string
   legendaryOnly: boolean
-  limitedUse: {
-    count: number
-    rate: string
+  limitedUse: DndLimitedUse
+  stat: DndStat | 'none'
+  save: {
+    override: boolean
+    overrideValue: number
   }
+  range: string
+  effects: ActionEffect[]
   customPreamble: boolean
   bonusAction: boolean
   crAnnotation: MonsterCrAnnotation
@@ -168,6 +179,8 @@ export interface MonsterReaction {
   name: string
   id: string
   description: string
+  limitedUse: DndLimitedUse
+  trigger: string
 }
 
 export interface CrAttackInfo {
@@ -430,6 +443,13 @@ export function defaultAction(): MonsterAction {
       count: 0,
       rate: 'DAY',
     },
+    save: {
+      override: false,
+      overrideValue: 0,
+    },
+    range: '',
+    stat: 'none',
+    effects: [],
     legendaryOnly: false,
     customPreamble: false,
     bonusAction: false,

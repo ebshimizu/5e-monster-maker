@@ -30,6 +30,10 @@ export const SKILL: {
     stat: 'INT',
     label: 'History',
   },
+  INITIATIVE: {
+    stat: 'DEX',
+    label: 'Initiative',
+  },
   INSIGHT: {
     stat: 'WIS',
     label: 'Insight',

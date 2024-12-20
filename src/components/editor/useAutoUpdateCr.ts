@@ -1,6 +1,6 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useI18n } from 'vue-i18n'
-import { DndStat, MonsterCrAnnotation } from '../models'
+import { DndStat, MonsterAction, MonsterCrAnnotation } from '../models'
 import { avgRoll, renderBonus } from '../rendering/mathRendering'
 
 export function useAutoUpdateCr() {
@@ -9,11 +9,20 @@ export function useAutoUpdateCr() {
 
   const autoUpdateCr = function (
     description: string,
-    annotation: MonsterCrAnnotation
+    annotation: MonsterCrAnnotation,
+    action?: MonsterAction
   ) {
     if (!annotation.automatic) return
 
     // parse the damage out of the description
+    // if we have an action, augment the description with the effect clauses
+    // this is a bit of a lazy hack, but we're really just looking for the largest die roll
+    const actionDescriptions = action
+      ? action.effects.map((e) => e.effect).join(' ')
+      : ''
+
+    description = `${description}${actionDescriptions}`
+
     // dice: {xdy+z}
     const dice = RegExp(/\{(\d+)d(\d+)[ ]*([+-][ ]*\d+)?\}/gi)
     const diceMatches = [...description.matchAll(dice)]
@@ -62,6 +71,16 @@ export function useAutoUpdateCr() {
     }
 
     annotation.maxModifier = maxAttack
+
+    // actions now have more data we could use so we overwrite stuff here
+    if (action) {
+      // check the save
+      if (action.stat !== 'none') {
+        annotation.maxSave = action.save.override
+          ? action.save.overrideValue
+          : monster.defaultSpellSave(action.stat)
+      }
+    }
 
     // reset to defaults if someone changed them
     annotation.ehpModifier = 0
