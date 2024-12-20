@@ -43,7 +43,6 @@ export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
     return {
       name: 'My New Monster',
-      format: '2024',
       saveVersion: MONSTER_VERSION,
       useArticleInToken: false,
       alphaTraits: true,
@@ -836,6 +835,25 @@ export const useMonsterStore = defineStore('monster', {
       })
 
       return data
+    },
+    initiative(): { mod: number; passive: number } {
+      const skillDefined = this.skills.find((s) => s.key === 'INITIATIVE')
+
+      if (skillDefined) {
+        const bonus = skillDefined.override
+          ? skillDefined.overrideValue
+          : this.defaultSkillBonus(skillDefined)
+        return {
+          mod: bonus,
+          passive: 10 + bonus,
+        }
+      } else {
+        // this is just the dex mod
+        return {
+          mod: statModifier(this.stats.DEX),
+          passive: 10 + this.stats.DEX,
+        }
+      }
     },
   },
   actions: {

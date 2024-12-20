@@ -11,10 +11,13 @@ import {
 import N2W from 'number-to-words'
 import { useProcessTokens } from './useProcessTokens'
 import _ from 'lodash'
+import { useEditorStore } from 'src/stores/editor-store'
+import { DndStat, Monster } from '../models'
 
 // rendering strings for whatever needs it
 export function useTextRenderer() {
   const monster = useMonsterStore()
+  const editorStore = useEditorStore()
   const { t } = useI18n()
   const {
     processAction,
@@ -68,6 +71,41 @@ export function useTextRenderer() {
     return allSaves.filter((s) => s !== '').join(', ')
   })
 
+  /**
+   * the 2024 renderer has a specific layout so we need to be able to access these by key
+   */
+  const statsAndSavesByKey = computed(() => {
+    const data: Record<
+      string,
+      {
+        stat: DndStat
+        score: number
+        modifier: number
+        renderedModifier: string
+        renderedSave: string
+      }
+    > = {}
+
+    // pull the saves while we're doing the mods
+    monster.statsWithModifiers.forEach((s) => {
+      const save = monster.saves[s.stat]
+
+      const renderedSave = save.override
+        ? renderBonus(save.overrideValue)
+        : renderBonus(
+            saveModifierForStat(monster, s.stat as keyof typeof monster.saves)
+          )
+
+      data[s.stat] = {
+        ...s,
+        renderedModifier: renderBonus(statModifier(s.score)),
+        renderedSave,
+      }
+    })
+
+    return data
+  })
+
   // string renderer for speeds
   const speeds = computed(() => {
     const speeds = monster.speeds.map((s) => {
@@ -82,15 +120,24 @@ export function useTextRenderer() {
 
   // skills renderer
   const skills = computed(() => {
-    const monsterSkills = monster.skills.map((s) => {
-      if (s.override) {
-        return `${t(`skill.${s.key}`)} ${renderBonus(s.overrideValue)}`
-      } else {
-        return `${t(`skill.${s.key}`)} ${renderBonus(
-          bonusForSkill(monster, s)
-        )}`
-      }
-    })
+    const monsterSkills = monster.skills
+      .filter((s) => {
+        // hide initiative from skills list in the 2024 block
+        if (editorStore.style === '2024' && s.key === 'INITIATIVE') {
+          return false
+        }
+
+        return true
+      })
+      .map((s) => {
+        if (s.override) {
+          return `${t(`skill.${s.key}`)} ${renderBonus(s.overrideValue)}`
+        } else {
+          return `${t(`skill.${s.key}`)} ${renderBonus(
+            bonusForSkill(monster, s)
+          )}`
+        }
+      })
 
     return monsterSkills.join(', ')
   })
@@ -133,7 +180,7 @@ export function useTextRenderer() {
 
     return `${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString(
       'en-US'
-    )} XP)`
+    )} XP${editorStore.style === '2024' ? `, PB +${monster.proficiency}` : ''})`
   })
 
   const traits = computed(() => {
@@ -271,6 +318,12 @@ export function useTextRenderer() {
     processTokens(monster.inventory, undefined, monster, 'none')
   )
 
+  const initiative = computed(() => {
+    return `${monster.initiative.mod >= 0 ? '+' : ''}${
+      monster.initiative.mod
+    } (${monster.initiative.passive})`
+  })
+
   return {
     stats,
     hp,
@@ -304,5 +357,7 @@ export function useTextRenderer() {
     regionalEffectPreamble,
     regionalEffects,
     inventory,
+    initiative,
+    statsAndSavesByKey,
   }
 }

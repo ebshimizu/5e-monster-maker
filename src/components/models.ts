@@ -358,7 +358,6 @@ export interface Monster {
   regionalEffectDescription: string
   inventory: string
   autoEstimateDefenseCr: boolean
-  format: '2014' | '2024'
 }
 
 // uhhhhhh
