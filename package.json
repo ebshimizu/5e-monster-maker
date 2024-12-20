@@ -16,7 +16,7 @@
     "copy-to-clipboard": "^3.3.2",
     "core-js": "^3.6.5",
     "fs-extra": "^10.1.0",
-    "html-to-image": "^1.11.11",
+    "dom-to-image-more": "^3.5.0",
     "json-url": "^3.0.0",
     "jsonschema": "^1.4.1",
     "lodash": "^4.17.21",
@@ -51,8 +51,9 @@
     "typescript": "^4.5.4"
   },
   "engines": {
-    "node": "^20 || ^18",
+    "node": "^22 || ^20 || ^18",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
-  }
+  },
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }
