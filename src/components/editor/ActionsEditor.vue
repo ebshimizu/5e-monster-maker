@@ -102,6 +102,10 @@
                   :options="statOptions"
                   :label="$t('monster.action.savingThrowStat')"
                   class="col-2 q-pa-sm"
+                  @update:model-value="(stat: string) => {
+                    action.stat = stat as DndStat | 'none'
+                    autoUpdateCr(action.description, action.crAnnotation, action)
+                  }"
                 />
                 <q-input
                   :model-value="saveThrowValueForAction(action)"
@@ -109,14 +113,26 @@
                   type="number"
                   :disable="!action.save.override"
                   class="col-2 q-pa-sm"
-                  @update:model-value="(v: string | number | null) => (action.save.overrideValue = parseInt(`${v}`))"
+                  @update:model-value="(v: string | number | null) => {
+                    action.save.overrideValue = parseInt(`${v}`)
+                    autoUpdateCr(action.description, action.crAnnotation, action)
+                  }"
                 >
                   <template #after>
                     <lock-toggle-button
                       :locked="!action.save.override"
                       :lock-tooltip="$t('monster.action.lockSave')"
                       :unlock-tooltip="$t('monster.action.unlockSave')"
-                      @click="action.save.override = !action.save.override"
+                      @click="
+                        () => {
+                          action.save.override = !action.save.override
+                          autoUpdateCr(
+                            action.description,
+                            action.crAnnotation,
+                            action
+                          )
+                        }
+                      "
                     />
                   </template>
                 </q-input>
@@ -216,6 +232,10 @@
                         v-model="effect.effect"
                         :label="$t('editor.action.effect')"
                         class="col-9 q-pa-sm"
+                        @update:model-value="(value: string | number | null) => {
+                          effect.effect = `${value}`
+                          autoUpdateCr(action.description, action.crAnnotation, action)
+                        }"
                       >
                         <template #after>
                           <q-btn
@@ -223,7 +243,16 @@
                             color="negative"
                             icon="delete"
                             class="q-mx-sm"
-                            @click="action.effects.splice(idx, 1)"
+                            @click="
+                              () => {
+                                action.effects.splice(idx, 1)
+                                autoUpdateCr(
+                                  action.description,
+                                  action.crAnnotation,
+                                  action
+                                )
+                              }
+                            "
                           />
                         </template>
                       </q-input>
@@ -237,7 +266,7 @@
                   @update:model-value="
                     (value: string) => {
                       action.description = value
-                      autoUpdateCr(action.description, action.crAnnotation)
+                      autoUpdateCr(action.description, action.crAnnotation, action)
                     }
                   "
                 />
@@ -276,7 +305,7 @@ import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import CrAnnotationCard from './CrAnnotationCard.vue'
 import { useQuasar } from 'quasar'
-import { MonsterAction } from '../models'
+import { DndStat, MonsterAction } from '../models'
 import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 import { useTemplatesStore } from 'src/stores/templates-store'
 import { useI18n } from 'vue-i18n'

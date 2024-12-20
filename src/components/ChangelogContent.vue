@@ -1,6 +1,43 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.0"
+      subtitle="Major Update - 12/20/2023"
+      icon="update"
+      color="positive"
+    >
+      <div class="text-body1 q-mb-sm">
+        This update is a bit in advance of the full 2024 Monster Manual release,
+        and lays the foundation for anticipated stat block updates in the 2024
+        rules. These updates are based on changes observed in the 2024 Player's
+        Handbook. I anticipate a (hopefully) small update once the full Monster
+        Manual is released to catch the remainder of the formatting updates.
+      </div>
+      <q-separator class="q-my-sm" />
+      <div class="text-overline text-uppercase q-mb-sm">New Features</div>
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="128" /> The web renderer stat block can
+            now toggle between the 2014 stat block style and the new 2024 stat
+            block style. New data fields have been added to the monster stat
+            block format to accommodate the new style. The data fields are fully
+            backwards compatible.
+          </li>
+          <li>
+            <github-issue-link :issue="131" />Actions that utilize saving throws
+            have been overhauled in the 2024 format. Save-based actions can now
+            indicate the stat used for the DC (with an optional override), the
+            range of the action, and can now explicitly list out the results for
+            succeeding, failing, or satisfying some other more complex condition
+            on the save (e.g. failing by more than 5). The stat block renderer
+            will format this for you. If you do not wish to use this new
+            formatting, just leave the save stat as 'none'.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.2.11"
       subtitle="Bugfix - 12/19/2024"
       icon="build"
