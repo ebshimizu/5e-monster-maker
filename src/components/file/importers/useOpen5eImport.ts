@@ -833,12 +833,17 @@ export function useOpen5eImport() {
       })
     }
 
-    if (data.reactions !== '') {
+    if (data.reactions != null && data.reactions !== '') {
       data.reactions.forEach((r) => {
         monster.reactions.push({
           id: v4(),
           name: r.name,
           description: replaceFormattingStrings(r.desc),
+          limitedUse: {
+            count: 0,
+            rate: 'DAY',
+          },
+          trigger: '',
         })
       })
     }

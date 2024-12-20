@@ -11,7 +11,8 @@
         and lays the foundation for anticipated stat block updates in the 2024
         rules. These updates are based on changes observed in the 2024 Player's
         Handbook. I anticipate a (hopefully) small update once the full Monster
-        Manual is released to catch the remainder of the formatting updates.
+        Manual is released to catch the remainder of the formatting updates,
+        probably as they relate to Legendary Actions.
       </div>
       <q-separator class="q-my-sm" />
       <div class="text-overline text-uppercase q-mb-sm">New Features</div>
@@ -32,7 +33,32 @@
             succeeding, failing, or satisfying some other more complex condition
             on the save (e.g. failing by more than 5). The stat block renderer
             will format this for you. If you do not wish to use this new
-            formatting, just leave the save stat as 'none'.
+            formatting, just leave the save stat as 'none'. This formatting can
+            be used in both 2014 and 2024 styles.
+          </li>
+          <li>
+            <github-issue-link :issue="132" /> Reactions now have an explicit
+            "Trigger" and a "Response." They can also now have limited uses
+            (like normal actions). This formatting will only appear if the
+            "Trigger" field has text in it, so to keep using the 2014
+            formatting, leave that field blank. This formatting can be used in
+            both 2014 and 2024 styles.
+          </li>
+          <li>
+            <github-issue-link :issue="130" /> The 2024 style for the stat block
+            has been added. Toggle between 2024 and 2014 styles with the
+            settings menu (gear icon, top right). The 2024 style primarily
+            affects the header, which has a new table for displaying stats and
+            saves, and removes some of the dividers in there. Exports to other
+            formats (markdown, LaTeX) should function as they did before.
+          </li>
+          <li>
+            Added Initiative as a skill. Due to the 2024 stat block explicitly
+            showing Initiative in the top right of the stat block, Initiative is
+            now a skill you can add, give proficiency for, and override as with
+            any other skill. In the 2014 stat block, this will appear in the
+            Skills section. In the 2024 stat block, this will be omitted from
+            the Skills section, as it has its own dedicated location.
           </li>
         </ul>
       </div>
