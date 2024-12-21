@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.1"
+      subtitle="Hotfix - 12/21/2024"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            Fixed issue with default initiative adding stat score instead of
+            stat modifier.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.0"
       subtitle="Major Update - 12/20/2023"
       icon="update"

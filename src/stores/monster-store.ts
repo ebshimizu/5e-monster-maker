@@ -851,7 +851,7 @@ export const useMonsterStore = defineStore('monster', {
         // this is just the dex mod
         return {
           mod: statModifier(this.stats.DEX),
-          passive: 10 + this.stats.DEX,
+          passive: 10 + statModifier(this.stats.DEX),
         }
       }
     },
