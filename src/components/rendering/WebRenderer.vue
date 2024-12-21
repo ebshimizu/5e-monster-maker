@@ -128,7 +128,7 @@
       >
     </div>
     <hr />
-    <h3 v-if="blockStyle.mm2024" class="section">
+    <h3 v-if="blockStyle.mm2024" class="section first">
       {{ $t('editor.traits.label') }}
     </h3>
     <div class="traits">
@@ -596,11 +596,16 @@ export default defineComponent({
     text-indent: -18px;
   }
 
+  .first.section {
+    margin-top: 0.5em;
+  }
+
   .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: 10px;
+    margin-bottom: 1em;
 
     .stat-table {
       display: grid;
