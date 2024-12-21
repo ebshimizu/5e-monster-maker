@@ -44,13 +44,15 @@
       <q-card-section class="scroll">
         <q-markup-table>
           <thead>
-            <th>{{ $t('monster.cr') }}</th>
-            <th>{{ $t('editor.cr.prof') }}</th>
-            <th>{{ $t('editor.cr.ac') }}</th>
-            <th>{{ $t('editor.cr.hp') }}</th>
-            <th>{{ $t('editor.cr.attack') }}</th>
-            <th>{{ $t('editor.cr.damage') }}</th>
-            <th>{{ $t('editor.cr.save') }}</th>
+            <tr>
+              <th>{{ $t('monster.cr') }}</th>
+              <th>{{ $t('editor.cr.prof') }}</th>
+              <th>{{ $t('editor.cr.ac') }}</th>
+              <th>{{ $t('editor.cr.hp') }}</th>
+              <th>{{ $t('editor.cr.attack') }}</th>
+              <th>{{ $t('editor.cr.damage') }}</th>
+              <th>{{ $t('editor.cr.save') }}</th>
+            </tr>
           </thead>
           <tbody>
             <tr v-for="(cr, idx) in crData" :key="cr.numeric">

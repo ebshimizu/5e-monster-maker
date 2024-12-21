@@ -47,7 +47,7 @@ import copy from 'copy-to-clipboard'
 import { useLatexRenderer } from '../rendering/useLatexRenderer'
 import { useTarrasqueRenderer } from '../rendering/useTarrasqueRenderer'
 import { useImprovedInitRenderer } from '../rendering/useImprovedInitRenderer'
-import { toPng } from 'html-to-image'
+import domToImage from 'dom-to-image-more'
 
 import jsonurl from 'json-url'
 import { useEditorStore } from 'src/stores/editor-store'
@@ -160,12 +160,19 @@ export default defineComponent({
       const node = document.getElementById('renderer')
 
       if (node != null) {
-        toPng(node).then(function (image: string) {
-          const link = document.createElement('a')
-          link.download = `${monster.name}.png`
-          link.href = image
-          link.click()
-        })
+        domToImage
+          .toPng(node, {
+            height: node.clientHeight,
+            width: node.clientWidth,
+            scale: 2,
+            copyDefaultStyles: false,
+          } as any)
+          .then(function (image: string) {
+            const link = document.createElement('a')
+            link.download = `${monster.name}.png`
+            link.href = image
+            link.click()
+          })
       }
     }
 

@@ -97,6 +97,168 @@
                   :label="$t('monster.trait.limitedUse.rate')"
                   class="col-4 q-pa-sm"
                 />
+                <q-select
+                  v-model="action.stat"
+                  :options="statOptions"
+                  :label="$t('monster.action.savingThrowStat')"
+                  class="col-2 q-pa-sm"
+                  @update:model-value="(stat: string) => {
+                    action.stat = stat as DndStat | 'none'
+                    autoUpdateCr(action.description, action.crAnnotation, action)
+                  }"
+                />
+                <q-input
+                  :model-value="saveThrowValueForAction(action)"
+                  :label="$t('monster.action.saveDc')"
+                  type="number"
+                  :disable="!action.save.override"
+                  class="col-2 q-pa-sm"
+                  @update:model-value="(v: string | number | null) => {
+                    action.save.overrideValue = parseInt(`${v}`)
+                    autoUpdateCr(action.description, action.crAnnotation, action)
+                  }"
+                >
+                  <template #after>
+                    <lock-toggle-button
+                      :locked="!action.save.override"
+                      :lock-tooltip="$t('monster.action.lockSave')"
+                      :unlock-tooltip="$t('monster.action.unlockSave')"
+                      @click="
+                        () => {
+                          action.save.override = !action.save.override
+                          autoUpdateCr(
+                            action.description,
+                            action.crAnnotation,
+                            action
+                          )
+                        }
+                      "
+                    />
+                  </template>
+                </q-input>
+                <q-input
+                  v-model="action.range"
+                  class="col-8 q-pa-sm"
+                  :label="$t('monster.action.range')"
+                >
+                  <template #after>
+                    <q-btn-dropdown
+                      :label="$t('editor.action.addEffect')"
+                      color="green"
+                      :disable="action.stat === 'none'"
+                    >
+                      <q-list>
+                        <q-item
+                          v-close-popup
+                          clickable
+                          @click="
+                            action.effects.push({
+                              case: $t('editor.action.effectCase.failure'),
+                              effect: '',
+                            })
+                          "
+                        >
+                          <q-item-section>
+                            <q-item-label>{{
+                              $t('editor.action.effectCase.failure')
+                            }}</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-item
+                          v-close-popup
+                          clickable
+                          @click="
+                            action.effects.push({
+                              case: $t('editor.action.effectCase.failByFive'),
+                              effect: '',
+                            })
+                          "
+                        >
+                          <q-item-section>
+                            <q-item-label>{{
+                              $t('editor.action.effectCase.failByFive')
+                            }}</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                        <q-item
+                          v-close-popup
+                          clickable
+                          @click="
+                            action.effects.push({
+                              case: $t('editor.action.effectCase.success'),
+                              effect: $t(
+                                'editor.action.effectTemplate.halfDamage'
+                              ),
+                            })
+                          "
+                        >
+                          <q-item-section>
+                            <q-item-label
+                              >{{ $t('editor.action.effectCase.success') }}:
+                              {{
+                                $t('editor.action.effectTemplate.halfDamage')
+                              }}</q-item-label
+                            >
+                          </q-item-section>
+                        </q-item>
+                      </q-list>
+                    </q-btn-dropdown>
+                  </template>
+                </q-input>
+                <q-card
+                  v-if="action.stat !== 'none'"
+                  bordered
+                  class="row q-ma-sm full-width"
+                >
+                  <q-card-section class="bg-orange-10 full-width">
+                    <div class="text-overline text-uppercase">
+                      {{ $t('editor.action.saveDescription') }}
+                    </div>
+                    <div class="text-caption">
+                      {{ $t('editor.action.saveHelp') }}
+                    </div>
+                  </q-card-section>
+                  <q-card-section class="row full-width">
+                    <template
+                      v-for="(effect, idx) of action.effects"
+                      :key="idx"
+                    >
+                      <q-input
+                        v-model="effect.case"
+                        :label="$t('editor.action.condition')"
+                        class="col-3 q-pa-sm"
+                      />
+                      <q-input
+                        v-model="effect.effect"
+                        :label="$t('editor.action.effect')"
+                        class="col-9 q-pa-sm"
+                        @update:model-value="(value: string | number | null) => {
+                          effect.effect = `${value}`
+                          autoUpdateCr(action.description, action.crAnnotation, action)
+                        }"
+                      >
+                        <template #after>
+                          <q-btn
+                            round
+                            color="negative"
+                            icon="delete"
+                            class="q-mx-sm"
+                            @click="
+                              () => {
+                                action.effects.splice(idx, 1)
+                                autoUpdateCr(
+                                  action.description,
+                                  action.crAnnotation,
+                                  action
+                                )
+                              }
+                            "
+                          />
+                        </template>
+                      </q-input>
+                    </template>
+                  </q-card-section>
+                </q-card>
                 <monster-text-editor
                   :field="action.description"
                   i18n-label-key="monster.trait.description"
@@ -104,7 +266,7 @@
                   @update:model-value="
                     (value: string) => {
                       action.description = value
-                      autoUpdateCr(action.description, action.crAnnotation)
+                      autoUpdateCr(action.description, action.crAnnotation, action)
                     }
                   "
                 />
@@ -143,18 +305,26 @@ import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import CrAnnotationCard from './CrAnnotationCard.vue'
 import { useQuasar } from 'quasar'
-import { MonsterAction } from '../models'
+import { DndStat, MonsterAction } from '../models'
 import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 import { useTemplatesStore } from 'src/stores/templates-store'
 import { useI18n } from 'vue-i18n'
 import { validateNumber } from './numberInput'
 import SwapButtons from './widgets/SwapButtons.vue'
+import { useStats } from 'src/data/STAT'
+import LockToggleButton from '../LockToggleButton.vue'
 
 export default defineComponent({
   name: 'ActionsEditor',
-  components: { MonsterTextEditor, CrAnnotationCard, SwapButtons },
+  components: {
+    MonsterTextEditor,
+    CrAnnotationCard,
+    SwapButtons,
+    LockToggleButton,
+  },
   setup() {
     const monster = useMonsterStore()
+    const { statOptionsShort } = useStats()
     const { rechargeTimeOptions } = useRechargeTimes()
     const { autoUpdateCr, printCrSummary } = useAutoUpdateCr()
     const $q = useQuasar()
@@ -177,6 +347,16 @@ export default defineComponent({
       })
     }
 
+    const saveThrowValueForAction = (action: MonsterAction) => {
+      if (action.stat !== 'none') {
+        return action.save.override
+          ? action.save.overrideValue
+          : monster.defaultSpellSave(action.stat)
+      }
+
+      return 0
+    }
+
     return {
       monster,
       actions: computed(() => monster.actions),
@@ -184,7 +364,9 @@ export default defineComponent({
       autoUpdateCr,
       printCrSummary,
       addTemplate,
+      statOptions: ['none', ...statOptionsShort],
       validateNumber: validateNumber,
+      saveThrowValueForAction,
     }
   },
 })

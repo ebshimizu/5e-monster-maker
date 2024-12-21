@@ -4,7 +4,7 @@ import { SCHEMA } from 'src/data/SCHEMA'
 import { useMonsterStore } from 'src/stores/monster-store'
 import { useSpellsStore } from 'src/stores/spells-store'
 import { useI18n } from 'vue-i18n'
-import { Monster, MonsterAction } from '../models'
+import { Monster, MonsterAction, MonsterReaction } from '../models'
 
 export function useFileLoader() {
   const $q = useQuasar()
@@ -224,6 +224,41 @@ export function useFileLoader() {
       monster.saveVersion = 8
     }
 
+    // version 9 is the big 2024 monster file format update
+    if (monster.saveVersion < 9) {
+      // update actions
+      monster.actions = monster.actions.map((a: MonsterAction) => {
+        return {
+          ...a,
+          stat: 'none',
+          save: {
+            override: false,
+            overrideValue: 0,
+          },
+          effects: [],
+          range: '',
+        }
+      })
+
+      // update reactions
+      monster.reactions = monster.reactions.map((r: MonsterReaction) => {
+        return {
+          ...r,
+          limitedUse: {
+            count: 1,
+            rate: 'DAY',
+          },
+          trigger: '',
+        }
+      })
+
+      // update format
+      monster.format = '2014'
+
+      // increment file version
+      monster.saveVersion = 9
+    }
+
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0
@@ -273,7 +308,7 @@ export function useFileLoader() {
 
     // one more validation for the road, use the most recent version
     const monster = data as Monster
-    const valid = validate(data, SCHEMA['7'])
+    const valid = validate(data, SCHEMA['9'])
 
     if (!valid.valid) {
       console.error(valid.errors.map((e) => e.toString()))

@@ -1,7 +1,9 @@
 import { validate } from 'jsonschema'
-import _ from 'lodash'
+import { sortBy, union } from 'lodash'
 import { defineStore } from 'pinia'
 import { useQuasar } from 'quasar'
+import { validateNumber } from 'src/components/editor/numberInput'
+import { useFileLoader } from 'src/components/file/useFileLoader'
 import {
   CrActionInfo,
   CrDamageInfo,
@@ -31,13 +33,11 @@ import { DICE } from 'src/data/DICE'
 import { SCHEMA } from 'src/data/SCHEMA'
 import { HD_FOR_SIZE } from 'src/data/SIZE'
 import { SKILL } from 'src/data/SKILL'
-import { useFileLoader } from 'src/components/file/useFileLoader'
-import { v4 as uuidv4, v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
-import { validateNumber } from 'src/components/editor/numberInput'
 
-export const MONSTER_VERSION = 8
+export const MONSTER_VERSION = 9
 
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
@@ -555,7 +555,7 @@ export const useMonsterStore = defineStore('monster', {
           }
         })
 
-        return _.sortBy([...actions, ...attacks], 'name')
+        return sortBy([...actions, ...attacks], 'name')
       }
     },
     legendaryActionName: (state) => {
@@ -805,7 +805,7 @@ export const useMonsterStore = defineStore('monster', {
       // and that spells won't be upcasted (yeah yeah I know about upcasted fireball but you'll just have to
       // figure that out yourself)
       // there's a few spellcasting lists... let's combine them
-      const spells = _.union(
+      const spells = union(
         this.spellcasting.standard,
         ...this.spellcasting.atWill.map((a) => a.spells)
       )
@@ -835,6 +835,25 @@ export const useMonsterStore = defineStore('monster', {
       })
 
       return data
+    },
+    initiative(): { mod: number; passive: number } {
+      const skillDefined = this.skills.find((s) => s.key === 'INITIATIVE')
+
+      if (skillDefined) {
+        const bonus = skillDefined.override
+          ? skillDefined.overrideValue
+          : this.defaultSkillBonus(skillDefined)
+        return {
+          mod: bonus,
+          passive: 10 + bonus,
+        }
+      } else {
+        // this is just the dex mod
+        return {
+          mod: statModifier(this.stats.DEX),
+          passive: 10 + this.stats.DEX,
+        }
+      }
     },
   },
   actions: {
@@ -1129,9 +1148,14 @@ export const useMonsterStore = defineStore('monster', {
     },
     addReaction() {
       this.reactions.push({
-        id: v4(),
+        id: uuidv4(),
         name: 'New Reaction',
         description: '',
+        limitedUse: {
+          count: 0,
+          rate: 'DAY',
+        },
+        trigger: '',
       })
     },
     deleteReaction(reactionId: string) {
@@ -1143,7 +1167,7 @@ export const useMonsterStore = defineStore('monster', {
     },
     addLairAction() {
       this.lairActions.push({
-        id: v4(),
+        id: uuidv4(),
         description: '',
         crAnnotation: defaultCrAnnotation(),
       })
@@ -1157,7 +1181,7 @@ export const useMonsterStore = defineStore('monster', {
     },
     addRegionalEffect() {
       this.regionalEffects.push({
-        id: v4(),
+        id: uuidv4(),
         description: '',
       })
     },
@@ -1173,7 +1197,7 @@ export const useMonsterStore = defineStore('monster', {
       const $q = useQuasar()
 
       updateMonster(this.$state)
-      const valid = validate(this.$state, SCHEMA['5'])
+      const valid = validate(this.$state, SCHEMA['9'])
 
       if (!valid.valid) {
         console.error(valid.errors.map((e) => e.toString()))

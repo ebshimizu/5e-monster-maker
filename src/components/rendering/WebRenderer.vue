@@ -1,18 +1,23 @@
 <template>
-  <div id="render" class="statblock" :style="columns">
+  <div id="render" class="statblock" :class="blockStyle" :style="columns">
     <h2 class="monster-name">{{ monster.name }}</h2>
     <div class="type">
       {{ monster.size }} {{ monster.type }}, {{ monster.alignment }}
     </div>
     <hr />
-    <div class="skill">
-      <span class="name">Armor Class</span> {{ monster.AC
-      }}{{ monster.ACType === '' ? '' : ` (${monster.ACType})` }}
+    <div class="skill ac">
+      <div>
+        <span class="name">Armor Class</span> {{ monster.AC
+        }}{{ monster.ACType === '' ? '' : ` (${monster.ACType})` }}
+      </div>
+      <span v-if="blockStyle.mm2024"
+        ><b>{{ $t('skill.INITIATIVE') }}</b> {{ initiative }}</span
+      >
     </div>
     <div class="skill"><span class="name">Hit Points</span> {{ hp }}</div>
     <div class="skill"><span class="name">Speed</span> {{ speeds }}</div>
     <hr />
-    <div class="row no-wrap" style="width: 100%">
+    <div v-if="blockStyle.mm2014" class="row no-wrap" style="width: 100%">
       <div v-for="stat in stats" :key="stat.stat" class="stat-container">
         <div class="stat-name">{{ stat.stat }}</div>
         <div class="stat">
@@ -21,11 +26,65 @@
         </div>
       </div>
     </div>
+    <div
+      v-else-if="blockStyle.mm2024"
+      class="row no-wrap stats"
+      style="width: 100%"
+    >
+      <div class="stat-table">
+        <div class="header-label mod">{{ $t('editor.mod') }}</div>
+        <div class="header-label save">{{ $t('editor.save') }}</div>
+        <div class="stat one">
+          {{ statsAndSavesByKey.STR.stat.toLowerCase() }}
+        </div>
+        <div class="score one">{{ statsAndSavesByKey.STR.score }}</div>
+        <div class="mod one">{{ statsAndSavesByKey.STR.renderedModifier }}</div>
+        <div class="save one">{{ statsAndSavesByKey.STR.renderedSave }}</div>
+        <div class="stat two">
+          {{ statsAndSavesByKey.INT.stat.toLowerCase() }}
+        </div>
+        <div class="score two">{{ statsAndSavesByKey.INT.score }}</div>
+        <div class="mod two">{{ statsAndSavesByKey.INT.renderedModifier }}</div>
+        <div class="save two">{{ statsAndSavesByKey.INT.renderedSave }}</div>
+      </div>
+      <div class="stat-table">
+        <div class="header-label mod">{{ $t('editor.mod') }}</div>
+        <div class="header-label save">{{ $t('editor.save') }}</div>
+        <div class="stat one">
+          {{ statsAndSavesByKey.DEX.stat.toLowerCase() }}
+        </div>
+        <div class="score one">{{ statsAndSavesByKey.DEX.score }}</div>
+        <div class="mod one">{{ statsAndSavesByKey.DEX.renderedModifier }}</div>
+        <div class="save one">{{ statsAndSavesByKey.DEX.renderedSave }}</div>
+        <div class="stat two">
+          {{ statsAndSavesByKey.WIS.stat.toLowerCase() }}
+        </div>
+        <div class="score two">{{ statsAndSavesByKey.WIS.score }}</div>
+        <div class="mod two">{{ statsAndSavesByKey.WIS.renderedModifier }}</div>
+        <div class="save two">{{ statsAndSavesByKey.WIS.renderedSave }}</div>
+      </div>
+      <div class="stat-table">
+        <div class="header-label mod">{{ $t('editor.mod') }}</div>
+        <div class="header-label save">{{ $t('editor.save') }}</div>
+        <div class="stat one">
+          {{ statsAndSavesByKey.CON.stat.toLowerCase() }}
+        </div>
+        <div class="score one">{{ statsAndSavesByKey.CON.score }}</div>
+        <div class="mod one">{{ statsAndSavesByKey.CON.renderedModifier }}</div>
+        <div class="save one">{{ statsAndSavesByKey.CON.renderedSave }}</div>
+        <div class="stat two">
+          {{ statsAndSavesByKey.CHA.stat.toLowerCase() }}
+        </div>
+        <div class="score two">{{ statsAndSavesByKey.CHA.score }}</div>
+        <div class="mod two">{{ statsAndSavesByKey.CHA.renderedModifier }}</div>
+        <div class="save two">{{ statsAndSavesByKey.CHA.renderedSave }}</div>
+      </div>
+    </div>
     <hr />
-    <div v-show="saves !== ''" class="skill">
+    <div v-show="blockStyle.mm2014 && saves !== ''" class="skill">
       <span class="name">{{ $t('monster.saves') }}</span> {{ saves }}
     </div>
-    <div v-show="monster.skills.length > 0" class="skill">
+    <div v-show="skills !== ''" class="skill">
       <span class="name">{{ $t('monster.skills') }}</span> {{ skills }}
     </div>
     <div
@@ -64,11 +123,14 @@
     </div>
     <div class="skill">
       <span class="name">Challenge</span> {{ cr }}
-      <span style="float: right"
+      <span v-if="blockStyle.mm2014" style="float: right"
         ><b>Proficiency Bonus</b> +{{ monster.proficiency }}</span
       >
     </div>
     <hr />
+    <h3 v-if="blockStyle.mm2024" class="section first">
+      {{ $t('editor.traits.label') }}
+    </h3>
     <div class="traits">
       <div
         v-for="(trait, idx) in traits"
@@ -308,10 +370,19 @@ export default defineComponent({
       }
     })
 
+    const blockStyle = computed(() => ({
+      mm2014: editorStore.style === '2014',
+      mm2024: editorStore.style === '2024',
+    }))
+
     const cr = computed(() => sanitizeWebString(textRenderer.cr.value))
 
     const inventory = computed(() =>
       sanitizeWebString(textRenderer.inventory.value)
+    )
+
+    const initiative = computed(() =>
+      sanitizeWebString(textRenderer.initiative.value)
     )
 
     return {
@@ -337,6 +408,8 @@ export default defineComponent({
       regionalEffects,
       columns,
       inventory,
+      blockStyle,
+      initiative,
     }
   },
 })
@@ -482,6 +555,144 @@ export default defineComponent({
     border-bottom: 1px solid #58180d;
     margin-bottom: 4px;
     line-height: 1.5rem;
+  }
+}
+
+/** 2024 overrides */
+.statblock.mm2024 {
+  background-color: #e4e2d9;
+  border-radius: 12px;
+  border: 2px solid #69665f;
+  outline: 2px solid #69665f;
+  outline-offset: -6px;
+  padding: 10px;
+
+  .monster-name {
+    font-family: ScalaSansCaps;
+    letter-spacing: -1px;
+    font-size: 1.8em;
+    border-bottom: 1px solid #58180d;
+    line-height: 2rem;
+  }
+
+  .type {
+    color: #69665f;
+    margin-top: 2px;
+  }
+
+  hr {
+    margin: 0.5rem 0;
+    border: none;
+  }
+
+  .ac {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .skill {
+    padding-left: 18px;
+    text-indent: -18px;
+  }
+
+  .first.section {
+    margin-top: 0.5em;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-bottom: 1em;
+
+    .stat-table {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: 'blank blank mod save' 'stat-1 score-1 mod-1 save-1' 'stat-2 score-2 mod-2 save-2';
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #58180d;
+      }
+
+      .header-label {
+        font-family: ScalaSansCaps;
+        font-size: 12px;
+        color: #69665f;
+        text-transform: uppercase;
+      }
+
+      .header-label.mod {
+        grid-area: mod;
+      }
+
+      .header-label.save {
+        grid-area: save;
+      }
+
+      .stat {
+        font-weight: bold;
+        font-family: ScalaSansCaps;
+        text-transform: capitalize;
+      }
+
+      .stat.one,
+      .score.one {
+        background-color: #dcd2ba;
+      }
+
+      .stat.two,
+      .score.two {
+        background-color: #d0d5b5;
+      }
+
+      .mod.one,
+      .save.one {
+        background-color: #d7c9c2;
+      }
+
+      .mod.two,
+      .save.two {
+        background-color: #d4c8db;
+      }
+
+      .stat.one {
+        grid-area: stat-1;
+      }
+
+      .score.one {
+        grid-area: score-1;
+      }
+
+      .mod.one {
+        grid-area: mod-1;
+      }
+
+      .save.one {
+        grid-area: save-1;
+      }
+
+      .stat.two {
+        grid-area: stat-2;
+      }
+
+      .score.two {
+        grid-area: score-2;
+      }
+
+      .mod.two {
+        grid-area: mod-2;
+      }
+
+      .save.two {
+        grid-area: save-2;
+      }
+    }
   }
 }
 </style>

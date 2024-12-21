@@ -26,15 +26,20 @@ export function useTemplateSubtitles() {
     // limited use
     const lu =
       template.recharge !== ''
-        ? t('editor.template.recharge', template.recharge)
+        ? t('editor.template.recharge', [template.recharge])
         : `(${template.limitedUse.count}/${t(
             `recharge.${template.limitedUse.rate.toUpperCase()}`
           )})`
     const showLu = template.limitedUse.count > 0 || template.recharge !== ''
 
+    const description =
+      template.stat == null || template.stat === 'none'
+        ? template.description
+        : `${t(`statFull.${template.stat}`)} Saving Throw: ${template.range}`
+
     return `${template.legendaryOnly ? t('editor.template.legendary') : ''}${
       showLu ? `${lu}. ` : ''
-    }${template.description}`
+    }${description}`
   }
 
   const traitTemplateSubtitle = (template: TraitTemplate) => {

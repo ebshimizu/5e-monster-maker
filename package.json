@@ -1,6 +1,6 @@
 {
   "name": "5e-monster-maker",
-  "version": "2.2.11",
+  "version": "2.3.0",
   "description": "A monster builder and generator for 5th Edition Dungeons and Dragons. Effortlessly create a monster with tools for automatically computing CR, formatting a statblock, and managing your monster actions and traits.",
   "productName": "Falindrith's D&D Monster Maker",
   "author": "Evan Shimizu <ebshimizu@gmail.com>",
@@ -11,19 +11,19 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.15.11",
+    "@quasar/extras": "^1.16.12",
     "@vueuse/core": "^8.6.0",
     "copy-to-clipboard": "^3.3.2",
     "core-js": "^3.6.5",
     "fs-extra": "^10.1.0",
-    "html-to-image": "^1.11.11",
+    "dom-to-image-more": "^3.5.0",
     "json-url": "^3.0.0",
     "jsonschema": "^1.4.1",
     "lodash": "^4.17.21",
     "number-to-words": "^1.2.4",
     "pinia": "^2.0.11",
     "pinia-plugin-persistedstate": "^3.0.0",
-    "quasar": "^2.11.8",
+    "quasar": "^2.16.11",
     "slugify": "^1.6.5",
     "url": "^0.11.0",
     "uuid": "^8.3.2",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^3.3.1",
-    "@quasar/app-vite": "^1.2.1",
+    "@quasar/app-vite": "^1.9.5",
     "@types/dom-to-image": "^2.6.4",
     "@types/lodash": "^4.14.182",
     "@types/node": "^12.20.21",
@@ -51,8 +51,9 @@
     "typescript": "^4.5.4"
   },
   "engines": {
-    "node": "^20 || ^18",
+    "node": "^22 || ^20 || ^18",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
-  }
+  },
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }

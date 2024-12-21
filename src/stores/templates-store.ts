@@ -127,6 +127,16 @@ export const useTemplatesStore = defineStore('templates', {
           monsterStore.attacks.push(attackInstance)
         } else if (type === 'Action') {
           const actionInstance = templateInstance as MonsterAction
+
+          // validate that the action has all of the fields we need since we've been updating this
+          actionInstance.save = actionInstance.save ?? {
+            override: false,
+            overrideValue: 0,
+          }
+          actionInstance.stat = actionInstance.stat ?? 'none'
+          actionInstance.effects = actionInstance.effects ?? []
+          actionInstance.range = actionInstance.range ?? ''
+
           monsterStore.actions.push(actionInstance)
 
           if (actionInstance.legendaryOnly) {
@@ -137,6 +147,14 @@ export const useTemplatesStore = defineStore('templates', {
           monsterStore.traits.push(traitInstance)
         } else if (type === 'Reaction') {
           const reactionInstance = templateInstance as MonsterReaction
+
+          // reactions also need to have updates
+          reactionInstance.trigger = reactionInstance.trigger ?? ''
+          reactionInstance.limitedUse = reactionInstance.limitedUse ?? {
+            count: 0,
+            rate: 'DAY',
+          }
+
           monsterStore.reactions.push(reactionInstance)
         }
         // add additional template types here

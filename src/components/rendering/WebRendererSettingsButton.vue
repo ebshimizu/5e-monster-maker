@@ -6,7 +6,7 @@
           <div class="text-h6 q-mb-md col-12">
             {{ $t('editor.renderSettings') }}
           </div>
-          <div class="col-12 flex items-center">
+          <div class="col-12 flex items-center justify-between">
             <div class="text-body1 q-mr-md">{{ $t('editor.columns') }}</div>
             <q-btn-toggle
               v-model="editorStore.statBlockColumns"
@@ -17,6 +17,22 @@
                   value: 1,
                 },
                 { label: $t('editor.settings.two'), value: 2 },
+              ]"
+            ></q-btn-toggle>
+          </div>
+          <div class="col-12 flex items-center justify-between q-my-sm">
+            <div class="text-body1 q-mr-md">
+              {{ $t('editor.settings.style') }}
+            </div>
+            <q-btn-toggle
+              v-model="editorStore.style"
+              :label="$t('editor.settings.style')"
+              :options="[
+                {
+                  label: $t('editor.settings.2014'),
+                  value: '2014',
+                },
+                { label: $t('editor.settings.2024'), value: '2024' },
               ]"
             ></q-btn-toggle>
           </div>

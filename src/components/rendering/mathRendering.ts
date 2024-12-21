@@ -1,4 +1,11 @@
-import { DndAttack, DndDice, Monster, MonsterSkill } from '../models'
+import {
+  DndAttack,
+  DndDice,
+  DndStat,
+  Monster,
+  MonsterAction,
+  MonsterSkill,
+} from '../models'
 
 // helpers for rendering stats
 export function avgHP(HP: DndDice) {
@@ -34,6 +41,18 @@ export function saveModifierForStat(
       statModifier(monster.stats[stat]) +
       (monster.saves[stat].proficient ? monster.proficiency : 0)
     )
+  }
+}
+
+export function saveForAction(
+  monster: Monster,
+  stat: DndStat,
+  override: MonsterAction['save']
+) {
+  if (override.override) {
+    return override.overrideValue
+  } else {
+    return 8 + monster.proficiency + statModifier(monster.stats[stat])
   }
 }
 
