@@ -106,7 +106,7 @@ There could be a couple reasons for this. Before filing and issue with the core 
 
 This project is written in Vue with Quasar and uses npm as its package manager. I'm pretty sure it'd work with yarn as well.
 
-Clone the repository and install the [Quasar cli](https://quasar.dev/start/quasar-cli) with `npm install --location=global @quasar/cli`. After that, run `npm install`. The development server can then be started with `quasar dev`.
+Clone the repository and install the [Quasar cli](https://quasar.dev/start/quasar-cli) with `npm install @quasar/cli  --save-dev`. After that, run `npm clean-install`. The development server can then be started with `quasar dev`.
 
 ### Translations
 
