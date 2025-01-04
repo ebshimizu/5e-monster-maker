@@ -5,6 +5,10 @@
         <q-item-section avatar><q-icon name="home" /></q-item-section>
         <q-item-section>{{ $t('editor.home') }}</q-item-section></q-item
       >
+      <q-item clickable to="/monsterarchive">
+        <q-item-section avatar><q-icon name="library_books" /></q-item-section>
+        <q-item-section>{{ $t('editor.monsterarchive.menu') }}</q-item-section>
+      </q-item>
       <q-item clickable to="/spells">
         <q-item-section avatar><q-icon name="library_books" /></q-item-section>
         <q-item-section>{{ $t('editor.customSpells') }}</q-item-section>
