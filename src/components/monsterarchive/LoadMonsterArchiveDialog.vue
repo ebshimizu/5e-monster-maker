@@ -48,6 +48,7 @@ import { validate } from 'jsonschema'
 import { SCHEMA } from 'src/data/SCHEMA'
 import { useI18n } from 'vue-i18n'
 import { MonsterEntry } from '../models'
+import { useFileLoader } from 'src/components/file/useFileLoader'
 
 export default defineComponent({
   name: 'LoadMonsterArchiveDialog',
@@ -70,6 +71,7 @@ export default defineComponent({
     const $q = useQuasar()
     const { t } = useI18n()
     const monsterArchiveStore = useMonsterArchiveStore()
+    const { updateMonster } = useFileLoader()
 
     // load fields
     const file = ref<File>()
@@ -80,35 +82,50 @@ export default defineComponent({
         const reader = new FileReader()
         reader.addEventListener('load', (e: ProgressEvent<FileReader>) => {
           try {
+            let imported = 0;
+            let skipped = 0;
+            let invalid = 0;
             let monsters = JSON.parse(e.target?.result as string)
             monsters = (Object.values(monsters) as MonsterEntry[])
-            const results = monsterArchiveStore.import(monsters, overwrite.value)
-
+            monsters.forEach((entry: MonsterEntry) => {
+              updateMonster(entry.monster)
+              const valid = validate(entry.monster, SCHEMA[entry.monster.saveVersion])
+              if (valid.valid) {
+                let result = monsterArchiveStore.import(entry, overwrite.value)
+                if (result) {
+                  imported++
+                } else if(!overwrite.value) {
+                  skipped++
+                }
+              } else {
+                invalid++
+              }
+            })
             $q.notify({
               message: t(
                 'editor.monsterarchive.importResult',
-                { n: results.imported },
-                results.imported
+                { n: imported },
+                imported
               ),
               type: 'positive',
             })
 
-            if (results.skipped > 0) {
+            if (skipped > 0) {
               $q.notify({
                 message: t(
                   'editor.monsterarchive.importSkip',
-                  { n: results.skipped },
-                  results.skipped
+                  { n: skipped },
+                  skipped
                 ),
                 type: 'warning',
               })
             }
-            if (results.invalid > 0) {
+            if (invalid > 0) {
               $q.notify({
                 message: t(
                   'editor.monsterarchive.importInvalid',
-                  { n: results.invalid },
-                  results.invalid
+                  { n: invalid },
+                  invalid
                 ),
                 type: 'warning',
               })

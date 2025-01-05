@@ -1,15 +1,11 @@
 import { defineStore } from 'pinia'
-import { validate } from 'jsonschema'
 import { useMonsterStore } from './monster-store';
-// import { useFileLoader } from 'src/components/file/useFileLoader'
-import { SCHEMA } from 'src/data/SCHEMA'
 import {
   Monster,
   MonsterArchive,
   MonsterEntry,
 } from 'src/components/models'
 const monsterStore = useMonsterStore();
-// const fileLoader = useFileLoader();
 
 export const useMonsterArchiveStore = defineStore('monster-archive', {
   state: (): MonsterArchive => ({
@@ -80,41 +76,32 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
       monsterStore.$state = monster
     },
 
+    /**
+     * Delete a monster from the store.
+     * 
+     * @param monster Monster
+     *   The monster to remove.
+     */
     deleteMonster(monster: Monster) {
-      console.log('delete monster' + monster.name)
+      delete this.monsters[monster.name]
     },
 
     /**
+     * Import a monster entry.
      * 
-     * @param monsters 
+     * @param monsters MonsterEntry 
+     *   The monster to import.
      * @param overwrite 
-     * @returns 
+     *   Wether to overwrite existing monsters with the same name.
+     * @returns object
+     *   The result of the import.
      */
-    import(monsters: MonsterEntry[], overwrite = false) {
-      let imported = 0
-      let skipped = 0
-      let invalid = 0
-
-      monsters.forEach((entry) => {
-        const valid = validate(entry.monster, SCHEMA[entry.monster.saveVersion])
-        if (valid.valid) {
-          if (!overwrite && this.isMonsterSaved(entry.monster)) {
-            skipped += 1
-            return
-          } else {
-            this.monsters[entry.monster.name] = entry
-            imported += 1
-          }
-        } else {
-          invalid += 1
-        }
-      })
-
-      return {
-        imported,
-        skipped,
-        invalid,
+    import(entry: MonsterEntry, overwrite = false): boolean {
+      if (overwrite || !this.isMonsterSaved(entry.monster)) {
+        this.monsters[entry.monster.name] = entry
+        return true
       }
+      return false
     },
 
     /**
