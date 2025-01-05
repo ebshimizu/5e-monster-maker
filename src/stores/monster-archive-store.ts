@@ -120,7 +120,6 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
     }
   },
   persist: {
-    key: 'app.monster-archive',
-    debug: true
+    key: 'app.monster-archive'
   },
 })
