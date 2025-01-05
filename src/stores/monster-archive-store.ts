@@ -12,17 +12,22 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
     monsters: {}
   }),
   getters: {
+    /**
+     * Returns the monsters in the state indexed by name.
+     * 
+     * @param state 
+     *   The state of the archive
+     * @returns Record<string, MonsterEntry>
+     *   The list of monsters.
+     */
     allMonsters: (state): Record<string, MonsterEntry> => {
       return state.monsters;
     },
-    savedMonsters: (state): Record<string, Monster> | object => {
-      return state.monsters;
-    }
   },
   actions: {
 
     /**
-     * Adds a copy of the monster to the archive store.
+     * Adds a copy of the given monster to the archive store.
      * 
      * @param monster Monster
      *   The monster to save.
