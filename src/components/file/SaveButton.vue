@@ -9,7 +9,6 @@ import { useMonsterStore } from '../../stores/monster-store'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useMonsterArchiveStore } from 'src/stores/monster-archive-store'
-import { over, result } from 'lodash'
 
 export default defineComponent({
   name: 'SaveButton',
