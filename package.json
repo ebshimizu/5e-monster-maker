@@ -15,8 +15,8 @@
     "@vueuse/core": "^8.6.0",
     "copy-to-clipboard": "^3.3.2",
     "core-js": "^3.6.5",
-    "fs-extra": "^10.1.0",
     "dom-to-image-more": "^3.5.0",
+    "fs-extra": "^10.1.0",
     "json-url": "^3.0.0",
     "jsonschema": "^1.4.1",
     "lodash": "^4.17.21",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^3.3.1",
     "@quasar/app-vite": "^1.9.5",
+    "@quasar/cli": "^2.4.1",
     "@types/dom-to-image": "^2.6.4",
     "@types/lodash": "^4.14.182",
     "@types/node": "^12.20.21",
