@@ -25,37 +25,6 @@ export default defineComponent({
         message: t(result.message),
         type: result.error ? 'negative' : 'positive',
       })
-      return
-
-      const existingMonster = monsterArchiveStore.isMonsterSaved(monster);
-      let overwrite = true;
-      try {
-        if (existingMonster) {
-          overwrite = confirm(t('editor.monsterarchive.overwrite_save'));
-        }
-        monsterArchiveStore.addMonster(monster.$state, overwrite);
-        if (monsterArchiveStore.isMonsterSaved(monster) && overwrite) {
-          if (existingMonster) {
-            $q.notify({
-              message: t('editor.monsterarchive.overwrite_saved'),
-              type: 'positive',
-            })
-          } else {
-            $q.notify({
-              message: t('editor.monsterarchive.saved'),
-              type: 'positive',
-            })
-          }
-
-        }
-      } catch (e) {
-        console.error(e)
-
-        $q.notify({
-          message: t('io.error.json', [e]),
-          type: 'negative',
-        })
-      }
     }
 
     return {
