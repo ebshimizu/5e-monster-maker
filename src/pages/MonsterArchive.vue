@@ -34,9 +34,9 @@
             {{ props.row.updated_at.toLocaleString() }}
           </q-td>
           <q-td key="actions">
-            <q-btn icon="mode_edit" @click="loadMonster(props.row.monster)"></q-btn>
-            <q-btn icon="download" @click="downloadSingle(props.row.monster)"></q-btn>
-            <q-btn icon="delete" @click="deleteMonster(props.row.monster)"></q-btn>
+            <q-btn icon="mode_edit" @click="loadMonster(props.row.monster)" :title="$t('editor.monsterarchive.load')"></q-btn>
+            <q-btn icon="download" @click="downloadSingle(props.row.monster)" :title="$t('editor.monsterarchive.export_single')"></q-btn>
+            <q-btn icon="delete" @click="deleteMonster(props.row.monster)" :title="$t('editor.monsterarchive.delete')"></q-btn>
           </q-td>
         </q-tr>
       </template>
@@ -67,6 +67,7 @@ export default defineComponent({
     const router = useRouter()
     const monsters = computed(() => Object.values(monsterArchiveStore.allMonsters))
 
+    // Define the columns.
     const columns: QTableProps['columns'] = [
       {
         name: 'name',
@@ -102,6 +103,12 @@ export default defineComponent({
       },
     ]
 
+    /**
+     * Load a monster from the archive into the builder and redirect to builder.
+     * 
+     * @param monster
+     *   The monster to load.
+     */
     const loadMonster = (monster: Monster) => {
       if (confirm(t('editor.monsterarchive.overwrite_current'))) {
         monsterArchiveStore.loadMonster(monster);
@@ -113,12 +120,21 @@ export default defineComponent({
       }
     }
 
+    /**
+     * Delete a monster from the archive (asking for confirmation).
+     * 
+     * @param monster
+     *   The monster to delete.
+     */
     const deleteMonster = (monster: Monster) => {
       if (confirm(t('editor.monsterarchive.delete_confirmation', {n: 1}))) {
         monsterArchiveStore.deleteMonster(monster)
       }
     }
 
+    /**
+     * Delete selected monsters from the archive (asking for confirmation).
+     */
     const deleteMonsters = () => {
       if (confirm(t('editor.monsterarchive.delete_confirmation', {n: selected.value.length}))) {
         selected.value.forEach(
@@ -128,10 +144,19 @@ export default defineComponent({
       }
     }
     
+    /**
+     * Download a monster as json (as with download button).
+     * 
+     * @param monster
+     *   The monster to download.
+     */
     const downloadSingle = (monster: Monster) => {
       saveJson(monster, `${monster.name}.5emm.json`)
     }
 
+    /**
+     * Download all or selected monster as a list in json format.
+     */
     const downloadMonsters = () => {
       let list = {}; // monsterArchiveStore.monsters
       if (selected.value.length > 0) {
@@ -148,6 +173,9 @@ export default defineComponent({
       )
     }
 
+    /**
+     * Save the current monster.
+     */
     const saveMonster = () => {
       const result = monsterArchiveStore.addMonster(useMonsterStore().$state);
       $q.notify({
@@ -156,6 +184,9 @@ export default defineComponent({
       })
     }
 
+    /**
+     * Open import dialog.
+     */
     const importMonsters = () => {
       $q.dialog({
         component: LoadMonsterArchiveDialog,
@@ -178,17 +209,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style lang="scss" scoped>
-.editable {
-  cursor: pointer;
-  transition-property: background-color;
-  transition-duration: 0.1s;
-  transition-timing-function: ease-in-out;
-}
-
-.editable:hover {
-  // blue-grey-7
-  background-color: #546e7a;
-}
-</style>
