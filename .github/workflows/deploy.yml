@@ -37,10 +37,9 @@ jobs:
 
       # install packages
       - run: npm install
-      - run: npm install --location=global @quasar/cli
 
       - name: Build dist
-        run: quasar build
+        run: npm run build
 
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3

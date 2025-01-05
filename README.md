@@ -104,9 +104,9 @@ There could be a couple reasons for this. Before filing and issue with the core 
 
 ## Developing
 
-This project is written in Vue with Quasar and uses npm as its package manager. I'm pretty sure it'd work with yarn as well.
+This project is written in Vue with Quasar and uses npm as its package manager. The monster maker assumes Node v18+, and is built with Node v20 if you're looking to exactly match the build system.
 
-Clone the repository and install the [Quasar cli](https://quasar.dev/start/quasar-cli) with `npm install --location=global @quasar/cli`. After that, run `npm install`. The development server can then be started with `quasar dev`.
+Clone the repository install packages with `npm install`. The development server can then be started with `npm run dev`. Quasar can be manually invoked with `npx quasar [...]`.
 
 ### Translations
 
