@@ -77,6 +77,9 @@ export default defineComponent({
     const file = ref<File>()
     const overwrite = ref(false)
 
+    /**
+     * Import the uploaded archive.
+     */
     const importMonsterArchive = () => {
       if (file.value != null) {
         const reader = new FileReader()
@@ -158,19 +161,14 @@ export default defineComponent({
       dialogRef,
       onDialogHide,
 
-      // other methods that we used in our vue html template;
-      // these are part of our example (so not required)
+      // Process ok click.
       onOKClick() {
+        // Run upload and import.
         importMonsterArchive()
-
-        // on OK, it is REQUIRED to
-        // call onDialogOK (with optional payload)
+        // Propagate OK click.
         onDialogOK()
-        // or with payload: onDialogOK({ ... })
-        // ...and it will also hide the dialog automatically
       },
 
-      // we can passthrough onDialogCancel directly
       onCancelClick: onDialogCancel,
 
       monsterArchiveStore,
