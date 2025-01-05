@@ -17,7 +17,7 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
      * 
      * @param state 
      *   The state of the archive
-     * @returns Record<string, MonsterEntry>
+     * @returns
      *   The list of monsters.
      */
     allMonsters: (state): Record<string, MonsterEntry> => {
@@ -29,7 +29,7 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
     /**
      * Adds a copy of the given monster to the archive store.
      * 
-     * @param monster Monster
+     * @param monster
      *   The monster to save.
      * @param overwrite 
      *   Whether to overwrite the existing entry.
@@ -74,7 +74,7 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
     /**
      * Load the given monster into the builder.
      * 
-     * @param monster Monster
+     * @param monster
      *   The monster to load into the builder.
      */
     loadMonster(monster: Monster) {
@@ -84,7 +84,7 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
     /**
      * Delete a monster from the store.
      * 
-     * @param monster Monster
+     * @param monster
      *   The monster to remove.
      */
     deleteMonster(monster: Monster) {
@@ -94,11 +94,11 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
     /**
      * Import a monster entry.
      * 
-     * @param monsters MonsterEntry 
+     * @param monsters 
      *   The monster to import.
      * @param overwrite 
      *   Wether to overwrite existing monsters with the same name.
-     * @returns object
+     * @returns
      *   The result of the import.
      */
     import(entry: MonsterEntry, overwrite = false): boolean {
@@ -112,13 +112,13 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
     /**
      * Checks whether the given monster is in the archive.
      * 
-     * @param monster Monster
+     * @param monster
      *   The monster to check.
-     * @returns bool
+     * @returns
      *   Whether the monster is already in the archive.
      */
     isMonsterSaved(monster: Monster): boolean {
-      if (monster.name in this.savedMonsters) {
+      if (monster.name in this.allMonsters) {
         return true;
       }
       return false;
