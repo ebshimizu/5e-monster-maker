@@ -13,13 +13,13 @@
           {{ $t('editor.monsterarchive.delete', selected.length) }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="importMonsters">{{
           $t('editor.monsterarchive.import')
-          }}</q-btn>
+        }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="downloadMonsters">{{
-          $t('editor.monsterarchive.export', {n: selected.length})
-          }}</q-btn>
+          $t('editor.monsterarchive.export', { n: selected.length })
+        }}</q-btn>
         <q-btn color="positive" @click="saveMonster">{{
           $t('editor.monsterarchive.save_current')
-          }}</q-btn>
+        }}</q-btn>
       </template>
       <template #body="props">
         <q-tr :props="props">
@@ -28,15 +28,18 @@
           </q-td>
           <q-td key="name" :props="props">{{ props.row.monster.name }}</q-td>
           <q-td key="created_at">
-            {{ props.row.created_at.toLocaleString() }}
+            {{ new Date(props.row.created_at).toLocaleString() }}
           </q-td>
           <q-td key="updated_at">
-            {{ props.row.updated_at.toLocaleString() }}
+            {{ new Date(props.row.updated_at).toLocaleString() }}
           </q-td>
           <q-td key="actions">
-            <q-btn icon="mode_edit" @click="loadMonster(props.row.monster)" :title="$t('editor.monsterarchive.load')"></q-btn>
-            <q-btn icon="download" @click="downloadSingle(props.row.monster)" :title="$t('editor.monsterarchive.export_single')"></q-btn>
-            <q-btn icon="delete" @click="deleteMonster(props.row.monster)" :title="$t('editor.monsterarchive.delete')"></q-btn>
+            <q-btn icon="mode_edit" @click="loadMonster(props.row.monster)"
+              :title="$t('editor.monsterarchive.load')"></q-btn>
+            <q-btn icon="download" @click="downloadSingle(props.row.monster)"
+              :title="$t('editor.monsterarchive.export_single')"></q-btn>
+            <q-btn icon="delete" @click="deleteMonster(props.row.monster)"
+              :title="$t('editor.monsterarchive.delete')"></q-btn>
           </q-td>
         </q-tr>
       </template>
@@ -127,7 +130,7 @@ export default defineComponent({
      *   The monster to delete.
      */
     const deleteMonster = (monster: Monster) => {
-      if (confirm(t('editor.monsterarchive.delete_confirmation', {n: 1}))) {
+      if (confirm(t('editor.monsterarchive.delete_confirmation', { n: 1 }))) {
         monsterArchiveStore.deleteMonster(monster)
       }
     }
@@ -136,14 +139,14 @@ export default defineComponent({
      * Delete selected monsters from the archive (asking for confirmation).
      */
     const deleteMonsters = () => {
-      if (confirm(t('editor.monsterarchive.delete_confirmation', {n: selected.value.length}))) {
+      if (confirm(t('editor.monsterarchive.delete_confirmation', { n: selected.value.length }))) {
         selected.value.forEach(
           (e: MonsterEntry) => monsterArchiveStore.deleteMonster(e.monster)
         )
         selected.value = []
       }
     }
-    
+
     /**
      * Download a monster as json (as with download button).
      * 
