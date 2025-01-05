@@ -35,6 +35,7 @@
           </q-td>
           <q-td key="actions">
             <q-btn icon="mode_edit" @click="loadMonster(props.row.monster)"></q-btn>
+            <q-btn icon="download" @click="downloadSingle(props.row.monster)"></q-btn>
             <q-btn icon="delete" @click="deleteMonster(props.row.monster)"></q-btn>
           </q-td>
         </q-tr>
@@ -50,7 +51,7 @@ import { useMonsterArchiveStore } from 'src/stores/monster-archive-store'
 import { computed, defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Monster, MonsterEntry } from 'src/components/models'
-import { download } from 'src/components/file/download'
+import { download, saveJson } from 'src/components/file/download'
 import { validateNumber } from 'src/components/editor/numberInput'
 import { useRouter } from 'vue-router'
 import LoadMonsterArchiveDialog from 'src/components/monsterarchive/LoadMonsterArchiveDialog.vue'
@@ -114,7 +115,7 @@ export default defineComponent({
 
     const deleteMonster = (monster: Monster) => {
       if (confirm(t('editor.monsterarchive.delete_confirmation', {n: 1}))) {
-      monsterArchiveStore.deleteMonster(monster)
+        monsterArchiveStore.deleteMonster(monster)
       }
     }
 
@@ -123,8 +124,12 @@ export default defineComponent({
         selected.value.forEach(
           (e: MonsterEntry) => monsterArchiveStore.deleteMonster(e.monster)
         )
-      selected.value = []
+        selected.value = []
       }
+    }
+    
+    const downloadSingle = (monster: Monster) => {
+      saveJson(monster, `${monster.name}.5emm.json`)
     }
 
     const downloadMonsters = () => {
@@ -165,6 +170,7 @@ export default defineComponent({
       loadMonster,
       deleteMonster,
       deleteMonsters,
+      downloadSingle,
       downloadMonsters,
       importMonsters,
       validateNumber,
