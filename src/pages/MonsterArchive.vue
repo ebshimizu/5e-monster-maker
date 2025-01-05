@@ -113,12 +113,18 @@ export default defineComponent({
     }
 
     const deleteMonster = (monster: Monster) => {
+      if (confirm(t('editor.monsterarchive.delete_confirmation', {n: 1}))) {
       monsterArchiveStore.deleteMonster(monster)
+      }
     }
 
     const deleteMonsters = () => {
-      selected.value.forEach((m: Monster) => monsterArchiveStore.deleteMonster(m))
+      if (confirm(t('editor.monsterarchive.delete_confirmation', {n: selected.value.length}))) {
+        selected.value.forEach(
+          (e: MonsterEntry) => monsterArchiveStore.deleteMonster(e.monster)
+        )
       selected.value = []
+      }
     }
 
     const downloadMonsters = () => {
