@@ -15,7 +15,7 @@
           $t('editor.monsterarchive.import')
           }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="downloadMonsters">{{
-          $t('editor.monsterarchive.export')
+          $t('editor.monsterarchive.export', {n: selected.length})
           }}</q-btn>
         <q-btn color="positive" @click="saveMonster">{{
           $t('editor.monsterarchive.save_current')
@@ -128,8 +128,16 @@ export default defineComponent({
     }
 
     const downloadMonsters = () => {
+      let list = {}; // monsterArchiveStore.monsters
+      if (selected.value.length > 0) {
+        selected.value.forEach(
+          (e: MonsterEntry) => list[e.monster.name] = monsterArchiveStore.monsters[e.monster.name]
+        )
+      } else {
+        list = monsterArchiveStore.monsters
+      }
       download(
-        JSON.stringify(monsterArchiveStore.monsters),
+        JSON.stringify(list),
         'monster-archive.5emms.json',
         'application/json'
       )
