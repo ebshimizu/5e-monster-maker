@@ -102,7 +102,7 @@ export default defineComponent({
     ]
 
     const loadMonster = (monster: Monster) => {
-      if (confirm(t('editor.monsterarchive.overwrite_current') + " Overwrite current monster with archived one?")) {
+      if (confirm(t('editor.monsterarchive.overwrite_current'))) {
         monsterArchiveStore.loadMonster(monster);
         $q.notify({
           message: t('editor.monsterarchive.loaded'),
