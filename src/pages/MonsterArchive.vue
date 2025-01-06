@@ -13,13 +13,13 @@
           {{ $t('editor.monsterarchive.delete', selected.length) }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="importMonsters">{{
           $t('editor.monsterarchive.import')
-          }}</q-btn>
+        }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="downloadMonsters">{{
           $t('editor.monsterarchive.export', { n: selected.length })
-          }}</q-btn>
+        }}</q-btn>
         <q-btn color="positive" @click="saveMonster">{{
           $t('editor.monsterarchive.save_current')
-          }}</q-btn>
+        }}</q-btn>
       </template>
       <template #body="props">
         <q-tr :props="props">
@@ -34,12 +34,12 @@
             {{ new Date(props.row.updated_at).toLocaleString() }}
           </q-td>
           <q-td key="actions">
-            <q-btn icon="mode_edit" @click="loadMonster(props.row.monster)"
-              :title="$t('editor.monsterarchive.load')"></q-btn>
-            <q-btn icon="download" @click="downloadSingle(props.row.monster)"
-              :title="$t('editor.monsterarchive.export_single')"></q-btn>
-            <q-btn icon="delete" @click="deleteMonster(props.row.monster)"
-              :title="$t('editor.monsterarchive.delete')"></q-btn>
+            <q-btn icon="mode_edit" :title="$t('editor.monsterarchive.load')"
+              @click="loadMonster(props.row.monster)"></q-btn>
+            <q-btn icon="download" :title="$t('editor.monsterarchive.export_single')"
+              @click="downloadSingle(props.row.monster)"></q-btn>
+            <q-btn icon="delete" :title="$t('editor.monsterarchive.delete')"
+              @click="deleteMonster(props.row.monster)"></q-btn>
           </q-td>
         </q-tr>
       </template>
