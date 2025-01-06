@@ -1,11 +1,9 @@
 import { defineStore } from 'pinia'
-import { useMonsterStore } from './monster-store';
 import {
   Monster,
   MonsterArchive,
   MonsterEntry,
 } from 'src/components/models'
-const monsterStore = useMonsterStore();
 
 export const useMonsterArchiveStore = defineStore('monster-archive', {
   state: (): MonsterArchive => ({
@@ -34,51 +32,37 @@ export const useMonsterArchiveStore = defineStore('monster-archive', {
      * @param overwrite 
      *   Whether to overwrite the existing entry.
      */
-    addMonster(monster: Monster, overwrite = true) {
-      const existingMonster = this.isMonsterSaved(monster);
+    addMonster(monster: Monster, overwrite = false, keep_dates = false) {
       const result = {
         error: false,
         message: 'editor.monsterarchive.saved'
       }
       try {
-        if (existingMonster) {
-          overwrite = confirm('There is an existing monster with the same name in archive. Do you want to overwrite?')
-          //t('editor.monsterarchive.overwrite_save'));
-        }
-
         let created_at = new Date()
-
+        let updated_at = new Date()
         // Cloning monster to dereference. 
         monster = JSON.parse(JSON.stringify(monster))
 
-        if (this.isMonsterSaved(monster)) {
+        if (keep_dates) {
           created_at = this.monsters[monster.name].created_at
-        }
-        if (overwrite) {
-          this.monsters[monster.name] = { created_at: created_at, updated_at: new Date(), monster: monster }
+          updated_at = this.monsters[monster.name].updated_at
         }
 
-
-        if (this.isMonsterSaved(monster) && overwrite) {
-          if (existingMonster) {
-            result.message = 'editor.monsterarchive.overwrite_saved'
-          }
+        if (!this.isMonsterSaved(monster)) {
+          this.monsters[monster.name] = { created_at: created_at, updated_at: updated_at, monster: monster }
+        } else if (overwrite) {
+          created_at = this.monsters[monster.name].created_at
+          this.monsters[monster.name] = { created_at: created_at, updated_at: updated_at, monster: monster }
+          result.message = 'editor.monsterarchive.overwrite_saved'
+        } else {
+          result.error = true
+          result.message = 'editor.monsterarchive.not_overwritten'
         }
       } catch (e) {
         result.error = true
         result.message = 'io.error.json'
       }
       return result
-    },
-
-    /**
-     * Load the given monster into the builder.
-     * 
-     * @param monster
-     *   The monster to load into the builder.
-     */
-    loadMonster(monster: Monster) {
-      monsterStore.$state = monster
     },
 
     /**

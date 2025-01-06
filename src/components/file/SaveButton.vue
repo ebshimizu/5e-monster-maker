@@ -13,13 +13,17 @@ import { useMonsterArchiveStore } from 'src/stores/monster-archive-store'
 export default defineComponent({
   name: 'SaveButton',
   setup() {
-    const monster = useMonsterStore()
+    const monsterStore = useMonsterStore()
     const $q = useQuasar()
     const { t } = useI18n()
     const monsterArchiveStore = useMonsterArchiveStore();
 
     const saveMonster = () => {
-      const result = monsterArchiveStore.addMonster(monster.$state);
+      let overwrite = false;
+      if (monsterArchiveStore.isMonsterSaved(monsterStore.$state)) {
+        overwrite = confirm(t('editor.monsterarchive.overwrite_save'))
+      }
+      const result = monsterArchiveStore.addMonster(monsterStore.$state, overwrite);
       $q.notify({
         message: t(result.message),
         type: result.error ? 'negative' : 'positive',

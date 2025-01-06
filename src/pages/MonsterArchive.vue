@@ -180,7 +180,11 @@ export default defineComponent({
      * Save the current monster.
      */
     const saveMonster = () => {
-      const result = monsterArchiveStore.addMonster(useMonsterStore().$state);
+      let overwrite = false;
+      if (monsterArchiveStore.isMonsterSaved(monsterStore.$state)) {
+        overwrite = confirm(t('editor.monsterarchive.overwrite_save'))
+      }
+      const result = monsterArchiveStore.addMonster(monsterStore.$state, overwrite);
       $q.notify({
         message: t(result.message),
         type: result.error ? 'negative' : 'positive',
