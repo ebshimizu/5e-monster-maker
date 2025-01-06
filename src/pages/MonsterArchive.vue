@@ -58,7 +58,9 @@ import { download, saveJson } from 'src/components/file/download'
 import { validateNumber } from 'src/components/editor/numberInput'
 import { useRouter } from 'vue-router'
 import LoadMonsterArchiveDialog from 'src/components/monsterarchive/LoadMonsterArchiveDialog.vue'
-import saveMonster from 'src/components/file/SaveButton.vue'
+import { useFileLoader } from 'src/components/file/useFileLoader'
+import { validate } from 'jsonschema'
+import { SCHEMA } from 'src/data/SCHEMA'
 
 export default defineComponent({
   name: 'MonsterArchive',
@@ -69,7 +71,8 @@ export default defineComponent({
     const selected = ref([])
     const router = useRouter()
     const monsters = computed(() => Object.values(monsterArchiveStore.allMonsters))
-
+    const { updateMonster } = useFileLoader()
+    const monsterStore = useMonsterStore()
     // Define the columns.
     const columns: QTableProps['columns'] = [
       {
@@ -114,12 +117,38 @@ export default defineComponent({
      */
     const loadMonster = (monster: Monster) => {
       if (confirm(t('editor.monsterarchive.overwrite_current'))) {
-        monsterArchiveStore.loadMonster(monster);
+        try {
+          // Update archived monster, might be an older version
+          updateMonster(monster);
+          const valid = validate(monster, SCHEMA[monster.saveVersion]);
+          if (valid.valid) {
+            // Save updated version back in archive
+            const result = monsterArchiveStore.addMonster(monster, true, true)
+            if (!result.error) {
+              // Load monster into active store
+              monsterStore.$state = monster
         $q.notify({
           message: t('editor.monsterarchive.loaded'),
           type: 'positive',
         })
         router.push({ path: '/' })
+            }
+          } else {
+            $q.notify({
+              message: t('editor.monsterarchive.loadError', [
+                valid.errors.map((e) => e.stack).join(', '),
+              ]),
+              type: 'negative',
+            })
+            console.error(valid.errors)
+          }
+        } catch (e) {
+          $q.notify({
+            message: t('editor.monsterarchive.loaderror', [e]),
+            type: 'negative',
+          })
+          console.error(e)
+        }
       }
     }
 
