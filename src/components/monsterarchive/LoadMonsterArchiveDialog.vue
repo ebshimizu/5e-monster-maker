@@ -9,32 +9,16 @@
       </q-card-section>
       <q-separator />
       <q-card-section class="row">
-        <q-file
-          v-model="file"
-          class="q-pa-md col-12"
-          :label="$t('editor.monsterarchive.importFile')"
-          accept=".5emms.json"
-        />
+        <q-file v-model="file" class="q-pa-md col-12" :label="$t('editor.monsterarchive.importFile')"
+          accept=".5emms.json" />
         <div class="col-12 flex items-center">
-          <q-toggle
-            v-model="overwrite"
-            :label="$t('editor.monsterarchive.importMode')"
-          />
+          <q-toggle v-model="overwrite" :label="$t('editor.monsterarchive.importMode')" />
         </div>
       </q-card-section>
       <!-- buttons example -->
       <q-card-actions align="right">
-        <q-btn
-          color="green"
-          :label="$t('editor.monsterarchive.import')"
-          :disabled="file == null"
-          @click="onOKClick"
-        />
-        <q-btn
-          color="primary"
-          :label="$t('editor.cancel')"
-          @click="onCancelClick"
-        />
+        <q-btn color="green" :label="$t('editor.monsterarchive.import')" :disabled="file == null" @click="onOKClick" />
+        <q-btn color="primary" :label="$t('editor.cancel')" @click="onCancelClick" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -97,7 +81,7 @@ export default defineComponent({
                 let result = monsterArchiveStore.import(entry, overwrite.value)
                 if (result) {
                   imported++
-                } else if(!overwrite.value) {
+                } else if (!overwrite.value) {
                   skipped++
                 }
               } else {
