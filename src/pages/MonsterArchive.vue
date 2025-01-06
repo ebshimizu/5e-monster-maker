@@ -13,13 +13,13 @@
           {{ $t('editor.monsterarchive.delete', selected.length) }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="importMonsters">{{
           $t('editor.monsterarchive.import')
-        }}</q-btn>
+          }}</q-btn>
         <q-btn color="primary" class="q-mr-md" @click="downloadMonsters">{{
           $t('editor.monsterarchive.export', { n: selected.length })
-        }}</q-btn>
+          }}</q-btn>
         <q-btn color="positive" @click="saveMonster">{{
           $t('editor.monsterarchive.save_current')
-        }}</q-btn>
+          }}</q-btn>
       </template>
       <template #body="props">
         <q-tr :props="props">
@@ -127,11 +127,11 @@ export default defineComponent({
             if (!result.error) {
               // Load monster into active store
               monsterStore.$state = monster
-        $q.notify({
-          message: t('editor.monsterarchive.loaded'),
-          type: 'positive',
-        })
-        router.push({ path: '/' })
+              $q.notify({
+                message: t('editor.monsterarchive.loaded'),
+                type: 'positive',
+              })
+              router.push({ path: '/' })
             }
           } else {
             $q.notify({
@@ -190,7 +190,7 @@ export default defineComponent({
      * Download all or selected monster as a list in json format.
      */
     const downloadMonsters = () => {
-      let list = {}; // monsterArchiveStore.monsters
+      let list: Record<string, MonsterEntry> = {};
       if (selected.value.length > 0) {
         selected.value.forEach(
           (e: MonsterEntry) => list[e.monster.name] = monsterArchiveStore.monsters[e.monster.name]
