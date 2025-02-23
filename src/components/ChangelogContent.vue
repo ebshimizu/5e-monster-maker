@@ -2,7 +2,7 @@
   <q-timeline color="secondary">
     <q-timeline-entry
       title="v2.3.2"
-      subtitle="Hotfix - 2/23/2025"
+      subtitle="Minor Update - 2/23/2025"
       icon="build"
       color="primary"
     >
