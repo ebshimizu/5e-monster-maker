@@ -9,6 +9,7 @@
         <div id="editor" class="q-pa-md" style="width: 100%">
           <q-list bordered separator class="rounded-borders">
             <basics-editor />
+            <inventory-editor />
             <saves-editor />
             <speeds-editor />
             <skills-editor />
@@ -24,7 +25,6 @@
             <mythic-actions-editor />
             <lair-actions-editor />
             <regional-effects-editor />
-            <inventory-editor />
           </q-list>
         </div>
       </template>

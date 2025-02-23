@@ -88,27 +88,55 @@
       <span class="name">{{ $t('monster.skills') }}</span> {{ skills }}
     </div>
     <div
+      v-show="
+        blockStyle.mm2024 &&
+        monster.inventory !== '' &&
+        monster.inventory !== '<br>'
+      "
+      class="skill"
+    >
+      <span class="name">{{ $t('monster.gear') }}</span
+      >&nbsp;
+      <span v-html="inventory"></span>
+    </div>
+    <div
       v-show="monster.resistances && monster.resistances.length > 0"
       class="skill"
     >
-      <span class="name">{{ $t('monster.resistances') }}</span>
+      <span class="name">{{
+        blockStyle.mm2024
+          ? $t('monster.resistances')
+          : $t('monster.resistances2014')
+      }}</span>
       {{ resistances }}
     </div>
     <div
       v-show="monster.immunities && monster.immunities.length > 0"
       class="skill"
     >
-      <span class="name">{{ $t('monster.immunities') }}</span> {{ immunities }}
+      <span class="name">{{
+        blockStyle.mm2024
+          ? $t('monster.immunities')
+          : $t('monster.immunities2014')
+      }}</span>
+      {{ immunities }}
+      {{ blockStyle.mm2024 ? conditions : '' }}
     </div>
     <div
       v-show="monster.vulnerabilities && monster.vulnerabilities.length > 0"
       class="skill"
     >
-      <span class="name">{{ $t('monster.vulnerabilities') }}</span>
+      <span class="name">{{
+        blockStyle.mm2024
+          ? $t('monster.vulnerabilities')
+          : $t('monster.vulnerabilities2014')
+      }}</span>
       {{ vulnerabilities }}
     </div>
     <div
-      v-show="monster.conditions && monster.conditions.length > 0"
+      v-show="
+        blockStyle.mm2014 && monster.conditions && monster.conditions.length > 0
+      "
       class="skill"
     >
       <span class="name">{{ $t('monster.conditionImmunities') }}</span>
@@ -128,7 +156,7 @@
       >
     </div>
     <hr />
-    <h3 v-if="blockStyle.mm2024" class="section first">
+    <h3 v-if="blockStyle.mm2024 && traits.length > 0" class="section first">
       {{ $t('editor.traits.label') }}
     </h3>
     <div class="traits">
@@ -272,7 +300,7 @@
         ></li>
       </ul>
     </div>
-    <div v-if="monster.inventory !== ''" class="inventory">
+    <div v-if="blockStyle.mm2014 && monster.inventory !== ''" class="inventory">
       <h3 class="section">{{ $t('editor.inventory.label') }}</h3>
       <div v-html="inventory"></div>
     </div>

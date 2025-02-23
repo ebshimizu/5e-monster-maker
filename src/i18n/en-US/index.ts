@@ -54,12 +54,16 @@ export default {
       speed: 'Speed',
       note: 'Note',
     },
-    resistances: 'Damage Resistances',
-    immunities: 'Damage Immunities',
-    vulnerabilities: 'Damage Vulnerabilities',
+    resistances: 'Resistances',
+    resistances2014: 'Damage Resistances',
+    immunities: 'Immunities',
+    immunities2014: 'Damage Immunities',
+    vulnerabilities: 'Vulnerabilities',
+    vulnerabilities2014: 'Damage Vulnerabilities',
     conditionImmunities: 'Condition Immunities',
     passivePerception: 'Passive Perception',
     senses: 'Senses',
+    gear: 'Gear',
     sensesNotes: 'Notes',
     sense: {
       blindsight: 'Blindsight',
@@ -243,6 +247,7 @@ export default {
       tokenLabel: 'Attack',
       distanceLabel: 'Distance',
       distance: '{0} Attack Roll',
+      distance2014: '{0} {1} Attack',
       meleeRange: 'reach {0} ft.',
       rangeRange: 'range {0}/{1} ft.',
       bothRange: 'reach {0} ft. or range {1}/{2} ft.',
@@ -500,7 +505,7 @@ export default {
     moveDown: 'Move Down',
     inventory: {
       label: 'Inventory',
-      help: 'Notes field for whatever your creature might be carrying. Items listed here do not affect the displayed stats.',
+      help: 'Notes field for whatever your creature might be carrying. Items listed here do not affect the displayed stats. In the 2024 stat block format, this appears in the top section of the block. In the 2014 format, this will appear at the bottom.',
     },
   },
   io: {
@@ -739,8 +744,10 @@ export default {
   presets: {
     classSpellcasting:
       "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
-    innateSpellcasting:
+    innateSpellcasting2014:
       "<b><i>Innate Spellcasting.</b></i> {'{'}NAME{'}'}'s innate spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.atWillNotes{'}'} It can cast the following spells, requiring no material components:",
+    innateSpellcasting:
+      "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'}'s spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.atWillNotes{'}'} It can cast the following spells, requiring no material components:",
     attack:
       "<b><i>{'{'}attack.name{'}'}.</b></i> <i>{'{'}attack.distance{'}'}:</i> {'{'}attack.modifier{'}'} to hit, {'{'}attack.range{'}'}, {'{'}attack.targets{'}'}. <i>Hit:</i> {'{'}attack.damage{'}'}{'{'}attack.conditionalDamage{'}'}{'{'}attack.additionalDamage{'}'}. {'{'}attack.description{'}'}",
     legendaryActions:

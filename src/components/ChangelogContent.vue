@@ -1,6 +1,36 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.2"
+      subtitle="Hotfix - 2/23/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="144" /> Traits section no longer renders
+            header when there are no traits and the 2024 format is being used.
+          </li>
+          <li>
+            <github-issue-link :issue="143" /> 2014 formatting now converts text
+            back to 2014 versions (specifically around attack language and
+            spellcasting).
+          </li>
+          <li>
+            <github-issue-link :issue="145" /> Adjust inventory location in the
+            2024 stat block format (now called Gear and located in the top half
+            of the stat block).
+          </li>
+          <li>
+            2024 format: Remove "Damage" from the immunities, resistances, and
+            vulnerability title. Also consolidated condition immunities and
+            damage immunities, as per 2024 format.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.1"
       subtitle="Hotfix - 12/21/2024"
       icon="build"
