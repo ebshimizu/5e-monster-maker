@@ -27,6 +27,10 @@
             vulnerability title. Also consolidated condition immunities and
             damage immunities, as per 2024 format.
           </li>
+          <li>
+            2024 format: Removed "Innate" from the rendered innate spellcasting
+            action title.
+          </li>
         </ul>
       </div>
     </q-timeline-entry>
