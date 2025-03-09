@@ -111,7 +111,12 @@
       {{ resistances }}
     </div>
     <div
-      v-show="monster.immunities && monster.immunities.length > 0"
+      v-show="
+        monster.immunities &&
+        monster.immunities.length +
+          (blockStyle.mm2024 ? monster.conditions.length : 0) >
+          0
+      "
       class="skill"
     >
       <span class="name">{{
