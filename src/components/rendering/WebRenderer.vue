@@ -177,10 +177,11 @@
       ></div>
     </div>
     <h3 class="section">{{ $t('editor.action.label') }}</h3>
-    <div v-if="monster.multiattacks.length > 0" class="multiattack">
-      <span class="name">{{ $t('editor.multiattack.label') }}.</span>
-      {{ multiattacks }}
-    </div>
+    <div
+      v-if="monster.multiattacks.length > 0"
+      class="multiattack"
+      v-html="multiattacks"
+    ></div>
     <div
       v-for="(attack, idx) in attacks"
       :key="idx"

@@ -16,6 +16,12 @@
             Changing the number of columns will automatically resize the stat
             block view to fit the changed format.
           </li>
+          <li>
+            Multiattack actions can now have an entirely custom renderer
+            (including the "Multiattack" label). Additionally, the first time
+            the custom renderer is opened, the field will pre-fill with the
+            default text (so that at least something renders in the stat block).
+          </li>
         </ul>
       </div>
     </q-timeline-entry>

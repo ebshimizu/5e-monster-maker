@@ -135,8 +135,17 @@
               "
               size="md"
               @click="
-                monster.multiattackOptions.useCustomRenderer =
-                  !monster.multiattackOptions.useCustomRenderer
+                () => {
+                  monster.multiattackOptions.useCustomRenderer =
+                    !monster.multiattackOptions.useCustomRenderer
+
+                  if (
+                    monster.multiattackOptions.customMultiattackRenderer === ''
+                  ) {
+                    monster.multiattackOptions.customMultiattackRenderer =
+                      defaultCustomText
+                  }
+                }
               "
             >
               <q-tooltip class="text-body2">{{
@@ -163,7 +172,7 @@
                         "
               @reset="
                 monster.multiattackOptions.customMultiattackRenderer =
-                  '{multiattack.all}. {multiattack.postscript}'
+                  defaultCustomText
               "
             />
             <div class="text-caption full-width">
@@ -188,6 +197,7 @@
 import { useMonsterStore } from 'src/stores/monster-store'
 import { computed, defineComponent } from 'vue'
 import MonsterTextEditor from './MonsterTextEditor.vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'MultiattackEditor',
@@ -196,10 +206,16 @@ export default defineComponent({
   },
   setup() {
     const monster = useMonsterStore()
+    const { t } = useI18n()
+
+    const defaultCustomText = `<b><i>${t(
+      'editor.multiattack.label'
+    )}.</i></b> {multiattack.all}. {multiattack.postscript}`
 
     return {
       monster,
       multiattacks: computed(() => monster.multiattacks),
+      defaultCustomText,
     }
   },
 })
