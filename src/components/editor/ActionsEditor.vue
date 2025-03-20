@@ -220,8 +220,8 @@
                   </q-card-section>
                   <q-card-section class="row full-width">
                     <template
-                      v-for="(effect, idx) of action.effects"
-                      :key="idx"
+                      v-for="(effect, eIdx) of action.effects"
+                      :key="eIdx"
                     >
                       <q-input
                         v-model="effect.case"
@@ -305,6 +305,7 @@ import MonsterTextEditor from './MonsterTextEditor.vue'
 import { useAutoUpdateCr } from './useAutoUpdateCr'
 import CrAnnotationCard from './CrAnnotationCard.vue'
 import { useQuasar } from 'quasar'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { DndStat, MonsterAction } from '../models'
 import NewTemplateDialog from './widgets/NewTemplateDialog.vue'
 import { useTemplatesStore } from 'src/stores/templates-store'

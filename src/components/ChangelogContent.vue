@@ -1,6 +1,25 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.4"
+      subtitle="Minor Update - 3/19/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="148" /> Bugfix: 2024 immunities now
+            properly puts a comma between the damage and condition sections.
+          </li>
+          <li>
+            Changing the number of columns will automatically resize the
+            statblock view to fit the changed format.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.3"
       subtitle="Minor Update - 2/23/2025"
       icon="build"

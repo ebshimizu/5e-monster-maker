@@ -3,6 +3,8 @@
     <q-splitter
       id="splitter"
       v-model="splitterModel"
+      reverse
+      unit="px"
       style="height: calc(100vh - 177px); width: 100%"
     >
       <template #before>
@@ -40,7 +42,7 @@
 
 <script lang="ts">
 import { useMonsterStore } from 'src/stores/monster-store'
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref, watch } from 'vue'
 import BasicsEditor from 'src/components/editor/BasicsEditor.vue'
 import WebRenderer from 'src/components/rendering/WebRenderer.vue'
 import SavesEditor from 'src/components/editor/SavesEditor.vue'
@@ -59,6 +61,7 @@ import ReactionsEditor from 'src/components/editor/ReactionsEditor.vue'
 import LairActionsEditor from 'src/components/editor/LairActionsEditor.vue'
 import RegionalEffectsEditor from 'src/components/editor/RegionalEffectsEditor.vue'
 import InventoryEditor from 'src/components/editor/InventoryEditor.vue'
+import { useEditorStore } from 'src/stores/editor-store'
 
 export default defineComponent({
   name: 'MonsterBuilder',
@@ -83,8 +86,24 @@ export default defineComponent({
     InventoryEditor,
   },
   setup() {
-    const splitterModel = ref(66)
+    const splitterModel = ref(500)
     const monster = useMonsterStore()
+    const editorStore = useEditorStore()
+
+    // automatically resize on column change
+    watch(
+      () => editorStore.statBlockColumns,
+      (newCols, oldCols) => {
+        if (newCols !== oldCols) {
+          if (newCols === 1) {
+            splitterModel.value = 500
+          } else {
+            splitterModel.value = 800
+          }
+        }
+      }
+    )
+
     return {
       splitterModel,
       monster,

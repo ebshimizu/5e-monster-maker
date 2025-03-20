@@ -124,8 +124,7 @@
           ? $t('monster.immunities')
           : $t('monster.immunities2014')
       }}</span>
-      {{ immunities }}
-      {{ blockStyle.mm2024 ? conditions : '' }}
+      {{ blockStyle.mm2024 ? immunitiesAndConditions : immunities }}
     </div>
     <div
       v-show="monster.vulnerabilities && monster.vulnerabilities.length > 0"
