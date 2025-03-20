@@ -149,6 +149,10 @@ export function useTextRenderer() {
   )
   const conditions = computed(() => monster.conditions?.join(', ') ?? '')
 
+  const immunitiesAndConditions = computed(() =>
+    [...(monster.immunities ?? []), ...(monster.conditions ?? [])].join(', ')
+  )
+
   const senses = computed(() => {
     const nonZero = Object.entries(monster.senses)
       .map(([k, v]) => {
@@ -359,5 +363,6 @@ export function useTextRenderer() {
     inventory,
     initiative,
     statsAndSavesByKey,
+    immunitiesAndConditions,
   }
 }

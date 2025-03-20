@@ -699,7 +699,9 @@ export function useProcessTokens() {
     } else {
       // not doing i18n for this right now since it's just tokens.
       return processTokens(
-        '{multiattack.all}. {multiattack.postscript}',
+        `<b><i>${t(
+          'editor.multiattack.label'
+        )}.</i></b> {multiattack.all}. {multiattack.postscript}`,
         context,
         monster,
         'multiattack'
