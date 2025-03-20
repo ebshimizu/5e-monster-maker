@@ -13,8 +13,8 @@
             properly puts a comma between the damage and condition sections.
           </li>
           <li>
-            Changing the number of columns will automatically resize the
-            statblock view to fit the changed format.
+            Changing the number of columns will automatically resize the stat
+            block view to fit the changed format.
           </li>
         </ul>
       </div>
