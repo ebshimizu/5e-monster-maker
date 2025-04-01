@@ -510,6 +510,7 @@ export default {
       label: 'Inventory',
       help: 'Notes field for whatever your creature might be carrying. Items listed here do not affect the displayed stats. In the 2024 stat block format, this appears in the top section of the block. In the 2014 format, this will appear at the bottom.',
     },
+    customAllowed: 'Custom values allowed (type and press enter)',
   },
   io: {
     error: {

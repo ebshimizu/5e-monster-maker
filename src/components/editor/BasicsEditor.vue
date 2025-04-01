@@ -117,8 +117,13 @@
           :label="$t('monster.type')"
           class="col-6 q-pa-sm"
           new-value-mode="add-unique"
+          bottom-slots
           @filter="typeFilter"
-        />
+        >
+          <template #hint>
+            {{ $t('editor.customAllowed') }}
+          </template>
+        </q-select>
         <q-select
           v-model="monster.alignment"
           :options="alignmentOptions"
@@ -127,8 +132,13 @@
           :label="$t('monster.alignment')"
           class="col-4 q-pa-sm"
           new-value-mode="add-unique"
+          bottom-slots
           @filter="alignmentFilter"
-        />
+        >
+          <template #hint>
+            {{ $t('editor.customAllowed') }}
+          </template>
+        </q-select>
         <q-input
           :model-value="monster.AC"
           type="number"
