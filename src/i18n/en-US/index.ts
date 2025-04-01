@@ -5,7 +5,10 @@ export default {
   },
   monster: {
     name: 'Name',
+    nickname: "Nickname (overrides {'{'}NAME{'}'} if set)",
     cr: 'CR',
+    lairCr: 'Lair CR',
+    lairCrNote: 'Alternate CR/XP condition',
     challenge: 'Challenge',
     proficiencyBonus: 'Proficiency Bonus',
     proficiency: {
@@ -742,6 +745,7 @@ export default {
     SPELL: 'Spell',
   },
   presets: {
+    cr: ', or {0} XP {1}',
     classSpellcasting:
       "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
     innateSpellcasting2014:

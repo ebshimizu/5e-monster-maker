@@ -11,7 +11,7 @@
         <q-input
           v-model="monster.name"
           :label="$t('monster.name')"
-          class="q-pa-sm col-7"
+          class="q-pa-sm col-6"
           debounce="500"
         />
         <q-select
@@ -21,7 +21,7 @@
           :display-value="crValues[monster.CR].label"
           emit-value
           :label="$t('monster.cr')"
-          class="col-2 q-pa-sm"
+          class="col-3 q-pa-sm"
           @update:model-value="(value: number | undefined) => {
             if (value != null) {
               monster.setCR(value)
@@ -77,6 +77,31 @@
             />
           </template>
         </q-input>
+        <q-input
+          v-model="monster.nickname"
+          :label="$t('monster.nickname')"
+          class="q-pa-sm col-6"
+          debounce="500"
+        />
+        <q-select
+          v-if="!monster.useCrDisplayOverride"
+          :model-value="monster.lairCr"
+          :options="lairCrValues"
+          :display-value="lairCrValues[monster.lairCr + 1].label"
+          emit-value
+          :label="$t('monster.lairCr')"
+          class="col-2 q-pa-sm"
+          @update:model-value="(value: number | undefined) => {
+            monster.lairCr = value ?? -1
+          }"
+        ></q-select>
+        <q-input
+          v-model="monster.lairCrNote"
+          :label="$t('monster.lairCrNote')"
+          :disable="monster.lairCr === -1"
+          class="q-pa-sm col-4"
+          debounce="500"
+        />
         <q-select
           :model-value="monster.size"
           :options="sizeValues"
@@ -213,7 +238,7 @@
 
 <script lang="ts">
 import { STANDARD_ALIGNMENT } from 'src/data/ALIGNMENT'
-import { CR_SELECT } from 'src/data/CR'
+import { CR_SELECT, LAIR_CR_SELECT } from 'src/data/CR'
 import { DICE_SELECT, DIE_LOOKUP } from 'src/data/DICE'
 import { CREATURE_SIZE } from 'src/data/SIZE'
 import { STANDARD_CREATURE_TYPE } from 'src/data/TYPE'
@@ -256,6 +281,7 @@ export default defineComponent({
     return {
       monster,
       crValues: CR_SELECT,
+      lairCrValues: LAIR_CR_SELECT,
       sizeValues: CREATURE_SIZE,
       typeOptions,
       typeFilter,
