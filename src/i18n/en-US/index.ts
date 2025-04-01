@@ -511,6 +511,8 @@ export default {
       help: 'Notes field for whatever your creature might be carrying. Items listed here do not affect the displayed stats. In the 2024 stat block format, this appears in the top section of the block. In the 2014 format, this will appear at the bottom.',
     },
     customAllowed: 'Custom values allowed (type and press enter)',
+    ffMulticolPngWarning:
+      'Warning: Multi-column PNG export in Firefox might include improperly spaced text. This issue is under investigation but a fix has not been identified yet. Your PNG has been exported, but if you notice overlapping text, user a Chromium browser instead (Chrome, Edge, etc.).',
   },
   io: {
     error: {

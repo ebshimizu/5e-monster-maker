@@ -264,6 +264,8 @@ export function useFileLoader() {
       monster.lairCr = -1
       monster.lairCrNote = 'in lair'
       monster.nickname = ''
+
+      monster.saveVersion = 10
     }
 
     // adjust saves in the attack field. null is ok but let's make it 0

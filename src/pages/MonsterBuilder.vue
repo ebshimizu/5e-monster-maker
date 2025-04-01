@@ -86,9 +86,9 @@ export default defineComponent({
     InventoryEditor,
   },
   setup() {
-    const splitterModel = ref(500)
     const monster = useMonsterStore()
     const editorStore = useEditorStore()
+    const splitterModel = ref(editorStore.statBlockColumns === 1 ? 500 : 800)
 
     // automatically resize on column change
     watch(

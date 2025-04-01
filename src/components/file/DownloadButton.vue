@@ -160,6 +160,16 @@ export default defineComponent({
       const node = document.getElementById('renderer')
 
       if (node != null) {
+        if (
+          editorStore.statBlockColumns > 1 &&
+          window.navigator.userAgent.includes('Mozilla')
+        ) {
+          $q.notify({
+            message: t('editor.ffMulticolPngWarning'),
+            type: 'warning',
+          })
+        }
+
         domToImage
           .toPng(node, {
             height: node.clientHeight,
