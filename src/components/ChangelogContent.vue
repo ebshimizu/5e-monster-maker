@@ -1,8 +1,20 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.6"
+      subtitle="Hotfix - 4/1/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>Hotfix: update schema table to validate v10 monsters.</li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.5"
-      subtitle="Minor Update - 3/19/2025"
+      subtitle="Minor Update - 3/31/2025"
       icon="build"
       color="primary"
     >
