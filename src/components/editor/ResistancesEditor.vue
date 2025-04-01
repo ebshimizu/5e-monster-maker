@@ -14,13 +14,18 @@
           multiple
           clearable
           new-value-mode="add-unique"
-          class="col-12 q-pa-sm"
+          class="col-12 q-pa-sm q-mb-sm"
           use-input
           input-debounce="0"
           :label="$t('monster.resistances')"
+          bottom-slots
           @filter="resistanceFilter"
           @clear="monster.resistances = []"
-        />
+        >
+          <template #hint>
+            {{ $t('editor.customAllowed') }}
+          </template>
+        </q-select>
         <q-select
           v-model="monster.immunities"
           :options="immunityOptions"
@@ -28,13 +33,18 @@
           multiple
           clearable
           new-value-mode="add-unique"
-          class="col-12 q-pa-sm"
+          class="col-12 q-pa-sm q-mb-sm"
           use-input
           input-debounce="0"
           :label="$t('monster.immunities')"
+          bottom-slots
           @filter="immunityFilter"
           @clear="monster.immunities = []"
-        />
+        >
+          <template #hint>
+            {{ $t('editor.customAllowed') }}
+          </template>
+        </q-select>
         <q-select
           v-model="monster.vulnerabilities"
           :options="vulnerabilityOptions"
@@ -42,13 +52,18 @@
           multiple
           clearable
           new-value-mode="add-unique"
-          class="col-12 q-pa-sm"
+          class="col-12 q-pa-sm q-mb-sm"
           use-input
           input-debounce="0"
           :label="$t('monster.vulnerabilities')"
+          bottom-slots
           @filter="vulnerabilityFilter"
           @clear="monster.vulnerabilities = []"
-        />
+        >
+          <template #hint>
+            {{ $t('editor.customAllowed') }}
+          </template>
+        </q-select>
         <q-select
           v-model="monster.conditions"
           :options="conditionOptions"
@@ -56,13 +71,18 @@
           multiple
           clearable
           new-value-mode="add-unique"
-          class="col-12 q-pa-sm"
+          class="col-12 q-pa-sm q-mb-sm"
           use-input
           input-debounce="0"
           :label="$t('monster.conditionImmunities')"
+          bottom-slots
           @filter="conditionFilter"
           @clear="monster.conditions = []"
-        />
+        >
+          <template #hint>
+            {{ $t('editor.customAllowed') }}
+          </template>
+        </q-select>
       </q-card-section>
     </q-card>
   </q-expansion-item>

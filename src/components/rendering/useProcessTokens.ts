@@ -101,7 +101,9 @@ export function useProcessTokens() {
     // TODO: this is en-us specific
     input = input.replace(
       /\{NAME\}/gi,
-      `${monster.useArticleInToken ? 'the ' : ''}${monster.name}`
+      `${monster.useArticleInToken ? 'the ' : ''}${
+        monster.nickname !== '' ? monster.nickname : monster.name
+      }`
     )
 
     // continuing with caps for name token

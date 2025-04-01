@@ -5,7 +5,10 @@ export default {
   },
   monster: {
     name: 'Name',
+    nickname: "Nickname (overrides {'{'}NAME{'}'} if set)",
     cr: 'CR',
+    lairCr: 'Lair CR',
+    lairCrNote: 'Alternate CR/XP condition',
     challenge: 'Challenge',
     proficiencyBonus: 'Proficiency Bonus',
     proficiency: {
@@ -507,6 +510,9 @@ export default {
       label: 'Inventory',
       help: 'Notes field for whatever your creature might be carrying. Items listed here do not affect the displayed stats. In the 2024 stat block format, this appears in the top section of the block. In the 2014 format, this will appear at the bottom.',
     },
+    customAllowed: 'Custom values allowed (type and press enter)',
+    ffMulticolPngWarning:
+      'Warning: Multi-column PNG export in Firefox might include improperly spaced text. This issue is under investigation but a fix has not been identified yet. Your PNG has been exported, but if you notice overlapping text, user a Chromium browser instead (Chrome, Edge, etc.).',
   },
   io: {
     error: {
@@ -742,6 +748,7 @@ export default {
     SPELL: 'Spell',
   },
   presets: {
+    cr: ', or {0} XP {1}',
     classSpellcasting:
       "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'} is a {'{'}spellcasting.ordinal{'}'}-level spellcaster. Its spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.notes{'}'} {'{'}NAME{'}'} has the following {'{'}spellcasting.class{'}'} spells prepared:",
     innateSpellcasting2014:

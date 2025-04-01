@@ -451,6 +451,8 @@ export const CR_SELECT = CR.map((cr, idx) => {
   return { label: cr.cr, value: idx }
 })
 
+export const LAIR_CR_SELECT = [{ label: '-', value: -1 }, ...CR_SELECT]
+
 // the cr retrieval functions are a disaster let's fix that
 function getCrByRange(
   value: number,

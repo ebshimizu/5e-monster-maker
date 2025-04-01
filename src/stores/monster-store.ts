@@ -37,12 +37,13 @@ import { v4 as uuidv4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
 
-export const MONSTER_VERSION = 9
+export const MONSTER_VERSION = 10
 
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {
     return {
       name: 'My New Monster',
+      nickname: '',
       saveVersion: MONSTER_VERSION,
       useArticleInToken: false,
       alphaTraits: true,
@@ -53,6 +54,8 @@ export const useMonsterStore = defineStore('monster', {
       AC: 10,
       ACType: '',
       CR: 0,
+      lairCr: -1,
+      lairCrNote: 'in lair',
       useCrDisplayOverride: false,
       crOverride: '',
       proficiency: 2,

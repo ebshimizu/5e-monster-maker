@@ -1,6 +1,40 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.5"
+      subtitle="Minor Update - 3/19/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="152" /> Add alternate XP/CR value to note
+            XP when fighting a monster under certain conditions (in a lair, for
+            instance).
+          </li>
+          <li>
+            <github-issue-link :issue="153" /> Add monster nickname. A Nickname
+            will override the default value of the {NAME} token, allowing you to
+            use a shorter name to reference the monster in the stat block text.
+            The full name can always be accessed with {monster.name}.
+          </li>
+          <li>
+            <github-issue-link :issue="154" /> Add Toll the Dead to the SRD
+            spells.
+          </li>
+          <li>
+            Added notes about input fields that are actually fully customizable
+            even though they look like dropdowns.
+          </li>
+          <li>
+            Added note about PNG export support while using Firefox. Two column
+            stat blocks still occasionally have rendering issues.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.4"
       subtitle="Minor Update - 3/19/2025"
       icon="build"

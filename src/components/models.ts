@@ -252,6 +252,7 @@ export type SwappableField =
 // the big one is the monster definition
 export interface Monster {
   name: string
+  nickname: string
   saveVersion: number
   useArticleInToken: boolean
   alphaTraits: boolean
@@ -262,6 +263,8 @@ export interface Monster {
   AC: number
   ACType: string
   CR: number
+  lairCr: number
+  lairCrNote: string
   useCrDisplayOverride: boolean
   crOverride: string
   proficiency: number
