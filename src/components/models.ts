@@ -363,6 +363,18 @@ export interface Monster {
   autoEstimateDefenseCr: boolean
 }
 
+// Define the monster archive
+export interface MonsterArchive {
+  monsters: Record<string, MonsterEntry>
+}
+
+// Define a monster entry with necessary metadata.
+export interface MonsterEntry {
+  created_at: Date,
+  updated_at: Date,
+  monster: Monster
+}
+
 // uhhhhhh
 // how do i template
 // templates are ... augmented regular things so let's see...
