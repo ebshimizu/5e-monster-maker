@@ -2945,6 +2945,16 @@
     "srd": true,
     "custom": false
   },
+  "Toll the Dead": {
+    "name": "Toll the Dead",
+    "damage": 5,
+    "multitarget": false,
+    "level": 0,
+    "levelDisplay": "Cantrip",
+    "class": ["Cleric", "Warlock", "Wizard"],
+    "srd": true,
+    "custom": false
+  },
   "Tongues": {
     "name": "Tongues",
     "damage": 0,

@@ -149,6 +149,10 @@ export function useTextRenderer() {
   )
   const conditions = computed(() => monster.conditions?.join(', ') ?? '')
 
+  const immunitiesAndConditions = computed(() =>
+    [...(monster.immunities ?? []), ...(monster.conditions ?? [])].join(', ')
+  )
+
   const senses = computed(() => {
     const nonZero = Object.entries(monster.senses)
       .map(([k, v]) => {
@@ -178,9 +182,19 @@ export function useTextRenderer() {
   const cr = computed(() => {
     if (monster.useCrDisplayOverride) return monster.crOverride
 
+    const lair =
+      monster.lairCr > -1
+        ? t('presets.cr', [
+            CR[monster.lairCr].xp.toLocaleString('en-US'),
+            monster.lairCrNote,
+          ])
+        : ''
+
     return `${CR[monster.CR].cr} (${CR[monster.CR].xp.toLocaleString(
       'en-US'
-    )} XP${editorStore.style === '2024' ? `, PB +${monster.proficiency}` : ''})`
+    )} XP${lair}${
+      editorStore.style === '2024' ? `, PB +${monster.proficiency}` : ''
+    })`
   })
 
   const traits = computed(() => {
@@ -359,5 +373,6 @@ export function useTextRenderer() {
     inventory,
     initiative,
     statsAndSavesByKey,
+    immunitiesAndConditions,
   }
 }

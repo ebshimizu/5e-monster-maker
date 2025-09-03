@@ -259,6 +259,15 @@ export function useFileLoader() {
       monster.saveVersion = 9
     }
 
+    if (monster.saveVersion < 10) {
+      // update a couple basic fields
+      monster.lairCr = -1
+      monster.lairCrNote = 'in lair'
+      monster.nickname = ''
+
+      monster.saveVersion = 10
+    }
+
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0

@@ -14,6 +14,7 @@ import { useI18n } from 'vue-i18n'
 import N2W from 'number-to-words'
 import { useClasses } from 'src/data/CLASS'
 import { getCrByNumber, getCrByString } from 'src/data/CR'
+import { useEditorStore } from 'src/stores/editor-store'
 
 export type MonsterContext =
   | MonsterTrait
@@ -47,6 +48,7 @@ export function listJoin(list: string[], sep: string) {
 export function useProcessTokens() {
   const { t } = useI18n()
   const classes = useClasses()
+  const editorStore = useEditorStore()
 
   const processMonsterTokens = (
     input: string,
@@ -99,7 +101,9 @@ export function useProcessTokens() {
     // TODO: this is en-us specific
     input = input.replace(
       /\{NAME\}/gi,
-      `${monster.useArticleInToken ? 'the ' : ''}${monster.name}`
+      `${monster.useArticleInToken ? 'the ' : ''}${
+        monster.nickname !== '' ? monster.nickname : monster.name
+      }`
     )
 
     // continuing with caps for name token
@@ -214,9 +218,13 @@ export function useProcessTokens() {
   ) => {
     // attack is a... complicated bit of rendering
     // attack distance
-    const distance = t('editor.attack.distance', [
-      t(`range.${context.distance}`),
-    ])
+    const distance =
+      editorStore.style === '2024'
+        ? t('editor.attack.distance', [t(`range.${context.distance}`)])
+        : t('editor.attack.distance2014', [
+            t(`range.${context.distance}`),
+            t(`kind.${context.kind}`),
+          ])
 
     input = input.replace(/\{attack.distance\}/gi, `${distance}`)
 
@@ -668,7 +676,9 @@ export function useProcessTokens() {
       )
     } else {
       return processTokens(
-        t('presets.innateSpellcasting'),
+        editorStore.style === '2014'
+          ? t('presets.innateSpellcasting2014')
+          : t('presets.innateSpellcasting'),
         context,
         monster,
         'spell'
@@ -691,7 +701,9 @@ export function useProcessTokens() {
     } else {
       // not doing i18n for this right now since it's just tokens.
       return processTokens(
-        '{multiattack.all}. {multiattack.postscript}',
+        `<b><i>${t(
+          'editor.multiattack.label'
+        )}.</i></b> {multiattack.all}. {multiattack.postscript}`,
         context,
         monster,
         'multiattack'

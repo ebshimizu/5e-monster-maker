@@ -1,6 +1,133 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.6"
+      subtitle="Hotfix - 4/1/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>Hotfix: update schema table to validate v10 monsters.</li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
+      title="v2.3.5"
+      subtitle="Minor Update - 3/31/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="152" /> Add alternate XP/CR value to note
+            XP when fighting a monster under certain conditions (in a lair, for
+            instance).
+          </li>
+          <li>
+            <github-issue-link :issue="153" /> Add monster nickname. A Nickname
+            will override the default value of the {NAME} token, allowing you to
+            use a shorter name to reference the monster in the stat block text.
+            The full name can always be accessed with {monster.name}.
+          </li>
+          <li>
+            <github-issue-link :issue="154" /> Add Toll the Dead to the SRD
+            spells.
+          </li>
+          <li>
+            Added notes about input fields that are actually fully customizable
+            even though they look like dropdowns.
+          </li>
+          <li>
+            Added note about PNG export support while using Firefox. Two column
+            stat blocks still occasionally have rendering issues.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
+      title="v2.3.4"
+      subtitle="Minor Update - 3/19/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="148" /> Bugfix: 2024 immunities now
+            properly puts a comma between the damage and condition sections.
+          </li>
+          <li>
+            Changing the number of columns will automatically resize the stat
+            block view to fit the changed format.
+          </li>
+          <li>
+            Multiattack actions can now have an entirely custom renderer
+            (including the "Multiattack" label). Additionally, the first time
+            the custom renderer is opened, the field will pre-fill with the
+            default text (so that at least something renders in the stat block).
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
+      title="v2.3.3"
+      subtitle="Minor Update - 2/23/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            Bugfix: 2024 formatted statblocks will now show condition immunities
+            in the immunities section when there are also no damage immunities.
+          </li>
+          <li>
+            Updated default damage type and status condition text to be
+            capitalized, to match new stat block formatting. This will apply to
+            both 2014 and 2024 formats. Note that you can still type in any text
+            to those fields, in case you want to adjust how those statuses are
+            displayed.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
+      title="v2.3.2"
+      subtitle="Minor Update - 2/23/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="144" /> Traits section no longer renders
+            header when there are no traits and the 2024 format is being used.
+          </li>
+          <li>
+            <github-issue-link :issue="143" /> 2014 formatting now converts text
+            back to 2014 versions (specifically around attack language and
+            spellcasting).
+          </li>
+          <li>
+            <github-issue-link :issue="145" /> Adjust inventory location in the
+            2024 stat block format (now called Gear and located in the top half
+            of the stat block).
+          </li>
+          <li>
+            2024 format: Remove "Damage" from the immunities, resistances, and
+            vulnerability title. Also consolidated condition immunities and
+            damage immunities, as per 2024 format.
+          </li>
+          <li>
+            2024 format: Removed "Innate" from the rendered innate spellcasting
+            action title.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.1"
       subtitle="Hotfix - 12/21/2024"
       icon="build"
