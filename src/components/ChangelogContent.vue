@@ -1,6 +1,18 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.3.7"
+      subtitle="Maintenance - 10/14/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>Maintenance: Updating upstream packages.</li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.6"
       subtitle="Hotfix - 4/1/2025"
       icon="build"
