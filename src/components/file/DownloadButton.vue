@@ -47,7 +47,7 @@ import copy from 'copy-to-clipboard'
 import { useLatexRenderer } from '../rendering/useLatexRenderer'
 import { useTarrasqueRenderer } from '../rendering/useTarrasqueRenderer'
 import { useImprovedInitRenderer } from '../rendering/useImprovedInitRenderer'
-import domToImage from 'dom-to-image-more'
+import { snapdom } from '@zumer/snapdom'
 
 import jsonurl from 'json-url'
 import { useEditorStore } from 'src/stores/editor-store'
@@ -170,17 +170,19 @@ export default defineComponent({
           })
         }
 
-        domToImage
-          .toPng(node, {
-            height: node.clientHeight,
+        snapdom
+          .toBlob(node, {
             width: node.clientWidth,
+            height: node.clientHeight,
+            embedFonts: true,
             scale: 2,
-            copyDefaultStyles: false,
-          } as any)
-          .then(function (image: string) {
+            type: 'png',
+          })
+          .then((result) => {
+            const blobUrl = URL.createObjectURL(result)
             const link = document.createElement('a')
             link.download = `${monster.name}.png`
-            link.href = image
+            link.href = blobUrl
             link.click()
           })
       }
