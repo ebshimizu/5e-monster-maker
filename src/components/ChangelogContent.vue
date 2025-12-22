@@ -19,9 +19,14 @@
             spells in SRD 5.2.
           </li>
           <li>
-            <github-issue-link :issue="159" /> Bugfix: resolve issue in web
+            <github-issue-link :issue="161" /> Bugfix: resolve issue in web
             renderer where creating a new line in the description would cause
             the first sentence to wrap to a new line.
+          </li>
+          <li>
+            <github-issue-link :issue="159" /> Add option in the rendering
+            settings to condense all immunities to one line while using the 2014
+            stat block format.
           </li>
         </ul>
       </div>

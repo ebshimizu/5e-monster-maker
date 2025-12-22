@@ -120,11 +120,15 @@
       class="skill"
     >
       <span class="name">{{
-        blockStyle.mm2024
+        blockStyle.mm2024 || blockStyle.condenseImmunities
           ? $t('monster.immunities')
           : $t('monster.immunities2014')
       }}</span>
-      {{ blockStyle.mm2024 ? immunitiesAndConditions : immunities }}
+      {{
+        blockStyle.mm2024 || blockStyle.condenseImmunities
+          ? immunitiesAndConditions
+          : immunities
+      }}
     </div>
     <div
       v-show="monster.vulnerabilities && monster.vulnerabilities.length > 0"
@@ -139,7 +143,10 @@
     </div>
     <div
       v-show="
-        blockStyle.mm2014 && monster.conditions && monster.conditions.length > 0
+        blockStyle.mm2014 &&
+        !blockStyle.condenseImmunities &&
+        monster.conditions &&
+        monster.conditions.length > 0
       "
       class="skill"
     >
@@ -406,6 +413,7 @@ export default defineComponent({
     const blockStyle = computed(() => ({
       mm2014: editorStore.style === '2014',
       mm2024: editorStore.style === '2024',
+      condenseImmunities: editorStore.condenseImmunities,
     }))
 
     const cr = computed(() => sanitizeWebString(textRenderer.cr.value))

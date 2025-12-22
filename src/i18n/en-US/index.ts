@@ -346,6 +346,7 @@ export default {
       style: 'Block Format',
       2014: '2014',
       2024: '2024',
+      condenseImmunities: 'List all immunities on one line',
     },
     columns: 'Columns',
     customSpells: 'Manage Custom Spells',
