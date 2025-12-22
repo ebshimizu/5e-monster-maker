@@ -9,6 +9,12 @@
       <div class="text-body2">
         <ul>
           <li>
+            <github-issue-link :issue="98" />,
+            <github-issue-link :issue="160" /> Updated PNG export library in a
+            continuing attempt to resolve issues with overlapping text when
+            exporting PNGs.
+          </li>
+          <li>
             <github-issue-link :issue="158" /> Update spell list to include new
             spells in SRD 5.2.
           </li>
