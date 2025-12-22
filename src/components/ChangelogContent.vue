@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.4.0"
+      subtitle="Minor Update - 12/30/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="158" /> Update spell list to include new
+            spells in SRD 5.2.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.3.7"
       subtitle="Maintenance - 10/14/2025"
       icon="build"
