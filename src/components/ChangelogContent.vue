@@ -12,6 +12,11 @@
             <github-issue-link :issue="158" /> Update spell list to include new
             spells in SRD 5.2.
           </li>
+          <li>
+            <github-issue-link :issue="159" /> Bugfix: resolve issue in web
+            renderer where creating a new line in the description would cause
+            the first sentence to wrap to a new line.
+          </li>
         </ul>
       </div>
     </q-timeline-entry>
