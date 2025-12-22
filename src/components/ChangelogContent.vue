@@ -28,6 +28,10 @@
             settings to condense all immunities to one line while using the 2014
             stat block format.
           </li>
+          <li>
+            <github-issue-link :issue="165" /> Adjust legendary action and
+            reaction section formatting for the 2024 stat block format.
+          </li>
         </ul>
       </div>
     </q-timeline-entry>

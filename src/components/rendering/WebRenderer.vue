@@ -259,6 +259,18 @@
         v-html="action"
       ></div>
     </div>
+    <div
+      v-if="blockStyle.mm2024 && monster.reactions.length > 0"
+      class="reactions"
+    >
+      <h3 class="section">{{ $t('editor.reaction.label') }}</h3>
+      <div
+        v-for="(reaction, idx) in reactions"
+        :key="idx"
+        class="action reaction"
+        v-html="reaction"
+      ></div>
+    </div>
     <div v-if="monster.legendaryActions.count > 0" class="legendary-actions">
       <h3 class="section">{{ $t('editor.legendary.label') }}</h3>
       <div class="preamble" v-html="legendaryPreamble"></div>
@@ -279,7 +291,10 @@
         v-html="action"
       ></div>
     </div>
-    <div v-if="monster.reactions.length > 0" class="reactions">
+    <div
+      v-if="blockStyle.mm2014 && monster.reactions.length > 0"
+      class="reactions"
+    >
       <h3 class="section">{{ $t('editor.reaction.label') }}</h3>
       <div
         v-for="(reaction, idx) in reactions"
@@ -616,6 +631,11 @@ export default defineComponent({
   outline: 2px solid #69665f;
   outline-offset: -6px;
   padding: 10px;
+
+  .legendary.action {
+    text-indent: 0px;
+    margin-left: 0px;
+  }
 
   .monster-name {
     font-family: ScalaSansCaps;
