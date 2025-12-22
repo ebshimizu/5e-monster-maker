@@ -37,7 +37,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { useI18n } from 'vue-i18n'
 import { useSpellsStore } from './spells-store'
 
-export const MONSTER_VERSION = 10
+export const MONSTER_VERSION = 11
 
 export const useMonsterStore = defineStore('monster', {
   state: (): Monster => {

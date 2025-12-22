@@ -34,6 +34,10 @@ export interface MonsterSkill {
   expertise: boolean
   override: boolean
   overrideValue: number
+  /**
+   * Conditional string value to display after the stat modifier. New in 2024.
+   */
+  conditional?: string
 }
 
 export interface MonsterCrAnnotation {

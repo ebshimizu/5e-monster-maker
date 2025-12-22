@@ -268,6 +268,11 @@ export function useFileLoader() {
       monster.saveVersion = 10
     }
 
+    // TODO: save version 11
+    if (monster.saveVersion < 11) {
+      // adjust skills maybe
+    }
+
     // adjust saves in the attack field. null is ok but let's make it 0
     for (const attack of monster.attacks) {
       if (attack.save === null) attack.save = 0
