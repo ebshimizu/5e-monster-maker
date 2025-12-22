@@ -172,8 +172,6 @@ export default defineComponent({
 
         snapdom
           .toBlob(node, {
-            width: node.clientWidth,
-            height: node.clientHeight,
             embedFonts: true,
             scale: 2,
             type: 'png',
