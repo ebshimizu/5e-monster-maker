@@ -7,6 +7,7 @@ export const useEditorStore = defineStore({
       statBlockColumns: 1,
       changelogShown: '',
       style: '2024',
+      condenseImmunities: false,
     }
   },
   persist: {

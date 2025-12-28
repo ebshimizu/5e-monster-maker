@@ -3204,5 +3204,65 @@
     "class": ["Bard", "Cleric", "Paladin"],
     "srd": true,
     "custom": false
+  },
+  "Befuddlement": {
+    "name": "Befuddlement",
+    "damage": 65,
+    "multitarget": true,
+    "level": 8,
+    "levelDisplay": "8th level",
+    "class": ["Bard", "Druid", "Warlock", "Wizard"],
+    "srd": true,
+    "custom": false
+  },
+  "Drawmij's Instant Summons": {
+    "name": "Drawmij's Instant Summons",
+    "damage": 0,
+    "multitarget": false,
+    "level": 6,
+    "levelDisplay": "6th level",
+    "class": ["Wizard"],
+    "srd": true,
+    "custom": false
+  },
+  "Elementalism": {
+    "name": "Elementalism",
+    "damage": 0,
+    "multitarget": false,
+    "level": 0,
+    "levelDisplay": "Cantrip",
+    "class": ["Wizard", "Druid", "Sorcerer"],
+    "srd": true,
+    "custom": false
+  },
+  "Shining Smite": {
+    "name": "Shining Smite",
+    "damage": 7,
+    "multitarget": false,
+    "level": 2,
+    "levelDisplay": "2nd Level",
+    "class": ["Paladin"],
+    "srd": true,
+    "custom": false
+  },
+  "Sorcerous Burst": {
+    "name": "Sorcerous Burst",
+    "damage": 4,
+    "multitarget": false,
+    "level": 0,
+    "levelDisplay": "Cantrip",
+    "class": ["Sorcerer"],
+    "srd": true,
+    "custom": false
+  },
+  "Starry Wisp": {
+    "name": "Starry Wisp",
+    "damage": 4,
+    "multitarget": false,
+    "level": 0,
+    "levelDisplay": "Cantrip",
+    "class": ["Bard", "Druid"],
+    "srd": true,
+    "custom": false
   }
 }

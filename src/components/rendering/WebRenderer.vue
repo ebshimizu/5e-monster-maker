@@ -120,11 +120,15 @@
       class="skill"
     >
       <span class="name">{{
-        blockStyle.mm2024
+        blockStyle.mm2024 || blockStyle.condenseImmunities
           ? $t('monster.immunities')
           : $t('monster.immunities2014')
       }}</span>
-      {{ blockStyle.mm2024 ? immunitiesAndConditions : immunities }}
+      {{
+        blockStyle.mm2024 || blockStyle.condenseImmunities
+          ? immunitiesAndConditions
+          : immunities
+      }}
     </div>
     <div
       v-show="monster.vulnerabilities && monster.vulnerabilities.length > 0"
@@ -139,7 +143,10 @@
     </div>
     <div
       v-show="
-        blockStyle.mm2014 && monster.conditions && monster.conditions.length > 0
+        blockStyle.mm2014 &&
+        !blockStyle.condenseImmunities &&
+        monster.conditions &&
+        monster.conditions.length > 0
       "
       class="skill"
     >
@@ -154,7 +161,8 @@
       {{ monster.languages !== '' ? monster.languages : '&mdash;' }}
     </div>
     <div class="skill">
-      <span class="name">Challenge</span> {{ cr }}
+      <span class="name">{{ blockStyle.mm2014 ? 'Challenge' : 'CR' }}</span>
+      {{ cr }}
       <span v-if="blockStyle.mm2014" style="float: right"
         ><b>Proficiency Bonus</b> +{{ monster.proficiency }}</span
       >
@@ -252,6 +260,18 @@
         v-html="action"
       ></div>
     </div>
+    <div
+      v-if="blockStyle.mm2024 && monster.reactions.length > 0"
+      class="reactions"
+    >
+      <h3 class="section">{{ $t('editor.reaction.label') }}</h3>
+      <div
+        v-for="(reaction, idx) in reactions"
+        :key="idx"
+        class="action reaction"
+        v-html="reaction"
+      ></div>
+    </div>
     <div v-if="monster.legendaryActions.count > 0" class="legendary-actions">
       <h3 class="section">{{ $t('editor.legendary.label') }}</h3>
       <div class="preamble" v-html="legendaryPreamble"></div>
@@ -272,7 +292,10 @@
         v-html="action"
       ></div>
     </div>
-    <div v-if="monster.reactions.length > 0" class="reactions">
+    <div
+      v-if="blockStyle.mm2014 && monster.reactions.length > 0"
+      class="reactions"
+    >
       <h3 class="section">{{ $t('editor.reaction.label') }}</h3>
       <div
         v-for="(reaction, idx) in reactions"
@@ -406,6 +429,7 @@ export default defineComponent({
     const blockStyle = computed(() => ({
       mm2014: editorStore.style === '2014',
       mm2024: editorStore.style === '2024',
+      condenseImmunities: editorStore.condenseImmunities,
     }))
 
     const cr = computed(() => sanitizeWebString(textRenderer.cr.value))
@@ -466,6 +490,13 @@ export default defineComponent({
   font-family: ff-scala-sans-pro;
   font-style: italic;
   font-weight: 700;
+}
+
+.trait div:first-of-type,
+.attack div:first-of-type,
+.action div:first-of-type,
+.multiattack div:first-of-type {
+  display: inline;
 }
 </style>
 
@@ -599,6 +630,11 @@ export default defineComponent({
   outline: 2px solid #69665f;
   outline-offset: -6px;
   padding: 10px;
+
+  .legendary.action {
+    text-indent: 0px;
+    margin-left: 0px;
+  }
 
   .monster-name {
     font-family: ScalaSansCaps;

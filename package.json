@@ -1,6 +1,6 @@
 {
   "name": "5e-monster-maker",
-  "version": "2.3.7",
+  "version": "2.4.0",
   "description": "A monster builder and generator for 5th Edition Dungeons and Dragons. Effortlessly create a monster with tools for automatically computing CR, formatting a statblock, and managing your monster actions and traits.",
   "productName": "Falindrith's D&D Monster Maker",
   "author": "Evan Shimizu <ebshimizu@gmail.com>",
@@ -15,10 +15,10 @@
   "dependencies": {
     "@quasar/extras": "^1.16.12",
     "@vueuse/core": "^8.6.0",
+    "@zumer/snapdom": "^2.0.1",
     "copy-to-clipboard": "^3.3.2",
     "core-js": "^3.6.5",
     "fs-extra": "^10.1.0",
-    "dom-to-image-more": "^3.7.1",
     "json-url": "^3.0.0",
     "jsonschema": "^1.4.1",
     "lodash": "^4.17.21",
@@ -37,7 +37,6 @@
     "@intlify/vite-plugin-vue-i18n": "^3.3.1",
     "@quasar/app-vite": "^1.9.5",
     "@quasar/cli": "^2.4.1",
-    "@types/dom-to-image": "^2.6.4",
     "@types/lodash": "^4.14.182",
     "@types/node": "^12.20.21",
     "@types/number-to-words": "^1.2.1",

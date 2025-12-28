@@ -7,64 +7,74 @@
   >
     <q-card>
       <q-card-section class="row">
-        <q-input
+        <div
           v-for="skill in skills"
           :key="skill.key"
-          :label="$t(`skill.${skill.key}`)"
-          class="col-6 q-pa-sm"
-          type="number"
-          :model-value="bonusForSkill(monster, skill)"
-          :disable="!skill.override"
-          @update:model-value="
+          class="row"
+          style="width: 100%"
+        >
+          <q-input
+            :label="$t(`skill.${skill.key}`)"
+            class="col-8 q-pa-sm"
+            type="number"
+            :model-value="bonusForSkill(monster, skill)"
+            :disable="!skill.override"
+            @update:model-value="
             (value: string | number | null) => (skill.overrideValue = parseInt(`${value}`))
           "
-        >
-          <template #after>
-            <q-btn-group push>
+          >
+            <template #after>
+              <q-btn-group push>
+                <q-btn
+                  push
+                  :color="skill.proficient ? 'positive' : 'dark'"
+                  icon="keyboard_arrow_up"
+                  @click="skill.proficient = !skill.proficient"
+                >
+                  <q-tooltip class="text-body2">{{
+                    $t('editor.proficient')
+                  }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  push
+                  :color="skill.expertise ? 'positive' : 'dark'"
+                  icon="keyboard_double_arrow_up"
+                  @click="skill.expertise = !skill.expertise"
+                >
+                  <q-tooltip class="text-body2">{{
+                    $t('editor.expertise')
+                  }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  push
+                  :color="skill.override ? 'warning' : 'dark'"
+                  icon="handyman"
+                  @click="skill.override = !skill.override"
+                >
+                  <q-tooltip class="text-body2">{{
+                    $t('editor.override')
+                  }}</q-tooltip>
+                </q-btn>
+              </q-btn-group>
               <q-btn
-                push
-                :color="skill.proficient ? 'positive' : 'dark'"
-                icon="keyboard_arrow_up"
-                @click="skill.proficient = !skill.proficient"
+                round
+                color="negative"
+                icon="delete"
+                class="q-mx-sm"
+                @click="() => deleteSkill(skill.key)"
               >
                 <q-tooltip class="text-body2">{{
-                  $t('editor.proficient')
+                  $t('editor.delete')
                 }}</q-tooltip>
               </q-btn>
-              <q-btn
-                push
-                :color="skill.expertise ? 'positive' : 'dark'"
-                icon="keyboard_double_arrow_up"
-                @click="skill.expertise = !skill.expertise"
-              >
-                <q-tooltip class="text-body2">{{
-                  $t('editor.expertise')
-                }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                push
-                :color="skill.override ? 'warning' : 'dark'"
-                icon="handyman"
-                @click="skill.override = !skill.override"
-              >
-                <q-tooltip class="text-body2">{{
-                  $t('editor.override')
-                }}</q-tooltip>
-              </q-btn>
-            </q-btn-group>
-            <q-btn
-              round
-              color="negative"
-              icon="delete"
-              class="q-mx-sm"
-              @click="() => deleteSkill(skill.key)"
-            >
-              <q-tooltip class="text-body2">{{
-                $t('editor.delete')
-              }}</q-tooltip>
-            </q-btn>
-          </template>
-        </q-input>
+            </template>
+          </q-input>
+          <q-input
+            v-model="skill.conditional"
+            class="col-4 q-pa-sm"
+            :label="$t('editor.skills.conditional')"
+          ></q-input>
+        </div>
       </q-card-section>
 
       <q-card-actions align="center">

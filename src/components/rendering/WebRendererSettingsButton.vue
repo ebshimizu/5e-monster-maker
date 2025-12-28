@@ -37,6 +37,12 @@
             ></q-btn-toggle>
           </div>
           <q-toggle
+            v-if="editorStore.style === '2014'"
+            v-model="editorStore.condenseImmunities"
+            class="col-12"
+            :label="$t('editor.settings.condenseImmunities')"
+          />
+          <q-toggle
             v-model="monsterStore.useArticleInToken"
             class="col-12"
             :label="$t('editor.settings.article')"
