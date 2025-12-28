@@ -268,9 +268,11 @@ export function useFileLoader() {
       monster.saveVersion = 10
     }
 
-    // TODO: save version 11
+    // this is a formality because version 11 adds an optional field to skills
+    // which does not need validation.
     if (monster.saveVersion < 11) {
-      // adjust skills maybe
+      // so we just increment the save number
+      monster.saveVersion = 11
     }
 
     // adjust saves in the attack field. null is ok but let's make it 0

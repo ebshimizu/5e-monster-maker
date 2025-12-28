@@ -148,6 +148,7 @@ export default {
     skills: {
       label: 'Skills',
       caption: '',
+      conditional: 'Override Conditions',
     },
     resistances: {
       label: 'Resistances and Immunities',

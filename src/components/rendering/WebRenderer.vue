@@ -495,8 +495,6 @@ export default defineComponent({
 .trait div:first-of-type,
 .attack div:first-of-type,
 .action div:first-of-type,
-.innate-spellcasting div:first-of-type,
-.spellcasting div:first-of-type,
 .multiattack div:first-of-type {
   display: inline;
 }

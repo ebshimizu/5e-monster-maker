@@ -131,11 +131,13 @@ export function useTextRenderer() {
       })
       .map((s) => {
         if (s.override) {
-          return `${t(`skill.${s.key}`)} ${renderBonus(s.overrideValue)}`
+          return `${t(`skill.${s.key}`)} ${renderBonus(s.overrideValue)}${
+            s.conditional ? ` (${s.conditional})` : ''
+          }`
         } else {
           return `${t(`skill.${s.key}`)} ${renderBonus(
             bonusForSkill(monster, s)
-          )}`
+          )}${s.conditional ? ` (${s.conditional})` : ''}`
         }
       })
 
