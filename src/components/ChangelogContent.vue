@@ -2,7 +2,7 @@
   <q-timeline color="secondary">
     <q-timeline-entry
       title="v2.4.0"
-      subtitle="Minor Update - 12/30/2025"
+      subtitle="Minor Update - 12/28/2025"
       icon="build"
       color="primary"
     >
@@ -12,7 +12,14 @@
             <github-issue-link :issue="98" />,
             <github-issue-link :issue="160" /> Updated PNG export library in a
             continuing attempt to resolve issues with overlapping text when
-            exporting PNGs.
+            exporting PNGs. If you continue to experience issues with PNG
+            export, add an issue on the GitHub page with your browser name and
+            version number.
+          </li>
+          <li>
+            <github-issue-link :issue="166" /> Add override field to skills
+            editor to allow conditional bonuses to be listed for individual
+            skills.
           </li>
           <li>
             <github-issue-link :issue="158" /> Update spell list to include new
