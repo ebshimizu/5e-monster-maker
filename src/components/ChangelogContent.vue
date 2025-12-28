@@ -4,8 +4,32 @@
       title="v2.4.0"
       subtitle="Minor Update - 12/28/2025"
       icon="build"
-      color="primary"
+      color="positive"
     >
+      <div class="text-body1 q-mb-sm">
+        This update hopefully resolves some of the long-standing issues with PNG
+        export in the app, and fixes a number of small formatting details for
+        both the 2024 and 2014 stat blocks.
+      </div>
+      <q-separator class="q-my-sm" />
+      <div class="text-overline text-uppercase q-mb-sm">New Features</div>
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="166" /> Add override field to skills
+            editor to allow conditional bonuses to be listed for individual
+            skills.
+          </li>
+          <li>
+            <github-issue-link :issue="159" /> Add option in the rendering
+            settings to condense all immunities to one line while using the 2014
+            stat block format.
+          </li>
+        </ul>
+      </div>
+      <div class="text-overline text-uppercase q-mb-sm">
+        Bugfixes and Formatting Corrections
+      </div>
       <div class="text-body2">
         <ul>
           <li>
@@ -17,23 +41,13 @@
             version number.
           </li>
           <li>
-            <github-issue-link :issue="166" /> Add override field to skills
-            editor to allow conditional bonuses to be listed for individual
-            skills.
-          </li>
-          <li>
-            <github-issue-link :issue="158" /> Update spell list to include new
-            spells in SRD 5.2.
-          </li>
-          <li>
             <github-issue-link :issue="161" /> Bugfix: resolve issue in web
             renderer where creating a new line in the description would cause
             the first sentence to wrap to a new line.
           </li>
           <li>
-            <github-issue-link :issue="159" /> Add option in the rendering
-            settings to condense all immunities to one line while using the 2014
-            stat block format.
+            <github-issue-link :issue="158" /> Update spell list to include new
+            spells in SRD 5.2.
           </li>
           <li>
             <github-issue-link :issue="165" /> Adjust legendary action and
