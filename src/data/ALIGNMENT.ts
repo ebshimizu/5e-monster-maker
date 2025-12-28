@@ -1,12 +1,12 @@
 export const STANDARD_ALIGNMENT = [
-  'unaligned',
-  'lawful good',
-  'neutral good',
-  'chaotic good',
-  'lawful neutral',
-  'neutral',
-  'chaotic neutral',
-  'lawful evil',
-  'neutral evil',
-  'chaotic evil',
-];
+  'Unaligned',
+  'Lawful Good',
+  'Neutral Good',
+  'Chaotic Good',
+  'Lawful Neutral',
+  'Neutral',
+  'Chaotic Neutral',
+  'Lawful Evil',
+  'Neutral Evil',
+  'Chaotic Evil',
+]

@@ -161,7 +161,8 @@
       {{ monster.languages !== '' ? monster.languages : '&mdash;' }}
     </div>
     <div class="skill">
-      <span class="name">Challenge</span> {{ cr }}
+      <span class="name">{{ blockStyle.mm2014 ? 'Challenge' : 'CR' }}</span>
+      {{ cr }}
       <span v-if="blockStyle.mm2014" style="float: right"
         ><b>Proficiency Bonus</b> +{{ monster.proficiency }}</span
       >

@@ -10,7 +10,7 @@ import {
 } from './mathRendering'
 import N2W from 'number-to-words'
 import { useProcessTokens } from './useProcessTokens'
-import _ from 'lodash'
+import _, { capitalize } from 'lodash'
 import { useEditorStore } from 'src/stores/editor-store'
 import { DndStat, Monster } from '../models'
 
@@ -111,8 +111,8 @@ export function useTextRenderer() {
     const speeds = monster.speeds.map((s) => {
       const note = s.note === '' ? '' : ` (${s.note})`
       const type =
-        s.type != null && s.type.toLowerCase() === 'walk' ? '' : ` ${s.type}`
-      return `${s.speed} ft.${type}${note}`
+        s.type != null && s.type.toLowerCase() === 'walk' ? '' : `${s.type} `
+      return `${capitalize(type)}${s.speed} ft.${note}`
     })
 
     return speeds.join(', ')

@@ -32,6 +32,12 @@
             <github-issue-link :issue="165" /> Adjust legendary action and
             reaction section formatting for the 2024 stat block format.
           </li>
+          <li>
+            <github-issue-link :issue="168" />,
+            <github-issue-link :issue="169" />,
+            <github-issue-link :issue="170" />
+            Fix various minor capitalization issues in stat block web renderer.
+          </li>
         </ul>
       </div>
     </q-timeline-entry>
