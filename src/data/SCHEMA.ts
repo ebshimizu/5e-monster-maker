@@ -9,6 +9,7 @@ import v7 from './schema/5emm-v7.json'
 import v8 from './schema/5emm-v8.json'
 import v9 from './schema/5emm-v9.json'
 import v10 from './schema/5emm-v10.json'
+import v11 from './schema/5emm-v11.json'
 
 import spellsV1 from './schema/spells-v1.json'
 import spellsV2 from './schema/spells-v2.json'
@@ -30,4 +31,5 @@ export const SCHEMA: Record<string, Schema> = {
   '8': v8,
   '9': v9,
   '10': v10,
+  '11': v11,
 }
