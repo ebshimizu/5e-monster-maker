@@ -1,6 +1,21 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.4.1"
+      subtitle="Hotfix - 12/29/2025"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>
+            Hotfix: Add missing version 11 schema so newly saved monsters can
+            load.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.4.0"
       subtitle="Minor Update - 12/28/2025"
       icon="build"
