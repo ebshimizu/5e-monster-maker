@@ -1,6 +1,32 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.4.2"
+      subtitle="Minor Update - 3/01/2026"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-overline text-uppercase q-mb-sm">
+        Bugfixes and Formatting Corrections
+      </div>
+      <div class="text-body2">
+        <ul>
+          <li>
+            <github-issue-link :issue="174" /> Correct formatting for HP and AC
+            labels in 2024 stat block style.
+          </li>
+          <li>
+            <github-issue-link :issue="175" /> Attacks in 2024 format will not
+            list the target count unless the target count is larger than one.
+          </li>
+          <li>
+            2024 styled monsters will extend the monster name header across both
+            columns.
+          </li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.4.1"
       subtitle="Hotfix - 12/29/2025"
       icon="build"

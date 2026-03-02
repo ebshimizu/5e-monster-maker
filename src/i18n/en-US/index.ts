@@ -758,7 +758,7 @@ export default {
     innateSpellcasting:
       "<b><i>Spellcasting.</b></i> {'{'}NAME{'}'}'s spellcasting ability is {'{'}spellcasting.stat{'}'} (spell save {'{'}spellcasting.save{'}'}, {'{'}spellcasting.attack{'}'} to hit with spell attacks). {'{'}spellcasting.atWillNotes{'}'} It can cast the following spells, requiring no material components:",
     attack:
-      "<b><i>{'{'}attack.name{'}'}.</b></i> <i>{'{'}attack.distance{'}'}:</i> {'{'}attack.modifier{'}'} to hit, {'{'}attack.range{'}'}, {'{'}attack.targets{'}'}. <i>Hit:</i> {'{'}attack.damage{'}'}{'{'}attack.conditionalDamage{'}'}{'{'}attack.additionalDamage{'}'}. {'{'}attack.description{'}'}",
+      "<b><i>{'{'}attack.name{'}'}.</b></i> <i>{'{'}attack.distance{'}'}:</i> {'{'}attack.modifier{'}'} to hit, {'{'}attack.range{'}'}{'{'}attack.targets{'}'}. <i>Hit:</i> {'{'}attack.damage{'}'}{'{'}attack.conditionalDamage{'}'}{'{'}attack.additionalDamage{'}'}. {'{'}attack.description{'}'}",
     legendaryActions:
       "{'{'}NAME{'}'} can take {'{'}legendaryActions.count{'}'} legendary {'{'}legendaryActions.actions{'}'}, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. {'{'}NAME{'}'} regains spent legendary actions at the start of its turn.",
     legendaryAttack: "{'{'}NAME{'}'} makes a {0} attack.",
