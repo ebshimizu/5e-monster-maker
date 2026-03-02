@@ -256,16 +256,20 @@ export function useProcessTokens() {
     )
 
     // targets
-    input = input.replace(
-      /\{attack.targets\}/gi,
-      t(
-        'editor.attack.targets',
-        {
-          count: N2W.toWords(context.targets),
-        },
-        context.targets
+    if (context.targets > 1 || editorStore.style !== '2024') {
+      input = input.replace(
+        /\{attack.targets\}/gi,
+        `, ${t(
+          'editor.attack.targets',
+          {
+            count: N2W.toWords(context.targets),
+          },
+          context.targets
+        )}`
       )
-    )
+    } else {
+      input = input.replace(/\{attack.targets\}/gi, '')
+    }
 
     // primary damage
     const damageModifier = monster.attackDamageModifier(context.id)

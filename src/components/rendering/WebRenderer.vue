@@ -7,14 +7,18 @@
     <hr />
     <div class="skill ac">
       <div>
-        <span class="name">Armor Class</span> {{ monster.AC
+        <span class="name">{{ blockStyle.mm2024 ? 'AC' : 'Armor Class' }}</span>
+        {{ monster.AC
         }}{{ monster.ACType === '' ? '' : ` (${monster.ACType})` }}
       </div>
       <span v-if="blockStyle.mm2024"
         ><b>{{ $t('skill.INITIATIVE') }}</b> {{ initiative }}</span
       >
     </div>
-    <div class="skill"><span class="name">Hit Points</span> {{ hp }}</div>
+    <div class="skill">
+      <span class="name">{{ blockStyle.mm2024 ? 'HP' : 'Hit Points' }}</span>
+      {{ hp }}
+    </div>
     <div class="skill"><span class="name">Speed</span> {{ speeds }}</div>
     <hr />
     <div v-if="blockStyle.mm2014" class="row no-wrap" style="width: 100%">
@@ -630,6 +634,21 @@ export default defineComponent({
   outline: 2px solid #69665f;
   outline-offset: -6px;
   padding: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+
+  .trait,
+  .attack,
+  .action,
+  .innate-spellcasting,
+  .spellcasting,
+  .legendary-actions .preamble,
+  .mythic-actions .preamble,
+  .lair-actions .preamble,
+  .regional-effects .preamble,
+  .multiattack {
+    line-height: 1.2em;
+  }
 
   .legendary.action {
     text-indent: 0px;
@@ -642,11 +661,13 @@ export default defineComponent({
     font-size: 1.8em;
     border-bottom: 1px solid #58180d;
     line-height: 2rem;
+    column-span: all;
+    margin-bottom: 8px;
   }
 
   .type {
     color: #69665f;
-    margin-top: 2px;
+    margin-top: -4px;
   }
 
   hr {
