@@ -83,7 +83,7 @@ import { Open5eMonster, Open5eMonsterResponse } from './Open5eData'
 
 const { t } = useI18n()
 
-const API_ROOT = 'https://api.open5e.com/monsters/'
+const API_ROOT = 'https://api.open5e.com/v1/monsters/'
 const monsterResults = ref<Open5eMonster[]>([])
 const selectedName = ref('')
 const next = ref<string | null>(null)

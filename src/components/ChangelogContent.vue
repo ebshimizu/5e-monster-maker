@@ -1,6 +1,18 @@
 <template>
   <q-timeline color="secondary">
     <q-timeline-entry
+      title="v2.4.3"
+      subtitle="Maintenance - 5/17/2026"
+      icon="build"
+      color="primary"
+    >
+      <div class="text-body2">
+        <ul>
+          <li>Fix Open5e monster import.</li>
+        </ul>
+      </div>
+    </q-timeline-entry>
+    <q-timeline-entry
       title="v2.4.2"
       subtitle="Minor Update - 3/01/2026"
       icon="build"
