@@ -37,6 +37,7 @@
             @click="loadFileDialog()"
           ></q-btn>
           <download-button />
+          <save-button />
         </div>
       </q-toolbar>
     </q-header>
@@ -93,6 +94,7 @@ import GenericFooter from 'src/components/GenericFooter.vue'
 import { useFileLoader } from 'src/components/file/useFileLoader'
 import { popFileDialog } from 'src/components/file/popFileDialog'
 import DownloadButton from 'src/components/file/DownloadButton.vue'
+import SaveButton from 'src/components/file/SaveButton.vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import jsonurl from 'json-url'
@@ -109,6 +111,7 @@ export default defineComponent({
     CrFooter,
     GenericFooter,
     DownloadButton,
+    SaveButton,
     WebRendererSettingsButton,
     TemplateSearch,
   },
